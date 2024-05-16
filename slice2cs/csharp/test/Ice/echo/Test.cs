@@ -33,23 +33,23 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Test::Echo")]
-    public partial interface Echo : global::Ice.Object
+    public partial interface Echo : Ice.Object
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void startBatch(global::Ice.Current current);
+        void startBatch(Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void flushBatch(global::Ice.Current current);
+        void flushBatch(Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current);
+        void shutdown(Ice.Current current);
     }
 }
 
 namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface EchoPrx : global::Ice.ObjectPrx
+    public interface EchoPrx : Ice.ObjectPrx
     {
         void startBatch(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -69,13 +69,11 @@ namespace Test
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class EchoPrxHelper : global::Ice.ObjectPrxHelperBase, EchoPrx
+    public sealed class EchoPrxHelper : Ice.ObjectPrxHelperBase, EchoPrx
     {
         public EchoPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public void startBatch(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -113,10 +111,6 @@ namespace Test
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task startBatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_startBatchAsync(context, progress, cancel, false);
@@ -124,20 +118,20 @@ namespace Test
 
         private global::System.Threading.Tasks.Task _iceI_startBatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_startBatch(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _startBatch_name = "startBatch";
 
-        private void _iceI_startBatch(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_startBatch(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _startBatch_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
         }
@@ -149,20 +143,20 @@ namespace Test
 
         private global::System.Threading.Tasks.Task _iceI_flushBatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_flushBatch(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _flushBatch_name = "flushBatch";
 
-        private void _iceI_flushBatch(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_flushBatch(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _flushBatch_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
         }
@@ -174,32 +168,28 @@ namespace Test
 
         private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _shutdown_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
         }
 
-        #endregion
+        public static EchoPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static EchoPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static EchoPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static EchoPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -210,9 +200,9 @@ namespace Test
             return null;
         }
 
-        public static EchoPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static EchoPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -222,7 +212,7 @@ namespace Test
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -230,7 +220,7 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static EchoPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static EchoPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -243,11 +233,11 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static EchoPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static EchoPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new EchoPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -263,18 +253,14 @@ namespace Test
 
         public static string ice_staticId() => "::Test::Echo";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, EchoPrx? v)
+        public static void write(Ice.OutputStream ostr, EchoPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static EchoPrx? read(global::Ice.InputStream istr)
+        public static EchoPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new EchoPrxHelper();
@@ -283,8 +269,6 @@ namespace Test
             }
             return null;
         }
-
-        #endregion
     }
 }
 
@@ -292,42 +276,30 @@ namespace Test
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class EchoDisp_ : global::Ice.ObjectImpl, Echo
+    public abstract class EchoDisp_ : Ice.ObjectImpl, Echo
     {
-        #region Slice operations
+        public abstract void startBatch(Ice.Current current);
 
-        public abstract void startBatch(global::Ice.Current current);
+        public abstract void flushBatch(Ice.Current current);
 
-        public abstract void flushBatch(global::Ice.Current current);
+        public abstract void shutdown(Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Test::Echo";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "startBatch" => Echo.iceD_startBatchAsync(this, request),
                 "flushBatch" => Echo.iceD_flushBatchAsync(this, request),
                 "shutdown" => Echo.iceD_shutdownAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 }
 
@@ -335,34 +307,34 @@ namespace Test
 {
     public partial interface Echo
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_startBatchAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_startBatchAsync(
             Echo obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             obj.startBatch(request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_flushBatchAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_flushBatchAsync(
             Echo obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             obj.flushBatch(request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
             Echo obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             obj.shutdown(request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
 }

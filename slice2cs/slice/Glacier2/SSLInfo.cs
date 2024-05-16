@@ -33,8 +33,6 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class SSLInfo : global::System.IEquatable<SSLInfo>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string remoteHost = "";
 
@@ -53,11 +51,7 @@ namespace Glacier2
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string[] certs;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SSLInfo(string[] certs)
@@ -79,7 +73,7 @@ namespace Glacier2
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SSLInfo(global::Ice.InputStream istr)
+        public SSLInfo(Ice.InputStream istr)
         {
             this.remoteHost = istr.readString();
             this.remotePort = istr.readInt();
@@ -90,16 +84,8 @@ namespace Glacier2
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SSLInfo Clone() => (SSLInfo)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -133,22 +119,14 @@ namespace Glacier2
                 Ice.UtilInternal.Collections.NullableSequenceEqual(this.certs, other.certs);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(SSLInfo? lhs, SSLInfo? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(SSLInfo? lhs, SSLInfo? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.remoteHost);
             ostr.writeInt(this.remotePort);
@@ -159,14 +137,12 @@ namespace Glacier2
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, SSLInfo v)
+        public static void ice_write(Ice.OutputStream ostr, SSLInfo v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static SSLInfo ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static SSLInfo ice_read(Ice.InputStream istr) => new(istr);
     }
 }

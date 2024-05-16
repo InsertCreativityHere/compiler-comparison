@@ -33,19 +33,13 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public partial record struct LogUpdate
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public long generation;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public long iteration;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public LogUpdate(long generation, long iteration)
@@ -56,33 +50,27 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public LogUpdate(global::Ice.InputStream istr)
+        public LogUpdate(Ice.InputStream istr)
         {
             this.generation = istr.readLong();
             this.iteration = istr.readLong();
             ice_initialize();
         }
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeLong(this.generation);
             ostr.writeLong(this.iteration);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, LogUpdate v)
+        public static void ice_write(Ice.OutputStream ostr, LogUpdate v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static LogUpdate ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static LogUpdate ice_read(Ice.InputStream istr) => new(istr);
     }
 }

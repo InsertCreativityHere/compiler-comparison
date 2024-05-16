@@ -32,13 +32,13 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MyEnumHelper
     {
-        public static void write(global::Ice.OutputStream ostr, MyEnum v)
+        public static void write(Ice.OutputStream ostr, MyEnum v)
         {
             ostr.writeEnum((int)v, 2);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static MyEnum read(global::Ice.InputStream istr)
+        public static MyEnum read(Ice.InputStream istr)
         {
             MyEnum v;
             v = (MyEnum)istr.readEnum(2);
@@ -58,8 +58,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class Struct1 : global::System.IEquatable<Struct1>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool bo;
 
@@ -90,11 +88,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InitialPrx? p;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Struct1()
@@ -119,7 +113,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Struct1(global::Ice.InputStream istr)
+        public Struct1(Ice.InputStream istr)
         {
             this.bo = istr.readBool();
             this.by = istr.readByte();
@@ -134,16 +128,8 @@ namespace Test
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Struct1 Clone() => (Struct1)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -185,22 +171,14 @@ namespace Test
                 (Ice.ObjectPrxHelperBase?)this.p == (Ice.ObjectPrxHelperBase?)other.p;
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(Struct1? lhs, Struct1? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(Struct1? lhs, Struct1? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeBool(this.bo);
             ostr.writeByte(this.by);
@@ -215,15 +193,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, Struct1 v)
+        public static void ice_write(Ice.OutputStream ostr, Struct1 v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static Struct1 ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static Struct1 ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -238,10 +214,8 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Test::Base")]
-    public partial class @Base : global::Ice.Value
+    public partial class @Base : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @Base? b;
 
@@ -275,11 +249,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, @Base?> d4;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @Base(@Base? b, global::Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base?> d4)
@@ -329,8 +299,6 @@ namespace Test
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::Test::Base";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -344,10 +312,8 @@ namespace Test
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             ostr_.writeValue(b);
@@ -365,7 +331,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.readValue((@Base? v) => { this.b = v; });
@@ -381,8 +347,6 @@ namespace Test
             d4 = StringBaseDHelper.read(istr_);
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -399,16 +363,10 @@ namespace Test
     [Ice.SliceTypeId("::Test::Derived")]
     public partial class Derived : @Base
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.ObjectPrx? p;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Derived(@Base? b, global::Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base?> d4, global::Ice.ObjectPrx? p) : base(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
@@ -430,8 +388,6 @@ namespace Test
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::Test::Derived";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -445,10 +401,8 @@ namespace Test
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeProxy(p);
@@ -457,15 +411,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             p = istr_.readProxy();
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -481,19 +433,13 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Test::Ex")]
-    public partial class Ex : global::Ice.UserException
+    public partial class Ex : Ice.UserException
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Struct1 s;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @Base? b;
-
-        #endregion
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Ex(Struct1 s, @Base? b, global::System.Exception? innerException = null) : base(innerException)
@@ -515,18 +461,14 @@ namespace Test
             this.s = null!;
         }
 
-        #endregion
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id()
         {
             return "::Test::Ex";
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Test::Ex", -1, true);
             Struct1.ice_write(ostr_, s);
@@ -535,7 +477,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             s = new Struct1(istr_);
@@ -548,8 +490,6 @@ namespace Test
         {
             return true;
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -564,26 +504,26 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Test::Initial")]
-    public partial interface Initial : global::Ice.Object
+    public partial interface Initial : Ice.Object
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] getStruct1(global::Ice.Current current);
+        byte[] getStruct1(Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] getBase(global::Ice.Current current);
+        byte[] getBase(Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] getEx(global::Ice.Current current);
+        byte[] getEx(Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current);
+        void shutdown(Ice.Current current);
     }
 }
 
 namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface InitialPrx : global::Ice.ObjectPrx
+    public interface InitialPrx : Ice.ObjectPrx
     {
         byte[] getStruct1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -608,12 +548,12 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ByteSHelper
     {
-        public static void write(global::Ice.OutputStream ostr, byte[] v)
+        public static void write(Ice.OutputStream ostr, byte[] v)
         {
             ostr.writeByteSeq(v);
         }
 
-        public static byte[] read(global::Ice.InputStream istr)
+        public static byte[] read(Ice.InputStream istr)
         {
             byte[] v;
             v = istr.readByteSeq();
@@ -624,12 +564,12 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class IntSHelper
     {
-        public static void write(global::Ice.OutputStream ostr, int[] v)
+        public static void write(Ice.OutputStream ostr, int[] v)
         {
             ostr.writeIntSeq(v);
         }
 
-        public static int[] read(global::Ice.InputStream istr)
+        public static int[] read(Ice.InputStream istr)
         {
             int[] v;
             v = istr.readIntSeq();
@@ -640,7 +580,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MyEnumSHelper
     {
-        public static void write(global::Ice.OutputStream ostr, MyEnum[] v)
+        public static void write(Ice.OutputStream ostr, MyEnum[] v)
         {
             if (v is null)
             {
@@ -656,7 +596,7 @@ namespace Test
             }
         }
 
-        public static MyEnum[] read(global::Ice.InputStream istr)
+        public static MyEnum[] read(Ice.InputStream istr)
         {
             MyEnum[] v;
             {
@@ -674,7 +614,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class BaseSHelper
     {
-        public static void write(global::Ice.OutputStream ostr, @Base?[] v)
+        public static void write(Ice.OutputStream ostr, @Base?[] v)
         {
             if (v is null)
             {
@@ -690,7 +630,7 @@ namespace Test
             }
         }
 
-        public static @Base?[] read(global::Ice.InputStream istr)
+        public static @Base?[] read(Ice.InputStream istr)
         {
             @Base?[] v;
             {
@@ -698,7 +638,7 @@ namespace Test
                 v = new @Base?[szx];
                 for (int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<@Base>(v, ix));
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<@Base>(v, ix));
                 }
             }
             return v;
@@ -708,7 +648,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ByteBoolDHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<byte, bool> v)
         {
             if(v == null)
@@ -726,7 +666,7 @@ namespace Test
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<byte, bool> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<byte, bool> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<byte, bool> r = new global::System.Collections.Generic.Dictionary<byte, bool>();
@@ -745,7 +685,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ShortIntDHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<short, int> v)
         {
             if(v == null)
@@ -763,7 +703,7 @@ namespace Test
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<short, int> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<short, int> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<short, int> r = new global::System.Collections.Generic.Dictionary<short, int>();
@@ -782,7 +722,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class StringMyEnumDHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<string, MyEnum> v)
         {
             if(v == null)
@@ -800,7 +740,7 @@ namespace Test
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, MyEnum> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, MyEnum> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<string, MyEnum> r = new global::System.Collections.Generic.Dictionary<string, MyEnum>();
@@ -819,7 +759,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class StringBaseDHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<string, @Base?> v)
         {
             if(v == null)
@@ -837,7 +777,7 @@ namespace Test
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, @Base?> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, @Base?> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<string, @Base?> r = new global::System.Collections.Generic.Dictionary<string, @Base?>();
@@ -853,13 +793,11 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class InitialPrxHelper : global::Ice.ObjectPrxHelperBase, InitialPrx
+    public sealed class InitialPrxHelper : Ice.ObjectPrxHelperBase, InitialPrx
     {
         public InitialPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public byte[] getStruct1(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -909,10 +847,6 @@ namespace Test
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<byte[]> getStruct1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getStruct1Async(context, progress, cancel, false);
@@ -921,23 +855,23 @@ namespace Test
         private global::System.Threading.Tasks.Task<byte[]> _iceI_getStruct1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getStruct1_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
             _iceI_getStruct1(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getStruct1_name = "getStruct1";
 
-        private void _iceI_getStruct1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getStruct1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<byte[]>(completed);
             outAsync.invoke(
                 _getStruct1_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     byte[] ret;
                     ret = ByteSHelper.read(istr);
@@ -953,23 +887,23 @@ namespace Test
         private global::System.Threading.Tasks.Task<byte[]> _iceI_getBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getBase_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
             _iceI_getBase(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getBase_name = "getBase";
 
-        private void _iceI_getBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<byte[]>(completed);
             outAsync.invoke(
                 _getBase_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     byte[] ret;
                     ret = ByteSHelper.read(istr);
@@ -985,23 +919,23 @@ namespace Test
         private global::System.Threading.Tasks.Task<byte[]> _iceI_getExAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getEx_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
             _iceI_getEx(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getEx_name = "getEx";
 
-        private void _iceI_getEx(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getEx(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<byte[]>(completed);
             outAsync.invoke(
                 _getEx_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     byte[] ret;
                     ret = ByteSHelper.read(istr);
@@ -1016,32 +950,28 @@ namespace Test
 
         private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _shutdown_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
         }
 
-        #endregion
+        public static InitialPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static InitialPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static InitialPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static InitialPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1052,9 +982,9 @@ namespace Test
             return null;
         }
 
-        public static InitialPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static InitialPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1064,7 +994,7 @@ namespace Test
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1072,7 +1002,7 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static InitialPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static InitialPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -1085,11 +1015,11 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static InitialPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static InitialPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new InitialPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -1105,18 +1035,14 @@ namespace Test
 
         public static string ice_staticId() => "::Test::Initial";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, InitialPrx? v)
+        public static void write(Ice.OutputStream ostr, InitialPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static InitialPrx? read(global::Ice.InputStream istr)
+        public static InitialPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new InitialPrxHelper();
@@ -1125,8 +1051,6 @@ namespace Test
             }
             return null;
         }
-
-        #endregion
     }
 }
 
@@ -1134,45 +1058,33 @@ namespace Test
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class InitialDisp_ : global::Ice.ObjectImpl, Initial
+    public abstract class InitialDisp_ : Ice.ObjectImpl, Initial
     {
-        #region Slice operations
+        public abstract byte[] getStruct1(Ice.Current current);
 
-        public abstract byte[] getStruct1(global::Ice.Current current);
+        public abstract byte[] getBase(Ice.Current current);
 
-        public abstract byte[] getBase(global::Ice.Current current);
+        public abstract byte[] getEx(Ice.Current current);
 
-        public abstract byte[] getEx(global::Ice.Current current);
+        public abstract void shutdown(Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Test::Initial";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "getStruct1" => Initial.iceD_getStruct1Async(this, request),
                 "getBase" => Initial.iceD_getBaseAsync(this, request),
                 "getEx" => Initial.iceD_getExAsync(this, request),
                 "shutdown" => Initial.iceD_shutdownAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 }
 
@@ -1180,56 +1092,56 @@ namespace Test
 {
     public partial interface Initial
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getStruct1Async(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getStruct1Async(
             Initial obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getStruct1(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ByteSHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getBaseAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getBaseAsync(
             Initial obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getBase(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ByteSHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getExAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getExAsync(
             Initial obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getEx(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ByteSHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
             Initial obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             obj.shutdown(request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
 }

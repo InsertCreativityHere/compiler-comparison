@@ -35,10 +35,10 @@ namespace Ice.udp
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::PingReply")]
-        public partial interface PingReply : global::Ice.Object
+        public partial interface PingReply : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void reply(global::Ice.Current current);
+            void reply(Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -53,19 +53,19 @@ namespace Ice.udp
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::TestIntf")]
-        public partial interface TestIntf : global::Ice.Object
+        public partial interface TestIntf : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void ping(PingReplyPrx? reply, global::Ice.Current current);
+            void ping(PingReplyPrx? reply, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void sendByteSeq(byte[] seq, PingReplyPrx? reply, global::Ice.Current current);
+            void sendByteSeq(byte[] seq, PingReplyPrx? reply, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void pingBiDir(global::Ice.Identity id, global::Ice.Current current);
+            void pingBiDir(global::Ice.Identity id, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current);
+            void shutdown(Ice.Current current);
         }
     }
 }
@@ -75,7 +75,7 @@ namespace Ice.udp
     namespace Test
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface PingReplyPrx : global::Ice.ObjectPrx
+        public interface PingReplyPrx : Ice.ObjectPrx
         {
             void reply(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -83,7 +83,7 @@ namespace Ice.udp
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface TestIntfPrx : global::Ice.ObjectPrx
+        public interface TestIntfPrx : Ice.ObjectPrx
         {
             void ping(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -110,13 +110,11 @@ namespace Ice.udp
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class PingReplyPrxHelper : global::Ice.ObjectPrxHelperBase, PingReplyPrx
+        public sealed class PingReplyPrxHelper : Ice.ObjectPrxHelperBase, PingReplyPrx
         {
             public PingReplyPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public void reply(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -130,10 +128,6 @@ namespace Ice.udp
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task replyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_replyAsync(context, progress, cancel, false);
@@ -141,32 +135,28 @@ namespace Ice.udp
 
             private global::System.Threading.Tasks.Task _iceI_replyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_reply(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _reply_name = "reply";
 
-            private void _iceI_reply(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_reply(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _reply_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
             }
 
-            #endregion
+            public static PingReplyPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static PingReplyPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static PingReplyPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static PingReplyPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -177,9 +167,9 @@ namespace Ice.udp
                 return null;
             }
 
-            public static PingReplyPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static PingReplyPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -189,7 +179,7 @@ namespace Ice.udp
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -197,7 +187,7 @@ namespace Ice.udp
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static PingReplyPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static PingReplyPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -210,11 +200,11 @@ namespace Ice.udp
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static PingReplyPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static PingReplyPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new PingReplyPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -230,18 +220,14 @@ namespace Ice.udp
 
             public static string ice_staticId() => "::Test::PingReply";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, PingReplyPrx? v)
+            public static void write(Ice.OutputStream ostr, PingReplyPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static PingReplyPrx? read(global::Ice.InputStream istr)
+            public static PingReplyPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new PingReplyPrxHelper();
@@ -250,19 +236,17 @@ namespace Ice.udp
                 }
                 return null;
             }
-
-            #endregion
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ByteSeqHelper
         {
-            public static void write(global::Ice.OutputStream ostr, byte[] v)
+            public static void write(Ice.OutputStream ostr, byte[] v)
             {
                 ostr.writeByteSeq(v);
             }
 
-            public static byte[] read(global::Ice.InputStream istr)
+            public static byte[] read(Ice.InputStream istr)
             {
                 byte[] v;
                 v = istr.readByteSeq();
@@ -272,13 +256,11 @@ namespace Ice.udp
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class TestIntfPrxHelper : global::Ice.ObjectPrxHelperBase, TestIntfPrx
+        public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
         {
             public TestIntfPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public void ping(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -328,10 +310,6 @@ namespace Ice.udp
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task pingAsync(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_pingAsync(reply, context, progress, cancel, false);
@@ -339,23 +317,23 @@ namespace Ice.udp
 
             private global::System.Threading.Tasks.Task _iceI_pingAsync(PingReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_ping(iceP_reply, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _ping_name = "ping";
 
-            private void _iceI_ping(PingReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_ping(PingReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _ping_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         PingReplyPrxHelper.write(ostr, iceP_reply);
                     });
@@ -368,23 +346,23 @@ namespace Ice.udp
 
             private global::System.Threading.Tasks.Task _iceI_sendByteSeqAsync(byte[] iceP_seq, PingReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_sendByteSeq(iceP_seq, iceP_reply, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _sendByteSeq_name = "sendByteSeq";
 
-            private void _iceI_sendByteSeq(byte[] iceP_seq, PingReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_sendByteSeq(byte[] iceP_seq, PingReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _sendByteSeq_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ByteSeqHelper.write(ostr, iceP_seq);
                         PingReplyPrxHelper.write(ostr, iceP_reply);
@@ -398,23 +376,23 @@ namespace Ice.udp
 
             private global::System.Threading.Tasks.Task _iceI_pingBiDirAsync(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_pingBiDir(iceP_id, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _pingBiDir_name = "pingBiDir";
 
-            private void _iceI_pingBiDir(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_pingBiDir(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _pingBiDir_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         global::Ice.Identity.ice_write(ostr, iceP_id);
                     });
@@ -427,32 +405,28 @@ namespace Ice.udp
 
             private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _shutdown_name = "shutdown";
 
-            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _shutdown_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
             }
 
-            #endregion
+            public static TestIntfPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static TestIntfPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static TestIntfPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -463,9 +437,9 @@ namespace Ice.udp
                 return null;
             }
 
-            public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static TestIntfPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -475,7 +449,7 @@ namespace Ice.udp
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -483,7 +457,7 @@ namespace Ice.udp
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static TestIntfPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -496,11 +470,11 @@ namespace Ice.udp
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static TestIntfPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new TestIntfPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -516,18 +490,14 @@ namespace Ice.udp
 
             public static string ice_staticId() => "::Test::TestIntf";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, TestIntfPrx? v)
+            public static void write(Ice.OutputStream ostr, TestIntfPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static TestIntfPrx? read(global::Ice.InputStream istr)
+            public static TestIntfPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new TestIntfPrxHelper();
@@ -536,8 +506,6 @@ namespace Ice.udp
                 }
                 return null;
             }
-
-            #endregion
         }
     }
 }
@@ -548,79 +516,55 @@ namespace Ice.udp
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class PingReplyDisp_ : global::Ice.ObjectImpl, PingReply
+        public abstract class PingReplyDisp_ : Ice.ObjectImpl, PingReply
         {
-            #region Slice operations
+            public abstract void reply(Ice.Current current);
 
-            public abstract void reply(global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::PingReply";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "reply" => PingReply.iceD_replyAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class TestIntfDisp_ : global::Ice.ObjectImpl, TestIntf
+        public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
         {
-            #region Slice operations
+            public abstract void ping(PingReplyPrx? reply, Ice.Current current);
 
-            public abstract void ping(PingReplyPrx? reply, global::Ice.Current current);
+            public abstract void sendByteSeq(byte[] seq, PingReplyPrx? reply, Ice.Current current);
 
-            public abstract void sendByteSeq(byte[] seq, PingReplyPrx? reply, global::Ice.Current current);
+            public abstract void pingBiDir(global::Ice.Identity id, Ice.Current current);
 
-            public abstract void pingBiDir(global::Ice.Identity id, global::Ice.Current current);
+            public abstract void shutdown(Ice.Current current);
 
-            public abstract void shutdown(global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::TestIntf";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "ping" => TestIntf.iceD_pingAsync(this, request),
                     "sendByteSeq" => TestIntf.iceD_sendByteSeqAsync(this, request),
                     "pingBiDir" => TestIntf.iceD_pingBiDirAsync(this, request),
                     "shutdown" => TestIntf.iceD_shutdownAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
     }
 }
@@ -631,38 +575,38 @@ namespace Ice.udp
     {
         public partial interface PingReply
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_replyAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_replyAsync(
                 PingReply obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.reply(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
         }
 
         public partial interface TestIntf
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_pingAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pingAsync(
                 TestIntf obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 PingReplyPrx? iceP_reply;
                 iceP_reply = PingReplyPrxHelper.read(istr);
                 istr.endEncapsulation();
                 obj.ping(iceP_reply, request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_sendByteSeqAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_sendByteSeqAsync(
                 TestIntf obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 byte[] iceP_seq;
@@ -671,31 +615,31 @@ namespace Ice.udp
                 iceP_reply = PingReplyPrxHelper.read(istr);
                 istr.endEncapsulation();
                 obj.sendByteSeq(iceP_seq, iceP_reply, request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_pingBiDirAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pingBiDirAsync(
                 TestIntf obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::Ice.Identity iceP_id;
                 iceP_id = new global::Ice.Identity(istr);
                 istr.endEncapsulation();
                 obj.pingBiDir(iceP_id, request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
                 TestIntf obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.shutdown(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
         }
     }

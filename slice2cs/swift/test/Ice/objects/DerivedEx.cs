@@ -36,8 +36,6 @@ namespace Test
     [Ice.SliceTypeId("::Test::DerivedEx")]
     public partial class DerivedEx : BaseEx
     {
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DerivedEx(string reason, global::System.Exception? innerException = null) : base(reason, innerException)
         {
@@ -53,18 +51,14 @@ namespace Test
         {
         }
 
-        #endregion
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id()
         {
             return "::Test::DerivedEx";
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Test::DerivedEx", -1, false);
             ostr_.endSlice();
@@ -72,13 +66,11 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 }

@@ -28,7 +28,7 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ContextHelper
     {
-        public static void write(OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<string, string> v)
         {
             if(v == null)
@@ -46,7 +46,7 @@ namespace Ice
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, string> read(InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, string> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();

@@ -35,19 +35,13 @@ namespace IceMX
     [Ice.SliceTypeId("::IceMX::TopicMetrics")]
     public partial class TopicMetrics : Metrics
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public long published = 0L;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public long forwarded = 0L;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TopicMetrics(string id, long total, int current, long totalLifetime, int failures, long published, long forwarded) : base(id, total, current, totalLifetime, failures)
@@ -63,8 +57,6 @@ namespace IceMX
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceMX::TopicMetrics";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -78,10 +70,8 @@ namespace IceMX
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeLong(published);
@@ -91,7 +81,7 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             published = istr_.readLong();
@@ -99,8 +89,6 @@ namespace IceMX
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -117,8 +105,6 @@ namespace IceMX
     [Ice.SliceTypeId("::IceMX::SubscriberMetrics")]
     public partial class SubscriberMetrics : Metrics
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int queued = 0;
 
@@ -128,11 +114,7 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public long delivered = 0L;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberMetrics(string id, long total, int current, long totalLifetime, int failures, int queued, int outstanding, long delivered) : base(id, total, current, totalLifetime, failures)
@@ -149,8 +131,6 @@ namespace IceMX
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceMX::SubscriberMetrics";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -164,10 +144,8 @@ namespace IceMX
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeInt(queued);
@@ -178,7 +156,7 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             queued = istr_.readInt();
@@ -187,7 +165,5 @@ namespace IceMX
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 }

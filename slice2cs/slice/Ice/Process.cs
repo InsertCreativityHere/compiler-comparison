@@ -33,7 +33,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::Process")]
-    public partial interface Process : Object
+    public partial interface Process : Ice.Object
     {
         /// <summary>
         /// Initiate a graceful shut-down.
@@ -41,7 +41,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(Current current);
+        void shutdown(Ice.Current current);
 
         /// <summary>
         /// Write a message on the process' stdout or stderr.
@@ -52,7 +52,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void writeMessage(string message, int fd, Current current);
+        void writeMessage(string message, int fd, Ice.Current current);
     }
 }
 
@@ -67,7 +67,7 @@ namespace Ice
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface ProcessPrx : ObjectPrx
+    public interface ProcessPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Initiate a graceful shut-down.
@@ -113,13 +113,11 @@ namespace Ice
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class ProcessPrxHelper : ObjectPrxHelperBase, ProcessPrx
+    public sealed class ProcessPrxHelper : Ice.ObjectPrxHelperBase, ProcessPrx
     {
         public ProcessPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -145,10 +143,6 @@ namespace Ice
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
@@ -156,20 +150,20 @@ namespace Ice
 
         private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _shutdown_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
         }
@@ -181,37 +175,33 @@ namespace Ice
 
         private global::System.Threading.Tasks.Task _iceI_writeMessageAsync(string iceP_message, int iceP_fd, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_writeMessage(iceP_message, iceP_fd, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _writeMessage_name = "writeMessage";
 
-        private void _iceI_writeMessage(string iceP_message, int iceP_fd, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_writeMessage(string iceP_message, int iceP_fd, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _writeMessage_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_message);
                     ostr.writeInt(iceP_fd);
                 });
         }
 
-        #endregion
+        public static ProcessPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static ProcessPrx createProxy(Communicator communicator, string proxyString) =>
-            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static ProcessPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static ProcessPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -222,9 +212,9 @@ namespace Ice
             return null;
         }
 
-        public static ProcessPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static ProcessPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -234,7 +224,7 @@ namespace Ice
                     return prx;
                 }
             }
-            catch (FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -242,7 +232,7 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static ProcessPrx? uncheckedCast(ObjectPrx? b)
+        public static ProcessPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -255,11 +245,11 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static ProcessPrx? uncheckedCast(ObjectPrx? b, string f)
+        public static ProcessPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new ProcessPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -275,18 +265,14 @@ namespace Ice
 
         public static string ice_staticId() => "::Ice::Process";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(OutputStream ostr, ProcessPrx? v)
+        public static void write(Ice.OutputStream ostr, ProcessPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static ProcessPrx? read(InputStream istr)
+        public static ProcessPrx? read(Ice.InputStream istr)
         {
-            ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new ProcessPrxHelper();
@@ -295,8 +281,6 @@ namespace Ice
             }
             return null;
         }
-
-        #endregion
     }
 }
 
@@ -304,39 +288,27 @@ namespace Ice
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class ProcessDisp_ : ObjectImpl, Process
+    public abstract class ProcessDisp_ : Ice.ObjectImpl, Process
     {
-        #region Slice operations
+        public abstract void shutdown(Ice.Current current);
 
-        public abstract void shutdown(Current current);
+        public abstract void writeMessage(string message, int fd, Ice.Current current);
 
-        public abstract void writeMessage(string message, int fd, Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Ice::Process";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "shutdown" => Process.iceD_shutdownAsync(this, request),
                 "writeMessage" => Process.iceD_writeMessageAsync(this, request),
-                "ice_id" => Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
-                _ => throw new OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 }
 
@@ -344,21 +316,21 @@ namespace Ice
 {
     public partial interface Process
     {
-        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_shutdownAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
             Process obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             obj.shutdown(request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_writeMessageAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_writeMessageAsync(
             Process obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_message;
@@ -367,7 +339,7 @@ namespace Ice
             iceP_fd = istr.readInt();
             istr.endEncapsulation();
             obj.writeMessage(iceP_message, iceP_fd, request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
 }

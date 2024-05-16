@@ -34,10 +34,8 @@ namespace Core
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Core::ArgumentException")]
-    public partial class ArgumentException : global::Ice.UserException
+    public partial class ArgumentException : Ice.UserException
     {
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ArgumentException(global::System.Exception? innerException) : base(innerException)
         {
@@ -48,30 +46,24 @@ namespace Core
         {
         }
 
-        #endregion
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id()
         {
             return "::Core::ArgumentException";
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Core::ArgumentException", -1, true);
             ostr_.endSlice();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
         }
-
-        #endregion
     }
 }

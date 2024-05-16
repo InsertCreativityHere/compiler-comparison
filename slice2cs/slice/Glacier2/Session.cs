@@ -38,16 +38,10 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::CannotCreateSessionException")]
-    public partial class CannotCreateSessionException : global::Ice.UserException
+    public partial class CannotCreateSessionException : Ice.UserException
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string reason = "";
-
-        #endregion
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CannotCreateSessionException(string reason, global::System.Exception? innerException = null) : base(innerException)
@@ -65,18 +59,14 @@ namespace Glacier2
         {
         }
 
-        #endregion
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id()
         {
             return "::Glacier2::CannotCreateSessionException";
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Glacier2::CannotCreateSessionException", -1, true);
             ostr_.writeString(reason);
@@ -84,14 +74,12 @@ namespace Glacier2
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             reason = istr_.readString();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -106,7 +94,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::Session")]
-    public partial interface Session : global::Ice.Object
+    public partial interface Session : Ice.Object
     {
         /// <summary>
         /// Destroy the session.
@@ -115,7 +103,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroy(global::Ice.Current current);
+        void destroy(Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -130,7 +118,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::StringSet")]
-    public partial interface StringSet : global::Ice.Object
+    public partial interface StringSet : Ice.Object
     {
         /// <summary>
         /// Add a sequence of strings to this set of constraints.
@@ -141,7 +129,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void add(string[] additions, global::Ice.Current current);
+        void add(string[] additions, Ice.Current current);
 
         /// <summary>
         /// Remove a sequence of strings from this set of constraints.
@@ -151,7 +139,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void remove(string[] deletions, global::Ice.Current current);
+        void remove(string[] deletions, Ice.Current current);
 
         /// <summary>
         /// Returns a sequence of strings describing the constraints in this set.
@@ -160,7 +148,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] get(global::Ice.Current current);
+        string[] get(Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -175,7 +163,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::IdentitySet")]
-    public partial interface IdentitySet : global::Ice.Object
+    public partial interface IdentitySet : Ice.Object
     {
         /// <summary>
         /// Add a sequence of Ice identities to this set of constraints.
@@ -186,7 +174,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void add(global::Ice.Identity[] additions, global::Ice.Current current);
+        void add(global::Ice.Identity[] additions, Ice.Current current);
 
         /// <summary>
         /// Remove a sequence of identities from this set of constraints.
@@ -197,7 +185,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void remove(global::Ice.Identity[] deletions, global::Ice.Current current);
+        void remove(global::Ice.Identity[] deletions, Ice.Current current);
 
         /// <summary>
         /// Returns a sequence of identities describing the constraints in this set.
@@ -206,7 +194,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Identity[] get(global::Ice.Current current);
+        global::Ice.Identity[] get(Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -221,7 +209,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::SessionControl")]
-    public partial interface SessionControl : global::Ice.Object
+    public partial interface SessionControl : Ice.Object
     {
         /// <summary>
         /// Access the object that manages the allowable categories for object identities for this session.
@@ -230,7 +218,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        StringSetPrx? categories(global::Ice.Current current);
+        StringSetPrx? categories(Ice.Current current);
 
         /// <summary>
         /// Access the object that manages the allowable adapter identities for objects for this session.
@@ -239,7 +227,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        StringSetPrx? adapterIds(global::Ice.Current current);
+        StringSetPrx? adapterIds(Ice.Current current);
 
         /// <summary>
         /// Access the object that manages the allowable object identities for this session.
@@ -248,7 +236,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        IdentitySetPrx? identities(global::Ice.Current current);
+        IdentitySetPrx? identities(Ice.Current current);
 
         /// <summary>
         /// Get the session timeout.
@@ -257,7 +245,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getSessionTimeout(global::Ice.Current current);
+        int getSessionTimeout(Ice.Current current);
 
         /// <summary>
         /// Destroy the associated session.
@@ -265,7 +253,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroy(global::Ice.Current current);
+        void destroy(Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -280,7 +268,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::SessionManager")]
-    public partial interface SessionManager : global::Ice.Object
+    public partial interface SessionManager : Ice.Object
     {
         /// <summary>
         /// Create a new session.
@@ -298,7 +286,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SessionPrx? create(string userId, SessionControlPrx? control, global::Ice.Current current);
+        SessionPrx? create(string userId, SessionControlPrx? control, Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -313,7 +301,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::SSLSessionManager")]
-    public partial interface SSLSessionManager : global::Ice.Object
+    public partial interface SSLSessionManager : Ice.Object
     {
         /// <summary>
         /// Create a new session.
@@ -328,7 +316,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SessionPrx? create(SSLInfo info, SessionControlPrx? control, global::Ice.Current current);
+        SessionPrx? create(SSLInfo info, SessionControlPrx? control, Ice.Current current);
     }
 }
 
@@ -339,7 +327,7 @@ namespace Glacier2
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface SessionPrx : global::Ice.ObjectPrx
+    public interface SessionPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Destroy the session.
@@ -366,7 +354,7 @@ namespace Glacier2
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface StringSetPrx : global::Ice.ObjectPrx
+    public interface StringSetPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Add a sequence of strings to this set of constraints.
@@ -432,7 +420,7 @@ namespace Glacier2
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface IdentitySetPrx : global::Ice.ObjectPrx
+    public interface IdentitySetPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Add a sequence of Ice identities to this set of constraints.
@@ -499,7 +487,7 @@ namespace Glacier2
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface SessionControlPrx : global::Ice.ObjectPrx
+    public interface SessionControlPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Access the object that manages the allowable categories for object identities for this session.
@@ -595,7 +583,7 @@ namespace Glacier2
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface SessionManagerPrx : global::Ice.ObjectPrx
+    public interface SessionManagerPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Create a new session.
@@ -638,7 +626,7 @@ namespace Glacier2
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface SSLSessionManagerPrx : global::Ice.ObjectPrx
+    public interface SSLSessionManagerPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Create a new session.
@@ -673,13 +661,11 @@ namespace Glacier2
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class SessionPrxHelper : global::Ice.ObjectPrxHelperBase, SessionPrx
+    public sealed class SessionPrxHelper : Ice.ObjectPrxHelperBase, SessionPrx
     {
         public SessionPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -693,10 +679,6 @@ namespace Glacier2
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_destroyAsync(context, progress, cancel, false);
@@ -704,32 +686,28 @@ namespace Glacier2
 
         private global::System.Threading.Tasks.Task _iceI_destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_destroy(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _destroy_name = "destroy";
 
-        private void _iceI_destroy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_destroy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _destroy_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
         }
 
-        #endregion
+        public static SessionPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static SessionPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static SessionPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static SessionPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -740,9 +718,9 @@ namespace Glacier2
             return null;
         }
 
-        public static SessionPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static SessionPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -752,7 +730,7 @@ namespace Glacier2
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -760,7 +738,7 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SessionPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static SessionPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -773,11 +751,11 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SessionPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static SessionPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new SessionPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -793,18 +771,14 @@ namespace Glacier2
 
         public static string ice_staticId() => "::Glacier2::Session";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, SessionPrx? v)
+        public static void write(Ice.OutputStream ostr, SessionPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static SessionPrx? read(global::Ice.InputStream istr)
+        public static SessionPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new SessionPrxHelper();
@@ -813,19 +787,15 @@ namespace Glacier2
             }
             return null;
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class StringSetPrxHelper : global::Ice.ObjectPrxHelperBase, StringSetPrx
+    public sealed class StringSetPrxHelper : Ice.ObjectPrxHelperBase, StringSetPrx
     {
         public StringSetPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public void add(string[] additions, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -863,10 +833,6 @@ namespace Glacier2
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task addAsync(string[] additions, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_addAsync(additions, context, progress, cancel, false);
@@ -874,23 +840,23 @@ namespace Glacier2
 
         private global::System.Threading.Tasks.Task _iceI_addAsync(string[] iceP_additions, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_add(iceP_additions, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _add_name = "add";
 
-        private void _iceI_add(string[] iceP_additions, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_add(string[] iceP_additions, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _add_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     global::Ice.StringSeqHelper.write(ostr, iceP_additions);
                 });
@@ -903,23 +869,23 @@ namespace Glacier2
 
         private global::System.Threading.Tasks.Task _iceI_removeAsync(string[] iceP_deletions, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_remove(iceP_deletions, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _remove_name = "remove";
 
-        private void _iceI_remove(string[] iceP_deletions, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_remove(string[] iceP_deletions, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _remove_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     global::Ice.StringSeqHelper.write(ostr, iceP_deletions);
                 });
@@ -933,23 +899,23 @@ namespace Glacier2
         private global::System.Threading.Tasks.Task<string[]> _iceI_getAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_get_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
             _iceI_get(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _get_name = "get";
 
-        private void _iceI_get(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_get(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<string[]>(completed);
             outAsync.invoke(
                 _get_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     string[] ret;
                     ret = global::Ice.StringSeqHelper.read(istr);
@@ -957,14 +923,10 @@ namespace Glacier2
                 });
         }
 
-        #endregion
+        public static StringSetPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static StringSetPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static StringSetPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static StringSetPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -975,9 +937,9 @@ namespace Glacier2
             return null;
         }
 
-        public static StringSetPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static StringSetPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -987,7 +949,7 @@ namespace Glacier2
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -995,7 +957,7 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static StringSetPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static StringSetPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -1008,11 +970,11 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static StringSetPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static StringSetPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new StringSetPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -1028,18 +990,14 @@ namespace Glacier2
 
         public static string ice_staticId() => "::Glacier2::StringSet";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, StringSetPrx? v)
+        public static void write(Ice.OutputStream ostr, StringSetPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static StringSetPrx? read(global::Ice.InputStream istr)
+        public static StringSetPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new StringSetPrxHelper();
@@ -1048,19 +1006,15 @@ namespace Glacier2
             }
             return null;
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class IdentitySetPrxHelper : global::Ice.ObjectPrxHelperBase, IdentitySetPrx
+    public sealed class IdentitySetPrxHelper : Ice.ObjectPrxHelperBase, IdentitySetPrx
     {
         public IdentitySetPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public void add(global::Ice.Identity[] additions, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -1098,10 +1052,6 @@ namespace Glacier2
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task addAsync(global::Ice.Identity[] additions, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_addAsync(additions, context, progress, cancel, false);
@@ -1109,23 +1059,23 @@ namespace Glacier2
 
         private global::System.Threading.Tasks.Task _iceI_addAsync(global::Ice.Identity[] iceP_additions, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_add(iceP_additions, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _add_name = "add";
 
-        private void _iceI_add(global::Ice.Identity[] iceP_additions, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_add(global::Ice.Identity[] iceP_additions, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _add_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     global::Ice.IdentitySeqHelper.write(ostr, iceP_additions);
                 });
@@ -1138,23 +1088,23 @@ namespace Glacier2
 
         private global::System.Threading.Tasks.Task _iceI_removeAsync(global::Ice.Identity[] iceP_deletions, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_remove(iceP_deletions, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _remove_name = "remove";
 
-        private void _iceI_remove(global::Ice.Identity[] iceP_deletions, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_remove(global::Ice.Identity[] iceP_deletions, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _remove_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     global::Ice.IdentitySeqHelper.write(ostr, iceP_deletions);
                 });
@@ -1168,23 +1118,23 @@ namespace Glacier2
         private global::System.Threading.Tasks.Task<global::Ice.Identity[]> _iceI_getAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_get_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.Identity[]>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.Identity[]>(progress, cancel);
             _iceI_get(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _get_name = "get";
 
-        private void _iceI_get(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_get(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<global::Ice.Identity[]>(completed);
             outAsync.invoke(
                 _get_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     global::Ice.Identity[] ret;
                     ret = global::Ice.IdentitySeqHelper.read(istr);
@@ -1192,14 +1142,10 @@ namespace Glacier2
                 });
         }
 
-        #endregion
+        public static IdentitySetPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static IdentitySetPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static IdentitySetPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static IdentitySetPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1210,9 +1156,9 @@ namespace Glacier2
             return null;
         }
 
-        public static IdentitySetPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static IdentitySetPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1222,7 +1168,7 @@ namespace Glacier2
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1230,7 +1176,7 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static IdentitySetPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static IdentitySetPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -1243,11 +1189,11 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static IdentitySetPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static IdentitySetPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new IdentitySetPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -1263,18 +1209,14 @@ namespace Glacier2
 
         public static string ice_staticId() => "::Glacier2::IdentitySet";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, IdentitySetPrx? v)
+        public static void write(Ice.OutputStream ostr, IdentitySetPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static IdentitySetPrx? read(global::Ice.InputStream istr)
+        public static IdentitySetPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new IdentitySetPrxHelper();
@@ -1283,19 +1225,15 @@ namespace Glacier2
             }
             return null;
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class SessionControlPrxHelper : global::Ice.ObjectPrxHelperBase, SessionControlPrx
+    public sealed class SessionControlPrxHelper : Ice.ObjectPrxHelperBase, SessionControlPrx
     {
         public SessionControlPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public StringSetPrx? categories(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -1357,10 +1295,6 @@ namespace Glacier2
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<StringSetPrx?> categoriesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_categoriesAsync(context, progress, cancel, false);
@@ -1369,23 +1303,23 @@ namespace Glacier2
         private global::System.Threading.Tasks.Task<StringSetPrx?> _iceI_categoriesAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_categories_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<StringSetPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<StringSetPrx?>(progress, cancel);
             _iceI_categories(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _categories_name = "categories";
 
-        private void _iceI_categories(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_categories(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<StringSetPrx?>(completed);
             outAsync.invoke(
                 _categories_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     StringSetPrx? ret;
                     ret = StringSetPrxHelper.read(istr);
@@ -1401,23 +1335,23 @@ namespace Glacier2
         private global::System.Threading.Tasks.Task<StringSetPrx?> _iceI_adapterIdsAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_adapterIds_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<StringSetPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<StringSetPrx?>(progress, cancel);
             _iceI_adapterIds(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _adapterIds_name = "adapterIds";
 
-        private void _iceI_adapterIds(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_adapterIds(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<StringSetPrx?>(completed);
             outAsync.invoke(
                 _adapterIds_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     StringSetPrx? ret;
                     ret = StringSetPrxHelper.read(istr);
@@ -1433,23 +1367,23 @@ namespace Glacier2
         private global::System.Threading.Tasks.Task<IdentitySetPrx?> _iceI_identitiesAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_identities_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<IdentitySetPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<IdentitySetPrx?>(progress, cancel);
             _iceI_identities(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _identities_name = "identities";
 
-        private void _iceI_identities(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_identities(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<IdentitySetPrx?>(completed);
             outAsync.invoke(
                 _identities_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     IdentitySetPrx? ret;
                     ret = IdentitySetPrxHelper.read(istr);
@@ -1465,23 +1399,23 @@ namespace Glacier2
         private global::System.Threading.Tasks.Task<int> _iceI_getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getSessionTimeout_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
             _iceI_getSessionTimeout(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getSessionTimeout_name = "getSessionTimeout";
 
-        private void _iceI_getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
                 _getSessionTimeout_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     int ret;
                     ret = istr.readInt();
@@ -1496,32 +1430,28 @@ namespace Glacier2
 
         private global::System.Threading.Tasks.Task _iceI_destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_destroy(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _destroy_name = "destroy";
 
-        private void _iceI_destroy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_destroy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _destroy_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
         }
 
-        #endregion
+        public static SessionControlPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static SessionControlPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static SessionControlPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static SessionControlPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1532,9 +1462,9 @@ namespace Glacier2
             return null;
         }
 
-        public static SessionControlPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static SessionControlPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1544,7 +1474,7 @@ namespace Glacier2
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1552,7 +1482,7 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SessionControlPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static SessionControlPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -1565,11 +1495,11 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SessionControlPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static SessionControlPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new SessionControlPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -1585,18 +1515,14 @@ namespace Glacier2
 
         public static string ice_staticId() => "::Glacier2::SessionControl";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, SessionControlPrx? v)
+        public static void write(Ice.OutputStream ostr, SessionControlPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static SessionControlPrx? read(global::Ice.InputStream istr)
+        public static SessionControlPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new SessionControlPrxHelper();
@@ -1605,19 +1531,15 @@ namespace Glacier2
             }
             return null;
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class SessionManagerPrxHelper : global::Ice.ObjectPrxHelperBase, SessionManagerPrx
+    public sealed class SessionManagerPrxHelper : Ice.ObjectPrxHelperBase, SessionManagerPrx
     {
         public SessionManagerPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public SessionPrx? create(string userId, SessionControlPrx? control, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -1631,10 +1553,6 @@ namespace Glacier2
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<SessionPrx?> createAsync(string userId, SessionControlPrx? control, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_createAsync(userId, control, context, progress, cancel, false);
@@ -1643,28 +1561,28 @@ namespace Glacier2
         private global::System.Threading.Tasks.Task<SessionPrx?> _iceI_createAsync(string iceP_userId, SessionControlPrx? iceP_control, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_create_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SessionPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<SessionPrx?>(progress, cancel);
             _iceI_create(iceP_userId, iceP_control, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _create_name = "create";
 
-        private void _iceI_create(string iceP_userId, SessionControlPrx? iceP_control, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_create(string iceP_userId, SessionControlPrx? iceP_control, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<SessionPrx?>(completed);
             outAsync.invoke(
                 _create_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.SlicedFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.SlicedFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_userId);
                     SessionControlPrxHelper.write(ostr, iceP_control);
                 },
-                userException: (global::Ice.UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -1674,11 +1592,11 @@ namespace Glacier2
                     {
                         throw;
                     }
-                    catch(global::Ice.UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     SessionPrx? ret;
                     ret = SessionPrxHelper.read(istr);
@@ -1686,14 +1604,10 @@ namespace Glacier2
                 });
         }
 
-        #endregion
+        public static SessionManagerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static SessionManagerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static SessionManagerPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static SessionManagerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1704,9 +1618,9 @@ namespace Glacier2
             return null;
         }
 
-        public static SessionManagerPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static SessionManagerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1716,7 +1630,7 @@ namespace Glacier2
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1724,7 +1638,7 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SessionManagerPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static SessionManagerPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -1737,11 +1651,11 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SessionManagerPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static SessionManagerPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new SessionManagerPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -1757,18 +1671,14 @@ namespace Glacier2
 
         public static string ice_staticId() => "::Glacier2::SessionManager";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, SessionManagerPrx? v)
+        public static void write(Ice.OutputStream ostr, SessionManagerPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static SessionManagerPrx? read(global::Ice.InputStream istr)
+        public static SessionManagerPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new SessionManagerPrxHelper();
@@ -1777,19 +1687,15 @@ namespace Glacier2
             }
             return null;
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class SSLSessionManagerPrxHelper : global::Ice.ObjectPrxHelperBase, SSLSessionManagerPrx
+    public sealed class SSLSessionManagerPrxHelper : Ice.ObjectPrxHelperBase, SSLSessionManagerPrx
     {
         public SSLSessionManagerPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public SessionPrx? create(SSLInfo info, SessionControlPrx? control, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -1803,10 +1709,6 @@ namespace Glacier2
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<SessionPrx?> createAsync(SSLInfo info, SessionControlPrx? control, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_createAsync(info, control, context, progress, cancel, false);
@@ -1815,28 +1717,28 @@ namespace Glacier2
         private global::System.Threading.Tasks.Task<SessionPrx?> _iceI_createAsync(SSLInfo iceP_info, SessionControlPrx? iceP_control, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_create_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SessionPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<SessionPrx?>(progress, cancel);
             _iceI_create(iceP_info, iceP_control, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _create_name = "create";
 
-        private void _iceI_create(SSLInfo iceP_info, SessionControlPrx? iceP_control, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_create(SSLInfo iceP_info, SessionControlPrx? iceP_control, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<SessionPrx?>(completed);
             outAsync.invoke(
                 _create_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.SlicedFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.SlicedFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     SSLInfo.ice_write(ostr, iceP_info);
                     SessionControlPrxHelper.write(ostr, iceP_control);
                 },
-                userException: (global::Ice.UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -1846,11 +1748,11 @@ namespace Glacier2
                     {
                         throw;
                     }
-                    catch(global::Ice.UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     SessionPrx? ret;
                     ret = SessionPrxHelper.read(istr);
@@ -1858,14 +1760,10 @@ namespace Glacier2
                 });
         }
 
-        #endregion
+        public static SSLSessionManagerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static SSLSessionManagerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static SSLSessionManagerPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static SSLSessionManagerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1876,9 +1774,9 @@ namespace Glacier2
             return null;
         }
 
-        public static SSLSessionManagerPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static SSLSessionManagerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1888,7 +1786,7 @@ namespace Glacier2
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1896,7 +1794,7 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SSLSessionManagerPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static SSLSessionManagerPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -1909,11 +1807,11 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SSLSessionManagerPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static SSLSessionManagerPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new SSLSessionManagerPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -1929,18 +1827,14 @@ namespace Glacier2
 
         public static string ice_staticId() => "::Glacier2::SSLSessionManager";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, SSLSessionManagerPrx? v)
+        public static void write(Ice.OutputStream ostr, SSLSessionManagerPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static SSLSessionManagerPrx? read(global::Ice.InputStream istr)
+        public static SSLSessionManagerPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new SSLSessionManagerPrxHelper();
@@ -1949,8 +1843,6 @@ namespace Glacier2
             }
             return null;
         }
-
-        #endregion
     }
 }
 
@@ -1958,147 +1850,101 @@ namespace Glacier2
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class SessionDisp_ : global::Ice.ObjectImpl, Session
+    public abstract class SessionDisp_ : Ice.ObjectImpl, Session
     {
-        #region Slice operations
+        public abstract void destroy(Ice.Current current);
 
-        public abstract void destroy(global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Glacier2::Session";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "destroy" => Session.iceD_destroyAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class StringSetDisp_ : global::Ice.ObjectImpl, StringSet
+    public abstract class StringSetDisp_ : Ice.ObjectImpl, StringSet
     {
-        #region Slice operations
+        public abstract void add(string[] additions, Ice.Current current);
 
-        public abstract void add(string[] additions, global::Ice.Current current);
+        public abstract void remove(string[] deletions, Ice.Current current);
 
-        public abstract void remove(string[] deletions, global::Ice.Current current);
+        public abstract string[] get(Ice.Current current);
 
-        public abstract string[] get(global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Glacier2::StringSet";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "add" => StringSet.iceD_addAsync(this, request),
                 "remove" => StringSet.iceD_removeAsync(this, request),
                 "get" => StringSet.iceD_getAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class IdentitySetDisp_ : global::Ice.ObjectImpl, IdentitySet
+    public abstract class IdentitySetDisp_ : Ice.ObjectImpl, IdentitySet
     {
-        #region Slice operations
+        public abstract void add(global::Ice.Identity[] additions, Ice.Current current);
 
-        public abstract void add(global::Ice.Identity[] additions, global::Ice.Current current);
+        public abstract void remove(global::Ice.Identity[] deletions, Ice.Current current);
 
-        public abstract void remove(global::Ice.Identity[] deletions, global::Ice.Current current);
+        public abstract global::Ice.Identity[] get(Ice.Current current);
 
-        public abstract global::Ice.Identity[] get(global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Glacier2::IdentitySet";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "add" => IdentitySet.iceD_addAsync(this, request),
                 "remove" => IdentitySet.iceD_removeAsync(this, request),
                 "get" => IdentitySet.iceD_getAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class SessionControlDisp_ : global::Ice.ObjectImpl, SessionControl
+    public abstract class SessionControlDisp_ : Ice.ObjectImpl, SessionControl
     {
-        #region Slice operations
+        public abstract StringSetPrx? categories(Ice.Current current);
 
-        public abstract StringSetPrx? categories(global::Ice.Current current);
+        public abstract StringSetPrx? adapterIds(Ice.Current current);
 
-        public abstract StringSetPrx? adapterIds(global::Ice.Current current);
+        public abstract IdentitySetPrx? identities(Ice.Current current);
 
-        public abstract IdentitySetPrx? identities(global::Ice.Current current);
+        public abstract int getSessionTimeout(Ice.Current current);
 
-        public abstract int getSessionTimeout(global::Ice.Current current);
+        public abstract void destroy(Ice.Current current);
 
-        public abstract void destroy(global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Glacier2::SessionControl";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "categories" => SessionControl.iceD_categoriesAsync(this, request),
@@ -2106,82 +1952,56 @@ namespace Glacier2
                 "identities" => SessionControl.iceD_identitiesAsync(this, request),
                 "getSessionTimeout" => SessionControl.iceD_getSessionTimeoutAsync(this, request),
                 "destroy" => SessionControl.iceD_destroyAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class SessionManagerDisp_ : global::Ice.ObjectImpl, SessionManager
+    public abstract class SessionManagerDisp_ : Ice.ObjectImpl, SessionManager
     {
-        #region Slice operations
+        public abstract SessionPrx? create(string userId, SessionControlPrx? control, Ice.Current current);
 
-        public abstract SessionPrx? create(string userId, SessionControlPrx? control, global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Glacier2::SessionManager";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "create" => SessionManager.iceD_createAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class SSLSessionManagerDisp_ : global::Ice.ObjectImpl, SSLSessionManager
+    public abstract class SSLSessionManagerDisp_ : Ice.ObjectImpl, SSLSessionManager
     {
-        #region Slice operations
+        public abstract SessionPrx? create(SSLInfo info, SessionControlPrx? control, Ice.Current current);
 
-        public abstract SessionPrx? create(SSLInfo info, SessionControlPrx? control, global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Glacier2::SSLSessionManager";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "create" => SSLSessionManager.iceD_createAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 }
 
@@ -2189,183 +2009,183 @@ namespace Glacier2
 {
     public partial interface Session
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_destroyAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
             Session obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             obj.destroy(request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
 
     public partial interface StringSet
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_addAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_addAsync(
             StringSet obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string[] iceP_additions;
             iceP_additions = global::Ice.StringSeqHelper.read(istr);
             istr.endEncapsulation();
             obj.add(iceP_additions, request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_removeAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_removeAsync(
             StringSet obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string[] iceP_deletions;
             iceP_deletions = global::Ice.StringSeqHelper.read(istr);
             istr.endEncapsulation();
             obj.remove(iceP_deletions, request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getAsync(
             StringSet obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.get(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             global::Ice.StringSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
     }
 
     public partial interface IdentitySet
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_addAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_addAsync(
             IdentitySet obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             global::Ice.Identity[] iceP_additions;
             iceP_additions = global::Ice.IdentitySeqHelper.read(istr);
             istr.endEncapsulation();
             obj.add(iceP_additions, request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_removeAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_removeAsync(
             IdentitySet obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             global::Ice.Identity[] iceP_deletions;
             iceP_deletions = global::Ice.IdentitySeqHelper.read(istr);
             istr.endEncapsulation();
             obj.remove(iceP_deletions, request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getAsync(
             IdentitySet obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.get(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             global::Ice.IdentitySeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
     }
 
     public partial interface SessionControl
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_categoriesAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_categoriesAsync(
             SessionControl obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.categories(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             StringSetPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_adapterIdsAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_adapterIdsAsync(
             SessionControl obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.adapterIds(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             StringSetPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_identitiesAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_identitiesAsync(
             SessionControl obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.identities(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             IdentitySetPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getSessionTimeoutAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getSessionTimeoutAsync(
             SessionControl obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getSessionTimeout(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ostr.writeInt(ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_destroyAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
             SessionControl obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             obj.destroy(request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
 
     public partial interface SessionManager
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_createAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createAsync(
             SessionManager obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_userId;
@@ -2374,21 +2194,21 @@ namespace Glacier2
             iceP_control = SessionControlPrxHelper.read(istr);
             istr.endEncapsulation();
             var ret = obj.create(iceP_userId, iceP_control, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.SlicedFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
             SessionPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
     }
 
     public partial interface SSLSessionManager
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_createAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createAsync(
             SSLSessionManager obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             SSLInfo iceP_info;
@@ -2397,11 +2217,11 @@ namespace Glacier2
             iceP_control = SessionControlPrxHelper.read(istr);
             istr.endEncapsulation();
             var ret = obj.create(iceP_info, iceP_control, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.SlicedFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
             SessionPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
     }
 }

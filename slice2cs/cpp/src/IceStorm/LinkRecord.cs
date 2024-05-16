@@ -33,8 +33,6 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class LinkRecord : global::System.IEquatable<LinkRecord>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TopicLinkPrx? obj;
 
@@ -44,11 +42,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TopicPrx? theTopic;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public LinkRecord()
@@ -66,7 +60,7 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public LinkRecord(global::Ice.InputStream istr)
+        public LinkRecord(Ice.InputStream istr)
         {
             this.obj = TopicLinkPrxHelper.read(istr);
             this.cost = istr.readInt();
@@ -74,16 +68,8 @@ namespace IceStorm
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public LinkRecord Clone() => (LinkRecord)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -111,22 +97,14 @@ namespace IceStorm
                 (Ice.ObjectPrxHelperBase?)this.theTopic == (Ice.ObjectPrxHelperBase?)other.theTopic;
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(LinkRecord? lhs, LinkRecord? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(LinkRecord? lhs, LinkRecord? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             TopicLinkPrxHelper.write(ostr, this.obj);
             ostr.writeInt(this.cost);
@@ -134,14 +112,12 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, LinkRecord v)
+        public static void ice_write(Ice.OutputStream ostr, LinkRecord v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static LinkRecord ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static LinkRecord ice_read(Ice.InputStream istr) => new(istr);
     }
 }

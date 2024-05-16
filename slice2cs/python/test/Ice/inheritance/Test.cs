@@ -35,10 +35,10 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::MA::IA")]
-        public partial interface IA : global::Ice.Object
+        public partial interface IA : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            IAPrx? iaop(IAPrx? p, global::Ice.Current current);
+            IAPrx? iaop(IAPrx? p, Ice.Current current);
         }
     }
 
@@ -56,10 +56,10 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::MB::IB1")]
-        public partial interface IB1 : global::Ice.Object, global::Test.MA.IA
+        public partial interface IB1 : global::Test.MA.IA
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            IB1Prx? ib1op(IB1Prx? p, global::Ice.Current current);
+            IB1Prx? ib1op(IB1Prx? p, Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -74,10 +74,10 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::MB::IB2")]
-        public partial interface IB2 : global::Ice.Object, global::Test.MA.IA
+        public partial interface IB2 : global::Test.MA.IA
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            IB2Prx? ib2op(IB2Prx? p, global::Ice.Current current);
+            IB2Prx? ib2op(IB2Prx? p, Ice.Current current);
         }
     }
 
@@ -95,10 +95,10 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::MA::IC")]
-        public partial interface IC : global::Ice.Object, global::Test.MB.IB1, global::Test.MB.IB2
+        public partial interface IC : global::Test.MB.IB1, global::Test.MB.IB2
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            ICPrx? icop(ICPrx? p, global::Ice.Current current);
+            ICPrx? icop(ICPrx? p, Ice.Current current);
         }
     }
 
@@ -114,22 +114,22 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Test::Initial")]
-    public partial interface Initial : global::Ice.Object
+    public partial interface Initial : Ice.Object
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current);
+        void shutdown(Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Test.MA.IAPrx? iaop(global::Ice.Current current);
+        global::Test.MA.IAPrx? iaop(Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Test.MB.IB1Prx? ib1op(global::Ice.Current current);
+        global::Test.MB.IB1Prx? ib1op(Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Test.MB.IB2Prx? ib2op(global::Ice.Current current);
+        global::Test.MB.IB2Prx? ib2op(Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Test.MA.ICPrx? icop(global::Ice.Current current);
+        global::Test.MA.ICPrx? icop(Ice.Current current);
     }
 }
 
@@ -138,7 +138,7 @@ namespace Test
     namespace MA
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface IAPrx : global::Ice.ObjectPrx
+        public interface IAPrx : Ice.ObjectPrx
         {
             IAPrx? iaop(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -177,7 +177,7 @@ namespace Test
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface InitialPrx : global::Ice.ObjectPrx
+    public interface InitialPrx : Ice.ObjectPrx
     {
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -207,13 +207,11 @@ namespace Test
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class IAPrxHelper : global::Ice.ObjectPrxHelperBase, IAPrx
+        public sealed class IAPrxHelper : Ice.ObjectPrxHelperBase, IAPrx
         {
             public IAPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public IAPrx? iaop(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -227,10 +225,6 @@ namespace Test
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task<IAPrx?> iaopAsync(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_iaopAsync(p, context, progress, cancel, false);
@@ -239,27 +233,27 @@ namespace Test
             private global::System.Threading.Tasks.Task<IAPrx?> _iceI_iaopAsync(IAPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_iaop_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<IAPrx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<IAPrx?>(progress, cancel);
                 _iceI_iaop(iceP_p, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _iaop_name = "iaop";
 
-            private void _iceI_iaop(IAPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_iaop(IAPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<IAPrx?>(completed);
                 outAsync.invoke(
                     _iaop_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         IAPrxHelper.write(ostr, iceP_p);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         IAPrx? ret;
                         ret = IAPrxHelper.read(istr);
@@ -267,14 +261,10 @@ namespace Test
                     });
             }
 
-            #endregion
+            public static IAPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static IAPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static IAPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static IAPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -285,9 +275,9 @@ namespace Test
                 return null;
             }
 
-            public static IAPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static IAPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -297,7 +287,7 @@ namespace Test
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -305,7 +295,7 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static IAPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static IAPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -318,11 +308,11 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static IAPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static IAPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new IAPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -338,18 +328,14 @@ namespace Test
 
             public static string ice_staticId() => "::Test::MA::IA";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, IAPrx? v)
+            public static void write(Ice.OutputStream ostr, IAPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static IAPrx? read(global::Ice.InputStream istr)
+            public static IAPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new IAPrxHelper();
@@ -358,8 +344,6 @@ namespace Test
                 }
                 return null;
             }
-
-            #endregion
         }
     }
 
@@ -367,13 +351,11 @@ namespace Test
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class IB1PrxHelper : global::Ice.ObjectPrxHelperBase, IB1Prx
+        public sealed class IB1PrxHelper : Ice.ObjectPrxHelperBase, IB1Prx
         {
             public IB1PrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public global::Test.MA.IAPrx? iaop(global::Test.MA.IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -399,10 +381,6 @@ namespace Test
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task<global::Test.MA.IAPrx?> iaopAsync(global::Test.MA.IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_iaopAsync(p, context, progress, cancel, false);
@@ -411,27 +389,27 @@ namespace Test
             private global::System.Threading.Tasks.Task<global::Test.MA.IAPrx?> _iceI_iaopAsync(global::Test.MA.IAPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_iaop_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MA.IAPrx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Test.MA.IAPrx?>(progress, cancel);
                 _iceI_iaop(iceP_p, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _iaop_name = "iaop";
 
-            private void _iceI_iaop(global::Test.MA.IAPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_iaop(global::Test.MA.IAPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<global::Test.MA.IAPrx?>(completed);
                 outAsync.invoke(
                     _iaop_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         global::Test.MA.IAPrxHelper.write(ostr, iceP_p);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         global::Test.MA.IAPrx? ret;
                         ret = global::Test.MA.IAPrxHelper.read(istr);
@@ -447,27 +425,27 @@ namespace Test
             private global::System.Threading.Tasks.Task<IB1Prx?> _iceI_ib1opAsync(IB1Prx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_ib1op_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<IB1Prx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<IB1Prx?>(progress, cancel);
                 _iceI_ib1op(iceP_p, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _ib1op_name = "ib1op";
 
-            private void _iceI_ib1op(IB1Prx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_ib1op(IB1Prx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<IB1Prx?>(completed);
                 outAsync.invoke(
                     _ib1op_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         IB1PrxHelper.write(ostr, iceP_p);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         IB1Prx? ret;
                         ret = IB1PrxHelper.read(istr);
@@ -475,14 +453,10 @@ namespace Test
                     });
             }
 
-            #endregion
+            public static IB1Prx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static IB1Prx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static IB1Prx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static IB1Prx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -493,9 +467,9 @@ namespace Test
                 return null;
             }
 
-            public static IB1Prx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static IB1Prx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -505,7 +479,7 @@ namespace Test
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -513,7 +487,7 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static IB1Prx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static IB1Prx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -526,11 +500,11 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static IB1Prx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static IB1Prx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new IB1PrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -547,18 +521,14 @@ namespace Test
 
             public static string ice_staticId() => "::Test::MB::IB1";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, IB1Prx? v)
+            public static void write(Ice.OutputStream ostr, IB1Prx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static IB1Prx? read(global::Ice.InputStream istr)
+            public static IB1Prx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new IB1PrxHelper();
@@ -567,19 +537,15 @@ namespace Test
                 }
                 return null;
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class IB2PrxHelper : global::Ice.ObjectPrxHelperBase, IB2Prx
+        public sealed class IB2PrxHelper : Ice.ObjectPrxHelperBase, IB2Prx
         {
             public IB2PrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public global::Test.MA.IAPrx? iaop(global::Test.MA.IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -605,10 +571,6 @@ namespace Test
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task<global::Test.MA.IAPrx?> iaopAsync(global::Test.MA.IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_iaopAsync(p, context, progress, cancel, false);
@@ -617,27 +579,27 @@ namespace Test
             private global::System.Threading.Tasks.Task<global::Test.MA.IAPrx?> _iceI_iaopAsync(global::Test.MA.IAPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_iaop_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MA.IAPrx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Test.MA.IAPrx?>(progress, cancel);
                 _iceI_iaop(iceP_p, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _iaop_name = "iaop";
 
-            private void _iceI_iaop(global::Test.MA.IAPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_iaop(global::Test.MA.IAPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<global::Test.MA.IAPrx?>(completed);
                 outAsync.invoke(
                     _iaop_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         global::Test.MA.IAPrxHelper.write(ostr, iceP_p);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         global::Test.MA.IAPrx? ret;
                         ret = global::Test.MA.IAPrxHelper.read(istr);
@@ -653,27 +615,27 @@ namespace Test
             private global::System.Threading.Tasks.Task<IB2Prx?> _iceI_ib2opAsync(IB2Prx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_ib2op_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<IB2Prx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<IB2Prx?>(progress, cancel);
                 _iceI_ib2op(iceP_p, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _ib2op_name = "ib2op";
 
-            private void _iceI_ib2op(IB2Prx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_ib2op(IB2Prx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<IB2Prx?>(completed);
                 outAsync.invoke(
                     _ib2op_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         IB2PrxHelper.write(ostr, iceP_p);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         IB2Prx? ret;
                         ret = IB2PrxHelper.read(istr);
@@ -681,14 +643,10 @@ namespace Test
                     });
             }
 
-            #endregion
+            public static IB2Prx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static IB2Prx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static IB2Prx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static IB2Prx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -699,9 +657,9 @@ namespace Test
                 return null;
             }
 
-            public static IB2Prx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static IB2Prx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -711,7 +669,7 @@ namespace Test
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -719,7 +677,7 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static IB2Prx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static IB2Prx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -732,11 +690,11 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static IB2Prx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static IB2Prx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new IB2PrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -753,18 +711,14 @@ namespace Test
 
             public static string ice_staticId() => "::Test::MB::IB2";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, IB2Prx? v)
+            public static void write(Ice.OutputStream ostr, IB2Prx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static IB2Prx? read(global::Ice.InputStream istr)
+            public static IB2Prx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new IB2PrxHelper();
@@ -773,8 +727,6 @@ namespace Test
                 }
                 return null;
             }
-
-            #endregion
         }
     }
 
@@ -782,13 +734,11 @@ namespace Test
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class ICPrxHelper : global::Ice.ObjectPrxHelperBase, ICPrx
+        public sealed class ICPrxHelper : Ice.ObjectPrxHelperBase, ICPrx
         {
             public ICPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public IAPrx? iaop(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -838,10 +788,6 @@ namespace Test
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task<IAPrx?> iaopAsync(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_iaopAsync(p, context, progress, cancel, false);
@@ -850,27 +796,27 @@ namespace Test
             private global::System.Threading.Tasks.Task<IAPrx?> _iceI_iaopAsync(IAPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_iaop_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<IAPrx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<IAPrx?>(progress, cancel);
                 _iceI_iaop(iceP_p, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _iaop_name = "iaop";
 
-            private void _iceI_iaop(IAPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_iaop(IAPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<IAPrx?>(completed);
                 outAsync.invoke(
                     _iaop_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         IAPrxHelper.write(ostr, iceP_p);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         IAPrx? ret;
                         ret = IAPrxHelper.read(istr);
@@ -886,27 +832,27 @@ namespace Test
             private global::System.Threading.Tasks.Task<global::Test.MB.IB1Prx?> _iceI_ib1opAsync(global::Test.MB.IB1Prx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_ib1op_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MB.IB1Prx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Test.MB.IB1Prx?>(progress, cancel);
                 _iceI_ib1op(iceP_p, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _ib1op_name = "ib1op";
 
-            private void _iceI_ib1op(global::Test.MB.IB1Prx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_ib1op(global::Test.MB.IB1Prx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<global::Test.MB.IB1Prx?>(completed);
                 outAsync.invoke(
                     _ib1op_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         global::Test.MB.IB1PrxHelper.write(ostr, iceP_p);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         global::Test.MB.IB1Prx? ret;
                         ret = global::Test.MB.IB1PrxHelper.read(istr);
@@ -922,27 +868,27 @@ namespace Test
             private global::System.Threading.Tasks.Task<global::Test.MB.IB2Prx?> _iceI_ib2opAsync(global::Test.MB.IB2Prx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_ib2op_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MB.IB2Prx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Test.MB.IB2Prx?>(progress, cancel);
                 _iceI_ib2op(iceP_p, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _ib2op_name = "ib2op";
 
-            private void _iceI_ib2op(global::Test.MB.IB2Prx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_ib2op(global::Test.MB.IB2Prx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<global::Test.MB.IB2Prx?>(completed);
                 outAsync.invoke(
                     _ib2op_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         global::Test.MB.IB2PrxHelper.write(ostr, iceP_p);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         global::Test.MB.IB2Prx? ret;
                         ret = global::Test.MB.IB2PrxHelper.read(istr);
@@ -958,27 +904,27 @@ namespace Test
             private global::System.Threading.Tasks.Task<ICPrx?> _iceI_icopAsync(ICPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_icop_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ICPrx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<ICPrx?>(progress, cancel);
                 _iceI_icop(iceP_p, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _icop_name = "icop";
 
-            private void _iceI_icop(ICPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_icop(ICPrx? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<ICPrx?>(completed);
                 outAsync.invoke(
                     _icop_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ICPrxHelper.write(ostr, iceP_p);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         ICPrx? ret;
                         ret = ICPrxHelper.read(istr);
@@ -986,14 +932,10 @@ namespace Test
                     });
             }
 
-            #endregion
+            public static ICPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static ICPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static ICPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static ICPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -1004,9 +946,9 @@ namespace Test
                 return null;
             }
 
-            public static ICPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static ICPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1016,7 +958,7 @@ namespace Test
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -1024,7 +966,7 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static ICPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static ICPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -1037,11 +979,11 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static ICPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static ICPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new ICPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -1060,18 +1002,14 @@ namespace Test
 
             public static string ice_staticId() => "::Test::MA::IC";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, ICPrx? v)
+            public static void write(Ice.OutputStream ostr, ICPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static ICPrx? read(global::Ice.InputStream istr)
+            public static ICPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new ICPrxHelper();
@@ -1080,20 +1018,16 @@ namespace Test
                 }
                 return null;
             }
-
-            #endregion
         }
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class InitialPrxHelper : global::Ice.ObjectPrxHelperBase, InitialPrx
+    public sealed class InitialPrxHelper : Ice.ObjectPrxHelperBase, InitialPrx
     {
         public InitialPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -1155,10 +1089,6 @@ namespace Test
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
@@ -1166,20 +1096,20 @@ namespace Test
 
         private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _shutdown_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
         }
@@ -1192,23 +1122,23 @@ namespace Test
         private global::System.Threading.Tasks.Task<global::Test.MA.IAPrx?> _iceI_iaopAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_iaop_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MA.IAPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Test.MA.IAPrx?>(progress, cancel);
             _iceI_iaop(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _iaop_name = "iaop";
 
-        private void _iceI_iaop(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_iaop(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<global::Test.MA.IAPrx?>(completed);
             outAsync.invoke(
                 _iaop_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     global::Test.MA.IAPrx? ret;
                     ret = global::Test.MA.IAPrxHelper.read(istr);
@@ -1224,23 +1154,23 @@ namespace Test
         private global::System.Threading.Tasks.Task<global::Test.MB.IB1Prx?> _iceI_ib1opAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_ib1op_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MB.IB1Prx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Test.MB.IB1Prx?>(progress, cancel);
             _iceI_ib1op(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _ib1op_name = "ib1op";
 
-        private void _iceI_ib1op(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_ib1op(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<global::Test.MB.IB1Prx?>(completed);
             outAsync.invoke(
                 _ib1op_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     global::Test.MB.IB1Prx? ret;
                     ret = global::Test.MB.IB1PrxHelper.read(istr);
@@ -1256,23 +1186,23 @@ namespace Test
         private global::System.Threading.Tasks.Task<global::Test.MB.IB2Prx?> _iceI_ib2opAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_ib2op_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MB.IB2Prx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Test.MB.IB2Prx?>(progress, cancel);
             _iceI_ib2op(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _ib2op_name = "ib2op";
 
-        private void _iceI_ib2op(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_ib2op(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<global::Test.MB.IB2Prx?>(completed);
             outAsync.invoke(
                 _ib2op_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     global::Test.MB.IB2Prx? ret;
                     ret = global::Test.MB.IB2PrxHelper.read(istr);
@@ -1288,23 +1218,23 @@ namespace Test
         private global::System.Threading.Tasks.Task<global::Test.MA.ICPrx?> _iceI_icopAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_icop_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MA.ICPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Test.MA.ICPrx?>(progress, cancel);
             _iceI_icop(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _icop_name = "icop";
 
-        private void _iceI_icop(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_icop(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<global::Test.MA.ICPrx?>(completed);
             outAsync.invoke(
                 _icop_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     global::Test.MA.ICPrx? ret;
                     ret = global::Test.MA.ICPrxHelper.read(istr);
@@ -1312,14 +1242,10 @@ namespace Test
                 });
         }
 
-        #endregion
+        public static InitialPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static InitialPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static InitialPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static InitialPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1330,9 +1256,9 @@ namespace Test
             return null;
         }
 
-        public static InitialPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static InitialPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1342,7 +1268,7 @@ namespace Test
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1350,7 +1276,7 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static InitialPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static InitialPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -1363,11 +1289,11 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static InitialPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static InitialPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new InitialPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -1383,18 +1309,14 @@ namespace Test
 
         public static string ice_staticId() => "::Test::Initial";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, InitialPrx? v)
+        public static void write(Ice.OutputStream ostr, InitialPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static InitialPrx? read(global::Ice.InputStream istr)
+        public static InitialPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new InitialPrxHelper();
@@ -1403,8 +1325,6 @@ namespace Test
             }
             return null;
         }
-
-        #endregion
     }
 }
 
@@ -1414,36 +1334,24 @@ namespace Test
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class IADisp_ : global::Ice.ObjectImpl, IA
+        public abstract class IADisp_ : Ice.ObjectImpl, IA
         {
-            #region Slice operations
+            public abstract IAPrx? iaop(IAPrx? p, Ice.Current current);
 
-            public abstract IAPrx? iaop(IAPrx? p, global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::MA::IA";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "iaop" => IA.iceD_iaopAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
     }
 
@@ -1451,84 +1359,52 @@ namespace Test
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class IB1Disp_ : global::Ice.ObjectImpl, IB1
+        public abstract class IB1Disp_ : Ice.ObjectImpl, IB1
         {
-            #region Slice operations
+            public abstract IB1Prx? ib1op(IB1Prx? p, Ice.Current current);
 
-            public abstract IB1Prx? ib1op(IB1Prx? p, global::Ice.Current current);
+            public abstract global::Test.MA.IAPrx? iaop(global::Test.MA.IAPrx? p, Ice.Current current);
 
-            #endregion
-
-            #region Inherited Slice operations
-
-            public abstract global::Test.MA.IAPrx? iaop(global::Test.MA.IAPrx? p, global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::MB::IB1";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "iaop" => global::Test.MA.IA.iceD_iaopAsync(this, request),
                     "ib1op" => IB1.iceD_ib1opAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class IB2Disp_ : global::Ice.ObjectImpl, IB2
+        public abstract class IB2Disp_ : Ice.ObjectImpl, IB2
         {
-            #region Slice operations
+            public abstract IB2Prx? ib2op(IB2Prx? p, Ice.Current current);
 
-            public abstract IB2Prx? ib2op(IB2Prx? p, global::Ice.Current current);
+            public abstract global::Test.MA.IAPrx? iaop(global::Test.MA.IAPrx? p, Ice.Current current);
 
-            #endregion
-
-            #region Inherited Slice operations
-
-            public abstract global::Test.MA.IAPrx? iaop(global::Test.MA.IAPrx? p, global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::MB::IB2";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "iaop" => global::Test.MA.IA.iceD_iaopAsync(this, request),
                     "ib2op" => IB2.iceD_ib2opAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
     }
 
@@ -1536,81 +1412,55 @@ namespace Test
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class ICDisp_ : global::Ice.ObjectImpl, IC
+        public abstract class ICDisp_ : Ice.ObjectImpl, IC
         {
-            #region Slice operations
+            public abstract ICPrx? icop(ICPrx? p, Ice.Current current);
 
-            public abstract ICPrx? icop(ICPrx? p, global::Ice.Current current);
+            public abstract global::Test.MB.IB1Prx? ib1op(global::Test.MB.IB1Prx? p, Ice.Current current);
 
-            #endregion
+            public abstract global::Test.MB.IB2Prx? ib2op(global::Test.MB.IB2Prx? p, Ice.Current current);
 
-            #region Inherited Slice operations
+            public abstract IAPrx? iaop(IAPrx? p, Ice.Current current);
 
-            public abstract IAPrx? iaop(IAPrx? p, global::Ice.Current current);
-
-            public abstract global::Test.MB.IB1Prx? ib1op(global::Test.MB.IB1Prx? p, global::Ice.Current current);
-
-            public abstract global::Test.MB.IB2Prx? ib2op(global::Test.MB.IB2Prx? p, global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::MA::IC";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "iaop" => IA.iceD_iaopAsync(this, request),
                     "ib1op" => global::Test.MB.IB1.iceD_ib1opAsync(this, request),
                     "ib2op" => global::Test.MB.IB2.iceD_ib2opAsync(this, request),
                     "icop" => IC.iceD_icopAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class InitialDisp_ : global::Ice.ObjectImpl, Initial
+    public abstract class InitialDisp_ : Ice.ObjectImpl, Initial
     {
-        #region Slice operations
+        public abstract void shutdown(Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current current);
+        public abstract global::Test.MA.IAPrx? iaop(Ice.Current current);
 
-        public abstract global::Test.MA.IAPrx? iaop(global::Ice.Current current);
+        public abstract global::Test.MB.IB1Prx? ib1op(Ice.Current current);
 
-        public abstract global::Test.MB.IB1Prx? ib1op(global::Ice.Current current);
+        public abstract global::Test.MB.IB2Prx? ib2op(Ice.Current current);
 
-        public abstract global::Test.MB.IB2Prx? ib2op(global::Ice.Current current);
+        public abstract global::Test.MA.ICPrx? icop(Ice.Current current);
 
-        public abstract global::Test.MA.ICPrx? icop(global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Test::Initial";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "shutdown" => Initial.iceD_shutdownAsync(this, request),
@@ -1618,14 +1468,12 @@ namespace Test
                 "ib1op" => Initial.iceD_ib1opAsync(this, request),
                 "ib2op" => Initial.iceD_ib2opAsync(this, request),
                 "icop" => Initial.iceD_icopAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 }
 
@@ -1635,22 +1483,22 @@ namespace Test
     {
         public partial interface IA
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_iaopAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_iaopAsync(
                 IA obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 IAPrx? iceP_p;
                 iceP_p = IAPrxHelper.read(istr);
                 istr.endEncapsulation();
                 var ret = obj.iaop(iceP_p, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 IAPrxHelper.write(ostr, ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
         }
     }
@@ -1659,43 +1507,43 @@ namespace Test
     {
         public partial interface IB1
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_ib1opAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_ib1opAsync(
                 IB1 obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 IB1Prx? iceP_p;
                 iceP_p = IB1PrxHelper.read(istr);
                 istr.endEncapsulation();
                 var ret = obj.ib1op(iceP_p, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 IB1PrxHelper.write(ostr, ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
         }
 
         public partial interface IB2
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_ib2opAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_ib2opAsync(
                 IB2 obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 IB2Prx? iceP_p;
                 iceP_p = IB2PrxHelper.read(istr);
                 istr.endEncapsulation();
                 var ret = obj.ib2op(iceP_p, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 IB2PrxHelper.write(ostr, ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
         }
     }
@@ -1704,92 +1552,92 @@ namespace Test
     {
         public partial interface IC
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_icopAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_icopAsync(
                 IC obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 ICPrx? iceP_p;
                 iceP_p = ICPrxHelper.read(istr);
                 istr.endEncapsulation();
                 var ret = obj.icop(iceP_p, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ICPrxHelper.write(ostr, ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
         }
     }
 
     public partial interface Initial
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
             Initial obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             obj.shutdown(request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_iaopAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_iaopAsync(
             Initial obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.iaop(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             global::Test.MA.IAPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_ib1opAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_ib1opAsync(
             Initial obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.ib1op(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             global::Test.MB.IB1PrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_ib2opAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_ib2opAsync(
             Initial obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.ib2op(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             global::Test.MB.IB2PrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_icopAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_icopAsync(
             Initial obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.icop(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             global::Test.MA.ICPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
     }
 }

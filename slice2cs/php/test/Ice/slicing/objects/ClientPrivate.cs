@@ -35,19 +35,13 @@ namespace Test
     [Ice.SliceTypeId("::Test::D3")]
     public partial class D3 : B
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string sd3 = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public B? pd3;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D3(string sb, B? pb, string sd3, B? pd3) : base(sb, pb)
@@ -63,8 +57,6 @@ namespace Test
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::Test::D3";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -78,10 +70,8 @@ namespace Test
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeString(sd3);
@@ -91,7 +81,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             sd3 = istr_.readString();
@@ -99,8 +89,6 @@ namespace Test
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -117,16 +105,10 @@ namespace Test
     [Ice.SliceTypeId("::Test::PCUnknown")]
     public partial class PCUnknown : PBase
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string pu = "";
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PCUnknown(int pi, string pu) : base(pi)
@@ -141,8 +123,6 @@ namespace Test
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::Test::PCUnknown";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -156,10 +136,8 @@ namespace Test
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeString(pu);
@@ -168,15 +146,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             pu = istr_.readString();
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -193,16 +169,10 @@ namespace Test
     [Ice.SliceTypeId("::Test::PCDerived")]
     public partial class PCDerived : PDerived
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PBase?[] pbs;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PCDerived(int pi, string ps, PBase? pb, PBase?[] pbs) : base(pi, ps, pb)
@@ -226,8 +196,6 @@ namespace Test
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::Test::PCDerived";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -241,10 +209,8 @@ namespace Test
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             PBaseSeqHelper.write(ostr_, pbs);
@@ -253,15 +219,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             pbs = PBaseSeqHelper.read(istr_);
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -278,16 +242,10 @@ namespace Test
     [Ice.SliceTypeId("::Test::PCDerived2")]
     public partial class PCDerived2 : PCDerived
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int pcd2;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PCDerived2(int pi, string ps, PBase? pb, PBase?[] pbs, int pcd2) : base(pi, ps, pb, pbs)
@@ -309,8 +267,6 @@ namespace Test
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::Test::PCDerived2";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -324,10 +280,8 @@ namespace Test
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeInt(pcd2);
@@ -336,15 +290,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             pcd2 = istr_.readInt();
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -361,16 +313,10 @@ namespace Test
     [Ice.SliceTypeId("::Test::PCDerived3")]
     public partial class PCDerived3 : PCDerived2
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.Value? pcd3;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PCDerived3(int pi, string ps, PBase? pb, PBase?[] pbs, int pcd2, global::Ice.Value? pcd3) : base(pi, ps, pb, pbs, pcd2)
@@ -392,8 +338,6 @@ namespace Test
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::Test::PCDerived3";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -407,10 +351,8 @@ namespace Test
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeValue(pcd3);
@@ -419,15 +361,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.readValue((global::Ice.Value? v) => { this.pcd3 = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -445,16 +385,10 @@ namespace Test
     [Ice.CompactSliceTypeId(57)]
     public partial class CompactPCDerived : CompactPDerived
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PBase?[] pbs;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CompactPCDerived(int pi, string ps, PBase? pb, PBase?[] pbs) : base(pi, ps, pb)
@@ -478,8 +412,6 @@ namespace Test
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::Test::CompactPCDerived";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -493,10 +425,8 @@ namespace Test
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), 57, false);
             PBaseSeqHelper.write(ostr_, pbs);
@@ -505,14 +435,12 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             pbs = PBaseSeqHelper.read(istr_);
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 }

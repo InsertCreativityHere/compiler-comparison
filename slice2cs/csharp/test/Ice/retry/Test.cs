@@ -35,22 +35,22 @@ namespace Ice.retry
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Retry")]
-        public partial interface Retry : global::Ice.Object
+        public partial interface Retry : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void op(bool kill, global::Ice.Current current);
+            void op(bool kill, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            int opIdempotent(int c, global::Ice.Current current);
+            int opIdempotent(int c, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void opNotIdempotent(global::Ice.Current current);
+            void opNotIdempotent(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void sleep(int delay, global::Ice.Current current);
+            void sleep(int delay, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current);
+            void shutdown(Ice.Current current);
         }
     }
 }
@@ -60,7 +60,7 @@ namespace Ice.retry
     namespace Test
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface RetryPrx : global::Ice.ObjectPrx
+        public interface RetryPrx : Ice.ObjectPrx
         {
             void op(bool kill, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -91,13 +91,11 @@ namespace Ice.retry
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class RetryPrxHelper : global::Ice.ObjectPrxHelperBase, RetryPrx
+        public sealed class RetryPrxHelper : Ice.ObjectPrxHelperBase, RetryPrx
         {
             public RetryPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public void op(bool kill, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -159,10 +157,6 @@ namespace Ice.retry
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task opAsync(bool kill, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAsync(kill, context, progress, cancel, false);
@@ -170,23 +164,23 @@ namespace Ice.retry
 
             private global::System.Threading.Tasks.Task _iceI_opAsync(bool iceP_kill, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_op(iceP_kill, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _op_name = "op";
 
-            private void _iceI_op(bool iceP_kill, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_op(bool iceP_kill, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _op_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeBool(iceP_kill);
                     });
@@ -200,27 +194,27 @@ namespace Ice.retry
             private global::System.Threading.Tasks.Task<int> _iceI_opIdempotentAsync(int iceP_c, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opIdempotent_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
                 _iceI_opIdempotent(iceP_c, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opIdempotent_name = "opIdempotent";
 
-            private void _iceI_opIdempotent(int iceP_c, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opIdempotent(int iceP_c, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<int>(completed);
                 outAsync.invoke(
                     _opIdempotent_name,
-                    global::Ice.OperationMode.Idempotent,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Idempotent,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeInt(iceP_c);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         int ret;
                         ret = istr.readInt();
@@ -235,20 +229,20 @@ namespace Ice.retry
 
             private global::System.Threading.Tasks.Task _iceI_opNotIdempotentAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_opNotIdempotent(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opNotIdempotent_name = "opNotIdempotent";
 
-            private void _iceI_opNotIdempotent(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opNotIdempotent(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _opNotIdempotent_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
             }
@@ -260,23 +254,23 @@ namespace Ice.retry
 
             private global::System.Threading.Tasks.Task _iceI_sleepAsync(int iceP_delay, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_sleep(iceP_delay, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _sleep_name = "sleep";
 
-            private void _iceI_sleep(int iceP_delay, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_sleep(int iceP_delay, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _sleep_name,
-                    global::Ice.OperationMode.Idempotent,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Idempotent,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeInt(iceP_delay);
                     });
@@ -289,32 +283,28 @@ namespace Ice.retry
 
             private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _shutdown_name = "shutdown";
 
-            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _shutdown_name,
-                    global::Ice.OperationMode.Idempotent,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Idempotent,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
             }
 
-            #endregion
+            public static RetryPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static RetryPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static RetryPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static RetryPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -325,9 +315,9 @@ namespace Ice.retry
                 return null;
             }
 
-            public static RetryPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static RetryPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -337,7 +327,7 @@ namespace Ice.retry
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -345,7 +335,7 @@ namespace Ice.retry
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static RetryPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static RetryPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -358,11 +348,11 @@ namespace Ice.retry
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static RetryPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static RetryPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new RetryPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -378,18 +368,14 @@ namespace Ice.retry
 
             public static string ice_staticId() => "::Test::Retry";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, RetryPrx? v)
+            public static void write(Ice.OutputStream ostr, RetryPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static RetryPrx? read(global::Ice.InputStream istr)
+            public static RetryPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new RetryPrxHelper();
@@ -398,8 +384,6 @@ namespace Ice.retry
                 }
                 return null;
             }
-
-            #endregion
         }
     }
 }
@@ -410,33 +394,23 @@ namespace Ice.retry
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class RetryDisp_ : global::Ice.ObjectImpl, Retry
+        public abstract class RetryDisp_ : Ice.ObjectImpl, Retry
         {
-            #region Slice operations
+            public abstract void op(bool kill, Ice.Current current);
 
-            public abstract void op(bool kill, global::Ice.Current current);
+            public abstract int opIdempotent(int c, Ice.Current current);
 
-            public abstract int opIdempotent(int c, global::Ice.Current current);
+            public abstract void opNotIdempotent(Ice.Current current);
 
-            public abstract void opNotIdempotent(global::Ice.Current current);
+            public abstract void sleep(int delay, Ice.Current current);
 
-            public abstract void sleep(int delay, global::Ice.Current current);
+            public abstract void shutdown(Ice.Current current);
 
-            public abstract void shutdown(global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::Retry";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "op" => Retry.iceD_opAsync(this, request),
@@ -444,14 +418,12 @@ namespace Ice.retry
                     "opNotIdempotent" => Retry.iceD_opNotIdempotentAsync(this, request),
                     "sleep" => Retry.iceD_sleepAsync(this, request),
                     "shutdown" => Retry.iceD_shutdownAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
     }
 }
@@ -462,70 +434,70 @@ namespace Ice.retry
     {
         public partial interface Retry
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
                 Retry obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 bool iceP_kill;
                 iceP_kill = istr.readBool();
                 istr.endEncapsulation();
                 obj.op(iceP_kill, request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opIdempotentAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIdempotentAsync(
                 Retry obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 int iceP_c;
                 iceP_c = istr.readInt();
                 istr.endEncapsulation();
                 var ret = obj.opIdempotent(iceP_c, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeInt(ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opNotIdempotentAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNotIdempotentAsync(
                 Retry obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.opNotIdempotent(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_sleepAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_sleepAsync(
                 Retry obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 int iceP_delay;
                 iceP_delay = istr.readInt();
                 istr.endEncapsulation();
                 obj.sleep(iceP_delay, request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
                 Retry obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.shutdown(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
         }
     }

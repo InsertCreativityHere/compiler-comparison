@@ -33,19 +33,13 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class Identity : global::System.IEquatable<Identity>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string category = "";
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Identity()
@@ -62,23 +56,15 @@ namespace Ice
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Identity(InputStream istr)
+        public Identity(Ice.InputStream istr)
         {
             this.name = istr.readString();
             this.category = istr.readString();
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Identity Clone() => (Identity)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -104,37 +90,27 @@ namespace Ice
                 this.category == other.category;
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(Identity? lhs, Identity? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(Identity? lhs, Identity? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.name);
             ostr.writeString(this.category);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(OutputStream ostr, Identity v)
+        public static void ice_write(Ice.OutputStream ostr, Identity v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static Identity ice_read(InputStream istr) => new(istr);
-
-        #endregion
+        public static Identity ice_read(Ice.InputStream istr) => new(istr);
     }
 }
 
@@ -143,7 +119,7 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class IdentitySeqHelper
     {
-        public static void write(OutputStream ostr, Identity[] v)
+        public static void write(Ice.OutputStream ostr, Identity[] v)
         {
             if (v is null)
             {
@@ -159,7 +135,7 @@ namespace Ice
             }
         }
 
-        public static Identity[] read(InputStream istr)
+        public static Identity[] read(Ice.InputStream istr)
         {
             Identity[] v;
             {

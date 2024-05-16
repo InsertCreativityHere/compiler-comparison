@@ -33,8 +33,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class AllData : global::System.IEquatable<AllData>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationInfo[] applications;
 
@@ -50,11 +48,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, long> serials;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AllData(ApplicationInfo[] applications, AdapterInfo[] adapters, ObjectInfo[] objects, ObjectInfo[] internalObjects, global::System.Collections.Generic.Dictionary<string, long> serials)
@@ -68,7 +62,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllData(global::Ice.InputStream istr)
+        public AllData(Ice.InputStream istr)
         {
             this.applications = ApplicationInfoSeqHelper.read(istr);
             this.adapters = AdapterInfoSeqHelper.read(istr);
@@ -78,16 +72,8 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AllData Clone() => (AllData)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -119,22 +105,14 @@ namespace IceGrid
                 Ice.UtilInternal.Collections.DictionaryEquals(this.serials, other.serials);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(AllData? lhs, AllData? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(AllData? lhs, AllData? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ApplicationInfoSeqHelper.write(ostr, this.applications);
             AdapterInfoSeqHelper.write(ostr, this.adapters);
@@ -144,15 +122,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, AllData v)
+        public static void ice_write(Ice.OutputStream ostr, AllData v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static AllData ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static AllData ice_read(Ice.InputStream istr) => new(istr);
     }
 }
 
@@ -161,7 +137,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class StringLongDictHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<string, long> v)
         {
             if(v == null)
@@ -179,7 +155,7 @@ namespace IceGrid
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, long> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, long> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<string, long> r = new global::System.Collections.Generic.Dictionary<string, long>();

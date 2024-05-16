@@ -35,8 +35,6 @@ namespace Demo
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public partial record struct Square
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Point p1;
 
@@ -49,11 +47,7 @@ namespace Demo
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Point p4;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Square(Point p1, Point p2, Point p3, Point p4)
@@ -66,7 +60,7 @@ namespace Demo
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Square(global::Ice.InputStream istr)
+            public Square(Ice.InputStream istr)
             {
                 this.p1 = new Point(istr);
                 this.p2 = new Point(istr);
@@ -75,12 +69,8 @@ namespace Demo
                 ice_initialize();
             }
 
-            #endregion
-
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
+            public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 this.p1.ice_writeMembers(ostr);
                 this.p2.ice_writeMembers(ostr);
@@ -89,15 +79,13 @@ namespace Demo
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, Square v)
+            public static void ice_write(Ice.OutputStream ostr, Square v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static Square ice_read(global::Ice.InputStream istr) => new(istr);
-
-            #endregion
+            public static Square ice_read(Ice.InputStream istr) => new(istr);
         }
     }
 }

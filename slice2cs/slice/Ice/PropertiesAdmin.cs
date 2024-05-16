@@ -33,7 +33,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::PropertiesAdmin")]
-    public partial interface PropertiesAdmin : Object
+    public partial interface PropertiesAdmin : Ice.Object
     {
         /// <summary>
         /// Get a property by key.
@@ -45,7 +45,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getProperty(string key, Current current);
+        string getProperty(string key, Ice.Current current);
 
         /// <summary>
         /// Get all properties whose keys begin with prefix.
@@ -58,7 +58,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Current current);
+        global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Ice.Current current);
 
         /// <summary>
         /// Update the communicator's properties with the given property set.
@@ -71,7 +71,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Current current);
+        void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Ice.Current current);
     }
 }
 
@@ -82,7 +82,7 @@ namespace Ice
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface PropertiesAdminPrx : ObjectPrx
+    public interface PropertiesAdminPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Get a property by key.
@@ -160,13 +160,11 @@ namespace Ice
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class PropertiesAdminPrxHelper : ObjectPrxHelperBase, PropertiesAdminPrx
+    public sealed class PropertiesAdminPrxHelper : Ice.ObjectPrxHelperBase, PropertiesAdminPrx
     {
         public PropertiesAdminPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public string getProperty(string key, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -204,10 +202,6 @@ namespace Ice
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<string> getPropertyAsync(string key, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getPropertyAsync(key, context, progress, cancel, false);
@@ -216,27 +210,27 @@ namespace Ice
         private global::System.Threading.Tasks.Task<string> _iceI_getPropertyAsync(string iceP_key, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getProperty_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
             _iceI_getProperty(iceP_key, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getProperty_name = "getProperty";
 
-        private void _iceI_getProperty(string iceP_key, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getProperty(string iceP_key, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<string>(completed);
             outAsync.invoke(
                 _getProperty_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_key);
                 },
-                read: (InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     string ret;
                     ret = istr.readString();
@@ -252,27 +246,27 @@ namespace Ice
         private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_getPropertiesForPrefixAsync(string iceP_prefix, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getPropertiesForPrefix_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
             _iceI_getPropertiesForPrefix(iceP_prefix, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getPropertiesForPrefix_name = "getPropertiesForPrefix";
 
-        private void _iceI_getPropertiesForPrefix(string iceP_prefix, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getPropertiesForPrefix(string iceP_prefix, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<global::System.Collections.Generic.Dictionary<string, string>>(completed);
             outAsync.invoke(
                 _getPropertiesForPrefix_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_prefix);
                 },
-                read: (InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     global::System.Collections.Generic.Dictionary<string, string> ret;
                     ret = PropertyDictHelper.read(istr);
@@ -287,36 +281,32 @@ namespace Ice
 
         private global::System.Threading.Tasks.Task _iceI_setPropertiesAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setProperties(iceP_newProperties, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setProperties_name = "setProperties";
 
-        private void _iceI_setProperties(global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setProperties(global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _setProperties_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     PropertyDictHelper.write(ostr, iceP_newProperties);
                 });
         }
 
-        #endregion
+        public static PropertiesAdminPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static PropertiesAdminPrx createProxy(Communicator communicator, string proxyString) =>
-            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static PropertiesAdminPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static PropertiesAdminPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -327,9 +317,9 @@ namespace Ice
             return null;
         }
 
-        public static PropertiesAdminPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static PropertiesAdminPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -339,7 +329,7 @@ namespace Ice
                     return prx;
                 }
             }
-            catch (FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -347,7 +337,7 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static PropertiesAdminPrx? uncheckedCast(ObjectPrx? b)
+        public static PropertiesAdminPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -360,11 +350,11 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static PropertiesAdminPrx? uncheckedCast(ObjectPrx? b, string f)
+        public static PropertiesAdminPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new PropertiesAdminPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -380,18 +370,14 @@ namespace Ice
 
         public static string ice_staticId() => "::Ice::PropertiesAdmin";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(OutputStream ostr, PropertiesAdminPrx? v)
+        public static void write(Ice.OutputStream ostr, PropertiesAdminPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static PropertiesAdminPrx? read(InputStream istr)
+        public static PropertiesAdminPrx? read(Ice.InputStream istr)
         {
-            ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new PropertiesAdminPrxHelper();
@@ -400,8 +386,6 @@ namespace Ice
             }
             return null;
         }
-
-        #endregion
     }
 }
 
@@ -409,42 +393,30 @@ namespace Ice
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class PropertiesAdminDisp_ : ObjectImpl, PropertiesAdmin
+    public abstract class PropertiesAdminDisp_ : Ice.ObjectImpl, PropertiesAdmin
     {
-        #region Slice operations
+        public abstract string getProperty(string key, Ice.Current current);
 
-        public abstract string getProperty(string key, Current current);
+        public abstract global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Current current);
+        public abstract void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Ice.Current current);
 
-        public abstract void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Ice::PropertiesAdmin";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "getProperty" => PropertiesAdmin.iceD_getPropertyAsync(this, request),
                 "getPropertiesForPrefix" => PropertiesAdmin.iceD_getPropertiesForPrefixAsync(this, request),
                 "setProperties" => PropertiesAdmin.iceD_setPropertiesAsync(this, request),
-                "ice_id" => Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
-                _ => throw new OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 }
 
@@ -452,54 +424,54 @@ namespace Ice
 {
     public partial interface PropertiesAdmin
     {
-        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_getPropertyAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getPropertyAsync(
             PropertiesAdmin obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_key;
             iceP_key = istr.readString();
             istr.endEncapsulation();
             var ret = obj.getProperty(iceP_key, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ostr.writeString(ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_getPropertiesForPrefixAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getPropertiesForPrefixAsync(
             PropertiesAdmin obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_prefix;
             iceP_prefix = istr.readString();
             istr.endEncapsulation();
             var ret = obj.getPropertiesForPrefix(iceP_prefix, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             PropertyDictHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_setPropertiesAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setPropertiesAsync(
             PropertiesAdmin obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties;
             iceP_newProperties = PropertyDictHelper.read(istr);
             istr.endEncapsulation();
             obj.setProperties(iceP_newProperties, request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
 }

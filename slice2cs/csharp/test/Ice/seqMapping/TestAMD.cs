@@ -35,16 +35,10 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public partial record struct S
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int i;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S(int i)
@@ -54,32 +48,26 @@ namespace Ice.seqMapping.AMD
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public S(global::Ice.InputStream istr)
+            public S(Ice.InputStream istr)
             {
                 this.i = istr.readInt();
                 ice_initialize();
             }
 
-            #endregion
-
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
+            public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeInt(this.i);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, S v)
+            public static void ice_write(Ice.OutputStream ostr, S v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static S ice_read(global::Ice.InputStream istr) => new(istr);
-
-            #endregion
+            public static S ice_read(Ice.InputStream istr) => new(istr);
         }
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -94,16 +82,10 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial class SD : global::System.IEquatable<SD>
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int i = 1;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public SD()
@@ -119,22 +101,14 @@ namespace Ice.seqMapping.AMD
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public SD(global::Ice.InputStream istr)
+            public SD(Ice.InputStream istr)
             {
                 this.i = istr.readInt();
                 ice_initialize();
             }
 
-            #endregion
-
-            #region Clone method
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public SD Clone() => (SD)MemberwiseClone();
-
-            #endregion
-
-            #region Object members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
@@ -158,36 +132,26 @@ namespace Ice.seqMapping.AMD
                     this.i == other.i;
             }
 
-            #endregion
-
-            #region Comparison members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator ==(SD? lhs, SD? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator !=(SD? lhs, SD? rhs) => !(lhs == rhs);
 
-            #endregion
-
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
+            public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeInt(this.i);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, SD v)
+            public static void ice_write(Ice.OutputStream ostr, SD v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static SD ice_read(global::Ice.InputStream istr) => new(istr);
-
-            #endregion
+            public static SD ice_read(Ice.InputStream istr) => new(istr);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -202,18 +166,12 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::CV")]
-        public partial class CV : global::Ice.Value
+        public partial class CV : Ice.Value
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int i;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public CV(int i)
@@ -228,8 +186,6 @@ namespace Ice.seqMapping.AMD
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::Test::CV";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -243,10 +199,8 @@ namespace Ice.seqMapping.AMD
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
                 ostr_.writeInt(i);
@@ -254,14 +208,12 @@ namespace Ice.seqMapping.AMD
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 i = istr_.readInt();
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -276,7 +228,7 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::I")]
-        public partial interface I : global::Ice.Object
+        public partial interface I : Ice.Object
         {
         }
 
@@ -292,18 +244,12 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::CR")]
-        public partial class CR : global::Ice.Value
+        public partial class CR : Ice.Value
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public CV? v;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public CR(CV? v)
@@ -318,8 +264,6 @@ namespace Ice.seqMapping.AMD
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::Test::CR";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -333,10 +277,8 @@ namespace Ice.seqMapping.AMD
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
                 ostr_.writeValue(v);
@@ -344,14 +286,12 @@ namespace Ice.seqMapping.AMD
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 istr_.readValue((CV? v) => { this.v = v; });
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -365,13 +305,13 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class EnHelper
         {
-            public static void write(global::Ice.OutputStream ostr, En v)
+            public static void write(Ice.OutputStream ostr, En v)
             {
                 ostr.writeEnum((int)v, 2);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static En read(global::Ice.InputStream istr)
+            public static En read(Ice.InputStream istr)
             {
                 En v;
                 v = (En)istr.readEnum(2);
@@ -391,235 +331,235 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::MyClass")]
-        public partial interface MyClass : global::Ice.Object
+        public partial interface MyClass : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
+            global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value?[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value?[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value?> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value?> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx?[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx?[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV?[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV?[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV?> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV?> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR?[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR?[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR?> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR?> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx?[] i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx?[] i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx?> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx?> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx?> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx?> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx?> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx?> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx?> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx?> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV?> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV?> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, global::Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, Ice.Current current);
         }
     }
 }
@@ -785,12 +725,12 @@ namespace Ice.seqMapping.AMD
     namespace Test
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface IPrx : global::Ice.ObjectPrx
+        public interface IPrx : Ice.ObjectPrx
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface MyClassPrx : global::Ice.ObjectPrx
+        public interface MyClassPrx : Ice.ObjectPrx
         {
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -1106,12 +1046,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AByteSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, byte[] v)
+            public static void write(Ice.OutputStream ostr, byte[] v)
             {
                 ostr.writeByteSeq(v);
             }
 
-            public static byte[] read(global::Ice.InputStream istr)
+            public static byte[] read(Ice.InputStream istr)
             {
                 byte[] v;
                 v = istr.readByteSeq();
@@ -1122,12 +1062,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LByteSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<byte> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<byte> v)
             {
                 ostr.writeByteSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.List<byte> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<byte> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<byte> v;
                 istr.readByteSeq(out v);
@@ -1138,12 +1078,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KByteSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<byte> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<byte> v)
             {
                 ostr.writeByteSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.LinkedList<byte> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<byte> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<byte> v;
                 istr.readByteSeq(out v);
@@ -1154,12 +1094,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QByteSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<byte> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<byte> v)
             {
                 ostr.writeByteSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Queue<byte> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<byte> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<byte> v;
                 istr.readByteSeq(out v);
@@ -1170,12 +1110,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SByteSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<byte> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<byte> v)
             {
                 ostr.writeByteSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Stack<byte> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<byte> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<byte> v;
                 istr.readByteSeq(out v);
@@ -1186,12 +1126,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ABoolSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, bool[] v)
+            public static void write(Ice.OutputStream ostr, bool[] v)
             {
                 ostr.writeBoolSeq(v);
             }
 
-            public static bool[] read(global::Ice.InputStream istr)
+            public static bool[] read(Ice.InputStream istr)
             {
                 bool[] v;
                 v = istr.readBoolSeq();
@@ -1202,12 +1142,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LBoolSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<bool> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<bool> v)
             {
                 ostr.writeBoolSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.List<bool> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<bool> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<bool> v;
                 istr.readBoolSeq(out v);
@@ -1218,12 +1158,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KBoolSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<bool> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<bool> v)
             {
                 ostr.writeBoolSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.LinkedList<bool> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<bool> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<bool> v;
                 istr.readBoolSeq(out v);
@@ -1234,12 +1174,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QBoolSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<bool> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<bool> v)
             {
                 ostr.writeBoolSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Queue<bool> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<bool> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<bool> v;
                 istr.readBoolSeq(out v);
@@ -1250,12 +1190,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SBoolSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<bool> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<bool> v)
             {
                 ostr.writeBoolSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Stack<bool> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<bool> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<bool> v;
                 istr.readBoolSeq(out v);
@@ -1266,12 +1206,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AShortSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, short[] v)
+            public static void write(Ice.OutputStream ostr, short[] v)
             {
                 ostr.writeShortSeq(v);
             }
 
-            public static short[] read(global::Ice.InputStream istr)
+            public static short[] read(Ice.InputStream istr)
             {
                 short[] v;
                 v = istr.readShortSeq();
@@ -1282,12 +1222,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LShortSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<short> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<short> v)
             {
                 ostr.writeShortSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.List<short> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<short> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<short> v;
                 istr.readShortSeq(out v);
@@ -1298,12 +1238,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KShortSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<short> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<short> v)
             {
                 ostr.writeShortSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.LinkedList<short> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<short> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<short> v;
                 istr.readShortSeq(out v);
@@ -1314,12 +1254,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QShortSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<short> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<short> v)
             {
                 ostr.writeShortSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Queue<short> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<short> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<short> v;
                 istr.readShortSeq(out v);
@@ -1330,12 +1270,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SShortSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<short> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<short> v)
             {
                 ostr.writeShortSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Stack<short> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<short> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<short> v;
                 istr.readShortSeq(out v);
@@ -1346,12 +1286,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AIntSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, int[] v)
+            public static void write(Ice.OutputStream ostr, int[] v)
             {
                 ostr.writeIntSeq(v);
             }
 
-            public static int[] read(global::Ice.InputStream istr)
+            public static int[] read(Ice.InputStream istr)
             {
                 int[] v;
                 v = istr.readIntSeq();
@@ -1362,12 +1302,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LIntSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<int> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<int> v)
             {
                 ostr.writeIntSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.List<int> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<int> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<int> v;
                 istr.readIntSeq(out v);
@@ -1378,12 +1318,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KIntSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<int> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<int> v)
             {
                 ostr.writeIntSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.LinkedList<int> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<int> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<int> v;
                 istr.readIntSeq(out v);
@@ -1394,12 +1334,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QIntSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<int> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<int> v)
             {
                 ostr.writeIntSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Queue<int> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<int> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<int> v;
                 istr.readIntSeq(out v);
@@ -1410,12 +1350,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SIntSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<int> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<int> v)
             {
                 ostr.writeIntSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Stack<int> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<int> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<int> v;
                 istr.readIntSeq(out v);
@@ -1426,12 +1366,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ALongSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, long[] v)
+            public static void write(Ice.OutputStream ostr, long[] v)
             {
                 ostr.writeLongSeq(v);
             }
 
-            public static long[] read(global::Ice.InputStream istr)
+            public static long[] read(Ice.InputStream istr)
             {
                 long[] v;
                 v = istr.readLongSeq();
@@ -1442,12 +1382,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LLongSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<long> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<long> v)
             {
                 ostr.writeLongSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.List<long> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<long> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<long> v;
                 istr.readLongSeq(out v);
@@ -1458,12 +1398,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KLongSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<long> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<long> v)
             {
                 ostr.writeLongSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.LinkedList<long> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<long> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<long> v;
                 istr.readLongSeq(out v);
@@ -1474,12 +1414,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QLongSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<long> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<long> v)
             {
                 ostr.writeLongSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Queue<long> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<long> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<long> v;
                 istr.readLongSeq(out v);
@@ -1490,12 +1430,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SLongSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<long> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<long> v)
             {
                 ostr.writeLongSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Stack<long> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<long> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<long> v;
                 istr.readLongSeq(out v);
@@ -1506,12 +1446,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AFloatSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, float[] v)
+            public static void write(Ice.OutputStream ostr, float[] v)
             {
                 ostr.writeFloatSeq(v);
             }
 
-            public static float[] read(global::Ice.InputStream istr)
+            public static float[] read(Ice.InputStream istr)
             {
                 float[] v;
                 v = istr.readFloatSeq();
@@ -1522,12 +1462,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LFloatSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<float> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<float> v)
             {
                 ostr.writeFloatSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.List<float> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<float> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<float> v;
                 istr.readFloatSeq(out v);
@@ -1538,12 +1478,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KFloatSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<float> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<float> v)
             {
                 ostr.writeFloatSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.LinkedList<float> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<float> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<float> v;
                 istr.readFloatSeq(out v);
@@ -1554,12 +1494,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QFloatSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<float> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<float> v)
             {
                 ostr.writeFloatSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Queue<float> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<float> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<float> v;
                 istr.readFloatSeq(out v);
@@ -1570,12 +1510,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SFloatSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<float> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<float> v)
             {
                 ostr.writeFloatSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Stack<float> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<float> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<float> v;
                 istr.readFloatSeq(out v);
@@ -1586,12 +1526,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ADoubleSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, double[] v)
+            public static void write(Ice.OutputStream ostr, double[] v)
             {
                 ostr.writeDoubleSeq(v);
             }
 
-            public static double[] read(global::Ice.InputStream istr)
+            public static double[] read(Ice.InputStream istr)
             {
                 double[] v;
                 v = istr.readDoubleSeq();
@@ -1602,12 +1542,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LDoubleSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<double> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<double> v)
             {
                 ostr.writeDoubleSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.List<double> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<double> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<double> v;
                 istr.readDoubleSeq(out v);
@@ -1618,12 +1558,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KDoubleSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<double> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<double> v)
             {
                 ostr.writeDoubleSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.LinkedList<double> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<double> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<double> v;
                 istr.readDoubleSeq(out v);
@@ -1634,12 +1574,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QDoubleSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<double> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<double> v)
             {
                 ostr.writeDoubleSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Queue<double> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<double> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<double> v;
                 istr.readDoubleSeq(out v);
@@ -1650,12 +1590,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SDoubleSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<double> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<double> v)
             {
                 ostr.writeDoubleSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Stack<double> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<double> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<double> v;
                 istr.readDoubleSeq(out v);
@@ -1666,12 +1606,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AStringSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, string[] v)
+            public static void write(Ice.OutputStream ostr, string[] v)
             {
                 ostr.writeStringSeq(v);
             }
 
-            public static string[] read(global::Ice.InputStream istr)
+            public static string[] read(Ice.InputStream istr)
             {
                 string[] v;
                 v = istr.readStringSeq();
@@ -1682,12 +1622,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LStringSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<string> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<string> v)
             {
                 ostr.writeStringSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.List<string> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<string> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<string> v;
                 istr.readStringSeq(out v);
@@ -1698,12 +1638,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KStringSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<string> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<string> v)
             {
                 ostr.writeStringSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.LinkedList<string> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<string> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<string> v;
                 istr.readStringSeq(out v);
@@ -1714,12 +1654,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QStringSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<string> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<string> v)
             {
                 ostr.writeStringSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Queue<string> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<string> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<string> v;
                 istr.readStringSeq(out v);
@@ -1730,12 +1670,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SStringSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<string> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<string> v)
             {
                 ostr.writeStringSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::System.Collections.Generic.Stack<string> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<string> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<string> v;
                 istr.readStringSeq(out v);
@@ -1746,7 +1686,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AObjectSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::Ice.Value?[] v)
+            public static void write(Ice.OutputStream ostr, global::Ice.Value?[] v)
             {
                 if (v is null)
                 {
@@ -1762,14 +1702,14 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::Ice.Value?[] read(global::Ice.InputStream istr)
+            public static global::Ice.Value?[] read(Ice.InputStream istr)
             {
                 global::Ice.Value?[] v;
                 int v_lenx = istr.readAndCheckSeqSize(1);
-                v = new global::Ice.Value?[v_lenx];
-                for(int ix = 0; ix < v_lenx; ++ix)
+                v = new Ice.Value?[v_lenx];
+                for (int ix = 0; ix < v_lenx; ++ix)
                 {
-                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<global::Ice.Value>(v, ix));
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<Ice.Value>(v, ix));
                 }
                 return v;
             }
@@ -1778,7 +1718,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LObjectSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<global::Ice.Value?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<global::Ice.Value?> v)
             {
                 if (v is null)
                 {
@@ -1794,14 +1734,14 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.List<global::Ice.Value?> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<global::Ice.Value?> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<global::Ice.Value?> v;
                 int v_lenx = istr.readAndCheckSeqSize(1);
-                v = new global::System.Collections.Generic.List<global::Ice.Value?>(v_lenx);
-                for(int ix = 0; ix < v_lenx; ++ix)
+                v = new global::System.Collections.Generic.List<Ice.Value?>(v_lenx);
+                for (int ix = 0; ix < v_lenx; ++ix)
                 {
-                    istr.readValue(global::Ice.Internal.Patcher.listReadValue<global::Ice.Value>(v, ix));
+                    istr.readValue(Ice.Internal.Patcher.listReadValue<Ice.Value>(v, ix));
                 }
                 return v;
             }
@@ -1810,7 +1750,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AObjectPrxSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::Ice.ObjectPrx?[] v)
+            public static void write(Ice.OutputStream ostr, global::Ice.ObjectPrx?[] v)
             {
                 if (v is null)
                 {
@@ -1826,11 +1766,11 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::Ice.ObjectPrx?[] read(global::Ice.InputStream istr)
+            public static global::Ice.ObjectPrx?[] read(Ice.InputStream istr)
             {
                 global::Ice.ObjectPrx?[] v;
                 int v_lenx = istr.readAndCheckSeqSize(2);
-                v = new global::Ice.ObjectPrx?[v_lenx];
+                v = new Ice.ObjectPrx?[v_lenx];
                 for (int ix = 0; ix < v_lenx; ++ix)
                 {
                     v[ix] = istr.readProxy();
@@ -1842,7 +1782,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LObjectPrxSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<global::Ice.ObjectPrx?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<global::Ice.ObjectPrx?> v)
             {
                 if (v is null)
                 {
@@ -1858,14 +1798,14 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.List<global::Ice.ObjectPrx?> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<global::Ice.ObjectPrx?> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<global::Ice.ObjectPrx?> v;
                 int v_lenx = istr.readAndCheckSeqSize(2);
-                v = new global::System.Collections.Generic.List<global::Ice.ObjectPrx?>(v_lenx);
+                v = new global::System.Collections.Generic.List<Ice.ObjectPrx?>(v_lenx);
                 for (int ix = 0; ix < v_lenx; ++ix)
                 {
-                    global::Ice.ObjectPrx? val = istr.readProxy();
+                    Ice.ObjectPrx? val = istr.readProxy();
                     v.Add(val);
                 }
                 return v;
@@ -1875,7 +1815,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KObjectPrxSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> v)
             {
                 if (v is null)
                 {
@@ -1892,14 +1832,14 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> v;
                 int v_lenx = istr.readAndCheckSeqSize(2);
-                v = new global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?>();
+                v = new global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?>();
                 for (int ix = 0; ix < v_lenx; ++ix)
                 {
-                    global::Ice.ObjectPrx? val = istr.readProxy();
+                    Ice.ObjectPrx? val = istr.readProxy();
                     v.AddLast(val);
                 }
                 return v;
@@ -1909,7 +1849,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QObjectPrxSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> v)
             {
                 if (v is null)
                 {
@@ -1926,14 +1866,14 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> v;
                 int v_lenx = istr.readAndCheckSeqSize(2);
-                v = new global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?>(v_lenx);
+                v = new global::System.Collections.Generic.Queue<Ice.ObjectPrx?>(v_lenx);
                 for (int ix = 0; ix < v_lenx; ++ix)
                 {
-                    global::Ice.ObjectPrx? val = istr.readProxy();
+                    Ice.ObjectPrx? val = istr.readProxy();
                     v.Enqueue(val);
                 }
                 return v;
@@ -1943,7 +1883,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SObjectPrxSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> v)
             {
                 if (v is null)
                 {
@@ -1952,19 +1892,19 @@ namespace Ice.seqMapping.AMD
                 else
                 {
                     ostr.writeSize(v.Count);
-                    global::Ice.ObjectPrx?[] v_tmp = v.ToArray();
-                    for(int ix = 0; ix < v_tmp.Length; ++ix)
+                    Ice.ObjectPrx?[] v_tmp = v.ToArray();
+                    for (int ix = 0; ix < v_tmp.Length; ++ix)
                     {
                         ostr.writeProxy(v_tmp[ix]);
                     }
                 }
             }
 
-            public static global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> v;
                 int v_lenx = istr.readAndCheckSeqSize(2);
-                global::Ice.ObjectPrx?[] v_tmp = new global::Ice.ObjectPrx?[v_lenx];
+                Ice.ObjectPrx?[] v_tmp = new Ice.ObjectPrx?[v_lenx];
                 for (int ix = 0; ix < v_lenx; ++ix)
                 {
                     v_tmp[ix] = istr.readProxy();
@@ -1978,7 +1918,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AStructSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, S[] v)
+            public static void write(Ice.OutputStream ostr, S[] v)
             {
                 if (v is null)
                 {
@@ -1994,7 +1934,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static S[] read(global::Ice.InputStream istr)
+            public static S[] read(Ice.InputStream istr)
             {
                 S[] v;
                 {
@@ -2012,7 +1952,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LStructSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<S> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<S> v)
             {
                 if (v is null)
                 {
@@ -2028,7 +1968,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.List<S> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<S> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<S> v;
                 {
@@ -2047,7 +1987,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KStructSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<S> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<S> v)
             {
                 if (v is null)
                 {
@@ -2064,7 +2004,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.LinkedList<S> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<S> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<S> v;
                 {
@@ -2083,7 +2023,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QStructSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<S> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<S> v)
             {
                 if (v is null)
                 {
@@ -2100,7 +2040,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.Queue<S> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<S> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<S> v;
                 {
@@ -2119,7 +2059,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SStructSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<S> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<S> v)
             {
                 if (v is null)
                 {
@@ -2136,7 +2076,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.Stack<S> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<S> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<S> v;
                 {
@@ -2156,7 +2096,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AStructSDHelper
         {
-            public static void write(global::Ice.OutputStream ostr, SD[] v)
+            public static void write(Ice.OutputStream ostr, SD[] v)
             {
                 if (v is null)
                 {
@@ -2172,7 +2112,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static SD[] read(global::Ice.InputStream istr)
+            public static SD[] read(Ice.InputStream istr)
             {
                 SD[] v;
                 {
@@ -2190,7 +2130,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LStructSDHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<SD> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<SD> v)
             {
                 if (v is null)
                 {
@@ -2206,7 +2146,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.List<SD> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<SD> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<SD> v;
                 {
@@ -2225,7 +2165,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KStructSDHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<SD> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<SD> v)
             {
                 if (v is null)
                 {
@@ -2242,7 +2182,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.LinkedList<SD> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<SD> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<SD> v;
                 {
@@ -2261,7 +2201,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QStructSDHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<SD> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<SD> v)
             {
                 if (v is null)
                 {
@@ -2278,7 +2218,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.Queue<SD> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<SD> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<SD> v;
                 {
@@ -2297,7 +2237,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SStructSDHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<SD> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<SD> v)
             {
                 if (v is null)
                 {
@@ -2314,7 +2254,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.Stack<SD> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<SD> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<SD> v;
                 {
@@ -2334,7 +2274,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ACVSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, CV?[] v)
+            public static void write(Ice.OutputStream ostr, CV?[] v)
             {
                 if (v is null)
                 {
@@ -2350,7 +2290,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static CV?[] read(global::Ice.InputStream istr)
+            public static CV?[] read(Ice.InputStream istr)
             {
                 CV?[] v;
                 {
@@ -2358,7 +2298,7 @@ namespace Ice.seqMapping.AMD
                     v = new CV?[szx];
                     for (int ix = 0; ix < szx; ++ix)
                     {
-                        istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<CV>(v, ix));
+                        istr.readValue(Ice.Internal.Patcher.arrayReadValue<CV>(v, ix));
                     }
                 }
                 return v;
@@ -2368,7 +2308,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LCVSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<CV?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<CV?> v)
             {
                 if (v is null)
                 {
@@ -2384,7 +2324,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.List<CV?> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<CV?> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<CV?> v;
                 {
@@ -2392,7 +2332,7 @@ namespace Ice.seqMapping.AMD
                     v = new global::System.Collections.Generic.List<CV?>(szx);
                     for (int ix = 0; ix < szx; ++ix)
                     {
-                        istr.readValue(global::Ice.Internal.Patcher.listReadValue<CV>(v, ix));
+                        istr.readValue(Ice.Internal.Patcher.listReadValue<CV>(v, ix));
                     }
                 }
                 return v;
@@ -2401,22 +2341,16 @@ namespace Ice.seqMapping.AMD
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class IPrxHelper : global::Ice.ObjectPrxHelperBase, IPrx
+        public sealed class IPrxHelper : Ice.ObjectPrxHelperBase, IPrx
         {
             public IPrxHelper()
             {
             }
 
-            #region Async Task operations
+            public static IPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #endregion
-
-            #region Factory operations
-
-            public static IPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static IPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static IPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -2427,9 +2361,9 @@ namespace Ice.seqMapping.AMD
                 return null;
             }
 
-            public static IPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static IPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -2439,7 +2373,7 @@ namespace Ice.seqMapping.AMD
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -2447,7 +2381,7 @@ namespace Ice.seqMapping.AMD
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static IPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static IPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -2460,11 +2394,11 @@ namespace Ice.seqMapping.AMD
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static IPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static IPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new IPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -2480,18 +2414,14 @@ namespace Ice.seqMapping.AMD
 
             public static string ice_staticId() => "::Test::I";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, IPrx? v)
+            public static void write(Ice.OutputStream ostr, IPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static IPrx? read(global::Ice.InputStream istr)
+            public static IPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new IPrxHelper();
@@ -2500,14 +2430,12 @@ namespace Ice.seqMapping.AMD
                 }
                 return null;
             }
-
-            #endregion
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AIPrxSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, IPrx?[] v)
+            public static void write(Ice.OutputStream ostr, IPrx?[] v)
             {
                 if (v is null)
                 {
@@ -2523,7 +2451,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static IPrx?[] read(global::Ice.InputStream istr)
+            public static IPrx?[] read(Ice.InputStream istr)
             {
                 IPrx?[] v;
                 {
@@ -2541,7 +2469,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LIPrxSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<IPrx?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<IPrx?> v)
             {
                 if (v is null)
                 {
@@ -2557,7 +2485,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.List<IPrx?> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<IPrx?> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<IPrx?> v;
                 {
@@ -2575,7 +2503,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KIPrxSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<IPrx?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<IPrx?> v)
             {
                 if (v is null)
                 {
@@ -2592,7 +2520,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.LinkedList<IPrx?> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<IPrx?> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<IPrx?> v;
                 {
@@ -2610,7 +2538,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QIPrxSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<IPrx?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<IPrx?> v)
             {
                 if (v is null)
                 {
@@ -2627,7 +2555,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.Queue<IPrx?> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<IPrx?> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<IPrx?> v;
                 {
@@ -2645,7 +2573,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SIPrxSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<IPrx?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<IPrx?> v)
             {
                 if (v is null)
                 {
@@ -2662,7 +2590,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.Stack<IPrx?> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<IPrx?> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<IPrx?> v;
                 {
@@ -2682,7 +2610,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ACRSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, CR?[] v)
+            public static void write(Ice.OutputStream ostr, CR?[] v)
             {
                 if (v is null)
                 {
@@ -2698,7 +2626,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static CR?[] read(global::Ice.InputStream istr)
+            public static CR?[] read(Ice.InputStream istr)
             {
                 CR?[] v;
                 {
@@ -2706,7 +2634,7 @@ namespace Ice.seqMapping.AMD
                     v = new CR?[szx];
                     for (int ix = 0; ix < szx; ++ix)
                     {
-                        istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<CR>(v, ix));
+                        istr.readValue(Ice.Internal.Patcher.arrayReadValue<CR>(v, ix));
                     }
                 }
                 return v;
@@ -2716,7 +2644,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LCRSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<CR?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<CR?> v)
             {
                 if (v is null)
                 {
@@ -2732,7 +2660,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.List<CR?> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<CR?> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<CR?> v;
                 {
@@ -2740,7 +2668,7 @@ namespace Ice.seqMapping.AMD
                     v = new global::System.Collections.Generic.List<CR?>(szx);
                     for (int ix = 0; ix < szx; ++ix)
                     {
-                        istr.readValue(global::Ice.Internal.Patcher.listReadValue<CR>(v, ix));
+                        istr.readValue(Ice.Internal.Patcher.listReadValue<CR>(v, ix));
                     }
                 }
                 return v;
@@ -2750,7 +2678,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AEnSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, En[] v)
+            public static void write(Ice.OutputStream ostr, En[] v)
             {
                 if (v is null)
                 {
@@ -2766,7 +2694,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static En[] read(global::Ice.InputStream istr)
+            public static En[] read(Ice.InputStream istr)
             {
                 En[] v;
                 {
@@ -2784,7 +2712,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LEnSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<En> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<En> v)
             {
                 if (v is null)
                 {
@@ -2800,7 +2728,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.List<En> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<En> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.List<En> v;
                 {
@@ -2818,7 +2746,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KEnSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<En> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<En> v)
             {
                 if (v is null)
                 {
@@ -2835,7 +2763,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.LinkedList<En> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<En> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.LinkedList<En> v;
                 {
@@ -2853,7 +2781,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QEnSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<En> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<En> v)
             {
                 if (v is null)
                 {
@@ -2870,7 +2798,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.Queue<En> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<En> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Queue<En> v;
                 {
@@ -2888,7 +2816,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SEnSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<En> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<En> v)
             {
                 if (v is null)
                 {
@@ -2905,7 +2833,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.Stack<En> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<En> read(Ice.InputStream istr)
             {
                 global::System.Collections.Generic.Stack<En> v;
                 {
@@ -2925,12 +2853,12 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CustomIntSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::Ice.seqMapping.Custom<int> v)
+            public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<int> v)
             {
                 ostr.writeIntSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static global::Ice.seqMapping.Custom<int> read(global::Ice.InputStream istr)
+            public static global::Ice.seqMapping.Custom<int> read(Ice.InputStream istr)
             {
                 global::Ice.seqMapping.Custom<int> v;
                 {
@@ -2948,7 +2876,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CustomCVSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::Ice.seqMapping.Custom<CV?> v)
+            public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<CV?> v)
             {
                 if (v is null)
                 {
@@ -2965,7 +2893,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::Ice.seqMapping.Custom<CV?> read(global::Ice.InputStream istr)
+            public static global::Ice.seqMapping.Custom<CV?> read(Ice.InputStream istr)
             {
                 global::Ice.seqMapping.Custom<CV?> v;
                 {
@@ -2973,7 +2901,7 @@ namespace Ice.seqMapping.AMD
                     v = new global::Ice.seqMapping.Custom<CV?>();
                     for (int ix = 0; ix < szx; ++ix)
                     {
-                        istr.readValue(global::Ice.Internal.Patcher.customSeqReadValue<CV>(v, ix));
+                        istr.readValue(Ice.Internal.Patcher.customSeqReadValue<CV>(v, ix));
                     }
                 }
                 return v;
@@ -2993,7 +2921,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CustomIntSSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> v)
+            public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> v)
             {
                 if (v is null)
                 {
@@ -3010,7 +2938,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> read(global::Ice.InputStream istr)
+            public static global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> read(Ice.InputStream istr)
             {
                 global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> v;
                 {
@@ -3028,7 +2956,7 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CustomCVSSHelper
         {
-            public static void write(global::Ice.OutputStream ostr, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> v)
+            public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> v)
             {
                 if (v is null)
                 {
@@ -3045,7 +2973,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> read(global::Ice.InputStream istr)
+            public static global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> read(Ice.InputStream istr)
             {
                 global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> v;
                 {
@@ -3062,13 +2990,11 @@ namespace Ice.seqMapping.AMD
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class MyClassPrxHelper : global::Ice.ObjectPrxHelperBase, MyClassPrx
+        public sealed class MyClassPrxHelper : Ice.ObjectPrxHelperBase, MyClassPrx
         {
             public MyClassPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -4132,10 +4058,6 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_shutdownAsync(context, progress, cancel, false);
@@ -4143,20 +4065,20 @@ namespace Ice.seqMapping.AMD
 
             private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _shutdown_name = "shutdown";
 
-            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _shutdown_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
             }
@@ -4169,27 +4091,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> _iceI_opAByteSAsync(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAByteS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAByteSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAByteSResult>(progress, cancel);
                 _iceI_opAByteS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opAByteS_name = "opAByteS";
 
-            private void _iceI_opAByteS(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAByteS(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAByteSResult>(completed);
                 outAsync.invoke(
                     _opAByteS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         AByteSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpAByteSResult();
                         ret.o = AByteSHelper.read(istr);
@@ -4206,27 +4128,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> _iceI_opLByteSAsync(global::System.Collections.Generic.List<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLByteS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLByteSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLByteSResult>(progress, cancel);
                 _iceI_opLByteS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLByteS_name = "opLByteS";
 
-            private void _iceI_opLByteS(global::System.Collections.Generic.List<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLByteS(global::System.Collections.Generic.List<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLByteSResult>(completed);
                 outAsync.invoke(
                     _opLByteS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LByteSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLByteSResult();
                         ret.o = LByteSHelper.read(istr);
@@ -4243,27 +4165,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> _iceI_opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKByteS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKByteSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKByteSResult>(progress, cancel);
                 _iceI_opKByteS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKByteS_name = "opKByteS";
 
-            private void _iceI_opKByteS(global::System.Collections.Generic.LinkedList<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKByteS(global::System.Collections.Generic.LinkedList<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKByteSResult>(completed);
                 outAsync.invoke(
                     _opKByteS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KByteSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKByteSResult();
                         ret.o = KByteSHelper.read(istr);
@@ -4280,27 +4202,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> _iceI_opQByteSAsync(global::System.Collections.Generic.Queue<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQByteS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQByteSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQByteSResult>(progress, cancel);
                 _iceI_opQByteS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQByteS_name = "opQByteS";
 
-            private void _iceI_opQByteS(global::System.Collections.Generic.Queue<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQByteS(global::System.Collections.Generic.Queue<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQByteSResult>(completed);
                 outAsync.invoke(
                     _opQByteS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QByteSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQByteSResult();
                         ret.o = QByteSHelper.read(istr);
@@ -4317,27 +4239,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> _iceI_opSByteSAsync(global::System.Collections.Generic.Stack<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSByteS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSByteSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSByteSResult>(progress, cancel);
                 _iceI_opSByteS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSByteS_name = "opSByteS";
 
-            private void _iceI_opSByteS(global::System.Collections.Generic.Stack<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSByteS(global::System.Collections.Generic.Stack<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSByteSResult>(completed);
                 outAsync.invoke(
                     _opSByteS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SByteSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSByteSResult();
                         ret.o = SByteSHelper.read(istr);
@@ -4354,27 +4276,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> _iceI_opABoolSAsync(bool[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opABoolS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpABoolSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpABoolSResult>(progress, cancel);
                 _iceI_opABoolS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opABoolS_name = "opABoolS";
 
-            private void _iceI_opABoolS(bool[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opABoolS(bool[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpABoolSResult>(completed);
                 outAsync.invoke(
                     _opABoolS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ABoolSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpABoolSResult();
                         ret.o = ABoolSHelper.read(istr);
@@ -4391,27 +4313,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> _iceI_opLBoolSAsync(global::System.Collections.Generic.List<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLBoolS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLBoolSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLBoolSResult>(progress, cancel);
                 _iceI_opLBoolS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLBoolS_name = "opLBoolS";
 
-            private void _iceI_opLBoolS(global::System.Collections.Generic.List<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLBoolS(global::System.Collections.Generic.List<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLBoolSResult>(completed);
                 outAsync.invoke(
                     _opLBoolS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LBoolSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLBoolSResult();
                         ret.o = LBoolSHelper.read(istr);
@@ -4428,27 +4350,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> _iceI_opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKBoolS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKBoolSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKBoolSResult>(progress, cancel);
                 _iceI_opKBoolS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKBoolS_name = "opKBoolS";
 
-            private void _iceI_opKBoolS(global::System.Collections.Generic.LinkedList<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKBoolS(global::System.Collections.Generic.LinkedList<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKBoolSResult>(completed);
                 outAsync.invoke(
                     _opKBoolS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KBoolSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKBoolSResult();
                         ret.o = KBoolSHelper.read(istr);
@@ -4465,27 +4387,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> _iceI_opQBoolSAsync(global::System.Collections.Generic.Queue<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQBoolS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQBoolSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQBoolSResult>(progress, cancel);
                 _iceI_opQBoolS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQBoolS_name = "opQBoolS";
 
-            private void _iceI_opQBoolS(global::System.Collections.Generic.Queue<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQBoolS(global::System.Collections.Generic.Queue<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQBoolSResult>(completed);
                 outAsync.invoke(
                     _opQBoolS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QBoolSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQBoolSResult();
                         ret.o = QBoolSHelper.read(istr);
@@ -4502,27 +4424,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> _iceI_opSBoolSAsync(global::System.Collections.Generic.Stack<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSBoolS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSBoolSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSBoolSResult>(progress, cancel);
                 _iceI_opSBoolS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSBoolS_name = "opSBoolS";
 
-            private void _iceI_opSBoolS(global::System.Collections.Generic.Stack<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSBoolS(global::System.Collections.Generic.Stack<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSBoolSResult>(completed);
                 outAsync.invoke(
                     _opSBoolS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SBoolSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSBoolSResult();
                         ret.o = SBoolSHelper.read(istr);
@@ -4539,27 +4461,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> _iceI_opAShortSAsync(short[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAShortS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAShortSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAShortSResult>(progress, cancel);
                 _iceI_opAShortS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opAShortS_name = "opAShortS";
 
-            private void _iceI_opAShortS(short[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAShortS(short[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAShortSResult>(completed);
                 outAsync.invoke(
                     _opAShortS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         AShortSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpAShortSResult();
                         ret.o = AShortSHelper.read(istr);
@@ -4576,27 +4498,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> _iceI_opLShortSAsync(global::System.Collections.Generic.List<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLShortS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLShortSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLShortSResult>(progress, cancel);
                 _iceI_opLShortS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLShortS_name = "opLShortS";
 
-            private void _iceI_opLShortS(global::System.Collections.Generic.List<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLShortS(global::System.Collections.Generic.List<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLShortSResult>(completed);
                 outAsync.invoke(
                     _opLShortS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LShortSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLShortSResult();
                         ret.o = LShortSHelper.read(istr);
@@ -4613,27 +4535,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> _iceI_opKShortSAsync(global::System.Collections.Generic.LinkedList<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKShortS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKShortSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKShortSResult>(progress, cancel);
                 _iceI_opKShortS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKShortS_name = "opKShortS";
 
-            private void _iceI_opKShortS(global::System.Collections.Generic.LinkedList<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKShortS(global::System.Collections.Generic.LinkedList<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKShortSResult>(completed);
                 outAsync.invoke(
                     _opKShortS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KShortSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKShortSResult();
                         ret.o = KShortSHelper.read(istr);
@@ -4650,27 +4572,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> _iceI_opQShortSAsync(global::System.Collections.Generic.Queue<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQShortS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQShortSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQShortSResult>(progress, cancel);
                 _iceI_opQShortS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQShortS_name = "opQShortS";
 
-            private void _iceI_opQShortS(global::System.Collections.Generic.Queue<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQShortS(global::System.Collections.Generic.Queue<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQShortSResult>(completed);
                 outAsync.invoke(
                     _opQShortS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QShortSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQShortSResult();
                         ret.o = QShortSHelper.read(istr);
@@ -4687,27 +4609,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> _iceI_opSShortSAsync(global::System.Collections.Generic.Stack<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSShortS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSShortSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSShortSResult>(progress, cancel);
                 _iceI_opSShortS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSShortS_name = "opSShortS";
 
-            private void _iceI_opSShortS(global::System.Collections.Generic.Stack<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSShortS(global::System.Collections.Generic.Stack<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSShortSResult>(completed);
                 outAsync.invoke(
                     _opSShortS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SShortSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSShortSResult();
                         ret.o = SShortSHelper.read(istr);
@@ -4724,27 +4646,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> _iceI_opAIntSAsync(int[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAIntS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAIntSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAIntSResult>(progress, cancel);
                 _iceI_opAIntS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opAIntS_name = "opAIntS";
 
-            private void _iceI_opAIntS(int[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAIntS(int[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAIntSResult>(completed);
                 outAsync.invoke(
                     _opAIntS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         AIntSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpAIntSResult();
                         ret.o = AIntSHelper.read(istr);
@@ -4761,27 +4683,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> _iceI_opLIntSAsync(global::System.Collections.Generic.List<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLIntS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLIntSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLIntSResult>(progress, cancel);
                 _iceI_opLIntS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLIntS_name = "opLIntS";
 
-            private void _iceI_opLIntS(global::System.Collections.Generic.List<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLIntS(global::System.Collections.Generic.List<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLIntSResult>(completed);
                 outAsync.invoke(
                     _opLIntS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LIntSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLIntSResult();
                         ret.o = LIntSHelper.read(istr);
@@ -4798,27 +4720,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> _iceI_opKIntSAsync(global::System.Collections.Generic.LinkedList<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKIntS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKIntSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKIntSResult>(progress, cancel);
                 _iceI_opKIntS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKIntS_name = "opKIntS";
 
-            private void _iceI_opKIntS(global::System.Collections.Generic.LinkedList<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKIntS(global::System.Collections.Generic.LinkedList<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKIntSResult>(completed);
                 outAsync.invoke(
                     _opKIntS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KIntSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKIntSResult();
                         ret.o = KIntSHelper.read(istr);
@@ -4835,27 +4757,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> _iceI_opQIntSAsync(global::System.Collections.Generic.Queue<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQIntS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQIntSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQIntSResult>(progress, cancel);
                 _iceI_opQIntS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQIntS_name = "opQIntS";
 
-            private void _iceI_opQIntS(global::System.Collections.Generic.Queue<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQIntS(global::System.Collections.Generic.Queue<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQIntSResult>(completed);
                 outAsync.invoke(
                     _opQIntS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QIntSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQIntSResult();
                         ret.o = QIntSHelper.read(istr);
@@ -4872,27 +4794,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> _iceI_opSIntSAsync(global::System.Collections.Generic.Stack<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSIntS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSIntSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSIntSResult>(progress, cancel);
                 _iceI_opSIntS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSIntS_name = "opSIntS";
 
-            private void _iceI_opSIntS(global::System.Collections.Generic.Stack<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSIntS(global::System.Collections.Generic.Stack<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSIntSResult>(completed);
                 outAsync.invoke(
                     _opSIntS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SIntSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSIntSResult();
                         ret.o = SIntSHelper.read(istr);
@@ -4909,27 +4831,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpALongSResult> _iceI_opALongSAsync(long[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opALongS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpALongSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpALongSResult>(progress, cancel);
                 _iceI_opALongS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opALongS_name = "opALongS";
 
-            private void _iceI_opALongS(long[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opALongS(long[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpALongSResult>(completed);
                 outAsync.invoke(
                     _opALongS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ALongSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpALongSResult();
                         ret.o = ALongSHelper.read(istr);
@@ -4946,27 +4868,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> _iceI_opLLongSAsync(global::System.Collections.Generic.List<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLLongS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLLongSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLLongSResult>(progress, cancel);
                 _iceI_opLLongS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLLongS_name = "opLLongS";
 
-            private void _iceI_opLLongS(global::System.Collections.Generic.List<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLLongS(global::System.Collections.Generic.List<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLLongSResult>(completed);
                 outAsync.invoke(
                     _opLLongS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LLongSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLLongSResult();
                         ret.o = LLongSHelper.read(istr);
@@ -4983,27 +4905,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> _iceI_opKLongSAsync(global::System.Collections.Generic.LinkedList<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKLongS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKLongSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKLongSResult>(progress, cancel);
                 _iceI_opKLongS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKLongS_name = "opKLongS";
 
-            private void _iceI_opKLongS(global::System.Collections.Generic.LinkedList<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKLongS(global::System.Collections.Generic.LinkedList<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKLongSResult>(completed);
                 outAsync.invoke(
                     _opKLongS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KLongSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKLongSResult();
                         ret.o = KLongSHelper.read(istr);
@@ -5020,27 +4942,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> _iceI_opQLongSAsync(global::System.Collections.Generic.Queue<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQLongS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQLongSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQLongSResult>(progress, cancel);
                 _iceI_opQLongS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQLongS_name = "opQLongS";
 
-            private void _iceI_opQLongS(global::System.Collections.Generic.Queue<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQLongS(global::System.Collections.Generic.Queue<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQLongSResult>(completed);
                 outAsync.invoke(
                     _opQLongS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QLongSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQLongSResult();
                         ret.o = QLongSHelper.read(istr);
@@ -5057,27 +4979,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> _iceI_opSLongSAsync(global::System.Collections.Generic.Stack<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSLongS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSLongSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSLongSResult>(progress, cancel);
                 _iceI_opSLongS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSLongS_name = "opSLongS";
 
-            private void _iceI_opSLongS(global::System.Collections.Generic.Stack<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSLongS(global::System.Collections.Generic.Stack<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSLongSResult>(completed);
                 outAsync.invoke(
                     _opSLongS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SLongSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSLongSResult();
                         ret.o = SLongSHelper.read(istr);
@@ -5094,27 +5016,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> _iceI_opAFloatSAsync(float[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAFloatS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAFloatSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAFloatSResult>(progress, cancel);
                 _iceI_opAFloatS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opAFloatS_name = "opAFloatS";
 
-            private void _iceI_opAFloatS(float[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAFloatS(float[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAFloatSResult>(completed);
                 outAsync.invoke(
                     _opAFloatS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         AFloatSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpAFloatSResult();
                         ret.o = AFloatSHelper.read(istr);
@@ -5131,27 +5053,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> _iceI_opLFloatSAsync(global::System.Collections.Generic.List<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLFloatS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLFloatSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLFloatSResult>(progress, cancel);
                 _iceI_opLFloatS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLFloatS_name = "opLFloatS";
 
-            private void _iceI_opLFloatS(global::System.Collections.Generic.List<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLFloatS(global::System.Collections.Generic.List<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLFloatSResult>(completed);
                 outAsync.invoke(
                     _opLFloatS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LFloatSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLFloatSResult();
                         ret.o = LFloatSHelper.read(istr);
@@ -5168,27 +5090,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> _iceI_opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKFloatS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKFloatSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKFloatSResult>(progress, cancel);
                 _iceI_opKFloatS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKFloatS_name = "opKFloatS";
 
-            private void _iceI_opKFloatS(global::System.Collections.Generic.LinkedList<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKFloatS(global::System.Collections.Generic.LinkedList<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKFloatSResult>(completed);
                 outAsync.invoke(
                     _opKFloatS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KFloatSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKFloatSResult();
                         ret.o = KFloatSHelper.read(istr);
@@ -5205,27 +5127,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> _iceI_opQFloatSAsync(global::System.Collections.Generic.Queue<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQFloatS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQFloatSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQFloatSResult>(progress, cancel);
                 _iceI_opQFloatS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQFloatS_name = "opQFloatS";
 
-            private void _iceI_opQFloatS(global::System.Collections.Generic.Queue<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQFloatS(global::System.Collections.Generic.Queue<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQFloatSResult>(completed);
                 outAsync.invoke(
                     _opQFloatS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QFloatSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQFloatSResult();
                         ret.o = QFloatSHelper.read(istr);
@@ -5242,27 +5164,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> _iceI_opSFloatSAsync(global::System.Collections.Generic.Stack<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSFloatS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSFloatSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSFloatSResult>(progress, cancel);
                 _iceI_opSFloatS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSFloatS_name = "opSFloatS";
 
-            private void _iceI_opSFloatS(global::System.Collections.Generic.Stack<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSFloatS(global::System.Collections.Generic.Stack<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSFloatSResult>(completed);
                 outAsync.invoke(
                     _opSFloatS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SFloatSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSFloatSResult();
                         ret.o = SFloatSHelper.read(istr);
@@ -5279,27 +5201,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> _iceI_opADoubleSAsync(double[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opADoubleS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpADoubleSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpADoubleSResult>(progress, cancel);
                 _iceI_opADoubleS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opADoubleS_name = "opADoubleS";
 
-            private void _iceI_opADoubleS(double[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opADoubleS(double[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpADoubleSResult>(completed);
                 outAsync.invoke(
                     _opADoubleS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ADoubleSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpADoubleSResult();
                         ret.o = ADoubleSHelper.read(istr);
@@ -5316,27 +5238,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> _iceI_opLDoubleSAsync(global::System.Collections.Generic.List<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLDoubleS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLDoubleSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLDoubleSResult>(progress, cancel);
                 _iceI_opLDoubleS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLDoubleS_name = "opLDoubleS";
 
-            private void _iceI_opLDoubleS(global::System.Collections.Generic.List<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLDoubleS(global::System.Collections.Generic.List<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLDoubleSResult>(completed);
                 outAsync.invoke(
                     _opLDoubleS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LDoubleSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLDoubleSResult();
                         ret.o = LDoubleSHelper.read(istr);
@@ -5353,27 +5275,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> _iceI_opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKDoubleS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKDoubleSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKDoubleSResult>(progress, cancel);
                 _iceI_opKDoubleS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKDoubleS_name = "opKDoubleS";
 
-            private void _iceI_opKDoubleS(global::System.Collections.Generic.LinkedList<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKDoubleS(global::System.Collections.Generic.LinkedList<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKDoubleSResult>(completed);
                 outAsync.invoke(
                     _opKDoubleS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KDoubleSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKDoubleSResult();
                         ret.o = KDoubleSHelper.read(istr);
@@ -5390,27 +5312,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> _iceI_opQDoubleSAsync(global::System.Collections.Generic.Queue<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQDoubleS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQDoubleSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQDoubleSResult>(progress, cancel);
                 _iceI_opQDoubleS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQDoubleS_name = "opQDoubleS";
 
-            private void _iceI_opQDoubleS(global::System.Collections.Generic.Queue<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQDoubleS(global::System.Collections.Generic.Queue<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQDoubleSResult>(completed);
                 outAsync.invoke(
                     _opQDoubleS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QDoubleSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQDoubleSResult();
                         ret.o = QDoubleSHelper.read(istr);
@@ -5427,27 +5349,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> _iceI_opSDoubleSAsync(global::System.Collections.Generic.Stack<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSDoubleS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSDoubleSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSDoubleSResult>(progress, cancel);
                 _iceI_opSDoubleS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSDoubleS_name = "opSDoubleS";
 
-            private void _iceI_opSDoubleS(global::System.Collections.Generic.Stack<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSDoubleS(global::System.Collections.Generic.Stack<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSDoubleSResult>(completed);
                 outAsync.invoke(
                     _opSDoubleS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SDoubleSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSDoubleSResult();
                         ret.o = SDoubleSHelper.read(istr);
@@ -5464,27 +5386,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> _iceI_opAStringSAsync(string[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAStringS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAStringSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAStringSResult>(progress, cancel);
                 _iceI_opAStringS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opAStringS_name = "opAStringS";
 
-            private void _iceI_opAStringS(string[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAStringS(string[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAStringSResult>(completed);
                 outAsync.invoke(
                     _opAStringS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         AStringSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpAStringSResult();
                         ret.o = AStringSHelper.read(istr);
@@ -5501,27 +5423,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> _iceI_opLStringSAsync(global::System.Collections.Generic.List<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLStringS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLStringSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLStringSResult>(progress, cancel);
                 _iceI_opLStringS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLStringS_name = "opLStringS";
 
-            private void _iceI_opLStringS(global::System.Collections.Generic.List<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLStringS(global::System.Collections.Generic.List<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLStringSResult>(completed);
                 outAsync.invoke(
                     _opLStringS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LStringSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLStringSResult();
                         ret.o = LStringSHelper.read(istr);
@@ -5538,27 +5460,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> _iceI_opKStringSAsync(global::System.Collections.Generic.LinkedList<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKStringS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKStringSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKStringSResult>(progress, cancel);
                 _iceI_opKStringS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKStringS_name = "opKStringS";
 
-            private void _iceI_opKStringS(global::System.Collections.Generic.LinkedList<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKStringS(global::System.Collections.Generic.LinkedList<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKStringSResult>(completed);
                 outAsync.invoke(
                     _opKStringS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KStringSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKStringSResult();
                         ret.o = KStringSHelper.read(istr);
@@ -5575,27 +5497,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> _iceI_opQStringSAsync(global::System.Collections.Generic.Queue<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQStringS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQStringSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQStringSResult>(progress, cancel);
                 _iceI_opQStringS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQStringS_name = "opQStringS";
 
-            private void _iceI_opQStringS(global::System.Collections.Generic.Queue<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQStringS(global::System.Collections.Generic.Queue<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQStringSResult>(completed);
                 outAsync.invoke(
                     _opQStringS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QStringSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQStringSResult();
                         ret.o = QStringSHelper.read(istr);
@@ -5612,27 +5534,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> _iceI_opSStringSAsync(global::System.Collections.Generic.Stack<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSStringS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSStringSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSStringSResult>(progress, cancel);
                 _iceI_opSStringS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSStringS_name = "opSStringS";
 
-            private void _iceI_opSStringS(global::System.Collections.Generic.Stack<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSStringS(global::System.Collections.Generic.Stack<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSStringSResult>(completed);
                 outAsync.invoke(
                     _opSStringS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SStringSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSStringSResult();
                         ret.o = SStringSHelper.read(istr);
@@ -5649,28 +5571,28 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> _iceI_opAObjectSAsync(global::Ice.Value?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAObjectS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAObjectSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAObjectSResult>(progress, cancel);
                 _iceI_opAObjectS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opAObjectS_name = "opAObjectS";
 
-            private void _iceI_opAObjectS(global::Ice.Value?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAObjectS(global::Ice.Value?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAObjectSResult>(completed);
                 outAsync.invoke(
                     _opAObjectS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         AObjectSHelper.write(ostr, iceP_i);
                         ostr.writePendingValues();
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpAObjectSResult();
                         ret.o = AObjectSHelper.read(istr);
@@ -5688,28 +5610,28 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> _iceI_opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLObjectS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLObjectSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLObjectSResult>(progress, cancel);
                 _iceI_opLObjectS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLObjectS_name = "opLObjectS";
 
-            private void _iceI_opLObjectS(global::System.Collections.Generic.List<global::Ice.Value?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLObjectS(global::System.Collections.Generic.List<global::Ice.Value?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLObjectSResult>(completed);
                 outAsync.invoke(
                     _opLObjectS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LObjectSHelper.write(ostr, iceP_i);
                         ostr.writePendingValues();
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLObjectSResult();
                         ret.o = LObjectSHelper.read(istr);
@@ -5727,27 +5649,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> _iceI_opAObjectPrxSAsync(global::Ice.ObjectPrx?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAObjectPrxS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAObjectPrxSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAObjectPrxSResult>(progress, cancel);
                 _iceI_opAObjectPrxS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opAObjectPrxS_name = "opAObjectPrxS";
 
-            private void _iceI_opAObjectPrxS(global::Ice.ObjectPrx?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAObjectPrxS(global::Ice.ObjectPrx?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAObjectPrxSResult>(completed);
                 outAsync.invoke(
                     _opAObjectPrxS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         AObjectPrxSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpAObjectPrxSResult();
                         ret.o = AObjectPrxSHelper.read(istr);
@@ -5764,27 +5686,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> _iceI_opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLObjectPrxS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLObjectPrxSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLObjectPrxSResult>(progress, cancel);
                 _iceI_opLObjectPrxS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLObjectPrxS_name = "opLObjectPrxS";
 
-            private void _iceI_opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLObjectPrxSResult>(completed);
                 outAsync.invoke(
                     _opLObjectPrxS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LObjectPrxSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLObjectPrxSResult();
                         ret.o = LObjectPrxSHelper.read(istr);
@@ -5801,27 +5723,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> _iceI_opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKObjectPrxS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKObjectPrxSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKObjectPrxSResult>(progress, cancel);
                 _iceI_opKObjectPrxS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKObjectPrxS_name = "opKObjectPrxS";
 
-            private void _iceI_opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKObjectPrxSResult>(completed);
                 outAsync.invoke(
                     _opKObjectPrxS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KObjectPrxSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKObjectPrxSResult();
                         ret.o = KObjectPrxSHelper.read(istr);
@@ -5838,27 +5760,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> _iceI_opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQObjectPrxS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQObjectPrxSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQObjectPrxSResult>(progress, cancel);
                 _iceI_opQObjectPrxS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQObjectPrxS_name = "opQObjectPrxS";
 
-            private void _iceI_opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQObjectPrxSResult>(completed);
                 outAsync.invoke(
                     _opQObjectPrxS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QObjectPrxSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQObjectPrxSResult();
                         ret.o = QObjectPrxSHelper.read(istr);
@@ -5875,27 +5797,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> _iceI_opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSObjectPrxS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSObjectPrxSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSObjectPrxSResult>(progress, cancel);
                 _iceI_opSObjectPrxS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSObjectPrxS_name = "opSObjectPrxS";
 
-            private void _iceI_opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSObjectPrxSResult>(completed);
                 outAsync.invoke(
                     _opSObjectPrxS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SObjectPrxSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSObjectPrxSResult();
                         ret.o = SObjectPrxSHelper.read(istr);
@@ -5912,27 +5834,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> _iceI_opAStructSAsync(S[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAStructS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAStructSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAStructSResult>(progress, cancel);
                 _iceI_opAStructS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opAStructS_name = "opAStructS";
 
-            private void _iceI_opAStructS(S[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAStructS(S[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAStructSResult>(completed);
                 outAsync.invoke(
                     _opAStructS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         AStructSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpAStructSResult();
                         ret.o = AStructSHelper.read(istr);
@@ -5949,27 +5871,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> _iceI_opLStructSAsync(global::System.Collections.Generic.List<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLStructS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLStructSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLStructSResult>(progress, cancel);
                 _iceI_opLStructS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLStructS_name = "opLStructS";
 
-            private void _iceI_opLStructS(global::System.Collections.Generic.List<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLStructS(global::System.Collections.Generic.List<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLStructSResult>(completed);
                 outAsync.invoke(
                     _opLStructS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LStructSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLStructSResult();
                         ret.o = LStructSHelper.read(istr);
@@ -5986,27 +5908,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> _iceI_opKStructSAsync(global::System.Collections.Generic.LinkedList<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKStructS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKStructSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKStructSResult>(progress, cancel);
                 _iceI_opKStructS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKStructS_name = "opKStructS";
 
-            private void _iceI_opKStructS(global::System.Collections.Generic.LinkedList<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKStructS(global::System.Collections.Generic.LinkedList<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKStructSResult>(completed);
                 outAsync.invoke(
                     _opKStructS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KStructSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKStructSResult();
                         ret.o = KStructSHelper.read(istr);
@@ -6023,27 +5945,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> _iceI_opQStructSAsync(global::System.Collections.Generic.Queue<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQStructS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQStructSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQStructSResult>(progress, cancel);
                 _iceI_opQStructS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQStructS_name = "opQStructS";
 
-            private void _iceI_opQStructS(global::System.Collections.Generic.Queue<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQStructS(global::System.Collections.Generic.Queue<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQStructSResult>(completed);
                 outAsync.invoke(
                     _opQStructS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QStructSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQStructSResult();
                         ret.o = QStructSHelper.read(istr);
@@ -6060,27 +5982,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> _iceI_opSStructSAsync(global::System.Collections.Generic.Stack<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSStructS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSStructSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSStructSResult>(progress, cancel);
                 _iceI_opSStructS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSStructS_name = "opSStructS";
 
-            private void _iceI_opSStructS(global::System.Collections.Generic.Stack<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSStructS(global::System.Collections.Generic.Stack<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSStructSResult>(completed);
                 outAsync.invoke(
                     _opSStructS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SStructSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSStructSResult();
                         ret.o = SStructSHelper.read(istr);
@@ -6097,27 +6019,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> _iceI_opAStructSDAsync(SD[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAStructSD_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAStructSDResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAStructSDResult>(progress, cancel);
                 _iceI_opAStructSD(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opAStructSD_name = "opAStructSD";
 
-            private void _iceI_opAStructSD(SD[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAStructSD(SD[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAStructSDResult>(completed);
                 outAsync.invoke(
                     _opAStructSD_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         AStructSDHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpAStructSDResult();
                         ret.o = AStructSDHelper.read(istr);
@@ -6134,27 +6056,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> _iceI_opLStructSDAsync(global::System.Collections.Generic.List<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLStructSD_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLStructSDResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLStructSDResult>(progress, cancel);
                 _iceI_opLStructSD(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLStructSD_name = "opLStructSD";
 
-            private void _iceI_opLStructSD(global::System.Collections.Generic.List<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLStructSD(global::System.Collections.Generic.List<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLStructSDResult>(completed);
                 outAsync.invoke(
                     _opLStructSD_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LStructSDHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLStructSDResult();
                         ret.o = LStructSDHelper.read(istr);
@@ -6171,27 +6093,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> _iceI_opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKStructSD_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKStructSDResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKStructSDResult>(progress, cancel);
                 _iceI_opKStructSD(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKStructSD_name = "opKStructSD";
 
-            private void _iceI_opKStructSD(global::System.Collections.Generic.LinkedList<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKStructSD(global::System.Collections.Generic.LinkedList<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKStructSDResult>(completed);
                 outAsync.invoke(
                     _opKStructSD_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KStructSDHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKStructSDResult();
                         ret.o = KStructSDHelper.read(istr);
@@ -6208,27 +6130,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> _iceI_opQStructSDAsync(global::System.Collections.Generic.Queue<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQStructSD_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQStructSDResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQStructSDResult>(progress, cancel);
                 _iceI_opQStructSD(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQStructSD_name = "opQStructSD";
 
-            private void _iceI_opQStructSD(global::System.Collections.Generic.Queue<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQStructSD(global::System.Collections.Generic.Queue<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQStructSDResult>(completed);
                 outAsync.invoke(
                     _opQStructSD_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QStructSDHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQStructSDResult();
                         ret.o = QStructSDHelper.read(istr);
@@ -6245,27 +6167,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> _iceI_opSStructSDAsync(global::System.Collections.Generic.Stack<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSStructSD_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSStructSDResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSStructSDResult>(progress, cancel);
                 _iceI_opSStructSD(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSStructSD_name = "opSStructSD";
 
-            private void _iceI_opSStructSD(global::System.Collections.Generic.Stack<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSStructSD(global::System.Collections.Generic.Stack<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSStructSDResult>(completed);
                 outAsync.invoke(
                     _opSStructSD_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SStructSDHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSStructSDResult();
                         ret.o = SStructSDHelper.read(istr);
@@ -6282,28 +6204,28 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpACVSResult> _iceI_opACVSAsync(CV?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opACVS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpACVSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpACVSResult>(progress, cancel);
                 _iceI_opACVS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opACVS_name = "opACVS";
 
-            private void _iceI_opACVS(CV?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opACVS(CV?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpACVSResult>(completed);
                 outAsync.invoke(
                     _opACVS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ACVSHelper.write(ostr, iceP_i);
                         ostr.writePendingValues();
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpACVSResult();
                         ret.o = ACVSHelper.read(istr);
@@ -6321,28 +6243,28 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> _iceI_opLCVSAsync(global::System.Collections.Generic.List<CV?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLCVS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLCVSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLCVSResult>(progress, cancel);
                 _iceI_opLCVS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLCVS_name = "opLCVS";
 
-            private void _iceI_opLCVS(global::System.Collections.Generic.List<CV?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLCVS(global::System.Collections.Generic.List<CV?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLCVSResult>(completed);
                 outAsync.invoke(
                     _opLCVS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LCVSHelper.write(ostr, iceP_i);
                         ostr.writePendingValues();
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLCVSResult();
                         ret.o = LCVSHelper.read(istr);
@@ -6360,28 +6282,28 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpACRSResult> _iceI_opACRSAsync(CR?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opACRS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpACRSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpACRSResult>(progress, cancel);
                 _iceI_opACRS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opACRS_name = "opACRS";
 
-            private void _iceI_opACRS(CR?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opACRS(CR?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpACRSResult>(completed);
                 outAsync.invoke(
                     _opACRS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ACRSHelper.write(ostr, iceP_i);
                         ostr.writePendingValues();
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpACRSResult();
                         ret.o = ACRSHelper.read(istr);
@@ -6399,28 +6321,28 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> _iceI_opLCRSAsync(global::System.Collections.Generic.List<CR?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLCRS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLCRSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLCRSResult>(progress, cancel);
                 _iceI_opLCRS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLCRS_name = "opLCRS";
 
-            private void _iceI_opLCRS(global::System.Collections.Generic.List<CR?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLCRS(global::System.Collections.Generic.List<CR?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLCRSResult>(completed);
                 outAsync.invoke(
                     _opLCRS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LCRSHelper.write(ostr, iceP_i);
                         ostr.writePendingValues();
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLCRSResult();
                         ret.o = LCRSHelper.read(istr);
@@ -6438,27 +6360,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> _iceI_opAEnSAsync(En[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAEnS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAEnSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAEnSResult>(progress, cancel);
                 _iceI_opAEnS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opAEnS_name = "opAEnS";
 
-            private void _iceI_opAEnS(En[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAEnS(En[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAEnSResult>(completed);
                 outAsync.invoke(
                     _opAEnS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         AEnSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpAEnSResult();
                         ret.o = AEnSHelper.read(istr);
@@ -6475,27 +6397,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> _iceI_opLEnSAsync(global::System.Collections.Generic.List<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLEnS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLEnSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLEnSResult>(progress, cancel);
                 _iceI_opLEnS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLEnS_name = "opLEnS";
 
-            private void _iceI_opLEnS(global::System.Collections.Generic.List<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLEnS(global::System.Collections.Generic.List<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLEnSResult>(completed);
                 outAsync.invoke(
                     _opLEnS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LEnSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLEnSResult();
                         ret.o = LEnSHelper.read(istr);
@@ -6512,27 +6434,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> _iceI_opKEnSAsync(global::System.Collections.Generic.LinkedList<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKEnS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKEnSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKEnSResult>(progress, cancel);
                 _iceI_opKEnS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKEnS_name = "opKEnS";
 
-            private void _iceI_opKEnS(global::System.Collections.Generic.LinkedList<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKEnS(global::System.Collections.Generic.LinkedList<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKEnSResult>(completed);
                 outAsync.invoke(
                     _opKEnS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KEnSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKEnSResult();
                         ret.o = KEnSHelper.read(istr);
@@ -6549,27 +6471,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> _iceI_opQEnSAsync(global::System.Collections.Generic.Queue<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQEnS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQEnSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQEnSResult>(progress, cancel);
                 _iceI_opQEnS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQEnS_name = "opQEnS";
 
-            private void _iceI_opQEnS(global::System.Collections.Generic.Queue<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQEnS(global::System.Collections.Generic.Queue<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQEnSResult>(completed);
                 outAsync.invoke(
                     _opQEnS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QEnSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQEnSResult();
                         ret.o = QEnSHelper.read(istr);
@@ -6586,27 +6508,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> _iceI_opSEnSAsync(global::System.Collections.Generic.Stack<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSEnS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSEnSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSEnSResult>(progress, cancel);
                 _iceI_opSEnS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSEnS_name = "opSEnS";
 
-            private void _iceI_opSEnS(global::System.Collections.Generic.Stack<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSEnS(global::System.Collections.Generic.Stack<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSEnSResult>(completed);
                 outAsync.invoke(
                     _opSEnS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SEnSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSEnSResult();
                         ret.o = SEnSHelper.read(istr);
@@ -6623,27 +6545,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> _iceI_opAIPrxSAsync(IPrx?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAIPrxS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAIPrxSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAIPrxSResult>(progress, cancel);
                 _iceI_opAIPrxS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opAIPrxS_name = "opAIPrxS";
 
-            private void _iceI_opAIPrxS(IPrx?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAIPrxS(IPrx?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAIPrxSResult>(completed);
                 outAsync.invoke(
                     _opAIPrxS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         AIPrxSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpAIPrxSResult();
                         ret.o = AIPrxSHelper.read(istr);
@@ -6660,27 +6582,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> _iceI_opLIPrxSAsync(global::System.Collections.Generic.List<IPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLIPrxS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLIPrxSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLIPrxSResult>(progress, cancel);
                 _iceI_opLIPrxS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opLIPrxS_name = "opLIPrxS";
 
-            private void _iceI_opLIPrxS(global::System.Collections.Generic.List<IPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLIPrxS(global::System.Collections.Generic.List<IPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLIPrxSResult>(completed);
                 outAsync.invoke(
                     _opLIPrxS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         LIPrxSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpLIPrxSResult();
                         ret.o = LIPrxSHelper.read(istr);
@@ -6697,27 +6619,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> _iceI_opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKIPrxS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKIPrxSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKIPrxSResult>(progress, cancel);
                 _iceI_opKIPrxS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opKIPrxS_name = "opKIPrxS";
 
-            private void _iceI_opKIPrxS(global::System.Collections.Generic.LinkedList<IPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKIPrxS(global::System.Collections.Generic.LinkedList<IPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKIPrxSResult>(completed);
                 outAsync.invoke(
                     _opKIPrxS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         KIPrxSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpKIPrxSResult();
                         ret.o = KIPrxSHelper.read(istr);
@@ -6734,27 +6656,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> _iceI_opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQIPrxS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQIPrxSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQIPrxSResult>(progress, cancel);
                 _iceI_opQIPrxS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opQIPrxS_name = "opQIPrxS";
 
-            private void _iceI_opQIPrxS(global::System.Collections.Generic.Queue<IPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQIPrxS(global::System.Collections.Generic.Queue<IPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQIPrxSResult>(completed);
                 outAsync.invoke(
                     _opQIPrxS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         QIPrxSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpQIPrxSResult();
                         ret.o = QIPrxSHelper.read(istr);
@@ -6771,27 +6693,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> _iceI_opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSIPrxS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSIPrxSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSIPrxSResult>(progress, cancel);
                 _iceI_opSIPrxS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opSIPrxS_name = "opSIPrxS";
 
-            private void _iceI_opSIPrxS(global::System.Collections.Generic.Stack<IPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSIPrxS(global::System.Collections.Generic.Stack<IPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSIPrxSResult>(completed);
                 outAsync.invoke(
                     _opSIPrxS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         SIPrxSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpSIPrxSResult();
                         ret.o = SIPrxSHelper.read(istr);
@@ -6808,27 +6730,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> _iceI_opCustomIntSAsync(global::Ice.seqMapping.Custom<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opCustomIntS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpCustomIntSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpCustomIntSResult>(progress, cancel);
                 _iceI_opCustomIntS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opCustomIntS_name = "opCustomIntS";
 
-            private void _iceI_opCustomIntS(global::Ice.seqMapping.Custom<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opCustomIntS(global::Ice.seqMapping.Custom<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpCustomIntSResult>(completed);
                 outAsync.invoke(
                     _opCustomIntS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         CustomIntSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpCustomIntSResult();
                         ret.o = CustomIntSHelper.read(istr);
@@ -6845,28 +6767,28 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> _iceI_opCustomCVSAsync(global::Ice.seqMapping.Custom<CV?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opCustomCVS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpCustomCVSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpCustomCVSResult>(progress, cancel);
                 _iceI_opCustomCVS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opCustomCVS_name = "opCustomCVS";
 
-            private void _iceI_opCustomCVS(global::Ice.seqMapping.Custom<CV?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opCustomCVS(global::Ice.seqMapping.Custom<CV?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpCustomCVSResult>(completed);
                 outAsync.invoke(
                     _opCustomCVS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         CustomCVSHelper.write(ostr, iceP_i);
                         ostr.writePendingValues();
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpCustomCVSResult();
                         ret.o = CustomCVSHelper.read(istr);
@@ -6884,27 +6806,27 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> _iceI_opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opCustomIntSS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpCustomIntSSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpCustomIntSSResult>(progress, cancel);
                 _iceI_opCustomIntSS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opCustomIntSS_name = "opCustomIntSS";
 
-            private void _iceI_opCustomIntSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opCustomIntSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpCustomIntSSResult>(completed);
                 outAsync.invoke(
                     _opCustomIntSS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         CustomIntSSHelper.write(ostr, iceP_i);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpCustomIntSSResult();
                         ret.o = CustomIntSSHelper.read(istr);
@@ -6921,28 +6843,28 @@ namespace Ice.seqMapping.AMD
             private global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> _iceI_opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opCustomCVSS_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpCustomCVSSResult>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpCustomCVSSResult>(progress, cancel);
                 _iceI_opCustomCVSS(iceP_i, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opCustomCVSS_name = "opCustomCVSS";
 
-            private void _iceI_opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpCustomCVSSResult>(completed);
                 outAsync.invoke(
                     _opCustomCVSS_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         CustomCVSSHelper.write(ostr, iceP_i);
                         ostr.writePendingValues();
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         var ret = new MyClass_OpCustomCVSSResult();
                         ret.o = CustomCVSSHelper.read(istr);
@@ -6952,14 +6874,10 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            #endregion
+            public static MyClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static MyClassPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static MyClassPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static MyClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -6970,9 +6888,9 @@ namespace Ice.seqMapping.AMD
                 return null;
             }
 
-            public static MyClassPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static MyClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -6982,7 +6900,7 @@ namespace Ice.seqMapping.AMD
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -6990,7 +6908,7 @@ namespace Ice.seqMapping.AMD
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static MyClassPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static MyClassPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -7003,11 +6921,11 @@ namespace Ice.seqMapping.AMD
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static MyClassPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static MyClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new MyClassPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -7023,18 +6941,14 @@ namespace Ice.seqMapping.AMD
 
             public static string ice_staticId() => "::Test::MyClass";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, MyClassPrx? v)
+            public static void write(Ice.OutputStream ostr, MyClassPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static MyClassPrx? read(global::Ice.InputStream istr)
+            public static MyClassPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new MyClassPrxHelper();
@@ -7043,8 +6957,6 @@ namespace Ice.seqMapping.AMD
                 }
                 return null;
             }
-
-            #endregion
         }
     }
 }
@@ -7055,188 +6967,174 @@ namespace Ice.seqMapping.AMD
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class IDisp_ : global::Ice.ObjectImpl, I
+        public abstract class IDisp_ : Ice.ObjectImpl, I
         {
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::I";
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class MyClassDisp_ : global::Ice.ObjectImpl, MyClass
+        public abstract class MyClassDisp_ : Ice.ObjectImpl, MyClass
         {
-            #region Slice operations
+            public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value?[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value?[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value?> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx?[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx?[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV?[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV?[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV?> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR?[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR?[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR?> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx?[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx?[] i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx?> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx?> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx?> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx?> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV?> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, global::Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::MyClass";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "shutdown" => MyClass.iceD_shutdownAsync(this, request),
@@ -7315,14 +7213,12 @@ namespace Ice.seqMapping.AMD
                     "opCustomCVS" => MyClass.iceD_opCustomCVSAsync(this, request),
                     "opCustomIntSS" => MyClass.iceD_opCustomIntSSAsync(this, request),
                     "opCustomCVSS" => MyClass.iceD_opCustomCVSSAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
     }
 }
@@ -7333,28 +7229,28 @@ namespace Ice.seqMapping.AMD
     {
         public partial interface MyClass
         {
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 await obj.shutdownAsync(request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAByteSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAByteSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 byte[] iceP_i;
                 iceP_i = AByteSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opAByteSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7364,18 +7260,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLByteSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLByteSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<byte> iceP_i;
                 iceP_i = LByteSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLByteSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7385,18 +7281,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKByteSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKByteSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<byte> iceP_i;
                 iceP_i = KByteSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKByteSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7406,18 +7302,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQByteSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQByteSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<byte> iceP_i;
                 iceP_i = QByteSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQByteSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7427,18 +7323,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSByteSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSByteSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<byte> iceP_i;
                 iceP_i = SByteSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSByteSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7448,18 +7344,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opABoolSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opABoolSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 bool[] iceP_i;
                 iceP_i = ABoolSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opABoolSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7469,18 +7365,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLBoolSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLBoolSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<bool> iceP_i;
                 iceP_i = LBoolSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLBoolSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7490,18 +7386,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKBoolSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKBoolSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<bool> iceP_i;
                 iceP_i = KBoolSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKBoolSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7511,18 +7407,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQBoolSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQBoolSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<bool> iceP_i;
                 iceP_i = QBoolSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQBoolSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7532,18 +7428,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSBoolSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSBoolSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<bool> iceP_i;
                 iceP_i = SBoolSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSBoolSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7553,18 +7449,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAShortSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAShortSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 short[] iceP_i;
                 iceP_i = AShortSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opAShortSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7574,18 +7470,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLShortSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLShortSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<short> iceP_i;
                 iceP_i = LShortSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLShortSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7595,18 +7491,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKShortSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKShortSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<short> iceP_i;
                 iceP_i = KShortSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKShortSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7616,18 +7512,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQShortSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQShortSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<short> iceP_i;
                 iceP_i = QShortSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQShortSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7637,18 +7533,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSShortSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSShortSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<short> iceP_i;
                 iceP_i = SShortSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSShortSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7658,18 +7554,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAIntSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAIntSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 int[] iceP_i;
                 iceP_i = AIntSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opAIntSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7679,18 +7575,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLIntSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLIntSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<int> iceP_i;
                 iceP_i = LIntSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLIntSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7700,18 +7596,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKIntSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKIntSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<int> iceP_i;
                 iceP_i = KIntSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKIntSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7721,18 +7617,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQIntSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQIntSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<int> iceP_i;
                 iceP_i = QIntSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQIntSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7742,18 +7638,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSIntSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSIntSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<int> iceP_i;
                 iceP_i = SIntSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSIntSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7763,18 +7659,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opALongSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opALongSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 long[] iceP_i;
                 iceP_i = ALongSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opALongSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7784,18 +7680,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLLongSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLLongSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<long> iceP_i;
                 iceP_i = LLongSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLLongSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7805,18 +7701,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKLongSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKLongSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<long> iceP_i;
                 iceP_i = KLongSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKLongSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7826,18 +7722,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQLongSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQLongSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<long> iceP_i;
                 iceP_i = QLongSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQLongSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7847,18 +7743,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSLongSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSLongSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<long> iceP_i;
                 iceP_i = SLongSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSLongSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7868,18 +7764,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAFloatSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAFloatSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 float[] iceP_i;
                 iceP_i = AFloatSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opAFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7889,18 +7785,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLFloatSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLFloatSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<float> iceP_i;
                 iceP_i = LFloatSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7910,18 +7806,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKFloatSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKFloatSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<float> iceP_i;
                 iceP_i = KFloatSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7931,18 +7827,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQFloatSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQFloatSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<float> iceP_i;
                 iceP_i = QFloatSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7952,18 +7848,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSFloatSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSFloatSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<float> iceP_i;
                 iceP_i = SFloatSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7973,18 +7869,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opADoubleSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opADoubleSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 double[] iceP_i;
                 iceP_i = ADoubleSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opADoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -7994,18 +7890,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLDoubleSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLDoubleSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<double> iceP_i;
                 iceP_i = LDoubleSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLDoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8015,18 +7911,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKDoubleSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKDoubleSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<double> iceP_i;
                 iceP_i = KDoubleSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKDoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8036,18 +7932,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQDoubleSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQDoubleSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<double> iceP_i;
                 iceP_i = QDoubleSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQDoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8057,18 +7953,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSDoubleSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSDoubleSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<double> iceP_i;
                 iceP_i = SDoubleSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSDoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8078,18 +7974,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAStringSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAStringSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 string[] iceP_i;
                 iceP_i = AStringSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opAStringSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8099,18 +7995,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLStringSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLStringSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<string> iceP_i;
                 iceP_i = LStringSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLStringSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8120,18 +8016,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKStringSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKStringSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<string> iceP_i;
                 iceP_i = KStringSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKStringSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8141,18 +8037,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQStringSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQStringSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<string> iceP_i;
                 iceP_i = QStringSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQStringSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8162,18 +8058,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSStringSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSStringSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<string> iceP_i;
                 iceP_i = SStringSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSStringSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8183,11 +8079,11 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAObjectSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAObjectSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::Ice.Value?[] iceP_i;
@@ -8195,7 +8091,7 @@ namespace Ice.seqMapping.AMD
                 istr.readPendingValues();
                 istr.endEncapsulation();
                 var result = await obj.opAObjectSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8206,11 +8102,11 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLObjectSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLObjectSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<global::Ice.Value?> iceP_i;
@@ -8218,7 +8114,7 @@ namespace Ice.seqMapping.AMD
                 istr.readPendingValues();
                 istr.endEncapsulation();
                 var result = await obj.opLObjectSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8229,18 +8125,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAObjectPrxSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAObjectPrxSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::Ice.ObjectPrx?[] iceP_i;
                 iceP_i = AObjectPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opAObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8250,18 +8146,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLObjectPrxSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLObjectPrxSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<global::Ice.ObjectPrx?> iceP_i;
                 iceP_i = LObjectPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8271,18 +8167,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKObjectPrxSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKObjectPrxSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> iceP_i;
                 iceP_i = KObjectPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8292,18 +8188,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQObjectPrxSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQObjectPrxSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> iceP_i;
                 iceP_i = QObjectPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8313,18 +8209,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSObjectPrxSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSObjectPrxSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> iceP_i;
                 iceP_i = SObjectPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8334,18 +8230,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAStructSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAStructSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 S[] iceP_i;
                 iceP_i = AStructSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opAStructSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8355,18 +8251,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLStructSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLStructSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<S> iceP_i;
                 iceP_i = LStructSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLStructSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8376,18 +8272,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKStructSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKStructSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<S> iceP_i;
                 iceP_i = KStructSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKStructSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8397,18 +8293,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQStructSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQStructSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<S> iceP_i;
                 iceP_i = QStructSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQStructSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8418,18 +8314,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSStructSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSStructSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<S> iceP_i;
                 iceP_i = SStructSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSStructSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8439,18 +8335,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAStructSDAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAStructSDAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 SD[] iceP_i;
                 iceP_i = AStructSDHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opAStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8460,18 +8356,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLStructSDAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLStructSDAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<SD> iceP_i;
                 iceP_i = LStructSDHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8481,18 +8377,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKStructSDAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKStructSDAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<SD> iceP_i;
                 iceP_i = KStructSDHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8502,18 +8398,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQStructSDAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQStructSDAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<SD> iceP_i;
                 iceP_i = QStructSDHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8523,18 +8419,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSStructSDAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSStructSDAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<SD> iceP_i;
                 iceP_i = SStructSDHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8544,11 +8440,11 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opACVSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opACVSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 CV?[] iceP_i;
@@ -8556,7 +8452,7 @@ namespace Ice.seqMapping.AMD
                 istr.readPendingValues();
                 istr.endEncapsulation();
                 var result = await obj.opACVSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8567,11 +8463,11 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLCVSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLCVSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<CV?> iceP_i;
@@ -8579,7 +8475,7 @@ namespace Ice.seqMapping.AMD
                 istr.readPendingValues();
                 istr.endEncapsulation();
                 var result = await obj.opLCVSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8590,11 +8486,11 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opACRSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opACRSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 CR?[] iceP_i;
@@ -8602,7 +8498,7 @@ namespace Ice.seqMapping.AMD
                 istr.readPendingValues();
                 istr.endEncapsulation();
                 var result = await obj.opACRSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8613,11 +8509,11 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLCRSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLCRSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<CR?> iceP_i;
@@ -8625,7 +8521,7 @@ namespace Ice.seqMapping.AMD
                 istr.readPendingValues();
                 istr.endEncapsulation();
                 var result = await obj.opLCRSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8636,18 +8532,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAEnSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAEnSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 En[] iceP_i;
                 iceP_i = AEnSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opAEnSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8657,18 +8553,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLEnSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLEnSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<En> iceP_i;
                 iceP_i = LEnSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLEnSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8678,18 +8574,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKEnSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKEnSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<En> iceP_i;
                 iceP_i = KEnSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKEnSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8699,18 +8595,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQEnSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQEnSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<En> iceP_i;
                 iceP_i = QEnSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQEnSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8720,18 +8616,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSEnSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSEnSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<En> iceP_i;
                 iceP_i = SEnSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSEnSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8741,18 +8637,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAIPrxSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAIPrxSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 IPrx?[] iceP_i;
                 iceP_i = AIPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opAIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8762,18 +8658,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLIPrxSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLIPrxSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.List<IPrx?> iceP_i;
                 iceP_i = LIPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8783,18 +8679,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opKIPrxSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKIPrxSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.LinkedList<IPrx?> iceP_i;
                 iceP_i = KIPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8804,18 +8700,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opQIPrxSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQIPrxSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Queue<IPrx?> iceP_i;
                 iceP_i = QIPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8825,18 +8721,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSIPrxSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSIPrxSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::System.Collections.Generic.Stack<IPrx?> iceP_i;
                 iceP_i = SIPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8846,18 +8742,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opCustomIntSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCustomIntSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::Ice.seqMapping.Custom<int> iceP_i;
                 iceP_i = CustomIntSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opCustomIntSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8867,11 +8763,11 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opCustomCVSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCustomCVSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::Ice.seqMapping.Custom<CV?> iceP_i;
@@ -8879,7 +8775,7 @@ namespace Ice.seqMapping.AMD
                 istr.readPendingValues();
                 istr.endEncapsulation();
                 var result = await obj.opCustomCVSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8890,18 +8786,18 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opCustomIntSSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCustomIntSSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> iceP_i;
                 iceP_i = CustomIntSSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opCustomIntSSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>
@@ -8911,11 +8807,11 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opCustomCVSSAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCustomCVSSAsync(
                 MyClass obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> iceP_i;
@@ -8923,7 +8819,7 @@ namespace Ice.seqMapping.AMD
                 istr.readPendingValues();
                 istr.endEncapsulation();
                 var result = await obj.opCustomCVSSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                return Ice.CurrentExtensions.createOutgoingResponse(
                     request.current,
                     result,
                     static (ostr, ret) =>

@@ -35,8 +35,6 @@ namespace IceMX
     [Ice.SliceTypeId("::IceMX::SessionMetrics")]
     public partial class SessionMetrics : Metrics
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int forwardedClient = 0;
 
@@ -58,11 +56,7 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int overriddenServer = 0;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SessionMetrics(string id, long total, int current, long totalLifetime, int failures, int forwardedClient, int forwardedServer, int routingTableSize, int queuedClient, int queuedServer, int overriddenClient, int overriddenServer) : base(id, total, current, totalLifetime, failures)
@@ -83,8 +77,6 @@ namespace IceMX
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceMX::SessionMetrics";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -98,10 +90,8 @@ namespace IceMX
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeInt(forwardedClient);
@@ -116,7 +106,7 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             forwardedClient = istr_.readInt();
@@ -129,7 +119,5 @@ namespace IceMX
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 }

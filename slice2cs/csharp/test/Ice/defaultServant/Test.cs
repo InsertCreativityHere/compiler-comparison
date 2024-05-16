@@ -35,10 +35,10 @@ namespace Ice.defaultServant
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::MyObject")]
-        public partial interface MyObject : global::Ice.Object
+        public partial interface MyObject : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string getName(global::Ice.Current current);
+            string getName(Ice.Current current);
         }
     }
 }
@@ -48,7 +48,7 @@ namespace Ice.defaultServant
     namespace Test
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface MyObjectPrx : global::Ice.ObjectPrx
+        public interface MyObjectPrx : Ice.ObjectPrx
         {
             string getName(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -63,13 +63,11 @@ namespace Ice.defaultServant
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class MyObjectPrxHelper : global::Ice.ObjectPrxHelperBase, MyObjectPrx
+        public sealed class MyObjectPrxHelper : Ice.ObjectPrxHelperBase, MyObjectPrx
         {
             public MyObjectPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public string getName(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -83,10 +81,6 @@ namespace Ice.defaultServant
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task<string> getNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getNameAsync(context, progress, cancel, false);
@@ -95,23 +89,23 @@ namespace Ice.defaultServant
             private global::System.Threading.Tasks.Task<string> _iceI_getNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getName_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
                 _iceI_getName(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getName_name = "getName";
 
-            private void _iceI_getName(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getName(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string>(completed);
                 outAsync.invoke(
                     _getName_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         string ret;
                         ret = istr.readString();
@@ -119,14 +113,10 @@ namespace Ice.defaultServant
                     });
             }
 
-            #endregion
+            public static MyObjectPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static MyObjectPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static MyObjectPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static MyObjectPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -137,9 +127,9 @@ namespace Ice.defaultServant
                 return null;
             }
 
-            public static MyObjectPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static MyObjectPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -149,7 +139,7 @@ namespace Ice.defaultServant
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -157,7 +147,7 @@ namespace Ice.defaultServant
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static MyObjectPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static MyObjectPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -170,11 +160,11 @@ namespace Ice.defaultServant
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static MyObjectPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static MyObjectPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new MyObjectPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -190,18 +180,14 @@ namespace Ice.defaultServant
 
             public static string ice_staticId() => "::Test::MyObject";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, MyObjectPrx? v)
+            public static void write(Ice.OutputStream ostr, MyObjectPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static MyObjectPrx? read(global::Ice.InputStream istr)
+            public static MyObjectPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new MyObjectPrxHelper();
@@ -210,8 +196,6 @@ namespace Ice.defaultServant
                 }
                 return null;
             }
-
-            #endregion
         }
     }
 }
@@ -222,36 +206,24 @@ namespace Ice.defaultServant
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class MyObjectDisp_ : global::Ice.ObjectImpl, MyObject
+        public abstract class MyObjectDisp_ : Ice.ObjectImpl, MyObject
         {
-            #region Slice operations
+            public abstract string getName(Ice.Current current);
 
-            public abstract string getName(global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::MyObject";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "getName" => MyObject.iceD_getNameAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
     }
 }
@@ -262,18 +234,18 @@ namespace Ice.defaultServant
     {
         public partial interface MyObject
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getNameAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNameAsync(
                 MyObject obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getName(request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
         }
     }

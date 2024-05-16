@@ -37,19 +37,13 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class AllData : global::System.IEquatable<AllData>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, global::IceStormElection.LogUpdate> llus;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> subscribers;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AllData(global::System.Collections.Generic.Dictionary<string, global::IceStormElection.LogUpdate> llus, global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> subscribers)
@@ -60,23 +54,15 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllData(global::Ice.InputStream istr)
+        public AllData(Ice.InputStream istr)
         {
             this.llus = global::IceStormElection.StringLogUpdateDictHelper.read(istr);
             this.subscribers = SubscriberRecordDictHelper.read(istr);
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AllData Clone() => (AllData)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -102,37 +88,27 @@ namespace IceStorm
                 Ice.UtilInternal.Collections.DictionaryEquals(this.subscribers, other.subscribers);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(AllData? lhs, AllData? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(AllData? lhs, AllData? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             global::IceStormElection.StringLogUpdateDictHelper.write(ostr, this.llus);
             SubscriberRecordDictHelper.write(ostr, this.subscribers);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, AllData v)
+        public static void ice_write(Ice.OutputStream ostr, AllData v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static AllData ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static AllData ice_read(Ice.InputStream istr) => new(istr);
     }
 }
 
@@ -141,7 +117,7 @@ namespace IceStormElection
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class StringLogUpdateDictHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<string, LogUpdate> v)
         {
             if(v == null)
@@ -159,7 +135,7 @@ namespace IceStormElection
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, LogUpdate> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, LogUpdate> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<string, LogUpdate> r = new global::System.Collections.Generic.Dictionary<string, LogUpdate>();
@@ -181,7 +157,7 @@ namespace IceStorm
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class SubscriberRecordDictHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> v)
         {
             if(v == null)
@@ -199,7 +175,7 @@ namespace IceStorm
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> r = new global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord>();

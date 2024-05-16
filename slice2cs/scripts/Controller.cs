@@ -35,10 +35,8 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::Config")]
-        public partial class Config : global::Ice.Value
+        public partial class Config : Ice.Value
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string? protocol;
 
@@ -60,11 +58,7 @@ namespace Test
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string[]? sprops;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Config(string? protocol, bool? mx, bool? serialize, bool? compress, bool? ipv6, string[]? cprops, string[]? sprops)
@@ -85,8 +79,6 @@ namespace Test
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::Test::Common::Config";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -100,10 +92,8 @@ namespace Test
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
                 ostr_.writeString(1, protocol);
@@ -117,7 +107,7 @@ namespace Test
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 protocol = istr_.readString(1);
@@ -125,7 +115,7 @@ namespace Test
                 serialize = istr_.readBool(3);
                 compress = istr_.readBool(4);
                 ipv6 = istr_.readBool(5);
-                if (istr_.readOptional(6, global::Ice.OptionalFormat.FSize))
+                if (istr_.readOptional(6, Ice.OptionalFormat.FSize))
                 {
                     istr_.skip(4);
                     string[] tmpVal;
@@ -136,7 +126,7 @@ namespace Test
                 {
                     cprops = null;
                 }
-                if (istr_.readOptional(7, global::Ice.OptionalFormat.FSize))
+                if (istr_.readOptional(7, Ice.OptionalFormat.FSize))
                 {
                     istr_.skip(4);
                     string[] tmpVal;
@@ -149,8 +139,6 @@ namespace Test
                 }
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -165,10 +153,8 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::OptionOverrides")]
-        public partial class OptionOverrides : global::Ice.Value
+        public partial class OptionOverrides : Ice.Value
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string[]? protocol;
 
@@ -184,11 +170,7 @@ namespace Test
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool[]? ipv6;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public OptionOverrides(string[]? protocol, bool[]? mx, bool[]? serialize, bool[]? compress, bool[]? ipv6)
@@ -207,8 +189,6 @@ namespace Test
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::Test::Common::OptionOverrides";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -222,10 +202,8 @@ namespace Test
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
                 ostr_.writeStringSeq(1, protocol);
@@ -237,10 +215,10 @@ namespace Test
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
-                if (istr_.readOptional(1, global::Ice.OptionalFormat.FSize))
+                if (istr_.readOptional(1, Ice.OptionalFormat.FSize))
                 {
                     istr_.skip(4);
                     string[] tmpVal;
@@ -251,7 +229,7 @@ namespace Test
                 {
                     protocol = null;
                 }
-                if (istr_.readOptional(2, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(2, Ice.OptionalFormat.VSize))
                 {
                     bool[] tmpVal;
                     tmpVal = BoolSeqHelper.read(istr_);
@@ -261,7 +239,7 @@ namespace Test
                 {
                     mx = null;
                 }
-                if (istr_.readOptional(3, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(3, Ice.OptionalFormat.VSize))
                 {
                     bool[] tmpVal;
                     tmpVal = BoolSeqHelper.read(istr_);
@@ -271,7 +249,7 @@ namespace Test
                 {
                     serialize = null;
                 }
-                if (istr_.readOptional(4, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(4, Ice.OptionalFormat.VSize))
                 {
                     bool[] tmpVal;
                     tmpVal = BoolSeqHelper.read(istr_);
@@ -281,7 +259,7 @@ namespace Test
                 {
                     compress = null;
                 }
-                if (istr_.readOptional(5, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(5, Ice.OptionalFormat.VSize))
                 {
                     bool[] tmpVal;
                     tmpVal = BoolSeqHelper.read(istr_);
@@ -293,8 +271,6 @@ namespace Test
                 }
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -310,16 +286,10 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::TestCaseNotExistException")]
-        public partial class TestCaseNotExistException : global::Ice.UserException
+        public partial class TestCaseNotExistException : Ice.UserException
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string reason = "";
-
-            #endregion
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public TestCaseNotExistException(string reason, global::System.Exception? innerException = null) : base(innerException)
@@ -337,18 +307,14 @@ namespace Test
             {
             }
 
-            #endregion
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id()
             {
                 return "::Test::Common::TestCaseNotExistException";
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice("::Test::Common::TestCaseNotExistException", -1, true);
                 ostr_.writeString(reason);
@@ -356,14 +322,12 @@ namespace Test
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 reason = istr_.readString();
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -379,16 +343,10 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::TestCaseFailedException")]
-        public partial class TestCaseFailedException : global::Ice.UserException
+        public partial class TestCaseFailedException : Ice.UserException
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string output = "";
-
-            #endregion
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public TestCaseFailedException(string output, global::System.Exception? innerException = null) : base(innerException)
@@ -406,18 +364,14 @@ namespace Test
             {
             }
 
-            #endregion
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id()
             {
                 return "::Test::Common::TestCaseFailedException";
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice("::Test::Common::TestCaseFailedException", -1, true);
                 ostr_.writeString(output);
@@ -425,14 +379,12 @@ namespace Test
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 output = istr_.readString();
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -447,19 +399,19 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::TestCase")]
-        public partial interface TestCase : global::Ice.Object
+        public partial interface TestCase : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string startServerSide(Config? config, global::Ice.Current current);
+            string startServerSide(Config? config, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string stopServerSide(bool success, global::Ice.Current current);
+            string stopServerSide(bool success, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string runClientSide(string host, Config? config, global::Ice.Current current);
+            string runClientSide(string host, Config? config, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void destroy(global::Ice.Current current);
+            void destroy(Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -474,19 +426,19 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::Controller")]
-        public partial interface Controller : global::Ice.Object
+        public partial interface Controller : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::Ice.Current current);
+            TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            OptionOverrides? getOptionOverrides(global::Ice.Current current);
+            OptionOverrides? getOptionOverrides(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string[] getTestSuites(string mapping, global::Ice.Current current);
+            string[] getTestSuites(string mapping, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string getHost(string protocol, bool ipv6, global::Ice.Current current);
+            string getHost(string protocol, bool ipv6, Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -502,16 +454,10 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::ProcessFailedException")]
-        public partial class ProcessFailedException : global::Ice.UserException
+        public partial class ProcessFailedException : Ice.UserException
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string reason = "";
-
-            #endregion
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ProcessFailedException(string reason, global::System.Exception? innerException = null) : base(innerException)
@@ -529,18 +475,14 @@ namespace Test
             {
             }
 
-            #endregion
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id()
             {
                 return "::Test::Common::ProcessFailedException";
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice("::Test::Common::ProcessFailedException", -1, true);
                 ostr_.writeString(reason);
@@ -548,14 +490,12 @@ namespace Test
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 reason = istr_.readString();
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -570,16 +510,16 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::Process")]
-        public partial interface Process : global::Ice.Object
+        public partial interface Process : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void waitReady(int timeout, global::Ice.Current current);
+            void waitReady(int timeout, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            int waitSuccess(int timeout, global::Ice.Current current);
+            int waitSuccess(int timeout, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string terminate(global::Ice.Current current);
+            string terminate(Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -594,13 +534,13 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::ProcessController")]
-        public partial interface ProcessController : global::Ice.Object
+        public partial interface ProcessController : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            ProcessPrx? start(string testsuite, string exe, string[] args, global::Ice.Current current);
+            ProcessPrx? start(string testsuite, string exe, string[] args, Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string getHost(string protocol, bool ipv6, global::Ice.Current current);
+            string getHost(string protocol, bool ipv6, Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -615,10 +555,10 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::BrowserProcessController")]
-        public partial interface BrowserProcessController : global::Ice.Object, ProcessController
+        public partial interface BrowserProcessController : ProcessController
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void redirect(string url, global::Ice.Current current);
+            void redirect(string url, Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -633,10 +573,10 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::ProcessControllerRegistry")]
-        public partial interface ProcessControllerRegistry : global::Ice.Object
+        public partial interface ProcessControllerRegistry : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void setProcessController(ProcessControllerPrx? controller, global::Ice.Current current);
+            void setProcessController(ProcessControllerPrx? controller, Ice.Current current);
         }
     }
 }
@@ -646,7 +586,7 @@ namespace Test
     namespace Common
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface TestCasePrx : global::Ice.ObjectPrx
+        public interface TestCasePrx : Ice.ObjectPrx
         {
             string startServerSide(Config? config, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -666,7 +606,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface ControllerPrx : global::Ice.ObjectPrx
+        public interface ControllerPrx : Ice.ObjectPrx
         {
             TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -686,7 +626,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface ProcessPrx : global::Ice.ObjectPrx
+        public interface ProcessPrx : Ice.ObjectPrx
         {
             void waitReady(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -702,7 +642,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface ProcessControllerPrx : global::Ice.ObjectPrx
+        public interface ProcessControllerPrx : Ice.ObjectPrx
         {
             ProcessPrx? start(string testsuite, string exe, string[] args, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -722,7 +662,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface ProcessControllerRegistryPrx : global::Ice.ObjectPrx
+        public interface ProcessControllerRegistryPrx : Ice.ObjectPrx
         {
             void setProcessController(ProcessControllerPrx? controller, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -738,12 +678,12 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class BoolSeqHelper
         {
-            public static void write(global::Ice.OutputStream ostr, bool[] v)
+            public static void write(Ice.OutputStream ostr, bool[] v)
             {
                 ostr.writeBoolSeq(v);
             }
 
-            public static bool[] read(global::Ice.InputStream istr)
+            public static bool[] read(Ice.InputStream istr)
             {
                 bool[] v;
                 v = istr.readBoolSeq();
@@ -754,12 +694,12 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class StringSeqHelper
         {
-            public static void write(global::Ice.OutputStream ostr, string[] v)
+            public static void write(Ice.OutputStream ostr, string[] v)
             {
                 ostr.writeStringSeq(v);
             }
 
-            public static string[] read(global::Ice.InputStream istr)
+            public static string[] read(Ice.InputStream istr)
             {
                 string[] v;
                 v = istr.readStringSeq();
@@ -769,13 +709,11 @@ namespace Test
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class TestCasePrxHelper : global::Ice.ObjectPrxHelperBase, TestCasePrx
+        public sealed class TestCasePrxHelper : Ice.ObjectPrxHelperBase, TestCasePrx
         {
             public TestCasePrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public string startServerSide(Config? config, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -825,10 +763,6 @@ namespace Test
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task<string> startServerSideAsync(Config? config, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_startServerSideAsync(config, context, progress, cancel, false);
@@ -837,28 +771,28 @@ namespace Test
             private global::System.Threading.Tasks.Task<string> _iceI_startServerSideAsync(Config? iceP_config, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_startServerSide_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
                 _iceI_startServerSide(iceP_config, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _startServerSide_name = "startServerSide";
 
-            private void _iceI_startServerSide(Config? iceP_config, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_startServerSide(Config? iceP_config, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string>(completed);
                 outAsync.invoke(
                     _startServerSide_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeValue(iceP_config);
                         ostr.writePendingValues();
                     },
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -868,11 +802,11 @@ namespace Test
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         string ret;
                         ret = istr.readString();
@@ -888,27 +822,27 @@ namespace Test
             private global::System.Threading.Tasks.Task<string> _iceI_stopServerSideAsync(bool iceP_success, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_stopServerSide_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
                 _iceI_stopServerSide(iceP_success, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _stopServerSide_name = "stopServerSide";
 
-            private void _iceI_stopServerSide(bool iceP_success, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_stopServerSide(bool iceP_success, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string>(completed);
                 outAsync.invoke(
                     _stopServerSide_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeBool(iceP_success);
                     },
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -918,11 +852,11 @@ namespace Test
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         string ret;
                         ret = istr.readString();
@@ -938,29 +872,29 @@ namespace Test
             private global::System.Threading.Tasks.Task<string> _iceI_runClientSideAsync(string iceP_host, Config? iceP_config, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_runClientSide_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
                 _iceI_runClientSide(iceP_host, iceP_config, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _runClientSide_name = "runClientSide";
 
-            private void _iceI_runClientSide(string iceP_host, Config? iceP_config, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_runClientSide(string iceP_host, Config? iceP_config, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string>(completed);
                 outAsync.invoke(
                     _runClientSide_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeString(iceP_host);
                         ostr.writeValue(iceP_config);
                         ostr.writePendingValues();
                     },
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -970,11 +904,11 @@ namespace Test
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         string ret;
                         ret = istr.readString();
@@ -989,32 +923,28 @@ namespace Test
 
             private global::System.Threading.Tasks.Task _iceI_destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_destroy(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _destroy_name = "destroy";
 
-            private void _iceI_destroy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_destroy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _destroy_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
             }
 
-            #endregion
+            public static TestCasePrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static TestCasePrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static TestCasePrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static TestCasePrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -1025,9 +955,9 @@ namespace Test
                 return null;
             }
 
-            public static TestCasePrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static TestCasePrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1037,7 +967,7 @@ namespace Test
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -1045,7 +975,7 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static TestCasePrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static TestCasePrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -1058,11 +988,11 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static TestCasePrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static TestCasePrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new TestCasePrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -1078,18 +1008,14 @@ namespace Test
 
             public static string ice_staticId() => "::Test::Common::TestCase";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, TestCasePrx? v)
+            public static void write(Ice.OutputStream ostr, TestCasePrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static TestCasePrx? read(global::Ice.InputStream istr)
+            public static TestCasePrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new TestCasePrxHelper();
@@ -1098,19 +1024,15 @@ namespace Test
                 }
                 return null;
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class ControllerPrxHelper : global::Ice.ObjectPrxHelperBase, ControllerPrx
+        public sealed class ControllerPrxHelper : Ice.ObjectPrxHelperBase, ControllerPrx
         {
             public ControllerPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -1160,10 +1082,6 @@ namespace Test
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task<TestCasePrx?> runTestCaseAsync(string mapping, string testsuite, string testcase, string cross, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_runTestCaseAsync(mapping, testsuite, testcase, cross, context, progress, cancel, false);
@@ -1172,30 +1090,30 @@ namespace Test
             private global::System.Threading.Tasks.Task<TestCasePrx?> _iceI_runTestCaseAsync(string iceP_mapping, string iceP_testsuite, string iceP_testcase, string iceP_cross, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_runTestCase_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestCasePrx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<TestCasePrx?>(progress, cancel);
                 _iceI_runTestCase(iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _runTestCase_name = "runTestCase";
 
-            private void _iceI_runTestCase(string iceP_mapping, string iceP_testsuite, string iceP_testcase, string iceP_cross, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_runTestCase(string iceP_mapping, string iceP_testsuite, string iceP_testcase, string iceP_cross, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<TestCasePrx?>(completed);
                 outAsync.invoke(
                     _runTestCase_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeString(iceP_mapping);
                         ostr.writeString(iceP_testsuite);
                         ostr.writeString(iceP_testcase);
                         ostr.writeString(iceP_cross);
                     },
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -1205,11 +1123,11 @@ namespace Test
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         TestCasePrx? ret;
                         ret = TestCasePrxHelper.read(istr);
@@ -1225,23 +1143,23 @@ namespace Test
             private global::System.Threading.Tasks.Task<OptionOverrides?> _iceI_getOptionOverridesAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getOptionOverrides_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<OptionOverrides?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<OptionOverrides?>(progress, cancel);
                 _iceI_getOptionOverrides(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getOptionOverrides_name = "getOptionOverrides";
 
-            private void _iceI_getOptionOverrides(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getOptionOverrides(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<OptionOverrides?>(completed);
                 outAsync.invoke(
                     _getOptionOverrides_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         OptionOverrides? ret = null;
                         istr.readValue((OptionOverrides? v) => {ret = v; });
@@ -1258,27 +1176,27 @@ namespace Test
             private global::System.Threading.Tasks.Task<string[]> _iceI_getTestSuitesAsync(string iceP_mapping, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getTestSuites_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
                 _iceI_getTestSuites(iceP_mapping, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getTestSuites_name = "getTestSuites";
 
-            private void _iceI_getTestSuites(string iceP_mapping, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getTestSuites(string iceP_mapping, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string[]>(completed);
                 outAsync.invoke(
                     _getTestSuites_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeString(iceP_mapping);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         string[] ret;
                         ret = StringSeqHelper.read(istr);
@@ -1294,28 +1212,28 @@ namespace Test
             private global::System.Threading.Tasks.Task<string> _iceI_getHostAsync(string iceP_protocol, bool iceP_ipv6, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getHost_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
                 _iceI_getHost(iceP_protocol, iceP_ipv6, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getHost_name = "getHost";
 
-            private void _iceI_getHost(string iceP_protocol, bool iceP_ipv6, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getHost(string iceP_protocol, bool iceP_ipv6, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string>(completed);
                 outAsync.invoke(
                     _getHost_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeString(iceP_protocol);
                         ostr.writeBool(iceP_ipv6);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         string ret;
                         ret = istr.readString();
@@ -1323,14 +1241,10 @@ namespace Test
                     });
             }
 
-            #endregion
+            public static ControllerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static ControllerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static ControllerPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static ControllerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -1341,9 +1255,9 @@ namespace Test
                 return null;
             }
 
-            public static ControllerPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static ControllerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1353,7 +1267,7 @@ namespace Test
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -1361,7 +1275,7 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static ControllerPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static ControllerPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -1374,11 +1288,11 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static ControllerPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static ControllerPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new ControllerPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -1394,18 +1308,14 @@ namespace Test
 
             public static string ice_staticId() => "::Test::Common::Controller";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, ControllerPrx? v)
+            public static void write(Ice.OutputStream ostr, ControllerPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static ControllerPrx? read(global::Ice.InputStream istr)
+            public static ControllerPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new ControllerPrxHelper();
@@ -1414,19 +1324,15 @@ namespace Test
                 }
                 return null;
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class ProcessPrxHelper : global::Ice.ObjectPrxHelperBase, ProcessPrx
+        public sealed class ProcessPrxHelper : Ice.ObjectPrxHelperBase, ProcessPrx
         {
             public ProcessPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public void waitReady(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -1464,10 +1370,6 @@ namespace Test
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task waitReadyAsync(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_waitReadyAsync(timeout, context, progress, cancel, false);
@@ -1476,27 +1378,27 @@ namespace Test
             private global::System.Threading.Tasks.Task _iceI_waitReadyAsync(int iceP_timeout, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_waitReady_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_waitReady(iceP_timeout, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _waitReady_name = "waitReady";
 
-            private void _iceI_waitReady(int iceP_timeout, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_waitReady(int iceP_timeout, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _waitReady_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeInt(iceP_timeout);
                     },
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -1506,7 +1408,7 @@ namespace Test
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     });
@@ -1520,27 +1422,27 @@ namespace Test
             private global::System.Threading.Tasks.Task<int> _iceI_waitSuccessAsync(int iceP_timeout, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_waitSuccess_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
                 _iceI_waitSuccess(iceP_timeout, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _waitSuccess_name = "waitSuccess";
 
-            private void _iceI_waitSuccess(int iceP_timeout, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_waitSuccess(int iceP_timeout, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<int>(completed);
                 outAsync.invoke(
                     _waitSuccess_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeInt(iceP_timeout);
                     },
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -1550,11 +1452,11 @@ namespace Test
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         int ret;
                         ret = istr.readInt();
@@ -1570,23 +1472,23 @@ namespace Test
             private global::System.Threading.Tasks.Task<string> _iceI_terminateAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_terminate_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
                 _iceI_terminate(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _terminate_name = "terminate";
 
-            private void _iceI_terminate(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_terminate(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string>(completed);
                 outAsync.invoke(
                     _terminate_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         string ret;
                         ret = istr.readString();
@@ -1594,14 +1496,10 @@ namespace Test
                     });
             }
 
-            #endregion
+            public static ProcessPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static ProcessPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static ProcessPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static ProcessPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -1612,9 +1510,9 @@ namespace Test
                 return null;
             }
 
-            public static ProcessPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static ProcessPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1624,7 +1522,7 @@ namespace Test
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -1632,7 +1530,7 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static ProcessPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static ProcessPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -1645,11 +1543,11 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static ProcessPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static ProcessPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new ProcessPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -1665,18 +1563,14 @@ namespace Test
 
             public static string ice_staticId() => "::Test::Common::Process";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, ProcessPrx? v)
+            public static void write(Ice.OutputStream ostr, ProcessPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static ProcessPrx? read(global::Ice.InputStream istr)
+            public static ProcessPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new ProcessPrxHelper();
@@ -1685,19 +1579,15 @@ namespace Test
                 }
                 return null;
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class ProcessControllerPrxHelper : global::Ice.ObjectPrxHelperBase, ProcessControllerPrx
+        public sealed class ProcessControllerPrxHelper : Ice.ObjectPrxHelperBase, ProcessControllerPrx
         {
             public ProcessControllerPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public ProcessPrx? start(string testsuite, string exe, string[] args, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -1723,10 +1613,6 @@ namespace Test
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task<ProcessPrx?> startAsync(string testsuite, string exe, string[] args, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_startAsync(testsuite, exe, args, context, progress, cancel, false);
@@ -1735,29 +1621,29 @@ namespace Test
             private global::System.Threading.Tasks.Task<ProcessPrx?> _iceI_startAsync(string iceP_testsuite, string iceP_exe, string[] iceP_args, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_start_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ProcessPrx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<ProcessPrx?>(progress, cancel);
                 _iceI_start(iceP_testsuite, iceP_exe, iceP_args, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _start_name = "start";
 
-            private void _iceI_start(string iceP_testsuite, string iceP_exe, string[] iceP_args, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_start(string iceP_testsuite, string iceP_exe, string[] iceP_args, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<ProcessPrx?>(completed);
                 outAsync.invoke(
                     _start_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeString(iceP_testsuite);
                         ostr.writeString(iceP_exe);
                         StringSeqHelper.write(ostr, iceP_args);
                     },
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -1767,11 +1653,11 @@ namespace Test
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         ProcessPrx? ret;
                         ret = ProcessPrxHelper.read(istr);
@@ -1787,28 +1673,28 @@ namespace Test
             private global::System.Threading.Tasks.Task<string> _iceI_getHostAsync(string iceP_protocol, bool iceP_ipv6, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getHost_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
                 _iceI_getHost(iceP_protocol, iceP_ipv6, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getHost_name = "getHost";
 
-            private void _iceI_getHost(string iceP_protocol, bool iceP_ipv6, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getHost(string iceP_protocol, bool iceP_ipv6, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string>(completed);
                 outAsync.invoke(
                     _getHost_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeString(iceP_protocol);
                         ostr.writeBool(iceP_ipv6);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         string ret;
                         ret = istr.readString();
@@ -1816,14 +1702,10 @@ namespace Test
                     });
             }
 
-            #endregion
+            public static ProcessControllerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static ProcessControllerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static ProcessControllerPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static ProcessControllerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -1834,9 +1716,9 @@ namespace Test
                 return null;
             }
 
-            public static ProcessControllerPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static ProcessControllerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1846,7 +1728,7 @@ namespace Test
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -1854,7 +1736,7 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static ProcessControllerPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static ProcessControllerPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -1867,11 +1749,11 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static ProcessControllerPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static ProcessControllerPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new ProcessControllerPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -1887,18 +1769,14 @@ namespace Test
 
             public static string ice_staticId() => "::Test::Common::ProcessController";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, ProcessControllerPrx? v)
+            public static void write(Ice.OutputStream ostr, ProcessControllerPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static ProcessControllerPrx? read(global::Ice.InputStream istr)
+            public static ProcessControllerPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new ProcessControllerPrxHelper();
@@ -1907,19 +1785,15 @@ namespace Test
                 }
                 return null;
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class BrowserProcessControllerPrxHelper : global::Ice.ObjectPrxHelperBase, BrowserProcessControllerPrx
+        public sealed class BrowserProcessControllerPrxHelper : Ice.ObjectPrxHelperBase, BrowserProcessControllerPrx
         {
             public BrowserProcessControllerPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public ProcessPrx? start(string testsuite, string exe, string[] args, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -1957,10 +1831,6 @@ namespace Test
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task<ProcessPrx?> startAsync(string testsuite, string exe, string[] args, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_startAsync(testsuite, exe, args, context, progress, cancel, false);
@@ -1969,29 +1839,29 @@ namespace Test
             private global::System.Threading.Tasks.Task<ProcessPrx?> _iceI_startAsync(string iceP_testsuite, string iceP_exe, string[] iceP_args, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_start_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ProcessPrx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<ProcessPrx?>(progress, cancel);
                 _iceI_start(iceP_testsuite, iceP_exe, iceP_args, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _start_name = "start";
 
-            private void _iceI_start(string iceP_testsuite, string iceP_exe, string[] iceP_args, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_start(string iceP_testsuite, string iceP_exe, string[] iceP_args, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<ProcessPrx?>(completed);
                 outAsync.invoke(
                     _start_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeString(iceP_testsuite);
                         ostr.writeString(iceP_exe);
                         StringSeqHelper.write(ostr, iceP_args);
                     },
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -2001,11 +1871,11 @@ namespace Test
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         ProcessPrx? ret;
                         ret = ProcessPrxHelper.read(istr);
@@ -2021,28 +1891,28 @@ namespace Test
             private global::System.Threading.Tasks.Task<string> _iceI_getHostAsync(string iceP_protocol, bool iceP_ipv6, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getHost_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
                 _iceI_getHost(iceP_protocol, iceP_ipv6, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getHost_name = "getHost";
 
-            private void _iceI_getHost(string iceP_protocol, bool iceP_ipv6, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getHost(string iceP_protocol, bool iceP_ipv6, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string>(completed);
                 outAsync.invoke(
                     _getHost_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeString(iceP_protocol);
                         ostr.writeBool(iceP_ipv6);
                     },
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         string ret;
                         ret = istr.readString();
@@ -2057,36 +1927,32 @@ namespace Test
 
             private global::System.Threading.Tasks.Task _iceI_redirectAsync(string iceP_url, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_redirect(iceP_url, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _redirect_name = "redirect";
 
-            private void _iceI_redirect(string iceP_url, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_redirect(string iceP_url, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _redirect_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeString(iceP_url);
                     });
             }
 
-            #endregion
+            public static BrowserProcessControllerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static BrowserProcessControllerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static BrowserProcessControllerPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static BrowserProcessControllerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -2097,9 +1963,9 @@ namespace Test
                 return null;
             }
 
-            public static BrowserProcessControllerPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static BrowserProcessControllerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -2109,7 +1975,7 @@ namespace Test
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -2117,7 +1983,7 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static BrowserProcessControllerPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static BrowserProcessControllerPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -2130,11 +1996,11 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static BrowserProcessControllerPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static BrowserProcessControllerPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new BrowserProcessControllerPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -2151,18 +2017,14 @@ namespace Test
 
             public static string ice_staticId() => "::Test::Common::BrowserProcessController";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, BrowserProcessControllerPrx? v)
+            public static void write(Ice.OutputStream ostr, BrowserProcessControllerPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static BrowserProcessControllerPrx? read(global::Ice.InputStream istr)
+            public static BrowserProcessControllerPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new BrowserProcessControllerPrxHelper();
@@ -2171,19 +2033,15 @@ namespace Test
                 }
                 return null;
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class ProcessControllerRegistryPrxHelper : global::Ice.ObjectPrxHelperBase, ProcessControllerRegistryPrx
+        public sealed class ProcessControllerRegistryPrxHelper : Ice.ObjectPrxHelperBase, ProcessControllerRegistryPrx
         {
             public ProcessControllerRegistryPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public void setProcessController(ProcessControllerPrx? controller, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -2197,10 +2055,6 @@ namespace Test
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task setProcessControllerAsync(ProcessControllerPrx? controller, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_setProcessControllerAsync(controller, context, progress, cancel, false);
@@ -2208,36 +2062,32 @@ namespace Test
 
             private global::System.Threading.Tasks.Task _iceI_setProcessControllerAsync(ProcessControllerPrx? iceP_controller, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_setProcessController(iceP_controller, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _setProcessController_name = "setProcessController";
 
-            private void _iceI_setProcessController(ProcessControllerPrx? iceP_controller, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_setProcessController(ProcessControllerPrx? iceP_controller, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _setProcessController_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
+                    write: (Ice.OutputStream ostr) =>
                     {
                         ProcessControllerPrxHelper.write(ostr, iceP_controller);
                     });
             }
 
-            #endregion
+            public static ProcessControllerRegistryPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static ProcessControllerRegistryPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static ProcessControllerRegistryPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static ProcessControllerRegistryPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -2248,9 +2098,9 @@ namespace Test
                 return null;
             }
 
-            public static ProcessControllerRegistryPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static ProcessControllerRegistryPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -2260,7 +2110,7 @@ namespace Test
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -2268,7 +2118,7 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static ProcessControllerRegistryPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static ProcessControllerRegistryPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -2281,11 +2131,11 @@ namespace Test
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static ProcessControllerRegistryPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static ProcessControllerRegistryPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new ProcessControllerRegistryPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -2301,18 +2151,14 @@ namespace Test
 
             public static string ice_staticId() => "::Test::Common::ProcessControllerRegistry";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, ProcessControllerRegistryPrx? v)
+            public static void write(Ice.OutputStream ostr, ProcessControllerRegistryPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static ProcessControllerRegistryPrx? read(global::Ice.InputStream istr)
+            public static ProcessControllerRegistryPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new ProcessControllerRegistryPrxHelper();
@@ -2321,8 +2167,6 @@ namespace Test
                 }
                 return null;
             }
-
-            #endregion
         }
     }
 }
@@ -2333,243 +2177,167 @@ namespace Test
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class TestCaseDisp_ : global::Ice.ObjectImpl, TestCase
+        public abstract class TestCaseDisp_ : Ice.ObjectImpl, TestCase
         {
-            #region Slice operations
+            public abstract string startServerSide(Config? config, Ice.Current current);
 
-            public abstract string startServerSide(Config? config, global::Ice.Current current);
+            public abstract string stopServerSide(bool success, Ice.Current current);
 
-            public abstract string stopServerSide(bool success, global::Ice.Current current);
+            public abstract string runClientSide(string host, Config? config, Ice.Current current);
 
-            public abstract string runClientSide(string host, Config? config, global::Ice.Current current);
+            public abstract void destroy(Ice.Current current);
 
-            public abstract void destroy(global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::Common::TestCase";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "startServerSide" => TestCase.iceD_startServerSideAsync(this, request),
                     "stopServerSide" => TestCase.iceD_stopServerSideAsync(this, request),
                     "runClientSide" => TestCase.iceD_runClientSideAsync(this, request),
                     "destroy" => TestCase.iceD_destroyAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class ControllerDisp_ : global::Ice.ObjectImpl, Controller
+        public abstract class ControllerDisp_ : Ice.ObjectImpl, Controller
         {
-            #region Slice operations
+            public abstract TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, Ice.Current current);
 
-            public abstract TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::Ice.Current current);
+            public abstract OptionOverrides? getOptionOverrides(Ice.Current current);
 
-            public abstract OptionOverrides? getOptionOverrides(global::Ice.Current current);
+            public abstract string[] getTestSuites(string mapping, Ice.Current current);
 
-            public abstract string[] getTestSuites(string mapping, global::Ice.Current current);
+            public abstract string getHost(string protocol, bool ipv6, Ice.Current current);
 
-            public abstract string getHost(string protocol, bool ipv6, global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::Common::Controller";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "runTestCase" => Controller.iceD_runTestCaseAsync(this, request),
                     "getOptionOverrides" => Controller.iceD_getOptionOverridesAsync(this, request),
                     "getTestSuites" => Controller.iceD_getTestSuitesAsync(this, request),
                     "getHost" => Controller.iceD_getHostAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class ProcessDisp_ : global::Ice.ObjectImpl, Process
+        public abstract class ProcessDisp_ : Ice.ObjectImpl, Process
         {
-            #region Slice operations
+            public abstract void waitReady(int timeout, Ice.Current current);
 
-            public abstract void waitReady(int timeout, global::Ice.Current current);
+            public abstract int waitSuccess(int timeout, Ice.Current current);
 
-            public abstract int waitSuccess(int timeout, global::Ice.Current current);
+            public abstract string terminate(Ice.Current current);
 
-            public abstract string terminate(global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::Common::Process";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "waitReady" => Process.iceD_waitReadyAsync(this, request),
                     "waitSuccess" => Process.iceD_waitSuccessAsync(this, request),
                     "terminate" => Process.iceD_terminateAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class ProcessControllerDisp_ : global::Ice.ObjectImpl, ProcessController
+        public abstract class ProcessControllerDisp_ : Ice.ObjectImpl, ProcessController
         {
-            #region Slice operations
+            public abstract ProcessPrx? start(string testsuite, string exe, string[] args, Ice.Current current);
 
-            public abstract ProcessPrx? start(string testsuite, string exe, string[] args, global::Ice.Current current);
+            public abstract string getHost(string protocol, bool ipv6, Ice.Current current);
 
-            public abstract string getHost(string protocol, bool ipv6, global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::Common::ProcessController";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "start" => ProcessController.iceD_startAsync(this, request),
                     "getHost" => ProcessController.iceD_getHostAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class BrowserProcessControllerDisp_ : global::Ice.ObjectImpl, BrowserProcessController
+        public abstract class BrowserProcessControllerDisp_ : Ice.ObjectImpl, BrowserProcessController
         {
-            #region Slice operations
+            public abstract void redirect(string url, Ice.Current current);
 
-            public abstract void redirect(string url, global::Ice.Current current);
+            public abstract ProcessPrx? start(string testsuite, string exe, string[] args, Ice.Current current);
 
-            #endregion
+            public abstract string getHost(string protocol, bool ipv6, Ice.Current current);
 
-            #region Inherited Slice operations
-
-            public abstract ProcessPrx? start(string testsuite, string exe, string[] args, global::Ice.Current current);
-
-            public abstract string getHost(string protocol, bool ipv6, global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::Common::BrowserProcessController";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "start" => ProcessController.iceD_startAsync(this, request),
                     "getHost" => ProcessController.iceD_getHostAsync(this, request),
                     "redirect" => BrowserProcessController.iceD_redirectAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class ProcessControllerRegistryDisp_ : global::Ice.ObjectImpl, ProcessControllerRegistry
+        public abstract class ProcessControllerRegistryDisp_ : Ice.ObjectImpl, ProcessControllerRegistry
         {
-            #region Slice operations
+            public abstract void setProcessController(ProcessControllerPrx? controller, Ice.Current current);
 
-            public abstract void setProcessController(ProcessControllerPrx? controller, global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::Common::ProcessControllerRegistry";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "setProcessController" => ProcessControllerRegistry.iceD_setProcessControllerAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
     }
 }
@@ -2580,11 +2348,11 @@ namespace Test
     {
         public partial interface TestCase
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_startServerSideAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_startServerSideAsync(
                 TestCase obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 Config? iceP_config = null;
@@ -2592,36 +2360,36 @@ namespace Test
                 istr.readPendingValues();
                 istr.endEncapsulation();
                 var ret = obj.startServerSide(iceP_config, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_stopServerSideAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_stopServerSideAsync(
                 TestCase obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 bool iceP_success;
                 iceP_success = istr.readBool();
                 istr.endEncapsulation();
                 var ret = obj.stopServerSide(iceP_success, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_runClientSideAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_runClientSideAsync(
                 TestCase obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 string iceP_host;
@@ -2631,31 +2399,31 @@ namespace Test
                 istr.readPendingValues();
                 istr.endEncapsulation();
                 var ret = obj.runClientSide(iceP_host, iceP_config, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_destroyAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
                 TestCase obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.destroy(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
         }
 
         public partial interface Controller
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_runTestCaseAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_runTestCaseAsync(
                 Controller obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 string iceP_mapping;
@@ -2668,51 +2436,51 @@ namespace Test
                 iceP_cross = istr.readString();
                 istr.endEncapsulation();
                 var ret = obj.runTestCase(iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 TestCasePrxHelper.write(ostr, ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getOptionOverridesAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getOptionOverridesAsync(
                 Controller obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getOptionOverrides(request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeValue(ret);
                 ostr.writePendingValues();
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getTestSuitesAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getTestSuitesAsync(
                 Controller obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 string iceP_mapping;
                 iceP_mapping = istr.readString();
                 istr.endEncapsulation();
                 var ret = obj.getTestSuites(iceP_mapping, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 StringSeqHelper.write(ostr, ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getHostAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getHostAsync(
                 Controller obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 string iceP_protocol;
@@ -2721,70 +2489,70 @@ namespace Test
                 iceP_ipv6 = istr.readBool();
                 istr.endEncapsulation();
                 var ret = obj.getHost(iceP_protocol, iceP_ipv6, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
         }
 
         public partial interface Process
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_waitReadyAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_waitReadyAsync(
                 Process obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 int iceP_timeout;
                 iceP_timeout = istr.readInt();
                 istr.endEncapsulation();
                 obj.waitReady(iceP_timeout, request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_waitSuccessAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_waitSuccessAsync(
                 Process obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 int iceP_timeout;
                 iceP_timeout = istr.readInt();
                 istr.endEncapsulation();
                 var ret = obj.waitSuccess(iceP_timeout, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeInt(ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_terminateAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_terminateAsync(
                 Process obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.terminate(request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
         }
 
         public partial interface ProcessController
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_startAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_startAsync(
                 ProcessController obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 string iceP_testsuite;
@@ -2795,18 +2563,18 @@ namespace Test
                 iceP_args = StringSeqHelper.read(istr);
                 istr.endEncapsulation();
                 var ret = obj.start(iceP_testsuite, iceP_exe, iceP_args, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ProcessPrxHelper.write(ostr, ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getHostAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getHostAsync(
                 ProcessController obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 string iceP_protocol;
@@ -2815,45 +2583,45 @@ namespace Test
                 iceP_ipv6 = istr.readBool();
                 istr.endEncapsulation();
                 var ret = obj.getHost(iceP_protocol, iceP_ipv6, request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
         }
 
         public partial interface BrowserProcessController
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_redirectAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_redirectAsync(
                 BrowserProcessController obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 string iceP_url;
                 iceP_url = istr.readString();
                 istr.endEncapsulation();
                 obj.redirect(iceP_url, request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
         }
 
         public partial interface ProcessControllerRegistry
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_setProcessControllerAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setProcessControllerAsync(
                 ProcessControllerRegistry obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 ProcessControllerPrx? iceP_controller;
                 iceP_controller = ProcessControllerPrxHelper.read(istr);
                 istr.endEncapsulation();
                 obj.setProcessController(iceP_controller, request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
         }
     }

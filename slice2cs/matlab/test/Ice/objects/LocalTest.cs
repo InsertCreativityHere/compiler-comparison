@@ -33,18 +33,12 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::LocalTest::C1")]
-    public partial class C1 : global::Ice.Value
+    public partial class C1 : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int i;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C1(int i)
@@ -59,8 +53,6 @@ namespace LocalTest
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::LocalTest::C1";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -74,10 +66,8 @@ namespace LocalTest
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             ostr_.writeInt(i);
@@ -85,14 +75,12 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             i = istr_.readInt();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -107,16 +95,10 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class S1 : global::System.IEquatable<S1>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C1? c1;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1()
@@ -132,22 +114,14 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S1(global::Ice.InputStream istr)
+        public S1(Ice.InputStream istr)
         {
             istr.readValue((C1? v) => { this.c1 = v; });
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1 Clone() => (S1)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -171,36 +145,26 @@ namespace LocalTest
                 this.c1 == other.c1;
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(S1? lhs, S1? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(S1? lhs, S1? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeValue(this.c1);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, S1 v)
+        public static void ice_write(Ice.OutputStream ostr, S1 v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static S1 ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static S1 ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -215,16 +179,10 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class S2 : global::System.IEquatable<S2>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1 s1;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S2(S1 s1)
@@ -234,22 +192,14 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S2(global::Ice.InputStream istr)
+        public S2(Ice.InputStream istr)
         {
             this.s1 = new S1(istr);
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S2 Clone() => (S2)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -273,36 +223,26 @@ namespace LocalTest
                 this.s1 == other.s1;
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(S2? lhs, S2? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(S2? lhs, S2? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             S1.ice_write(ostr, this.s1);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, S2 v)
+        public static void ice_write(Ice.OutputStream ostr, S2 v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static S2 ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static S2 ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -317,16 +257,10 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class S3 : global::System.IEquatable<S3>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C1?[] c1seq;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S3(C1?[] c1seq)
@@ -336,22 +270,14 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S3(global::Ice.InputStream istr)
+        public S3(Ice.InputStream istr)
         {
             this.c1seq = C1SeqHelper.read(istr);
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S3 Clone() => (S3)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -375,36 +301,26 @@ namespace LocalTest
                 Ice.UtilInternal.Collections.NullableSequenceEqual(this.c1seq, other.c1seq);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(S3? lhs, S3? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(S3? lhs, S3? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             C1SeqHelper.write(ostr, this.c1seq);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, S3 v)
+        public static void ice_write(Ice.OutputStream ostr, S3 v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static S3 ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static S3 ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -419,16 +335,10 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class S4 : global::System.IEquatable<S4>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1[] s1seq;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S4(S1[] s1seq)
@@ -438,22 +348,14 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S4(global::Ice.InputStream istr)
+        public S4(Ice.InputStream istr)
         {
             this.s1seq = S1SeqHelper.read(istr);
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S4 Clone() => (S4)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -477,36 +379,26 @@ namespace LocalTest
                 Ice.UtilInternal.Collections.NullableSequenceEqual(this.s1seq, other.s1seq);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(S4? lhs, S4? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(S4? lhs, S4? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             S1SeqHelper.write(ostr, this.s1seq);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, S4 v)
+        public static void ice_write(Ice.OutputStream ostr, S4 v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static S4 ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static S4 ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -521,16 +413,10 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class S5 : global::System.IEquatable<S5>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<int, C1?> c1dict;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S5(global::System.Collections.Generic.Dictionary<int, C1?> c1dict)
@@ -540,22 +426,14 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S5(global::Ice.InputStream istr)
+        public S5(Ice.InputStream istr)
         {
             this.c1dict = C1DictHelper.read(istr);
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S5 Clone() => (S5)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -579,36 +457,26 @@ namespace LocalTest
                 Ice.UtilInternal.Collections.DictionaryEquals(this.c1dict, other.c1dict);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(S5? lhs, S5? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(S5? lhs, S5? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             C1DictHelper.write(ostr, this.c1dict);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, S5 v)
+        public static void ice_write(Ice.OutputStream ostr, S5 v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static S5 ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static S5 ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -623,16 +491,10 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class S6 : global::System.IEquatable<S6>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<int, S1> s1dict;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S6(global::System.Collections.Generic.Dictionary<int, S1> s1dict)
@@ -642,22 +504,14 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S6(global::Ice.InputStream istr)
+        public S6(Ice.InputStream istr)
         {
             this.s1dict = S1DictHelper.read(istr);
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S6 Clone() => (S6)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -681,36 +535,26 @@ namespace LocalTest
                 Ice.UtilInternal.Collections.DictionaryEquals(this.s1dict, other.s1dict);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(S6? lhs, S6? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(S6? lhs, S6? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             S1DictHelper.write(ostr, this.s1dict);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, S6 v)
+        public static void ice_write(Ice.OutputStream ostr, S6 v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static S6 ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static S6 ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -725,16 +569,10 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class S7 : global::System.IEquatable<S7>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C1?[][] c1seqseq;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S7(C1?[][] c1seqseq)
@@ -744,22 +582,14 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S7(global::Ice.InputStream istr)
+        public S7(Ice.InputStream istr)
         {
             this.c1seqseq = C1SeqSeqHelper.read(istr);
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S7 Clone() => (S7)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -783,36 +613,26 @@ namespace LocalTest
                 Ice.UtilInternal.Collections.NullableSequenceEqual(this.c1seqseq, other.c1seqseq);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(S7? lhs, S7? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(S7? lhs, S7? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             C1SeqSeqHelper.write(ostr, this.c1seqseq);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, S7 v)
+        public static void ice_write(Ice.OutputStream ostr, S7 v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static S7 ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static S7 ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -827,16 +647,10 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class S8 : global::System.IEquatable<S8>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1[][] s1seqseq;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S8(S1[][] s1seqseq)
@@ -846,22 +660,14 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S8(global::Ice.InputStream istr)
+        public S8(Ice.InputStream istr)
         {
             this.s1seqseq = S1SeqSeqHelper.read(istr);
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S8 Clone() => (S8)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -885,36 +691,26 @@ namespace LocalTest
                 Ice.UtilInternal.Collections.NullableSequenceEqual(this.s1seqseq, other.s1seqseq);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(S8? lhs, S8? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(S8? lhs, S8? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             S1SeqSeqHelper.write(ostr, this.s1seqseq);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, S8 v)
+        public static void ice_write(Ice.OutputStream ostr, S8 v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static S8 ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static S8 ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -929,18 +725,12 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::LocalTest::CB1")]
-    public partial class CB1 : global::Ice.Value
+    public partial class CB1 : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1 s1;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB1(S1 s1)
@@ -957,8 +747,6 @@ namespace LocalTest
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::LocalTest::CB1";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -972,10 +760,8 @@ namespace LocalTest
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             S1.ice_write(ostr_, s1);
@@ -983,14 +769,12 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             s1 = new S1(istr_);
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1005,18 +789,12 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::LocalTest::CB2")]
-    public partial class CB2 : global::Ice.Value
+    public partial class CB2 : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C1?[] c1seq;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB2(C1?[] c1seq)
@@ -1033,8 +811,6 @@ namespace LocalTest
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::LocalTest::CB2";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1048,10 +824,8 @@ namespace LocalTest
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             C1SeqHelper.write(ostr_, c1seq);
@@ -1059,14 +833,12 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             c1seq = C1SeqHelper.read(istr_);
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1081,18 +853,12 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::LocalTest::CB3")]
-    public partial class CB3 : global::Ice.Value
+    public partial class CB3 : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1[] s1seq;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB3(S1[] s1seq)
@@ -1109,8 +875,6 @@ namespace LocalTest
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::LocalTest::CB3";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1124,10 +888,8 @@ namespace LocalTest
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             S1SeqHelper.write(ostr_, s1seq);
@@ -1135,14 +897,12 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             s1seq = S1SeqHelper.read(istr_);
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1157,18 +917,12 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::LocalTest::CB4")]
-    public partial class CB4 : global::Ice.Value
+    public partial class CB4 : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<int, C1?> c1dict;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB4(global::System.Collections.Generic.Dictionary<int, C1?> c1dict)
@@ -1185,8 +939,6 @@ namespace LocalTest
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::LocalTest::CB4";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1200,10 +952,8 @@ namespace LocalTest
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             C1DictHelper.write(ostr_, c1dict);
@@ -1211,14 +961,12 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             c1dict = C1DictHelper.read(istr_);
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1233,18 +981,12 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::LocalTest::CB5")]
-    public partial class CB5 : global::Ice.Value
+    public partial class CB5 : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<int, S1> s1dict;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB5(global::System.Collections.Generic.Dictionary<int, S1> s1dict)
@@ -1261,8 +1003,6 @@ namespace LocalTest
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::LocalTest::CB5";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1276,10 +1016,8 @@ namespace LocalTest
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             S1DictHelper.write(ostr_, s1dict);
@@ -1287,14 +1025,12 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             s1dict = S1DictHelper.read(istr_);
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1309,18 +1045,12 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::LocalTest::CB6")]
-    public partial class CB6 : global::Ice.Value
+    public partial class CB6 : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C1?[][] c1seqseq;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB6(C1?[][] c1seqseq)
@@ -1337,8 +1067,6 @@ namespace LocalTest
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::LocalTest::CB6";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1352,10 +1080,8 @@ namespace LocalTest
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             C1SeqSeqHelper.write(ostr_, c1seqseq);
@@ -1363,14 +1089,12 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             c1seqseq = C1SeqSeqHelper.read(istr_);
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1385,18 +1109,12 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::LocalTest::CB7")]
-    public partial class CB7 : global::Ice.Value
+    public partial class CB7 : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1[][] s1seqseq;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB7(S1[][] s1seqseq)
@@ -1413,8 +1131,6 @@ namespace LocalTest
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::LocalTest::CB7";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1428,10 +1144,8 @@ namespace LocalTest
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             S1SeqSeqHelper.write(ostr_, s1seqseq);
@@ -1439,14 +1153,12 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             s1seqseq = S1SeqSeqHelper.read(istr_);
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1461,10 +1173,8 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::LocalTest::CB8")]
-    public partial class CB8 : global::Ice.Value
+    public partial class CB8 : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1 s1;
 
@@ -1474,11 +1184,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<int, S1> s1dict;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB8(S1 s1, C1?[] c1seq, global::System.Collections.Generic.Dictionary<int, S1> s1dict)
@@ -1499,8 +1205,6 @@ namespace LocalTest
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::LocalTest::CB8";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1514,10 +1218,8 @@ namespace LocalTest
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             S1.ice_write(ostr_, s1);
@@ -1527,7 +1229,7 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             s1 = new S1(istr_);
@@ -1535,8 +1237,6 @@ namespace LocalTest
             s1dict = S1DictHelper.read(istr_);
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -1551,19 +1251,13 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public partial record struct StructKey
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int i;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int j;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public StructKey(int i, int j)
@@ -1574,34 +1268,28 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public StructKey(global::Ice.InputStream istr)
+        public StructKey(Ice.InputStream istr)
         {
             this.i = istr.readInt();
             this.j = istr.readInt();
             ice_initialize();
         }
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeInt(this.i);
             ostr.writeInt(this.j);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, StructKey v)
+        public static void ice_write(Ice.OutputStream ostr, StructKey v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static StructKey ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static StructKey ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1616,10 +1304,8 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::LocalTest::Opt")]
-    public partial class Opt : global::Ice.Value
+    public partial class Opt : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1? s1;
 
@@ -1629,11 +1315,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<int, S1>? s1dict;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Opt(S1? s1, C1?[]? c1seq, global::System.Collections.Generic.Dictionary<int, S1>? s1dict)
@@ -1650,8 +1332,6 @@ namespace LocalTest
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::LocalTest::Opt";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1665,25 +1345,23 @@ namespace LocalTest
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
-            if (s1 is not null && ostr_.writeOptional(1, global::Ice.OptionalFormat.FSize))
+            if (s1 is not null && ostr_.writeOptional(1, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
                 S1.ice_write(ostr_, s1);
                 ostr_.endSize(pos);
             }
-            if (c1seq is not null && ostr_.writeOptional(2, global::Ice.OptionalFormat.FSize))
+            if (c1seq is not null && ostr_.writeOptional(2, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
                 C1SeqHelper.write(ostr_, c1seq);
                 ostr_.endSize(pos);
             }
-            if (s1dict is not null && ostr_.writeOptional(3, global::Ice.OptionalFormat.FSize))
+            if (s1dict is not null && ostr_.writeOptional(3, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
                 S1DictHelper.write(ostr_, s1dict);
@@ -1693,10 +1371,10 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            if (istr_.readOptional(1, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(1, Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 S1 tmpVal;
@@ -1707,7 +1385,7 @@ namespace LocalTest
             {
                 s1 = null;
             }
-            if (istr_.readOptional(2, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(2, Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 C1?[] tmpVal;
@@ -1718,7 +1396,7 @@ namespace LocalTest
             {
                 c1seq = null;
             }
-            if (istr_.readOptional(3, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(3, Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 global::System.Collections.Generic.Dictionary<int, S1> tmpVal = new global::System.Collections.Generic.Dictionary<int, S1>();
@@ -1731,8 +1409,6 @@ namespace LocalTest
             }
             istr_.endSlice();
         }
-
-        #endregion
     }
 }
 
@@ -1741,7 +1417,7 @@ namespace LocalTest
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class C1SeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, C1?[] v)
+        public static void write(Ice.OutputStream ostr, C1?[] v)
         {
             if (v is null)
             {
@@ -1757,7 +1433,7 @@ namespace LocalTest
             }
         }
 
-        public static C1?[] read(global::Ice.InputStream istr)
+        public static C1?[] read(Ice.InputStream istr)
         {
             C1?[] v;
             {
@@ -1765,7 +1441,7 @@ namespace LocalTest
                 v = new C1?[szx];
                 for (int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<C1>(v, ix));
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<C1>(v, ix));
                 }
             }
             return v;
@@ -1775,7 +1451,7 @@ namespace LocalTest
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class S1SeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, S1[] v)
+        public static void write(Ice.OutputStream ostr, S1[] v)
         {
             if (v is null)
             {
@@ -1791,7 +1467,7 @@ namespace LocalTest
             }
         }
 
-        public static S1[] read(global::Ice.InputStream istr)
+        public static S1[] read(Ice.InputStream istr)
         {
             S1[] v;
             {
@@ -1809,7 +1485,7 @@ namespace LocalTest
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class C1DictHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<int, C1?> v)
         {
             if(v == null)
@@ -1827,7 +1503,7 @@ namespace LocalTest
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<int, C1?> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<int, C1?> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<int, C1?> r = new global::System.Collections.Generic.Dictionary<int, C1?>();
@@ -1844,7 +1520,7 @@ namespace LocalTest
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class S1DictHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<int, S1> v)
         {
             if(v == null)
@@ -1862,7 +1538,7 @@ namespace LocalTest
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<int, S1> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<int, S1> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<int, S1> r = new global::System.Collections.Generic.Dictionary<int, S1>();
@@ -1881,7 +1557,7 @@ namespace LocalTest
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class C1SeqSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, C1?[][] v)
+        public static void write(Ice.OutputStream ostr, C1?[][] v)
         {
             if (v is null)
             {
@@ -1897,7 +1573,7 @@ namespace LocalTest
             }
         }
 
-        public static C1?[][] read(global::Ice.InputStream istr)
+        public static C1?[][] read(Ice.InputStream istr)
         {
             C1?[][] v;
             {
@@ -1915,7 +1591,7 @@ namespace LocalTest
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class S1SeqSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, S1[][] v)
+        public static void write(Ice.OutputStream ostr, S1[][] v)
         {
             if (v is null)
             {
@@ -1931,7 +1607,7 @@ namespace LocalTest
             }
         }
 
-        public static S1[][] read(global::Ice.InputStream istr)
+        public static S1[][] read(Ice.InputStream istr)
         {
             S1[][] v;
             {
@@ -1949,7 +1625,7 @@ namespace LocalTest
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class StructDict1Helper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<StructKey, C1?> v)
         {
             if(v == null)
@@ -1967,7 +1643,7 @@ namespace LocalTest
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<StructKey, C1?> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<StructKey, C1?> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<StructKey, C1?> r = new global::System.Collections.Generic.Dictionary<StructKey, C1?>();
@@ -1984,7 +1660,7 @@ namespace LocalTest
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class StructDict2Helper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<StructKey, S1> v)
         {
             if(v == null)
@@ -2002,7 +1678,7 @@ namespace LocalTest
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<StructKey, S1> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<StructKey, S1> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<StructKey, S1> r = new global::System.Collections.Generic.Dictionary<StructKey, S1>();
@@ -2021,7 +1697,7 @@ namespace LocalTest
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class C1DictDictHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1?>> v)
         {
             if(v == null)
@@ -2039,7 +1715,7 @@ namespace LocalTest
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1?>> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1?>> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1?>> r = new global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1?>>();
@@ -2058,7 +1734,7 @@ namespace LocalTest
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class S1DictDictHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, S1>> v)
         {
             if(v == null)
@@ -2076,7 +1752,7 @@ namespace LocalTest
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, S1>> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, S1>> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, S1>> r = new global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, S1>>();

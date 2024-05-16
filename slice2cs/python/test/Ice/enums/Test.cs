@@ -88,13 +88,13 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ByteEnumHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ByteEnum v)
+        public static void write(Ice.OutputStream ostr, ByteEnum v)
         {
             ostr.writeEnum((int)v, 126);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ByteEnum read(global::Ice.InputStream istr)
+        public static ByteEnum read(Ice.InputStream istr)
         {
             ByteEnum v;
             v = (ByteEnum)istr.readEnum(126);
@@ -121,13 +121,13 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ShortEnumHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ShortEnum v)
+        public static void write(Ice.OutputStream ostr, ShortEnum v)
         {
             ostr.writeEnum((int)v, 32766);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ShortEnum read(global::Ice.InputStream istr)
+        public static ShortEnum read(Ice.InputStream istr)
         {
             ShortEnum v;
             v = (ShortEnum)istr.readEnum(32766);
@@ -155,13 +155,13 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class IntEnumHelper
     {
-        public static void write(global::Ice.OutputStream ostr, IntEnum v)
+        public static void write(Ice.OutputStream ostr, IntEnum v)
         {
             ostr.writeEnum((int)v, 2147483647);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static IntEnum read(global::Ice.InputStream istr)
+        public static IntEnum read(Ice.InputStream istr)
         {
             IntEnum v;
             v = (IntEnum)istr.readEnum(2147483647);
@@ -180,13 +180,13 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class SimpleEnumHelper
     {
-        public static void write(global::Ice.OutputStream ostr, SimpleEnum v)
+        public static void write(Ice.OutputStream ostr, SimpleEnum v)
         {
             ostr.writeEnum((int)v, 2);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static SimpleEnum read(global::Ice.InputStream istr)
+        public static SimpleEnum read(Ice.InputStream istr)
         {
             SimpleEnum v;
             v = (SimpleEnum)istr.readEnum(2);
@@ -206,34 +206,34 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Test::TestIntf")]
-    public partial interface TestIntf : global::Ice.Object
+    public partial interface TestIntf : Ice.Object
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ByteEnum opByte(ByteEnum b1, out ByteEnum b2, global::Ice.Current current);
+        ByteEnum opByte(ByteEnum b1, out ByteEnum b2, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ShortEnum opShort(ShortEnum s1, out ShortEnum s2, global::Ice.Current current);
+        ShortEnum opShort(ShortEnum s1, out ShortEnum s2, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        IntEnum opInt(IntEnum i1, out IntEnum i2, global::Ice.Current current);
+        IntEnum opInt(IntEnum i1, out IntEnum i2, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SimpleEnum opSimple(SimpleEnum s1, out SimpleEnum s2, global::Ice.Current current);
+        SimpleEnum opSimple(SimpleEnum s1, out SimpleEnum s2, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ByteEnum[] opByteSeq(ByteEnum[] b1, out ByteEnum[] b2, global::Ice.Current current);
+        ByteEnum[] opByteSeq(ByteEnum[] b1, out ByteEnum[] b2, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ShortEnum[] opShortSeq(ShortEnum[] s1, out ShortEnum[] s2, global::Ice.Current current);
+        ShortEnum[] opShortSeq(ShortEnum[] s1, out ShortEnum[] s2, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        IntEnum[] opIntSeq(IntEnum[] i1, out IntEnum[] i2, global::Ice.Current current);
+        IntEnum[] opIntSeq(IntEnum[] i1, out IntEnum[] i2, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SimpleEnum[] opSimpleSeq(SimpleEnum[] s1, out SimpleEnum[] s2, global::Ice.Current current);
+        SimpleEnum[] opSimpleSeq(SimpleEnum[] s1, out SimpleEnum[] s2, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current);
+        void shutdown(Ice.Current current);
     }
 }
 
@@ -259,7 +259,7 @@ namespace Test
 namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface TestIntfPrx : global::Ice.ObjectPrx
+    public interface TestIntfPrx : Ice.ObjectPrx
     {
         ByteEnum opByte(ByteEnum b1, out ByteEnum b2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -304,7 +304,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ByteEnumSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ByteEnum[] v)
+        public static void write(Ice.OutputStream ostr, ByteEnum[] v)
         {
             if (v is null)
             {
@@ -320,7 +320,7 @@ namespace Test
             }
         }
 
-        public static ByteEnum[] read(global::Ice.InputStream istr)
+        public static ByteEnum[] read(Ice.InputStream istr)
         {
             ByteEnum[] v;
             {
@@ -338,7 +338,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ShortEnumSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ShortEnum[] v)
+        public static void write(Ice.OutputStream ostr, ShortEnum[] v)
         {
             if (v is null)
             {
@@ -354,7 +354,7 @@ namespace Test
             }
         }
 
-        public static ShortEnum[] read(global::Ice.InputStream istr)
+        public static ShortEnum[] read(Ice.InputStream istr)
         {
             ShortEnum[] v;
             {
@@ -372,7 +372,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class IntEnumSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, IntEnum[] v)
+        public static void write(Ice.OutputStream ostr, IntEnum[] v)
         {
             if (v is null)
             {
@@ -388,7 +388,7 @@ namespace Test
             }
         }
 
-        public static IntEnum[] read(global::Ice.InputStream istr)
+        public static IntEnum[] read(Ice.InputStream istr)
         {
             IntEnum[] v;
             {
@@ -406,7 +406,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class SimpleEnumSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, SimpleEnum[] v)
+        public static void write(Ice.OutputStream ostr, SimpleEnum[] v)
         {
             if (v is null)
             {
@@ -422,7 +422,7 @@ namespace Test
             }
         }
 
-        public static SimpleEnum[] read(global::Ice.InputStream istr)
+        public static SimpleEnum[] read(Ice.InputStream istr)
         {
             SimpleEnum[] v;
             {
@@ -439,13 +439,11 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class TestIntfPrxHelper : global::Ice.ObjectPrxHelperBase, TestIntfPrx
+    public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
     {
         public TestIntfPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public ByteEnum opByte(ByteEnum b1, out ByteEnum b2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -571,10 +569,6 @@ namespace Test
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<TestIntf_OpByteResult> opByteAsync(ByteEnum b1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteAsync(b1, context, progress, cancel, false);
@@ -583,27 +577,27 @@ namespace Test
         private global::System.Threading.Tasks.Task<TestIntf_OpByteResult> _iceI_opByteAsync(ByteEnum iceP_b1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByte_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpByteResult>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpByteResult>(progress, cancel);
             _iceI_opByte(iceP_b1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opByte_name = "opByte";
 
-        private void _iceI_opByte(ByteEnum iceP_b1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opByte(ByteEnum iceP_b1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpByteResult>(completed);
             outAsync.invoke(
                 _opByte_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeEnum((int)iceP_b1, 126);
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpByteResult();
                     ret.b2 = (ByteEnum)istr.readEnum(126);
@@ -620,27 +614,27 @@ namespace Test
         private global::System.Threading.Tasks.Task<TestIntf_OpShortResult> _iceI_opShortAsync(ShortEnum iceP_s1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShort_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpShortResult>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpShortResult>(progress, cancel);
             _iceI_opShort(iceP_s1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opShort_name = "opShort";
 
-        private void _iceI_opShort(ShortEnum iceP_s1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opShort(ShortEnum iceP_s1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpShortResult>(completed);
             outAsync.invoke(
                 _opShort_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeEnum((int)iceP_s1, 32766);
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpShortResult();
                     ret.s2 = (ShortEnum)istr.readEnum(32766);
@@ -657,27 +651,27 @@ namespace Test
         private global::System.Threading.Tasks.Task<TestIntf_OpIntResult> _iceI_opIntAsync(IntEnum iceP_i1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opInt_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpIntResult>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpIntResult>(progress, cancel);
             _iceI_opInt(iceP_i1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opInt_name = "opInt";
 
-        private void _iceI_opInt(IntEnum iceP_i1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opInt(IntEnum iceP_i1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpIntResult>(completed);
             outAsync.invoke(
                 _opInt_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeEnum((int)iceP_i1, 2147483647);
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpIntResult();
                     ret.i2 = (IntEnum)istr.readEnum(2147483647);
@@ -694,27 +688,27 @@ namespace Test
         private global::System.Threading.Tasks.Task<TestIntf_OpSimpleResult> _iceI_opSimpleAsync(SimpleEnum iceP_s1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSimple_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpSimpleResult>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpSimpleResult>(progress, cancel);
             _iceI_opSimple(iceP_s1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opSimple_name = "opSimple";
 
-        private void _iceI_opSimple(SimpleEnum iceP_s1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opSimple(SimpleEnum iceP_s1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpSimpleResult>(completed);
             outAsync.invoke(
                 _opSimple_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeEnum((int)iceP_s1, 2);
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpSimpleResult();
                     ret.s2 = (SimpleEnum)istr.readEnum(2);
@@ -731,27 +725,27 @@ namespace Test
         private global::System.Threading.Tasks.Task<TestIntf_OpByteSeqResult> _iceI_opByteSeqAsync(ByteEnum[] iceP_b1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteSeq_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpByteSeqResult>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpByteSeqResult>(progress, cancel);
             _iceI_opByteSeq(iceP_b1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opByteSeq_name = "opByteSeq";
 
-        private void _iceI_opByteSeq(ByteEnum[] iceP_b1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opByteSeq(ByteEnum[] iceP_b1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpByteSeqResult>(completed);
             outAsync.invoke(
                 _opByteSeq_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ByteEnumSeqHelper.write(ostr, iceP_b1);
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpByteSeqResult();
                     ret.b2 = ByteEnumSeqHelper.read(istr);
@@ -768,27 +762,27 @@ namespace Test
         private global::System.Threading.Tasks.Task<TestIntf_OpShortSeqResult> _iceI_opShortSeqAsync(ShortEnum[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortSeq_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpShortSeqResult>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpShortSeqResult>(progress, cancel);
             _iceI_opShortSeq(iceP_s1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opShortSeq_name = "opShortSeq";
 
-        private void _iceI_opShortSeq(ShortEnum[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opShortSeq(ShortEnum[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpShortSeqResult>(completed);
             outAsync.invoke(
                 _opShortSeq_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ShortEnumSeqHelper.write(ostr, iceP_s1);
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpShortSeqResult();
                     ret.s2 = ShortEnumSeqHelper.read(istr);
@@ -805,27 +799,27 @@ namespace Test
         private global::System.Threading.Tasks.Task<TestIntf_OpIntSeqResult> _iceI_opIntSeqAsync(IntEnum[] iceP_i1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opIntSeq_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpIntSeqResult>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpIntSeqResult>(progress, cancel);
             _iceI_opIntSeq(iceP_i1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opIntSeq_name = "opIntSeq";
 
-        private void _iceI_opIntSeq(IntEnum[] iceP_i1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opIntSeq(IntEnum[] iceP_i1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpIntSeqResult>(completed);
             outAsync.invoke(
                 _opIntSeq_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     IntEnumSeqHelper.write(ostr, iceP_i1);
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpIntSeqResult();
                     ret.i2 = IntEnumSeqHelper.read(istr);
@@ -842,27 +836,27 @@ namespace Test
         private global::System.Threading.Tasks.Task<TestIntf_OpSimpleSeqResult> _iceI_opSimpleSeqAsync(SimpleEnum[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSimpleSeq_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpSimpleSeqResult>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpSimpleSeqResult>(progress, cancel);
             _iceI_opSimpleSeq(iceP_s1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opSimpleSeq_name = "opSimpleSeq";
 
-        private void _iceI_opSimpleSeq(SimpleEnum[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opSimpleSeq(SimpleEnum[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpSimpleSeqResult>(completed);
             outAsync.invoke(
                 _opSimpleSeq_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     SimpleEnumSeqHelper.write(ostr, iceP_s1);
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpSimpleSeqResult();
                     ret.s2 = SimpleEnumSeqHelper.read(istr);
@@ -878,32 +872,28 @@ namespace Test
 
         private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _shutdown_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
         }
 
-        #endregion
+        public static TestIntfPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static TestIntfPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static TestIntfPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -914,9 +904,9 @@ namespace Test
             return null;
         }
 
-        public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static TestIntfPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -926,7 +916,7 @@ namespace Test
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -934,7 +924,7 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static TestIntfPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -947,11 +937,11 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static TestIntfPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new TestIntfPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -967,18 +957,14 @@ namespace Test
 
         public static string ice_staticId() => "::Test::TestIntf";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, TestIntfPrx? v)
+        public static void write(Ice.OutputStream ostr, TestIntfPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static TestIntfPrx? read(global::Ice.InputStream istr)
+        public static TestIntfPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new TestIntfPrxHelper();
@@ -987,8 +973,6 @@ namespace Test
             }
             return null;
         }
-
-        #endregion
     }
 }
 
@@ -996,41 +980,31 @@ namespace Test
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class TestIntfDisp_ : global::Ice.ObjectImpl, TestIntf
+    public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
     {
-        #region Slice operations
+        public abstract ByteEnum opByte(ByteEnum b1, out ByteEnum b2, Ice.Current current);
 
-        public abstract ByteEnum opByte(ByteEnum b1, out ByteEnum b2, global::Ice.Current current);
+        public abstract ShortEnum opShort(ShortEnum s1, out ShortEnum s2, Ice.Current current);
 
-        public abstract ShortEnum opShort(ShortEnum s1, out ShortEnum s2, global::Ice.Current current);
+        public abstract IntEnum opInt(IntEnum i1, out IntEnum i2, Ice.Current current);
 
-        public abstract IntEnum opInt(IntEnum i1, out IntEnum i2, global::Ice.Current current);
+        public abstract SimpleEnum opSimple(SimpleEnum s1, out SimpleEnum s2, Ice.Current current);
 
-        public abstract SimpleEnum opSimple(SimpleEnum s1, out SimpleEnum s2, global::Ice.Current current);
+        public abstract ByteEnum[] opByteSeq(ByteEnum[] b1, out ByteEnum[] b2, Ice.Current current);
 
-        public abstract ByteEnum[] opByteSeq(ByteEnum[] b1, out ByteEnum[] b2, global::Ice.Current current);
+        public abstract ShortEnum[] opShortSeq(ShortEnum[] s1, out ShortEnum[] s2, Ice.Current current);
 
-        public abstract ShortEnum[] opShortSeq(ShortEnum[] s1, out ShortEnum[] s2, global::Ice.Current current);
+        public abstract IntEnum[] opIntSeq(IntEnum[] i1, out IntEnum[] i2, Ice.Current current);
 
-        public abstract IntEnum[] opIntSeq(IntEnum[] i1, out IntEnum[] i2, global::Ice.Current current);
+        public abstract SimpleEnum[] opSimpleSeq(SimpleEnum[] s1, out SimpleEnum[] s2, Ice.Current current);
 
-        public abstract SimpleEnum[] opSimpleSeq(SimpleEnum[] s1, out SimpleEnum[] s2, global::Ice.Current current);
+        public abstract void shutdown(Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Test::TestIntf";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "opByte" => TestIntf.iceD_opByteAsync(this, request),
@@ -1042,14 +1016,12 @@ namespace Test
                 "opIntSeq" => TestIntf.iceD_opIntSeqAsync(this, request),
                 "opSimpleSeq" => TestIntf.iceD_opSimpleSeqAsync(this, request),
                 "shutdown" => TestIntf.iceD_shutdownAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 }
 
@@ -1057,11 +1029,11 @@ namespace Test
 {
     public partial interface TestIntf
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opByteAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteAsync(
             TestIntf obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             ByteEnum iceP_b1;
@@ -1069,19 +1041,19 @@ namespace Test
             istr.endEncapsulation();
             ByteEnum iceP_b2;
             var ret = obj.opByte(iceP_b1, out iceP_b2, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ostr.writeEnum((int)iceP_b2, 126);
             ostr.writeEnum((int)ret, 126);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opShortAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortAsync(
             TestIntf obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             ShortEnum iceP_s1;
@@ -1089,19 +1061,19 @@ namespace Test
             istr.endEncapsulation();
             ShortEnum iceP_s2;
             var ret = obj.opShort(iceP_s1, out iceP_s2, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ostr.writeEnum((int)iceP_s2, 32766);
             ostr.writeEnum((int)ret, 32766);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opIntAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntAsync(
             TestIntf obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             IntEnum iceP_i1;
@@ -1109,19 +1081,19 @@ namespace Test
             istr.endEncapsulation();
             IntEnum iceP_i2;
             var ret = obj.opInt(iceP_i1, out iceP_i2, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ostr.writeEnum((int)iceP_i2, 2147483647);
             ostr.writeEnum((int)ret, 2147483647);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSimpleAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSimpleAsync(
             TestIntf obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             SimpleEnum iceP_s1;
@@ -1129,19 +1101,19 @@ namespace Test
             istr.endEncapsulation();
             SimpleEnum iceP_s2;
             var ret = obj.opSimple(iceP_s1, out iceP_s2, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ostr.writeEnum((int)iceP_s2, 2);
             ostr.writeEnum((int)ret, 2);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opByteSeqAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSeqAsync(
             TestIntf obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             ByteEnum[] iceP_b1;
@@ -1149,19 +1121,19 @@ namespace Test
             istr.endEncapsulation();
             ByteEnum[] iceP_b2;
             var ret = obj.opByteSeq(iceP_b1, out iceP_b2, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ByteEnumSeqHelper.write(ostr, iceP_b2);
             ByteEnumSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opShortSeqAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortSeqAsync(
             TestIntf obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             ShortEnum[] iceP_s1;
@@ -1169,19 +1141,19 @@ namespace Test
             istr.endEncapsulation();
             ShortEnum[] iceP_s2;
             var ret = obj.opShortSeq(iceP_s1, out iceP_s2, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ShortEnumSeqHelper.write(ostr, iceP_s2);
             ShortEnumSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opIntSeqAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntSeqAsync(
             TestIntf obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             IntEnum[] iceP_i1;
@@ -1189,19 +1161,19 @@ namespace Test
             istr.endEncapsulation();
             IntEnum[] iceP_i2;
             var ret = obj.opIntSeq(iceP_i1, out iceP_i2, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             IntEnumSeqHelper.write(ostr, iceP_i2);
             IntEnumSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opSimpleSeqAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSimpleSeqAsync(
             TestIntf obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             SimpleEnum[] iceP_s1;
@@ -1209,22 +1181,22 @@ namespace Test
             istr.endEncapsulation();
             SimpleEnum[] iceP_s2;
             var ret = obj.opSimpleSeq(iceP_s1, out iceP_s2, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             SimpleEnumSeqHelper.write(ostr, iceP_s2);
             SimpleEnumSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
             TestIntf obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             obj.shutdown(request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
 }

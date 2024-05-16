@@ -38,10 +38,8 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::UserAccountNotFoundException")]
-    public partial class UserAccountNotFoundException : global::Ice.UserException
+    public partial class UserAccountNotFoundException : Ice.UserException
     {
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UserAccountNotFoundException(global::System.Exception? innerException) : base(innerException)
         {
@@ -52,31 +50,25 @@ namespace IceGrid
         {
         }
 
-        #endregion
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id()
         {
             return "::IceGrid::UserAccountNotFoundException";
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::IceGrid::UserAccountNotFoundException", -1, true);
             ostr_.endSlice();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -91,7 +83,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::UserAccountMapper")]
-    public partial interface UserAccountMapper : global::Ice.Object
+    public partial interface UserAccountMapper : Ice.Object
     {
         /// <summary>
         /// Get the name of the user account for the given user.
@@ -108,7 +100,7 @@ namespace IceGrid
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getUserAccount(string user, global::Ice.Current current);
+        string getUserAccount(string user, Ice.Current current);
     }
 }
 
@@ -119,7 +111,7 @@ namespace IceGrid
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface UserAccountMapperPrx : global::Ice.ObjectPrx
+    public interface UserAccountMapperPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Get the name of the user account for the given user.
@@ -157,13 +149,11 @@ namespace IceGrid
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class UserAccountMapperPrxHelper : global::Ice.ObjectPrxHelperBase, UserAccountMapperPrx
+    public sealed class UserAccountMapperPrxHelper : Ice.ObjectPrxHelperBase, UserAccountMapperPrx
     {
         public UserAccountMapperPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public string getUserAccount(string user, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -177,10 +167,6 @@ namespace IceGrid
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getUserAccountAsync(user, context, progress, cancel, false);
@@ -189,27 +175,27 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<string> _iceI_getUserAccountAsync(string iceP_user, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getUserAccount_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
             _iceI_getUserAccount(iceP_user, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getUserAccount_name = "getUserAccount";
 
-        private void _iceI_getUserAccount(string iceP_user, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getUserAccount(string iceP_user, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<string>(completed);
             outAsync.invoke(
                 _getUserAccount_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_user);
                 },
-                userException: (global::Ice.UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -219,11 +205,11 @@ namespace IceGrid
                     {
                         throw;
                     }
-                    catch(global::Ice.UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     string ret;
                     ret = istr.readString();
@@ -231,14 +217,10 @@ namespace IceGrid
                 });
         }
 
-        #endregion
+        public static UserAccountMapperPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static UserAccountMapperPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static UserAccountMapperPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static UserAccountMapperPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -249,9 +231,9 @@ namespace IceGrid
             return null;
         }
 
-        public static UserAccountMapperPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static UserAccountMapperPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -261,7 +243,7 @@ namespace IceGrid
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -269,7 +251,7 @@ namespace IceGrid
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static UserAccountMapperPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static UserAccountMapperPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -282,11 +264,11 @@ namespace IceGrid
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static UserAccountMapperPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static UserAccountMapperPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new UserAccountMapperPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -302,18 +284,14 @@ namespace IceGrid
 
         public static string ice_staticId() => "::IceGrid::UserAccountMapper";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, UserAccountMapperPrx? v)
+        public static void write(Ice.OutputStream ostr, UserAccountMapperPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static UserAccountMapperPrx? read(global::Ice.InputStream istr)
+        public static UserAccountMapperPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new UserAccountMapperPrxHelper();
@@ -322,8 +300,6 @@ namespace IceGrid
             }
             return null;
         }
-
-        #endregion
     }
 }
 
@@ -331,36 +307,24 @@ namespace IceGrid
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class UserAccountMapperDisp_ : global::Ice.ObjectImpl, UserAccountMapper
+    public abstract class UserAccountMapperDisp_ : Ice.ObjectImpl, UserAccountMapper
     {
-        #region Slice operations
+        public abstract string getUserAccount(string user, Ice.Current current);
 
-        public abstract string getUserAccount(string user, global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::IceGrid::UserAccountMapper";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "getUserAccount" => UserAccountMapper.iceD_getUserAccountAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 }
 
@@ -368,22 +332,22 @@ namespace IceGrid
 {
     public partial interface UserAccountMapper
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getUserAccountAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getUserAccountAsync(
             UserAccountMapper obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_user;
             iceP_user = istr.readString();
             istr.endEncapsulation();
             var ret = obj.getUserAccount(iceP_user, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ostr.writeString(ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
     }
 }

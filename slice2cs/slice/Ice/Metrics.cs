@@ -33,10 +33,8 @@ namespace IceMX
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceMX::Metrics")]
-    public partial class Metrics : global::Ice.Value
+    public partial class Metrics : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string id = "";
 
@@ -52,11 +50,7 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int failures = 0;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Metrics(string id, long total, int current, long totalLifetime, int failures)
@@ -75,8 +69,6 @@ namespace IceMX
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceMX::Metrics";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -90,10 +82,8 @@ namespace IceMX
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             ostr_.writeString(id);
@@ -105,7 +95,7 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             id = istr_.readString();
@@ -115,8 +105,6 @@ namespace IceMX
             failures = istr_.readInt();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -131,19 +119,13 @@ namespace IceMX
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class MetricsFailures : global::System.IEquatable<MetricsFailures>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string id = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, int> failures;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MetricsFailures(global::System.Collections.Generic.Dictionary<string, int> failures)
@@ -161,23 +143,15 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MetricsFailures(global::Ice.InputStream istr)
+        public MetricsFailures(Ice.InputStream istr)
         {
             this.id = istr.readString();
             this.failures = StringIntDictHelper.read(istr);
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MetricsFailures Clone() => (MetricsFailures)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -203,37 +177,27 @@ namespace IceMX
                 Ice.UtilInternal.Collections.DictionaryEquals(this.failures, other.failures);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(MetricsFailures? lhs, MetricsFailures? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(MetricsFailures? lhs, MetricsFailures? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.id);
             StringIntDictHelper.write(ostr, this.failures);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, MetricsFailures v)
+        public static void ice_write(Ice.OutputStream ostr, MetricsFailures v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static MetricsFailures ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static MetricsFailures ice_read(Ice.InputStream istr) => new(istr);
     }
 
     /// <summary>
@@ -253,10 +217,8 @@ namespace IceMX
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceMX::UnknownMetricsView")]
-    public partial class UnknownMetricsView : global::Ice.UserException
+    public partial class UnknownMetricsView : Ice.UserException
     {
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownMetricsView(global::System.Exception? innerException) : base(innerException)
         {
@@ -267,31 +229,25 @@ namespace IceMX
         {
         }
 
-        #endregion
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id()
         {
             return "::IceMX::UnknownMetricsView";
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::IceMX::UnknownMetricsView", -1, true);
             ostr_.endSlice();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -306,7 +262,7 @@ namespace IceMX
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceMX::MetricsAdmin")]
-    public partial interface MetricsAdmin : global::Ice.Object
+    public partial interface MetricsAdmin : Ice.Object
     {
         /// <summary>
         /// Get the names of enabled and disabled metrics.
@@ -317,7 +273,7 @@ namespace IceMX
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getMetricsViewNames(out string[] disabledViews, global::Ice.Current current);
+        string[] getMetricsViewNames(out string[] disabledViews, Ice.Current current);
 
         /// <summary>
         /// Enables a metrics view.
@@ -328,7 +284,7 @@ namespace IceMX
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void enableMetricsView(string name, global::Ice.Current current);
+        void enableMetricsView(string name, Ice.Current current);
 
         /// <summary>
         /// Disable a metrics view.
@@ -339,7 +295,7 @@ namespace IceMX
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void disableMetricsView(string name, global::Ice.Current current);
+        void disableMetricsView(string name, Ice.Current current);
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
@@ -357,7 +313,7 @@ namespace IceMX
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::Ice.Current current);
+        global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, Ice.Current current);
 
         /// <summary>
         /// Get the metrics failures associated with the given view and map.
@@ -372,7 +328,7 @@ namespace IceMX
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.Current current);
+        MetricsFailures[] getMapMetricsFailures(string view, string map, Ice.Current current);
 
         /// <summary>
         /// Get the metrics failure associated for the given metrics.
@@ -389,7 +345,7 @@ namespace IceMX
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.Current current);
+        MetricsFailures getMetricsFailures(string view, string map, string id, Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -406,8 +362,6 @@ namespace IceMX
     [Ice.SliceTypeId("::IceMX::ThreadMetrics")]
     public partial class ThreadMetrics : Metrics
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int inUseForIO = 0;
 
@@ -417,11 +371,7 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int inUseForOther = 0;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ThreadMetrics(string id, long total, int current, long totalLifetime, int failures, int inUseForIO, int inUseForUser, int inUseForOther) : base(id, total, current, totalLifetime, failures)
@@ -438,8 +388,6 @@ namespace IceMX
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceMX::ThreadMetrics";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -453,10 +401,8 @@ namespace IceMX
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeInt(inUseForIO);
@@ -467,7 +413,7 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             inUseForIO = istr_.readInt();
@@ -476,8 +422,6 @@ namespace IceMX
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -494,8 +438,6 @@ namespace IceMX
     [Ice.SliceTypeId("::IceMX::DispatchMetrics")]
     public partial class DispatchMetrics : Metrics
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int userException = 0;
 
@@ -505,11 +447,7 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public long replySize = 0L;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DispatchMetrics(string id, long total, int current, long totalLifetime, int failures, int userException, long size, long replySize) : base(id, total, current, totalLifetime, failures)
@@ -526,8 +464,6 @@ namespace IceMX
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceMX::DispatchMetrics";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -541,10 +477,8 @@ namespace IceMX
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeInt(userException);
@@ -555,7 +489,7 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             userException = istr_.readInt();
@@ -564,8 +498,6 @@ namespace IceMX
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -582,19 +514,13 @@ namespace IceMX
     [Ice.SliceTypeId("::IceMX::ChildInvocationMetrics")]
     public partial class ChildInvocationMetrics : Metrics
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public long size = 0L;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public long replySize = 0L;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ChildInvocationMetrics(string id, long total, int current, long totalLifetime, int failures, long size, long replySize) : base(id, total, current, totalLifetime, failures)
@@ -610,8 +536,6 @@ namespace IceMX
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceMX::ChildInvocationMetrics";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -625,10 +549,8 @@ namespace IceMX
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeLong(size);
@@ -638,7 +560,7 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             size = istr_.readLong();
@@ -646,8 +568,6 @@ namespace IceMX
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -666,8 +586,6 @@ namespace IceMX
     {
         partial void ice_initialize();
 
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CollocatedMetrics(string id, long total, int current, long totalLifetime, int failures, long size, long replySize) : base(id, total, current, totalLifetime, failures, size, replySize)
         {
@@ -679,8 +597,6 @@ namespace IceMX
         {
             ice_initialize();
         }
-
-        #endregion
 
         private const string _id = "::IceMX::CollocatedMetrics";
 
@@ -695,10 +611,8 @@ namespace IceMX
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.endSlice();
@@ -706,14 +620,12 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -732,8 +644,6 @@ namespace IceMX
     {
         partial void ice_initialize();
 
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public RemoteMetrics(string id, long total, int current, long totalLifetime, int failures, long size, long replySize) : base(id, total, current, totalLifetime, failures, size, replySize)
         {
@@ -745,8 +655,6 @@ namespace IceMX
         {
             ice_initialize();
         }
-
-        #endregion
 
         private const string _id = "::IceMX::RemoteMetrics";
 
@@ -761,10 +669,8 @@ namespace IceMX
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.endSlice();
@@ -772,14 +678,12 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -796,8 +700,6 @@ namespace IceMX
     [Ice.SliceTypeId("::IceMX::InvocationMetrics")]
     public partial class InvocationMetrics : Metrics
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int retry = 0;
 
@@ -810,11 +712,7 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Metrics?[] collocated;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InvocationMetrics(string id, long total, int current, long totalLifetime, int failures, int retry, int userException, Metrics?[] remotes, Metrics?[] collocated) : base(id, total, current, totalLifetime, failures)
@@ -843,8 +741,6 @@ namespace IceMX
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceMX::InvocationMetrics";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -858,10 +754,8 @@ namespace IceMX
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeInt(retry);
@@ -873,7 +767,7 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             retry = istr_.readInt();
@@ -883,8 +777,6 @@ namespace IceMX
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -901,19 +793,13 @@ namespace IceMX
     [Ice.SliceTypeId("::IceMX::ConnectionMetrics")]
     public partial class ConnectionMetrics : Metrics
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public long receivedBytes = 0L;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public long sentBytes = 0L;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ConnectionMetrics(string id, long total, int current, long totalLifetime, int failures, long receivedBytes, long sentBytes) : base(id, total, current, totalLifetime, failures)
@@ -929,8 +815,6 @@ namespace IceMX
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceMX::ConnectionMetrics";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -944,10 +828,8 @@ namespace IceMX
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeLong(receivedBytes);
@@ -957,7 +839,7 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             receivedBytes = istr_.readLong();
@@ -965,8 +847,6 @@ namespace IceMX
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 }
 
@@ -986,7 +866,7 @@ namespace IceMX
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface MetricsAdminPrx : global::Ice.ObjectPrx
+    public interface MetricsAdminPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Get the names of enabled and disabled metrics.
@@ -1143,7 +1023,7 @@ namespace IceMX
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class StringIntDictHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<string, int> v)
         {
             if(v == null)
@@ -1161,7 +1041,7 @@ namespace IceMX
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, int> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, int> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<string, int> r = new global::System.Collections.Generic.Dictionary<string, int>();
@@ -1180,7 +1060,7 @@ namespace IceMX
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MetricsFailuresSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, MetricsFailures[] v)
+        public static void write(Ice.OutputStream ostr, MetricsFailures[] v)
         {
             if (v is null)
             {
@@ -1196,7 +1076,7 @@ namespace IceMX
             }
         }
 
-        public static MetricsFailures[] read(global::Ice.InputStream istr)
+        public static MetricsFailures[] read(Ice.InputStream istr)
         {
             MetricsFailures[] v;
             {
@@ -1214,7 +1094,7 @@ namespace IceMX
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MetricsMapHelper
     {
-        public static void write(global::Ice.OutputStream ostr, Metrics?[] v)
+        public static void write(Ice.OutputStream ostr, Metrics?[] v)
         {
             if (v is null)
             {
@@ -1230,7 +1110,7 @@ namespace IceMX
             }
         }
 
-        public static Metrics?[] read(global::Ice.InputStream istr)
+        public static Metrics?[] read(Ice.InputStream istr)
         {
             Metrics?[] v;
             {
@@ -1238,7 +1118,7 @@ namespace IceMX
                 v = new Metrics?[szx];
                 for (int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<Metrics>(v, ix));
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<Metrics>(v, ix));
                 }
             }
             return v;
@@ -1248,7 +1128,7 @@ namespace IceMX
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MetricsViewHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<string, Metrics?[]> v)
         {
             if(v == null)
@@ -1266,7 +1146,7 @@ namespace IceMX
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, Metrics?[]> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, Metrics?[]> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<string, Metrics?[]> r = new global::System.Collections.Generic.Dictionary<string, Metrics?[]>();
@@ -1284,13 +1164,11 @@ namespace IceMX
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class MetricsAdminPrxHelper : global::Ice.ObjectPrxHelperBase, MetricsAdminPrx
+    public sealed class MetricsAdminPrxHelper : Ice.ObjectPrxHelperBase, MetricsAdminPrx
     {
         public MetricsAdminPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public string[] getMetricsViewNames(out string[] disabledViews, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -1368,10 +1246,6 @@ namespace IceMX
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewNamesResult> getMetricsViewNamesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getMetricsViewNamesAsync(context, progress, cancel, false);
@@ -1380,23 +1254,23 @@ namespace IceMX
         private global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewNamesResult> _iceI_getMetricsViewNamesAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getMetricsViewNames_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MetricsAdmin_GetMetricsViewNamesResult>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<MetricsAdmin_GetMetricsViewNamesResult>(progress, cancel);
             _iceI_getMetricsViewNames(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getMetricsViewNames_name = "getMetricsViewNames";
 
-        private void _iceI_getMetricsViewNames(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getMetricsViewNames(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MetricsAdmin_GetMetricsViewNamesResult>(completed);
             outAsync.invoke(
                 _getMetricsViewNames_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.SlicedFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.SlicedFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     var ret = new MetricsAdmin_GetMetricsViewNamesResult();
                     ret.disabledViews = global::Ice.StringSeqHelper.read(istr);
@@ -1413,27 +1287,27 @@ namespace IceMX
         private global::System.Threading.Tasks.Task _iceI_enableMetricsViewAsync(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_enableMetricsView_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_enableMetricsView(iceP_name, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _enableMetricsView_name = "enableMetricsView";
 
-        private void _iceI_enableMetricsView(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_enableMetricsView(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _enableMetricsView_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.SlicedFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.SlicedFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_name);
                 },
-                userException: (global::Ice.UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -1443,7 +1317,7 @@ namespace IceMX
                     {
                         throw;
                     }
-                    catch(global::Ice.UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 });
@@ -1457,27 +1331,27 @@ namespace IceMX
         private global::System.Threading.Tasks.Task _iceI_disableMetricsViewAsync(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_disableMetricsView_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_disableMetricsView(iceP_name, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _disableMetricsView_name = "disableMetricsView";
 
-        private void _iceI_disableMetricsView(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_disableMetricsView(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _disableMetricsView_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.SlicedFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.SlicedFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_name);
                 },
-                userException: (global::Ice.UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -1487,7 +1361,7 @@ namespace IceMX
                     {
                         throw;
                     }
-                    catch(global::Ice.UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 });
@@ -1501,27 +1375,27 @@ namespace IceMX
         private global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewResult> _iceI_getMetricsViewAsync(string iceP_view, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getMetricsView_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MetricsAdmin_GetMetricsViewResult>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<MetricsAdmin_GetMetricsViewResult>(progress, cancel);
             _iceI_getMetricsView(iceP_view, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getMetricsView_name = "getMetricsView";
 
-        private void _iceI_getMetricsView(string iceP_view, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getMetricsView(string iceP_view, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MetricsAdmin_GetMetricsViewResult>(completed);
             outAsync.invoke(
                 _getMetricsView_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.SlicedFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.SlicedFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_view);
                 },
-                userException: (global::Ice.UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -1531,11 +1405,11 @@ namespace IceMX
                     {
                         throw;
                     }
-                    catch(global::Ice.UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     var ret = new MetricsAdmin_GetMetricsViewResult();
                     ret.timestamp = istr.readLong();
@@ -1553,28 +1427,28 @@ namespace IceMX
         private global::System.Threading.Tasks.Task<MetricsFailures[]> _iceI_getMapMetricsFailuresAsync(string iceP_view, string iceP_map, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getMapMetricsFailures_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MetricsFailures[]>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<MetricsFailures[]>(progress, cancel);
             _iceI_getMapMetricsFailures(iceP_view, iceP_map, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getMapMetricsFailures_name = "getMapMetricsFailures";
 
-        private void _iceI_getMapMetricsFailures(string iceP_view, string iceP_map, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getMapMetricsFailures(string iceP_view, string iceP_map, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MetricsFailures[]>(completed);
             outAsync.invoke(
                 _getMapMetricsFailures_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.SlicedFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.SlicedFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_view);
                     ostr.writeString(iceP_map);
                 },
-                userException: (global::Ice.UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -1584,11 +1458,11 @@ namespace IceMX
                     {
                         throw;
                     }
-                    catch(global::Ice.UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     MetricsFailures[] ret;
                     ret = MetricsFailuresSeqHelper.read(istr);
@@ -1604,29 +1478,29 @@ namespace IceMX
         private global::System.Threading.Tasks.Task<MetricsFailures> _iceI_getMetricsFailuresAsync(string iceP_view, string iceP_map, string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getMetricsFailures_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MetricsFailures>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<MetricsFailures>(progress, cancel);
             _iceI_getMetricsFailures(iceP_view, iceP_map, iceP_id, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getMetricsFailures_name = "getMetricsFailures";
 
-        private void _iceI_getMetricsFailures(string iceP_view, string iceP_map, string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getMetricsFailures(string iceP_view, string iceP_map, string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MetricsFailures>(completed);
             outAsync.invoke(
                 _getMetricsFailures_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.SlicedFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.SlicedFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_view);
                     ostr.writeString(iceP_map);
                     ostr.writeString(iceP_id);
                 },
-                userException: (global::Ice.UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -1636,11 +1510,11 @@ namespace IceMX
                     {
                         throw;
                     }
-                    catch(global::Ice.UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     MetricsFailures ret;
                     ret = new MetricsFailures(istr);
@@ -1648,14 +1522,10 @@ namespace IceMX
                 });
         }
 
-        #endregion
+        public static MetricsAdminPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static MetricsAdminPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static MetricsAdminPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static MetricsAdminPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1666,9 +1536,9 @@ namespace IceMX
             return null;
         }
 
-        public static MetricsAdminPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static MetricsAdminPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1678,7 +1548,7 @@ namespace IceMX
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1686,7 +1556,7 @@ namespace IceMX
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static MetricsAdminPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static MetricsAdminPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -1699,11 +1569,11 @@ namespace IceMX
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static MetricsAdminPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static MetricsAdminPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new MetricsAdminPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -1719,18 +1589,14 @@ namespace IceMX
 
         public static string ice_staticId() => "::IceMX::MetricsAdmin";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, MetricsAdminPrx? v)
+        public static void write(Ice.OutputStream ostr, MetricsAdminPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static MetricsAdminPrx? read(global::Ice.InputStream istr)
+        public static MetricsAdminPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new MetricsAdminPrxHelper();
@@ -1739,8 +1605,6 @@ namespace IceMX
             }
             return null;
         }
-
-        #endregion
     }
 }
 
@@ -1748,35 +1612,25 @@ namespace IceMX
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class MetricsAdminDisp_ : global::Ice.ObjectImpl, MetricsAdmin
+    public abstract class MetricsAdminDisp_ : Ice.ObjectImpl, MetricsAdmin
     {
-        #region Slice operations
+        public abstract string[] getMetricsViewNames(out string[] disabledViews, Ice.Current current);
 
-        public abstract string[] getMetricsViewNames(out string[] disabledViews, global::Ice.Current current);
+        public abstract void enableMetricsView(string name, Ice.Current current);
 
-        public abstract void enableMetricsView(string name, global::Ice.Current current);
+        public abstract void disableMetricsView(string name, Ice.Current current);
 
-        public abstract void disableMetricsView(string name, global::Ice.Current current);
+        public abstract global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::Ice.Current current);
+        public abstract MetricsFailures[] getMapMetricsFailures(string view, string map, Ice.Current current);
 
-        public abstract MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.Current current);
+        public abstract MetricsFailures getMetricsFailures(string view, string map, string id, Ice.Current current);
 
-        public abstract MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::IceMX::MetricsAdmin";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "getMetricsViewNames" => MetricsAdmin.iceD_getMetricsViewNamesAsync(this, request),
@@ -1785,14 +1639,12 @@ namespace IceMX
                 "getMetricsView" => MetricsAdmin.iceD_getMetricsViewAsync(this, request),
                 "getMapMetricsFailures" => MetricsAdmin.iceD_getMapMetricsFailuresAsync(this, request),
                 "getMetricsFailures" => MetricsAdmin.iceD_getMetricsFailuresAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 }
 
@@ -1800,55 +1652,55 @@ namespace IceMX
 {
     public partial interface MetricsAdmin
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getMetricsViewNamesAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getMetricsViewNamesAsync(
             MetricsAdmin obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             string[] iceP_disabledViews;
             var ret = obj.getMetricsViewNames(out iceP_disabledViews, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.SlicedFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
             global::Ice.StringSeqHelper.write(ostr, iceP_disabledViews);
             global::Ice.StringSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_enableMetricsViewAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_enableMetricsViewAsync(
             MetricsAdmin obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_name;
             iceP_name = istr.readString();
             istr.endEncapsulation();
             obj.enableMetricsView(iceP_name, request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_disableMetricsViewAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_disableMetricsViewAsync(
             MetricsAdmin obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_name;
             iceP_name = istr.readString();
             istr.endEncapsulation();
             obj.disableMetricsView(iceP_name, request.current);
-            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getMetricsViewAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getMetricsViewAsync(
             MetricsAdmin obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_view;
@@ -1856,20 +1708,20 @@ namespace IceMX
             istr.endEncapsulation();
             long iceP_timestamp;
             var ret = obj.getMetricsView(iceP_view, out iceP_timestamp, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.SlicedFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
             ostr.writeLong(iceP_timestamp);
             MetricsViewHelper.write(ostr, ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getMapMetricsFailuresAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getMapMetricsFailuresAsync(
             MetricsAdmin obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_view;
@@ -1878,18 +1730,18 @@ namespace IceMX
             iceP_map = istr.readString();
             istr.endEncapsulation();
             var ret = obj.getMapMetricsFailures(iceP_view, iceP_map, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.SlicedFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
             MetricsFailuresSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getMetricsFailuresAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getMetricsFailuresAsync(
             MetricsAdmin obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_view;
@@ -1900,11 +1752,11 @@ namespace IceMX
             iceP_id = istr.readString();
             istr.endEncapsulation();
             var ret = obj.getMetricsFailures(iceP_view, iceP_map, iceP_id, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.SlicedFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
             MetricsFailures.ice_write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
     }
 }

@@ -63,13 +63,13 @@ namespace classdef
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class bitandHelper
         {
-            public static void write(global::Ice.OutputStream ostr, bitand v)
+            public static void write(Ice.OutputStream ostr, bitand v)
             {
                 ostr.writeEnum((int)v, 31);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bitand read(global::Ice.InputStream istr)
+            public static bitand read(Ice.InputStream istr)
             {
                 bitand v;
                 v = (bitand)istr.readEnum(31);
@@ -89,8 +89,6 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial class bitor : global::System.IEquatable<bitor>
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bitand @case = classdef.@break.bitand.@catch;
 
@@ -103,11 +101,7 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int ne = 3;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bitor()
@@ -126,7 +120,7 @@ namespace classdef
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bitor(global::Ice.InputStream istr)
+            public bitor(Ice.InputStream istr)
             {
                 this.@case = (bitand)istr.readEnum(31);
                 this.@continue = istr.readInt();
@@ -135,16 +129,8 @@ namespace classdef
                 ice_initialize();
             }
 
-            #endregion
-
-            #region Clone method
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bitor Clone() => (bitor)MemberwiseClone();
-
-            #endregion
-
-            #region Object members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
@@ -174,22 +160,14 @@ namespace classdef
                     this.ne == other.ne;
             }
 
-            #endregion
-
-            #region Comparison members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator ==(bitor? lhs, bitor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator !=(bitor? lhs, bitor? rhs) => !(lhs == rhs);
 
-            #endregion
-
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
+            public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeEnum((int)this.@case, 31);
                 ostr.writeInt(this.@continue);
@@ -198,15 +176,13 @@ namespace classdef
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, bitor v)
+            public static void ice_write(Ice.OutputStream ostr, bitor v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bitor ice_read(global::Ice.InputStream istr) => new(istr);
-
-            #endregion
+            public static bitor ice_read(Ice.InputStream istr) => new(istr);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -221,10 +197,8 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::classdef::break::logical")]
-        public partial class logical : global::Ice.Value
+        public partial class logical : Ice.Value
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bitand @else = classdef.@break.bitand.enumeration;
 
@@ -234,11 +208,7 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool int64 = true;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public logical(bitand @else, bitor @for, bool int64)
@@ -264,8 +234,6 @@ namespace classdef
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::classdef::break::logical";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -279,10 +247,8 @@ namespace classdef
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
                 ostr_.writeEnum((int)@else, 31);
@@ -292,7 +258,7 @@ namespace classdef
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 @else = (bitand)istr_.readEnum(31);
@@ -300,8 +266,6 @@ namespace classdef
                 int64 = istr_.readBool();
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -318,16 +282,10 @@ namespace classdef
         [Ice.SliceTypeId("::classdef::break::xor")]
         public partial class xor : logical
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int @return = 1;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public xor(bitand @else, bitor @for, bool int64, int @return) : base(@else, @for, int64)
@@ -349,8 +307,6 @@ namespace classdef
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::classdef::break::xor";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -364,10 +320,8 @@ namespace classdef
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, false);
                 ostr_.writeInt(@return);
@@ -376,15 +330,13 @@ namespace classdef
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 @return = istr_.readInt();
                 istr_.endSlice();
                 base.iceReadImpl(istr_);
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -399,21 +351,15 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::classdef::break::try")]
-        public partial class @try : global::Ice.Value
+        public partial class @try : Ice.Value
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int @while = 1;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int delete = 2;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public @try(int @while, int delete)
@@ -429,8 +375,6 @@ namespace classdef
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::classdef::break::try";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -444,10 +388,8 @@ namespace classdef
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
                 ostr_.writeInt(@while);
@@ -456,15 +398,13 @@ namespace classdef
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 @while = istr_.readInt();
                 delete = istr_.readInt();
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -481,8 +421,6 @@ namespace classdef
         [Ice.SliceTypeId("::classdef::break::properties")]
         public partial class properties : @try
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int @if = 2;
 
@@ -495,11 +433,7 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public global::System.Collections.Generic.Dictionary<int, bitor> otherwise;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public properties(int @while, int delete, int @if, xor? @catch, bitor[] spmd, global::System.Collections.Generic.Dictionary<int, bitor> otherwise) : base(@while, delete)
@@ -528,8 +462,6 @@ namespace classdef
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::classdef::break::properties";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -543,10 +475,8 @@ namespace classdef
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, false);
                 ostr_.writeInt(@if);
@@ -558,7 +488,7 @@ namespace classdef
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 @if = istr_.readInt();
@@ -568,8 +498,6 @@ namespace classdef
                 istr_.endSlice();
                 base.iceReadImpl(istr_);
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -585,10 +513,8 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::classdef::break::persistent")]
-        public partial class persistent : global::Ice.UserException
+        public partial class persistent : Ice.UserException
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string identifier = "1";
 
@@ -606,10 +532,6 @@ namespace classdef
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public logical? end;
-
-            #endregion
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public persistent(string identifier, string ice_message_, string stack, string cause, string type, logical? end, global::System.Exception? innerException = null) : base(innerException)
@@ -632,18 +554,14 @@ namespace classdef
             {
             }
 
-            #endregion
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id()
             {
                 return "::classdef::break::persistent";
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice("::classdef::break::persistent", -1, true);
                 ostr_.writeString(identifier);
@@ -656,7 +574,7 @@ namespace classdef
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 identifier = istr_.readString();
@@ -673,8 +591,6 @@ namespace classdef
             {
                 return true;
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -692,14 +608,8 @@ namespace classdef
         [Ice.SliceTypeId("::classdef::break::global")]
         public partial class global : persistent
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int enumeration = 1;
-
-            #endregion
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public global(string identifier, string ice_message_, string stack, string cause, string type, logical? end, int enumeration, global::System.Exception? innerException = null) : base(identifier, ice_message_, stack, cause, type, end, innerException)
@@ -717,18 +627,14 @@ namespace classdef
             {
             }
 
-            #endregion
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id()
             {
                 return "::classdef::break::global";
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice("::classdef::break::global", -1, false);
                 ostr_.writeInt(enumeration);
@@ -737,15 +643,13 @@ namespace classdef
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 enumeration = istr_.readInt();
                 istr_.endSlice();
                 base.iceReadImpl(istr_);
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -760,19 +664,19 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::classdef::break::elseif")]
-        public partial interface elseif : global::Ice.Object
+        public partial interface elseif : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void events(global::Ice.Current current);
+            void events(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void function(global::Ice.Current current);
+            void function(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void delete(global::Ice.Current current);
+            void delete(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void ice_checkedCast(global::Ice.Current current);
+            void ice_checkedCast(Ice.Current current);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -788,7 +692,7 @@ namespace classdef
     namespace @break
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface elseifPrx : global::Ice.ObjectPrx
+        public interface elseifPrx : Ice.ObjectPrx
         {
             void events(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -816,7 +720,7 @@ namespace classdef
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class parforHelper
         {
-            public static void write(global::Ice.OutputStream ostr, bitor[] v)
+            public static void write(Ice.OutputStream ostr, bitor[] v)
             {
                 if (v is null)
                 {
@@ -832,7 +736,7 @@ namespace classdef
                 }
             }
 
-            public static bitor[] read(global::Ice.InputStream istr)
+            public static bitor[] read(Ice.InputStream istr)
             {
                 bitor[] v;
                 {
@@ -850,7 +754,7 @@ namespace classdef
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class switchHelper
         {
-            public static void write(global::Ice.OutputStream ostr,
+            public static void write(Ice.OutputStream ostr,
                                      global::System.Collections.Generic.Dictionary<int, bitor> v)
             {
                 if(v == null)
@@ -868,7 +772,7 @@ namespace classdef
                 }
             }
 
-            public static global::System.Collections.Generic.Dictionary<int, bitor> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Dictionary<int, bitor> read(Ice.InputStream istr)
             {
                 int sz = istr.readSize();
                 global::System.Collections.Generic.Dictionary<int, bitor> r = new global::System.Collections.Generic.Dictionary<int, bitor>();
@@ -886,13 +790,11 @@ namespace classdef
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class elseifPrxHelper : global::Ice.ObjectPrxHelperBase, elseifPrx
+        public sealed class elseifPrxHelper : Ice.ObjectPrxHelperBase, elseifPrx
         {
             public elseifPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public void events(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -942,10 +844,6 @@ namespace classdef
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task eventsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_eventsAsync(context, progress, cancel, false);
@@ -953,20 +851,20 @@ namespace classdef
 
             private global::System.Threading.Tasks.Task _iceI_eventsAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_events(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _events_name = "events";
 
-            private void _iceI_events(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_events(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _events_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
             }
@@ -978,20 +876,20 @@ namespace classdef
 
             private global::System.Threading.Tasks.Task _iceI_functionAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_function(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _function_name = "function";
 
-            private void _iceI_function(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_function(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _function_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
             }
@@ -1003,20 +901,20 @@ namespace classdef
 
             private global::System.Threading.Tasks.Task _iceI_deleteAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_delete(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _delete_name = "delete";
 
-            private void _iceI_delete(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_delete(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _delete_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
             }
@@ -1028,32 +926,28 @@ namespace classdef
 
             private global::System.Threading.Tasks.Task _iceI_checkedCastAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_checkedCast(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _checkedCast_name = "checkedCast";
 
-            private void _iceI_checkedCast(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_checkedCast(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _checkedCast_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
             }
 
-            #endregion
+            public static elseifPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static elseifPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static elseifPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static elseifPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -1064,9 +958,9 @@ namespace classdef
                 return null;
             }
 
-            public static elseifPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static elseifPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1076,7 +970,7 @@ namespace classdef
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -1084,7 +978,7 @@ namespace classdef
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static elseifPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static elseifPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -1097,11 +991,11 @@ namespace classdef
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static elseifPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static elseifPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new elseifPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -1117,18 +1011,14 @@ namespace classdef
 
             public static string ice_staticId() => "::classdef::break::elseif";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, elseifPrx? v)
+            public static void write(Ice.OutputStream ostr, elseifPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static elseifPrx? read(global::Ice.InputStream istr)
+            public static elseifPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new elseifPrxHelper();
@@ -1137,8 +1027,6 @@ namespace classdef
                 }
                 return null;
             }
-
-            #endregion
         }
     }
 }
@@ -1149,45 +1037,33 @@ namespace classdef
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class elseifDisp_ : global::Ice.ObjectImpl, elseif
+        public abstract class elseifDisp_ : Ice.ObjectImpl, elseif
         {
-            #region Slice operations
+            public abstract void events(Ice.Current current);
 
-            public abstract void events(global::Ice.Current current);
+            public abstract void function(Ice.Current current);
 
-            public abstract void function(global::Ice.Current current);
+            public abstract void delete(Ice.Current current);
 
-            public abstract void delete(global::Ice.Current current);
+            public abstract void ice_checkedCast(Ice.Current current);
 
-            public abstract void ice_checkedCast(global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::classdef::break::elseif";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "events" => elseif.iceD_eventsAsync(this, request),
                     "function" => elseif.iceD_functionAsync(this, request),
                     "delete" => elseif.iceD_deleteAsync(this, request),
                     "checkedCast" => elseif.iceD_checkedCastAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
     }
 }
@@ -1198,44 +1074,44 @@ namespace classdef
     {
         public partial interface elseif
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_eventsAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_eventsAsync(
                 elseif obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.events(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_functionAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_functionAsync(
                 elseif obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.function(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_deleteAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_deleteAsync(
                 elseif obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.delete(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_checkedCastAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkedCastAsync(
                 elseif obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.ice_checkedCast(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
         }
     }

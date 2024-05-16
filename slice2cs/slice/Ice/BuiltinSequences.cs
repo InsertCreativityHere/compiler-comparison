@@ -28,12 +28,12 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class BoolSeqHelper
     {
-        public static void write(OutputStream ostr, bool[] v)
+        public static void write(Ice.OutputStream ostr, bool[] v)
         {
             ostr.writeBoolSeq(v);
         }
 
-        public static bool[] read(InputStream istr)
+        public static bool[] read(Ice.InputStream istr)
         {
             bool[] v;
             v = istr.readBoolSeq();
@@ -44,12 +44,12 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ByteSeqHelper
     {
-        public static void write(OutputStream ostr, byte[] v)
+        public static void write(Ice.OutputStream ostr, byte[] v)
         {
             ostr.writeByteSeq(v);
         }
 
-        public static byte[] read(InputStream istr)
+        public static byte[] read(Ice.InputStream istr)
         {
             byte[] v;
             v = istr.readByteSeq();
@@ -60,12 +60,12 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ShortSeqHelper
     {
-        public static void write(OutputStream ostr, short[] v)
+        public static void write(Ice.OutputStream ostr, short[] v)
         {
             ostr.writeShortSeq(v);
         }
 
-        public static short[] read(InputStream istr)
+        public static short[] read(Ice.InputStream istr)
         {
             short[] v;
             v = istr.readShortSeq();
@@ -76,12 +76,12 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class IntSeqHelper
     {
-        public static void write(OutputStream ostr, int[] v)
+        public static void write(Ice.OutputStream ostr, int[] v)
         {
             ostr.writeIntSeq(v);
         }
 
-        public static int[] read(InputStream istr)
+        public static int[] read(Ice.InputStream istr)
         {
             int[] v;
             v = istr.readIntSeq();
@@ -92,12 +92,12 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LongSeqHelper
     {
-        public static void write(OutputStream ostr, long[] v)
+        public static void write(Ice.OutputStream ostr, long[] v)
         {
             ostr.writeLongSeq(v);
         }
 
-        public static long[] read(InputStream istr)
+        public static long[] read(Ice.InputStream istr)
         {
             long[] v;
             v = istr.readLongSeq();
@@ -108,12 +108,12 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class FloatSeqHelper
     {
-        public static void write(OutputStream ostr, float[] v)
+        public static void write(Ice.OutputStream ostr, float[] v)
         {
             ostr.writeFloatSeq(v);
         }
 
-        public static float[] read(InputStream istr)
+        public static float[] read(Ice.InputStream istr)
         {
             float[] v;
             v = istr.readFloatSeq();
@@ -124,12 +124,12 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class DoubleSeqHelper
     {
-        public static void write(OutputStream ostr, double[] v)
+        public static void write(Ice.OutputStream ostr, double[] v)
         {
             ostr.writeDoubleSeq(v);
         }
 
-        public static double[] read(InputStream istr)
+        public static double[] read(Ice.InputStream istr)
         {
             double[] v;
             v = istr.readDoubleSeq();
@@ -140,12 +140,12 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class StringSeqHelper
     {
-        public static void write(OutputStream ostr, string[] v)
+        public static void write(Ice.OutputStream ostr, string[] v)
         {
             ostr.writeStringSeq(v);
         }
 
-        public static string[] read(InputStream istr)
+        public static string[] read(Ice.InputStream istr)
         {
             string[] v;
             v = istr.readStringSeq();
@@ -156,7 +156,7 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ObjectSeqHelper
     {
-        public static void write(OutputStream ostr, Value?[] v)
+        public static void write(Ice.OutputStream ostr, Value?[] v)
         {
             if (v is null)
             {
@@ -172,14 +172,14 @@ namespace Ice
             }
         }
 
-        public static Value?[] read(InputStream istr)
+        public static Value?[] read(Ice.InputStream istr)
         {
             Value?[] v;
             int v_lenx = istr.readAndCheckSeqSize(1);
-            v = new Value?[v_lenx];
-            for(int ix = 0; ix < v_lenx; ++ix)
+            v = new Ice.Value?[v_lenx];
+            for (int ix = 0; ix < v_lenx; ++ix)
             {
-                istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<Value>(v, ix));
+                istr.readValue(Ice.Internal.Patcher.arrayReadValue<Ice.Value>(v, ix));
             }
             return v;
         }
@@ -188,7 +188,7 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ObjectProxySeqHelper
     {
-        public static void write(OutputStream ostr, ObjectPrx?[] v)
+        public static void write(Ice.OutputStream ostr, ObjectPrx?[] v)
         {
             if (v is null)
             {
@@ -204,11 +204,11 @@ namespace Ice
             }
         }
 
-        public static ObjectPrx?[] read(InputStream istr)
+        public static ObjectPrx?[] read(Ice.InputStream istr)
         {
             ObjectPrx?[] v;
             int v_lenx = istr.readAndCheckSeqSize(2);
-            v = new ObjectPrx?[v_lenx];
+            v = new Ice.ObjectPrx?[v_lenx];
             for (int ix = 0; ix < v_lenx; ++ix)
             {
                 v[ix] = istr.readProxy();

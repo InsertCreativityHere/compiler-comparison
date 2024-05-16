@@ -34,13 +34,13 @@ namespace Ice.defaultValue
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ColorHelper
         {
-            public static void write(global::Ice.OutputStream ostr, Color v)
+            public static void write(Ice.OutputStream ostr, Color v)
             {
                 ostr.writeEnum((int)v, 2);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static Color read(global::Ice.InputStream istr)
+            public static Color read(Ice.InputStream istr)
             {
                 Color v;
                 v = (Color)istr.readEnum(2);
@@ -61,13 +61,13 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class ColorHelper
             {
-                public static void write(global::Ice.OutputStream ostr, Color v)
+                public static void write(Ice.OutputStream ostr, Color v)
                 {
                     ostr.writeEnum((int)v, 2);
                 }
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                public static Color read(global::Ice.InputStream istr)
+                public static Color read(Ice.InputStream istr)
                 {
                     Color v;
                     v = (Color)istr.readEnum(2);
@@ -88,8 +88,6 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial class Struct1 : global::System.IEquatable<Struct1>
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolFalse = false;
 
@@ -156,11 +154,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public double zeroDotD = 0;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct1()
@@ -197,7 +191,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Struct1(global::Ice.InputStream istr)
+            public Struct1(Ice.InputStream istr)
             {
                 this.boolFalse = istr.readBool();
                 this.boolTrue = istr.readBool();
@@ -224,16 +218,8 @@ namespace Ice.defaultValue
                 ice_initialize();
             }
 
-            #endregion
-
-            #region Clone method
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct1 Clone() => (Struct1)MemberwiseClone();
-
-            #endregion
-
-            #region Object members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
@@ -299,22 +285,14 @@ namespace Ice.defaultValue
                     this.zeroDotD == other.zeroDotD;
             }
 
-            #endregion
-
-            #region Comparison members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator ==(Struct1? lhs, Struct1? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator !=(Struct1? lhs, Struct1? rhs) => !(lhs == rhs);
 
-            #endregion
-
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
+            public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeBool(this.boolFalse);
                 ostr.writeBool(this.boolTrue);
@@ -341,15 +319,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, Struct1 v)
+            public static void ice_write(Ice.OutputStream ostr, Struct1 v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static Struct1 ice_read(global::Ice.InputStream istr) => new(istr);
-
-            #endregion
+            public static Struct1 ice_read(Ice.InputStream istr) => new(istr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -484,8 +460,6 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial class Struct2 : global::System.IEquatable<Struct2>
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolTrue = Test.ConstBool.value;
 
@@ -546,11 +520,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public double zeroDotD = Test.ConstZeroDotD.value;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct2()
@@ -585,7 +555,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Struct2(global::Ice.InputStream istr)
+            public Struct2(Ice.InputStream istr)
             {
                 this.boolTrue = istr.readBool();
                 this.b = istr.readByte();
@@ -610,16 +580,8 @@ namespace Ice.defaultValue
                 ice_initialize();
             }
 
-            #endregion
-
-            #region Clone method
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct2 Clone() => (Struct2)MemberwiseClone();
-
-            #endregion
-
-            #region Object members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
@@ -681,22 +643,14 @@ namespace Ice.defaultValue
                     this.zeroDotD == other.zeroDotD;
             }
 
-            #endregion
-
-            #region Comparison members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator ==(Struct2? lhs, Struct2? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator !=(Struct2? lhs, Struct2? rhs) => !(lhs == rhs);
 
-            #endregion
-
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
+            public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeBool(this.boolTrue);
                 ostr.writeByte(this.b);
@@ -721,15 +675,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, Struct2 v)
+            public static void ice_write(Ice.OutputStream ostr, Struct2 v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static Struct2 ice_read(global::Ice.InputStream istr) => new(istr);
-
-            #endregion
+            public static Struct2 ice_read(Ice.InputStream istr) => new(istr);
         }
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -744,8 +696,6 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial class Struct3 : global::System.IEquatable<Struct3>
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolFalse = false;
 
@@ -806,11 +756,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public double zeroDotD = 0;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct3()
@@ -845,7 +791,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Struct3(global::Ice.InputStream istr)
+            public Struct3(Ice.InputStream istr)
             {
                 this.boolFalse = istr.readBool();
                 this.boolTrue = istr.readBool();
@@ -870,16 +816,8 @@ namespace Ice.defaultValue
                 ice_initialize();
             }
 
-            #endregion
-
-            #region Clone method
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct3 Clone() => (Struct3)MemberwiseClone();
-
-            #endregion
-
-            #region Object members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
@@ -941,22 +879,14 @@ namespace Ice.defaultValue
                     this.zeroDotD == other.zeroDotD;
             }
 
-            #endregion
-
-            #region Comparison members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator ==(Struct3? lhs, Struct3? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator !=(Struct3? lhs, Struct3? rhs) => !(lhs == rhs);
 
-            #endregion
-
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
+            public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeBool(this.boolFalse);
                 ostr.writeBool(this.boolTrue);
@@ -981,15 +911,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, Struct3 v)
+            public static void ice_write(Ice.OutputStream ostr, Struct3 v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static Struct3 ice_read(global::Ice.InputStream istr) => new(istr);
-
-            #endregion
+            public static Struct3 ice_read(Ice.InputStream istr) => new(istr);
         }
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -1004,8 +932,6 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial class Struct4 : global::System.IEquatable<Struct4>
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolFalse = false;
 
@@ -1066,11 +992,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public double zeroDotD = 0;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct4()
@@ -1105,7 +1027,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Struct4(global::Ice.InputStream istr)
+            public Struct4(Ice.InputStream istr)
             {
                 this.boolFalse = istr.readBool();
                 this.boolTrue = istr.readBool();
@@ -1130,16 +1052,8 @@ namespace Ice.defaultValue
                 ice_initialize();
             }
 
-            #endregion
-
-            #region Clone method
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct4 Clone() => (Struct4)MemberwiseClone();
-
-            #endregion
-
-            #region Object members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
@@ -1201,22 +1115,14 @@ namespace Ice.defaultValue
                     this.zeroDotD == other.zeroDotD;
             }
 
-            #endregion
-
-            #region Comparison members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator ==(Struct4? lhs, Struct4? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator !=(Struct4? lhs, Struct4? rhs) => !(lhs == rhs);
 
-            #endregion
-
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
+            public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeBool(this.boolFalse);
                 ostr.writeBool(this.boolTrue);
@@ -1241,15 +1147,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, Struct4 v)
+            public static void ice_write(Ice.OutputStream ostr, Struct4 v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static Struct4 ice_read(global::Ice.InputStream istr) => new(istr);
-
-            #endregion
+            public static Struct4 ice_read(Ice.InputStream istr) => new(istr);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1264,10 +1168,8 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Base")]
-        public partial class @Base : global::Ice.Value
+        public partial class @Base : Ice.Value
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolFalse = false;
 
@@ -1316,11 +1218,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public double zeroDotD = 0;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public @Base(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
@@ -1350,8 +1248,6 @@ namespace Ice.defaultValue
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::Test::Base";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1365,10 +1261,8 @@ namespace Ice.defaultValue
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
                 ostr_.writeBool(boolFalse);
@@ -1391,7 +1285,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 boolFalse = istr_.readBool();
@@ -1412,8 +1306,6 @@ namespace Ice.defaultValue
                 zeroDotD = istr_.readDouble();
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1430,8 +1322,6 @@ namespace Ice.defaultValue
         [Ice.SliceTypeId("::Test::Derived")]
         public partial class Derived : @Base
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Color c1 = Test.Color.red;
 
@@ -1450,11 +1340,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public global::Ice.defaultValue.Test.Nested.Color nc3 = Test.Nested.Color.blue;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Derived(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, global::Ice.defaultValue.Test.Nested.Color nc1, global::Ice.defaultValue.Test.Nested.Color nc2, global::Ice.defaultValue.Test.Nested.Color nc3) : base(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
@@ -1474,8 +1360,6 @@ namespace Ice.defaultValue
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::Test::Derived";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1489,10 +1373,8 @@ namespace Ice.defaultValue
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, false);
                 ostr_.writeEnum((int)c1, 2);
@@ -1506,7 +1388,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 c1 = (Color)istr_.readEnum(2);
@@ -1518,8 +1400,6 @@ namespace Ice.defaultValue
                 istr_.endSlice();
                 base.iceReadImpl(istr_);
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1535,10 +1415,8 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::BaseEx")]
-        public partial class BaseEx : global::Ice.UserException
+        public partial class BaseEx : Ice.UserException
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolFalse = false;
 
@@ -1586,10 +1464,6 @@ namespace Ice.defaultValue
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public double zeroDotD = 0;
-
-            #endregion
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public BaseEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, global::System.Exception? innerException = null) : base(innerException)
@@ -1622,18 +1496,14 @@ namespace Ice.defaultValue
             {
             }
 
-            #endregion
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id()
             {
                 return "::Test::BaseEx";
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice("::Test::BaseEx", -1, true);
                 ostr_.writeBool(boolFalse);
@@ -1656,7 +1526,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 boolFalse = istr_.readBool();
@@ -1677,8 +1547,6 @@ namespace Ice.defaultValue
                 zeroDotD = istr_.readDouble();
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1696,8 +1564,6 @@ namespace Ice.defaultValue
         [Ice.SliceTypeId("::Test::DerivedEx")]
         public partial class DerivedEx : BaseEx
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Color c1 = Test.ConstColor1.value;
 
@@ -1715,10 +1581,6 @@ namespace Ice.defaultValue
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public global::Ice.defaultValue.Test.Nested.Color nc3 = Test.ConstNestedColor3.value;
-
-            #endregion
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public DerivedEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, global::Ice.defaultValue.Test.Nested.Color nc1, global::Ice.defaultValue.Test.Nested.Color nc2, global::Ice.defaultValue.Test.Nested.Color nc3, global::System.Exception? innerException = null) : base(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, innerException)
@@ -1741,18 +1603,14 @@ namespace Ice.defaultValue
             {
             }
 
-            #endregion
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id()
             {
                 return "::Test::DerivedEx";
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice("::Test::DerivedEx", -1, false);
                 ostr_.writeEnum((int)c1, 2);
@@ -1766,7 +1624,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 c1 = (Color)istr_.readEnum(2);
@@ -1778,8 +1636,6 @@ namespace Ice.defaultValue
                 istr_.endSlice();
                 base.iceReadImpl(istr_);
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1794,10 +1650,8 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::ClassProperty")]
-        public partial class ClassProperty : global::Ice.Value
+        public partial class ClassProperty : Ice.Value
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolFalse { get; set; } = false;
 
@@ -1846,11 +1700,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public double zeroDotD { get; set; } = 0;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ClassProperty(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
@@ -1880,8 +1730,6 @@ namespace Ice.defaultValue
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::Test::ClassProperty";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1895,10 +1743,8 @@ namespace Ice.defaultValue
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
                 ostr_.writeBool(boolFalse);
@@ -1921,7 +1767,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 boolFalse = istr_.readBool();
@@ -1942,8 +1788,6 @@ namespace Ice.defaultValue
                 zeroDotD = istr_.readDouble();
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -1958,8 +1802,6 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial class StructProperty : global::System.IEquatable<StructProperty>
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolFalse { get; set; } = false;
 
@@ -2008,11 +1850,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public double zeroDotD { get; set; } = 0;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public StructProperty()
@@ -2043,7 +1881,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public StructProperty(global::Ice.InputStream istr)
+            public StructProperty(Ice.InputStream istr)
             {
                 this.boolFalse = istr.readBool();
                 this.boolTrue = istr.readBool();
@@ -2064,16 +1902,8 @@ namespace Ice.defaultValue
                 ice_initialize();
             }
 
-            #endregion
-
-            #region Clone method
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public StructProperty Clone() => (StructProperty)MemberwiseClone();
-
-            #endregion
-
-            #region Object members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
@@ -2127,22 +1957,14 @@ namespace Ice.defaultValue
                     this.zeroDotD == other.zeroDotD;
             }
 
-            #endregion
-
-            #region Comparison members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator ==(StructProperty? lhs, StructProperty? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator !=(StructProperty? lhs, StructProperty? rhs) => !(lhs == rhs);
 
-            #endregion
-
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
+            public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeBool(this.boolFalse);
                 ostr.writeBool(this.boolTrue);
@@ -2163,15 +1985,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, StructProperty v)
+            public static void ice_write(Ice.OutputStream ostr, StructProperty v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static StructProperty ice_read(global::Ice.InputStream istr) => new(istr);
-
-            #endregion
+            public static StructProperty ice_read(Ice.InputStream istr) => new(istr);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2187,10 +2007,8 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::ExceptionProperty")]
-        public partial class ExceptionProperty : global::Ice.UserException
+        public partial class ExceptionProperty : Ice.UserException
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolFalse { get; set; } = false;
 
@@ -2239,10 +2057,6 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public double zeroDotD { get; set; } = 0;
 
-            #endregion
-
-            #region Constructors
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ExceptionProperty(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, global::System.Exception? innerException = null) : base(innerException)
             {
@@ -2274,18 +2088,14 @@ namespace Ice.defaultValue
             {
             }
 
-            #endregion
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id()
             {
                 return "::Test::ExceptionProperty";
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice("::Test::ExceptionProperty", -1, true);
                 ostr_.writeBool(boolFalse);
@@ -2308,7 +2118,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 boolFalse = istr_.readBool();
@@ -2329,8 +2139,6 @@ namespace Ice.defaultValue
                 zeroDotD = istr_.readDouble();
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -2345,16 +2153,10 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public partial record struct InnerStruct
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int a;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public InnerStruct(int a)
@@ -2364,32 +2166,26 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public InnerStruct(global::Ice.InputStream istr)
+            public InnerStruct(Ice.InputStream istr)
             {
                 this.a = istr.readInt();
                 ice_initialize();
             }
 
-            #endregion
-
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
+            public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeInt(this.a);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, InnerStruct v)
+            public static void ice_write(Ice.OutputStream ostr, InnerStruct v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static InnerStruct ice_read(global::Ice.InputStream istr) => new(istr);
-
-            #endregion
+            public static InnerStruct ice_read(Ice.InputStream istr) => new(istr);
         }
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -2404,16 +2200,10 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial class InnerStruct2 : global::System.IEquatable<InnerStruct2>
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string a = "";
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public InnerStruct2()
@@ -2429,22 +2219,14 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public InnerStruct2(global::Ice.InputStream istr)
+            public InnerStruct2(Ice.InputStream istr)
             {
                 this.a = istr.readString();
                 ice_initialize();
             }
 
-            #endregion
-
-            #region Clone method
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public InnerStruct2 Clone() => (InnerStruct2)MemberwiseClone();
-
-            #endregion
-
-            #region Object members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
@@ -2468,36 +2250,26 @@ namespace Ice.defaultValue
                     this.a == other.a;
             }
 
-            #endregion
-
-            #region Comparison members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator ==(InnerStruct2? lhs, InnerStruct2? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator !=(InnerStruct2? lhs, InnerStruct2? rhs) => !(lhs == rhs);
 
-            #endregion
-
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
+            public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeString(this.a);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, InnerStruct2 v)
+            public static void ice_write(Ice.OutputStream ostr, InnerStruct2 v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static InnerStruct2 ice_read(global::Ice.InputStream istr) => new(istr);
-
-            #endregion
+            public static InnerStruct2 ice_read(Ice.InputStream istr) => new(istr);
         }
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -2512,8 +2284,6 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial class StructNoDefaults : global::System.IEquatable<StructNoDefaults>
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool bo;
 
@@ -2556,11 +2326,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public global::System.Collections.Generic.Dictionary<int, string> dict;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public StructNoDefaults(byte[] bs, int[] iseq, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict)
@@ -2593,7 +2359,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public StructNoDefaults(global::Ice.InputStream istr)
+            public StructNoDefaults(Ice.InputStream istr)
             {
                 this.bo = istr.readBool();
                 this.b = istr.readByte();
@@ -2612,16 +2378,8 @@ namespace Ice.defaultValue
                 ice_initialize();
             }
 
-            #endregion
-
-            #region Clone method
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public StructNoDefaults Clone() => (StructNoDefaults)MemberwiseClone();
-
-            #endregion
-
-            #region Object members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
@@ -2671,22 +2429,14 @@ namespace Ice.defaultValue
                     Ice.UtilInternal.Collections.DictionaryEquals(this.dict, other.dict);
             }
 
-            #endregion
-
-            #region Comparison members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator ==(StructNoDefaults? lhs, StructNoDefaults? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator !=(StructNoDefaults? lhs, StructNoDefaults? rhs) => !(lhs == rhs);
 
-            #endregion
-
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
+            public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeBool(this.bo);
                 ostr.writeByte(this.b);
@@ -2705,15 +2455,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, StructNoDefaults v)
+            public static void ice_write(Ice.OutputStream ostr, StructNoDefaults v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static StructNoDefaults ice_read(global::Ice.InputStream istr) => new(istr);
-
-            #endregion
+            public static StructNoDefaults ice_read(Ice.InputStream istr) => new(istr);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2729,10 +2477,8 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::ExceptionNoDefaultsBase")]
-        public partial class ExceptionNoDefaultsBase : global::Ice.UserException
+        public partial class ExceptionNoDefaultsBase : Ice.UserException
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string str = "";
 
@@ -2741,10 +2487,6 @@ namespace Ice.defaultValue
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public byte[] bs;
-
-            #endregion
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ExceptionNoDefaultsBase(string str, Color c1, byte[] bs, global::System.Exception? innerException = null) : base(innerException)
@@ -2767,18 +2509,14 @@ namespace Ice.defaultValue
                 this.bs = null!;
             }
 
-            #endregion
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id()
             {
                 return "::Test::ExceptionNoDefaultsBase";
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice("::Test::ExceptionNoDefaultsBase", -1, true);
                 ostr_.writeString(str);
@@ -2788,7 +2526,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 str = istr_.readString();
@@ -2796,8 +2534,6 @@ namespace Ice.defaultValue
                 bs = ByteSeqHelper.read(istr_);
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2815,8 +2551,6 @@ namespace Ice.defaultValue
         [Ice.SliceTypeId("::Test::ExceptionNoDefaults")]
         public partial class ExceptionNoDefaults : ExceptionNoDefaultsBase
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public InnerStruct st;
 
@@ -2825,10 +2559,6 @@ namespace Ice.defaultValue
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public global::System.Collections.Generic.Dictionary<int, string> dict;
-
-            #endregion
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ExceptionNoDefaults(string str, Color c1, byte[] bs, InnerStruct st, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict, global::System.Exception? innerException = null) : base(str, c1, bs, innerException)
@@ -2853,18 +2583,14 @@ namespace Ice.defaultValue
                 this.dict = null!;
             }
 
-            #endregion
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id()
             {
                 return "::Test::ExceptionNoDefaults";
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice("::Test::ExceptionNoDefaults", -1, false);
                 st.ice_writeMembers(ostr_);
@@ -2875,7 +2601,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 st = new InnerStruct(istr_);
@@ -2884,8 +2610,6 @@ namespace Ice.defaultValue
                 istr_.endSlice();
                 base.iceReadImpl(istr_);
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2900,10 +2624,8 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::ClassNoDefaultsBase")]
-        public partial class ClassNoDefaultsBase : global::Ice.Value
+        public partial class ClassNoDefaultsBase : Ice.Value
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string str = "";
 
@@ -2913,11 +2635,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public byte[] bs;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ClassNoDefaultsBase(string str, Color c1, byte[] bs)
@@ -2943,8 +2661,6 @@ namespace Ice.defaultValue
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::Test::ClassNoDefaultsBase";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2958,10 +2674,8 @@ namespace Ice.defaultValue
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
                 ostr_.writeString(str);
@@ -2971,7 +2685,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 str = istr_.readString();
@@ -2979,8 +2693,6 @@ namespace Ice.defaultValue
                 bs = ByteSeqHelper.read(istr_);
                 istr_.endSlice();
             }
-
-            #endregion
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2997,8 +2709,6 @@ namespace Ice.defaultValue
         [Ice.SliceTypeId("::Test::ClassNoDefaults")]
         public partial class ClassNoDefaults : ClassNoDefaultsBase
         {
-            #region Slice data members
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public InnerStruct st;
 
@@ -3008,11 +2718,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public global::System.Collections.Generic.Dictionary<int, string> dict;
 
-            #endregion
-
             partial void ice_initialize();
-
-            #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ClassNoDefaults(string str, Color c1, byte[] bs, InnerStruct st, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict) : base(str, c1, bs)
@@ -3040,8 +2746,6 @@ namespace Ice.defaultValue
                 ice_initialize();
             }
 
-            #endregion
-
             private const string _id = "::Test::ClassNoDefaults";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -3055,10 +2759,8 @@ namespace Ice.defaultValue
                 return _id;
             }
 
-            #region Marshaling support
-
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, false);
                 st.ice_writeMembers(ostr_);
@@ -3069,7 +2771,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
+            protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
                 st = new InnerStruct(istr_);
@@ -3078,8 +2780,6 @@ namespace Ice.defaultValue
                 istr_.endSlice();
                 base.iceReadImpl(istr_);
             }
-
-            #endregion
         }
     }
 }
@@ -3091,12 +2791,12 @@ namespace Ice.defaultValue
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ByteSeqHelper
         {
-            public static void write(global::Ice.OutputStream ostr, byte[] v)
+            public static void write(Ice.OutputStream ostr, byte[] v)
             {
                 ostr.writeByteSeq(v);
             }
 
-            public static byte[] read(global::Ice.InputStream istr)
+            public static byte[] read(Ice.InputStream istr)
             {
                 byte[] v;
                 v = istr.readByteSeq();
@@ -3107,12 +2807,12 @@ namespace Ice.defaultValue
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class IntSeqHelper
         {
-            public static void write(global::Ice.OutputStream ostr, int[] v)
+            public static void write(Ice.OutputStream ostr, int[] v)
             {
                 ostr.writeIntSeq(v);
             }
 
-            public static int[] read(global::Ice.InputStream istr)
+            public static int[] read(Ice.InputStream istr)
             {
                 int[] v;
                 v = istr.readIntSeq();
@@ -3123,7 +2823,7 @@ namespace Ice.defaultValue
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class IntStringDictHelper
         {
-            public static void write(global::Ice.OutputStream ostr,
+            public static void write(Ice.OutputStream ostr,
                                      global::System.Collections.Generic.Dictionary<int, string> v)
             {
                 if(v == null)
@@ -3141,7 +2841,7 @@ namespace Ice.defaultValue
                 }
             }
 
-            public static global::System.Collections.Generic.Dictionary<int, string> read(global::Ice.InputStream istr)
+            public static global::System.Collections.Generic.Dictionary<int, string> read(Ice.InputStream istr)
             {
                 int sz = istr.readSize();
                 global::System.Collections.Generic.Dictionary<int, string> r = new global::System.Collections.Generic.Dictionary<int, string>();

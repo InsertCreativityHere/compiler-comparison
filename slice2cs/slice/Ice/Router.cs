@@ -33,7 +33,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::Router")]
-    public partial interface Router : Object
+    public partial interface Router : Ice.Object
     {
         /// <summary>
         /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -48,7 +48,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx? getClientProxy(out bool? hasRoutingTable, Current current);
+        ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
 
         /// <summary>
         /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
@@ -57,7 +57,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx? getServerProxy(Current current);
+        ObjectPrx? getServerProxy(Ice.Current current);
 
         /// <summary>
         /// Add new proxy information to the router's routing table.
@@ -68,7 +68,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx?[] addProxies(ObjectPrx?[] proxies, Current current);
+        ObjectPrx?[] addProxies(ObjectPrx?[] proxies, Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -83,7 +83,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::RouterFinder")]
-    public partial interface RouterFinder : Object
+    public partial interface RouterFinder : Ice.Object
     {
         /// <summary>
         /// Get the router proxy implemented by the process hosting this finder object.
@@ -94,7 +94,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        RouterPrx? getRouter(Current current);
+        RouterPrx? getRouter(Ice.Current current);
     }
 }
 
@@ -112,7 +112,7 @@ namespace Ice
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface RouterPrx : ObjectPrx
+    public interface RouterPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -185,7 +185,7 @@ namespace Ice
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface RouterFinderPrx : ObjectPrx
+    public interface RouterFinderPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Get the router proxy implemented by the process hosting this finder object.
@@ -213,13 +213,11 @@ namespace Ice
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class RouterPrxHelper : ObjectPrxHelperBase, RouterPrx
+    public sealed class RouterPrxHelper : Ice.ObjectPrxHelperBase, RouterPrx
     {
         public RouterPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public ObjectPrx? getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -259,10 +257,6 @@ namespace Ice
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<Router_GetClientProxyResult> getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getClientProxyAsync(context, progress, cancel, false);
@@ -271,23 +265,23 @@ namespace Ice
         private global::System.Threading.Tasks.Task<Router_GetClientProxyResult> _iceI_getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getClientProxy_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Router_GetClientProxyResult>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Router_GetClientProxyResult>(progress, cancel);
             _iceI_getClientProxy(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getClientProxy_name = "getClientProxy";
 
-        private void _iceI_getClientProxy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getClientProxy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Router_GetClientProxyResult>(completed);
             outAsync.invoke(
                 _getClientProxy_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     var ret = new Router_GetClientProxyResult();
                     ret.returnValue = istr.readProxy();
@@ -307,23 +301,23 @@ namespace Ice
         private global::System.Threading.Tasks.Task<ObjectPrx?> _iceI_getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getServerProxy_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<ObjectPrx?>(progress, cancel);
             _iceI_getServerProxy(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getServerProxy_name = "getServerProxy";
 
-        private void _iceI_getServerProxy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getServerProxy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ObjectPrx?>(completed);
             outAsync.invoke(
                 _getServerProxy_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     ObjectPrx? ret;
                     ret = istr.readProxy();
@@ -339,27 +333,27 @@ namespace Ice
         private global::System.Threading.Tasks.Task<ObjectPrx?[]> _iceI_addProxiesAsync(ObjectPrx?[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_addProxies_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx?[]>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<ObjectPrx?[]>(progress, cancel);
             _iceI_addProxies(iceP_proxies, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _addProxies_name = "addProxies";
 
-        private void _iceI_addProxies(ObjectPrx?[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_addProxies(ObjectPrx?[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ObjectPrx?[]>(completed);
             outAsync.invoke(
                 _addProxies_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ObjectProxySeqHelper.write(ostr, iceP_proxies);
                 },
-                read: (InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     ObjectPrx?[] ret;
                     ret = ObjectProxySeqHelper.read(istr);
@@ -367,14 +361,10 @@ namespace Ice
                 });
         }
 
-        #endregion
+        public static RouterPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static RouterPrx createProxy(Communicator communicator, string proxyString) =>
-            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static RouterPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static RouterPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -385,9 +375,9 @@ namespace Ice
             return null;
         }
 
-        public static RouterPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static RouterPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -397,7 +387,7 @@ namespace Ice
                     return prx;
                 }
             }
-            catch (FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -405,7 +395,7 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static RouterPrx? uncheckedCast(ObjectPrx? b)
+        public static RouterPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -418,11 +408,11 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static RouterPrx? uncheckedCast(ObjectPrx? b, string f)
+        public static RouterPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new RouterPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -438,18 +428,14 @@ namespace Ice
 
         public static string ice_staticId() => "::Ice::Router";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(OutputStream ostr, RouterPrx? v)
+        public static void write(Ice.OutputStream ostr, RouterPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static RouterPrx? read(InputStream istr)
+        public static RouterPrx? read(Ice.InputStream istr)
         {
-            ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new RouterPrxHelper();
@@ -458,19 +444,15 @@ namespace Ice
             }
             return null;
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class RouterFinderPrxHelper : ObjectPrxHelperBase, RouterFinderPrx
+    public sealed class RouterFinderPrxHelper : Ice.ObjectPrxHelperBase, RouterFinderPrx
     {
         public RouterFinderPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public RouterPrx? getRouter(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -484,10 +466,6 @@ namespace Ice
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<RouterPrx?> getRouterAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getRouterAsync(context, progress, cancel, false);
@@ -496,23 +474,23 @@ namespace Ice
         private global::System.Threading.Tasks.Task<RouterPrx?> _iceI_getRouterAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getRouter_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<RouterPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<RouterPrx?>(progress, cancel);
             _iceI_getRouter(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getRouter_name = "getRouter";
 
-        private void _iceI_getRouter(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getRouter(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<RouterPrx?>(completed);
             outAsync.invoke(
                 _getRouter_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     RouterPrx? ret;
                     ret = RouterPrxHelper.read(istr);
@@ -520,14 +498,10 @@ namespace Ice
                 });
         }
 
-        #endregion
+        public static RouterFinderPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static RouterFinderPrx createProxy(Communicator communicator, string proxyString) =>
-            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static RouterFinderPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static RouterFinderPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -538,9 +512,9 @@ namespace Ice
             return null;
         }
 
-        public static RouterFinderPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static RouterFinderPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -550,7 +524,7 @@ namespace Ice
                     return prx;
                 }
             }
-            catch (FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -558,7 +532,7 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static RouterFinderPrx? uncheckedCast(ObjectPrx? b)
+        public static RouterFinderPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -571,11 +545,11 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static RouterFinderPrx? uncheckedCast(ObjectPrx? b, string f)
+        public static RouterFinderPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new RouterFinderPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -591,18 +565,14 @@ namespace Ice
 
         public static string ice_staticId() => "::Ice::RouterFinder";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(OutputStream ostr, RouterFinderPrx? v)
+        public static void write(Ice.OutputStream ostr, RouterFinderPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static RouterFinderPrx? read(InputStream istr)
+        public static RouterFinderPrx? read(Ice.InputStream istr)
         {
-            ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new RouterFinderPrxHelper();
@@ -611,8 +581,6 @@ namespace Ice
             }
             return null;
         }
-
-        #endregion
     }
 }
 
@@ -620,76 +588,52 @@ namespace Ice
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class RouterDisp_ : ObjectImpl, Router
+    public abstract class RouterDisp_ : Ice.ObjectImpl, Router
     {
-        #region Slice operations
+        public abstract ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
 
-        public abstract ObjectPrx? getClientProxy(out bool? hasRoutingTable, Current current);
+        public abstract ObjectPrx? getServerProxy(Ice.Current current);
 
-        public abstract ObjectPrx? getServerProxy(Current current);
+        public abstract ObjectPrx?[] addProxies(ObjectPrx?[] proxies, Ice.Current current);
 
-        public abstract ObjectPrx?[] addProxies(ObjectPrx?[] proxies, Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Ice::Router";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "getClientProxy" => Router.iceD_getClientProxyAsync(this, request),
                 "getServerProxy" => Router.iceD_getServerProxyAsync(this, request),
                 "addProxies" => Router.iceD_addProxiesAsync(this, request),
-                "ice_id" => Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
-                _ => throw new OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class RouterFinderDisp_ : ObjectImpl, RouterFinder
+    public abstract class RouterFinderDisp_ : Ice.ObjectImpl, RouterFinder
     {
-        #region Slice operations
+        public abstract RouterPrx? getRouter(Ice.Current current);
 
-        public abstract RouterPrx? getRouter(Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Ice::RouterFinder";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "getRouter" => RouterFinder.iceD_getRouterAsync(this, request),
-                "ice_id" => Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
-                _ => throw new OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 }
 
@@ -697,69 +641,69 @@ namespace Ice
 {
     public partial interface Router
     {
-        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_getClientProxyAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getClientProxyAsync(
             Router obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             bool? iceP_hasRoutingTable;
             var ret = obj.getClientProxy(out iceP_hasRoutingTable, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ostr.writeProxy(ret);
             ostr.writeBool(1, iceP_hasRoutingTable);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_getServerProxyAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getServerProxyAsync(
             Router obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getServerProxy(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ostr.writeProxy(ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_addProxiesAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_addProxiesAsync(
             Router obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             ObjectPrx?[] iceP_proxies;
             iceP_proxies = ObjectProxySeqHelper.read(istr);
             istr.endEncapsulation();
             var ret = obj.addProxies(iceP_proxies, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ObjectProxySeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
     }
 
     public partial interface RouterFinder
     {
-        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_getRouterAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getRouterAsync(
             RouterFinder obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getRouter(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             RouterPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
     }
 }

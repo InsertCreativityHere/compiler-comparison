@@ -35,37 +35,37 @@ namespace Ice.namespacemd
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Initial")]
-        public partial interface Initial : global::Ice.Object
+        public partial interface Initial : Ice.Object
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::NoNamespace.C1? getNoNamespaceC2AsC1(global::Ice.Current current);
+            global::NoNamespace.C1? getNoNamespaceC2AsC1(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::NoNamespace.C2? getNoNamespaceC2AsC2(global::Ice.Current current);
+            global::NoNamespace.C2? getNoNamespaceC2AsC2(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwNoNamespaceE2AsE1(global::Ice.Current current);
+            void throwNoNamespaceE2AsE1(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwNoNamespaceE2AsE2(global::Ice.Current current);
+            void throwNoNamespaceE2AsE2(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwNoNamespaceNotify(global::Ice.Current current);
+            void throwNoNamespaceNotify(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.namespacemd.WithNamespace.C1? getWithNamespaceC2AsC1(global::Ice.Current current);
+            global::Ice.namespacemd.WithNamespace.C1? getWithNamespaceC2AsC1(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.namespacemd.WithNamespace.C2? getWithNamespaceC2AsC2(global::Ice.Current current);
+            global::Ice.namespacemd.WithNamespace.C2? getWithNamespaceC2AsC2(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwWithNamespaceE2AsE1(global::Ice.Current current);
+            void throwWithNamespaceE2AsE1(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwWithNamespaceE2AsE2(global::Ice.Current current);
+            void throwWithNamespaceE2AsE2(Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current);
+            void shutdown(Ice.Current current);
         }
     }
 }
@@ -75,7 +75,7 @@ namespace Ice.namespacemd
     namespace Test
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface InitialPrx : global::Ice.ObjectPrx
+        public interface InitialPrx : Ice.ObjectPrx
         {
             global::NoNamespace.C1? getNoNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -126,13 +126,11 @@ namespace Ice.namespacemd
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class InitialPrxHelper : global::Ice.ObjectPrxHelperBase, InitialPrx
+        public sealed class InitialPrxHelper : Ice.ObjectPrxHelperBase, InitialPrx
         {
             public InitialPrxHelper()
             {
             }
-
-            #region Synchronous operations
 
             public global::NoNamespace.C1? getNoNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
@@ -254,10 +252,6 @@ namespace Ice.namespacemd
                 }
             }
 
-            #endregion
-
-            #region Async Task operations
-
             public global::System.Threading.Tasks.Task<global::NoNamespace.C1?> getNoNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getNoNamespaceC2AsC1Async(context, progress, cancel, false);
@@ -266,23 +260,23 @@ namespace Ice.namespacemd
             private global::System.Threading.Tasks.Task<global::NoNamespace.C1?> _iceI_getNoNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getNoNamespaceC2AsC1_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::NoNamespace.C1?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<global::NoNamespace.C1?>(progress, cancel);
                 _iceI_getNoNamespaceC2AsC1(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getNoNamespaceC2AsC1_name = "getNoNamespaceC2AsC1";
 
-            private void _iceI_getNoNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getNoNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<global::NoNamespace.C1?>(completed);
                 outAsync.invoke(
                     _getNoNamespaceC2AsC1_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         global::NoNamespace.C1? ret = null;
                         istr.readValue((global::NoNamespace.C1? v) => {ret = v; });
@@ -299,23 +293,23 @@ namespace Ice.namespacemd
             private global::System.Threading.Tasks.Task<global::NoNamespace.C2?> _iceI_getNoNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getNoNamespaceC2AsC2_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::NoNamespace.C2?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<global::NoNamespace.C2?>(progress, cancel);
                 _iceI_getNoNamespaceC2AsC2(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getNoNamespaceC2AsC2_name = "getNoNamespaceC2AsC2";
 
-            private void _iceI_getNoNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getNoNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<global::NoNamespace.C2?>(completed);
                 outAsync.invoke(
                     _getNoNamespaceC2AsC2_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         global::NoNamespace.C2? ret = null;
                         istr.readValue((global::NoNamespace.C2? v) => {ret = v; });
@@ -332,23 +326,23 @@ namespace Ice.namespacemd
             private global::System.Threading.Tasks.Task _iceI_throwNoNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_throwNoNamespaceE2AsE1_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_throwNoNamespaceE2AsE1(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _throwNoNamespaceE2AsE1_name = "throwNoNamespaceE2AsE1";
 
-            private void _iceI_throwNoNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_throwNoNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _throwNoNamespaceE2AsE1_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -358,7 +352,7 @@ namespace Ice.namespacemd
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     });
@@ -372,23 +366,23 @@ namespace Ice.namespacemd
             private global::System.Threading.Tasks.Task _iceI_throwNoNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_throwNoNamespaceE2AsE2_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_throwNoNamespaceE2AsE2(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _throwNoNamespaceE2AsE2_name = "throwNoNamespaceE2AsE2";
 
-            private void _iceI_throwNoNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_throwNoNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _throwNoNamespaceE2AsE2_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -398,7 +392,7 @@ namespace Ice.namespacemd
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     });
@@ -412,23 +406,23 @@ namespace Ice.namespacemd
             private global::System.Threading.Tasks.Task _iceI_throwNoNamespaceNotifyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_throwNoNamespaceNotify_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_throwNoNamespaceNotify(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _throwNoNamespaceNotify_name = "throwNoNamespaceNotify";
 
-            private void _iceI_throwNoNamespaceNotify(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_throwNoNamespaceNotify(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _throwNoNamespaceNotify_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -438,7 +432,7 @@ namespace Ice.namespacemd
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     });
@@ -452,23 +446,23 @@ namespace Ice.namespacemd
             private global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C1?> _iceI_getWithNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getWithNamespaceC2AsC1_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.namespacemd.WithNamespace.C1?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.namespacemd.WithNamespace.C1?>(progress, cancel);
                 _iceI_getWithNamespaceC2AsC1(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getWithNamespaceC2AsC1_name = "getWithNamespaceC2AsC1";
 
-            private void _iceI_getWithNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getWithNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<global::Ice.namespacemd.WithNamespace.C1?>(completed);
                 outAsync.invoke(
                     _getWithNamespaceC2AsC1_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         global::Ice.namespacemd.WithNamespace.C1? ret = null;
                         istr.readValue((global::Ice.namespacemd.WithNamespace.C1? v) => {ret = v; });
@@ -485,23 +479,23 @@ namespace Ice.namespacemd
             private global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C2?> _iceI_getWithNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getWithNamespaceC2AsC2_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.namespacemd.WithNamespace.C2?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.namespacemd.WithNamespace.C2?>(progress, cancel);
                 _iceI_getWithNamespaceC2AsC2(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getWithNamespaceC2AsC2_name = "getWithNamespaceC2AsC2";
 
-            private void _iceI_getWithNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getWithNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<global::Ice.namespacemd.WithNamespace.C2?>(completed);
                 outAsync.invoke(
                     _getWithNamespaceC2AsC2_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    read: (global::Ice.InputStream istr) =>
+                    read: (Ice.InputStream istr) =>
                     {
                         global::Ice.namespacemd.WithNamespace.C2? ret = null;
                         istr.readValue((global::Ice.namespacemd.WithNamespace.C2? v) => {ret = v; });
@@ -518,23 +512,23 @@ namespace Ice.namespacemd
             private global::System.Threading.Tasks.Task _iceI_throwWithNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_throwWithNamespaceE2AsE1_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_throwWithNamespaceE2AsE1(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _throwWithNamespaceE2AsE1_name = "throwWithNamespaceE2AsE1";
 
-            private void _iceI_throwWithNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_throwWithNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _throwWithNamespaceE2AsE1_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -544,7 +538,7 @@ namespace Ice.namespacemd
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     });
@@ -558,23 +552,23 @@ namespace Ice.namespacemd
             private global::System.Threading.Tasks.Task _iceI_throwWithNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_throwWithNamespaceE2AsE2_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_throwWithNamespaceE2AsE2(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _throwWithNamespaceE2AsE2_name = "throwWithNamespaceE2AsE2";
 
-            private void _iceI_throwWithNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_throwWithNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _throwWithNamespaceE2AsE2_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    userException: (global::Ice.UserException ex) =>
+                    userException: (Ice.UserException ex) =>
                     {
                         try
                         {
@@ -584,7 +578,7 @@ namespace Ice.namespacemd
                         {
                             throw;
                         }
-                        catch(global::Ice.UserException)
+                        catch(Ice.UserException)
                         {
                         }
                     });
@@ -597,32 +591,28 @@ namespace Ice.namespacemd
 
             private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _shutdown_name = "shutdown";
 
-            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _shutdown_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
             }
 
-            #endregion
+            public static InitialPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            #region Factory operations
-
-            public static InitialPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-            public static InitialPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static InitialPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -633,9 +623,9 @@ namespace Ice.namespacemd
                 return null;
             }
 
-            public static InitialPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+            public static InitialPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+                Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -645,7 +635,7 @@ namespace Ice.namespacemd
                         return prx;
                     }
                 }
-                catch (global::Ice.FacetNotExistException)
+                catch (Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -653,7 +643,7 @@ namespace Ice.namespacemd
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static InitialPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+            public static InitialPrx? uncheckedCast(Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
@@ -666,11 +656,11 @@ namespace Ice.namespacemd
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static InitialPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+            public static InitialPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    Ice.ObjectPrx? bb = b.ice_facet(f);
                     var prx = new InitialPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
@@ -686,18 +676,14 @@ namespace Ice.namespacemd
 
             public static string ice_staticId() => "::Test::Initial";
 
-            #endregion
-
-            #region Marshaling support
-
-            public static void write(global::Ice.OutputStream ostr, InitialPrx? v)
+            public static void write(Ice.OutputStream ostr, InitialPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static InitialPrx? read(global::Ice.InputStream istr)
+            public static InitialPrx? read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                Ice.ObjectPrx? proxy = istr.readProxy();
                 if (proxy is not null)
                 {
                      var result = new InitialPrxHelper();
@@ -706,8 +692,6 @@ namespace Ice.namespacemd
                 }
                 return null;
             }
-
-            #endregion
         }
     }
 }
@@ -718,43 +702,33 @@ namespace Ice.namespacemd
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class InitialDisp_ : global::Ice.ObjectImpl, Initial
+        public abstract class InitialDisp_ : Ice.ObjectImpl, Initial
         {
-            #region Slice operations
+            public abstract global::NoNamespace.C1? getNoNamespaceC2AsC1(Ice.Current current);
 
-            public abstract global::NoNamespace.C1? getNoNamespaceC2AsC1(global::Ice.Current current);
+            public abstract global::NoNamespace.C2? getNoNamespaceC2AsC2(Ice.Current current);
 
-            public abstract global::NoNamespace.C2? getNoNamespaceC2AsC2(global::Ice.Current current);
+            public abstract void throwNoNamespaceE2AsE1(Ice.Current current);
 
-            public abstract void throwNoNamespaceE2AsE1(global::Ice.Current current);
+            public abstract void throwNoNamespaceE2AsE2(Ice.Current current);
 
-            public abstract void throwNoNamespaceE2AsE2(global::Ice.Current current);
+            public abstract void throwNoNamespaceNotify(Ice.Current current);
 
-            public abstract void throwNoNamespaceNotify(global::Ice.Current current);
+            public abstract global::Ice.namespacemd.WithNamespace.C1? getWithNamespaceC2AsC1(Ice.Current current);
 
-            public abstract global::Ice.namespacemd.WithNamespace.C1? getWithNamespaceC2AsC1(global::Ice.Current current);
+            public abstract global::Ice.namespacemd.WithNamespace.C2? getWithNamespaceC2AsC2(Ice.Current current);
 
-            public abstract global::Ice.namespacemd.WithNamespace.C2? getWithNamespaceC2AsC2(global::Ice.Current current);
+            public abstract void throwWithNamespaceE2AsE1(Ice.Current current);
 
-            public abstract void throwWithNamespaceE2AsE1(global::Ice.Current current);
+            public abstract void throwWithNamespaceE2AsE2(Ice.Current current);
 
-            public abstract void throwWithNamespaceE2AsE2(global::Ice.Current current);
+            public abstract void shutdown(Ice.Current current);
 
-            public abstract void shutdown(global::Ice.Current current);
-
-            #endregion
-
-            #region Slice type-related members
-
-            public override string ice_id(global::Ice.Current current) => ice_staticId();
+            public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::Initial";
 
-            #endregion
-
-            #region Operation dispatch
-
-            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
                 request.current.operation switch
                 {
                     "getNoNamespaceC2AsC1" => Initial.iceD_getNoNamespaceC2AsC1Async(this, request),
@@ -767,14 +741,12 @@ namespace Ice.namespacemd
                     "throwWithNamespaceE2AsE1" => Initial.iceD_throwWithNamespaceE2AsE1Async(this, request),
                     "throwWithNamespaceE2AsE2" => Initial.iceD_throwWithNamespaceE2AsE2Async(this, request),
                     "shutdown" => Initial.iceD_shutdownAsync(this, request),
-                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new global::Ice.OperationNotExistException()
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
                 };
-
-            #endregion
         }
     }
 }
@@ -785,124 +757,124 @@ namespace Ice.namespacemd
     {
         public partial interface Initial
         {
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getNoNamespaceC2AsC1Async(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNoNamespaceC2AsC1Async(
                 Initial obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getNoNamespaceC2AsC1(request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeValue(ret);
                 ostr.writePendingValues();
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getNoNamespaceC2AsC2Async(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNoNamespaceC2AsC2Async(
                 Initial obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getNoNamespaceC2AsC2(request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeValue(ret);
                 ostr.writePendingValues();
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_throwNoNamespaceE2AsE1Async(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwNoNamespaceE2AsE1Async(
                 Initial obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.throwNoNamespaceE2AsE1(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_throwNoNamespaceE2AsE2Async(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwNoNamespaceE2AsE2Async(
                 Initial obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.throwNoNamespaceE2AsE2(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_throwNoNamespaceNotifyAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwNoNamespaceNotifyAsync(
                 Initial obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.throwNoNamespaceNotify(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getWithNamespaceC2AsC1Async(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getWithNamespaceC2AsC1Async(
                 Initial obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getWithNamespaceC2AsC1(request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeValue(ret);
                 ostr.writePendingValues();
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getWithNamespaceC2AsC2Async(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getWithNamespaceC2AsC2Async(
                 Initial obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getWithNamespaceC2AsC2(request.current);
-                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
                 ostr.writeValue(ret);
                 ostr.writePendingValues();
                 ostr.endEncapsulation();
-                return new(new global::Ice.OutgoingResponse(ostr));
+                return new(new Ice.OutgoingResponse(ostr));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_throwWithNamespaceE2AsE1Async(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwWithNamespaceE2AsE1Async(
                 Initial obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.throwWithNamespaceE2AsE1(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_throwWithNamespaceE2AsE2Async(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwWithNamespaceE2AsE2Async(
                 Initial obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.throwWithNamespaceE2AsE2(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
-            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
                 Initial obj,
-                global::Ice.IncomingRequest request)
+                Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.shutdown(request.current);
-                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
         }
     }

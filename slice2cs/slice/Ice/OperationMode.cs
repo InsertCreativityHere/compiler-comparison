@@ -59,13 +59,13 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class OperationModeHelper
     {
-        public static void write(OutputStream ostr, OperationMode v)
+        public static void write(Ice.OutputStream ostr, OperationMode v)
         {
             ostr.writeEnum((int)v, 2);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static OperationMode read(InputStream istr)
+        public static OperationMode read(Ice.InputStream istr)
         {
             OperationMode v;
             v = (OperationMode)istr.readEnum(2);

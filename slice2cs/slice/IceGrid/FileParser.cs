@@ -38,16 +38,10 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::ParseException")]
-    public partial class ParseException : global::Ice.UserException
+    public partial class ParseException : Ice.UserException
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string reason = "";
-
-        #endregion
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ParseException(string reason, global::System.Exception? innerException = null) : base(innerException)
@@ -65,18 +59,14 @@ namespace IceGrid
         {
         }
 
-        #endregion
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id()
         {
             return "::IceGrid::ParseException";
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::IceGrid::ParseException", -1, true);
             ostr_.writeString(reason);
@@ -84,14 +74,12 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             reason = istr_.readString();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -106,7 +94,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::FileParser")]
-    public partial interface FileParser : global::Ice.Object
+    public partial interface FileParser : Ice.Object
     {
         /// <summary>
         /// Parse a file.
@@ -121,7 +109,7 @@ namespace IceGrid
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, global::Ice.Current current);
+        ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, Ice.Current current);
     }
 }
 
@@ -133,7 +121,7 @@ namespace IceGrid
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface FileParserPrx : global::Ice.ObjectPrx
+    public interface FileParserPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Parse a file.
@@ -168,13 +156,11 @@ namespace IceGrid
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class FileParserPrxHelper : global::Ice.ObjectPrxHelperBase, FileParserPrx
+    public sealed class FileParserPrxHelper : Ice.ObjectPrxHelperBase, FileParserPrx
     {
         public FileParserPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -188,10 +174,6 @@ namespace IceGrid
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx? adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_parseAsync(xmlFile, adminProxy, context, progress, cancel, false);
@@ -200,28 +182,28 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<ApplicationDescriptor> _iceI_parseAsync(string iceP_xmlFile, AdminPrx? iceP_adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_parse_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ApplicationDescriptor>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<ApplicationDescriptor>(progress, cancel);
             _iceI_parse(iceP_xmlFile, iceP_adminProxy, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _parse_name = "parse";
 
-        private void _iceI_parse(string iceP_xmlFile, AdminPrx? iceP_adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_parse(string iceP_xmlFile, AdminPrx? iceP_adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ApplicationDescriptor>(completed);
             outAsync.invoke(
                 _parse_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (global::Ice.OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_xmlFile);
                     AdminPrxHelper.write(ostr, iceP_adminProxy);
                 },
-                userException: (global::Ice.UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -231,11 +213,11 @@ namespace IceGrid
                     {
                         throw;
                     }
-                    catch(global::Ice.UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 },
-                read: (global::Ice.InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     ApplicationDescriptor ret;
                     ret = new ApplicationDescriptor(istr);
@@ -244,14 +226,10 @@ namespace IceGrid
                 });
         }
 
-        #endregion
+        public static FileParserPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static FileParserPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static FileParserPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static FileParserPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -262,9 +240,9 @@ namespace IceGrid
             return null;
         }
 
-        public static FileParserPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static FileParserPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -274,7 +252,7 @@ namespace IceGrid
                     return prx;
                 }
             }
-            catch (global::Ice.FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -282,7 +260,7 @@ namespace IceGrid
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static FileParserPrx? uncheckedCast(global::Ice.ObjectPrx? b)
+        public static FileParserPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -295,11 +273,11 @@ namespace IceGrid
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static FileParserPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
+        public static FileParserPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new FileParserPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -315,18 +293,14 @@ namespace IceGrid
 
         public static string ice_staticId() => "::IceGrid::FileParser";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, FileParserPrx? v)
+        public static void write(Ice.OutputStream ostr, FileParserPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static FileParserPrx? read(global::Ice.InputStream istr)
+        public static FileParserPrx? read(Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new FileParserPrxHelper();
@@ -335,8 +309,6 @@ namespace IceGrid
             }
             return null;
         }
-
-        #endregion
     }
 }
 
@@ -344,36 +316,24 @@ namespace IceGrid
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class FileParserDisp_ : global::Ice.ObjectImpl, FileParser
+    public abstract class FileParserDisp_ : Ice.ObjectImpl, FileParser
     {
-        #region Slice operations
+        public abstract ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, Ice.Current current);
 
-        public abstract ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, global::Ice.Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(global::Ice.Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::IceGrid::FileParser";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "parse" => FileParser.iceD_parseAsync(this, request),
-                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new global::Ice.OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 }
 
@@ -381,11 +341,11 @@ namespace IceGrid
 {
     public partial interface FileParser
     {
-        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_parseAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_parseAsync(
             FileParser obj,
-            global::Ice.IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_xmlFile;
@@ -394,12 +354,12 @@ namespace IceGrid
             iceP_adminProxy = AdminPrxHelper.read(istr);
             istr.endEncapsulation();
             var ret = obj.parse(iceP_xmlFile, iceP_adminProxy, request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             ApplicationDescriptor.ice_write(ostr, ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
     }
 }

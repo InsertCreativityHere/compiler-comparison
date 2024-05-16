@@ -33,19 +33,13 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class SubscriberRecordKey : global::System.IEquatable<SubscriberRecordKey>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.Identity topic;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.Identity id;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberRecordKey(global::Ice.Identity topic, global::Ice.Identity id)
@@ -56,23 +50,15 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SubscriberRecordKey(global::Ice.InputStream istr)
+        public SubscriberRecordKey(Ice.InputStream istr)
         {
             this.topic = new global::Ice.Identity(istr);
             this.id = new global::Ice.Identity(istr);
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberRecordKey Clone() => (SubscriberRecordKey)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -98,37 +84,27 @@ namespace IceStorm
                 this.id == other.id;
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(SubscriberRecordKey? lhs, SubscriberRecordKey? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(SubscriberRecordKey? lhs, SubscriberRecordKey? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             global::Ice.Identity.ice_write(ostr, this.topic);
             global::Ice.Identity.ice_write(ostr, this.id);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, SubscriberRecordKey v)
+        public static void ice_write(Ice.OutputStream ostr, SubscriberRecordKey v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static SubscriberRecordKey ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static SubscriberRecordKey ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -143,8 +119,6 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class SubscriberRecord : global::System.IEquatable<SubscriberRecord>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string topicName = "";
 
@@ -166,11 +140,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TopicPrx? theTopic;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberRecord(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> theQoS)
@@ -194,7 +164,7 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SubscriberRecord(global::Ice.InputStream istr)
+        public SubscriberRecord(Ice.InputStream istr)
         {
             this.topicName = istr.readString();
             this.id = new global::Ice.Identity(istr);
@@ -206,16 +176,8 @@ namespace IceStorm
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberRecord Clone() => (SubscriberRecord)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -251,22 +213,14 @@ namespace IceStorm
                 (Ice.ObjectPrxHelperBase?)this.theTopic == (Ice.ObjectPrxHelperBase?)other.theTopic;
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(SubscriberRecord? lhs, SubscriberRecord? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(SubscriberRecord? lhs, SubscriberRecord? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.topicName);
             global::Ice.Identity.ice_write(ostr, this.id);
@@ -278,15 +232,13 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, SubscriberRecord v)
+        public static void ice_write(Ice.OutputStream ostr, SubscriberRecord v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static SubscriberRecord ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static SubscriberRecord ice_read(Ice.InputStream istr) => new(istr);
     }
 }
 
@@ -295,7 +247,7 @@ namespace IceStorm
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class SubscriberRecordSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, SubscriberRecord[] v)
+        public static void write(Ice.OutputStream ostr, SubscriberRecord[] v)
         {
             if (v is null)
             {
@@ -311,7 +263,7 @@ namespace IceStorm
             }
         }
 
-        public static SubscriberRecord[] read(global::Ice.InputStream istr)
+        public static SubscriberRecord[] read(Ice.InputStream istr)
         {
             SubscriberRecord[] v;
             {

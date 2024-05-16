@@ -38,10 +38,8 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::AdapterNotFoundException")]
-    public partial class AdapterNotFoundException : UserException
+    public partial class AdapterNotFoundException : Ice.UserException
     {
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterNotFoundException(global::System.Exception? innerException) : base(innerException)
         {
@@ -52,31 +50,25 @@ namespace Ice
         {
         }
 
-        #endregion
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id()
         {
             return "::Ice::AdapterNotFoundException";
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Ice::AdapterNotFoundException", -1, true);
             ostr_.endSlice();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     /// <summary>
@@ -96,10 +88,8 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::InvalidReplicaGroupIdException")]
-    public partial class InvalidReplicaGroupIdException : UserException
+    public partial class InvalidReplicaGroupIdException : Ice.UserException
     {
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InvalidReplicaGroupIdException(global::System.Exception? innerException) : base(innerException)
         {
@@ -110,31 +100,25 @@ namespace Ice
         {
         }
 
-        #endregion
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id()
         {
             return "::Ice::InvalidReplicaGroupIdException";
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Ice::InvalidReplicaGroupIdException", -1, true);
             ostr_.endSlice();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     /// <summary>
@@ -154,10 +138,8 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::AdapterAlreadyActiveException")]
-    public partial class AdapterAlreadyActiveException : UserException
+    public partial class AdapterAlreadyActiveException : Ice.UserException
     {
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterAlreadyActiveException(global::System.Exception? innerException) : base(innerException)
         {
@@ -168,31 +150,25 @@ namespace Ice
         {
         }
 
-        #endregion
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id()
         {
             return "::Ice::AdapterAlreadyActiveException";
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Ice::AdapterAlreadyActiveException", -1, true);
             ostr_.endSlice();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     /// <summary>
@@ -212,10 +188,8 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::ObjectNotFoundException")]
-    public partial class ObjectNotFoundException : UserException
+    public partial class ObjectNotFoundException : Ice.UserException
     {
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObjectNotFoundException(global::System.Exception? innerException) : base(innerException)
         {
@@ -226,31 +200,25 @@ namespace Ice
         {
         }
 
-        #endregion
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id()
         {
             return "::Ice::ObjectNotFoundException";
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Ice::ObjectNotFoundException", -1, true);
             ostr_.endSlice();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     /// <summary>
@@ -270,10 +238,8 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::ServerNotFoundException")]
-    public partial class ServerNotFoundException : UserException
+    public partial class ServerNotFoundException : Ice.UserException
     {
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerNotFoundException(global::System.Exception? innerException) : base(innerException)
         {
@@ -284,31 +250,25 @@ namespace Ice
         {
         }
 
-        #endregion
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id()
         {
             return "::Ice::ServerNotFoundException";
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Ice::ServerNotFoundException", -1, true);
             ostr_.endSlice();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -323,7 +283,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::Locator")]
-    public partial interface Locator : Object
+    public partial interface Locator : Ice.Object
     {
         /// <summary>
         /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
@@ -334,7 +294,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Current current);
+        global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Ice.Current current);
 
         /// <summary>
         /// Find an adapter by id and return a proxy that contains its endpoints.
@@ -344,7 +304,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Current current);
+        global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Ice.Current current);
 
         /// <summary>
         /// Get the locator registry.
@@ -353,7 +313,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LocatorRegistryPrx? getRegistry(Current current);
+        LocatorRegistryPrx? getRegistry(Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -368,7 +328,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::LocatorRegistry")]
-    public partial interface LocatorRegistry : Object
+    public partial interface LocatorRegistry : Ice.Object
     {
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
@@ -381,7 +341,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Current current);
+        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Ice.Current current);
 
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
@@ -396,7 +356,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Current current);
+        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Ice.Current current);
 
         /// <summary>
         /// Set the process proxy for a server.
@@ -408,7 +368,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Current current);
+        global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -423,7 +383,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::LocatorFinder")]
-    public partial interface LocatorFinder : Object
+    public partial interface LocatorFinder : Ice.Object
     {
         /// <summary>
         /// Get the locator proxy implemented by the process hosting this finder object.
@@ -434,7 +394,7 @@ namespace Ice
         /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LocatorPrx? getLocator(Current current);
+        LocatorPrx? getLocator(Ice.Current current);
     }
 }
 
@@ -449,7 +409,7 @@ namespace Ice
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface LocatorPrx : ObjectPrx
+    public interface LocatorPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
@@ -526,7 +486,7 @@ namespace Ice
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface LocatorRegistryPrx : ObjectPrx
+    public interface LocatorRegistryPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
@@ -629,7 +589,7 @@ namespace Ice
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface LocatorFinderPrx : ObjectPrx
+    public interface LocatorFinderPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Get the locator proxy implemented by the process hosting this finder object.
@@ -657,13 +617,11 @@ namespace Ice
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class LocatorPrxHelper : ObjectPrxHelperBase, LocatorPrx
+    public sealed class LocatorPrxHelper : Ice.ObjectPrxHelperBase, LocatorPrx
     {
         public LocatorPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public ObjectPrx? findObjectById(Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -701,10 +659,6 @@ namespace Ice
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_findObjectByIdAsync(id, context, progress, cancel, false);
@@ -713,27 +667,27 @@ namespace Ice
         private global::System.Threading.Tasks.Task<ObjectPrx?> _iceI_findObjectByIdAsync(Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_findObjectById_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<ObjectPrx?>(progress, cancel);
             _iceI_findObjectById(iceP_id, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _findObjectById_name = "findObjectById";
 
-        private void _iceI_findObjectById(Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_findObjectById(Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ObjectPrx?>(completed);
             outAsync.invoke(
                 _findObjectById_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     Identity.ice_write(ostr, iceP_id);
                 },
-                userException: (UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -743,11 +697,11 @@ namespace Ice
                     {
                         throw;
                     }
-                    catch(UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 },
-                read: (InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     ObjectPrx? ret;
                     ret = istr.readProxy();
@@ -763,27 +717,27 @@ namespace Ice
         private global::System.Threading.Tasks.Task<ObjectPrx?> _iceI_findAdapterByIdAsync(string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_findAdapterById_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<ObjectPrx?>(progress, cancel);
             _iceI_findAdapterById(iceP_id, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _findAdapterById_name = "findAdapterById";
 
-        private void _iceI_findAdapterById(string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_findAdapterById(string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ObjectPrx?>(completed);
             outAsync.invoke(
                 _findAdapterById_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_id);
                 },
-                userException: (UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -793,11 +747,11 @@ namespace Ice
                     {
                         throw;
                     }
-                    catch(UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 },
-                read: (InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     ObjectPrx? ret;
                     ret = istr.readProxy();
@@ -813,23 +767,23 @@ namespace Ice
         private global::System.Threading.Tasks.Task<LocatorRegistryPrx?> _iceI_getRegistryAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getRegistry_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<LocatorRegistryPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<LocatorRegistryPrx?>(progress, cancel);
             _iceI_getRegistry(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getRegistry_name = "getRegistry";
 
-        private void _iceI_getRegistry(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getRegistry(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<LocatorRegistryPrx?>(completed);
             outAsync.invoke(
                 _getRegistry_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     LocatorRegistryPrx? ret;
                     ret = LocatorRegistryPrxHelper.read(istr);
@@ -837,14 +791,10 @@ namespace Ice
                 });
         }
 
-        #endregion
+        public static LocatorPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static LocatorPrx createProxy(Communicator communicator, string proxyString) =>
-            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static LocatorPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static LocatorPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -855,9 +805,9 @@ namespace Ice
             return null;
         }
 
-        public static LocatorPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static LocatorPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -867,7 +817,7 @@ namespace Ice
                     return prx;
                 }
             }
-            catch (FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -875,7 +825,7 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LocatorPrx? uncheckedCast(ObjectPrx? b)
+        public static LocatorPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -888,11 +838,11 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LocatorPrx? uncheckedCast(ObjectPrx? b, string f)
+        public static LocatorPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new LocatorPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -908,18 +858,14 @@ namespace Ice
 
         public static string ice_staticId() => "::Ice::Locator";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(OutputStream ostr, LocatorPrx? v)
+        public static void write(Ice.OutputStream ostr, LocatorPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static LocatorPrx? read(InputStream istr)
+        public static LocatorPrx? read(Ice.InputStream istr)
         {
-            ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new LocatorPrxHelper();
@@ -928,19 +874,15 @@ namespace Ice
             }
             return null;
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class LocatorRegistryPrxHelper : ObjectPrxHelperBase, LocatorRegistryPrx
+    public sealed class LocatorRegistryPrxHelper : Ice.ObjectPrxHelperBase, LocatorRegistryPrx
     {
         public LocatorRegistryPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public void setAdapterDirectProxy(string id, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -978,10 +920,6 @@ namespace Ice
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_setAdapterDirectProxyAsync(id, proxy, context, progress, cancel, false);
@@ -990,28 +928,28 @@ namespace Ice
         private global::System.Threading.Tasks.Task _iceI_setAdapterDirectProxyAsync(string iceP_id, ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setAdapterDirectProxy_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setAdapterDirectProxy(iceP_id, iceP_proxy, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setAdapterDirectProxy_name = "setAdapterDirectProxy";
 
-        private void _iceI_setAdapterDirectProxy(string iceP_id, ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setAdapterDirectProxy(string iceP_id, ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _setAdapterDirectProxy_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_id);
                     ostr.writeProxy(iceP_proxy);
                 },
-                userException: (UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -1025,7 +963,7 @@ namespace Ice
                     {
                         throw;
                     }
-                    catch(UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 });
@@ -1039,29 +977,29 @@ namespace Ice
         private global::System.Threading.Tasks.Task _iceI_setReplicatedAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setReplicatedAdapterDirectProxy_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setReplicatedAdapterDirectProxy(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setReplicatedAdapterDirectProxy_name = "setReplicatedAdapterDirectProxy";
 
-        private void _iceI_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _setReplicatedAdapterDirectProxy_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_adapterId);
                     ostr.writeString(iceP_replicaGroupId);
                     ostr.writeProxy(iceP_proxy);
                 },
-                userException: (UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -1079,7 +1017,7 @@ namespace Ice
                     {
                         throw;
                     }
-                    catch(UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 });
@@ -1093,28 +1031,28 @@ namespace Ice
         private global::System.Threading.Tasks.Task _iceI_setServerProcessProxyAsync(string iceP_id, ProcessPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setServerProcessProxy_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setServerProcessProxy(iceP_id, iceP_proxy, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setServerProcessProxy_name = "setServerProcessProxy";
 
-        private void _iceI_setServerProcessProxy(string iceP_id, ProcessPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setServerProcessProxy(string iceP_id, ProcessPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _setServerProcessProxy_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Idempotent,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                write: (OutputStream ostr) =>
+                write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeString(iceP_id);
                     ProcessPrxHelper.write(ostr, iceP_proxy);
                 },
-                userException: (UserException ex) =>
+                userException: (Ice.UserException ex) =>
                 {
                     try
                     {
@@ -1124,20 +1062,16 @@ namespace Ice
                     {
                         throw;
                     }
-                    catch(UserException)
+                    catch(Ice.UserException)
                     {
                     }
                 });
         }
 
-        #endregion
+        public static LocatorRegistryPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static LocatorRegistryPrx createProxy(Communicator communicator, string proxyString) =>
-            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static LocatorRegistryPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static LocatorRegistryPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1148,9 +1082,9 @@ namespace Ice
             return null;
         }
 
-        public static LocatorRegistryPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static LocatorRegistryPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1160,7 +1094,7 @@ namespace Ice
                     return prx;
                 }
             }
-            catch (FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1168,7 +1102,7 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LocatorRegistryPrx? uncheckedCast(ObjectPrx? b)
+        public static LocatorRegistryPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -1181,11 +1115,11 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LocatorRegistryPrx? uncheckedCast(ObjectPrx? b, string f)
+        public static LocatorRegistryPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new LocatorRegistryPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -1201,18 +1135,14 @@ namespace Ice
 
         public static string ice_staticId() => "::Ice::LocatorRegistry";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(OutputStream ostr, LocatorRegistryPrx? v)
+        public static void write(Ice.OutputStream ostr, LocatorRegistryPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static LocatorRegistryPrx? read(InputStream istr)
+        public static LocatorRegistryPrx? read(Ice.InputStream istr)
         {
-            ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new LocatorRegistryPrxHelper();
@@ -1221,19 +1151,15 @@ namespace Ice
             }
             return null;
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class LocatorFinderPrxHelper : ObjectPrxHelperBase, LocatorFinderPrx
+    public sealed class LocatorFinderPrxHelper : Ice.ObjectPrxHelperBase, LocatorFinderPrx
     {
         public LocatorFinderPrxHelper()
         {
         }
-
-        #region Synchronous operations
 
         public LocatorPrx? getLocator(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
@@ -1247,10 +1173,6 @@ namespace Ice
             }
         }
 
-        #endregion
-
-        #region Async Task operations
-
         public global::System.Threading.Tasks.Task<LocatorPrx?> getLocatorAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getLocatorAsync(context, progress, cancel, false);
@@ -1259,23 +1181,23 @@ namespace Ice
         private global::System.Threading.Tasks.Task<LocatorPrx?> _iceI_getLocatorAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getLocator_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<LocatorPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<LocatorPrx?>(progress, cancel);
             _iceI_getLocator(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getLocator_name = "getLocator";
 
-        private void _iceI_getLocator(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getLocator(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<LocatorPrx?>(completed);
             outAsync.invoke(
                 _getLocator_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (InputStream istr) =>
+                read: (Ice.InputStream istr) =>
                 {
                     LocatorPrx? ret;
                     ret = LocatorPrxHelper.read(istr);
@@ -1283,14 +1205,10 @@ namespace Ice
                 });
         }
 
-        #endregion
+        public static LocatorFinderPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        #region Factory operations
-
-        public static LocatorFinderPrx createProxy(Communicator communicator, string proxyString) =>
-            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static LocatorFinderPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static LocatorFinderPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1301,9 +1219,9 @@ namespace Ice
             return null;
         }
 
-        public static LocatorFinderPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        public static LocatorFinderPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx? bb = b?.ice_facet(f);
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1313,7 +1231,7 @@ namespace Ice
                     return prx;
                 }
             }
-            catch (FacetNotExistException)
+            catch (Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1321,7 +1239,7 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LocatorFinderPrx? uncheckedCast(ObjectPrx? b)
+        public static LocatorFinderPrx? uncheckedCast(Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
@@ -1334,11 +1252,11 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LocatorFinderPrx? uncheckedCast(ObjectPrx? b, string f)
+        public static LocatorFinderPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx? bb = b.ice_facet(f);
+                Ice.ObjectPrx? bb = b.ice_facet(f);
                 var prx = new LocatorFinderPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
@@ -1354,18 +1272,14 @@ namespace Ice
 
         public static string ice_staticId() => "::Ice::LocatorFinder";
 
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(OutputStream ostr, LocatorFinderPrx? v)
+        public static void write(Ice.OutputStream ostr, LocatorFinderPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static LocatorFinderPrx? read(InputStream istr)
+        public static LocatorFinderPrx? read(Ice.InputStream istr)
         {
-            ObjectPrx? proxy = istr.readProxy();
+            Ice.ObjectPrx? proxy = istr.readProxy();
             if (proxy is not null)
             {
                  var result = new LocatorFinderPrxHelper();
@@ -1374,8 +1288,6 @@ namespace Ice
             }
             return null;
         }
-
-        #endregion
     }
 }
 
@@ -1383,116 +1295,80 @@ namespace Ice
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class LocatorDisp_ : ObjectImpl, Locator
+    public abstract class LocatorDisp_ : Ice.ObjectImpl, Locator
     {
-        #region Slice operations
+        public abstract global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Current current);
+        public abstract global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Current current);
+        public abstract LocatorRegistryPrx? getRegistry(Ice.Current current);
 
-        public abstract LocatorRegistryPrx? getRegistry(Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Ice::Locator";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "findObjectById" => Locator.iceD_findObjectByIdAsync(this, request),
                 "findAdapterById" => Locator.iceD_findAdapterByIdAsync(this, request),
                 "getRegistry" => Locator.iceD_getRegistryAsync(this, request),
-                "ice_id" => Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
-                _ => throw new OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class LocatorRegistryDisp_ : ObjectImpl, LocatorRegistry
+    public abstract class LocatorRegistryDisp_ : Ice.ObjectImpl, LocatorRegistry
     {
-        #region Slice operations
+        public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Current current);
+        public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Current current);
+        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Ice::LocatorRegistry";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "setAdapterDirectProxy" => LocatorRegistry.iceD_setAdapterDirectProxyAsync(this, request),
                 "setReplicatedAdapterDirectProxy" => LocatorRegistry.iceD_setReplicatedAdapterDirectProxyAsync(this, request),
                 "setServerProcessProxy" => LocatorRegistry.iceD_setServerProcessProxyAsync(this, request),
-                "ice_id" => Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
-                _ => throw new OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class LocatorFinderDisp_ : ObjectImpl, LocatorFinder
+    public abstract class LocatorFinderDisp_ : Ice.ObjectImpl, LocatorFinder
     {
-        #region Slice operations
+        public abstract LocatorPrx? getLocator(Ice.Current current);
 
-        public abstract LocatorPrx? getLocator(Current current);
-
-        #endregion
-
-        #region Slice type-related members
-
-        public override string ice_id(Current current) => ice_staticId();
+        public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Ice::LocatorFinder";
 
-        #endregion
-
-        #region Operation dispatch
-
-        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
                 "getLocator" => LocatorFinder.iceD_getLocatorAsync(this, request),
-                "ice_id" => Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
-                _ => throw new OperationNotExistException()
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
             };
-
-        #endregion
     }
 }
 
@@ -1500,18 +1376,18 @@ namespace Ice
 {
     public partial interface Locator
     {
-        protected static async global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_findObjectByIdAsync(
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_findObjectByIdAsync(
             Locator obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             Identity iceP_id;
             iceP_id = new Identity(istr);
             istr.endEncapsulation();
             var result = await obj.findObjectByIdAsync(iceP_id, request.current).ConfigureAwait(false);
-            return global::Ice.CurrentExtensions.createOutgoingResponse(
+            return Ice.CurrentExtensions.createOutgoingResponse(
                 request.current,
                 result,
                 static (ostr, ret) =>
@@ -1520,18 +1396,18 @@ namespace Ice
                 });
         }
 
-        protected static async global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_findAdapterByIdAsync(
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_findAdapterByIdAsync(
             Locator obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_id;
             iceP_id = istr.readString();
             istr.endEncapsulation();
             var result = await obj.findAdapterByIdAsync(iceP_id, request.current).ConfigureAwait(false);
-            return global::Ice.CurrentExtensions.createOutgoingResponse(
+            return Ice.CurrentExtensions.createOutgoingResponse(
                 request.current,
                 result,
                 static (ostr, ret) =>
@@ -1540,28 +1416,28 @@ namespace Ice
                 });
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_getRegistryAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getRegistryAsync(
             Locator obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getRegistry(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             LocatorRegistryPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
     }
 
     public partial interface LocatorRegistry
     {
-        protected static async global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_setAdapterDirectProxyAsync(
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setAdapterDirectProxyAsync(
             LocatorRegistry obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_id;
@@ -1570,14 +1446,14 @@ namespace Ice
             iceP_proxy = istr.readProxy();
             istr.endEncapsulation();
             await obj.setAdapterDirectProxyAsync(iceP_id, iceP_proxy, request.current).ConfigureAwait(false);
-            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
 
-        protected static async global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_setReplicatedAdapterDirectProxyAsync(
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setReplicatedAdapterDirectProxyAsync(
             LocatorRegistry obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_adapterId;
@@ -1588,14 +1464,14 @@ namespace Ice
             iceP_proxy = istr.readProxy();
             istr.endEncapsulation();
             await obj.setReplicatedAdapterDirectProxyAsync(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, request.current).ConfigureAwait(false);
-            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
 
-        protected static async global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_setServerProcessProxyAsync(
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setServerProcessProxyAsync(
             LocatorRegistry obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
             string iceP_id;
@@ -1604,24 +1480,24 @@ namespace Ice
             iceP_proxy = ProcessPrxHelper.read(istr);
             istr.endEncapsulation();
             await obj.setServerProcessProxyAsync(iceP_id, iceP_proxy, request.current).ConfigureAwait(false);
-            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
     }
 
     public partial interface LocatorFinder
     {
-        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_getLocatorAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getLocatorAsync(
             LocatorFinder obj,
-            IncomingRequest request)
+            Ice.IncomingRequest request)
         {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getLocator(request.current);
-            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             LocatorPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
-            return new(new global::Ice.OutgoingResponse(ostr));
+            return new(new Ice.OutgoingResponse(ostr));
         }
     }
 }

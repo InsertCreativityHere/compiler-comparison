@@ -33,19 +33,13 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class PropertyDescriptor : global::System.IEquatable<PropertyDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string value = "";
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PropertyDescriptor()
@@ -62,23 +56,15 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PropertyDescriptor(global::Ice.InputStream istr)
+        public PropertyDescriptor(Ice.InputStream istr)
         {
             this.name = istr.readString();
             this.value = istr.readString();
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PropertyDescriptor Clone() => (PropertyDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -104,37 +90,27 @@ namespace IceGrid
                 this.value == other.value;
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(PropertyDescriptor? lhs, PropertyDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(PropertyDescriptor? lhs, PropertyDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.name);
             ostr.writeString(this.value);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, PropertyDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, PropertyDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static PropertyDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static PropertyDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -149,19 +125,13 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class PropertySetDescriptor : global::System.IEquatable<PropertySetDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string[] references;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PropertyDescriptor[] properties;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PropertySetDescriptor(string[] references, PropertyDescriptor[] properties)
@@ -172,23 +142,15 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PropertySetDescriptor(global::Ice.InputStream istr)
+        public PropertySetDescriptor(Ice.InputStream istr)
         {
             this.references = global::Ice.StringSeqHelper.read(istr);
             this.properties = PropertyDescriptorSeqHelper.read(istr);
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PropertySetDescriptor Clone() => (PropertySetDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -214,37 +176,27 @@ namespace IceGrid
                 Ice.UtilInternal.Collections.NullableSequenceEqual(this.properties, other.properties);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(PropertySetDescriptor? lhs, PropertySetDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(PropertySetDescriptor? lhs, PropertySetDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             global::Ice.StringSeqHelper.write(ostr, this.references);
             PropertyDescriptorSeqHelper.write(ostr, this.properties);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, PropertySetDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, PropertySetDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static PropertySetDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static PropertySetDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -259,8 +211,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class ObjectDescriptor : global::System.IEquatable<ObjectDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.Identity id;
 
@@ -270,11 +220,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string proxyOptions = "";
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObjectDescriptor(global::Ice.Identity id)
@@ -293,7 +239,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectDescriptor(global::Ice.InputStream istr)
+        public ObjectDescriptor(Ice.InputStream istr)
         {
             this.id = new global::Ice.Identity(istr);
             this.type = istr.readString();
@@ -301,16 +247,8 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObjectDescriptor Clone() => (ObjectDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -338,22 +276,14 @@ namespace IceGrid
                 this.proxyOptions == other.proxyOptions;
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(ObjectDescriptor? lhs, ObjectDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(ObjectDescriptor? lhs, ObjectDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             global::Ice.Identity.ice_write(ostr, this.id);
             ostr.writeString(this.type);
@@ -361,15 +291,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, ObjectDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, ObjectDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ObjectDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static ObjectDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -384,8 +312,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class AdapterDescriptor : global::System.IEquatable<AdapterDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string name = "";
 
@@ -413,11 +339,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObjectDescriptor[] allocatables;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterDescriptor(ObjectDescriptor[] objects, ObjectDescriptor[] allocatables)
@@ -443,7 +365,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterDescriptor(global::Ice.InputStream istr)
+        public AdapterDescriptor(Ice.InputStream istr)
         {
             this.name = istr.readString();
             this.description = istr.readString();
@@ -457,16 +379,8 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterDescriptor Clone() => (AdapterDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -506,22 +420,14 @@ namespace IceGrid
                 Ice.UtilInternal.Collections.NullableSequenceEqual(this.allocatables, other.allocatables);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(AdapterDescriptor? lhs, AdapterDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(AdapterDescriptor? lhs, AdapterDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.name);
             ostr.writeString(this.description);
@@ -535,15 +441,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, AdapterDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, AdapterDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static AdapterDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static AdapterDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -558,10 +462,8 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::CommunicatorDescriptor")]
-    public partial class CommunicatorDescriptor : global::Ice.Value
+    public partial class CommunicatorDescriptor : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterDescriptor[] adapters;
 
@@ -574,11 +476,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string description = "";
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CommunicatorDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description)
@@ -609,8 +507,6 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceGrid::CommunicatorDescriptor";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -624,10 +520,8 @@ namespace IceGrid
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             AdapterDescriptorSeqHelper.write(ostr_, adapters);
@@ -638,7 +532,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             adapters = AdapterDescriptorSeqHelper.read(istr_);
@@ -647,8 +541,6 @@ namespace IceGrid
             description = istr_.readString();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -663,19 +555,13 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class DistributionDescriptor : global::System.IEquatable<DistributionDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string icepatch = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string[] directories;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DistributionDescriptor(string[] directories)
@@ -693,23 +579,15 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DistributionDescriptor(global::Ice.InputStream istr)
+        public DistributionDescriptor(Ice.InputStream istr)
         {
             this.icepatch = istr.readString();
             this.directories = global::Ice.StringSeqHelper.read(istr);
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DistributionDescriptor Clone() => (DistributionDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -735,37 +613,27 @@ namespace IceGrid
                 Ice.UtilInternal.Collections.NullableSequenceEqual(this.directories, other.directories);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(DistributionDescriptor? lhs, DistributionDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(DistributionDescriptor? lhs, DistributionDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.icepatch);
             global::Ice.StringSeqHelper.write(ostr, this.directories);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, DistributionDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, DistributionDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static DistributionDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static DistributionDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -782,8 +650,6 @@ namespace IceGrid
     [Ice.SliceTypeId("::IceGrid::ServerDescriptor")]
     public partial class ServerDescriptor : CommunicatorDescriptor
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string id = "";
 
@@ -823,11 +689,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string user = "";
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string id, string exe, string iceVersion, string pwd, string[] options, string[] envs, string activation, string activationTimeout, string deactivationTimeout, bool applicationDistrib, DistributionDescriptor distrib, bool allocatable, string user) : base(adapters, propertySet, logs, description)
@@ -867,8 +729,6 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceGrid::ServerDescriptor";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -882,10 +742,8 @@ namespace IceGrid
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeString(id);
@@ -906,7 +764,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             id = istr_.readString();
@@ -925,8 +783,6 @@ namespace IceGrid
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -943,19 +799,13 @@ namespace IceGrid
     [Ice.SliceTypeId("::IceGrid::ServiceDescriptor")]
     public partial class ServiceDescriptor : CommunicatorDescriptor
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string entry = "";
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServiceDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string name, string entry) : base(adapters, propertySet, logs, description)
@@ -978,8 +828,6 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceGrid::ServiceDescriptor";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -993,10 +841,8 @@ namespace IceGrid
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeString(name);
@@ -1006,7 +852,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             name = istr_.readString();
@@ -1014,8 +860,6 @@ namespace IceGrid
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -1030,8 +874,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class ServerInstanceDescriptor : global::System.IEquatable<ServerInstanceDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string template = "";
 
@@ -1044,11 +886,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> servicePropertySets;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerInstanceDescriptor(global::System.Collections.Generic.Dictionary<string, string> parameterValues, PropertySetDescriptor propertySet, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> servicePropertySets)
@@ -1070,7 +908,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerInstanceDescriptor(global::Ice.InputStream istr)
+        public ServerInstanceDescriptor(Ice.InputStream istr)
         {
             this.template = istr.readString();
             this.parameterValues = StringStringDictHelper.read(istr);
@@ -1079,16 +917,8 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerInstanceDescriptor Clone() => (ServerInstanceDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -1118,22 +948,14 @@ namespace IceGrid
                 Ice.UtilInternal.Collections.DictionaryEquals(this.servicePropertySets, other.servicePropertySets);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(ServerInstanceDescriptor? lhs, ServerInstanceDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(ServerInstanceDescriptor? lhs, ServerInstanceDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.template);
             StringStringDictHelper.write(ostr, this.parameterValues);
@@ -1142,15 +964,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, ServerInstanceDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, ServerInstanceDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ServerInstanceDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static ServerInstanceDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -1165,8 +985,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class TemplateDescriptor : global::System.IEquatable<TemplateDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CommunicatorDescriptor? descriptor;
 
@@ -1176,11 +994,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, string> parameterDefaults;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TemplateDescriptor(string[] parameters, global::System.Collections.Generic.Dictionary<string, string> parameterDefaults)
@@ -1200,7 +1014,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TemplateDescriptor(global::Ice.InputStream istr)
+        public TemplateDescriptor(Ice.InputStream istr)
         {
             istr.readValue((CommunicatorDescriptor? v) => { this.descriptor = v; });
             this.parameters = global::Ice.StringSeqHelper.read(istr);
@@ -1208,16 +1022,8 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TemplateDescriptor Clone() => (TemplateDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -1245,22 +1051,14 @@ namespace IceGrid
                 Ice.UtilInternal.Collections.DictionaryEquals(this.parameterDefaults, other.parameterDefaults);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(TemplateDescriptor? lhs, TemplateDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(TemplateDescriptor? lhs, TemplateDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeValue(this.descriptor);
             global::Ice.StringSeqHelper.write(ostr, this.parameters);
@@ -1268,15 +1066,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, TemplateDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, TemplateDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static TemplateDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static TemplateDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -1291,8 +1087,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class ServiceInstanceDescriptor : global::System.IEquatable<ServiceInstanceDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string template = "";
 
@@ -1305,11 +1099,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PropertySetDescriptor propertySet;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServiceInstanceDescriptor(global::System.Collections.Generic.Dictionary<string, string> parameterValues, PropertySetDescriptor propertySet)
@@ -1330,7 +1120,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServiceInstanceDescriptor(global::Ice.InputStream istr)
+        public ServiceInstanceDescriptor(Ice.InputStream istr)
         {
             this.template = istr.readString();
             this.parameterValues = StringStringDictHelper.read(istr);
@@ -1339,16 +1129,8 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServiceInstanceDescriptor Clone() => (ServiceInstanceDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -1378,22 +1160,14 @@ namespace IceGrid
                 this.propertySet == other.propertySet;
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(ServiceInstanceDescriptor? lhs, ServiceInstanceDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(ServiceInstanceDescriptor? lhs, ServiceInstanceDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.template);
             StringStringDictHelper.write(ostr, this.parameterValues);
@@ -1402,15 +1176,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, ServiceInstanceDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, ServiceInstanceDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ServiceInstanceDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static ServiceInstanceDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1427,16 +1199,10 @@ namespace IceGrid
     [Ice.SliceTypeId("::IceGrid::IceBoxDescriptor")]
     public partial class IceBoxDescriptor : ServerDescriptor
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServiceInstanceDescriptor[] services;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public IceBoxDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string id, string exe, string iceVersion, string pwd, string[] options, string[] envs, string activation, string activationTimeout, string deactivationTimeout, bool applicationDistrib, DistributionDescriptor distrib, bool allocatable, string user, ServiceInstanceDescriptor[] services) : base(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
@@ -1460,8 +1226,6 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceGrid::IceBoxDescriptor";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1475,10 +1239,8 @@ namespace IceGrid
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ServiceInstanceDescriptorSeqHelper.write(ostr_, services);
@@ -1487,15 +1249,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             services = ServiceInstanceDescriptorSeqHelper.read(istr_);
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -1510,8 +1270,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class NodeDescriptor : global::System.IEquatable<NodeDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, string> variables;
 
@@ -1530,11 +1288,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, ServerInstanceDescriptor[] serverInstances, ServerDescriptor?[] servers, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets)
@@ -1559,7 +1313,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeDescriptor(global::Ice.InputStream istr)
+        public NodeDescriptor(Ice.InputStream istr)
         {
             this.variables = StringStringDictHelper.read(istr);
             this.serverInstances = ServerInstanceDescriptorSeqHelper.read(istr);
@@ -1570,16 +1324,8 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeDescriptor Clone() => (NodeDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -1613,22 +1359,14 @@ namespace IceGrid
                 Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(NodeDescriptor? lhs, NodeDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(NodeDescriptor? lhs, NodeDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             StringStringDictHelper.write(ostr, this.variables);
             ServerInstanceDescriptorSeqHelper.write(ostr, this.serverInstances);
@@ -1639,15 +1377,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, NodeDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, NodeDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static NodeDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static NodeDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1662,18 +1398,12 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::LoadBalancingPolicy")]
-    public partial class LoadBalancingPolicy : global::Ice.Value
+    public partial class LoadBalancingPolicy : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string nReplicas = "";
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public LoadBalancingPolicy(string nReplicas)
@@ -1688,8 +1418,6 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceGrid::LoadBalancingPolicy";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1703,10 +1431,8 @@ namespace IceGrid
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             ostr_.writeString(nReplicas);
@@ -1714,14 +1440,12 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             nReplicas = istr_.readString();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1740,8 +1464,6 @@ namespace IceGrid
     {
         partial void ice_initialize();
 
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public RandomLoadBalancingPolicy(string nReplicas) : base(nReplicas)
         {
@@ -1753,8 +1475,6 @@ namespace IceGrid
         {
             ice_initialize();
         }
-
-        #endregion
 
         private const string _id = "::IceGrid::RandomLoadBalancingPolicy";
 
@@ -1769,10 +1489,8 @@ namespace IceGrid
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.endSlice();
@@ -1780,14 +1498,12 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1806,8 +1522,6 @@ namespace IceGrid
     {
         partial void ice_initialize();
 
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OrderedLoadBalancingPolicy(string nReplicas) : base(nReplicas)
         {
@@ -1819,8 +1533,6 @@ namespace IceGrid
         {
             ice_initialize();
         }
-
-        #endregion
 
         private const string _id = "::IceGrid::OrderedLoadBalancingPolicy";
 
@@ -1835,10 +1547,8 @@ namespace IceGrid
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.endSlice();
@@ -1846,14 +1556,12 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1872,8 +1580,6 @@ namespace IceGrid
     {
         partial void ice_initialize();
 
-        #region Constructors
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public RoundRobinLoadBalancingPolicy(string nReplicas) : base(nReplicas)
         {
@@ -1885,8 +1591,6 @@ namespace IceGrid
         {
             ice_initialize();
         }
-
-        #endregion
 
         private const string _id = "::IceGrid::RoundRobinLoadBalancingPolicy";
 
@@ -1901,10 +1605,8 @@ namespace IceGrid
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.endSlice();
@@ -1912,14 +1614,12 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1936,16 +1636,10 @@ namespace IceGrid
     [Ice.SliceTypeId("::IceGrid::AdaptiveLoadBalancingPolicy")]
     public partial class AdaptiveLoadBalancingPolicy : LoadBalancingPolicy
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string loadSample = "";
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdaptiveLoadBalancingPolicy(string nReplicas, string loadSample) : base(nReplicas)
@@ -1960,8 +1654,6 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceGrid::AdaptiveLoadBalancingPolicy";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1975,10 +1667,8 @@ namespace IceGrid
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
             ostr_.writeString(loadSample);
@@ -1987,15 +1677,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             loadSample = istr_.readString();
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        #endregion
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -2010,8 +1698,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class ReplicaGroupDescriptor : global::System.IEquatable<ReplicaGroupDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string id = "";
 
@@ -2030,11 +1716,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string filter = "";
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ReplicaGroupDescriptor(ObjectDescriptor[] objects)
@@ -2056,7 +1738,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ReplicaGroupDescriptor(global::Ice.InputStream istr)
+        public ReplicaGroupDescriptor(Ice.InputStream istr)
         {
             this.id = istr.readString();
             istr.readValue((LoadBalancingPolicy? v) => { this.loadBalancing = v; });
@@ -2067,16 +1749,8 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ReplicaGroupDescriptor Clone() => (ReplicaGroupDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -2110,22 +1784,14 @@ namespace IceGrid
                 this.filter == other.filter;
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(ReplicaGroupDescriptor? lhs, ReplicaGroupDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(ReplicaGroupDescriptor? lhs, ReplicaGroupDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.id);
             ostr.writeValue(this.loadBalancing);
@@ -2136,15 +1802,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, ReplicaGroupDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, ReplicaGroupDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ReplicaGroupDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static ReplicaGroupDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -2159,8 +1823,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class ApplicationDescriptor : global::System.IEquatable<ApplicationDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string name = "";
 
@@ -2188,11 +1850,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, ReplicaGroupDescriptor[] replicaGroups, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serverTemplates, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serviceTemplates, global::System.Collections.Generic.Dictionary<string, NodeDescriptor> nodes, DistributionDescriptor distrib, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets)
@@ -2223,7 +1881,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationDescriptor(global::Ice.InputStream istr)
+        public ApplicationDescriptor(Ice.InputStream istr)
         {
             this.name = istr.readString();
             this.variables = StringStringDictHelper.read(istr);
@@ -2237,16 +1895,8 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationDescriptor Clone() => (ApplicationDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -2286,22 +1936,14 @@ namespace IceGrid
                 Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(ApplicationDescriptor? lhs, ApplicationDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(ApplicationDescriptor? lhs, ApplicationDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.name);
             StringStringDictHelper.write(ostr, this.variables);
@@ -2315,15 +1957,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, ApplicationDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, ApplicationDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ApplicationDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static ApplicationDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2338,18 +1978,12 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::BoxedString")]
-    public partial class BoxedString : global::Ice.Value
+    public partial class BoxedString : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string value = "";
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BoxedString(string value)
@@ -2364,8 +1998,6 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceGrid::BoxedString";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2379,10 +2011,8 @@ namespace IceGrid
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             ostr_.writeString(value);
@@ -2390,14 +2020,12 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             value = istr_.readString();
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -2412,8 +2040,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class NodeUpdateDescriptor : global::System.IEquatable<NodeUpdateDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string name = "";
 
@@ -2444,11 +2070,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BoxedString? loadFactor;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeUpdateDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ServerInstanceDescriptor[] serverInstances, ServerDescriptor?[] servers, string[] removeServers)
@@ -2480,7 +2102,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeUpdateDescriptor(global::Ice.InputStream istr)
+        public NodeUpdateDescriptor(Ice.InputStream istr)
         {
             this.name = istr.readString();
             istr.readValue((BoxedString? v) => { this.description = v; });
@@ -2495,16 +2117,8 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeUpdateDescriptor Clone() => (NodeUpdateDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -2546,22 +2160,14 @@ namespace IceGrid
                 this.loadFactor == other.loadFactor;
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(NodeUpdateDescriptor? lhs, NodeUpdateDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(NodeUpdateDescriptor? lhs, NodeUpdateDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.name);
             ostr.writeValue(this.description);
@@ -2576,15 +2182,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, NodeUpdateDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, NodeUpdateDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static NodeUpdateDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static NodeUpdateDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2599,18 +2203,12 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::BoxedDistributionDescriptor")]
-    public partial class BoxedDistributionDescriptor : global::Ice.Value
+    public partial class BoxedDistributionDescriptor : Ice.Value
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DistributionDescriptor value;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BoxedDistributionDescriptor(DistributionDescriptor value)
@@ -2627,8 +2225,6 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
         private const string _id = "::IceGrid::BoxedDistributionDescriptor";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2642,10 +2238,8 @@ namespace IceGrid
             return _id;
         }
 
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             DistributionDescriptor.ice_write(ostr_, value);
@@ -2653,14 +2247,12 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
             value = new DistributionDescriptor(istr_);
             istr_.endSlice();
         }
-
-        #endregion
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -2675,8 +2267,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial class ApplicationUpdateDescriptor : global::System.IEquatable<ApplicationUpdateDescriptor>
     {
-        #region Slice data members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string name = "";
 
@@ -2722,11 +2312,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string[] removeNodes;
 
-        #endregion
-
         partial void ice_initialize();
-
-        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationUpdateDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ReplicaGroupDescriptor[] replicaGroups, string[] removeReplicaGroups, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serverTemplates, string[] removeServerTemplates, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serviceTemplates, string[] removeServiceTemplates, NodeUpdateDescriptor[] nodes, string[] removeNodes)
@@ -2768,7 +2354,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationUpdateDescriptor(global::Ice.InputStream istr)
+        public ApplicationUpdateDescriptor(Ice.InputStream istr)
         {
             this.name = istr.readString();
             istr.readValue((BoxedString? v) => { this.description = v; });
@@ -2788,16 +2374,8 @@ namespace IceGrid
             ice_initialize();
         }
 
-        #endregion
-
-        #region Clone method
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationUpdateDescriptor Clone() => (ApplicationUpdateDescriptor)MemberwiseClone();
-
-        #endregion
-
-        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
@@ -2849,22 +2427,14 @@ namespace IceGrid
                 Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeNodes, other.removeNodes);
         }
 
-        #endregion
-
-        #region Comparison members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator ==(ApplicationUpdateDescriptor? lhs, ApplicationUpdateDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator !=(ApplicationUpdateDescriptor? lhs, ApplicationUpdateDescriptor? rhs) => !(lhs == rhs);
 
-        #endregion
-
-        #region Marshaling support
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.name);
             ostr.writeValue(this.description);
@@ -2884,15 +2454,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, ApplicationUpdateDescriptor v)
+        public static void ice_write(Ice.OutputStream ostr, ApplicationUpdateDescriptor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ApplicationUpdateDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
-
-        #endregion
+        public static ApplicationUpdateDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 }
 
@@ -2901,7 +2469,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class StringStringDictHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<string, string> v)
         {
             if(v == null)
@@ -2919,7 +2487,7 @@ namespace IceGrid
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, string> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, string> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
@@ -2938,7 +2506,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class PropertyDescriptorSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, PropertyDescriptor[] v)
+        public static void write(Ice.OutputStream ostr, PropertyDescriptor[] v)
         {
             if (v is null)
             {
@@ -2954,7 +2522,7 @@ namespace IceGrid
             }
         }
 
-        public static PropertyDescriptor[] read(global::Ice.InputStream istr)
+        public static PropertyDescriptor[] read(Ice.InputStream istr)
         {
             PropertyDescriptor[] v;
             {
@@ -2972,7 +2540,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class PropertySetDescriptorDictHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> v)
         {
             if(v == null)
@@ -2990,7 +2558,7 @@ namespace IceGrid
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> r = new global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor>();
@@ -3009,7 +2577,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ObjectDescriptorSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ObjectDescriptor[] v)
+        public static void write(Ice.OutputStream ostr, ObjectDescriptor[] v)
         {
             if (v is null)
             {
@@ -3025,7 +2593,7 @@ namespace IceGrid
             }
         }
 
-        public static ObjectDescriptor[] read(global::Ice.InputStream istr)
+        public static ObjectDescriptor[] read(Ice.InputStream istr)
         {
             ObjectDescriptor[] v;
             {
@@ -3043,7 +2611,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class AdapterDescriptorSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, AdapterDescriptor[] v)
+        public static void write(Ice.OutputStream ostr, AdapterDescriptor[] v)
         {
             if (v is null)
             {
@@ -3059,7 +2627,7 @@ namespace IceGrid
             }
         }
 
-        public static AdapterDescriptor[] read(global::Ice.InputStream istr)
+        public static AdapterDescriptor[] read(Ice.InputStream istr)
         {
             AdapterDescriptor[] v;
             {
@@ -3077,7 +2645,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ServerDescriptorSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ServerDescriptor?[] v)
+        public static void write(Ice.OutputStream ostr, ServerDescriptor?[] v)
         {
             if (v is null)
             {
@@ -3093,7 +2661,7 @@ namespace IceGrid
             }
         }
 
-        public static ServerDescriptor?[] read(global::Ice.InputStream istr)
+        public static ServerDescriptor?[] read(Ice.InputStream istr)
         {
             ServerDescriptor?[] v;
             {
@@ -3101,7 +2669,7 @@ namespace IceGrid
                 v = new ServerDescriptor?[szx];
                 for (int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<ServerDescriptor>(v, ix));
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<ServerDescriptor>(v, ix));
                 }
             }
             return v;
@@ -3111,7 +2679,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ServiceDescriptorSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ServiceDescriptor?[] v)
+        public static void write(Ice.OutputStream ostr, ServiceDescriptor?[] v)
         {
             if (v is null)
             {
@@ -3127,7 +2695,7 @@ namespace IceGrid
             }
         }
 
-        public static ServiceDescriptor?[] read(global::Ice.InputStream istr)
+        public static ServiceDescriptor?[] read(Ice.InputStream istr)
         {
             ServiceDescriptor?[] v;
             {
@@ -3135,7 +2703,7 @@ namespace IceGrid
                 v = new ServiceDescriptor?[szx];
                 for (int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<ServiceDescriptor>(v, ix));
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<ServiceDescriptor>(v, ix));
                 }
             }
             return v;
@@ -3145,7 +2713,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ServerInstanceDescriptorSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ServerInstanceDescriptor[] v)
+        public static void write(Ice.OutputStream ostr, ServerInstanceDescriptor[] v)
         {
             if (v is null)
             {
@@ -3161,7 +2729,7 @@ namespace IceGrid
             }
         }
 
-        public static ServerInstanceDescriptor[] read(global::Ice.InputStream istr)
+        public static ServerInstanceDescriptor[] read(Ice.InputStream istr)
         {
             ServerInstanceDescriptor[] v;
             {
@@ -3179,7 +2747,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class TemplateDescriptorDictHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> v)
         {
             if(v == null)
@@ -3197,7 +2765,7 @@ namespace IceGrid
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> r = new global::System.Collections.Generic.Dictionary<string, TemplateDescriptor>();
@@ -3216,7 +2784,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ServiceInstanceDescriptorSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ServiceInstanceDescriptor[] v)
+        public static void write(Ice.OutputStream ostr, ServiceInstanceDescriptor[] v)
         {
             if (v is null)
             {
@@ -3232,7 +2800,7 @@ namespace IceGrid
             }
         }
 
-        public static ServiceInstanceDescriptor[] read(global::Ice.InputStream istr)
+        public static ServiceInstanceDescriptor[] read(Ice.InputStream istr)
         {
             ServiceInstanceDescriptor[] v;
             {
@@ -3250,7 +2818,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class NodeDescriptorDictHelper
     {
-        public static void write(global::Ice.OutputStream ostr,
+        public static void write(Ice.OutputStream ostr,
                                  global::System.Collections.Generic.Dictionary<string, NodeDescriptor> v)
         {
             if(v == null)
@@ -3268,7 +2836,7 @@ namespace IceGrid
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, NodeDescriptor> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, NodeDescriptor> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
             global::System.Collections.Generic.Dictionary<string, NodeDescriptor> r = new global::System.Collections.Generic.Dictionary<string, NodeDescriptor>();
@@ -3287,7 +2855,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ReplicaGroupDescriptorSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ReplicaGroupDescriptor[] v)
+        public static void write(Ice.OutputStream ostr, ReplicaGroupDescriptor[] v)
         {
             if (v is null)
             {
@@ -3303,7 +2871,7 @@ namespace IceGrid
             }
         }
 
-        public static ReplicaGroupDescriptor[] read(global::Ice.InputStream istr)
+        public static ReplicaGroupDescriptor[] read(Ice.InputStream istr)
         {
             ReplicaGroupDescriptor[] v;
             {
@@ -3321,7 +2889,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ApplicationDescriptorSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ApplicationDescriptor[] v)
+        public static void write(Ice.OutputStream ostr, ApplicationDescriptor[] v)
         {
             if (v is null)
             {
@@ -3337,7 +2905,7 @@ namespace IceGrid
             }
         }
 
-        public static ApplicationDescriptor[] read(global::Ice.InputStream istr)
+        public static ApplicationDescriptor[] read(Ice.InputStream istr)
         {
             ApplicationDescriptor[] v;
             {
@@ -3355,7 +2923,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class NodeUpdateDescriptorSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, NodeUpdateDescriptor[] v)
+        public static void write(Ice.OutputStream ostr, NodeUpdateDescriptor[] v)
         {
             if (v is null)
             {
@@ -3371,7 +2939,7 @@ namespace IceGrid
             }
         }
 
-        public static NodeUpdateDescriptor[] read(global::Ice.InputStream istr)
+        public static NodeUpdateDescriptor[] read(Ice.InputStream istr)
         {
             NodeUpdateDescriptor[] v;
             {
