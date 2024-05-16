@@ -139,5 +139,5 @@ public class SD implements java.lang.Cloneable,
     private static final SD _nullMarshalValue = new SD();
 
     /** @hidden */
-    public static final long serialVersionUID = 9219744529888577175L;
+    public static final long serialVersionUID = 9219740899667165837L;
 }

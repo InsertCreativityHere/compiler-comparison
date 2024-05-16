@@ -143,5 +143,5 @@ public class G1 implements java.lang.Cloneable,
     private static final G1 _nullMarshalValue = new G1();
 
     /** @hidden */
-    public static final long serialVersionUID = 7339779976145434058L;
+    public static final long serialVersionUID = 7339783992446758712L;
 }

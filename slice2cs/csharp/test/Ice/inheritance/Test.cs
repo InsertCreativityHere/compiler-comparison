@@ -1557,11 +1557,11 @@ namespace Ice.inheritance
 
                 #region Inherited Slice operations
 
-                public abstract global::Ice.inheritance.Test.MB.IB2Prx? ib2op(global::Ice.inheritance.Test.MB.IB2Prx? p, global::Ice.Current current);
-
                 public abstract IAPrx? iaop(IAPrx? p, global::Ice.Current current);
 
                 public abstract global::Ice.inheritance.Test.MB.IB1Prx? ib1op(global::Ice.inheritance.Test.MB.IB1Prx? p, global::Ice.Current current);
+
+                public abstract global::Ice.inheritance.Test.MB.IB2Prx? ib2op(global::Ice.inheritance.Test.MB.IB2Prx? p, global::Ice.Current current);
 
                 #endregion
 

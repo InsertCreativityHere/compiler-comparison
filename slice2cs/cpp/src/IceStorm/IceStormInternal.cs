@@ -1718,11 +1718,11 @@ namespace IceStorm
 
         #region Inherited Slice operations
 
+        public abstract TopicPrx? create(string name, global::Ice.Current current);
+
         public abstract TopicPrx? retrieve(string name, global::Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(global::Ice.Current current);
-
-        public abstract TopicPrx? create(string name, global::Ice.Current current);
 
         #endregion
 
