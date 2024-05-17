@@ -78,5 +78,5 @@ public class FileNotAvailableException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -8985148562188860430L;
+    public static final long serialVersionUID = -8985151563418414969L;
 }

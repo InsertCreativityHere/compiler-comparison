@@ -7359,13 +7359,13 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as FileNotAvailableException {
+                                         throw error
                                      } catch let error as ServerNotExistException {
                                          throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7408,13 +7408,13 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as FileNotAvailableException {
+                                          throw error
                                       } catch let error as ServerNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch let error as FileNotAvailableException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7458,13 +7458,13 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as FileNotAvailableException {
+                                         throw error
                                      } catch let error as ServerNotExistException {
                                          throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7503,13 +7503,13 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as FileNotAvailableException {
+                                          throw error
                                       } catch let error as ServerNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch let error as FileNotAvailableException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7553,13 +7553,13 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as FileNotAvailableException {
+                                         throw error
                                      } catch let error as ServerNotExistException {
                                          throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7598,13 +7598,13 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as FileNotAvailableException {
+                                          throw error
                                       } catch let error as ServerNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch let error as FileNotAvailableException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7646,11 +7646,11 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as FileNotAvailableException {
+                                         throw error
                                      } catch let error as NodeNotExistException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7689,11 +7689,11 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as FileNotAvailableException {
+                                          throw error
                                       } catch let error as NodeNotExistException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch let error as FileNotAvailableException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7735,11 +7735,11 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as FileNotAvailableException {
+                                         throw error
                                      } catch let error as NodeNotExistException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7778,11 +7778,11 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as FileNotAvailableException {
+                                          throw error
                                       } catch let error as NodeNotExistException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch let error as FileNotAvailableException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7824,11 +7824,11 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as FileNotAvailableException {
+                                         throw error
                                      } catch let error as RegistryNotExistException {
                                          throw error
                                      } catch let error as RegistryUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7867,11 +7867,11 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as FileNotAvailableException {
+                                          throw error
                                       } catch let error as RegistryNotExistException {
                                           throw error
                                       } catch let error as RegistryUnreachableException {
-                                          throw error
-                                      } catch let error as FileNotAvailableException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7913,11 +7913,11 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as FileNotAvailableException {
+                                         throw error
                                      } catch let error as RegistryNotExistException {
                                          throw error
                                      } catch let error as RegistryUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7956,11 +7956,11 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as FileNotAvailableException {
+                                          throw error
                                       } catch let error as RegistryNotExistException {
                                           throw error
                                       } catch let error as RegistryUnreachableException {
-                                          throw error
-                                      } catch let error as FileNotAvailableException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
