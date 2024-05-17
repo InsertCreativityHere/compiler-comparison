@@ -160,13 +160,13 @@ Slice.defineOperations(IceBox.ServiceManager, IceBox.ServiceManagerPrx, iceC_Ice
 {
     "startService": [, , , , [[7]], ,
     [
-        IceBox.NoSuchServiceException,
-        IceBox.AlreadyStartedException
+        IceBox.AlreadyStartedException,
+        IceBox.NoSuchServiceException
     ], , ],
     "stopService": [, , , , [[7]], ,
     [
-        IceBox.NoSuchServiceException,
-        IceBox.AlreadyStoppedException
+        IceBox.AlreadyStoppedException,
+        IceBox.NoSuchServiceException
     ], , ],
     "addObserver": [, , , , [["IceBox.ServiceObserverPrx"]], , , , ],
     "shutdown": [, , , , , , , , ]
