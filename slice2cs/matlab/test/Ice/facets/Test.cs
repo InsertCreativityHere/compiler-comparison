@@ -2034,9 +2034,9 @@ namespace Test
     {
         public abstract string callH(Ice.Current current);
 
-        public abstract string callG(Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
+
+        public abstract string callG(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

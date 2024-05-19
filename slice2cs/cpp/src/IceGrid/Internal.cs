@@ -6752,11 +6752,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -7245,9 +7245,9 @@ namespace IceGrid
 
         public abstract void replicaInit(InternalRegistryPrx?[] replicas, Ice.Current current);
 
-        public abstract void replicaRemoved(InternalRegistryPrx? replica, Ice.Current current);
-
         public abstract void replicaAdded(InternalRegistryPrx? replica, Ice.Current current);
+
+        public abstract void replicaRemoved(InternalRegistryPrx? replica, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
