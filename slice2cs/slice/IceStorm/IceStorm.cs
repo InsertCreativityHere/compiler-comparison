@@ -1149,10 +1149,6 @@ namespace IceStorm
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class TopicPrxHelper : Ice.ObjectPrxHelperBase, TopicPrx
     {
-        public TopicPrxHelper()
-        {
-        }
-
         public string getName(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1636,18 +1632,10 @@ namespace IceStorm
         }
 
         public static TopicPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new TopicPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static TopicPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                TopicPrxHelper prx = new TopicPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static TopicPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new TopicPrxHelper(b) : null;
 
         public static TopicPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1656,9 +1644,7 @@ namespace IceStorm
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    TopicPrxHelper prx = new TopicPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new TopicPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1669,30 +1655,13 @@ namespace IceStorm
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static TopicPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new TopicPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static TopicPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new TopicPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static TopicPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new TopicPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static TopicPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new TopicPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1707,16 +1676,19 @@ namespace IceStorm
             ostr.writeProxy(v);
         }
 
-        public static TopicPrx? read(Ice.InputStream istr)
+        public static TopicPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new TopicPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new TopicPrxHelper(reference);
+
+        private TopicPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new TopicPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private TopicPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -1761,10 +1733,6 @@ namespace IceStorm
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class TopicManagerPrxHelper : Ice.ObjectPrxHelperBase, TopicManagerPrx
     {
-        public TopicManagerPrxHelper()
-        {
-        }
-
         public TopicPrx? create(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1934,18 +1902,10 @@ namespace IceStorm
         }
 
         public static TopicManagerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new TopicManagerPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static TopicManagerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                TopicManagerPrxHelper prx = new TopicManagerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static TopicManagerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new TopicManagerPrxHelper(b) : null;
 
         public static TopicManagerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1954,9 +1914,7 @@ namespace IceStorm
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    TopicManagerPrxHelper prx = new TopicManagerPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new TopicManagerPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1967,30 +1925,13 @@ namespace IceStorm
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static TopicManagerPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new TopicManagerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static TopicManagerPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new TopicManagerPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static TopicManagerPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new TopicManagerPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static TopicManagerPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new TopicManagerPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -2005,16 +1946,19 @@ namespace IceStorm
             ostr.writeProxy(v);
         }
 
-        public static TopicManagerPrx? read(Ice.InputStream istr)
+        public static TopicManagerPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new TopicManagerPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new TopicManagerPrxHelper(reference);
+
+        private TopicManagerPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new TopicManagerPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private TopicManagerPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -2022,10 +1966,6 @@ namespace IceStorm
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class FinderPrxHelper : Ice.ObjectPrxHelperBase, FinderPrx
     {
-        public FinderPrxHelper()
-        {
-        }
-
         public TopicManagerPrx? getTopicManager(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -2071,18 +2011,10 @@ namespace IceStorm
         }
 
         public static FinderPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new FinderPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static FinderPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                FinderPrxHelper prx = new FinderPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static FinderPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new FinderPrxHelper(b) : null;
 
         public static FinderPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -2091,9 +2023,7 @@ namespace IceStorm
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    FinderPrxHelper prx = new FinderPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new FinderPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -2104,30 +2034,13 @@ namespace IceStorm
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static FinderPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new FinderPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static FinderPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new FinderPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static FinderPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new FinderPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static FinderPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new FinderPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -2142,16 +2055,19 @@ namespace IceStorm
             ostr.writeProxy(v);
         }
 
-        public static FinderPrx? read(Ice.InputStream istr)
+        public static FinderPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new FinderPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new FinderPrxHelper(reference);
+
+        private FinderPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new FinderPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private FinderPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

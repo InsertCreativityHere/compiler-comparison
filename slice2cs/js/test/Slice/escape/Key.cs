@@ -830,10 +830,6 @@ namespace @await
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class casePrxHelper : Ice.ObjectPrxHelperBase, casePrx
     {
-        public casePrxHelper()
-        {
-        }
-
         public void @catch(int @checked, out int @continue, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -883,18 +879,10 @@ namespace @await
         }
 
         public static casePrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new casePrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static casePrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                casePrxHelper prx = new casePrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static casePrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new casePrxHelper(b) : null;
 
         public static casePrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -903,9 +891,7 @@ namespace @await
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    casePrxHelper prx = new casePrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new casePrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -916,30 +902,13 @@ namespace @await
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static casePrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new casePrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static casePrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new casePrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static casePrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new casePrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static casePrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new casePrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -954,16 +923,19 @@ namespace @await
             ostr.writeProxy(v);
         }
 
-        public static casePrx? read(Ice.InputStream istr)
+        public static casePrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new casePrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new casePrxHelper(reference);
+
+        private casePrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new casePrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private casePrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -971,10 +943,6 @@ namespace @await
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class typeofPrxHelper : Ice.ObjectPrxHelperBase, typeofPrx
     {
-        public typeofPrxHelper()
-        {
-        }
-
         public void @default(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1013,18 +981,10 @@ namespace @await
         }
 
         public static typeofPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new typeofPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static typeofPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                typeofPrxHelper prx = new typeofPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static typeofPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new typeofPrxHelper(b) : null;
 
         public static typeofPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1033,9 +993,7 @@ namespace @await
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    typeofPrxHelper prx = new typeofPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new typeofPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1046,30 +1004,13 @@ namespace @await
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static typeofPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new typeofPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static typeofPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new typeofPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static typeofPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new typeofPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static typeofPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new typeofPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1084,16 +1025,19 @@ namespace @await
             ostr.writeProxy(v);
         }
 
-        public static typeofPrx? read(Ice.InputStream istr)
+        public static typeofPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new typeofPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new typeofPrxHelper(reference);
+
+        private typeofPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new typeofPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private typeofPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -1101,10 +1045,6 @@ namespace @await
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class explicitPrxHelper : Ice.ObjectPrxHelperBase, explicitPrx
     {
-        public explicitPrxHelper()
-        {
-        }
-
         public void @default(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1191,18 +1131,10 @@ namespace @await
         }
 
         public static explicitPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new explicitPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static explicitPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                explicitPrxHelper prx = new explicitPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static explicitPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new explicitPrxHelper(b) : null;
 
         public static explicitPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1211,9 +1143,7 @@ namespace @await
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    explicitPrxHelper prx = new explicitPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new explicitPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1224,30 +1154,13 @@ namespace @await
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static explicitPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new explicitPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static explicitPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new explicitPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static explicitPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new explicitPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static explicitPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new explicitPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1264,16 +1177,19 @@ namespace @await
             ostr.writeProxy(v);
         }
 
-        public static explicitPrx? read(Ice.InputStream istr)
+        public static explicitPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new explicitPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new explicitPrxHelper(reference);
+
+        private explicitPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new explicitPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private explicitPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -1318,10 +1234,6 @@ namespace @await
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class optionalParamsPrxHelper : Ice.ObjectPrxHelperBase, optionalParamsPrx
     {
-        public optionalParamsPrxHelper()
-        {
-        }
-
         public @break? @for(var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1691,18 +1603,10 @@ namespace @await
         }
 
         public static optionalParamsPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new optionalParamsPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static optionalParamsPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                optionalParamsPrxHelper prx = new optionalParamsPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static optionalParamsPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new optionalParamsPrxHelper(b) : null;
 
         public static optionalParamsPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1711,9 +1615,7 @@ namespace @await
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    optionalParamsPrxHelper prx = new optionalParamsPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new optionalParamsPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1724,30 +1626,13 @@ namespace @await
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static optionalParamsPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new optionalParamsPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static optionalParamsPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new optionalParamsPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static optionalParamsPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new optionalParamsPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static optionalParamsPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new optionalParamsPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1762,16 +1647,19 @@ namespace @await
             ostr.writeProxy(v);
         }
 
-        public static optionalParamsPrx? read(Ice.InputStream istr)
+        public static optionalParamsPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new optionalParamsPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new optionalParamsPrxHelper(reference);
+
+        private optionalParamsPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new optionalParamsPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private optionalParamsPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -1779,10 +1667,6 @@ namespace @await
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class implicitPrxHelper : Ice.ObjectPrxHelperBase, implicitPrx
     {
-        public implicitPrxHelper()
-        {
-        }
-
         public var @in(@break @internal, delete? @is, explicitPrx? @lock, casePrx? @namespace, typeofPrx? @new, delete? @null, explicitPrx? @operator, int @override, int @params, int @private, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1860,18 +1744,10 @@ namespace @await
         }
 
         public static implicitPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new implicitPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static implicitPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                implicitPrxHelper prx = new implicitPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static implicitPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new implicitPrxHelper(b) : null;
 
         public static implicitPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1880,9 +1756,7 @@ namespace @await
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    implicitPrxHelper prx = new implicitPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new implicitPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1893,30 +1767,13 @@ namespace @await
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static implicitPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new implicitPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static implicitPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new implicitPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static implicitPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new implicitPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static implicitPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new implicitPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1931,16 +1788,19 @@ namespace @await
             ostr.writeProxy(v);
         }
 
-        public static implicitPrx? read(Ice.InputStream istr)
+        public static implicitPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new implicitPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new implicitPrxHelper(reference);
+
+        private implicitPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new implicitPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private implicitPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -1950,10 +1810,6 @@ namespace @await
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class TestPrxHelper : Ice.ObjectPrxHelperBase, TestPrx
         {
-            public TestPrxHelper()
-            {
-            }
-
             public void op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
@@ -1992,18 +1848,10 @@ namespace @await
             }
 
             public static TestPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+                new TestPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static TestPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-            {
-                if (b is not null && b.ice_isA(ice_staticId(), ctx))
-                {
-                    TestPrxHelper prx = new TestPrxHelper();
-                    prx.iceCopyFrom(b);
-                    return prx;
-                }
-                return null;
-            }
+            public static TestPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+                b is not null && b.ice_isA(ice_staticId(), ctx) ? new TestPrxHelper(b) : null;
 
             public static TestPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
@@ -2012,9 +1860,7 @@ namespace @await
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                     {
-                        TestPrxHelper prx = new TestPrxHelper();
-                        prx.iceCopyFrom(bb);
-                        return prx;
+                        return new TestPrxHelper(bb);
                     }
                 }
                 catch (Ice.FacetNotExistException)
@@ -2025,30 +1871,13 @@ namespace @await
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static TestPrx? uncheckedCast(Ice.ObjectPrx? b)
-            {
-                if (b is not null)
-                {
-                    var prx = new TestPrxHelper();
-                    prx.iceCopyFrom(b);
-                    return prx;
-                }
-                return null;
-            }
+            public static TestPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+                b is not null ? new TestPrxHelper(b) : null;
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static TestPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-            {
-                if (b is not null)
-                {
-                    Ice.ObjectPrx? bb = b.ice_facet(f);
-                    var prx = new TestPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
-                }
-                return null;
-            }
+            public static TestPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+                b is not null ? new TestPrxHelper(b.ice_facet(f)) : null;
 
             private static readonly string[] _ids =
             {
@@ -2063,16 +1892,19 @@ namespace @await
                 ostr.writeProxy(v);
             }
 
-            public static TestPrx? read(Ice.InputStream istr)
+            public static TestPrx? read(Ice.InputStream istr) =>
+                istr.readProxy() is Ice.ObjectPrx proxy ? new TestPrxHelper(proxy) : null;
+
+            protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new TestPrxHelper(reference);
+
+            private TestPrxHelper(Ice.ObjectPrx proxy)
+                : base(proxy)
             {
-                Ice.ObjectPrx? proxy = istr.readProxy();
-                if (proxy is not null)
-                {
-                     var result = new TestPrxHelper();
-                    result.iceCopyFrom(proxy);
-                    return result;
-                }
-                return null;
+            }
+
+            private TestPrxHelper(Ice.Internal.Reference reference)
+                : base(reference)
+            {
             }
         }
     }
@@ -2084,10 +1916,6 @@ namespace System
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class TestPrxHelper : Ice.ObjectPrxHelperBase, TestPrx
     {
-        public TestPrxHelper()
-        {
-        }
-
         public void op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -2126,18 +1954,10 @@ namespace System
         }
 
         public static TestPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new TestPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static TestPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                TestPrxHelper prx = new TestPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static TestPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new TestPrxHelper(b) : null;
 
         public static TestPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -2146,9 +1966,7 @@ namespace System
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    TestPrxHelper prx = new TestPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new TestPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -2159,30 +1977,13 @@ namespace System
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static TestPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new TestPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static TestPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new TestPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static TestPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new TestPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static TestPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new TestPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -2197,16 +1998,19 @@ namespace System
             ostr.writeProxy(v);
         }
 
-        public static TestPrx? read(Ice.InputStream istr)
+        public static TestPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new TestPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new TestPrxHelper(reference);
+
+        private TestPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new TestPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private TestPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

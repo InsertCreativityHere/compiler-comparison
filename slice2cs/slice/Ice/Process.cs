@@ -115,10 +115,6 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ProcessPrxHelper : Ice.ObjectPrxHelperBase, ProcessPrx
     {
-        public ProcessPrxHelper()
-        {
-        }
-
         public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -199,18 +195,10 @@ namespace Ice
         }
 
         public static ProcessPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new ProcessPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static ProcessPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                ProcessPrxHelper prx = new ProcessPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static ProcessPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new ProcessPrxHelper(b) : null;
 
         public static ProcessPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -219,9 +207,7 @@ namespace Ice
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    ProcessPrxHelper prx = new ProcessPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new ProcessPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -232,30 +218,13 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static ProcessPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new ProcessPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static ProcessPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new ProcessPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static ProcessPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new ProcessPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static ProcessPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new ProcessPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -270,16 +239,19 @@ namespace Ice
             ostr.writeProxy(v);
         }
 
-        public static ProcessPrx? read(Ice.InputStream istr)
+        public static ProcessPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new ProcessPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new ProcessPrxHelper(reference);
+
+        private ProcessPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new ProcessPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private ProcessPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

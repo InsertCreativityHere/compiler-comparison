@@ -111,10 +111,6 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ServerPrxHelper : Ice.ObjectPrxHelperBase, ServerPrx
     {
-        public ServerPrxHelper()
-        {
-        }
-
         public void noCert(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -236,18 +232,10 @@ namespace Test
         }
 
         public static ServerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new ServerPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static ServerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                ServerPrxHelper prx = new ServerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static ServerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new ServerPrxHelper(b) : null;
 
         public static ServerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -256,9 +244,7 @@ namespace Test
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    ServerPrxHelper prx = new ServerPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new ServerPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -269,30 +255,13 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static ServerPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new ServerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static ServerPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new ServerPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static ServerPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new ServerPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static ServerPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new ServerPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -307,16 +276,19 @@ namespace Test
             ostr.writeProxy(v);
         }
 
-        public static ServerPrx? read(Ice.InputStream istr)
+        public static ServerPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new ServerPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new ServerPrxHelper(reference);
+
+        private ServerPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new ServerPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private ServerPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -361,10 +333,6 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ServerFactoryPrxHelper : Ice.ObjectPrxHelperBase, ServerFactoryPrx
     {
-        public ServerFactoryPrxHelper()
-        {
-        }
-
         public ServerPrx? createServer(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -492,18 +460,10 @@ namespace Test
         }
 
         public static ServerFactoryPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new ServerFactoryPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static ServerFactoryPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                ServerFactoryPrxHelper prx = new ServerFactoryPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static ServerFactoryPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new ServerFactoryPrxHelper(b) : null;
 
         public static ServerFactoryPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -512,9 +472,7 @@ namespace Test
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    ServerFactoryPrxHelper prx = new ServerFactoryPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new ServerFactoryPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -525,30 +483,13 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static ServerFactoryPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new ServerFactoryPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static ServerFactoryPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new ServerFactoryPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static ServerFactoryPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new ServerFactoryPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static ServerFactoryPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new ServerFactoryPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -563,16 +504,19 @@ namespace Test
             ostr.writeProxy(v);
         }
 
-        public static ServerFactoryPrx? read(Ice.InputStream istr)
+        public static ServerFactoryPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new ServerFactoryPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new ServerFactoryPrxHelper(reference);
+
+        private ServerFactoryPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new ServerFactoryPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private ServerFactoryPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

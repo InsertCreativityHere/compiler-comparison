@@ -242,10 +242,6 @@ namespace IceDiscovery
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LookupReplyPrxHelper : Ice.ObjectPrxHelperBase, LookupReplyPrx
     {
-        public LookupReplyPrxHelper()
-        {
-        }
-
         public void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -332,18 +328,10 @@ namespace IceDiscovery
         }
 
         public static LookupReplyPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new LookupReplyPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static LookupReplyPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                LookupReplyPrxHelper prx = new LookupReplyPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static LookupReplyPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new LookupReplyPrxHelper(b) : null;
 
         public static LookupReplyPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -352,9 +340,7 @@ namespace IceDiscovery
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    LookupReplyPrxHelper prx = new LookupReplyPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new LookupReplyPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -365,30 +351,13 @@ namespace IceDiscovery
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LookupReplyPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new LookupReplyPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static LookupReplyPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new LookupReplyPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LookupReplyPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new LookupReplyPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static LookupReplyPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new LookupReplyPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -403,16 +372,19 @@ namespace IceDiscovery
             ostr.writeProxy(v);
         }
 
-        public static LookupReplyPrx? read(Ice.InputStream istr)
+        public static LookupReplyPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new LookupReplyPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new LookupReplyPrxHelper(reference);
+
+        private LookupReplyPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new LookupReplyPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private LookupReplyPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -420,10 +392,6 @@ namespace IceDiscovery
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LookupPrxHelper : Ice.ObjectPrxHelperBase, LookupPrx
     {
-        public LookupPrxHelper()
-        {
-        }
-
         public void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -511,18 +479,10 @@ namespace IceDiscovery
         }
 
         public static LookupPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new LookupPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static LookupPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                LookupPrxHelper prx = new LookupPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static LookupPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new LookupPrxHelper(b) : null;
 
         public static LookupPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -531,9 +491,7 @@ namespace IceDiscovery
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    LookupPrxHelper prx = new LookupPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new LookupPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -544,30 +502,13 @@ namespace IceDiscovery
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LookupPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new LookupPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static LookupPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new LookupPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LookupPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new LookupPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static LookupPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new LookupPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -582,16 +523,19 @@ namespace IceDiscovery
             ostr.writeProxy(v);
         }
 
-        public static LookupPrx? read(Ice.InputStream istr)
+        public static LookupPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new LookupPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new LookupPrxHelper(reference);
+
+        private LookupPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new LookupPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private LookupPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

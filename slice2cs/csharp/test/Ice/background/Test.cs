@@ -160,10 +160,6 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class BackgroundPrxHelper : Ice.ObjectPrxHelperBase, BackgroundPrx
     {
-        public BackgroundPrxHelper()
-        {
-        }
-
         public void op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -280,18 +276,10 @@ namespace Test
         }
 
         public static BackgroundPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new BackgroundPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static BackgroundPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                BackgroundPrxHelper prx = new BackgroundPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static BackgroundPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new BackgroundPrxHelper(b) : null;
 
         public static BackgroundPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -300,9 +288,7 @@ namespace Test
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    BackgroundPrxHelper prx = new BackgroundPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new BackgroundPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -313,30 +299,13 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static BackgroundPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new BackgroundPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static BackgroundPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new BackgroundPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static BackgroundPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new BackgroundPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static BackgroundPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new BackgroundPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -351,16 +320,19 @@ namespace Test
             ostr.writeProxy(v);
         }
 
-        public static BackgroundPrx? read(Ice.InputStream istr)
+        public static BackgroundPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new BackgroundPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new BackgroundPrxHelper(reference);
+
+        private BackgroundPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new BackgroundPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private BackgroundPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -368,10 +340,6 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class BackgroundControllerPrxHelper : Ice.ObjectPrxHelperBase, BackgroundControllerPrx
     {
-        public BackgroundControllerPrxHelper()
-        {
-        }
-
         public void pauseCall(string call, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -775,18 +743,10 @@ namespace Test
         }
 
         public static BackgroundControllerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new BackgroundControllerPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static BackgroundControllerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                BackgroundControllerPrxHelper prx = new BackgroundControllerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static BackgroundControllerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new BackgroundControllerPrxHelper(b) : null;
 
         public static BackgroundControllerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -795,9 +755,7 @@ namespace Test
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    BackgroundControllerPrxHelper prx = new BackgroundControllerPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new BackgroundControllerPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -808,30 +766,13 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static BackgroundControllerPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new BackgroundControllerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static BackgroundControllerPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new BackgroundControllerPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static BackgroundControllerPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new BackgroundControllerPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static BackgroundControllerPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new BackgroundControllerPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -846,16 +787,19 @@ namespace Test
             ostr.writeProxy(v);
         }
 
-        public static BackgroundControllerPrx? read(Ice.InputStream istr)
+        public static BackgroundControllerPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new BackgroundControllerPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new BackgroundControllerPrxHelper(reference);
+
+        private BackgroundControllerPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new BackgroundControllerPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private BackgroundControllerPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

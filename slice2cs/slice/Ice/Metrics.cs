@@ -1166,10 +1166,6 @@ namespace IceMX
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MetricsAdminPrxHelper : Ice.ObjectPrxHelperBase, MetricsAdminPrx
     {
-        public MetricsAdminPrxHelper()
-        {
-        }
-
         public string[] getMetricsViewNames(out string[] disabledViews, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1523,18 +1519,10 @@ namespace IceMX
         }
 
         public static MetricsAdminPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new MetricsAdminPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static MetricsAdminPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                MetricsAdminPrxHelper prx = new MetricsAdminPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static MetricsAdminPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new MetricsAdminPrxHelper(b) : null;
 
         public static MetricsAdminPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1543,9 +1531,7 @@ namespace IceMX
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    MetricsAdminPrxHelper prx = new MetricsAdminPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new MetricsAdminPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1556,30 +1542,13 @@ namespace IceMX
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static MetricsAdminPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new MetricsAdminPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static MetricsAdminPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new MetricsAdminPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static MetricsAdminPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new MetricsAdminPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static MetricsAdminPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new MetricsAdminPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1594,16 +1563,19 @@ namespace IceMX
             ostr.writeProxy(v);
         }
 
-        public static MetricsAdminPrx? read(Ice.InputStream istr)
+        public static MetricsAdminPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new MetricsAdminPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new MetricsAdminPrxHelper(reference);
+
+        private MetricsAdminPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new MetricsAdminPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private MetricsAdminPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

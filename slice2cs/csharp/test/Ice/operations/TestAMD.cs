@@ -2806,10 +2806,6 @@ namespace Ice.operations.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class MyClassPrxHelper : Ice.ObjectPrxHelperBase, MyClassPrx
         {
-            public MyClassPrxHelper()
-            {
-            }
-
             public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
@@ -6291,18 +6287,10 @@ namespace Ice.operations.AMD
             }
 
             public static MyClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+                new MyClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static MyClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-            {
-                if (b is not null && b.ice_isA(ice_staticId(), ctx))
-                {
-                    MyClassPrxHelper prx = new MyClassPrxHelper();
-                    prx.iceCopyFrom(b);
-                    return prx;
-                }
-                return null;
-            }
+            public static MyClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+                b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyClassPrxHelper(b) : null;
 
             public static MyClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
@@ -6311,9 +6299,7 @@ namespace Ice.operations.AMD
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                     {
-                        MyClassPrxHelper prx = new MyClassPrxHelper();
-                        prx.iceCopyFrom(bb);
-                        return prx;
+                        return new MyClassPrxHelper(bb);
                     }
                 }
                 catch (Ice.FacetNotExistException)
@@ -6324,30 +6310,13 @@ namespace Ice.operations.AMD
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static MyClassPrx? uncheckedCast(Ice.ObjectPrx? b)
-            {
-                if (b is not null)
-                {
-                    var prx = new MyClassPrxHelper();
-                    prx.iceCopyFrom(b);
-                    return prx;
-                }
-                return null;
-            }
+            public static MyClassPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+                b is not null ? new MyClassPrxHelper(b) : null;
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static MyClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-            {
-                if (b is not null)
-                {
-                    Ice.ObjectPrx? bb = b.ice_facet(f);
-                    var prx = new MyClassPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
-                }
-                return null;
-            }
+            public static MyClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+                b is not null ? new MyClassPrxHelper(b.ice_facet(f)) : null;
 
             private static readonly string[] _ids =
             {
@@ -6362,16 +6331,19 @@ namespace Ice.operations.AMD
                 ostr.writeProxy(v);
             }
 
-            public static MyClassPrx? read(Ice.InputStream istr)
+            public static MyClassPrx? read(Ice.InputStream istr) =>
+                istr.readProxy() is Ice.ObjectPrx proxy ? new MyClassPrxHelper(proxy) : null;
+
+            protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new MyClassPrxHelper(reference);
+
+            private MyClassPrxHelper(Ice.ObjectPrx proxy)
+                : base(proxy)
             {
-                Ice.ObjectPrx? proxy = istr.readProxy();
-                if (proxy is not null)
-                {
-                     var result = new MyClassPrxHelper();
-                    result.iceCopyFrom(proxy);
-                    return result;
-                }
-                return null;
+            }
+
+            private MyClassPrxHelper(Ice.Internal.Reference reference)
+                : base(reference)
+            {
             }
         }
 
@@ -6379,10 +6351,6 @@ namespace Ice.operations.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class MyDerivedClassPrxHelper : Ice.ObjectPrxHelperBase, MyDerivedClassPrx
         {
-            public MyDerivedClassPrxHelper()
-            {
-            }
-
             public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
@@ -9999,18 +9967,10 @@ namespace Ice.operations.AMD
             }
 
             public static MyDerivedClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+                new MyDerivedClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-            {
-                if (b is not null && b.ice_isA(ice_staticId(), ctx))
-                {
-                    MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
-                    prx.iceCopyFrom(b);
-                    return prx;
-                }
-                return null;
-            }
+            public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+                b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyDerivedClassPrxHelper(b) : null;
 
             public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
@@ -10019,9 +9979,7 @@ namespace Ice.operations.AMD
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                     {
-                        MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
-                        prx.iceCopyFrom(bb);
-                        return prx;
+                        return new MyDerivedClassPrxHelper(bb);
                     }
                 }
                 catch (Ice.FacetNotExistException)
@@ -10032,30 +9990,13 @@ namespace Ice.operations.AMD
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b)
-            {
-                if (b is not null)
-                {
-                    var prx = new MyDerivedClassPrxHelper();
-                    prx.iceCopyFrom(b);
-                    return prx;
-                }
-                return null;
-            }
+            public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+                b is not null ? new MyDerivedClassPrxHelper(b) : null;
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-            {
-                if (b is not null)
-                {
-                    Ice.ObjectPrx? bb = b.ice_facet(f);
-                    var prx = new MyDerivedClassPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
-                }
-                return null;
-            }
+            public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+                b is not null ? new MyDerivedClassPrxHelper(b.ice_facet(f)) : null;
 
             private static readonly string[] _ids =
             {
@@ -10071,16 +10012,19 @@ namespace Ice.operations.AMD
                 ostr.writeProxy(v);
             }
 
-            public static MyDerivedClassPrx? read(Ice.InputStream istr)
+            public static MyDerivedClassPrx? read(Ice.InputStream istr) =>
+                istr.readProxy() is Ice.ObjectPrx proxy ? new MyDerivedClassPrxHelper(proxy) : null;
+
+            protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new MyDerivedClassPrxHelper(reference);
+
+            private MyDerivedClassPrxHelper(Ice.ObjectPrx proxy)
+                : base(proxy)
             {
-                Ice.ObjectPrx? proxy = istr.readProxy();
-                if (proxy is not null)
-                {
-                     var result = new MyDerivedClassPrxHelper();
-                    result.iceCopyFrom(proxy);
-                    return result;
-                }
-                return null;
+            }
+
+            private MyDerivedClassPrxHelper(Ice.Internal.Reference reference)
+                : base(reference)
+            {
             }
         }
     }
@@ -10329,86 +10273,6 @@ namespace Ice.operations.AMD
 
             public abstract global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task opVoidAsync(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx? p1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task opIdempotentAsync(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<string> opString1Async(string opString1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, Ice.Current current);
-
             public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, Ice.Current current);
@@ -10453,11 +10317,81 @@ namespace Ice.operations.AMD
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, Ice.Current current);
 
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, Ice.Current current);
+
             public abstract global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task opIdempotentAsync(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<string> opString1Async(string opString1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task opVoidAsync(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx? p1, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, Ice.Current current);
 
@@ -10468,6 +10402,16 @@ namespace Ice.operations.AMD
             public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, Ice.Current current);
 
             public override string ice_id(Ice.Current current) => ice_staticId();
 

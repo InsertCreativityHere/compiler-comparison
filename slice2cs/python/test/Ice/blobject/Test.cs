@@ -124,10 +124,6 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class HelloPrxHelper : Ice.ObjectPrxHelperBase, HelloPrx
     {
-        public HelloPrxHelper()
-        {
-        }
-
         public void sayHello(int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -308,18 +304,10 @@ namespace Test
         }
 
         public static HelloPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new HelloPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static HelloPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                HelloPrxHelper prx = new HelloPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static HelloPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new HelloPrxHelper(b) : null;
 
         public static HelloPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -328,9 +316,7 @@ namespace Test
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    HelloPrxHelper prx = new HelloPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new HelloPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -341,30 +327,13 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static HelloPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new HelloPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static HelloPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new HelloPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static HelloPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new HelloPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static HelloPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new HelloPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -379,16 +348,19 @@ namespace Test
             ostr.writeProxy(v);
         }
 
-        public static HelloPrx? read(Ice.InputStream istr)
+        public static HelloPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new HelloPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new HelloPrxHelper(reference);
+
+        private HelloPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new HelloPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private HelloPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

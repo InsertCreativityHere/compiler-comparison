@@ -64,10 +64,6 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class Initial2PrxHelper : Ice.ObjectPrxHelperBase, Initial2Prx
     {
-        public Initial2PrxHelper()
-        {
-        }
-
         public void opClassAndUnknownOptional(A? p, global::Ice.Value?? o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -154,18 +150,10 @@ namespace Test
         }
 
         public static Initial2Prx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new Initial2PrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static Initial2Prx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                Initial2PrxHelper prx = new Initial2PrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static Initial2Prx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new Initial2PrxHelper(b) : null;
 
         public static Initial2Prx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -174,9 +162,7 @@ namespace Test
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    Initial2PrxHelper prx = new Initial2PrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new Initial2PrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -187,30 +173,13 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static Initial2Prx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new Initial2PrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static Initial2Prx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new Initial2PrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static Initial2Prx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new Initial2PrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static Initial2Prx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new Initial2PrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -225,16 +194,19 @@ namespace Test
             ostr.writeProxy(v);
         }
 
-        public static Initial2Prx? read(Ice.InputStream istr)
+        public static Initial2Prx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new Initial2PrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new Initial2PrxHelper(reference);
+
+        private Initial2PrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new Initial2PrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private Initial2PrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

@@ -240,5 +240,5 @@ public class SubscriberRecord implements java.lang.Cloneable,
     private static final SubscriberRecord _nullMarshalValue = new SubscriberRecord();
 
     /** @hidden */
-    public static final long serialVersionUID = 4676721699231471610L;
+    public static final long serialVersionUID = -5005489607839191870L;
 }

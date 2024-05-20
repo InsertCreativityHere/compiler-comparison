@@ -663,10 +663,6 @@ namespace Glacier2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class SessionPrxHelper : Ice.ObjectPrxHelperBase, SessionPrx
     {
-        public SessionPrxHelper()
-        {
-        }
-
         public void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -705,18 +701,10 @@ namespace Glacier2
         }
 
         public static SessionPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new SessionPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static SessionPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                SessionPrxHelper prx = new SessionPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static SessionPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new SessionPrxHelper(b) : null;
 
         public static SessionPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -725,9 +713,7 @@ namespace Glacier2
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    SessionPrxHelper prx = new SessionPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new SessionPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -738,30 +724,13 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SessionPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new SessionPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static SessionPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new SessionPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SessionPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new SessionPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static SessionPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new SessionPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -776,16 +745,19 @@ namespace Glacier2
             ostr.writeProxy(v);
         }
 
-        public static SessionPrx? read(Ice.InputStream istr)
+        public static SessionPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new SessionPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new SessionPrxHelper(reference);
+
+        private SessionPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new SessionPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private SessionPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -793,10 +765,6 @@ namespace Glacier2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class StringSetPrxHelper : Ice.ObjectPrxHelperBase, StringSetPrx
     {
-        public StringSetPrxHelper()
-        {
-        }
-
         public void add(string[] additions, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -924,18 +892,10 @@ namespace Glacier2
         }
 
         public static StringSetPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new StringSetPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static StringSetPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                StringSetPrxHelper prx = new StringSetPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static StringSetPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new StringSetPrxHelper(b) : null;
 
         public static StringSetPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -944,9 +904,7 @@ namespace Glacier2
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    StringSetPrxHelper prx = new StringSetPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new StringSetPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -957,30 +915,13 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static StringSetPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new StringSetPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static StringSetPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new StringSetPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static StringSetPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new StringSetPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static StringSetPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new StringSetPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -995,16 +936,19 @@ namespace Glacier2
             ostr.writeProxy(v);
         }
 
-        public static StringSetPrx? read(Ice.InputStream istr)
+        public static StringSetPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new StringSetPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new StringSetPrxHelper(reference);
+
+        private StringSetPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new StringSetPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private StringSetPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -1012,10 +956,6 @@ namespace Glacier2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class IdentitySetPrxHelper : Ice.ObjectPrxHelperBase, IdentitySetPrx
     {
-        public IdentitySetPrxHelper()
-        {
-        }
-
         public void add(global::Ice.Identity[] additions, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1143,18 +1083,10 @@ namespace Glacier2
         }
 
         public static IdentitySetPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new IdentitySetPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static IdentitySetPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                IdentitySetPrxHelper prx = new IdentitySetPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static IdentitySetPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new IdentitySetPrxHelper(b) : null;
 
         public static IdentitySetPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1163,9 +1095,7 @@ namespace Glacier2
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    IdentitySetPrxHelper prx = new IdentitySetPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new IdentitySetPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1176,30 +1106,13 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static IdentitySetPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new IdentitySetPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static IdentitySetPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new IdentitySetPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static IdentitySetPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new IdentitySetPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static IdentitySetPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new IdentitySetPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1214,16 +1127,19 @@ namespace Glacier2
             ostr.writeProxy(v);
         }
 
-        public static IdentitySetPrx? read(Ice.InputStream istr)
+        public static IdentitySetPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new IdentitySetPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new IdentitySetPrxHelper(reference);
+
+        private IdentitySetPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new IdentitySetPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private IdentitySetPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -1231,10 +1147,6 @@ namespace Glacier2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class SessionControlPrxHelper : Ice.ObjectPrxHelperBase, SessionControlPrx
     {
-        public SessionControlPrxHelper()
-        {
-        }
-
         public StringSetPrx? categories(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1449,18 +1361,10 @@ namespace Glacier2
         }
 
         public static SessionControlPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new SessionControlPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static SessionControlPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                SessionControlPrxHelper prx = new SessionControlPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static SessionControlPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new SessionControlPrxHelper(b) : null;
 
         public static SessionControlPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1469,9 +1373,7 @@ namespace Glacier2
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    SessionControlPrxHelper prx = new SessionControlPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new SessionControlPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1482,30 +1384,13 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SessionControlPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new SessionControlPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static SessionControlPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new SessionControlPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SessionControlPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new SessionControlPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static SessionControlPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new SessionControlPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1520,16 +1405,19 @@ namespace Glacier2
             ostr.writeProxy(v);
         }
 
-        public static SessionControlPrx? read(Ice.InputStream istr)
+        public static SessionControlPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new SessionControlPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new SessionControlPrxHelper(reference);
+
+        private SessionControlPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new SessionControlPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private SessionControlPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -1537,10 +1425,6 @@ namespace Glacier2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class SessionManagerPrxHelper : Ice.ObjectPrxHelperBase, SessionManagerPrx
     {
-        public SessionManagerPrxHelper()
-        {
-        }
-
         public SessionPrx? create(string userId, SessionControlPrx? control, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1605,18 +1489,10 @@ namespace Glacier2
         }
 
         public static SessionManagerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new SessionManagerPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static SessionManagerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                SessionManagerPrxHelper prx = new SessionManagerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static SessionManagerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new SessionManagerPrxHelper(b) : null;
 
         public static SessionManagerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1625,9 +1501,7 @@ namespace Glacier2
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    SessionManagerPrxHelper prx = new SessionManagerPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new SessionManagerPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1638,30 +1512,13 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SessionManagerPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new SessionManagerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static SessionManagerPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new SessionManagerPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SessionManagerPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new SessionManagerPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static SessionManagerPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new SessionManagerPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1676,16 +1533,19 @@ namespace Glacier2
             ostr.writeProxy(v);
         }
 
-        public static SessionManagerPrx? read(Ice.InputStream istr)
+        public static SessionManagerPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new SessionManagerPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new SessionManagerPrxHelper(reference);
+
+        private SessionManagerPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new SessionManagerPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private SessionManagerPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -1693,10 +1553,6 @@ namespace Glacier2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class SSLSessionManagerPrxHelper : Ice.ObjectPrxHelperBase, SSLSessionManagerPrx
     {
-        public SSLSessionManagerPrxHelper()
-        {
-        }
-
         public SessionPrx? create(SSLInfo info, SessionControlPrx? control, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1761,18 +1617,10 @@ namespace Glacier2
         }
 
         public static SSLSessionManagerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new SSLSessionManagerPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static SSLSessionManagerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                SSLSessionManagerPrxHelper prx = new SSLSessionManagerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static SSLSessionManagerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new SSLSessionManagerPrxHelper(b) : null;
 
         public static SSLSessionManagerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1781,9 +1629,7 @@ namespace Glacier2
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    SSLSessionManagerPrxHelper prx = new SSLSessionManagerPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new SSLSessionManagerPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1794,30 +1640,13 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SSLSessionManagerPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new SSLSessionManagerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static SSLSessionManagerPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new SSLSessionManagerPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SSLSessionManagerPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new SSLSessionManagerPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static SSLSessionManagerPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new SSLSessionManagerPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1832,16 +1661,19 @@ namespace Glacier2
             ostr.writeProxy(v);
         }
 
-        public static SSLSessionManagerPrx? read(Ice.InputStream istr)
+        public static SSLSessionManagerPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new SSLSessionManagerPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new SSLSessionManagerPrxHelper(reference);
+
+        private SSLSessionManagerPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new SSLSessionManagerPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private SSLSessionManagerPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

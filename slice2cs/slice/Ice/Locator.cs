@@ -619,10 +619,6 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LocatorPrxHelper : Ice.ObjectPrxHelperBase, LocatorPrx
     {
-        public LocatorPrxHelper()
-        {
-        }
-
         public ObjectPrx? findObjectById(Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -792,18 +788,10 @@ namespace Ice
         }
 
         public static LocatorPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new LocatorPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static LocatorPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                LocatorPrxHelper prx = new LocatorPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static LocatorPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new LocatorPrxHelper(b) : null;
 
         public static LocatorPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -812,9 +800,7 @@ namespace Ice
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    LocatorPrxHelper prx = new LocatorPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new LocatorPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -825,30 +811,13 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LocatorPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new LocatorPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static LocatorPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new LocatorPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LocatorPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new LocatorPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static LocatorPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new LocatorPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -863,16 +832,19 @@ namespace Ice
             ostr.writeProxy(v);
         }
 
-        public static LocatorPrx? read(Ice.InputStream istr)
+        public static LocatorPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new LocatorPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new LocatorPrxHelper(reference);
+
+        private LocatorPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new LocatorPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private LocatorPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -880,10 +852,6 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LocatorRegistryPrxHelper : Ice.ObjectPrxHelperBase, LocatorRegistryPrx
     {
-        public LocatorRegistryPrxHelper()
-        {
-        }
-
         public void setAdapterDirectProxy(string id, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1069,18 +1037,10 @@ namespace Ice
         }
 
         public static LocatorRegistryPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new LocatorRegistryPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static LocatorRegistryPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                LocatorRegistryPrxHelper prx = new LocatorRegistryPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static LocatorRegistryPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new LocatorRegistryPrxHelper(b) : null;
 
         public static LocatorRegistryPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1089,9 +1049,7 @@ namespace Ice
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    LocatorRegistryPrxHelper prx = new LocatorRegistryPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new LocatorRegistryPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1102,30 +1060,13 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LocatorRegistryPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new LocatorRegistryPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static LocatorRegistryPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new LocatorRegistryPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LocatorRegistryPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new LocatorRegistryPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static LocatorRegistryPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new LocatorRegistryPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1140,16 +1081,19 @@ namespace Ice
             ostr.writeProxy(v);
         }
 
-        public static LocatorRegistryPrx? read(Ice.InputStream istr)
+        public static LocatorRegistryPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new LocatorRegistryPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new LocatorRegistryPrxHelper(reference);
+
+        private LocatorRegistryPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new LocatorRegistryPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private LocatorRegistryPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -1157,10 +1101,6 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LocatorFinderPrxHelper : Ice.ObjectPrxHelperBase, LocatorFinderPrx
     {
-        public LocatorFinderPrxHelper()
-        {
-        }
-
         public LocatorPrx? getLocator(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -1206,18 +1146,10 @@ namespace Ice
         }
 
         public static LocatorFinderPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new LocatorFinderPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static LocatorFinderPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                LocatorFinderPrxHelper prx = new LocatorFinderPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static LocatorFinderPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new LocatorFinderPrxHelper(b) : null;
 
         public static LocatorFinderPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -1226,9 +1158,7 @@ namespace Ice
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    LocatorFinderPrxHelper prx = new LocatorFinderPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new LocatorFinderPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -1239,30 +1169,13 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LocatorFinderPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new LocatorFinderPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static LocatorFinderPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new LocatorFinderPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LocatorFinderPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new LocatorFinderPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static LocatorFinderPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new LocatorFinderPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1277,16 +1190,19 @@ namespace Ice
             ostr.writeProxy(v);
         }
 
-        public static LocatorFinderPrx? read(Ice.InputStream istr)
+        public static LocatorFinderPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new LocatorFinderPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new LocatorFinderPrxHelper(reference);
+
+        private LocatorFinderPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new LocatorFinderPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private LocatorFinderPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

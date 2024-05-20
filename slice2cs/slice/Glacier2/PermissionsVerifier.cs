@@ -239,10 +239,6 @@ namespace Glacier2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class PermissionsVerifierPrxHelper : Ice.ObjectPrxHelperBase, PermissionsVerifierPrx
     {
-        public PermissionsVerifierPrxHelper()
-        {
-        }
-
         public bool checkPermissions(string userId, string password, out string reason, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -310,18 +306,10 @@ namespace Glacier2
         }
 
         public static PermissionsVerifierPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new PermissionsVerifierPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static PermissionsVerifierPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                PermissionsVerifierPrxHelper prx = new PermissionsVerifierPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static PermissionsVerifierPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new PermissionsVerifierPrxHelper(b) : null;
 
         public static PermissionsVerifierPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -330,9 +318,7 @@ namespace Glacier2
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    PermissionsVerifierPrxHelper prx = new PermissionsVerifierPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new PermissionsVerifierPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -343,30 +329,13 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static PermissionsVerifierPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new PermissionsVerifierPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static PermissionsVerifierPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new PermissionsVerifierPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static PermissionsVerifierPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new PermissionsVerifierPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static PermissionsVerifierPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new PermissionsVerifierPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -381,16 +350,19 @@ namespace Glacier2
             ostr.writeProxy(v);
         }
 
-        public static PermissionsVerifierPrx? read(Ice.InputStream istr)
+        public static PermissionsVerifierPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new PermissionsVerifierPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new PermissionsVerifierPrxHelper(reference);
+
+        private PermissionsVerifierPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new PermissionsVerifierPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private PermissionsVerifierPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -398,10 +370,6 @@ namespace Glacier2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class SSLPermissionsVerifierPrxHelper : Ice.ObjectPrxHelperBase, SSLPermissionsVerifierPrx
     {
-        public SSLPermissionsVerifierPrxHelper()
-        {
-        }
-
         public bool authorize(SSLInfo info, out string reason, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -468,18 +436,10 @@ namespace Glacier2
         }
 
         public static SSLPermissionsVerifierPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new SSLPermissionsVerifierPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static SSLPermissionsVerifierPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                SSLPermissionsVerifierPrxHelper prx = new SSLPermissionsVerifierPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static SSLPermissionsVerifierPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new SSLPermissionsVerifierPrxHelper(b) : null;
 
         public static SSLPermissionsVerifierPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -488,9 +448,7 @@ namespace Glacier2
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    SSLPermissionsVerifierPrxHelper prx = new SSLPermissionsVerifierPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new SSLPermissionsVerifierPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -501,30 +459,13 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SSLPermissionsVerifierPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new SSLPermissionsVerifierPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static SSLPermissionsVerifierPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new SSLPermissionsVerifierPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static SSLPermissionsVerifierPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new SSLPermissionsVerifierPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static SSLPermissionsVerifierPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new SSLPermissionsVerifierPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -539,16 +480,19 @@ namespace Glacier2
             ostr.writeProxy(v);
         }
 
-        public static SSLPermissionsVerifierPrx? read(Ice.InputStream istr)
+        public static SSLPermissionsVerifierPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new SSLPermissionsVerifierPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new SSLPermissionsVerifierPrxHelper(reference);
+
+        private SSLPermissionsVerifierPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new SSLPermissionsVerifierPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private SSLPermissionsVerifierPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

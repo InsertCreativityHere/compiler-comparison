@@ -466,10 +466,6 @@ namespace Test1
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class WstringClassPrxHelper : Ice.ObjectPrxHelperBase, WstringClassPrx
     {
-        public WstringClassPrxHelper()
-        {
-        }
-
         public string opString(string s1, out string s2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -629,18 +625,10 @@ namespace Test1
         }
 
         public static WstringClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new WstringClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static WstringClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                WstringClassPrxHelper prx = new WstringClassPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static WstringClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new WstringClassPrxHelper(b) : null;
 
         public static WstringClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -649,9 +637,7 @@ namespace Test1
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    WstringClassPrxHelper prx = new WstringClassPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new WstringClassPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -662,30 +648,13 @@ namespace Test1
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static WstringClassPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new WstringClassPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static WstringClassPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new WstringClassPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static WstringClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new WstringClassPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static WstringClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new WstringClassPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -700,16 +669,19 @@ namespace Test1
             ostr.writeProxy(v);
         }
 
-        public static WstringClassPrx? read(Ice.InputStream istr)
+        public static WstringClassPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new WstringClassPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new WstringClassPrxHelper(reference);
+
+        private WstringClassPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new WstringClassPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private WstringClassPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }
@@ -773,10 +745,6 @@ namespace Test2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class WstringClassPrxHelper : Ice.ObjectPrxHelperBase, WstringClassPrx
     {
-        public WstringClassPrxHelper()
-        {
-        }
-
         public string opString(string s1, out string s2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -936,18 +904,10 @@ namespace Test2
         }
 
         public static WstringClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new WstringClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static WstringClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                WstringClassPrxHelper prx = new WstringClassPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static WstringClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new WstringClassPrxHelper(b) : null;
 
         public static WstringClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -956,9 +916,7 @@ namespace Test2
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    WstringClassPrxHelper prx = new WstringClassPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new WstringClassPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -969,30 +927,13 @@ namespace Test2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static WstringClassPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new WstringClassPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static WstringClassPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new WstringClassPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static WstringClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new WstringClassPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static WstringClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new WstringClassPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -1007,16 +948,19 @@ namespace Test2
             ostr.writeProxy(v);
         }
 
-        public static WstringClassPrx? read(Ice.InputStream istr)
+        public static WstringClassPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new WstringClassPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new WstringClassPrxHelper(reference);
+
+        private WstringClassPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new WstringClassPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private WstringClassPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

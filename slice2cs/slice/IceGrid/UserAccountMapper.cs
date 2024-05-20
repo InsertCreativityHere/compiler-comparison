@@ -151,10 +151,6 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class UserAccountMapperPrxHelper : Ice.ObjectPrxHelperBase, UserAccountMapperPrx
     {
-        public UserAccountMapperPrxHelper()
-        {
-        }
-
         public string getUserAccount(string user, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -218,18 +214,10 @@ namespace IceGrid
         }
 
         public static UserAccountMapperPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new UserAccountMapperPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static UserAccountMapperPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                UserAccountMapperPrxHelper prx = new UserAccountMapperPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static UserAccountMapperPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new UserAccountMapperPrxHelper(b) : null;
 
         public static UserAccountMapperPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -238,9 +226,7 @@ namespace IceGrid
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    UserAccountMapperPrxHelper prx = new UserAccountMapperPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new UserAccountMapperPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -251,30 +237,13 @@ namespace IceGrid
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static UserAccountMapperPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new UserAccountMapperPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static UserAccountMapperPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new UserAccountMapperPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static UserAccountMapperPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new UserAccountMapperPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static UserAccountMapperPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new UserAccountMapperPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -289,16 +258,19 @@ namespace IceGrid
             ostr.writeProxy(v);
         }
 
-        public static UserAccountMapperPrx? read(Ice.InputStream istr)
+        public static UserAccountMapperPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new UserAccountMapperPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new UserAccountMapperPrxHelper(reference);
+
+        private UserAccountMapperPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new UserAccountMapperPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private UserAccountMapperPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

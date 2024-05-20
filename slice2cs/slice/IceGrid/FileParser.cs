@@ -158,10 +158,6 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class FileParserPrxHelper : Ice.ObjectPrxHelperBase, FileParserPrx
     {
-        public FileParserPrxHelper()
-        {
-        }
-
         public ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -227,18 +223,10 @@ namespace IceGrid
         }
 
         public static FileParserPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new FileParserPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static FileParserPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                FileParserPrxHelper prx = new FileParserPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static FileParserPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new FileParserPrxHelper(b) : null;
 
         public static FileParserPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -247,9 +235,7 @@ namespace IceGrid
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    FileParserPrxHelper prx = new FileParserPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new FileParserPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -260,30 +246,13 @@ namespace IceGrid
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static FileParserPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new FileParserPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static FileParserPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new FileParserPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static FileParserPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new FileParserPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static FileParserPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new FileParserPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -298,16 +267,19 @@ namespace IceGrid
             ostr.writeProxy(v);
         }
 
-        public static FileParserPrx? read(Ice.InputStream istr)
+        public static FileParserPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new FileParserPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new FileParserPrxHelper(reference);
+
+        private FileParserPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new FileParserPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private FileParserPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

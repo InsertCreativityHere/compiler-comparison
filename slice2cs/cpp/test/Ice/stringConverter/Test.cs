@@ -117,10 +117,6 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MyObjectPrxHelper : Ice.ObjectPrxHelperBase, MyObjectPrx
     {
-        public MyObjectPrxHelper()
-        {
-        }
-
         public string widen(string msg, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -269,18 +265,10 @@ namespace Test
         }
 
         public static MyObjectPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new MyObjectPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static MyObjectPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                MyObjectPrxHelper prx = new MyObjectPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static MyObjectPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyObjectPrxHelper(b) : null;
 
         public static MyObjectPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -289,9 +277,7 @@ namespace Test
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    MyObjectPrxHelper prx = new MyObjectPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new MyObjectPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -302,30 +288,13 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static MyObjectPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new MyObjectPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static MyObjectPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new MyObjectPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static MyObjectPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new MyObjectPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static MyObjectPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new MyObjectPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -340,16 +309,19 @@ namespace Test
             ostr.writeProxy(v);
         }
 
-        public static MyObjectPrx? read(Ice.InputStream istr)
+        public static MyObjectPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new MyObjectPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new MyObjectPrxHelper(reference);
+
+        private MyObjectPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new MyObjectPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private MyObjectPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

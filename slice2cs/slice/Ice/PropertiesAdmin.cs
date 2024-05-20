@@ -162,10 +162,6 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class PropertiesAdminPrxHelper : Ice.ObjectPrxHelperBase, PropertiesAdminPrx
     {
-        public PropertiesAdminPrxHelper()
-        {
-        }
-
         public string getProperty(string key, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -304,18 +300,10 @@ namespace Ice
         }
 
         public static PropertiesAdminPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new PropertiesAdminPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static PropertiesAdminPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                PropertiesAdminPrxHelper prx = new PropertiesAdminPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static PropertiesAdminPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new PropertiesAdminPrxHelper(b) : null;
 
         public static PropertiesAdminPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -324,9 +312,7 @@ namespace Ice
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    PropertiesAdminPrxHelper prx = new PropertiesAdminPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new PropertiesAdminPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -337,30 +323,13 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static PropertiesAdminPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new PropertiesAdminPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static PropertiesAdminPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new PropertiesAdminPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static PropertiesAdminPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new PropertiesAdminPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static PropertiesAdminPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new PropertiesAdminPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -375,16 +344,19 @@ namespace Ice
             ostr.writeProxy(v);
         }
 
-        public static PropertiesAdminPrx? read(Ice.InputStream istr)
+        public static PropertiesAdminPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new PropertiesAdminPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new PropertiesAdminPrxHelper(reference);
+
+        private PropertiesAdminPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new PropertiesAdminPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private PropertiesAdminPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

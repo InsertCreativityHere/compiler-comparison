@@ -2745,10 +2745,6 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MyClassPrxHelper : Ice.ObjectPrxHelperBase, MyClassPrx
     {
-        public MyClassPrxHelper()
-        {
-        }
-
         public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -6144,18 +6140,10 @@ namespace Test
         }
 
         public static MyClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new MyClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static MyClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                MyClassPrxHelper prx = new MyClassPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static MyClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyClassPrxHelper(b) : null;
 
         public static MyClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -6164,9 +6152,7 @@ namespace Test
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    MyClassPrxHelper prx = new MyClassPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new MyClassPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -6177,30 +6163,13 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static MyClassPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new MyClassPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static MyClassPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new MyClassPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static MyClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new MyClassPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static MyClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new MyClassPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -6215,16 +6184,19 @@ namespace Test
             ostr.writeProxy(v);
         }
 
-        public static MyClassPrx? read(Ice.InputStream istr)
+        public static MyClassPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new MyClassPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new MyClassPrxHelper(reference);
+
+        private MyClassPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new MyClassPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private MyClassPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -6232,10 +6204,6 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MyDerivedClassPrxHelper : Ice.ObjectPrxHelperBase, MyDerivedClassPrx
     {
-        public MyDerivedClassPrxHelper()
-        {
-        }
-
         public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -9766,18 +9734,10 @@ namespace Test
         }
 
         public static MyDerivedClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new MyDerivedClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyDerivedClassPrxHelper(b) : null;
 
         public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -9786,9 +9746,7 @@ namespace Test
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new MyDerivedClassPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -9799,30 +9757,13 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new MyDerivedClassPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new MyDerivedClassPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new MyDerivedClassPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new MyDerivedClassPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -9838,16 +9779,19 @@ namespace Test
             ostr.writeProxy(v);
         }
 
-        public static MyDerivedClassPrx? read(Ice.InputStream istr)
+        public static MyDerivedClassPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new MyDerivedClassPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new MyDerivedClassPrxHelper(reference);
+
+        private MyDerivedClassPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new MyDerivedClassPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private MyDerivedClassPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }
@@ -9858,10 +9802,6 @@ namespace Test2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MyDerivedClassPrxHelper : Ice.ObjectPrxHelperBase, MyDerivedClassPrx
     {
-        public MyDerivedClassPrxHelper()
-        {
-        }
-
         public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -13257,18 +13197,10 @@ namespace Test2
         }
 
         public static MyDerivedClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new MyDerivedClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyDerivedClassPrxHelper(b) : null;
 
         public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -13277,9 +13209,7 @@ namespace Test2
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new MyDerivedClassPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -13290,30 +13220,13 @@ namespace Test2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new MyDerivedClassPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new MyDerivedClassPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new MyDerivedClassPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new MyDerivedClassPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -13329,16 +13242,19 @@ namespace Test2
             ostr.writeProxy(v);
         }
 
-        public static MyDerivedClassPrx? read(Ice.InputStream istr)
+        public static MyDerivedClassPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new MyDerivedClassPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new MyDerivedClassPrxHelper(reference);
+
+        private MyDerivedClassPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new MyDerivedClassPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private MyDerivedClassPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }
@@ -13600,6 +13516,18 @@ namespace Test
 
         public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, Ice.Current current);
 
+        public abstract global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, Ice.Current current);
+
+        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, Ice.Current current);
+
+        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
+
+        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
+
+        public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
+
+        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
         public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
 
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
@@ -13626,15 +13554,9 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, Ice.Current current);
-
         public abstract global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, Ice.Current current);
 
@@ -13680,22 +13602,6 @@ namespace Test
 
         public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
 
-        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, Ice.Current current);
-
-        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
-
-        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
-
-        public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
-
-        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, Ice.Current current);
-
         public abstract global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, Ice.Current current);
@@ -13710,9 +13616,19 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, Ice.Current current);
 
+        public abstract global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3, Ice.Current current);
+
         public abstract global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -13829,6 +13745,18 @@ namespace Test2
 
         public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, Ice.Current current);
 
+        public abstract global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
         public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
 
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
@@ -13855,15 +13783,9 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, Ice.Current current);
-
         public abstract global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, Ice.Current current);
 
@@ -13909,22 +13831,6 @@ namespace Test2
 
         public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
 
-        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, Ice.Current current);
-
         public abstract global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, Ice.Current current);
@@ -13939,9 +13845,19 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, Ice.Current current);
 
+        public abstract global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p3, Ice.Current current);
+
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

@@ -72,10 +72,6 @@ namespace Ice.threadPoolPriority
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class PriorityPrxHelper : Ice.ObjectPrxHelperBase, PriorityPrx
         {
-            public PriorityPrxHelper()
-            {
-            }
-
             public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
@@ -158,18 +154,10 @@ namespace Ice.threadPoolPriority
             }
 
             public static PriorityPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+                new PriorityPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static PriorityPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-            {
-                if (b is not null && b.ice_isA(ice_staticId(), ctx))
-                {
-                    PriorityPrxHelper prx = new PriorityPrxHelper();
-                    prx.iceCopyFrom(b);
-                    return prx;
-                }
-                return null;
-            }
+            public static PriorityPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+                b is not null && b.ice_isA(ice_staticId(), ctx) ? new PriorityPrxHelper(b) : null;
 
             public static PriorityPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
@@ -178,9 +166,7 @@ namespace Ice.threadPoolPriority
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                     {
-                        PriorityPrxHelper prx = new PriorityPrxHelper();
-                        prx.iceCopyFrom(bb);
-                        return prx;
+                        return new PriorityPrxHelper(bb);
                     }
                 }
                 catch (Ice.FacetNotExistException)
@@ -191,30 +177,13 @@ namespace Ice.threadPoolPriority
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static PriorityPrx? uncheckedCast(Ice.ObjectPrx? b)
-            {
-                if (b is not null)
-                {
-                    var prx = new PriorityPrxHelper();
-                    prx.iceCopyFrom(b);
-                    return prx;
-                }
-                return null;
-            }
+            public static PriorityPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+                b is not null ? new PriorityPrxHelper(b) : null;
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static PriorityPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-            {
-                if (b is not null)
-                {
-                    Ice.ObjectPrx? bb = b.ice_facet(f);
-                    var prx = new PriorityPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
-                }
-                return null;
-            }
+            public static PriorityPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+                b is not null ? new PriorityPrxHelper(b.ice_facet(f)) : null;
 
             private static readonly string[] _ids =
             {
@@ -229,16 +198,19 @@ namespace Ice.threadPoolPriority
                 ostr.writeProxy(v);
             }
 
-            public static PriorityPrx? read(Ice.InputStream istr)
+            public static PriorityPrx? read(Ice.InputStream istr) =>
+                istr.readProxy() is Ice.ObjectPrx proxy ? new PriorityPrxHelper(proxy) : null;
+
+            protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new PriorityPrxHelper(reference);
+
+            private PriorityPrxHelper(Ice.ObjectPrx proxy)
+                : base(proxy)
             {
-                Ice.ObjectPrx? proxy = istr.readProxy();
-                if (proxy is not null)
-                {
-                     var result = new PriorityPrxHelper();
-                    result.iceCopyFrom(proxy);
-                    return result;
-                }
-                return null;
+            }
+
+            private PriorityPrxHelper(Ice.Internal.Reference reference)
+                : base(reference)
+            {
             }
         }
     }

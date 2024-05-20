@@ -792,10 +792,6 @@ namespace classdef
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class elseifPrxHelper : Ice.ObjectPrxHelperBase, elseifPrx
         {
-            public elseifPrxHelper()
-            {
-            }
-
             public void events(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
@@ -945,18 +941,10 @@ namespace classdef
             }
 
             public static elseifPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-                uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+                new elseifPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static elseifPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-            {
-                if (b is not null && b.ice_isA(ice_staticId(), ctx))
-                {
-                    elseifPrxHelper prx = new elseifPrxHelper();
-                    prx.iceCopyFrom(b);
-                    return prx;
-                }
-                return null;
-            }
+            public static elseifPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+                b is not null && b.ice_isA(ice_staticId(), ctx) ? new elseifPrxHelper(b) : null;
 
             public static elseifPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
@@ -965,9 +953,7 @@ namespace classdef
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                     {
-                        elseifPrxHelper prx = new elseifPrxHelper();
-                        prx.iceCopyFrom(bb);
-                        return prx;
+                        return new elseifPrxHelper(bb);
                     }
                 }
                 catch (Ice.FacetNotExistException)
@@ -978,30 +964,13 @@ namespace classdef
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static elseifPrx? uncheckedCast(Ice.ObjectPrx? b)
-            {
-                if (b is not null)
-                {
-                    var prx = new elseifPrxHelper();
-                    prx.iceCopyFrom(b);
-                    return prx;
-                }
-                return null;
-            }
+            public static elseifPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+                b is not null ? new elseifPrxHelper(b) : null;
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-            public static elseifPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-            {
-                if (b is not null)
-                {
-                    Ice.ObjectPrx? bb = b.ice_facet(f);
-                    var prx = new elseifPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
-                }
-                return null;
-            }
+            public static elseifPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+                b is not null ? new elseifPrxHelper(b.ice_facet(f)) : null;
 
             private static readonly string[] _ids =
             {
@@ -1016,16 +985,19 @@ namespace classdef
                 ostr.writeProxy(v);
             }
 
-            public static elseifPrx? read(Ice.InputStream istr)
+            public static elseifPrx? read(Ice.InputStream istr) =>
+                istr.readProxy() is Ice.ObjectPrx proxy ? new elseifPrxHelper(proxy) : null;
+
+            protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new elseifPrxHelper(reference);
+
+            private elseifPrxHelper(Ice.ObjectPrx proxy)
+                : base(proxy)
             {
-                Ice.ObjectPrx? proxy = istr.readProxy();
-                if (proxy is not null)
-                {
-                     var result = new elseifPrxHelper();
-                    result.iceCopyFrom(proxy);
-                    return result;
-                }
-                return null;
+            }
+
+            private elseifPrxHelper(Ice.Internal.Reference reference)
+                : base(reference)
+            {
             }
         }
     }

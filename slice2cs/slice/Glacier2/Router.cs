@@ -337,10 +337,6 @@ namespace Glacier2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class RouterPrxHelper : Ice.ObjectPrxHelperBase, RouterPrx
     {
-        public RouterPrxHelper()
-        {
-        }
-
         public global::Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -634,11 +630,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -684,11 +680,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -849,18 +845,10 @@ namespace Glacier2
         }
 
         public static RouterPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new RouterPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static RouterPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                RouterPrxHelper prx = new RouterPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static RouterPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new RouterPrxHelper(b) : null;
 
         public static RouterPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -869,9 +857,7 @@ namespace Glacier2
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    RouterPrxHelper prx = new RouterPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new RouterPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -882,30 +868,13 @@ namespace Glacier2
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static RouterPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new RouterPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static RouterPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new RouterPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static RouterPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new RouterPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static RouterPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new RouterPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -921,16 +890,19 @@ namespace Glacier2
             ostr.writeProxy(v);
         }
 
-        public static RouterPrx? read(Ice.InputStream istr)
+        public static RouterPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new RouterPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new RouterPrxHelper(reference);
+
+        private RouterPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new RouterPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private RouterPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

@@ -407,10 +407,6 @@ namespace IceBox
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ServiceObserverPrxHelper : Ice.ObjectPrxHelperBase, ServiceObserverPrx
     {
-        public ServiceObserverPrxHelper()
-        {
-        }
-
         public void servicesStarted(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -494,18 +490,10 @@ namespace IceBox
         }
 
         public static ServiceObserverPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new ServiceObserverPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static ServiceObserverPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                ServiceObserverPrxHelper prx = new ServiceObserverPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static ServiceObserverPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new ServiceObserverPrxHelper(b) : null;
 
         public static ServiceObserverPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -514,9 +502,7 @@ namespace IceBox
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    ServiceObserverPrxHelper prx = new ServiceObserverPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new ServiceObserverPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -527,30 +513,13 @@ namespace IceBox
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static ServiceObserverPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new ServiceObserverPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static ServiceObserverPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new ServiceObserverPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static ServiceObserverPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new ServiceObserverPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static ServiceObserverPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new ServiceObserverPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -565,16 +534,19 @@ namespace IceBox
             ostr.writeProxy(v);
         }
 
-        public static ServiceObserverPrx? read(Ice.InputStream istr)
+        public static ServiceObserverPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new ServiceObserverPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new ServiceObserverPrxHelper(reference);
+
+        private ServiceObserverPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new ServiceObserverPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private ServiceObserverPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -582,10 +554,6 @@ namespace IceBox
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ServiceManagerPrxHelper : Ice.ObjectPrxHelperBase, ServiceManagerPrx
     {
-        public ServiceManagerPrxHelper()
-        {
-        }
-
         public void startService(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -785,18 +753,10 @@ namespace IceBox
         }
 
         public static ServiceManagerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new ServiceManagerPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static ServiceManagerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                ServiceManagerPrxHelper prx = new ServiceManagerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static ServiceManagerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new ServiceManagerPrxHelper(b) : null;
 
         public static ServiceManagerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -805,9 +765,7 @@ namespace IceBox
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    ServiceManagerPrxHelper prx = new ServiceManagerPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new ServiceManagerPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -818,30 +776,13 @@ namespace IceBox
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static ServiceManagerPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new ServiceManagerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static ServiceManagerPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new ServiceManagerPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static ServiceManagerPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new ServiceManagerPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static ServiceManagerPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new ServiceManagerPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -856,16 +797,19 @@ namespace IceBox
             ostr.writeProxy(v);
         }
 
-        public static ServiceManagerPrx? read(Ice.InputStream istr)
+        public static ServiceManagerPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new ServiceManagerPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new ServiceManagerPrxHelper(reference);
+
+        private ServiceManagerPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new ServiceManagerPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private ServiceManagerPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

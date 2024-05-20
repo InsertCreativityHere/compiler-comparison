@@ -57,10 +57,6 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class TestFacetPrxHelper : Ice.ObjectPrxHelperBase, TestFacetPrx
     {
-        public TestFacetPrxHelper()
-        {
-        }
-
         public global::System.Collections.Generic.Dictionary<string, string> getChanges(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -106,18 +102,10 @@ namespace Test
         }
 
         public static TestFacetPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new TestFacetPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static TestFacetPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                TestFacetPrxHelper prx = new TestFacetPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static TestFacetPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new TestFacetPrxHelper(b) : null;
 
         public static TestFacetPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -126,9 +114,7 @@ namespace Test
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    TestFacetPrxHelper prx = new TestFacetPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new TestFacetPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -139,30 +125,13 @@ namespace Test
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static TestFacetPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new TestFacetPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static TestFacetPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new TestFacetPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static TestFacetPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new TestFacetPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static TestFacetPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new TestFacetPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -177,16 +146,19 @@ namespace Test
             ostr.writeProxy(v);
         }
 
-        public static TestFacetPrx? read(Ice.InputStream istr)
+        public static TestFacetPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new TestFacetPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new TestFacetPrxHelper(reference);
+
+        private TestFacetPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new TestFacetPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private TestFacetPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }

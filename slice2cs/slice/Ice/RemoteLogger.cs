@@ -581,10 +581,6 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class RemoteLoggerPrxHelper : Ice.ObjectPrxHelperBase, RemoteLoggerPrx
     {
-        public RemoteLoggerPrxHelper()
-        {
-        }
-
         public void init(string prefix, LogMessage[] logMessages, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -669,18 +665,10 @@ namespace Ice
         }
 
         public static RemoteLoggerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new RemoteLoggerPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static RemoteLoggerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                RemoteLoggerPrxHelper prx = new RemoteLoggerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static RemoteLoggerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new RemoteLoggerPrxHelper(b) : null;
 
         public static RemoteLoggerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -689,9 +677,7 @@ namespace Ice
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    RemoteLoggerPrxHelper prx = new RemoteLoggerPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new RemoteLoggerPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -702,30 +688,13 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static RemoteLoggerPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new RemoteLoggerPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static RemoteLoggerPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new RemoteLoggerPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static RemoteLoggerPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new RemoteLoggerPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static RemoteLoggerPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new RemoteLoggerPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -740,16 +709,19 @@ namespace Ice
             ostr.writeProxy(v);
         }
 
-        public static RemoteLoggerPrx? read(Ice.InputStream istr)
+        public static RemoteLoggerPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new RemoteLoggerPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new RemoteLoggerPrxHelper(reference);
+
+        private RemoteLoggerPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new RemoteLoggerPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private RemoteLoggerPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 
@@ -757,10 +729,6 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LoggerAdminPrxHelper : Ice.ObjectPrxHelperBase, LoggerAdminPrx
     {
-        public LoggerAdminPrxHelper()
-        {
-        }
-
         public void attachRemoteLogger(RemoteLoggerPrx? prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -922,18 +890,10 @@ namespace Ice
         }
 
         public static LoggerAdminPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            uncheckedCast(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+            new LoggerAdminPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static LoggerAdminPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            if (b is not null && b.ice_isA(ice_staticId(), ctx))
-            {
-                LoggerAdminPrxHelper prx = new LoggerAdminPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static LoggerAdminPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new LoggerAdminPrxHelper(b) : null;
 
         public static LoggerAdminPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
@@ -942,9 +902,7 @@ namespace Ice
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    LoggerAdminPrxHelper prx = new LoggerAdminPrxHelper();
-                    prx.iceCopyFrom(bb);
-                    return prx;
+                    return new LoggerAdminPrxHelper(bb);
                 }
             }
             catch (Ice.FacetNotExistException)
@@ -955,30 +913,13 @@ namespace Ice
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LoggerAdminPrx? uncheckedCast(Ice.ObjectPrx? b)
-        {
-            if (b is not null)
-            {
-                var prx = new LoggerAdminPrxHelper();
-                prx.iceCopyFrom(b);
-                return prx;
-            }
-            return null;
-        }
+        public static LoggerAdminPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new LoggerAdminPrxHelper(b) : null;
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
-        public static LoggerAdminPrx? uncheckedCast(Ice.ObjectPrx? b, string f)
-        {
-            if (b is not null)
-            {
-                Ice.ObjectPrx? bb = b.ice_facet(f);
-                var prx = new LoggerAdminPrxHelper();
-                prx.iceCopyFrom(bb);
-                return prx;
-            }
-            return null;
-        }
+        public static LoggerAdminPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new LoggerAdminPrxHelper(b.ice_facet(f)) : null;
 
         private static readonly string[] _ids =
         {
@@ -993,16 +934,19 @@ namespace Ice
             ostr.writeProxy(v);
         }
 
-        public static LoggerAdminPrx? read(Ice.InputStream istr)
+        public static LoggerAdminPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new LoggerAdminPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new LoggerAdminPrxHelper(reference);
+
+        private LoggerAdminPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
         {
-            Ice.ObjectPrx? proxy = istr.readProxy();
-            if (proxy is not null)
-            {
-                 var result = new LoggerAdminPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
+        }
+
+        private LoggerAdminPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
         }
     }
 }
