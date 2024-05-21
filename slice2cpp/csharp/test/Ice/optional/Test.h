@@ -71,8 +71,6 @@ namespace Test
 
     using VarStructSeq = ::std::vector<VarStruct>;
 
-    using OneOptionalSeq = ::std::vector<OneOptionalPtr>;
-
     using MyInterfacePrxSeq = ::std::vector<::std::optional<MyInterfacePrx>>;
 
     using IntIntDict = ::std::map<::std::int32_t, ::std::int32_t>;
@@ -84,8 +82,6 @@ namespace Test
     using IntFixedStructDict = ::std::map<::std::int32_t, FixedStruct>;
 
     using IntVarStructDict = ::std::map<::std::int32_t, VarStruct>;
-
-    using IntOneOptionalDict = ::std::map<::std::int32_t, OneOptionalPtr>;
 
     using IntMyInterfacePrxDict = ::std::map<::std::int32_t, ::std::optional<MyInterfacePrx>>;
 

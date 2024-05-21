@@ -71,8 +71,6 @@ namespace Test
 
     using VarStructSeq = ::std::vector<VarStruct>;
 
-    using OneOptionalSeq = ::std::vector<OneOptionalPtr>;
-
     using MyInterfacePrxSeq = ::std::vector<::std::optional<MyInterfacePrx>>;
 
     using Serializable = ::std::vector<std::byte>;
@@ -86,8 +84,6 @@ namespace Test
     using IntFixedStructDict = ::std::map<::std::int32_t, FixedStruct>;
 
     using IntVarStructDict = ::std::map<::std::int32_t, VarStruct>;
-
-    using IntOneOptionalDict = ::std::map<::std::int32_t, OneOptionalPtr>;
 
     using IntMyInterfacePrxDict = ::std::map<::std::int32_t, ::std::optional<MyInterfacePrx>>;
 
@@ -581,17 +577,6 @@ public:
     void _iceI_opStringIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<StringIntDict>, ::std::optional<StringIntDict>>>>&, const ::std::optional<StringIntDict>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<IntOneOptionalDict> opIntOneOptionalDict(const ::std::optional<IntOneOptionalDict>& p1, ::std::optional<IntOneOptionalDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<::std::optional<IntOneOptionalDict>, ::std::optional<IntOneOptionalDict>>> opIntOneOptionalDictAsync(const ::std::optional<IntOneOptionalDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opIntOneOptionalDictAsync(const ::std::optional<IntOneOptionalDict>& p1, ::std::function<void(::std::optional<::Test::IntOneOptionalDict>, ::std::optional<::Test::IntOneOptionalDict>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opIntOneOptionalDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntOneOptionalDict>, ::std::optional<IntOneOptionalDict>>>>&, const ::std::optional<IntOneOptionalDict>&, const ::Ice::Context&) const;
-    /// \endcond
-
     void opClassAndUnknownOptional(const APtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<void> opClassAndUnknownOptionalAsync(const APtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -870,7 +855,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MultiOptional(::std::optional<::std::uint8_t> a, ::std::optional<bool> b, ::std::optional<::std::int16_t> c, ::std::optional<::std::int32_t> d, ::std::optional<::std::int64_t> e, ::std::optional<float> f, ::std::optional<double> g, ::std::optional<::std::string> h, ::std::optional<::Test::MyEnum> i, ::std::optional<::Test::MyInterfacePrx> j, ::std::optional<::Test::ByteSeq> bs, ::std::optional<::Test::StringSeq> ss, ::std::optional<::Test::IntIntDict> iid, ::std::optional<::Test::StringIntDict> sid, ::std::optional<::Test::FixedStruct> fs, ::std::optional<::Test::VarStruct> vs, ::std::optional<::Test::ShortSeq> shs, ::std::optional<::Test::MyEnumSeq> es, ::std::optional<::Test::FixedStructSeq> fss, ::std::optional<::Test::VarStructSeq> vss, ::std::optional<::Test::OneOptionalSeq> oos, ::std::optional<::Test::MyInterfacePrxSeq> mips, ::std::optional<::Test::IntEnumDict> ied, ::std::optional<::Test::IntFixedStructDict> ifsd, ::std::optional<::Test::IntVarStructDict> ivsd, ::std::optional<::Test::IntOneOptionalDict> iood, ::std::optional<::Test::IntMyInterfacePrxDict> imipd, ::std::optional<::Test::BoolSeq> bos, ::std::optional<::Test::Serializable> ser) :
+    MultiOptional(::std::optional<::std::uint8_t> a, ::std::optional<bool> b, ::std::optional<::std::int16_t> c, ::std::optional<::std::int32_t> d, ::std::optional<::std::int64_t> e, ::std::optional<float> f, ::std::optional<double> g, ::std::optional<::std::string> h, ::std::optional<::Test::MyEnum> i, ::std::optional<::Test::MyInterfacePrx> j, ::std::optional<::Test::ByteSeq> bs, ::std::optional<::Test::StringSeq> ss, ::std::optional<::Test::IntIntDict> iid, ::std::optional<::Test::StringIntDict> sid, ::std::optional<::Test::FixedStruct> fs, ::std::optional<::Test::VarStruct> vs, ::std::optional<::Test::ShortSeq> shs, ::std::optional<::Test::MyEnumSeq> es, ::std::optional<::Test::FixedStructSeq> fss, ::std::optional<::Test::VarStructSeq> vss, ::std::optional<::Test::MyInterfacePrxSeq> mips, ::std::optional<::Test::IntEnumDict> ied, ::std::optional<::Test::IntFixedStructDict> ifsd, ::std::optional<::Test::IntVarStructDict> ivsd, ::std::optional<::Test::IntMyInterfacePrxDict> imipd, ::std::optional<::Test::BoolSeq> bos, ::std::optional<::Test::Serializable> ser) :
         a(a),
         b(b),
         c(c),
@@ -891,12 +876,10 @@ public:
         es(::std::move(es)),
         fss(::std::move(fss)),
         vss(::std::move(vss)),
-        oos(::std::move(oos)),
         mips(::std::move(mips)),
         ied(::std::move(ied)),
         ifsd(::std::move(ifsd)),
         ivsd(::std::move(ivsd)),
-        iood(::std::move(iood)),
         imipd(::std::move(imipd)),
         bos(::std::move(bos)),
         ser(::std::move(ser))
@@ -915,9 +898,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::optional<::std::uint8_t>&, const ::std::optional<bool>&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int64_t>&, const ::std::optional<float>&, const ::std::optional<double>&, const ::std::optional<::std::string>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::std::optional<::Test::ByteSeq>&, const ::std::optional<::Test::StringSeq>&, const ::std::optional<::Test::IntIntDict>&, const ::std::optional<::Test::StringIntDict>&, const ::std::optional<::Test::FixedStruct>&, const ::std::optional<::Test::VarStruct>&, const ::std::optional<::Test::ShortSeq>&, const ::std::optional<::Test::MyEnumSeq>&, const ::std::optional<::Test::FixedStructSeq>&, const ::std::optional<::Test::VarStructSeq>&, const ::std::optional<::Test::OneOptionalSeq>&, const ::std::optional<::Test::MyInterfacePrxSeq>&, const ::std::optional<::Test::IntEnumDict>&, const ::std::optional<::Test::IntFixedStructDict>&, const ::std::optional<::Test::IntVarStructDict>&, const ::std::optional<::Test::IntOneOptionalDict>&, const ::std::optional<::Test::IntMyInterfacePrxDict>&, const ::std::optional<::Test::BoolSeq>&, const ::std::optional<::Test::Serializable>&> ice_tuple() const
+    std::tuple<const ::std::optional<::std::uint8_t>&, const ::std::optional<bool>&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int64_t>&, const ::std::optional<float>&, const ::std::optional<double>&, const ::std::optional<::std::string>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::std::optional<::Test::ByteSeq>&, const ::std::optional<::Test::StringSeq>&, const ::std::optional<::Test::IntIntDict>&, const ::std::optional<::Test::StringIntDict>&, const ::std::optional<::Test::FixedStruct>&, const ::std::optional<::Test::VarStruct>&, const ::std::optional<::Test::ShortSeq>&, const ::std::optional<::Test::MyEnumSeq>&, const ::std::optional<::Test::FixedStructSeq>&, const ::std::optional<::Test::VarStructSeq>&, const ::std::optional<::Test::MyInterfacePrxSeq>&, const ::std::optional<::Test::IntEnumDict>&, const ::std::optional<::Test::IntFixedStructDict>&, const ::std::optional<::Test::IntVarStructDict>&, const ::std::optional<::Test::IntMyInterfacePrxDict>&, const ::std::optional<::Test::BoolSeq>&, const ::std::optional<::Test::Serializable>&> ice_tuple() const
     {
-        return std::tie(a, b, c, d, e, f, g, h, i, j, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, oos, mips, ied, ifsd, ivsd, iood, imipd, bos, ser);
+        return std::tie(a, b, c, d, e, f, g, h, i, j, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, mips, ied, ifsd, ivsd, imipd, bos, ser);
     }
 
     /**
@@ -946,12 +929,10 @@ public:
     ::std::optional<::Test::MyEnumSeq> es;
     ::std::optional<::Test::FixedStructSeq> fss;
     ::std::optional<::Test::VarStructSeq> vss;
-    ::std::optional<::Test::OneOptionalSeq> oos;
     ::std::optional<::Test::MyInterfacePrxSeq> mips;
     ::std::optional<::Test::IntEnumDict> ied;
     ::std::optional<::Test::IntFixedStructDict> ifsd;
     ::std::optional<::Test::IntVarStructDict> ivsd;
-    ::std::optional<::Test::IntOneOptionalDict> iood;
     ::std::optional<::Test::IntMyInterfacePrxDict> imipd;
     ::std::optional<::Test::BoolSeq> bos;
     ::std::optional<::Test::Serializable> ser;
@@ -1796,11 +1777,6 @@ public:
     void _iceD_opStringIntDict(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void opIntOneOptionalDictAsync(::std::optional<IntOneOptionalDict> p1, ::std::function<void(const ::std::optional<IntOneOptionalDict>& returnValue, const ::std::optional<IntOneOptionalDict>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opIntOneOptionalDict(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
     virtual void opClassAndUnknownOptionalAsync(APtr p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opClassAndUnknownOptional(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
@@ -2031,7 +2007,7 @@ struct StreamWriter<::Test::MultiOptional>
 {
     static void write(OutputStream* ostr, const ::Test::MultiOptional& v)
     {
-        ostr->writeAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.oos, v.mips, v.ied, v.ifsd, v.ivsd, v.iood, v.imipd, v.bos, v.ser);
+        ostr->writeAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29, 30}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.mips, v.ied, v.ifsd, v.ivsd, v.imipd, v.bos, v.ser);
     }
 };
 
@@ -2040,7 +2016,7 @@ struct StreamReader<::Test::MultiOptional>
 {
     static void read(InputStream* istr, ::Test::MultiOptional& v)
     {
-        istr->readAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.oos, v.mips, v.ied, v.ifsd, v.ivsd, v.iood, v.imipd, v.bos, v.ser);
+        istr->readAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29, 30}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.mips, v.ied, v.ifsd, v.ivsd, v.imipd, v.bos, v.ser);
     }
 };
 

@@ -255,10 +255,6 @@ module ::Test
         T_VarStructSeq = ::Ice::__defineSequence('::Test::VarStructSeq', ::Test::T_VarStruct)
     end
 
-    if not defined?(::Test::T_OneOptionalSeq)
-        T_OneOptionalSeq = ::Ice::__defineSequence('::Test::OneOptionalSeq', ::Test::T_OneOptional)
-    end
-
     if not defined?(::Test::T_MyInterfacePrxSeq)
         T_MyInterfacePrxSeq = ::Ice::__defineSequence('::Test::MyInterfacePrxSeq', ::Test::T_MyInterfacePrx)
     end
@@ -283,10 +279,6 @@ module ::Test
         T_IntVarStructDict = ::Ice::__defineDictionary('::Test::IntVarStructDict', ::Ice::T_int, ::Test::T_VarStruct)
     end
 
-    if not defined?(::Test::T_IntOneOptionalDict)
-        T_IntOneOptionalDict = ::Ice::__defineDictionary('::Test::IntOneOptionalDict', ::Ice::T_int, ::Test::T_OneOptional)
-    end
-
     if not defined?(::Test::T_IntMyInterfacePrxDict)
         T_IntMyInterfacePrxDict = ::Ice::__defineDictionary('::Test::IntMyInterfacePrxDict', ::Ice::T_int, ::Test::T_MyInterfacePrx)
     end
@@ -297,7 +289,7 @@ module ::Test
         end
         class MultiOptional < ::Ice::Value
 
-            def initialize(a=::Ice::Unset, b=::Ice::Unset, c=::Ice::Unset, d=::Ice::Unset, e=::Ice::Unset, f=::Ice::Unset, g=::Ice::Unset, h=::Ice::Unset, i=::Ice::Unset, j=::Ice::Unset, bs=::Ice::Unset, ss=::Ice::Unset, iid=::Ice::Unset, sid=::Ice::Unset, fs=::Ice::Unset, vs=::Ice::Unset, shs=::Ice::Unset, es=::Ice::Unset, fss=::Ice::Unset, vss=::Ice::Unset, oos=::Ice::Unset, mips=::Ice::Unset, ied=::Ice::Unset, ifsd=::Ice::Unset, ivsd=::Ice::Unset, iood=::Ice::Unset, imipd=::Ice::Unset, bos=::Ice::Unset)
+            def initialize(a=::Ice::Unset, b=::Ice::Unset, c=::Ice::Unset, d=::Ice::Unset, e=::Ice::Unset, f=::Ice::Unset, g=::Ice::Unset, h=::Ice::Unset, i=::Ice::Unset, j=::Ice::Unset, bs=::Ice::Unset, ss=::Ice::Unset, iid=::Ice::Unset, sid=::Ice::Unset, fs=::Ice::Unset, vs=::Ice::Unset, shs=::Ice::Unset, es=::Ice::Unset, fss=::Ice::Unset, vss=::Ice::Unset, mips=::Ice::Unset, ied=::Ice::Unset, ifsd=::Ice::Unset, ivsd=::Ice::Unset, imipd=::Ice::Unset, bos=::Ice::Unset)
                 @a = a
                 @b = b
                 @c = c
@@ -318,17 +310,15 @@ module ::Test
                 @es = es
                 @fss = fss
                 @vss = vss
-                @oos = oos
                 @mips = mips
                 @ied = ied
                 @ifsd = ifsd
                 @ivsd = ivsd
-                @iood = iood
                 @imipd = imipd
                 @bos = bos
             end
 
-            attr_accessor :a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :bs, :ss, :iid, :sid, :fs, :vs, :shs, :es, :fss, :vss, :oos, :mips, :ied, :ifsd, :ivsd, :iood, :imipd, :bos
+            attr_accessor :a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :bs, :ss, :iid, :sid, :fs, :vs, :shs, :es, :fss, :vss, :mips, :ied, :ifsd, :ivsd, :imipd, :bos
         end
 
         if not defined?(::Test::T_MultiOptional)
@@ -356,12 +346,10 @@ module ::Test
             ['es', ::Test::T_MyEnumSeq, true, 19],
             ['fss', ::Test::T_FixedStructSeq, true, 20],
             ['vss', ::Test::T_VarStructSeq, true, 21],
-            ['oos', ::Test::T_OneOptionalSeq, true, 22],
             ['mips', ::Test::T_MyInterfacePrxSeq, true, 23],
             ['ied', ::Test::T_IntEnumDict, true, 24],
             ['ifsd', ::Test::T_IntFixedStructDict, true, 25],
             ['ivsd', ::Test::T_IntVarStructDict, true, 26],
-            ['iood', ::Test::T_IntOneOptionalDict, true, 27],
             ['imipd', ::Test::T_IntMyInterfacePrxDict, true, 28],
             ['bos', ::Test::T_BoolSeq, true, 29]
         ])

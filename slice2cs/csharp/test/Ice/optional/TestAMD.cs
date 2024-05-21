@@ -379,9 +379,6 @@ namespace Ice.optional.AMD
             public VarStruct[]? vss;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public OneOptional?[]? oos;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public MyInterfacePrx?[]? mips;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -394,9 +391,6 @@ namespace Ice.optional.AMD
             public global::System.Collections.Generic.Dictionary<int, VarStruct>? ivsd;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::System.Collections.Generic.Dictionary<int, OneOptional?>? iood;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?>? imipd;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -405,7 +399,7 @@ namespace Ice.optional.AMD
             partial void ice_initialize();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public MultiOptional(byte? a, bool? b, short? c, int? d, long? e, float? f, double? g, string? h, MyEnum? i, MyInterfacePrx? j, byte[]? bs, string[]? ss, global::System.Collections.Generic.Dictionary<int, int>? iid, global::System.Collections.Generic.Dictionary<string, int>? sid, FixedStruct? fs, VarStruct? vs, short[]? shs, MyEnum[]? es, FixedStruct[]? fss, VarStruct[]? vss, OneOptional?[]? oos, MyInterfacePrx?[]? mips, global::System.Collections.Generic.Dictionary<int, MyEnum>? ied, global::System.Collections.Generic.Dictionary<int, FixedStruct>? ifsd, global::System.Collections.Generic.Dictionary<int, VarStruct>? ivsd, global::System.Collections.Generic.Dictionary<int, OneOptional?>? iood, global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?>? imipd, bool[]? bos)
+            public MultiOptional(byte? a, bool? b, short? c, int? d, long? e, float? f, double? g, string? h, MyEnum? i, MyInterfacePrx? j, byte[]? bs, string[]? ss, global::System.Collections.Generic.Dictionary<int, int>? iid, global::System.Collections.Generic.Dictionary<string, int>? sid, FixedStruct? fs, VarStruct? vs, short[]? shs, MyEnum[]? es, FixedStruct[]? fss, VarStruct[]? vss, MyInterfacePrx?[]? mips, global::System.Collections.Generic.Dictionary<int, MyEnum>? ied, global::System.Collections.Generic.Dictionary<int, FixedStruct>? ifsd, global::System.Collections.Generic.Dictionary<int, VarStruct>? ivsd, global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?>? imipd, bool[]? bos)
             {
                 this.a = a;
                 this.b = b;
@@ -427,12 +421,10 @@ namespace Ice.optional.AMD
                 this.es = es;
                 this.fss = fss;
                 this.vss = vss;
-                this.oos = oos;
                 this.mips = mips;
                 this.ied = ied;
                 this.ifsd = ifsd;
                 this.ivsd = ivsd;
-                this.iood = iood;
                 this.imipd = imipd;
                 this.bos = bos;
                 ice_initialize();
@@ -521,12 +513,6 @@ namespace Ice.optional.AMD
                     VarStructSeqHelper.write(ostr_, vss);
                     ostr_.endSize(pos);
                 }
-                if (oos is not null && ostr_.writeOptional(22, Ice.OptionalFormat.FSize))
-                {
-                    int pos = ostr_.startSize();
-                    OneOptionalSeqHelper.write(ostr_, oos);
-                    ostr_.endSize(pos);
-                }
                 if (mips is not null && ostr_.writeOptional(23, Ice.OptionalFormat.FSize))
                 {
                     int pos = ostr_.startSize();
@@ -548,12 +534,6 @@ namespace Ice.optional.AMD
                 {
                     int pos = ostr_.startSize();
                     IntVarStructDictHelper.write(ostr_, ivsd);
-                    ostr_.endSize(pos);
-                }
-                if (iood is not null && ostr_.writeOptional(27, Ice.OptionalFormat.FSize))
-                {
-                    int pos = ostr_.startSize();
-                    IntOneOptionalDictHelper.write(ostr_, iood);
                     ostr_.endSize(pos);
                 }
                 if (imipd is not null && ostr_.writeOptional(28, Ice.OptionalFormat.FSize))
@@ -708,17 +688,6 @@ namespace Ice.optional.AMD
                 {
                     vss = null;
                 }
-                if (istr_.readOptional(22, Ice.OptionalFormat.FSize))
-                {
-                    istr_.skip(4);
-                    OneOptional?[] tmpVal;
-                    tmpVal = OneOptionalSeqHelper.read(istr_);
-                    oos = tmpVal;
-                }
-                else
-                {
-                    oos = null;
-                }
                 if (istr_.readOptional(23, Ice.OptionalFormat.FSize))
                 {
                     istr_.skip(4);
@@ -762,17 +731,6 @@ namespace Ice.optional.AMD
                 else
                 {
                     ivsd = null;
-                }
-                if (istr_.readOptional(27, Ice.OptionalFormat.FSize))
-                {
-                    istr_.skip(4);
-                    global::System.Collections.Generic.Dictionary<int, OneOptional?> tmpVal = new global::System.Collections.Generic.Dictionary<int, OneOptional?>();
-                    tmpVal = IntOneOptionalDictHelper.read(istr_);
-                    iood = tmpVal;
-                }
-                else
-                {
-                    iood = null;
                 }
                 if (istr_.readOptional(28, Ice.OptionalFormat.FSize))
                 {
@@ -2748,40 +2706,6 @@ namespace Ice.optional.AMD
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class OneOptionalSeqHelper
-        {
-            public static void write(Ice.OutputStream ostr, OneOptional?[] v)
-            {
-                if (v is null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Length);
-                    for(int ix = 0; ix < v.Length; ++ix)
-                    {
-                        ostr.writeValue(v[ix]);
-                    }
-                }
-            }
-
-            public static OneOptional?[] read(Ice.InputStream istr)
-            {
-                OneOptional?[] v;
-                {
-                    int szx = istr.readAndCheckSeqSize(1);
-                    v = new OneOptional?[szx];
-                    for (int ix = 0; ix < szx; ++ix)
-                    {
-                        istr.readValue(Ice.Internal.Patcher.arrayReadValue<OneOptional>(v, ix));
-                    }
-                }
-                return v;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class MyInterfacePrxSeqHelper
         {
             public static void write(Ice.OutputStream ostr, MyInterfacePrx?[] v)
@@ -2995,41 +2919,6 @@ namespace Ice.optional.AMD
                     VarStruct v;
                     v = new VarStruct(istr);
                     r[k] = v;
-                }
-                return r;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class IntOneOptionalDictHelper
-        {
-            public static void write(Ice.OutputStream ostr,
-                                     global::System.Collections.Generic.Dictionary<int, OneOptional?> v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Count);
-                    foreach(global::System.Collections.Generic.KeyValuePair<int, OneOptional?> e in v)
-                    {
-                        ostr.writeInt(e.Key);
-                        ostr.writeValue(e.Value);
-                    }
-                }
-            }
-
-            public static global::System.Collections.Generic.Dictionary<int, OneOptional?> read(Ice.InputStream istr)
-            {
-                int sz = istr.readSize();
-                global::System.Collections.Generic.Dictionary<int, OneOptional?> r = new global::System.Collections.Generic.Dictionary<int, OneOptional?>();
-                for(int i = 0; i < sz; ++i)
-                {
-                    int k;
-                    k = istr.readInt();
-                    istr.readValue((OneOptional? v) => { r[k] = v; });
                 }
                 return r;
             }

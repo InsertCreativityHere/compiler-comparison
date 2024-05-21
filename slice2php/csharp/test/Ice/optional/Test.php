@@ -318,17 +318,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_OneOptionalSeq;
-
-    if(!isset($Test__t_OneOptionalSeq))
-    {
-        global $Test__t_OneOptional;
-        $Test__t_OneOptionalSeq = IcePHP_defineSequence('::Test::OneOptionalSeq', $Test__t_OneOptional);
-    }
-}
-
-namespace Test
-{
     global $Test__t_MyInterfacePrxSeq;
 
     if(!isset($Test__t_MyInterfacePrxSeq))
@@ -395,18 +384,6 @@ namespace Test
         global $IcePHP__t_int;
         global $Test__t_VarStruct;
         $Test__t_IntVarStructDict = IcePHP_defineDictionary('::Test::IntVarStructDict', $IcePHP__t_int, $Test__t_VarStruct);
-    }
-}
-
-namespace Test
-{
-    global $Test__t_IntOneOptionalDict;
-
-    if(!isset($Test__t_IntOneOptionalDict))
-    {
-        global $IcePHP__t_int;
-        global $Test__t_OneOptional;
-        $Test__t_IntOneOptionalDict = IcePHP_defineDictionary('::Test::IntOneOptionalDict', $IcePHP__t_int, $Test__t_OneOptional);
     }
 }
 

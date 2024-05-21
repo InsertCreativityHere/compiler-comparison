@@ -401,9 +401,6 @@ if '_t_FixedStructList' not in _M_Test.__dict__:
 if '_t_VarStructSeq' not in _M_Test.__dict__:
     _M_Test._t_VarStructSeq = IcePy.defineSequence('::Test::VarStructSeq', (), _M_Test._t_VarStruct)
 
-if '_t_OneOptionalSeq' not in _M_Test.__dict__:
-    _M_Test._t_OneOptionalSeq = IcePy.defineSequence('::Test::OneOptionalSeq', (), _M_Test._t_OneOptional)
-
 if '_t_MyInterfacePrxSeq' not in _M_Test.__dict__:
     _M_Test._t_MyInterfacePrxSeq = IcePy.defineSequence('::Test::MyInterfacePrxSeq', (), _M_Test._t_MyInterfacePrx)
 
@@ -421,9 +418,6 @@ if '_t_IntFixedStructDict' not in _M_Test.__dict__:
 
 if '_t_IntVarStructDict' not in _M_Test.__dict__:
     _M_Test._t_IntVarStructDict = IcePy.defineDictionary('::Test::IntVarStructDict', (), IcePy._t_int, _M_Test._t_VarStruct)
-
-if '_t_IntOneOptionalDict' not in _M_Test.__dict__:
-    _M_Test._t_IntOneOptionalDict = IcePy.defineDictionary('::Test::IntOneOptionalDict', (), IcePy._t_int, _M_Test._t_OneOptional)
 
 if '_t_IntMyInterfacePrxDict' not in _M_Test.__dict__:
     _M_Test._t_IntMyInterfacePrxDict = IcePy.defineDictionary('::Test::IntMyInterfacePrxDict', (), IcePy._t_int, _M_Test._t_MyInterfacePrx)

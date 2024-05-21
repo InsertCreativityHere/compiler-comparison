@@ -71,8 +71,6 @@ namespace Test
 
     using VarStructSeq = ::std::vector<VarStruct>;
 
-    using OneOptionalSeq = ::std::vector<OneOptionalPtr>;
-
     using MyInterfacePrxSeq = ::std::vector<::std::optional<MyInterfacePrx>>;
 
     using IntIntDict = ::std::map<::std::int32_t, ::std::int32_t>;
@@ -84,8 +82,6 @@ namespace Test
     using IntFixedStructDict = ::std::map<::std::int32_t, FixedStruct>;
 
     using IntVarStructDict = ::std::map<::std::int32_t, VarStruct>;
-
-    using IntOneOptionalDict = ::std::map<::std::int32_t, OneOptionalPtr>;
 
     using IntMyInterfacePrxDict = ::std::map<::std::int32_t, ::std::optional<MyInterfacePrx>>;
 
@@ -835,7 +831,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MultiOptional(::std::optional<::std::uint8_t> a, ::std::optional<bool> b, ::std::optional<::std::int16_t> c, ::std::optional<::std::int32_t> d, ::std::optional<::std::int64_t> e, ::std::optional<float> f, ::std::optional<double> g, ::std::optional<::std::string> h, ::std::optional<::Test::MyEnum> i, ::std::optional<::Test::MyInterfacePrx> j, ::std::optional<::Test::ByteSeq> bs, ::std::optional<::Test::StringSeq> ss, ::std::optional<::Test::IntIntDict> iid, ::std::optional<::Test::StringIntDict> sid, ::std::optional<::Test::FixedStruct> fs, ::std::optional<::Test::VarStruct> vs, ::std::optional<::Test::ShortSeq> shs, ::std::optional<::Test::MyEnumSeq> es, ::std::optional<::Test::FixedStructSeq> fss, ::std::optional<::Test::VarStructSeq> vss, ::std::optional<::Test::OneOptionalSeq> oos, ::std::optional<::Test::MyInterfacePrxSeq> mips, ::std::optional<::Test::IntEnumDict> ied, ::std::optional<::Test::IntFixedStructDict> ifsd, ::std::optional<::Test::IntVarStructDict> ivsd, ::std::optional<::Test::IntOneOptionalDict> iood, ::std::optional<::Test::IntMyInterfacePrxDict> imipd, ::std::optional<::Test::BoolSeq> bos) :
+    MultiOptional(::std::optional<::std::uint8_t> a, ::std::optional<bool> b, ::std::optional<::std::int16_t> c, ::std::optional<::std::int32_t> d, ::std::optional<::std::int64_t> e, ::std::optional<float> f, ::std::optional<double> g, ::std::optional<::std::string> h, ::std::optional<::Test::MyEnum> i, ::std::optional<::Test::MyInterfacePrx> j, ::std::optional<::Test::ByteSeq> bs, ::std::optional<::Test::StringSeq> ss, ::std::optional<::Test::IntIntDict> iid, ::std::optional<::Test::StringIntDict> sid, ::std::optional<::Test::FixedStruct> fs, ::std::optional<::Test::VarStruct> vs, ::std::optional<::Test::ShortSeq> shs, ::std::optional<::Test::MyEnumSeq> es, ::std::optional<::Test::FixedStructSeq> fss, ::std::optional<::Test::VarStructSeq> vss, ::std::optional<::Test::MyInterfacePrxSeq> mips, ::std::optional<::Test::IntEnumDict> ied, ::std::optional<::Test::IntFixedStructDict> ifsd, ::std::optional<::Test::IntVarStructDict> ivsd, ::std::optional<::Test::IntMyInterfacePrxDict> imipd, ::std::optional<::Test::BoolSeq> bos) :
         a(a),
         b(b),
         c(c),
@@ -856,12 +852,10 @@ public:
         es(::std::move(es)),
         fss(::std::move(fss)),
         vss(::std::move(vss)),
-        oos(::std::move(oos)),
         mips(::std::move(mips)),
         ied(::std::move(ied)),
         ifsd(::std::move(ifsd)),
         ivsd(::std::move(ivsd)),
-        iood(::std::move(iood)),
         imipd(::std::move(imipd)),
         bos(::std::move(bos))
     {
@@ -879,9 +873,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::optional<::std::uint8_t>&, const ::std::optional<bool>&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int64_t>&, const ::std::optional<float>&, const ::std::optional<double>&, const ::std::optional<::std::string>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::std::optional<::Test::ByteSeq>&, const ::std::optional<::Test::StringSeq>&, const ::std::optional<::Test::IntIntDict>&, const ::std::optional<::Test::StringIntDict>&, const ::std::optional<::Test::FixedStruct>&, const ::std::optional<::Test::VarStruct>&, const ::std::optional<::Test::ShortSeq>&, const ::std::optional<::Test::MyEnumSeq>&, const ::std::optional<::Test::FixedStructSeq>&, const ::std::optional<::Test::VarStructSeq>&, const ::std::optional<::Test::OneOptionalSeq>&, const ::std::optional<::Test::MyInterfacePrxSeq>&, const ::std::optional<::Test::IntEnumDict>&, const ::std::optional<::Test::IntFixedStructDict>&, const ::std::optional<::Test::IntVarStructDict>&, const ::std::optional<::Test::IntOneOptionalDict>&, const ::std::optional<::Test::IntMyInterfacePrxDict>&, const ::std::optional<::Test::BoolSeq>&> ice_tuple() const
+    std::tuple<const ::std::optional<::std::uint8_t>&, const ::std::optional<bool>&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int64_t>&, const ::std::optional<float>&, const ::std::optional<double>&, const ::std::optional<::std::string>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::std::optional<::Test::ByteSeq>&, const ::std::optional<::Test::StringSeq>&, const ::std::optional<::Test::IntIntDict>&, const ::std::optional<::Test::StringIntDict>&, const ::std::optional<::Test::FixedStruct>&, const ::std::optional<::Test::VarStruct>&, const ::std::optional<::Test::ShortSeq>&, const ::std::optional<::Test::MyEnumSeq>&, const ::std::optional<::Test::FixedStructSeq>&, const ::std::optional<::Test::VarStructSeq>&, const ::std::optional<::Test::MyInterfacePrxSeq>&, const ::std::optional<::Test::IntEnumDict>&, const ::std::optional<::Test::IntFixedStructDict>&, const ::std::optional<::Test::IntVarStructDict>&, const ::std::optional<::Test::IntMyInterfacePrxDict>&, const ::std::optional<::Test::BoolSeq>&> ice_tuple() const
     {
-        return std::tie(a, b, c, d, e, f, g, h, i, j, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, oos, mips, ied, ifsd, ivsd, iood, imipd, bos);
+        return std::tie(a, b, c, d, e, f, g, h, i, j, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, mips, ied, ifsd, ivsd, imipd, bos);
     }
 
     /**
@@ -910,12 +904,10 @@ public:
     ::std::optional<::Test::MyEnumSeq> es;
     ::std::optional<::Test::FixedStructSeq> fss;
     ::std::optional<::Test::VarStructSeq> vss;
-    ::std::optional<::Test::OneOptionalSeq> oos;
     ::std::optional<::Test::MyInterfacePrxSeq> mips;
     ::std::optional<::Test::IntEnumDict> ied;
     ::std::optional<::Test::IntFixedStructDict> ifsd;
     ::std::optional<::Test::IntVarStructDict> ivsd;
-    ::std::optional<::Test::IntOneOptionalDict> iood;
     ::std::optional<::Test::IntMyInterfacePrxDict> imipd;
     ::std::optional<::Test::BoolSeq> bos;
 
@@ -1979,7 +1971,7 @@ struct StreamWriter<::Test::MultiOptional>
 {
     static void write(OutputStream* ostr, const ::Test::MultiOptional& v)
     {
-        ostr->writeAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.oos, v.mips, v.ied, v.ifsd, v.ivsd, v.iood, v.imipd, v.bos);
+        ostr->writeAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.mips, v.ied, v.ifsd, v.ivsd, v.imipd, v.bos);
     }
 };
 
@@ -1988,7 +1980,7 @@ struct StreamReader<::Test::MultiOptional>
 {
     static void read(InputStream* istr, ::Test::MultiOptional& v)
     {
-        istr->readAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.oos, v.mips, v.ied, v.ifsd, v.ivsd, v.iood, v.imipd, v.bos);
+        istr->readAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.mips, v.ied, v.ifsd, v.ivsd, v.imipd, v.bos);
     }
 };
 

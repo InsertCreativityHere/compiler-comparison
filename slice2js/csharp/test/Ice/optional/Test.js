@@ -169,8 +169,6 @@
 
     Slice.defineSequence(Test, "VarStructSeqHelper", "Test.VarStruct", false);
 
-    Slice.defineSequence(Test, "OneOptionalSeqHelper", "Ice.ObjectHelper", false, "Test.OneOptional");
-
     Slice.defineSequence(Test, "MyInterfacePrxSeqHelper", "Test.MyInterfacePrx", false);
 
     Slice.defineDictionary(Test, "IntIntDict", "IntIntDictHelper", "Ice.IntHelper", "Ice.IntHelper", true, undefined, undefined);
@@ -182,8 +180,6 @@
     Slice.defineDictionary(Test, "IntFixedStructDict", "IntFixedStructDictHelper", "Ice.IntHelper", "Test.FixedStruct", true, undefined, undefined);
 
     Slice.defineDictionary(Test, "IntVarStructDict", "IntVarStructDictHelper", "Ice.IntHelper", "Test.VarStruct", false, undefined, undefined);
-
-    Slice.defineDictionary(Test, "IntOneOptionalDict", "IntOneOptionalDictHelper", "Ice.IntHelper", "Ice.ObjectHelper", false, undefined, "Test.OneOptional");
 
     Slice.defineDictionary(Test, "IntMyInterfacePrxDict", "IntMyInterfacePrxDictHelper", "Ice.IntHelper", "Test.MyInterfacePrx", false, undefined, undefined);
 

@@ -401,9 +401,6 @@ if '_t_FixedStructList' not in _M_Test.__dict__:
 if '_t_VarStructSeq' not in _M_Test.__dict__:
     _M_Test._t_VarStructSeq = IcePy.defineSequence('::Test::VarStructSeq', (), _M_Test._t_VarStruct)
 
-if '_t_OneOptionalSeq' not in _M_Test.__dict__:
-    _M_Test._t_OneOptionalSeq = IcePy.defineSequence('::Test::OneOptionalSeq', (), _M_Test._t_OneOptional)
-
 if '_t_MyInterfacePrxSeq' not in _M_Test.__dict__:
     _M_Test._t_MyInterfacePrxSeq = IcePy.defineSequence('::Test::MyInterfacePrxSeq', (), _M_Test._t_MyInterfacePrx)
 
@@ -425,16 +422,13 @@ if '_t_IntFixedStructDict' not in _M_Test.__dict__:
 if '_t_IntVarStructDict' not in _M_Test.__dict__:
     _M_Test._t_IntVarStructDict = IcePy.defineDictionary('::Test::IntVarStructDict', (), IcePy._t_int, _M_Test._t_VarStruct)
 
-if '_t_IntOneOptionalDict' not in _M_Test.__dict__:
-    _M_Test._t_IntOneOptionalDict = IcePy.defineDictionary('::Test::IntOneOptionalDict', (), IcePy._t_int, _M_Test._t_OneOptional)
-
 if '_t_IntMyInterfacePrxDict' not in _M_Test.__dict__:
     _M_Test._t_IntMyInterfacePrxDict = IcePy.defineDictionary('::Test::IntMyInterfacePrxDict', (), IcePy._t_int, _M_Test._t_MyInterfacePrx)
 
 if 'MultiOptional' not in _M_Test.__dict__:
     _M_Test.MultiOptional = Ice.createTempClass()
     class MultiOptional(Ice.Value):
-        def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, oos=Ice.Unset, mips=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, iood=Ice.Unset, imipd=Ice.Unset, bos=Ice.Unset, ser=Ice.Unset):
+        def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, mips=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, imipd=Ice.Unset, bos=Ice.Unset, ser=Ice.Unset):
             self.a = a
             self.b = b
             self.c = c
@@ -455,12 +449,10 @@ if 'MultiOptional' not in _M_Test.__dict__:
             self.es = es
             self.fss = fss
             self.vss = vss
-            self.oos = oos
             self.mips = mips
             self.ied = ied
             self.ifsd = ifsd
             self.ivsd = ivsd
-            self.iood = iood
             self.imipd = imipd
             self.bos = bos
             self.ser = ser
@@ -476,8 +468,6 @@ if 'MultiOptional' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_MultiOptional)
 
         __repr__ = __str__
-
-    _M_Test._t_MultiOptional = IcePy.declareValue('::Test::MultiOptional')
 
     _M_Test._t_MultiOptional = IcePy.defineValue('::Test::MultiOptional', MultiOptional, -1, (), False, None, (
         ('a', (), IcePy._t_byte, True, 1),
@@ -500,12 +490,10 @@ if 'MultiOptional' not in _M_Test.__dict__:
         ('es', (), _M_Test._t_MyEnumSeq, True, 19),
         ('fss', (), _M_Test._t_FixedStructSeq, True, 20),
         ('vss', (), _M_Test._t_VarStructSeq, True, 21),
-        ('oos', (), _M_Test._t_OneOptionalSeq, True, 22),
         ('mips', (), _M_Test._t_MyInterfacePrxSeq, True, 23),
         ('ied', (), _M_Test._t_IntEnumDict, True, 24),
         ('ifsd', (), _M_Test._t_IntFixedStructDict, True, 25),
         ('ivsd', (), _M_Test._t_IntVarStructDict, True, 26),
-        ('iood', (), _M_Test._t_IntOneOptionalDict, True, 27),
         ('imipd', (), _M_Test._t_IntMyInterfacePrxDict, True, 28),
         ('bos', (), _M_Test._t_BoolSeq, True, 29),
         ('ser', (), _M_Test._t_Serializable, True, 30)
@@ -1196,12 +1184,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opStringIntDictAsync(self, p1, context=None):
             return _M_Test.Initial._op_opStringIntDict.invokeAsync(self, ((p1, ), context))
 
-        def opIntOneOptionalDict(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opIntOneOptionalDict.invoke(self, ((p1, ), context))
-
-        def opIntOneOptionalDictAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opIntOneOptionalDict.invokeAsync(self, ((p1, ), context))
-
         def opClassAndUnknownOptional(self, p, context=None):
             return _M_Test.Initial._op_opClassAndUnknownOptional.invoke(self, ((p, ), context))
 
@@ -1396,9 +1378,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opStringIntDict(self, p1, current=None):
             raise NotImplementedError("servant method 'opStringIntDict' not implemented")
 
-        def opIntOneOptionalDict(self, p1, current=None):
-            raise NotImplementedError("servant method 'opIntOneOptionalDict' not implemented")
-
         def opClassAndUnknownOptional(self, p, current=None):
             raise NotImplementedError("servant method 'opClassAndUnknownOptional' not implemented")
 
@@ -1550,7 +1529,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opSerializable = IcePy.Operation('opSerializable', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Serializable, True, 2),), (((), _M_Test._t_Serializable, True, 3),), ((), _M_Test._t_Serializable, True, 1), ())
     Initial._op_opIntIntDict = IcePy.Operation('opIntIntDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntIntDict, True, 2),), (((), _M_Test._t_IntIntDict, True, 3),), ((), _M_Test._t_IntIntDict, True, 1), ())
     Initial._op_opStringIntDict = IcePy.Operation('opStringIntDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
-    Initial._op_opIntOneOptionalDict = IcePy.Operation('opIntOneOptionalDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntOneOptionalDict, True, 2),), (((), _M_Test._t_IntOneOptionalDict, True, 3),), ((), _M_Test._t_IntOneOptionalDict, True, 1), ())
     Initial._op_opClassAndUnknownOptional = IcePy.Operation('opClassAndUnknownOptional', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_A, False, 0),), (), None, ())
     Initial._op_opG = IcePy.Operation('opG', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_G, False, 0),), (), ((), _M_Test._t_G, False, 0), ())
     Initial._op_opMStruct1 = IcePy.Operation('opMStruct1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_SmallStruct, True, 1), ())

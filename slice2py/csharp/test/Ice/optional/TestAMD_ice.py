@@ -401,9 +401,6 @@ if '_t_FixedStructList' not in _M_Test.__dict__:
 if '_t_VarStructSeq' not in _M_Test.__dict__:
     _M_Test._t_VarStructSeq = IcePy.defineSequence('::Test::VarStructSeq', (), _M_Test._t_VarStruct)
 
-if '_t_OneOptionalSeq' not in _M_Test.__dict__:
-    _M_Test._t_OneOptionalSeq = IcePy.defineSequence('::Test::OneOptionalSeq', (), _M_Test._t_OneOptional)
-
 if '_t_MyInterfacePrxSeq' not in _M_Test.__dict__:
     _M_Test._t_MyInterfacePrxSeq = IcePy.defineSequence('::Test::MyInterfacePrxSeq', (), _M_Test._t_MyInterfacePrx)
 
@@ -422,16 +419,13 @@ if '_t_IntFixedStructDict' not in _M_Test.__dict__:
 if '_t_IntVarStructDict' not in _M_Test.__dict__:
     _M_Test._t_IntVarStructDict = IcePy.defineDictionary('::Test::IntVarStructDict', (), IcePy._t_int, _M_Test._t_VarStruct)
 
-if '_t_IntOneOptionalDict' not in _M_Test.__dict__:
-    _M_Test._t_IntOneOptionalDict = IcePy.defineDictionary('::Test::IntOneOptionalDict', (), IcePy._t_int, _M_Test._t_OneOptional)
-
 if '_t_IntMyInterfacePrxDict' not in _M_Test.__dict__:
     _M_Test._t_IntMyInterfacePrxDict = IcePy.defineDictionary('::Test::IntMyInterfacePrxDict', (), IcePy._t_int, _M_Test._t_MyInterfacePrx)
 
 if 'MultiOptional' not in _M_Test.__dict__:
     _M_Test.MultiOptional = Ice.createTempClass()
     class MultiOptional(Ice.Value):
-        def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, oos=Ice.Unset, mips=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, iood=Ice.Unset, imipd=Ice.Unset, bos=Ice.Unset):
+        def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, mips=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, imipd=Ice.Unset, bos=Ice.Unset):
             self.a = a
             self.b = b
             self.c = c
@@ -452,12 +446,10 @@ if 'MultiOptional' not in _M_Test.__dict__:
             self.es = es
             self.fss = fss
             self.vss = vss
-            self.oos = oos
             self.mips = mips
             self.ied = ied
             self.ifsd = ifsd
             self.ivsd = ivsd
-            self.iood = iood
             self.imipd = imipd
             self.bos = bos
 
@@ -472,8 +464,6 @@ if 'MultiOptional' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_MultiOptional)
 
         __repr__ = __str__
-
-    _M_Test._t_MultiOptional = IcePy.declareValue('::Test::MultiOptional')
 
     _M_Test._t_MultiOptional = IcePy.defineValue('::Test::MultiOptional', MultiOptional, -1, (), False, None, (
         ('a', (), IcePy._t_byte, True, 1),
@@ -496,12 +486,10 @@ if 'MultiOptional' not in _M_Test.__dict__:
         ('es', (), _M_Test._t_MyEnumSeq, True, 19),
         ('fss', (), _M_Test._t_FixedStructSeq, True, 20),
         ('vss', (), _M_Test._t_VarStructSeq, True, 21),
-        ('oos', (), _M_Test._t_OneOptionalSeq, True, 22),
         ('mips', (), _M_Test._t_MyInterfacePrxSeq, True, 23),
         ('ied', (), _M_Test._t_IntEnumDict, True, 24),
         ('ifsd', (), _M_Test._t_IntFixedStructDict, True, 25),
         ('ivsd', (), _M_Test._t_IntVarStructDict, True, 26),
-        ('iood', (), _M_Test._t_IntOneOptionalDict, True, 27),
         ('imipd', (), _M_Test._t_IntMyInterfacePrxDict, True, 28),
         ('bos', (), _M_Test._t_BoolSeq, True, 29)
     ))

@@ -71,8 +71,6 @@
 %   opIntIntDictAsync
 %   opStringIntDict
 %   opStringIntDictAsync
-%   opIntOneOptionalDict
-%   opIntOneOptionalDictAsync
 %   opClassAndUnknownOptional
 %   opClassAndUnknownOptionalAsync
 %   opG
@@ -1534,58 +1532,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opStringIntDict', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opIntOneOptionalDict(obj, p1, varargin)
-            % opIntOneOptionalDict
-            %
-            % Parameters:
-            %   p1 (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (containers.Map)
-            %   p3 (containers.Map)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.IntOneOptionalDict.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opIntOneOptionalDict', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.IntOneOptionalDict.readOpt(is_, 1);
-            p3 = Test.IntOneOptionalDict.readOpt(is_, 3);
-            is_.endEncapsulation();
-            if result ~= Ice.Unset
-                result = Test.IntOneOptionalDict.convert(result);
-            end
-            if p3 ~= Ice.Unset
-                p3 = Test.IntOneOptionalDict.convert(p3);
-            end
-        end
-        function r_ = opIntOneOptionalDictAsync(obj, p1, varargin)
-            % opIntOneOptionalDictAsync
-            %
-            % Parameters:
-            %   p1 (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.IntOneOptionalDict.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.IntOneOptionalDict.readOpt(is_, 1);
-                p3 = Test.IntOneOptionalDict.readOpt(is_, 3);
-                is_.endEncapsulation();
-                if result ~= Ice.Unset
-                    varargout{1} = Test.IntOneOptionalDict.convert(result);
-                end
-                if p3 ~= Ice.Unset
-                    varargout{2} = Test.IntOneOptionalDict.convert(p3);
-                end
-            end
-            r_ = obj.iceInvokeAsync('opIntOneOptionalDict', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function opClassAndUnknownOptional(obj, p, varargin)
             % opClassAndUnknownOptional

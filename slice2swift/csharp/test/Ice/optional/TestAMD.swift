@@ -665,72 +665,6 @@ public struct VarStructSeqHelper {
     }
 }
 
-public typealias OneOptionalSeq = [OneOptional?]
-
-/// Helper class to read and write `OneOptionalSeq` sequence values from
-/// `Ice.InputStream` and `Ice.OutputStream`.
-public struct OneOptionalSeqHelper {
-    /// Read a `OneOptionalSeq` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - returns: `OneOptionalSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> OneOptionalSeq {
-        let sz = try istr.readAndCheckSeqSize(minSize: 1)
-        var v = OneOptionalSeq(repeating: nil, count: sz)
-        for i in 0 ..< sz {
-            try Swift.withUnsafeMutablePointer(to: &v[i]) { p in
-                try istr.read(OneOptional.self) { p.pointee = $0 }
-            }
-        }
-        return v
-    }
-    /// Read an optional `OneOptionalSeq?` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `OneOptionalSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> OneOptionalSeq? {
-        guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
-            return nil
-        }
-        try istr.skip(4)
-        return try read(from: istr)
-    }
-
-    /// Wite a `OneOptionalSeq` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `OneOptionalSeq` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: OneOptionalSeq) {
-        ostr.write(size: v.count)
-        for item in v {
-            ostr.write(item)
-        }
-    }
-
-    /// Wite an optional `OneOptionalSeq?` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `OneOptionalSeq` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: OneOptionalSeq?) {
-        guard let val = v else {
-            return
-        }
-        if ostr.writeOptional(tag: tag, format: .FSize) {
-            let pos = ostr.startSize()
-            write(to: ostr, value: val)
-            ostr.endSize(position: pos)
-        }
-    }
-}
-
 public typealias MyInterfacePrxSeq = [MyInterfacePrx?]
 
 /// Helper class to read and write `MyInterfacePrxSeq` sequence values from
@@ -1117,82 +1051,6 @@ public struct IntVarStructDictHelper {
     ///
     /// - parameter value: `IntVarStructDict` - The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: IntVarStructDict?) {
-        guard let val = v else {
-            return
-        }
-        if ostr.writeOptional(tag: tag, format: .FSize) {
-            let pos = ostr.startSize()
-            write(to: ostr, value: val)
-            ostr.endSize(position: pos)
-        }
-    }
-}
-
-public typealias IntOneOptionalDict = [Swift.Int32: OneOptional?]
-
-/// Helper class to read and write `IntOneOptionalDict` dictionary values from
-/// `Ice.InputStream` and `Ice.OutputStream`.
-public struct IntOneOptionalDictHelper {
-    /// Read a `IntOneOptionalDict` dictionary from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - returns: `IntOneOptionalDict` - The dictionary read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> IntOneOptionalDict {
-        let sz = try Swift.Int(istr.readSize())
-        var v = IntOneOptionalDict()
-        let e = Ice.DictEntryArray<Swift.Int32, OneOptional?>(size: sz)
-        for i in 0 ..< sz {
-            let key: Swift.Int32 = try istr.read()
-            v[key] = nil as OneOptional?
-            Swift.withUnsafeMutablePointer(to: &v[key, default:nil]) {
-                e.values[i] = Ice.DictEntry<Swift.Int32, OneOptional?>(key: key, value: $0)
-            }
-            try istr.read(OneOptional.self) { e.values[i].value.pointee = $0 }
-        }
-        for i in 0..<sz {
-            Swift.withUnsafeMutablePointer(to: &v[e.values[i].key, default:nil]) {
-                e.values[i].value = $0
-            }
-        }
-        return v
-    }
-    /// Read an optional `IntOneOptionalDict?` dictionary from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `IntOneOptionalDict` - The dictionary read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> IntOneOptionalDict? {
-        guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
-            return nil
-        }
-        try istr.skip(4)
-        return try read(from: istr)
-    }
-
-    /// Wite a `IntOneOptionalDict` dictionary to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `IntOneOptionalDict` - The dictionary value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: IntOneOptionalDict) {
-        ostr.write(size: v.count)
-        for (key, value) in v {
-            ostr.write(key)
-            ostr.write(value)
-        }
-    }
-
-    /// Wite an optional `IntOneOptionalDict?` dictionary to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `IntOneOptionalDict` - The dictionary value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: IntOneOptionalDict?) {
         guard let val = v else {
             return
         }
@@ -4550,18 +4408,16 @@ open class MultiOptional: Ice.Value {
     public var es: MyEnumSeq? = nil
     public var fss: FixedStructSeq? = nil
     public var vss: VarStructSeq? = nil
-    public var oos: OneOptionalSeq? = nil
     public var mips: MyInterfacePrxSeq? = nil
     public var ied: IntEnumDict? = nil
     public var ifsd: IntFixedStructDict? = nil
     public var ivsd: IntVarStructDict? = nil
-    public var iood: IntOneOptionalDict? = nil
     public var imipd: IntMyInterfacePrxDict? = nil
     public var bos: BoolSeq? = nil
 
     public required init() {}
 
-    public init(a: Swift.UInt8?, b: Swift.Bool?, c: Swift.Int16?, d: Swift.Int32?, e: Swift.Int64?, f: Swift.Float?, g: Swift.Double?, h: Swift.String?, i: MyEnum?, j: MyInterfacePrx?, bs: ByteSeq?, ss: StringSeq?, iid: IntIntDict?, sid: StringIntDict?, fs: FixedStruct?, vs: VarStruct?, shs: ShortSeq?, es: MyEnumSeq?, fss: FixedStructSeq?, vss: VarStructSeq?, oos: OneOptionalSeq?, mips: MyInterfacePrxSeq?, ied: IntEnumDict?, ifsd: IntFixedStructDict?, ivsd: IntVarStructDict?, iood: IntOneOptionalDict?, imipd: IntMyInterfacePrxDict?, bos: BoolSeq?) {
+    public init(a: Swift.UInt8?, b: Swift.Bool?, c: Swift.Int16?, d: Swift.Int32?, e: Swift.Int64?, f: Swift.Float?, g: Swift.Double?, h: Swift.String?, i: MyEnum?, j: MyInterfacePrx?, bs: ByteSeq?, ss: StringSeq?, iid: IntIntDict?, sid: StringIntDict?, fs: FixedStruct?, vs: VarStruct?, shs: ShortSeq?, es: MyEnumSeq?, fss: FixedStructSeq?, vss: VarStructSeq?, mips: MyInterfacePrxSeq?, ied: IntEnumDict?, ifsd: IntFixedStructDict?, ivsd: IntVarStructDict?, imipd: IntMyInterfacePrxDict?, bos: BoolSeq?) {
         self.a = a
         self.b = b
         self.c = c
@@ -4582,12 +4438,10 @@ open class MultiOptional: Ice.Value {
         self.es = es
         self.fss = fss
         self.vss = vss
-        self.oos = oos
         self.mips = mips
         self.ied = ied
         self.ifsd = ifsd
         self.ivsd = ivsd
-        self.iood = iood
         self.imipd = imipd
         self.bos = bos
     }
@@ -4628,12 +4482,10 @@ open class MultiOptional: Ice.Value {
         self.es = try MyEnumSeqHelper.read(from: istr, tag: 19)
         self.fss = try FixedStructSeqHelper.read(from: istr, tag: 20)
         self.vss = try VarStructSeqHelper.read(from: istr, tag: 21)
-        self.oos = try OneOptionalSeqHelper.read(from: istr, tag: 22)
         self.mips = try MyInterfacePrxSeqHelper.read(from: istr, tag: 23)
         self.ied = try IntEnumDictHelper.read(from: istr, tag: 24)
         self.ifsd = try IntFixedStructDictHelper.read(from: istr, tag: 25)
         self.ivsd = try IntVarStructDictHelper.read(from: istr, tag: 26)
-        self.iood = try IntOneOptionalDictHelper.read(from: istr, tag: 27)
         self.imipd = try IntMyInterfacePrxDictHelper.read(from: istr, tag: 28)
         self.bos = try istr.read(tag: 29)
         try istr.endSlice()
@@ -4661,12 +4513,10 @@ open class MultiOptional: Ice.Value {
         MyEnumSeqHelper.write(to: ostr, tag: 19, value: self.es)
         FixedStructSeqHelper.write(to: ostr, tag: 20, value: self.fss)
         VarStructSeqHelper.write(to: ostr, tag: 21, value: self.vss)
-        OneOptionalSeqHelper.write(to: ostr, tag: 22, value: self.oos)
         MyInterfacePrxSeqHelper.write(to: ostr, tag: 23, value: self.mips)
         IntEnumDictHelper.write(to: ostr, tag: 24, value: self.ied)
         IntFixedStructDictHelper.write(to: ostr, tag: 25, value: self.ifsd)
         IntVarStructDictHelper.write(to: ostr, tag: 26, value: self.ivsd)
-        IntOneOptionalDictHelper.write(to: ostr, tag: 27, value: self.iood)
         IntMyInterfacePrxDictHelper.write(to: ostr, tag: 28, value: self.imipd)
         ostr.write(tag: 29, value: self.bos)
         ostr.endSlice()

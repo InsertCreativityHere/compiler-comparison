@@ -377,9 +377,6 @@ namespace Test
         public VarStruct[]? vss;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OneOptional?[]? oos;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MyInterfacePrx?[]? mips;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -390,9 +387,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<int, VarStruct>? ivsd;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::System.Collections.Generic.Dictionary<int, OneOptional?>? iood;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?>? imipd;
@@ -406,7 +400,7 @@ namespace Test
         partial void ice_initialize();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MultiOptional(byte? a, bool? b, short? c, int? d, long? e, float? f, double? g, string? h, MyEnum? i, MyInterfacePrx? j, byte[]? bs, string[]? ss, global::System.Collections.Generic.Dictionary<int, int>? iid, global::System.Collections.Generic.Dictionary<string, int>? sid, FixedStruct? fs, VarStruct? vs, short[]? shs, MyEnum[]? es, FixedStruct[]? fss, VarStruct[]? vss, OneOptional?[]? oos, MyInterfacePrx?[]? mips, global::System.Collections.Generic.Dictionary<int, MyEnum>? ied, global::System.Collections.Generic.Dictionary<int, FixedStruct>? ifsd, global::System.Collections.Generic.Dictionary<int, VarStruct>? ivsd, global::System.Collections.Generic.Dictionary<int, OneOptional?>? iood, global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?>? imipd, bool[]? bos, byte[]? ser)
+        public MultiOptional(byte? a, bool? b, short? c, int? d, long? e, float? f, double? g, string? h, MyEnum? i, MyInterfacePrx? j, byte[]? bs, string[]? ss, global::System.Collections.Generic.Dictionary<int, int>? iid, global::System.Collections.Generic.Dictionary<string, int>? sid, FixedStruct? fs, VarStruct? vs, short[]? shs, MyEnum[]? es, FixedStruct[]? fss, VarStruct[]? vss, MyInterfacePrx?[]? mips, global::System.Collections.Generic.Dictionary<int, MyEnum>? ied, global::System.Collections.Generic.Dictionary<int, FixedStruct>? ifsd, global::System.Collections.Generic.Dictionary<int, VarStruct>? ivsd, global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?>? imipd, bool[]? bos, byte[]? ser)
         {
             this.a = a;
             this.b = b;
@@ -428,12 +422,10 @@ namespace Test
             this.es = es;
             this.fss = fss;
             this.vss = vss;
-            this.oos = oos;
             this.mips = mips;
             this.ied = ied;
             this.ifsd = ifsd;
             this.ivsd = ivsd;
-            this.iood = iood;
             this.imipd = imipd;
             this.bos = bos;
             this.ser = ser;
@@ -523,12 +515,6 @@ namespace Test
                 VarStructSeqHelper.write(ostr_, vss);
                 ostr_.endSize(pos);
             }
-            if (oos is not null && ostr_.writeOptional(22, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr_.startSize();
-                OneOptionalSeqHelper.write(ostr_, oos);
-                ostr_.endSize(pos);
-            }
             if (mips is not null && ostr_.writeOptional(23, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
@@ -550,12 +536,6 @@ namespace Test
             {
                 int pos = ostr_.startSize();
                 IntVarStructDictHelper.write(ostr_, ivsd);
-                ostr_.endSize(pos);
-            }
-            if (iood is not null && ostr_.writeOptional(27, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr_.startSize();
-                IntOneOptionalDictHelper.write(ostr_, iood);
                 ostr_.endSize(pos);
             }
             if (imipd is not null && ostr_.writeOptional(28, Ice.OptionalFormat.FSize))
@@ -711,17 +691,6 @@ namespace Test
             {
                 vss = null;
             }
-            if (istr_.readOptional(22, Ice.OptionalFormat.FSize))
-            {
-                istr_.skip(4);
-                OneOptional?[] tmpVal;
-                tmpVal = OneOptionalSeqHelper.read(istr_);
-                oos = tmpVal;
-            }
-            else
-            {
-                oos = null;
-            }
             if (istr_.readOptional(23, Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
@@ -765,17 +734,6 @@ namespace Test
             else
             {
                 ivsd = null;
-            }
-            if (istr_.readOptional(27, Ice.OptionalFormat.FSize))
-            {
-                istr_.skip(4);
-                global::System.Collections.Generic.Dictionary<int, OneOptional?> tmpVal = new global::System.Collections.Generic.Dictionary<int, OneOptional?>();
-                tmpVal = IntOneOptionalDictHelper.read(istr_);
-                iood = tmpVal;
-            }
-            else
-            {
-                iood = null;
             }
             if (istr_.readOptional(28, Ice.OptionalFormat.FSize))
             {
@@ -1906,9 +1864,6 @@ namespace Test
         global::System.Collections.Generic.Dictionary<int, string>? opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string>? p1, out global::System.Collections.Generic.Dictionary<int, string>? p3, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<int, OneOptional?>? opIntOneOptionalDict(global::System.Collections.Generic.Dictionary<int, OneOptional?>? p1, out global::System.Collections.Generic.Dictionary<int, OneOptional?>? p3, Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void opClassAndUnknownOptional(A? p, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2025,8 +1980,6 @@ namespace Test
     public record struct Initial_OpStringIntDictResult(global::System.Collections.Generic.Dictionary<string, int>? returnValue, global::System.Collections.Generic.Dictionary<string, int>? p3);
 
     public record struct Initial_OpCustomIntStringDictResult(global::System.Collections.Generic.Dictionary<int, string>? returnValue, global::System.Collections.Generic.Dictionary<int, string>? p3);
-
-    public record struct Initial_OpIntOneOptionalDictResult(global::System.Collections.Generic.Dictionary<int, OneOptional?>? returnValue, global::System.Collections.Generic.Dictionary<int, OneOptional?>? p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public readonly record struct Initial_OpMStruct1MarshaledResult : Ice.MarshaledResult
@@ -2321,10 +2274,6 @@ namespace Test
         global::System.Collections.Generic.Dictionary<int, string>? opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string>? p1, out global::System.Collections.Generic.Dictionary<int, string>? p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<Initial_OpCustomIntStringDictResult> opCustomIntStringDictAsync(global::System.Collections.Generic.Dictionary<int, string>? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        global::System.Collections.Generic.Dictionary<int, OneOptional?>? opIntOneOptionalDict(global::System.Collections.Generic.Dictionary<int, OneOptional?>? p1, out global::System.Collections.Generic.Dictionary<int, OneOptional?>? p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<Initial_OpIntOneOptionalDictResult> opIntOneOptionalDictAsync(global::System.Collections.Generic.Dictionary<int, OneOptional?>? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void opClassAndUnknownOptional(A? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -2809,40 +2758,6 @@ namespace Test
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class OneOptionalSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, OneOptional?[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeValue(v[ix]);
-                }
-            }
-        }
-
-        public static OneOptional?[] read(Ice.InputStream istr)
-        {
-            OneOptional?[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new OneOptional?[szx];
-                for (int ix = 0; ix < szx; ++ix)
-                {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<OneOptional>(v, ix));
-                }
-            }
-            return v;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MyInterfacePrxSeqHelper
     {
         public static void write(Ice.OutputStream ostr, MyInterfacePrx?[] v)
@@ -3072,41 +2987,6 @@ namespace Test
                 VarStruct v;
                 v = new VarStruct(istr);
                 r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class IntOneOptionalDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, OneOptional?> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, OneOptional?> e in v)
-                {
-                    ostr.writeInt(e.Key);
-                    ostr.writeValue(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<int, OneOptional?> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, OneOptional?> r = new global::System.Collections.Generic.Dictionary<int, OneOptional?>();
-            for(int i = 0; i < sz; ++i)
-            {
-                int k;
-                k = istr.readInt();
-                istr.readValue((OneOptional? v) => { r[k] = v; });
             }
             return r;
         }
@@ -3689,20 +3569,6 @@ namespace Test
             try
             {
                 var result_ = _iceI_opCustomIntStringDictAsync(p1, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                p3 = result_.p3;
-                return result_.returnValue;
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public global::System.Collections.Generic.Dictionary<int, OneOptional?>? opIntOneOptionalDict(global::System.Collections.Generic.Dictionary<int, OneOptional?>? p1, out global::System.Collections.Generic.Dictionary<int, OneOptional?>? p3, global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                var result_ = _iceI_opIntOneOptionalDictAsync(p1, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 p3 = result_.p3;
                 return result_.returnValue;
             }
@@ -5728,68 +5594,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Initial_OpIntOneOptionalDictResult> opIntOneOptionalDictAsync(global::System.Collections.Generic.Dictionary<int, OneOptional?>? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_opIntOneOptionalDictAsync(p1, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<Initial_OpIntOneOptionalDictResult> _iceI_opIntOneOptionalDictAsync(global::System.Collections.Generic.Dictionary<int, OneOptional?>? iceP_p1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opIntOneOptionalDict_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<Initial_OpIntOneOptionalDictResult>(progress, cancel);
-            _iceI_opIntOneOptionalDict(iceP_p1, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opIntOneOptionalDict_name = "opIntOneOptionalDict";
-
-        private void _iceI_opIntOneOptionalDict(global::System.Collections.Generic.Dictionary<int, OneOptional?>? iceP_p1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<Initial_OpIntOneOptionalDictResult>(completed);
-            outAsync.invoke(
-                _opIntOneOptionalDict_name,
-                Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (Ice.OutputStream ostr) =>
-                {
-                    if (iceP_p1 is not null && ostr.writeOptional(2, Ice.OptionalFormat.FSize))
-                    {
-                        int pos = ostr.startSize();
-                        IntOneOptionalDictHelper.write(ostr, iceP_p1);
-                        ostr.endSize(pos);
-                    }
-                },
-                read: (Ice.InputStream istr) =>
-                {
-                    var ret = new Initial_OpIntOneOptionalDictResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        global::System.Collections.Generic.Dictionary<int, OneOptional?> tmpVal = new global::System.Collections.Generic.Dictionary<int, OneOptional?>();
-                        tmpVal = IntOneOptionalDictHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        global::System.Collections.Generic.Dictionary<int, OneOptional?> tmpVal = new global::System.Collections.Generic.Dictionary<int, OneOptional?>();
-                        tmpVal = IntOneOptionalDictHelper.read(istr);
-                        ret.p3 = tmpVal;
-                    }
-                    else
-                    {
-                        ret.p3 = null;
-                    }
-                    return ret;
-                });
-        }
-
         public global::System.Threading.Tasks.Task opClassAndUnknownOptionalAsync(A? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opClassAndUnknownOptionalAsync(p, context, progress, cancel, false);
@@ -6417,8 +6221,6 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<int, string>? opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string>? p1, out global::System.Collections.Generic.Dictionary<int, string>? p3, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<int, OneOptional?>? opIntOneOptionalDict(global::System.Collections.Generic.Dictionary<int, OneOptional?>? p1, out global::System.Collections.Generic.Dictionary<int, OneOptional?>? p3, Ice.Current current);
-
         public abstract void opClassAndUnknownOptional(A? p, Ice.Current current);
 
         public abstract G? opG(G? g, Ice.Current current);
@@ -6485,7 +6287,6 @@ namespace Test
                 "opIntIntDict" => Initial.iceD_opIntIntDictAsync(this, request),
                 "opStringIntDict" => Initial.iceD_opStringIntDictAsync(this, request),
                 "opCustomIntStringDict" => Initial.iceD_opCustomIntStringDictAsync(this, request),
-                "opIntOneOptionalDict" => Initial.iceD_opIntOneOptionalDictAsync(this, request),
                 "opClassAndUnknownOptional" => Initial.iceD_opClassAndUnknownOptionalAsync(this, request),
                 "opG" => Initial.iceD_opGAsync(this, request),
                 "opVoid" => Initial.iceD_opVoidAsync(this, request),
@@ -7554,46 +7355,6 @@ namespace Test
             {
                 int pos = ostr.startSize();
                 IntStringDictHelper.write(ostr, iceP_p3);
-                ostr.endSize(pos);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntOneOptionalDictAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<int, OneOptional?>? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                global::System.Collections.Generic.Dictionary<int, OneOptional?> tmpVal = new global::System.Collections.Generic.Dictionary<int, OneOptional?>();
-                tmpVal = IntOneOptionalDictHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            global::System.Collections.Generic.Dictionary<int, OneOptional?>? iceP_p3;
-            var ret = obj.opIntOneOptionalDict(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                IntOneOptionalDictHelper.write(ostr, ret);
-                ostr.endSize(pos);
-            }
-            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                IntOneOptionalDictHelper.write(ostr, iceP_p3);
                 ostr.endSize(pos);
             }
             ostr.endEncapsulation();

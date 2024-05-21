@@ -2706,40 +2706,6 @@ namespace Ice.optional
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class OneOptionalSeqHelper
-        {
-            public static void write(Ice.OutputStream ostr, OneOptional?[] v)
-            {
-                if (v is null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Length);
-                    for(int ix = 0; ix < v.Length; ++ix)
-                    {
-                        ostr.writeValue(v[ix]);
-                    }
-                }
-            }
-
-            public static OneOptional?[] read(Ice.InputStream istr)
-            {
-                OneOptional?[] v;
-                {
-                    int szx = istr.readAndCheckSeqSize(1);
-                    v = new OneOptional?[szx];
-                    for (int ix = 0; ix < szx; ++ix)
-                    {
-                        istr.readValue(Ice.Internal.Patcher.arrayReadValue<OneOptional>(v, ix));
-                    }
-                }
-                return v;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class MyInterfacePrxSeqHelper
         {
             public static void write(Ice.OutputStream ostr, MyInterfacePrx?[] v)
@@ -2953,41 +2919,6 @@ namespace Ice.optional
                     VarStruct v;
                     v = new VarStruct(istr);
                     r[k] = v;
-                }
-                return r;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class IntOneOptionalDictHelper
-        {
-            public static void write(Ice.OutputStream ostr,
-                                     global::System.Collections.Generic.Dictionary<int, OneOptional?> v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Count);
-                    foreach(global::System.Collections.Generic.KeyValuePair<int, OneOptional?> e in v)
-                    {
-                        ostr.writeInt(e.Key);
-                        ostr.writeValue(e.Value);
-                    }
-                }
-            }
-
-            public static global::System.Collections.Generic.Dictionary<int, OneOptional?> read(Ice.InputStream istr)
-            {
-                int sz = istr.readSize();
-                global::System.Collections.Generic.Dictionary<int, OneOptional?> r = new global::System.Collections.Generic.Dictionary<int, OneOptional?>();
-                for(int i = 0; i < sz; ++i)
-                {
-                    int k;
-                    k = istr.readInt();
-                    istr.readValue((OneOptional? v) => { r[k] = v; });
                 }
                 return r;
             }

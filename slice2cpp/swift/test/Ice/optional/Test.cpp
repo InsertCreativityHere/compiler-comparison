@@ -1699,50 +1699,6 @@ Test::InitialPrx::_iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInter
         });
 }
 
-::std::optional<::Test::IntOneOptionalDict>
-Test::InitialPrx::opIntOneOptionalDict(const ::std::optional<IntOneOptionalDict>& iceP_p1, ::std::optional<IntOneOptionalDict>& iceP_p3, const ::Ice::Context& context) const
-{
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<IntOneOptionalDict>, ::std::optional<IntOneOptionalDict>>>(true, this, &InitialPrx::_iceI_opIntOneOptionalDict, iceP_p1, context).get();
-    iceP_p3 = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
-}
-
-::std::future<::std::tuple<::std::optional<::Test::IntOneOptionalDict>, ::std::optional<::Test::IntOneOptionalDict>>>
-Test::InitialPrx::opIntOneOptionalDictAsync(const ::std::optional<IntOneOptionalDict>& iceP_p1, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<IntOneOptionalDict>, ::std::optional<IntOneOptionalDict>>>(false, this, &InitialPrx::_iceI_opIntOneOptionalDict, iceP_p1, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::opIntOneOptionalDictAsync(const ::std::optional<IntOneOptionalDict>& iceP_p1, ::std::function<void(::std::optional<::Test::IntOneOptionalDict>, ::std::optional<::Test::IntOneOptionalDict>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<IntOneOptionalDict>, ::std::optional<IntOneOptionalDict>>&& result)
-    {
-        ::std::apply(::std::move(response), ::std::move(result));
-    };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<IntOneOptionalDict>, ::std::optional<IntOneOptionalDict>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opIntOneOptionalDict, iceP_p1, context);
-}
-
-void
-Test::InitialPrx::_iceI_opIntOneOptionalDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntOneOptionalDict>, ::std::optional<IntOneOptionalDict>>>>& outAsync, const ::std::optional<IntOneOptionalDict>& iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opIntOneOptionalDict";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<IntOneOptionalDict>, ::std::optional<IntOneOptionalDict>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
 void
 Test::InitialPrx::opClassAndUnknownOptional(const APtr& iceP_p, const ::Ice::Context& context) const
 {
@@ -3439,26 +3395,6 @@ Test::Initial::_iceD_opCustomIntStringDict(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_opIntOneOptionalDict(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    ::std::optional<IntOneOptionalDict> iceP_p1;
-    istr->readAll({2}, iceP_p1);
-    istr->endEncapsulation();
-    ::std::optional<IntOneOptionalDict> iceP_p3;
-    ::std::optional<IntOneOptionalDict> ret = this->opIntOneOptionalDict(::std::move(iceP_p1), iceP_p3, request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({1, 3}, ret, iceP_p3);
-        },
-        request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::Initial::_iceD_opClassAndUnknownOptional(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
@@ -3665,10 +3601,10 @@ Test::Initial::_iceD_supportsCsharpSerializable(::Ice::IncomingRequest& request,
 void
 Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opCustomIntStringDict", "opCustomString", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntOneOptionalDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opSerializable", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "shutdown", "supportsCsharpSerializable", "supportsJavaSerializable"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opCustomIntStringDict", "opCustomString", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opSerializable", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "shutdown", "supportsCsharpSerializable", "supportsJavaSerializable"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 53, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 52, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -3789,155 +3725,150 @@ Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         }
         case 22:
         {
-            _iceD_opIntOneOptionalDict(request, ::std::move(sendResponse));
+            _iceD_opIntSeq(request, ::std::move(sendResponse));
             break;
         }
         case 23:
         {
-            _iceD_opIntSeq(request, ::std::move(sendResponse));
+            _iceD_opLong(request, ::std::move(sendResponse));
             break;
         }
         case 24:
         {
-            _iceD_opLong(request, ::std::move(sendResponse));
+            _iceD_opLongSeq(request, ::std::move(sendResponse));
             break;
         }
         case 25:
         {
-            _iceD_opLongSeq(request, ::std::move(sendResponse));
+            _iceD_opMDict1(request, ::std::move(sendResponse));
             break;
         }
         case 26:
         {
-            _iceD_opMDict1(request, ::std::move(sendResponse));
+            _iceD_opMDict2(request, ::std::move(sendResponse));
             break;
         }
         case 27:
         {
-            _iceD_opMDict2(request, ::std::move(sendResponse));
+            _iceD_opMSeq1(request, ::std::move(sendResponse));
             break;
         }
         case 28:
         {
-            _iceD_opMSeq1(request, ::std::move(sendResponse));
+            _iceD_opMSeq2(request, ::std::move(sendResponse));
             break;
         }
         case 29:
         {
-            _iceD_opMSeq2(request, ::std::move(sendResponse));
+            _iceD_opMStruct1(request, ::std::move(sendResponse));
             break;
         }
         case 30:
         {
-            _iceD_opMStruct1(request, ::std::move(sendResponse));
+            _iceD_opMStruct2(request, ::std::move(sendResponse));
             break;
         }
         case 31:
         {
-            _iceD_opMStruct2(request, ::std::move(sendResponse));
+            _iceD_opMyEnum(request, ::std::move(sendResponse));
             break;
         }
         case 32:
         {
-            _iceD_opMyEnum(request, ::std::move(sendResponse));
+            _iceD_opMyInterfaceProxy(request, ::std::move(sendResponse));
             break;
         }
         case 33:
         {
-            _iceD_opMyInterfaceProxy(request, ::std::move(sendResponse));
+            _iceD_opOneOptional(request, ::std::move(sendResponse));
             break;
         }
         case 34:
         {
-            _iceD_opOneOptional(request, ::std::move(sendResponse));
+            _iceD_opOptionalException(request, ::std::move(sendResponse));
             break;
         }
         case 35:
         {
-            _iceD_opOptionalException(request, ::std::move(sendResponse));
+            _iceD_opRequiredException(request, ::std::move(sendResponse));
             break;
         }
         case 36:
         {
-            _iceD_opRequiredException(request, ::std::move(sendResponse));
+            _iceD_opSerializable(request, ::std::move(sendResponse));
             break;
         }
         case 37:
         {
-            _iceD_opSerializable(request, ::std::move(sendResponse));
+            _iceD_opShort(request, ::std::move(sendResponse));
             break;
         }
         case 38:
         {
-            _iceD_opShort(request, ::std::move(sendResponse));
+            _iceD_opShortSeq(request, ::std::move(sendResponse));
             break;
         }
         case 39:
         {
-            _iceD_opShortSeq(request, ::std::move(sendResponse));
+            _iceD_opSmallStruct(request, ::std::move(sendResponse));
             break;
         }
         case 40:
         {
-            _iceD_opSmallStruct(request, ::std::move(sendResponse));
+            _iceD_opSmallStructList(request, ::std::move(sendResponse));
             break;
         }
         case 41:
         {
-            _iceD_opSmallStructList(request, ::std::move(sendResponse));
+            _iceD_opSmallStructSeq(request, ::std::move(sendResponse));
             break;
         }
         case 42:
         {
-            _iceD_opSmallStructSeq(request, ::std::move(sendResponse));
+            _iceD_opString(request, ::std::move(sendResponse));
             break;
         }
         case 43:
         {
-            _iceD_opString(request, ::std::move(sendResponse));
+            _iceD_opStringIntDict(request, ::std::move(sendResponse));
             break;
         }
         case 44:
         {
-            _iceD_opStringIntDict(request, ::std::move(sendResponse));
+            _iceD_opStringSeq(request, ::std::move(sendResponse));
             break;
         }
         case 45:
         {
-            _iceD_opStringSeq(request, ::std::move(sendResponse));
+            _iceD_opVarStruct(request, ::std::move(sendResponse));
             break;
         }
         case 46:
         {
-            _iceD_opVarStruct(request, ::std::move(sendResponse));
+            _iceD_opVarStructSeq(request, ::std::move(sendResponse));
             break;
         }
         case 47:
         {
-            _iceD_opVarStructSeq(request, ::std::move(sendResponse));
+            _iceD_opVoid(request, ::std::move(sendResponse));
             break;
         }
         case 48:
         {
-            _iceD_opVoid(request, ::std::move(sendResponse));
+            _iceD_pingPong(request, ::std::move(sendResponse));
             break;
         }
         case 49:
         {
-            _iceD_pingPong(request, ::std::move(sendResponse));
+            _iceD_shutdown(request, ::std::move(sendResponse));
             break;
         }
         case 50:
         {
-            _iceD_shutdown(request, ::std::move(sendResponse));
-            break;
-        }
-        case 51:
-        {
             _iceD_supportsCsharpSerializable(request, ::std::move(sendResponse));
             break;
         }
-        case 52:
+        case 51:
         {
             _iceD_supportsJavaSerializable(request, ::std::move(sendResponse));
             break;

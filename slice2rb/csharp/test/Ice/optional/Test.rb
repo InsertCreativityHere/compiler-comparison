@@ -255,10 +255,6 @@ module ::Test
         T_VarStructSeq = ::Ice::__defineSequence('::Test::VarStructSeq', ::Test::T_VarStruct)
     end
 
-    if not defined?(::Test::T_OneOptionalSeq)
-        T_OneOptionalSeq = ::Ice::__defineSequence('::Test::OneOptionalSeq', ::Test::T_OneOptional)
-    end
-
     if not defined?(::Test::T_MyInterfacePrxSeq)
         T_MyInterfacePrxSeq = ::Ice::__defineSequence('::Test::MyInterfacePrxSeq', ::Test::T_MyInterfacePrx)
     end
@@ -281,10 +277,6 @@ module ::Test
 
     if not defined?(::Test::T_IntVarStructDict)
         T_IntVarStructDict = ::Ice::__defineDictionary('::Test::IntVarStructDict', ::Ice::T_int, ::Test::T_VarStruct)
-    end
-
-    if not defined?(::Test::T_IntOneOptionalDict)
-        T_IntOneOptionalDict = ::Ice::__defineDictionary('::Test::IntOneOptionalDict', ::Ice::T_int, ::Test::T_OneOptional)
     end
 
     if not defined?(::Test::T_IntMyInterfacePrxDict)
