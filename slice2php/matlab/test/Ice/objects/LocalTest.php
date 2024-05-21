@@ -688,49 +688,4 @@ namespace LocalTest
         $LocalTest__t_S1DictDict = IcePHP_defineDictionary('::LocalTest::S1DictDict', $IcePHP__t_int, $LocalTest__t_S1Dict);
     }
 }
-
-namespace LocalTest
-{
-    global $LocalTest__t_Opt;
-    class Opt extends \Ice\Value
-    {
-        public function __construct($s1=\Ice\None, $c1seq=\Ice\None, $s1dict=\Ice\None)
-        {
-            $this->s1 = is_null($s1) ? new \LocalTest\S1 : $s1;
-            $this->c1seq = $c1seq;
-            $this->s1dict = $s1dict;
-        }
-
-        public function ice_id()
-        {
-            return '::LocalTest::Opt';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::LocalTest::Opt';
-        }
-
-        public function __toString(): string
-        {
-            global $LocalTest__t_Opt;
-            return IcePHP_stringify($this, $LocalTest__t_Opt);
-        }
-
-        public $s1;
-        public $c1seq;
-        public $s1dict;
-    }
-
-    $LocalTest__t_Opt = IcePHP_declareClass('::LocalTest::Opt');
-
-    global $Ice__t_Value;
-    global $LocalTest__t_S1;
-    global $LocalTest__t_C1Seq;
-    global $LocalTest__t_S1Dict;
-    $LocalTest__t_Opt = IcePHP_defineClass('::LocalTest::Opt', '\\LocalTest\\Opt', -1, false, $Ice__t_Value, array(
-        array('s1', $LocalTest__t_S1, true, 1),
-        array('c1seq', $LocalTest__t_C1Seq, true, 2),
-        array('s1dict', $LocalTest__t_S1Dict, true, 3)));
-}
 ?>

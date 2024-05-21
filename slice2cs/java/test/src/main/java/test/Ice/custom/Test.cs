@@ -21,7 +21,6 @@
 
 namespace Test
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -32,43 +31,41 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [Ice.SliceTypeId("::Test::C")]
-    public partial class C : Ice.Value
+    public partial record struct A
     {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public int i;
+
         partial void ice_initialize();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C()
+        public A(int i)
         {
+            this.i = i;
             ice_initialize();
         }
 
-        private const string _id = "::Test::C";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
+        public A(Ice.InputStream istr)
         {
-            return _id;
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
+            this.i = istr.readInt();
+            ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        public void ice_writeMembers(Ice.OutputStream ostr)
         {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.endSlice();
+            ostr.writeInt(this.i);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(Ice.InputStream istr_)
+        public static void ice_write(Ice.OutputStream ostr, A v)
         {
-            istr_.startSlice();
-            istr_.endSlice();
+            v.ice_writeMembers(ostr);
         }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public static A ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -158,13 +155,13 @@ namespace Test
     public partial interface TestIntf : Ice.Object
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[] opCSeq(C?[] inSeq, out C?[] outSeq, Ice.Current current);
+        A[] opASeq(A[] inSeq, out A[] outSeq, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[] opCArray(C?[] inSeq, out C?[] outSeq, Ice.Current current);
+        A[] opAArray(A[] inSeq, out A[] outSeq, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[] opCList(C?[] inSeq, out C?[] outSeq, Ice.Current current);
+        A[] opAList(A[] inSeq, out A[] outSeq, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, Ice.Current current);
@@ -221,13 +218,13 @@ namespace Test
         double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[]? opOptCSeq(C?[]? inSeq, out C?[]? outSeq, Ice.Current current);
+        A[]? opOptASeq(A[]? inSeq, out A[]? outSeq, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[]? opOptCArray(C?[]? inSeq, out C?[]? outSeq, Ice.Current current);
+        A[]? opOptAArray(A[]? inSeq, out A[]? outSeq, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[]? opOptCList(C?[]? inSeq, out C?[]? outSeq, Ice.Current current);
+        A[]? opOptAList(A[]? inSeq, out A[]? outSeq, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         bool[]? opOptBoolSeq(bool[]? inSeq, out bool[]? outSeq, Ice.Current current);
@@ -290,11 +287,11 @@ namespace Test
 
 namespace Test
 {
-    public record struct TestIntf_OpCSeqResult(C?[] returnValue, C?[] outSeq);
+    public record struct TestIntf_OpASeqResult(A[] returnValue, A[] outSeq);
 
-    public record struct TestIntf_OpCArrayResult(C?[] returnValue, C?[] outSeq);
+    public record struct TestIntf_OpAArrayResult(A[] returnValue, A[] outSeq);
 
-    public record struct TestIntf_OpCListResult(C?[] returnValue, C?[] outSeq);
+    public record struct TestIntf_OpAListResult(A[] returnValue, A[] outSeq);
 
     public record struct TestIntf_OpBoolSeqResult(bool[] returnValue, bool[] outSeq);
 
@@ -332,11 +329,11 @@ namespace Test
 
     public record struct TestIntf_OpDoubleBufferSeqResult(double[] returnValue, double[] outSeq);
 
-    public record struct TestIntf_OpOptCSeqResult(C?[]? returnValue, C?[]? outSeq);
+    public record struct TestIntf_OpOptASeqResult(A[]? returnValue, A[]? outSeq);
 
-    public record struct TestIntf_OpOptCArrayResult(C?[]? returnValue, C?[]? outSeq);
+    public record struct TestIntf_OpOptAArrayResult(A[]? returnValue, A[]? outSeq);
 
-    public record struct TestIntf_OpOptCListResult(C?[]? returnValue, C?[]? outSeq);
+    public record struct TestIntf_OpOptAListResult(A[]? returnValue, A[]? outSeq);
 
     public record struct TestIntf_OpOptBoolSeqResult(bool[]? returnValue, bool[]? outSeq);
 
@@ -380,17 +377,17 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface TestIntfPrx : Ice.ObjectPrx
     {
-        C?[] opCSeq(C?[] inSeq, out C?[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        A[] opASeq(A[] inSeq, out A[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpCSeqResult> opCSeqAsync(C?[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_OpASeqResult> opASeqAsync(A[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        C?[] opCArray(C?[] inSeq, out C?[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        A[] opAArray(A[] inSeq, out A[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpCArrayResult> opCArrayAsync(C?[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_OpAArrayResult> opAArrayAsync(A[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        C?[] opCList(C?[] inSeq, out C?[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        A[] opAList(A[] inSeq, out A[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpCListResult> opCListAsync(C?[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_OpAListResult> opAListAsync(A[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -464,17 +461,17 @@ namespace Test
 
         global::System.Threading.Tasks.Task<TestIntf_OpDoubleBufferSeqResult> opDoubleBufferSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        C?[]? opOptCSeq(C?[]? inSeq, out C?[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        A[]? opOptASeq(A[]? inSeq, out A[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptCSeqResult> opOptCSeqAsync(C?[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_OpOptASeqResult> opOptASeqAsync(A[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        C?[]? opOptCArray(C?[]? inSeq, out C?[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        A[]? opOptAArray(A[]? inSeq, out A[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptCArrayResult> opOptCArrayAsync(C?[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_OpOptAArrayResult> opOptAArrayAsync(A[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        C?[]? opOptCList(C?[]? inSeq, out C?[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        A[]? opOptAList(A[]? inSeq, out A[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptCListResult> opOptCListAsync(C?[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_OpOptAListResult> opOptAListAsync(A[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         bool[]? opOptBoolSeq(bool[]? inSeq, out bool[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -557,9 +554,9 @@ namespace Test
 namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class CSeqHelper
+    public sealed class ASeqHelper
     {
-        public static void write(Ice.OutputStream ostr, C?[] v)
+        public static void write(Ice.OutputStream ostr, A[] v)
         {
             if (v is null)
             {
@@ -570,20 +567,20 @@ namespace Test
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    ostr.writeValue(v[ix]);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
 
-        public static C?[] read(Ice.InputStream istr)
+        public static A[] read(Ice.InputStream istr)
         {
-            C?[] v;
+            A[] v;
             {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new C?[szx];
-                for (int ix = 0; ix < szx; ++ix)
+                int szx = istr.readAndCheckSeqSize(4);
+                v = new A[szx];
+                for(int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<C>(v, ix));
+                    v[ix] = new A(istr);
                 }
             }
             return v;
@@ -591,9 +588,9 @@ namespace Test
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class CArrayHelper
+    public sealed class AArrayHelper
     {
-        public static void write(Ice.OutputStream ostr, C?[] v)
+        public static void write(Ice.OutputStream ostr, A[] v)
         {
             if (v is null)
             {
@@ -604,20 +601,20 @@ namespace Test
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    ostr.writeValue(v[ix]);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
 
-        public static C?[] read(Ice.InputStream istr)
+        public static A[] read(Ice.InputStream istr)
         {
-            C?[] v;
+            A[] v;
             {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new C?[szx];
-                for (int ix = 0; ix < szx; ++ix)
+                int szx = istr.readAndCheckSeqSize(4);
+                v = new A[szx];
+                for(int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<C>(v, ix));
+                    v[ix] = new A(istr);
                 }
             }
             return v;
@@ -625,9 +622,9 @@ namespace Test
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class CListHelper
+    public sealed class AListHelper
     {
-        public static void write(Ice.OutputStream ostr, C?[] v)
+        public static void write(Ice.OutputStream ostr, A[] v)
         {
             if (v is null)
             {
@@ -638,20 +635,20 @@ namespace Test
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    ostr.writeValue(v[ix]);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
 
-        public static C?[] read(Ice.InputStream istr)
+        public static A[] read(Ice.InputStream istr)
         {
-            C?[] v;
+            A[] v;
             {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new C?[szx];
-                for (int ix = 0; ix < szx; ++ix)
+                int szx = istr.readAndCheckSeqSize(4);
+                v = new A[szx];
+                for(int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<C>(v, ix));
+                    v[ix] = new A(istr);
                 }
             }
             return v;
@@ -1059,11 +1056,11 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
     {
-        public C?[] opCSeq(C?[] inSeq, out C?[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public A[] opASeq(A[] inSeq, out A[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                var result_ = _iceI_opCSeqAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                var result_ = _iceI_opASeqAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 outSeq = result_.outSeq;
                 return result_.returnValue;
             }
@@ -1073,11 +1070,11 @@ namespace Test
             }
         }
 
-        public C?[] opCArray(C?[] inSeq, out C?[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public A[] opAArray(A[] inSeq, out A[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                var result_ = _iceI_opCArrayAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                var result_ = _iceI_opAArrayAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 outSeq = result_.outSeq;
                 return result_.returnValue;
             }
@@ -1087,11 +1084,11 @@ namespace Test
             }
         }
 
-        public C?[] opCList(C?[] inSeq, out C?[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public A[] opAList(A[] inSeq, out A[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                var result_ = _iceI_opCListAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                var result_ = _iceI_opAListAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 outSeq = result_.outSeq;
                 return result_.returnValue;
             }
@@ -1353,11 +1350,11 @@ namespace Test
             }
         }
 
-        public C?[]? opOptCSeq(C?[]? inSeq, out C?[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public A[]? opOptASeq(A[]? inSeq, out A[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                var result_ = _iceI_opOptCSeqAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                var result_ = _iceI_opOptASeqAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 outSeq = result_.outSeq;
                 return result_.returnValue;
             }
@@ -1367,11 +1364,11 @@ namespace Test
             }
         }
 
-        public C?[]? opOptCArray(C?[]? inSeq, out C?[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public A[]? opOptAArray(A[]? inSeq, out A[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                var result_ = _iceI_opOptCArrayAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                var result_ = _iceI_opOptAArrayAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 outSeq = result_.outSeq;
                 return result_.returnValue;
             }
@@ -1381,11 +1378,11 @@ namespace Test
             }
         }
 
-        public C?[]? opOptCList(C?[]? inSeq, out C?[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public A[]? opOptAList(A[]? inSeq, out A[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                var result_ = _iceI_opOptCListAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                var result_ = _iceI_opOptAListAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 outSeq = result_.outSeq;
                 return result_.returnValue;
             }
@@ -1659,119 +1656,113 @@ namespace Test
             }
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpCSeqResult> opCSeqAsync(C?[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_OpASeqResult> opASeqAsync(A[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_opCSeqAsync(inSeq, context, progress, cancel, false);
+            return _iceI_opASeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpCSeqResult> _iceI_opCSeqAsync(C?[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpASeqResult> _iceI_opASeqAsync(A[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            iceCheckTwowayOnly(_opCSeq_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpCSeqResult>(progress, cancel);
-            _iceI_opCSeq(iceP_inSeq, context, synchronous, completed);
+            iceCheckTwowayOnly(_opASeq_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpASeqResult>(progress, cancel);
+            _iceI_opASeq(iceP_inSeq, context, synchronous, completed);
             return completed.Task;
         }
 
-        private const string _opCSeq_name = "opCSeq";
+        private const string _opASeq_name = "opASeq";
 
-        private void _iceI_opCSeq(C?[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opASeq(A[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<TestIntf_OpCSeqResult>(completed);
+            var outAsync = getOutgoingAsync<TestIntf_OpASeqResult>(completed);
             outAsync.invoke(
-                _opCSeq_name,
+                _opASeq_name,
                 Ice.OperationMode.Normal,
                 Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    CSeqHelper.write(ostr, iceP_inSeq);
-                    ostr.writePendingValues();
+                    ASeqHelper.write(ostr, iceP_inSeq);
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    var ret = new TestIntf_OpCSeqResult();
-                    ret.outSeq = CSeqHelper.read(istr);
-                    ret.returnValue = CSeqHelper.read(istr);
-                    istr.readPendingValues();
+                    var ret = new TestIntf_OpASeqResult();
+                    ret.outSeq = ASeqHelper.read(istr);
+                    ret.returnValue = ASeqHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpCArrayResult> opCArrayAsync(C?[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_OpAArrayResult> opAArrayAsync(A[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_opCArrayAsync(inSeq, context, progress, cancel, false);
+            return _iceI_opAArrayAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpCArrayResult> _iceI_opCArrayAsync(C?[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpAArrayResult> _iceI_opAArrayAsync(A[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            iceCheckTwowayOnly(_opCArray_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpCArrayResult>(progress, cancel);
-            _iceI_opCArray(iceP_inSeq, context, synchronous, completed);
+            iceCheckTwowayOnly(_opAArray_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpAArrayResult>(progress, cancel);
+            _iceI_opAArray(iceP_inSeq, context, synchronous, completed);
             return completed.Task;
         }
 
-        private const string _opCArray_name = "opCArray";
+        private const string _opAArray_name = "opAArray";
 
-        private void _iceI_opCArray(C?[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opAArray(A[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<TestIntf_OpCArrayResult>(completed);
+            var outAsync = getOutgoingAsync<TestIntf_OpAArrayResult>(completed);
             outAsync.invoke(
-                _opCArray_name,
+                _opAArray_name,
                 Ice.OperationMode.Normal,
                 Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    CArrayHelper.write(ostr, iceP_inSeq);
-                    ostr.writePendingValues();
+                    AArrayHelper.write(ostr, iceP_inSeq);
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    var ret = new TestIntf_OpCArrayResult();
-                    ret.outSeq = CArrayHelper.read(istr);
-                    ret.returnValue = CArrayHelper.read(istr);
-                    istr.readPendingValues();
+                    var ret = new TestIntf_OpAArrayResult();
+                    ret.outSeq = AArrayHelper.read(istr);
+                    ret.returnValue = AArrayHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpCListResult> opCListAsync(C?[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_OpAListResult> opAListAsync(A[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_opCListAsync(inSeq, context, progress, cancel, false);
+            return _iceI_opAListAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpCListResult> _iceI_opCListAsync(C?[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpAListResult> _iceI_opAListAsync(A[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            iceCheckTwowayOnly(_opCList_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpCListResult>(progress, cancel);
-            _iceI_opCList(iceP_inSeq, context, synchronous, completed);
+            iceCheckTwowayOnly(_opAList_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpAListResult>(progress, cancel);
+            _iceI_opAList(iceP_inSeq, context, synchronous, completed);
             return completed.Task;
         }
 
-        private const string _opCList_name = "opCList";
+        private const string _opAList_name = "opAList";
 
-        private void _iceI_opCList(C?[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opAList(A[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<TestIntf_OpCListResult>(completed);
+            var outAsync = getOutgoingAsync<TestIntf_OpAListResult>(completed);
             outAsync.invoke(
-                _opCList_name,
+                _opAList_name,
                 Ice.OperationMode.Normal,
                 Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    CListHelper.write(ostr, iceP_inSeq);
-                    ostr.writePendingValues();
+                    AListHelper.write(ostr, iceP_inSeq);
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    var ret = new TestIntf_OpCListResult();
-                    ret.outSeq = CListHelper.read(istr);
-                    ret.returnValue = CListHelper.read(istr);
-                    istr.readPendingValues();
+                    var ret = new TestIntf_OpAListResult();
+                    ret.outSeq = AListHelper.read(istr);
+                    ret.returnValue = AListHelper.read(istr);
                     return ret;
                 });
         }
@@ -2442,58 +2433,57 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptCSeqResult> opOptCSeqAsync(C?[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptASeqResult> opOptASeqAsync(A[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_opOptCSeqAsync(inSeq, context, progress, cancel, false);
+            return _iceI_opOptASeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptCSeqResult> _iceI_opOptCSeqAsync(C?[]? iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptASeqResult> _iceI_opOptASeqAsync(A[]? iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            iceCheckTwowayOnly(_opOptCSeq_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptCSeqResult>(progress, cancel);
-            _iceI_opOptCSeq(iceP_inSeq, context, synchronous, completed);
+            iceCheckTwowayOnly(_opOptASeq_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptASeqResult>(progress, cancel);
+            _iceI_opOptASeq(iceP_inSeq, context, synchronous, completed);
             return completed.Task;
         }
 
-        private const string _opOptCSeq_name = "opOptCSeq";
+        private const string _opOptASeq_name = "opOptASeq";
 
-        private void _iceI_opOptCSeq(C?[]? iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opOptASeq(A[]? iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<TestIntf_OpOptCSeqResult>(completed);
+            var outAsync = getOutgoingAsync<TestIntf_OpOptASeqResult>(completed);
             outAsync.invoke(
-                _opOptCSeq_name,
+                _opOptASeq_name,
                 Ice.OperationMode.Normal,
                 Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    if (iceP_inSeq is not null && ostr.writeOptional(2, Ice.OptionalFormat.FSize))
+                    if (iceP_inSeq is not null && ostr.writeOptional(2, Ice.OptionalFormat.VSize))
                     {
-                        int pos = ostr.startSize();
-                        CSeqHelper.write(ostr, iceP_inSeq);
-                        ostr.endSize(pos);
+                        ostr.writeSize(iceP_inSeq.Length * 4 + (iceP_inSeq.Length > 254 ? 5 : 1));
+                        ASeqHelper.write(ostr, iceP_inSeq);
                     }
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    var ret = new TestIntf_OpOptCSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.FSize))
+                    var ret = new TestIntf_OpOptASeqResult();
+                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
                     {
-                        istr.skip(4);
-                        C?[] tmpVal;
-                        tmpVal = CSeqHelper.read(istr);
+                        istr.skipSize();
+                        A[] tmpVal;
+                        tmpVal = ASeqHelper.read(istr);
                         ret.returnValue = tmpVal;
                     }
                     else
                     {
                         ret.returnValue = null;
                     }
-                    if (istr.readOptional(3, Ice.OptionalFormat.FSize))
+                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
                     {
-                        istr.skip(4);
-                        C?[] tmpVal;
-                        tmpVal = CSeqHelper.read(istr);
+                        istr.skipSize();
+                        A[] tmpVal;
+                        tmpVal = ASeqHelper.read(istr);
                         ret.outSeq = tmpVal;
                     }
                     else
@@ -2504,58 +2494,57 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptCArrayResult> opOptCArrayAsync(C?[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptAArrayResult> opOptAArrayAsync(A[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_opOptCArrayAsync(inSeq, context, progress, cancel, false);
+            return _iceI_opOptAArrayAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptCArrayResult> _iceI_opOptCArrayAsync(C?[]? iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptAArrayResult> _iceI_opOptAArrayAsync(A[]? iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            iceCheckTwowayOnly(_opOptCArray_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptCArrayResult>(progress, cancel);
-            _iceI_opOptCArray(iceP_inSeq, context, synchronous, completed);
+            iceCheckTwowayOnly(_opOptAArray_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptAArrayResult>(progress, cancel);
+            _iceI_opOptAArray(iceP_inSeq, context, synchronous, completed);
             return completed.Task;
         }
 
-        private const string _opOptCArray_name = "opOptCArray";
+        private const string _opOptAArray_name = "opOptAArray";
 
-        private void _iceI_opOptCArray(C?[]? iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opOptAArray(A[]? iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<TestIntf_OpOptCArrayResult>(completed);
+            var outAsync = getOutgoingAsync<TestIntf_OpOptAArrayResult>(completed);
             outAsync.invoke(
-                _opOptCArray_name,
+                _opOptAArray_name,
                 Ice.OperationMode.Normal,
                 Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    if (iceP_inSeq is not null && ostr.writeOptional(2, Ice.OptionalFormat.FSize))
+                    if (iceP_inSeq is not null && ostr.writeOptional(2, Ice.OptionalFormat.VSize))
                     {
-                        int pos = ostr.startSize();
-                        CArrayHelper.write(ostr, iceP_inSeq);
-                        ostr.endSize(pos);
+                        ostr.writeSize(iceP_inSeq.Length * 4 + (iceP_inSeq.Length > 254 ? 5 : 1));
+                        AArrayHelper.write(ostr, iceP_inSeq);
                     }
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    var ret = new TestIntf_OpOptCArrayResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.FSize))
+                    var ret = new TestIntf_OpOptAArrayResult();
+                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
                     {
-                        istr.skip(4);
-                        C?[] tmpVal;
-                        tmpVal = CArrayHelper.read(istr);
+                        istr.skipSize();
+                        A[] tmpVal;
+                        tmpVal = AArrayHelper.read(istr);
                         ret.returnValue = tmpVal;
                     }
                     else
                     {
                         ret.returnValue = null;
                     }
-                    if (istr.readOptional(3, Ice.OptionalFormat.FSize))
+                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
                     {
-                        istr.skip(4);
-                        C?[] tmpVal;
-                        tmpVal = CArrayHelper.read(istr);
+                        istr.skipSize();
+                        A[] tmpVal;
+                        tmpVal = AArrayHelper.read(istr);
                         ret.outSeq = tmpVal;
                     }
                     else
@@ -2566,58 +2555,57 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptCListResult> opOptCListAsync(C?[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptAListResult> opOptAListAsync(A[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_opOptCListAsync(inSeq, context, progress, cancel, false);
+            return _iceI_opOptAListAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptCListResult> _iceI_opOptCListAsync(C?[]? iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptAListResult> _iceI_opOptAListAsync(A[]? iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            iceCheckTwowayOnly(_opOptCList_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptCListResult>(progress, cancel);
-            _iceI_opOptCList(iceP_inSeq, context, synchronous, completed);
+            iceCheckTwowayOnly(_opOptAList_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptAListResult>(progress, cancel);
+            _iceI_opOptAList(iceP_inSeq, context, synchronous, completed);
             return completed.Task;
         }
 
-        private const string _opOptCList_name = "opOptCList";
+        private const string _opOptAList_name = "opOptAList";
 
-        private void _iceI_opOptCList(C?[]? iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opOptAList(A[]? iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<TestIntf_OpOptCListResult>(completed);
+            var outAsync = getOutgoingAsync<TestIntf_OpOptAListResult>(completed);
             outAsync.invoke(
-                _opOptCList_name,
+                _opOptAList_name,
                 Ice.OperationMode.Normal,
                 Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    if (iceP_inSeq is not null && ostr.writeOptional(2, Ice.OptionalFormat.FSize))
+                    if (iceP_inSeq is not null && ostr.writeOptional(2, Ice.OptionalFormat.VSize))
                     {
-                        int pos = ostr.startSize();
-                        CListHelper.write(ostr, iceP_inSeq);
-                        ostr.endSize(pos);
+                        ostr.writeSize(iceP_inSeq.Length * 4 + (iceP_inSeq.Length > 254 ? 5 : 1));
+                        AListHelper.write(ostr, iceP_inSeq);
                     }
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    var ret = new TestIntf_OpOptCListResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.FSize))
+                    var ret = new TestIntf_OpOptAListResult();
+                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
                     {
-                        istr.skip(4);
-                        C?[] tmpVal;
-                        tmpVal = CListHelper.read(istr);
+                        istr.skipSize();
+                        A[] tmpVal;
+                        tmpVal = AListHelper.read(istr);
                         ret.returnValue = tmpVal;
                     }
                     else
                     {
                         ret.returnValue = null;
                     }
-                    if (istr.readOptional(3, Ice.OptionalFormat.FSize))
+                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
                     {
-                        istr.skip(4);
-                        C?[] tmpVal;
-                        tmpVal = CListHelper.read(istr);
+                        istr.skipSize();
+                        A[] tmpVal;
+                        tmpVal = AListHelper.read(istr);
                         ret.outSeq = tmpVal;
                     }
                     else
@@ -3761,11 +3749,11 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
     {
-        public abstract C?[] opCSeq(C?[] inSeq, out C?[] outSeq, Ice.Current current);
+        public abstract A[] opASeq(A[] inSeq, out A[] outSeq, Ice.Current current);
 
-        public abstract C?[] opCArray(C?[] inSeq, out C?[] outSeq, Ice.Current current);
+        public abstract A[] opAArray(A[] inSeq, out A[] outSeq, Ice.Current current);
 
-        public abstract C?[] opCList(C?[] inSeq, out C?[] outSeq, Ice.Current current);
+        public abstract A[] opAList(A[] inSeq, out A[] outSeq, Ice.Current current);
 
         public abstract bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, Ice.Current current);
 
@@ -3803,11 +3791,11 @@ namespace Test
 
         public abstract double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, Ice.Current current);
 
-        public abstract C?[]? opOptCSeq(C?[]? inSeq, out C?[]? outSeq, Ice.Current current);
+        public abstract A[]? opOptASeq(A[]? inSeq, out A[]? outSeq, Ice.Current current);
 
-        public abstract C?[]? opOptCArray(C?[]? inSeq, out C?[]? outSeq, Ice.Current current);
+        public abstract A[]? opOptAArray(A[]? inSeq, out A[]? outSeq, Ice.Current current);
 
-        public abstract C?[]? opOptCList(C?[]? inSeq, out C?[]? outSeq, Ice.Current current);
+        public abstract A[]? opOptAList(A[]? inSeq, out A[]? outSeq, Ice.Current current);
 
         public abstract bool[]? opOptBoolSeq(bool[]? inSeq, out bool[]? outSeq, Ice.Current current);
 
@@ -3854,9 +3842,9 @@ namespace Test
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "opCSeq" => TestIntf.iceD_opCSeqAsync(this, request),
-                "opCArray" => TestIntf.iceD_opCArrayAsync(this, request),
-                "opCList" => TestIntf.iceD_opCListAsync(this, request),
+                "opASeq" => TestIntf.iceD_opASeqAsync(this, request),
+                "opAArray" => TestIntf.iceD_opAArrayAsync(this, request),
+                "opAList" => TestIntf.iceD_opAListAsync(this, request),
                 "opBoolSeq" => TestIntf.iceD_opBoolSeqAsync(this, request),
                 "opByteSeq" => TestIntf.iceD_opByteSeqAsync(this, request),
                 "opShortSeq" => TestIntf.iceD_opShortSeqAsync(this, request),
@@ -3875,9 +3863,9 @@ namespace Test
                 "opLongBufferSeq" => TestIntf.iceD_opLongBufferSeqAsync(this, request),
                 "opFloatBufferSeq" => TestIntf.iceD_opFloatBufferSeqAsync(this, request),
                 "opDoubleBufferSeq" => TestIntf.iceD_opDoubleBufferSeqAsync(this, request),
-                "opOptCSeq" => TestIntf.iceD_opOptCSeqAsync(this, request),
-                "opOptCArray" => TestIntf.iceD_opOptCArrayAsync(this, request),
-                "opOptCList" => TestIntf.iceD_opOptCListAsync(this, request),
+                "opOptASeq" => TestIntf.iceD_opOptASeqAsync(this, request),
+                "opOptAArray" => TestIntf.iceD_opOptAArrayAsync(this, request),
+                "opOptAList" => TestIntf.iceD_opOptAListAsync(this, request),
                 "opOptBoolSeq" => TestIntf.iceD_opOptBoolSeqAsync(this, request),
                 "opOptByteSeq" => TestIntf.iceD_opOptByteSeqAsync(this, request),
                 "opOptShortSeq" => TestIntf.iceD_opOptShortSeqAsync(this, request),
@@ -3910,68 +3898,62 @@ namespace Test
 {
     public partial interface TestIntf
     {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCSeqAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opASeqAsync(
             TestIntf obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            C?[] iceP_inSeq;
-            iceP_inSeq = CSeqHelper.read(istr);
-            istr.readPendingValues();
+            A[] iceP_inSeq;
+            iceP_inSeq = ASeqHelper.read(istr);
             istr.endEncapsulation();
-            C?[] iceP_outSeq;
-            var ret = obj.opCSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            A[] iceP_outSeq;
+            var ret = obj.opASeq(iceP_inSeq, out iceP_outSeq, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
-            CSeqHelper.write(ostr, iceP_outSeq);
-            CSeqHelper.write(ostr, ret);
-            ostr.writePendingValues();
+            ASeqHelper.write(ostr, iceP_outSeq);
+            ASeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCArrayAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAArrayAsync(
             TestIntf obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            C?[] iceP_inSeq;
-            iceP_inSeq = CArrayHelper.read(istr);
-            istr.readPendingValues();
+            A[] iceP_inSeq;
+            iceP_inSeq = AArrayHelper.read(istr);
             istr.endEncapsulation();
-            C?[] iceP_outSeq;
-            var ret = obj.opCArray(iceP_inSeq, out iceP_outSeq, request.current);
+            A[] iceP_outSeq;
+            var ret = obj.opAArray(iceP_inSeq, out iceP_outSeq, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
-            CArrayHelper.write(ostr, iceP_outSeq);
-            CArrayHelper.write(ostr, ret);
-            ostr.writePendingValues();
+            AArrayHelper.write(ostr, iceP_outSeq);
+            AArrayHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCListAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAListAsync(
             TestIntf obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            C?[] iceP_inSeq;
-            iceP_inSeq = CListHelper.read(istr);
-            istr.readPendingValues();
+            A[] iceP_inSeq;
+            iceP_inSeq = AListHelper.read(istr);
             istr.endEncapsulation();
-            C?[] iceP_outSeq;
-            var ret = obj.opCList(iceP_inSeq, out iceP_outSeq, request.current);
+            A[] iceP_outSeq;
+            var ret = obj.opAList(iceP_inSeq, out iceP_outSeq, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
-            CListHelper.write(ostr, iceP_outSeq);
-            CListHelper.write(ostr, ret);
-            ostr.writePendingValues();
+            AListHelper.write(ostr, iceP_outSeq);
+            AListHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
@@ -4336,19 +4318,19 @@ namespace Test
             return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptCSeqAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptASeqAsync(
             TestIntf obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            C?[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
+            A[]? iceP_inSeq;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
             {
-                istr.skip(4);
-                C?[] tmpVal;
-                tmpVal = CSeqHelper.read(istr);
+                istr.skipSize();
+                A[] tmpVal;
+                tmpVal = ASeqHelper.read(istr);
                 iceP_inSeq = tmpVal;
             }
             else
@@ -4356,39 +4338,37 @@ namespace Test
                 iceP_inSeq = null;
             }
             istr.endEncapsulation();
-            C?[]? iceP_outSeq;
-            var ret = obj.opOptCSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            A[]? iceP_outSeq;
+            var ret = obj.opOptASeq(iceP_inSeq, out iceP_outSeq, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
             {
-                int pos = ostr.startSize();
-                CSeqHelper.write(ostr, ret);
-                ostr.endSize(pos);
+                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
+                ASeqHelper.write(ostr, ret);
             }
-            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
+            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
             {
-                int pos = ostr.startSize();
-                CSeqHelper.write(ostr, iceP_outSeq);
-                ostr.endSize(pos);
+                ostr.writeSize(iceP_outSeq.Length * 4 + (iceP_outSeq.Length > 254 ? 5 : 1));
+                ASeqHelper.write(ostr, iceP_outSeq);
             }
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptCArrayAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptAArrayAsync(
             TestIntf obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            C?[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
+            A[]? iceP_inSeq;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
             {
-                istr.skip(4);
-                C?[] tmpVal;
-                tmpVal = CArrayHelper.read(istr);
+                istr.skipSize();
+                A[] tmpVal;
+                tmpVal = AArrayHelper.read(istr);
                 iceP_inSeq = tmpVal;
             }
             else
@@ -4396,39 +4376,37 @@ namespace Test
                 iceP_inSeq = null;
             }
             istr.endEncapsulation();
-            C?[]? iceP_outSeq;
-            var ret = obj.opOptCArray(iceP_inSeq, out iceP_outSeq, request.current);
+            A[]? iceP_outSeq;
+            var ret = obj.opOptAArray(iceP_inSeq, out iceP_outSeq, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
             {
-                int pos = ostr.startSize();
-                CArrayHelper.write(ostr, ret);
-                ostr.endSize(pos);
+                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
+                AArrayHelper.write(ostr, ret);
             }
-            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
+            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
             {
-                int pos = ostr.startSize();
-                CArrayHelper.write(ostr, iceP_outSeq);
-                ostr.endSize(pos);
+                ostr.writeSize(iceP_outSeq.Length * 4 + (iceP_outSeq.Length > 254 ? 5 : 1));
+                AArrayHelper.write(ostr, iceP_outSeq);
             }
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptCListAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptAListAsync(
             TestIntf obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            C?[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
+            A[]? iceP_inSeq;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
             {
-                istr.skip(4);
-                C?[] tmpVal;
-                tmpVal = CListHelper.read(istr);
+                istr.skipSize();
+                A[] tmpVal;
+                tmpVal = AListHelper.read(istr);
                 iceP_inSeq = tmpVal;
             }
             else
@@ -4436,21 +4414,19 @@ namespace Test
                 iceP_inSeq = null;
             }
             istr.endEncapsulation();
-            C?[]? iceP_outSeq;
-            var ret = obj.opOptCList(iceP_inSeq, out iceP_outSeq, request.current);
+            A[]? iceP_outSeq;
+            var ret = obj.opOptAList(iceP_inSeq, out iceP_outSeq, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
             {
-                int pos = ostr.startSize();
-                CListHelper.write(ostr, ret);
-                ostr.endSize(pos);
+                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
+                AListHelper.write(ostr, ret);
             }
-            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
+            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
             {
-                int pos = ostr.startSize();
-                CListHelper.write(ostr, iceP_outSeq);
-                ostr.endSize(pos);
+                ostr.writeSize(iceP_outSeq.Length * 4 + (iceP_outSeq.Length > 254 ? 5 : 1));
+                AListHelper.write(ostr, iceP_outSeq);
             }
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

@@ -1539,12 +1539,9 @@ open class OptionalClass: Ice.Value {
     public var i: Swift.Int32? = nil
     public var sm: SmallStruct? = nil
     public var enumS4: MyEnumS? = nil
-    public var myClassS5: MyClassS? = nil
     public var byteBoolD6: ByteBoolD? = nil
     public var shortIntD7: ShortIntD? = nil
     public var enum8: MyEnum? = nil
-    public var class9: MyClass? = nil
-    public var stringMyClassD10: StringMyClassD? = nil
     public var intSeq12: Ice.IntSeq? = nil
     public var byteSeq13: Ice.ByteSeq? = nil
     public var stringSeq14: Ice.StringSeq? = nil
@@ -1552,19 +1549,16 @@ open class OptionalClass: Ice.Value {
 
     public required init() {}
 
-    public init(bo: Swift.Bool, by: Swift.UInt8, sh: Swift.Int16?, i: Swift.Int32?, sm: SmallStruct?, enumS4: MyEnumS?, myClassS5: MyClassS?, byteBoolD6: ByteBoolD?, shortIntD7: ShortIntD?, enum8: MyEnum?, class9: MyClass?, stringMyClassD10: StringMyClassD?, intSeq12: Ice.IntSeq?, byteSeq13: Ice.ByteSeq?, stringSeq14: Ice.StringSeq?, p15: Point?) {
+    public init(bo: Swift.Bool, by: Swift.UInt8, sh: Swift.Int16?, i: Swift.Int32?, sm: SmallStruct?, enumS4: MyEnumS?, byteBoolD6: ByteBoolD?, shortIntD7: ShortIntD?, enum8: MyEnum?, intSeq12: Ice.IntSeq?, byteSeq13: Ice.ByteSeq?, stringSeq14: Ice.StringSeq?, p15: Point?) {
         self.bo = bo
         self.by = by
         self.sh = sh
         self.i = i
         self.sm = sm
         self.enumS4 = enumS4
-        self.myClassS5 = myClassS5
         self.byteBoolD6 = byteBoolD6
         self.shortIntD7 = shortIntD7
         self.enum8 = enum8
-        self.class9 = class9
-        self.stringMyClassD10 = stringMyClassD10
         self.intSeq12 = intSeq12
         self.byteSeq13 = byteSeq13
         self.stringSeq14 = stringSeq14
@@ -1593,12 +1587,9 @@ open class OptionalClass: Ice.Value {
         self.i = try istr.read(tag: 2)
         self.sm = try istr.read(tag: 3)
         self.enumS4 = try MyEnumSHelper.read(from: istr, tag: 4)
-        self.myClassS5 = try MyClassSHelper.read(from: istr, tag: 5)
         self.byteBoolD6 = try ByteBoolDHelper.read(from: istr, tag: 6)
         self.shortIntD7 = try ShortIntDHelper.read(from: istr, tag: 7)
         self.enum8 = try istr.read(tag: 8)
-        try istr.read(tag: 9, value: MyClass.self) { self.class9 = $0 }
-        self.stringMyClassD10 = try StringMyClassDHelper.read(from: istr, tag: 10)
         self.intSeq12 = try istr.read(tag: 12)
         self.byteSeq13 = try istr.read(tag: 13)
         self.stringSeq14 = try istr.read(tag: 14)
@@ -1614,12 +1605,9 @@ open class OptionalClass: Ice.Value {
         ostr.write(tag: 2, value: self.i)
         ostr.write(tag: 3, value: self.sm)
         MyEnumSHelper.write(to: ostr, tag: 4, value: self.enumS4)
-        MyClassSHelper.write(to: ostr, tag: 5, value: self.myClassS5)
         ByteBoolDHelper.write(to: ostr, tag: 6, value: self.byteBoolD6)
         ShortIntDHelper.write(to: ostr, tag: 7, value: self.shortIntD7)
         ostr.write(tag: 8, value: self.enum8)
-        ostr.write(tag: 9, value: self.class9)
-        StringMyClassDHelper.write(to: ostr, tag: 10, value: self.stringMyClassD10)
         ostr.write(tag: 12, value: self.intSeq12)
         ostr.write(tag: 13, value: self.byteSeq13)
         ostr.write(tag: 14, value: self.stringSeq14)

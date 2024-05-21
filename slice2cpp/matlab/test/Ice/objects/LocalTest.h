@@ -92,9 +92,6 @@ namespace LocalTest
 
     using S1DictDict = ::std::map<::std::int32_t, S1Dict>;
 
-    class Opt;
-    using OptPtr = ::std::shared_ptr<Opt>;
-
 }
 
 namespace LocalTest
@@ -676,59 +673,6 @@ struct StructKey
     }
 };
 
-class Opt : public ::Ice::Value
-{
-public:
-
-    Opt() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    Opt(::std::optional<::LocalTest::S1> s1, ::std::optional<::LocalTest::C1Seq> c1seq, ::std::optional<::LocalTest::S1Dict> s1dict) :
-        s1(::std::move(s1)),
-        c1seq(::std::move(c1seq)),
-        s1dict(::std::move(s1dict))
-    {
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId() noexcept;
-
-    ::std::string ice_id() const override;
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::optional<::LocalTest::S1>&, const ::std::optional<::LocalTest::C1Seq>&, const ::std::optional<::LocalTest::S1Dict>&> ice_tuple() const
-    {
-        return std::tie(s1, c1seq, s1dict);
-    }
-
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
-    OptPtr ice_clone() const { return ::std::static_pointer_cast <Opt>(_iceCloneImpl()); }
-
-    ::std::optional<::LocalTest::S1> s1;
-    ::std::optional<::LocalTest::C1Seq> c1seq;
-    ::std::optional<::LocalTest::S1Dict> s1dict;
-
-protected:
-
-    Opt(const Opt&) = default;
-
-    ::Ice::ValuePtr _iceCloneImpl() const override;
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
-
-    void _iceReadImpl(::Ice::InputStream*) override;
-};
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;
@@ -973,24 +917,6 @@ struct StreamReader<::LocalTest::StructKey>
     static void read(InputStream* istr, ::LocalTest::StructKey& v)
     {
         istr->readAll(v.i, v.j);
-    }
-};
-
-template<>
-struct StreamWriter<::LocalTest::Opt>
-{
-    static void write(OutputStream* ostr, const ::LocalTest::Opt& v)
-    {
-        ostr->writeAll({1, 2, 3}, v.s1, v.c1seq, v.s1dict);
-    }
-};
-
-template<>
-struct StreamReader<::LocalTest::Opt>
-{
-    static void read(InputStream* istr, ::LocalTest::Opt& v)
-    {
-        istr->readAll({1, 2, 3}, v.s1, v.c1seq, v.s1dict);
     }
 };
 

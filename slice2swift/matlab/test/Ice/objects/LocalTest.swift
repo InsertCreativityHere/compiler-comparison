@@ -1297,12 +1297,6 @@ public struct S1DictDictHelper {
     }
 }
 
-/// Traits for Slice class`Opt`.
-public struct OptTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::LocalTest::Opt"]
-    public static let staticId = "::LocalTest::Opt"
-}
-
 /// :nodoc:
 public class C1_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
@@ -1748,63 +1742,6 @@ open class CB8: Ice.Value {
         ostr.write(self.s1)
         C1SeqHelper.write(to: ostr, value: self.c1seq)
         S1DictHelper.write(to: ostr, value: self.s1dict)
-        ostr.endSlice()
-    }
-}
-
-/// :nodoc:
-public class Opt_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return Opt.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func LocalTest_Opt() -> Ice.ValueTypeResolver {
-        return Opt_TypeResolver()
-    }
-}
-
-open class Opt: Ice.Value {
-    public var s1: S1? = nil
-    public var c1seq: C1Seq? = nil
-    public var s1dict: S1Dict? = nil
-
-    public required init() {}
-
-    public init(s1: S1?, c1seq: C1Seq?, s1dict: S1Dict?) {
-        self.s1 = s1
-        self.c1seq = c1seq
-        self.s1dict = s1dict
-    }
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return OptTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return OptTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        self.s1 = try istr.read(tag: 1)
-        self.c1seq = try C1SeqHelper.read(from: istr, tag: 2)
-        self.s1dict = try S1DictHelper.read(from: istr, tag: 3)
-        try istr.endSlice()
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: OptTraits.staticId, compactId: -1, last: true)
-        ostr.write(tag: 1, value: self.s1)
-        C1SeqHelper.write(to: ostr, tag: 2, value: self.c1seq)
-        S1DictHelper.write(to: ostr, tag: 3, value: self.s1dict)
         ostr.endSlice()
     }
 }

@@ -466,33 +466,6 @@
     Slice.defineDictionary(LocalTest, "C1DictDict", "C1DictDictHelper", "Ice.IntHelper", "LocalTest.C1DictHelper", false, undefined, undefined);
 
     Slice.defineDictionary(LocalTest, "S1DictDict", "S1DictDictHelper", "Ice.IntHelper", "LocalTest.S1DictHelper", false, undefined, undefined);
-
-    LocalTest.Opt = class extends Ice.Value
-    {
-        constructor(s1 = undefined, c1seq = undefined, s1dict = undefined)
-        {
-            super();
-            this.s1 = s1;
-            this.c1seq = c1seq;
-            this.s1dict = s1dict;
-        }
-
-        _iceWriteMemberImpl(ostr)
-        {
-            LocalTest.S1.writeOptional(ostr, 1, this.s1);
-            LocalTest.C1SeqHelper.writeOptional(ostr, 2, this.c1seq);
-            LocalTest.S1DictHelper.writeOptional(ostr, 3, this.s1dict);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.s1 = LocalTest.S1.readOptional(istr, 1);
-            this.c1seq = LocalTest.C1SeqHelper.readOptional(istr, 2);
-            this.s1dict = LocalTest.S1DictHelper.readOptional(istr, 3);
-        }
-    };
-
-    Slice.defineValue(LocalTest.Opt, "::LocalTest::Opt");
     exports.LocalTest = LocalTest;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

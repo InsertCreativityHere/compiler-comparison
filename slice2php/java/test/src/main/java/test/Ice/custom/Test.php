@@ -22,64 +22,58 @@ namespace
 
 namespace Test
 {
-    global $Test__t_C;
-    class C extends \Ice\Value
+    global $Test__t_A;
+    class A
     {
-        public function __construct()
+        public function __construct($i=0)
         {
-        }
-
-        public function ice_id()
-        {
-            return '::Test::C';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::C';
+            $this->i = $i;
         }
 
         public function __toString(): string
         {
-            global $Test__t_C;
-            return IcePHP_stringify($this, $Test__t_C);
+            global $Test__t_A;
+            return IcePHP_stringify($this, $Test__t_A);
         }
+
+        public $i;
     }
 
-    global $Ice__t_Value;
-    $Test__t_C = IcePHP_defineClass('::Test::C', '\\Test\\C', -1, false, $Ice__t_Value, null);
+    global $IcePHP__t_int;
+    $Test__t_A = IcePHP_defineStruct('::Test::A', '\\Test\\A', array(
+        array('i', $IcePHP__t_int)));
 }
 
 namespace Test
 {
-    global $Test__t_CSeq;
+    global $Test__t_ASeq;
 
-    if(!isset($Test__t_CSeq))
+    if(!isset($Test__t_ASeq))
     {
-        global $Test__t_C;
-        $Test__t_CSeq = IcePHP_defineSequence('::Test::CSeq', $Test__t_C);
-    }
-}
-
-namespace Test
-{
-    global $Test__t_CArray;
-
-    if(!isset($Test__t_CArray))
-    {
-        global $Test__t_C;
-        $Test__t_CArray = IcePHP_defineSequence('::Test::CArray', $Test__t_C);
+        global $Test__t_A;
+        $Test__t_ASeq = IcePHP_defineSequence('::Test::ASeq', $Test__t_A);
     }
 }
 
 namespace Test
 {
-    global $Test__t_CList;
+    global $Test__t_AArray;
 
-    if(!isset($Test__t_CList))
+    if(!isset($Test__t_AArray))
     {
-        global $Test__t_C;
-        $Test__t_CList = IcePHP_defineSequence('::Test::CList', $Test__t_C);
+        global $Test__t_A;
+        $Test__t_AArray = IcePHP_defineSequence('::Test::AArray', $Test__t_A);
+    }
+}
+
+namespace Test
+{
+    global $Test__t_AList;
+
+    if(!isset($Test__t_AList))
+    {
+        global $Test__t_A;
+        $Test__t_AList = IcePHP_defineSequence('::Test::AList', $Test__t_A);
     }
 }
 
@@ -356,9 +350,9 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
 
-    global $Test__t_CSeq;
-    global $Test__t_CArray;
-    global $Test__t_CList;
+    global $Test__t_ASeq;
+    global $Test__t_AArray;
+    global $Test__t_AList;
     global $Test__t_BoolSeq;
     global $Test__t_ByteSeq;
     global $Test__t_ShortSeq;
@@ -377,9 +371,9 @@ namespace Test
     global $Test__t_LongBuffer;
     global $Test__t_FloatBuffer;
     global $Test__t_DoubleBuffer;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opCSeq', 0, 0, array(array($Test__t_CSeq)), array(array($Test__t_CSeq)), array($Test__t_CSeq), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opCArray', 0, 0, array(array($Test__t_CArray)), array(array($Test__t_CArray)), array($Test__t_CArray), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opCList', 0, 0, array(array($Test__t_CList)), array(array($Test__t_CList)), array($Test__t_CList), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opASeq', 0, 0, array(array($Test__t_ASeq)), array(array($Test__t_ASeq)), array($Test__t_ASeq), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opAArray', 0, 0, array(array($Test__t_AArray)), array(array($Test__t_AArray)), array($Test__t_AArray), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opAList', 0, 0, array(array($Test__t_AList)), array(array($Test__t_AList)), array($Test__t_AList), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBoolSeq', 0, 0, array(array($Test__t_BoolSeq)), array(array($Test__t_BoolSeq)), array($Test__t_BoolSeq), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opByteSeq', 0, 0, array(array($Test__t_ByteSeq)), array(array($Test__t_ByteSeq)), array($Test__t_ByteSeq), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opShortSeq', 0, 0, array(array($Test__t_ShortSeq)), array(array($Test__t_ShortSeq)), array($Test__t_ShortSeq), null);
@@ -398,9 +392,9 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opLongBufferSeq', 0, 0, array(array($Test__t_LongBuffer)), array(array($Test__t_LongBuffer)), array($Test__t_LongBuffer), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opFloatBufferSeq', 0, 0, array(array($Test__t_FloatBuffer)), array(array($Test__t_FloatBuffer)), array($Test__t_FloatBuffer), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opDoubleBufferSeq', 0, 0, array(array($Test__t_DoubleBuffer)), array(array($Test__t_DoubleBuffer)), array($Test__t_DoubleBuffer), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptCSeq', 0, 0, array(array($Test__t_CSeq, 2)), array(array($Test__t_CSeq, 3)), array($Test__t_CSeq, 1), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptCArray', 0, 0, array(array($Test__t_CArray, 2)), array(array($Test__t_CArray, 3)), array($Test__t_CArray, 1), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptCList', 0, 0, array(array($Test__t_CList, 2)), array(array($Test__t_CList, 3)), array($Test__t_CList, 1), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptASeq', 0, 0, array(array($Test__t_ASeq, 2)), array(array($Test__t_ASeq, 3)), array($Test__t_ASeq, 1), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptAArray', 0, 0, array(array($Test__t_AArray, 2)), array(array($Test__t_AArray, 3)), array($Test__t_AArray, 1), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptAList', 0, 0, array(array($Test__t_AList, 2)), array(array($Test__t_AList, 3)), array($Test__t_AList, 1), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptBoolSeq', 0, 0, array(array($Test__t_BoolSeq, 2)), array(array($Test__t_BoolSeq, 3)), array($Test__t_BoolSeq, 1), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptByteSeq', 0, 0, array(array($Test__t_ByteSeq, 2)), array(array($Test__t_ByteSeq, 3)), array($Test__t_ByteSeq, 1), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptShortSeq', 0, 0, array(array($Test__t_ShortSeq, 2)), array(array($Test__t_ShortSeq, 3)), array($Test__t_ShortSeq, 1), null);

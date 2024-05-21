@@ -222,7 +222,7 @@ namespace Test
     global $Test__t_OptionalClass;
     class OptionalClass extends \Ice\Value
     {
-        public function __construct($bo=false, $by=0, $sh=\Ice\None, $i=\Ice\None, $sm=\Ice\None, $enumS4=\Ice\None, $myClassS5=\Ice\None, $byteBoolD6=\Ice\None, $shortIntD7=\Ice\None, $enum8=\Ice\None, $class9=\Ice\None, $stringMyClassD10=\Ice\None, $intSeq12=\Ice\None, $byteSeq13=\Ice\None, $stringSeq14=\Ice\None, $p15=\Ice\None)
+        public function __construct($bo=false, $by=0, $sh=\Ice\None, $i=\Ice\None, $sm=\Ice\None, $enumS4=\Ice\None, $byteBoolD6=\Ice\None, $shortIntD7=\Ice\None, $enum8=\Ice\None, $intSeq12=\Ice\None, $byteSeq13=\Ice\None, $stringSeq14=\Ice\None, $p15=\Ice\None)
         {
             $this->bo = $bo;
             $this->by = $by;
@@ -230,12 +230,9 @@ namespace Test
             $this->i = $i;
             $this->sm = is_null($sm) ? new \Test\SmallStruct : $sm;
             $this->enumS4 = $enumS4;
-            $this->myClassS5 = $myClassS5;
             $this->byteBoolD6 = $byteBoolD6;
             $this->shortIntD7 = $shortIntD7;
             $this->enum8 = $enum8;
-            $this->class9 = $class9;
-            $this->stringMyClassD10 = $stringMyClassD10;
             $this->intSeq12 = $intSeq12;
             $this->byteSeq13 = $byteSeq13;
             $this->stringSeq14 = $stringSeq14;
@@ -264,12 +261,9 @@ namespace Test
         public $i;
         public $sm;
         public $enumS4;
-        public $myClassS5;
         public $byteBoolD6;
         public $shortIntD7;
         public $enum8;
-        public $class9;
-        public $stringMyClassD10;
         public $intSeq12;
         public $byteSeq13;
         public $stringSeq14;
@@ -285,12 +279,9 @@ namespace Test
     global $IcePHP__t_int;
     global $Test__t_SmallStruct;
     global $Test__t_MyEnumS;
-    global $Test__t_MyClassS;
     global $Test__t_ByteBoolD;
     global $Test__t_ShortIntD;
     global $Test__t_MyEnum;
-    global $Test__t_MyClass;
-    global $Test__t_StringMyClassD;
     global $Ice__t_IntSeq;
     global $Ice__t_ByteSeq;
     global $Ice__t_StringSeq;
@@ -302,12 +293,9 @@ namespace Test
         array('i', $IcePHP__t_int, true, 2),
         array('sm', $Test__t_SmallStruct, true, 3),
         array('enumS4', $Test__t_MyEnumS, true, 4),
-        array('myClassS5', $Test__t_MyClassS, true, 5),
         array('byteBoolD6', $Test__t_ByteBoolD, true, 6),
         array('shortIntD7', $Test__t_ShortIntD, true, 7),
         array('enum8', $Test__t_MyEnum, true, 8),
-        array('class9', $Test__t_MyClass, true, 9),
-        array('stringMyClassD10', $Test__t_StringMyClassD, true, 10),
         array('intSeq12', $Ice__t_IntSeq, true, 12),
         array('byteSeq13', $Ice__t_ByteSeq, true, 13),
         array('stringSeq14', $Ice__t_StringSeq, true, 14),

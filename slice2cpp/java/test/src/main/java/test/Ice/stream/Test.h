@@ -197,19 +197,16 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i, ::std::optional<::Test::SmallStruct> sm, ::std::optional<::Test::MyEnumS> enumS4, ::std::optional<::Test::MyClassS> myClassS5, ::std::optional<::Test::ByteBoolD> byteBoolD6, ::std::optional<::Test::ShortIntD> shortIntD7, ::std::optional<::Test::MyEnum> enum8, ::std::optional<::Test::MyClassPtr> class9, ::std::optional<::Test::StringMyClassD> stringMyClassD10, ::std::optional<::Ice::IntSeq> intSeq12, ::std::optional<::Ice::ByteSeq> byteSeq13, ::std::optional<::Ice::StringSeq> stringSeq14, ::std::optional<::Test::Point> p15) :
+    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i, ::std::optional<::Test::SmallStruct> sm, ::std::optional<::Test::MyEnumS> enumS4, ::std::optional<::Test::ByteBoolD> byteBoolD6, ::std::optional<::Test::ShortIntD> shortIntD7, ::std::optional<::Test::MyEnum> enum8, ::std::optional<::Ice::IntSeq> intSeq12, ::std::optional<::Ice::ByteSeq> byteSeq13, ::std::optional<::Ice::StringSeq> stringSeq14, ::std::optional<::Test::Point> p15) :
         bo(bo),
         by(by),
         sh(sh),
         i(i),
         sm(::std::move(sm)),
         enumS4(::std::move(enumS4)),
-        myClassS5(::std::move(myClassS5)),
         byteBoolD6(::std::move(byteBoolD6)),
         shortIntD7(::std::move(shortIntD7)),
         enum8(enum8),
-        class9(::std::move(class9)),
-        stringMyClassD10(::std::move(stringMyClassD10)),
         intSeq12(::std::move(intSeq12)),
         byteSeq13(::std::move(byteSeq13)),
         stringSeq14(::std::move(stringSeq14)),
@@ -229,9 +226,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::std::uint8_t&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::Test::SmallStruct>&, const ::std::optional<::Test::MyEnumS>&, const ::std::optional<::Test::MyClassS>&, const ::std::optional<::Test::ByteBoolD>&, const ::std::optional<::Test::ShortIntD>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Test::MyClassPtr>&, const ::std::optional<::Test::StringMyClassD>&, const ::std::optional<::Ice::IntSeq>&, const ::std::optional<::Ice::ByteSeq>&, const ::std::optional<::Ice::StringSeq>&, const ::std::optional<::Test::Point>&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::Test::SmallStruct>&, const ::std::optional<::Test::MyEnumS>&, const ::std::optional<::Test::ByteBoolD>&, const ::std::optional<::Test::ShortIntD>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Ice::IntSeq>&, const ::std::optional<::Ice::ByteSeq>&, const ::std::optional<::Ice::StringSeq>&, const ::std::optional<::Test::Point>&> ice_tuple() const
     {
-        return std::tie(bo, by, sh, i, sm, enumS4, myClassS5, byteBoolD6, shortIntD7, enum8, class9, stringMyClassD10, intSeq12, byteSeq13, stringSeq14, p15);
+        return std::tie(bo, by, sh, i, sm, enumS4, byteBoolD6, shortIntD7, enum8, intSeq12, byteSeq13, stringSeq14, p15);
     }
 
     /**
@@ -246,12 +243,9 @@ public:
     ::std::optional<::std::int32_t> i;
     ::std::optional<::Test::SmallStruct> sm;
     ::std::optional<::Test::MyEnumS> enumS4;
-    ::std::optional<::Test::MyClassS> myClassS5;
     ::std::optional<::Test::ByteBoolD> byteBoolD6;
     ::std::optional<::Test::ShortIntD> shortIntD7;
     ::std::optional<::Test::MyEnum> enum8;
-    ::std::optional<::Test::MyClassPtr> class9;
-    ::std::optional<::Test::StringMyClassD> stringMyClassD10;
     ::std::optional<::Ice::IntSeq> intSeq12;
     ::std::optional<::Ice::ByteSeq> byteSeq13;
     ::std::optional<::Ice::StringSeq> stringSeq14;
@@ -489,7 +483,7 @@ struct StreamWriter<::Test::OptionalClass>
     static void write(OutputStream* ostr, const ::Test::OptionalClass& v)
     {
         ostr->writeAll(v.bo, v.by);
-        ostr->writeAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15}, v.sh, v.i, v.sm, v.enumS4, v.myClassS5, v.byteBoolD6, v.shortIntD7, v.enum8, v.class9, v.stringMyClassD10, v.intSeq12, v.byteSeq13, v.stringSeq14, v.p15);
+        ostr->writeAll({1, 2, 3, 4, 6, 7, 8, 12, 13, 14, 15}, v.sh, v.i, v.sm, v.enumS4, v.byteBoolD6, v.shortIntD7, v.enum8, v.intSeq12, v.byteSeq13, v.stringSeq14, v.p15);
     }
 };
 
@@ -499,7 +493,7 @@ struct StreamReader<::Test::OptionalClass>
     static void read(InputStream* istr, ::Test::OptionalClass& v)
     {
         istr->readAll(v.bo, v.by);
-        istr->readAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15}, v.sh, v.i, v.sm, v.enumS4, v.myClassS5, v.byteBoolD6, v.shortIntD7, v.enum8, v.class9, v.stringMyClassD10, v.intSeq12, v.byteSeq13, v.stringSeq14, v.p15);
+        istr->readAll({1, 2, 3, 4, 6, 7, 8, 12, 13, 14, 15}, v.sh, v.i, v.sm, v.enumS4, v.byteBoolD6, v.shortIntD7, v.enum8, v.intSeq12, v.byteSeq13, v.stringSeq14, v.p15);
     }
 };
 

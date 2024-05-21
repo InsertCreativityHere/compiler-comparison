@@ -242,19 +242,16 @@ if '_t_StringMyClassD' not in _M_Test.__dict__:
 if 'OptionalClass' not in _M_Test.__dict__:
     _M_Test.OptionalClass = Ice.createTempClass()
     class OptionalClass(Ice.Value):
-        def __init__(self, bo=False, by=0, sh=Ice.Unset, i=Ice.Unset, sm=Ice.Unset, enumS4=Ice.Unset, myClassS5=Ice.Unset, byteBoolD6=Ice.Unset, shortIntD7=Ice.Unset, enum8=Ice.Unset, class9=Ice.Unset, stringMyClassD10=Ice.Unset, intSeq12=Ice.Unset, byteSeq13=Ice.Unset, stringSeq14=Ice.Unset, p15=Ice.Unset):
+        def __init__(self, bo=False, by=0, sh=Ice.Unset, i=Ice.Unset, sm=Ice.Unset, enumS4=Ice.Unset, byteBoolD6=Ice.Unset, shortIntD7=Ice.Unset, enum8=Ice.Unset, intSeq12=Ice.Unset, byteSeq13=Ice.Unset, stringSeq14=Ice.Unset, p15=Ice.Unset):
             self.bo = bo
             self.by = by
             self.sh = sh
             self.i = i
             self.sm = sm
             self.enumS4 = enumS4
-            self.myClassS5 = myClassS5
             self.byteBoolD6 = byteBoolD6
             self.shortIntD7 = shortIntD7
             self.enum8 = enum8
-            self.class9 = class9
-            self.stringMyClassD10 = stringMyClassD10
             self.intSeq12 = intSeq12
             self.byteSeq13 = byteSeq13
             self.stringSeq14 = stringSeq14
@@ -281,12 +278,9 @@ if 'OptionalClass' not in _M_Test.__dict__:
         ('i', (), IcePy._t_int, True, 2),
         ('sm', (), _M_Test._t_SmallStruct, True, 3),
         ('enumS4', (), _M_Test._t_MyEnumS, True, 4),
-        ('myClassS5', (), _M_Test._t_MyClassS, True, 5),
         ('byteBoolD6', (), _M_Test._t_ByteBoolD, True, 6),
         ('shortIntD7', (), _M_Test._t_ShortIntD, True, 7),
         ('enum8', (), _M_Test._t_MyEnum, True, 8),
-        ('class9', (), _M_Test._t_MyClass, True, 9),
-        ('stringMyClassD10', (), _M_Test._t_StringMyClassD, True, 10),
         ('intSeq12', (), _M_Ice._t_IntSeq, True, 12),
         ('byteSeq13', (), _M_Ice._t_ByteSeq, True, 13),
         ('stringSeq14', (), _M_Ice._t_StringSeq, True, 14),

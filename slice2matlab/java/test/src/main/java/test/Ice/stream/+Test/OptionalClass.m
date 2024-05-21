@@ -7,12 +7,9 @@
 %   i
 %   sm
 %   enumS4
-%   myClassS5
 %   byteBoolD6
 %   shortIntD7
 %   enum8
-%   class9
-%   stringMyClassD10
 %   intSeq12
 %   byteSeq13
 %   stringSeq14
@@ -29,19 +26,16 @@ classdef OptionalClass < Ice.Value
         i
         sm
         enumS4
-        myClassS5
         byteBoolD6
         shortIntD7
         enum8
-        class9
-        stringMyClassD10
         intSeq12
         byteSeq13
         stringSeq14
         p15
     end
     methods
-        function obj = OptionalClass(bo, by, sh, i, sm, enumS4, myClassS5, byteBoolD6, shortIntD7, enum8, class9, stringMyClassD10, intSeq12, byteSeq13, stringSeq14, p15)
+        function obj = OptionalClass(bo, by, sh, i, sm, enumS4, byteBoolD6, shortIntD7, enum8, intSeq12, byteSeq13, stringSeq14, p15)
             if nargin == 0
                 obj.bo = false;
                 obj.by = 0;
@@ -49,12 +43,9 @@ classdef OptionalClass < Ice.Value
                 obj.i = IceInternal.UnsetI.Instance;
                 obj.sm = IceInternal.UnsetI.Instance;
                 obj.enumS4 = IceInternal.UnsetI.Instance;
-                obj.myClassS5 = IceInternal.UnsetI.Instance;
                 obj.byteBoolD6 = IceInternal.UnsetI.Instance;
                 obj.shortIntD7 = IceInternal.UnsetI.Instance;
                 obj.enum8 = IceInternal.UnsetI.Instance;
-                obj.class9 = IceInternal.UnsetI.Instance;
-                obj.stringMyClassD10 = IceInternal.UnsetI.Instance;
                 obj.intSeq12 = IceInternal.UnsetI.Instance;
                 obj.byteSeq13 = IceInternal.UnsetI.Instance;
                 obj.stringSeq14 = IceInternal.UnsetI.Instance;
@@ -66,12 +57,9 @@ classdef OptionalClass < Ice.Value
                 obj.i = i;
                 obj.sm = sm;
                 obj.enumS4 = enumS4;
-                obj.myClassS5 = myClassS5;
                 obj.byteBoolD6 = byteBoolD6;
                 obj.shortIntD7 = shortIntD7;
                 obj.enum8 = enum8;
-                obj.class9 = class9;
-                obj.stringMyClassD10 = stringMyClassD10;
                 obj.intSeq12 = intSeq12;
                 obj.byteSeq13 = byteSeq13;
                 obj.stringSeq14 = stringSeq14;
@@ -90,12 +78,6 @@ classdef OptionalClass < Ice.Value
             if obj.sm ~= Ice.Unset
                 obj.sm = obj.sm.ice_convert();
             end
-            if obj.myClassS5 ~= Ice.Unset
-                obj.myClassS5 = Test.MyClassS.convert(obj.myClassS5);
-            end
-            if obj.stringMyClassD10 ~= Ice.Unset
-                obj.stringMyClassD10 = Test.StringMyClassD.convert(obj.stringMyClassD10);
-            end
         end
     end
     methods(Access=protected)
@@ -107,12 +89,9 @@ classdef OptionalClass < Ice.Value
             os.writeIntOpt(2, obj.i);
             Test.SmallStruct.ice_writeOpt(os, 3, obj.sm);
             Test.MyEnumS.writeOpt(os, 4, obj.enumS4);
-            Test.MyClassS.writeOpt(os, 5, obj.myClassS5);
             Test.ByteBoolD.writeOpt(os, 6, obj.byteBoolD6);
             Test.ShortIntD.writeOpt(os, 7, obj.shortIntD7);
             Test.MyEnum.ice_writeOpt(os, 8, obj.enum8);
-            os.writeValueOpt(9, obj.class9);
-            Test.StringMyClassD.writeOpt(os, 10, obj.stringMyClassD10);
             os.writeIntSeqOpt(12, obj.intSeq12);
             os.writeByteSeqOpt(13, obj.byteSeq13);
             os.writeStringSeqOpt(14, obj.stringSeq14);
@@ -127,20 +106,14 @@ classdef OptionalClass < Ice.Value
             obj.i = is.readIntOpt(2);
             obj.sm = Test.SmallStruct.ice_readOpt(is, 3);
             obj.enumS4 = Test.MyEnumS.readOpt(is, 4);
-            obj.myClassS5 = Test.MyClassS.readOpt(is, 5);
             obj.byteBoolD6 = Test.ByteBoolD.readOpt(is, 6);
             obj.shortIntD7 = Test.ShortIntD.readOpt(is, 7);
             obj.enum8 = Test.MyEnum.ice_readOpt(is, 8);
-            is.readValueOpt(9, @obj.iceSetMember_class9, 'Test.MyClass');
-            obj.stringMyClassD10 = Test.StringMyClassD.readOpt(is, 10);
             obj.intSeq12 = is.readIntSeqOpt(12);
             obj.byteSeq13 = is.readByteSeqOpt(13);
             obj.stringSeq14 = is.readStringSeqOpt(14);
             obj.p15 = Test.Point.ice_readOpt(is, 15);
             is.endSlice();
-        end
-        function iceSetMember_class9(obj, v)
-            obj.class9 = v;
         end
     end
     methods(Static)

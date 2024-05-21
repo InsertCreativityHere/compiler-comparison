@@ -217,26 +217,23 @@ module ::Test
         end
         class OptionalClass < ::Ice::Value
 
-            def initialize(bo=false, by=0, sh=::Ice::Unset, i=::Ice::Unset, sm=::Ice::Unset, enumS4=::Ice::Unset, myClassS5=::Ice::Unset, byteBoolD6=::Ice::Unset, shortIntD7=::Ice::Unset, enum8=::Ice::Unset, class9=::Ice::Unset, stringMyClassD10=::Ice::Unset, intSeq12=::Ice::Unset, byteSeq13=::Ice::Unset, stringSeq14=::Ice::Unset, p15=::Ice::Unset)
+            def initialize(bo=false, by=0, sh=::Ice::Unset, i=::Ice::Unset, sm=::Ice::Unset, enumS4=::Ice::Unset, byteBoolD6=::Ice::Unset, shortIntD7=::Ice::Unset, enum8=::Ice::Unset, intSeq12=::Ice::Unset, byteSeq13=::Ice::Unset, stringSeq14=::Ice::Unset, p15=::Ice::Unset)
                 @bo = bo
                 @by = by
                 @sh = sh
                 @i = i
                 @sm = sm
                 @enumS4 = enumS4
-                @myClassS5 = myClassS5
                 @byteBoolD6 = byteBoolD6
                 @shortIntD7 = shortIntD7
                 @enum8 = enum8
-                @class9 = class9
-                @stringMyClassD10 = stringMyClassD10
                 @intSeq12 = intSeq12
                 @byteSeq13 = byteSeq13
                 @stringSeq14 = stringSeq14
                 @p15 = p15
             end
 
-            attr_accessor :bo, :by, :sh, :i, :sm, :enumS4, :myClassS5, :byteBoolD6, :shortIntD7, :enum8, :class9, :stringMyClassD10, :intSeq12, :byteSeq13, :stringSeq14, :p15
+            attr_accessor :bo, :by, :sh, :i, :sm, :enumS4, :byteBoolD6, :shortIntD7, :enum8, :intSeq12, :byteSeq13, :stringSeq14, :p15
         end
 
         if not defined?(::Test::T_OptionalClass)
@@ -250,12 +247,9 @@ module ::Test
             ['i', ::Ice::T_int, true, 2],
             ['sm', ::Test::T_SmallStruct, true, 3],
             ['enumS4', ::Test::T_MyEnumS, true, 4],
-            ['myClassS5', ::Test::T_MyClassS, true, 5],
             ['byteBoolD6', ::Test::T_ByteBoolD, true, 6],
             ['shortIntD7', ::Test::T_ShortIntD, true, 7],
             ['enum8', ::Test::T_MyEnum, true, 8],
-            ['class9', ::Test::T_MyClass, true, 9],
-            ['stringMyClassD10', ::Test::T_StringMyClassD, true, 10],
             ['intSeq12', ::Ice::T_IntSeq, true, 12],
             ['byteSeq13', ::Ice::T_ByteSeq, true, 13],
             ['stringSeq14', ::Ice::T_StringSeq, true, 14],

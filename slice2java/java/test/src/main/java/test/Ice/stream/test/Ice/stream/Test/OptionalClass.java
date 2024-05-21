@@ -33,7 +33,7 @@ public class OptionalClass extends com.zeroc.Ice.Value
         this.p15 = new Point();
     }
 
-    public OptionalClass(boolean bo, byte by, short sh, int i, SmallStruct sm, MyEnum[] enumS4, MyClass[] myClassS5, java.util.Map<java.lang.Byte, java.lang.Boolean> byteBoolD6, java.util.Map<java.lang.Short, java.lang.Integer> shortIntD7, MyEnum enum8, MyClass class9, java.util.Map<java.lang.String, MyClass> stringMyClassD10, int[] intSeq12, byte[] byteSeq13, String[] stringSeq14, Point p15)
+    public OptionalClass(boolean bo, byte by, short sh, int i, SmallStruct sm, MyEnum[] enumS4, java.util.Map<java.lang.Byte, java.lang.Boolean> byteBoolD6, java.util.Map<java.lang.Short, java.lang.Integer> shortIntD7, MyEnum enum8, int[] intSeq12, byte[] byteSeq13, String[] stringSeq14, Point p15)
     {
         this.bo = bo;
         this.by = by;
@@ -41,12 +41,9 @@ public class OptionalClass extends com.zeroc.Ice.Value
         setI(i);
         setSm(sm);
         setEnumS4(enumS4);
-        setMyClassS5(myClassS5);
         setByteBoolD6(byteBoolD6);
         setShortIntD7(shortIntD7);
         setEnum8(enum8);
-        setClass9(class9);
-        setStringMyClassD10(stringMyClassD10);
         setIntSeq12(intSeq12);
         setByteSeq13(byteSeq13);
         setStringSeq14(stringSeq14);
@@ -287,77 +284,6 @@ public class OptionalClass extends com.zeroc.Ice.Value
         this.enumS4[index] = val;
     }
 
-    private MyClass[] myClassS5;
-    private boolean _myClassS5;
-
-    public MyClass[] getMyClassS5()
-    {
-        if(!_myClassS5)
-        {
-            throw new java.util.NoSuchElementException("myClassS5 is not set");
-        }
-        return myClassS5;
-    }
-
-    public void setMyClassS5(MyClass[] myClassS5)
-    {
-        _myClassS5 = true;
-        this.myClassS5 = myClassS5;
-    }
-
-    public boolean hasMyClassS5()
-    {
-        return _myClassS5;
-    }
-
-    public void clearMyClassS5()
-    {
-        _myClassS5 = false;
-    }
-
-    public void optionalMyClassS5(java.util.Optional<MyClass[]> v)
-    {
-        if(v == null || !v.isPresent())
-        {
-            _myClassS5 = false;
-        }
-        else
-        {
-            _myClassS5 = true;
-            myClassS5 = v.get();
-        }
-    }
-
-    public java.util.Optional<MyClass[]> optionalMyClassS5()
-    {
-        if(_myClassS5)
-        {
-            return java.util.Optional.of(myClassS5);
-        }
-        else
-        {
-            return java.util.Optional.empty();
-        }
-    }
-
-    public MyClass getMyClassS5(int index)
-    {
-        if(!_myClassS5)
-        {
-            throw new java.util.NoSuchElementException("myClassS5 is not set");
-        }
-        return this.myClassS5[index];
-    }
-
-    public void setMyClassS5(int index, MyClass val)
-    {
-        if(!_myClassS5)
-        {
-            throw new java.util.NoSuchElementException("myClassS5 is not set");
-        }
-        this.myClassS5[index] = val;
-    }
-
     private java.util.Map<java.lang.Byte, java.lang.Boolean> byteBoolD6;
     private boolean _byteBoolD6;
 
@@ -510,112 +436,6 @@ public class OptionalClass extends com.zeroc.Ice.Value
         if(_enum8)
         {
             return java.util.Optional.of(enum8);
-        }
-        else
-        {
-            return java.util.Optional.empty();
-        }
-    }
-
-    private MyClass class9;
-    private boolean _class9;
-
-    public MyClass getClass9()
-    {
-        if(!_class9)
-        {
-            throw new java.util.NoSuchElementException("class9 is not set");
-        }
-        return class9;
-    }
-
-    public void setClass9(MyClass class9)
-    {
-        _class9 = true;
-        this.class9 = class9;
-    }
-
-    public boolean hasClass9()
-    {
-        return _class9;
-    }
-
-    public void clearClass9()
-    {
-        _class9 = false;
-    }
-
-    public void optionalClass9(java.util.Optional<MyClass> v)
-    {
-        if(v == null || !v.isPresent())
-        {
-            _class9 = false;
-        }
-        else
-        {
-            _class9 = true;
-            class9 = v.get();
-        }
-    }
-
-    public java.util.Optional<MyClass> optionalClass9()
-    {
-        if(_class9)
-        {
-            return java.util.Optional.ofNullable(class9);
-        }
-        else
-        {
-            return java.util.Optional.empty();
-        }
-    }
-
-    private java.util.Map<java.lang.String, MyClass> stringMyClassD10;
-    private boolean _stringMyClassD10;
-
-    public java.util.Map<java.lang.String, MyClass> getStringMyClassD10()
-    {
-        if(!_stringMyClassD10)
-        {
-            throw new java.util.NoSuchElementException("stringMyClassD10 is not set");
-        }
-        return stringMyClassD10;
-    }
-
-    public void setStringMyClassD10(java.util.Map<java.lang.String, MyClass> stringMyClassD10)
-    {
-        _stringMyClassD10 = true;
-        this.stringMyClassD10 = stringMyClassD10;
-    }
-
-    public boolean hasStringMyClassD10()
-    {
-        return _stringMyClassD10;
-    }
-
-    public void clearStringMyClassD10()
-    {
-        _stringMyClassD10 = false;
-    }
-
-    public void optionalStringMyClassD10(java.util.Optional<java.util.Map<java.lang.String, MyClass>> v)
-    {
-        if(v == null || !v.isPresent())
-        {
-            _stringMyClassD10 = false;
-        }
-        else
-        {
-            _stringMyClassD10 = true;
-            stringMyClassD10 = v.get();
-        }
-    }
-
-    public java.util.Optional<java.util.Map<java.lang.String, MyClass>> optionalStringMyClassD10()
-    {
-        if(_stringMyClassD10)
-        {
-            return java.util.Optional.of(stringMyClassD10);
         }
         else
         {
@@ -906,7 +726,7 @@ public class OptionalClass extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 1262641565253376515L;
+    public static final long serialVersionUID = 3864748458060847221L;
 
     /** @hidden */
     @Override
@@ -931,10 +751,6 @@ public class OptionalClass extends com.zeroc.Ice.Value
         {
             MyEnumSHelper.write(ostr_, 4, enumS4);
         }
-        if(_myClassS5)
-        {
-            MyClassSHelper.write(ostr_, 5, myClassS5);
-        }
         if(_byteBoolD6)
         {
             ByteBoolDHelper.write(ostr_, 6, byteBoolD6);
@@ -946,14 +762,6 @@ public class OptionalClass extends com.zeroc.Ice.Value
         if(_enum8)
         {
             MyEnum.ice_write(ostr_, 8, enum8);
-        }
-        if(_class9)
-        {
-            ostr_.writeValue(9, class9);
-        }
-        if(_stringMyClassD10)
-        {
-            StringMyClassDHelper.write(ostr_, 10, stringMyClassD10);
         }
         if(_intSeq12)
         {
@@ -999,11 +807,6 @@ public class OptionalClass extends com.zeroc.Ice.Value
             istr_.skip(4);
             enumS4 = MyEnumSHelper.read(istr_);
         }
-        if(_myClassS5 = istr_.readOptional(5, com.zeroc.Ice.OptionalFormat.FSize))
-        {
-            istr_.skip(4);
-            myClassS5 = MyClassSHelper.read(istr_);
-        }
         if(_byteBoolD6 = istr_.readOptional(6, com.zeroc.Ice.OptionalFormat.VSize))
         {
             istr_.skipSize();
@@ -1017,15 +820,6 @@ public class OptionalClass extends com.zeroc.Ice.Value
         if(_enum8 = istr_.readOptional(8, com.zeroc.Ice.OptionalFormat.Size))
         {
             enum8 = MyEnum.ice_read(istr_);
-        }
-        if(_class9 = istr_.readOptional(9, com.zeroc.Ice.OptionalFormat.Class))
-        {
-            istr_.readValue(v -> class9 = v, MyClass.class);
-        }
-        if(_stringMyClassD10 = istr_.readOptional(10, com.zeroc.Ice.OptionalFormat.FSize))
-        {
-            istr_.skip(4);
-            stringMyClassD10 = StringMyClassDHelper.read(istr_);
         }
         if(_intSeq12 = istr_.readOptional(12, com.zeroc.Ice.OptionalFormat.VSize))
         {

@@ -17,24 +17,24 @@ package test.Ice.custom.Test;
 
 public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default TestIntf.OpCSeqResult opCSeq(C[] inSeq)
+    default TestIntf.OpASeqResult opASeq(A[] inSeq)
     {
-        return opCSeq(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opASeq(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default TestIntf.OpCSeqResult opCSeq(C[] inSeq, java.util.Map<String, String> context)
+    default TestIntf.OpASeqResult opASeq(A[] inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opCSeqAsync(inSeq, context, true).waitForResponse();
+        return _iceI_opASeqAsync(inSeq, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpCSeqResult> opCSeqAsync(C[] inSeq)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpASeqResult> opASeqAsync(A[] inSeq)
     {
-        return _iceI_opCSeqAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opASeqAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpCSeqResult> opCSeqAsync(C[] inSeq, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpASeqResult> opASeqAsync(A[] inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opCSeqAsync(inSeq, context, false);
+        return _iceI_opASeqAsync(inSeq, context, false);
     }
 
     /**
@@ -44,39 +44,37 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpCSeqResult> _iceI_opCSeqAsync(C[] iceP_inSeq, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpASeqResult> _iceI_opASeqAsync(A[] iceP_inSeq, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpCSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opCSeq", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpASeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opASeq", null, sync, null);
         f.invoke(true, context, null, ostr -> {
-                     CSeqHelper.write(ostr, iceP_inSeq);
-                     ostr.writePendingValues();
+                     ASeqHelper.write(ostr, iceP_inSeq);
                  }, istr -> {
-                     TestIntf.OpCSeqResult ret = new TestIntf.OpCSeqResult();
+                     TestIntf.OpASeqResult ret = new TestIntf.OpASeqResult();
                      ret.read(istr);
-                     istr.readPendingValues();
                      return ret;
                  });
         return f;
     }
 
-    default TestIntf.OpCArrayResult opCArray(java.util.List<C> inSeq)
+    default TestIntf.OpAArrayResult opAArray(java.util.List<A> inSeq)
     {
-        return opCArray(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opAArray(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default TestIntf.OpCArrayResult opCArray(java.util.List<C> inSeq, java.util.Map<String, String> context)
+    default TestIntf.OpAArrayResult opAArray(java.util.List<A> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opCArrayAsync(inSeq, context, true).waitForResponse();
+        return _iceI_opAArrayAsync(inSeq, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpCArrayResult> opCArrayAsync(java.util.List<C> inSeq)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpAArrayResult> opAArrayAsync(java.util.List<A> inSeq)
     {
-        return _iceI_opCArrayAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opAArrayAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpCArrayResult> opCArrayAsync(java.util.List<C> inSeq, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpAArrayResult> opAArrayAsync(java.util.List<A> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opCArrayAsync(inSeq, context, false);
+        return _iceI_opAArrayAsync(inSeq, context, false);
     }
 
     /**
@@ -86,39 +84,37 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpCArrayResult> _iceI_opCArrayAsync(java.util.List<C> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpAArrayResult> _iceI_opAArrayAsync(java.util.List<A> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpCArrayResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opCArray", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpAArrayResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opAArray", null, sync, null);
         f.invoke(true, context, null, ostr -> {
-                     CArrayHelper.write(ostr, iceP_inSeq);
-                     ostr.writePendingValues();
+                     AArrayHelper.write(ostr, iceP_inSeq);
                  }, istr -> {
-                     TestIntf.OpCArrayResult ret = new TestIntf.OpCArrayResult();
+                     TestIntf.OpAArrayResult ret = new TestIntf.OpAArrayResult();
                      ret.read(istr);
-                     istr.readPendingValues();
                      return ret;
                  });
         return f;
     }
 
-    default TestIntf.OpCListResult opCList(java.util.List<C> inSeq)
+    default TestIntf.OpAListResult opAList(java.util.List<A> inSeq)
     {
-        return opCList(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opAList(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default TestIntf.OpCListResult opCList(java.util.List<C> inSeq, java.util.Map<String, String> context)
+    default TestIntf.OpAListResult opAList(java.util.List<A> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opCListAsync(inSeq, context, true).waitForResponse();
+        return _iceI_opAListAsync(inSeq, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpCListResult> opCListAsync(java.util.List<C> inSeq)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpAListResult> opAListAsync(java.util.List<A> inSeq)
     {
-        return _iceI_opCListAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opAListAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpCListResult> opCListAsync(java.util.List<C> inSeq, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpAListResult> opAListAsync(java.util.List<A> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opCListAsync(inSeq, context, false);
+        return _iceI_opAListAsync(inSeq, context, false);
     }
 
     /**
@@ -128,16 +124,14 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpCListResult> _iceI_opCListAsync(java.util.List<C> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpAListResult> _iceI_opAListAsync(java.util.List<A> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpCListResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opCList", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpAListResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opAList", null, sync, null);
         f.invoke(true, context, null, ostr -> {
-                     CListHelper.write(ostr, iceP_inSeq);
-                     ostr.writePendingValues();
+                     AListHelper.write(ostr, iceP_inSeq);
                  }, istr -> {
-                     TestIntf.OpCListResult ret = new TestIntf.OpCListResult();
+                     TestIntf.OpAListResult ret = new TestIntf.OpAListResult();
                      ret.read(istr);
-                     istr.readPendingValues();
                      return ret;
                  });
         return f;
@@ -863,34 +857,34 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default TestIntf.OpOptCSeqResult opOptCSeq(C[] inSeq)
+    default TestIntf.OpOptASeqResult opOptASeq(A[] inSeq)
     {
-        return opOptCSeq(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opOptASeq(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default TestIntf.OpOptCSeqResult opOptCSeq(C[] inSeq, java.util.Map<String, String> context)
+    default TestIntf.OpOptASeqResult opOptASeq(A[] inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opOptCSeqAsync(inSeq, context, true).waitForResponse();
+        return _iceI_opOptASeqAsync(inSeq, context, true).waitForResponse();
     }
 
-    default TestIntf.OpOptCSeqResult opOptCSeq(java.util.Optional<C[]> inSeq)
+    default TestIntf.OpOptASeqResult opOptASeq(java.util.Optional<A[]> inSeq)
     {
-        return opOptCSeq(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opOptASeq(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default TestIntf.OpOptCSeqResult opOptCSeq(java.util.Optional<C[]> inSeq, java.util.Map<String, String> context)
+    default TestIntf.OpOptASeqResult opOptASeq(java.util.Optional<A[]> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opOptCSeqAsync(inSeq, context, true).waitForResponse();
+        return _iceI_opOptASeqAsync(inSeq, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpOptCSeqResult> opOptCSeqAsync(C[] inSeq)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpOptASeqResult> opOptASeqAsync(A[] inSeq)
     {
-        return _iceI_opOptCSeqAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opOptASeqAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpOptCSeqResult> opOptCSeqAsync(C[] inSeq, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpOptASeqResult> opOptASeqAsync(A[] inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opOptCSeqAsync(inSeq, context, false);
+        return _iceI_opOptASeqAsync(inSeq, context, false);
     }
 
     /**
@@ -900,27 +894,27 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptCSeqResult> _iceI_opOptCSeqAsync(C[] iceP_inSeq, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptASeqResult> _iceI_opOptASeqAsync(A[] iceP_inSeq, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptCSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptCSeq", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptASeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptASeq", null, sync, null);
         f.invoke(true, context, null, ostr -> {
-                     CSeqHelper.write(ostr, 2, iceP_inSeq);
+                     ASeqHelper.write(ostr, 2, iceP_inSeq);
                  }, istr -> {
-                     TestIntf.OpOptCSeqResult ret = new TestIntf.OpOptCSeqResult();
+                     TestIntf.OpOptASeqResult ret = new TestIntf.OpOptASeqResult();
                      ret.read(istr);
                      return ret;
                  });
         return f;
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpOptCSeqResult> opOptCSeqAsync(java.util.Optional<C[]> inSeq)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpOptASeqResult> opOptASeqAsync(java.util.Optional<A[]> inSeq)
     {
-        return _iceI_opOptCSeqAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opOptASeqAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpOptCSeqResult> opOptCSeqAsync(java.util.Optional<C[]> inSeq, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpOptASeqResult> opOptASeqAsync(java.util.Optional<A[]> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opOptCSeqAsync(inSeq, context, false);
+        return _iceI_opOptASeqAsync(inSeq, context, false);
     }
 
     /**
@@ -930,47 +924,47 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptCSeqResult> _iceI_opOptCSeqAsync(java.util.Optional<C[]> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptASeqResult> _iceI_opOptASeqAsync(java.util.Optional<A[]> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptCSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptCSeq", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptASeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptASeq", null, sync, null);
         f.invoke(true, context, null, ostr -> {
-                     CSeqHelper.write(ostr, 2, iceP_inSeq);
+                     ASeqHelper.write(ostr, 2, iceP_inSeq);
                  }, istr -> {
-                     TestIntf.OpOptCSeqResult ret = new TestIntf.OpOptCSeqResult();
+                     TestIntf.OpOptASeqResult ret = new TestIntf.OpOptASeqResult();
                      ret.read(istr);
                      return ret;
                  });
         return f;
     }
 
-    default TestIntf.OpOptCArrayResult opOptCArray(java.util.List<C> inSeq)
+    default TestIntf.OpOptAArrayResult opOptAArray(java.util.List<A> inSeq)
     {
-        return opOptCArray(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opOptAArray(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default TestIntf.OpOptCArrayResult opOptCArray(java.util.List<C> inSeq, java.util.Map<String, String> context)
+    default TestIntf.OpOptAArrayResult opOptAArray(java.util.List<A> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opOptCArrayAsync(inSeq, context, true).waitForResponse();
+        return _iceI_opOptAArrayAsync(inSeq, context, true).waitForResponse();
     }
 
-    default TestIntf.OpOptCArrayResult opOptCArray(java.util.Optional<java.util.List<C>> inSeq)
+    default TestIntf.OpOptAArrayResult opOptAArray(java.util.Optional<java.util.List<A>> inSeq)
     {
-        return opOptCArray(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opOptAArray(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default TestIntf.OpOptCArrayResult opOptCArray(java.util.Optional<java.util.List<C>> inSeq, java.util.Map<String, String> context)
+    default TestIntf.OpOptAArrayResult opOptAArray(java.util.Optional<java.util.List<A>> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opOptCArrayAsync(inSeq, context, true).waitForResponse();
+        return _iceI_opOptAArrayAsync(inSeq, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpOptCArrayResult> opOptCArrayAsync(java.util.List<C> inSeq)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpOptAArrayResult> opOptAArrayAsync(java.util.List<A> inSeq)
     {
-        return _iceI_opOptCArrayAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opOptAArrayAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpOptCArrayResult> opOptCArrayAsync(java.util.List<C> inSeq, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpOptAArrayResult> opOptAArrayAsync(java.util.List<A> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opOptCArrayAsync(inSeq, context, false);
+        return _iceI_opOptAArrayAsync(inSeq, context, false);
     }
 
     /**
@@ -980,27 +974,27 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptCArrayResult> _iceI_opOptCArrayAsync(java.util.List<C> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptAArrayResult> _iceI_opOptAArrayAsync(java.util.List<A> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptCArrayResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptCArray", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptAArrayResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptAArray", null, sync, null);
         f.invoke(true, context, null, ostr -> {
-                     CArrayHelper.write(ostr, 2, iceP_inSeq);
+                     AArrayHelper.write(ostr, 2, iceP_inSeq);
                  }, istr -> {
-                     TestIntf.OpOptCArrayResult ret = new TestIntf.OpOptCArrayResult();
+                     TestIntf.OpOptAArrayResult ret = new TestIntf.OpOptAArrayResult();
                      ret.read(istr);
                      return ret;
                  });
         return f;
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpOptCArrayResult> opOptCArrayAsync(java.util.Optional<java.util.List<C>> inSeq)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpOptAArrayResult> opOptAArrayAsync(java.util.Optional<java.util.List<A>> inSeq)
     {
-        return _iceI_opOptCArrayAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opOptAArrayAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpOptCArrayResult> opOptCArrayAsync(java.util.Optional<java.util.List<C>> inSeq, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpOptAArrayResult> opOptAArrayAsync(java.util.Optional<java.util.List<A>> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opOptCArrayAsync(inSeq, context, false);
+        return _iceI_opOptAArrayAsync(inSeq, context, false);
     }
 
     /**
@@ -1010,47 +1004,47 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptCArrayResult> _iceI_opOptCArrayAsync(java.util.Optional<java.util.List<C>> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptAArrayResult> _iceI_opOptAArrayAsync(java.util.Optional<java.util.List<A>> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptCArrayResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptCArray", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptAArrayResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptAArray", null, sync, null);
         f.invoke(true, context, null, ostr -> {
-                     CArrayHelper.write(ostr, 2, iceP_inSeq);
+                     AArrayHelper.write(ostr, 2, iceP_inSeq);
                  }, istr -> {
-                     TestIntf.OpOptCArrayResult ret = new TestIntf.OpOptCArrayResult();
+                     TestIntf.OpOptAArrayResult ret = new TestIntf.OpOptAArrayResult();
                      ret.read(istr);
                      return ret;
                  });
         return f;
     }
 
-    default TestIntf.OpOptCListResult opOptCList(java.util.List<C> inSeq)
+    default TestIntf.OpOptAListResult opOptAList(java.util.List<A> inSeq)
     {
-        return opOptCList(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opOptAList(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default TestIntf.OpOptCListResult opOptCList(java.util.List<C> inSeq, java.util.Map<String, String> context)
+    default TestIntf.OpOptAListResult opOptAList(java.util.List<A> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opOptCListAsync(inSeq, context, true).waitForResponse();
+        return _iceI_opOptAListAsync(inSeq, context, true).waitForResponse();
     }
 
-    default TestIntf.OpOptCListResult opOptCList(java.util.Optional<java.util.List<C>> inSeq)
+    default TestIntf.OpOptAListResult opOptAList(java.util.Optional<java.util.List<A>> inSeq)
     {
-        return opOptCList(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opOptAList(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default TestIntf.OpOptCListResult opOptCList(java.util.Optional<java.util.List<C>> inSeq, java.util.Map<String, String> context)
+    default TestIntf.OpOptAListResult opOptAList(java.util.Optional<java.util.List<A>> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opOptCListAsync(inSeq, context, true).waitForResponse();
+        return _iceI_opOptAListAsync(inSeq, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpOptCListResult> opOptCListAsync(java.util.List<C> inSeq)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpOptAListResult> opOptAListAsync(java.util.List<A> inSeq)
     {
-        return _iceI_opOptCListAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opOptAListAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpOptCListResult> opOptCListAsync(java.util.List<C> inSeq, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpOptAListResult> opOptAListAsync(java.util.List<A> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opOptCListAsync(inSeq, context, false);
+        return _iceI_opOptAListAsync(inSeq, context, false);
     }
 
     /**
@@ -1060,27 +1054,27 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptCListResult> _iceI_opOptCListAsync(java.util.List<C> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptAListResult> _iceI_opOptAListAsync(java.util.List<A> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptCListResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptCList", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptAListResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptAList", null, sync, null);
         f.invoke(true, context, null, ostr -> {
-                     CListHelper.write(ostr, 2, iceP_inSeq);
+                     AListHelper.write(ostr, 2, iceP_inSeq);
                  }, istr -> {
-                     TestIntf.OpOptCListResult ret = new TestIntf.OpOptCListResult();
+                     TestIntf.OpOptAListResult ret = new TestIntf.OpOptAListResult();
                      ret.read(istr);
                      return ret;
                  });
         return f;
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpOptCListResult> opOptCListAsync(java.util.Optional<java.util.List<C>> inSeq)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpOptAListResult> opOptAListAsync(java.util.Optional<java.util.List<A>> inSeq)
     {
-        return _iceI_opOptCListAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opOptAListAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpOptCListResult> opOptCListAsync(java.util.Optional<java.util.List<C>> inSeq, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpOptAListResult> opOptAListAsync(java.util.Optional<java.util.List<A>> inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opOptCListAsync(inSeq, context, false);
+        return _iceI_opOptAListAsync(inSeq, context, false);
     }
 
     /**
@@ -1090,13 +1084,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptCListResult> _iceI_opOptCListAsync(java.util.Optional<java.util.List<C>> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptAListResult> _iceI_opOptAListAsync(java.util.Optional<java.util.List<A>> iceP_inSeq, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptCListResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptCList", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptAListResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptAList", null, sync, null);
         f.invoke(true, context, null, ostr -> {
-                     CListHelper.write(ostr, 2, iceP_inSeq);
+                     AListHelper.write(ostr, 2, iceP_inSeq);
                  }, istr -> {
-                     TestIntf.OpOptCListResult ret = new TestIntf.OpOptCListResult();
+                     TestIntf.OpOptAListResult ret = new TestIntf.OpOptAListResult();
                      ret.read(istr);
                      return ret;
                  });

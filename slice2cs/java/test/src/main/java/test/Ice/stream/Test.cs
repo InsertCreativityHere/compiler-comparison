@@ -305,9 +305,6 @@ namespace Test
         public MyEnum[]? enumS4;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass?[]? myClassS5;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<byte, bool>? byteBoolD6;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -315,12 +312,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MyEnum? enum8;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass?? class9;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::System.Collections.Generic.Dictionary<string, MyClass?>? stringMyClassD10;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int[]? intSeq12;
@@ -337,7 +328,7 @@ namespace Test
         partial void ice_initialize();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OptionalClass(bool bo, byte by, short? sh, int? i, SmallStruct? sm, MyEnum[]? enumS4, MyClass?[]? myClassS5, global::System.Collections.Generic.Dictionary<byte, bool>? byteBoolD6, global::System.Collections.Generic.Dictionary<short, int>? shortIntD7, MyEnum? enum8, MyClass?? class9, global::System.Collections.Generic.Dictionary<string, MyClass?>? stringMyClassD10, int[]? intSeq12, byte[]? byteSeq13, string[]? stringSeq14, Point? p15)
+        public OptionalClass(bool bo, byte by, short? sh, int? i, SmallStruct? sm, MyEnum[]? enumS4, global::System.Collections.Generic.Dictionary<byte, bool>? byteBoolD6, global::System.Collections.Generic.Dictionary<short, int>? shortIntD7, MyEnum? enum8, int[]? intSeq12, byte[]? byteSeq13, string[]? stringSeq14, Point? p15)
         {
             this.bo = bo;
             this.by = by;
@@ -345,12 +336,9 @@ namespace Test
             this.i = i;
             this.sm = sm;
             this.enumS4 = enumS4;
-            this.myClassS5 = myClassS5;
             this.byteBoolD6 = byteBoolD6;
             this.shortIntD7 = shortIntD7;
             this.enum8 = enum8;
-            this.class9 = class9;
-            this.stringMyClassD10 = stringMyClassD10;
             this.intSeq12 = intSeq12;
             this.byteSeq13 = byteSeq13;
             this.stringSeq14 = stringSeq14;
@@ -397,12 +385,6 @@ namespace Test
                 MyEnumSHelper.write(ostr_, enumS4);
                 ostr_.endSize(pos);
             }
-            if (myClassS5 is not null && ostr_.writeOptional(5, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr_.startSize();
-                MyClassSHelper.write(ostr_, myClassS5);
-                ostr_.endSize(pos);
-            }
             if (byteBoolD6 is not null && ostr_.writeOptional(6, Ice.OptionalFormat.VSize))
             {
                 ostr_.writeSize(byteBoolD6.Count * 2 + (byteBoolD6.Count > 254 ? 5 : 1));
@@ -416,13 +398,6 @@ namespace Test
             if (enum8 is not null)
             {
                 ostr_.writeEnum(8, (int)enum8.Value, 3);
-            }
-            ostr_.writeValue(9, class9);
-            if (stringMyClassD10 is not null && ostr_.writeOptional(10, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr_.startSize();
-                StringMyClassDHelper.write(ostr_, stringMyClassD10);
-                ostr_.endSize(pos);
             }
             ostr_.writeIntSeq(12, intSeq12);
             ostr_.writeByteSeq(13, byteSeq13);
@@ -465,17 +440,6 @@ namespace Test
             {
                 enumS4 = null;
             }
-            if (istr_.readOptional(5, Ice.OptionalFormat.FSize))
-            {
-                istr_.skip(4);
-                MyClass?[] tmpVal;
-                tmpVal = MyClassSHelper.read(istr_);
-                myClassS5 = tmpVal;
-            }
-            else
-            {
-                myClassS5 = null;
-            }
             if (istr_.readOptional(6, Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
@@ -507,18 +471,6 @@ namespace Test
             else
             {
                 enum8 = null;
-            }
-            istr_.readValue(9, (MyClass? v) => { this.class9 = v; });
-            if (istr_.readOptional(10, Ice.OptionalFormat.FSize))
-            {
-                istr_.skip(4);
-                global::System.Collections.Generic.Dictionary<string, MyClass?> tmpVal = new global::System.Collections.Generic.Dictionary<string, MyClass?>();
-                tmpVal = StringMyClassDHelper.read(istr_);
-                stringMyClassD10 = tmpVal;
-            }
-            else
-            {
-                stringMyClassD10 = null;
             }
             if (istr_.readOptional(12, Ice.OptionalFormat.VSize))
             {

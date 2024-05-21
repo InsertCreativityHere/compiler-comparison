@@ -45,7 +45,6 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB6> iceC_LocalTest_CB6_init("::LocalTest::CB6");
     const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB7> iceC_LocalTest_CB7_init("::LocalTest::CB7");
     const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB8> iceC_LocalTest_CB8_init("::LocalTest::CB8");
-    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::Opt> iceC_LocalTest_Opt_init("::LocalTest::Opt");
 }
 
 ::std::string
@@ -360,40 +359,5 @@ LocalTest::CB8::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
     ::Ice::StreamReader<CB8>::read(istr, *this);
-    istr->endSlice();
-}
-
-::std::string
-LocalTest::Opt::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
-LocalTest::Opt::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::LocalTest::Opt";
-    return typeId;
-}
-
-::Ice::ValuePtr
-LocalTest::Opt::_iceCloneImpl() const
-{
-    return CloneEnabler<Opt>::clone(*this);
-}
-
-void
-LocalTest::Opt::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Opt>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-LocalTest::Opt::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader<Opt>::read(istr, *this);
     istr->endSlice();
 }

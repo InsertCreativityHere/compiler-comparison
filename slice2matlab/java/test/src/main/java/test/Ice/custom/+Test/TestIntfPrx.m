@@ -1,12 +1,12 @@
 % TestIntfPrx   Summary of TestIntfPrx
 %
 % TestIntfPrx Methods:
-%   opCSeq
-%   opCSeqAsync
-%   opCArray
-%   opCArrayAsync
-%   opCList
-%   opCListAsync
+%   opASeq
+%   opASeqAsync
+%   opAArray
+%   opAArrayAsync
+%   opAList
+%   opAListAsync
 %   opBoolSeq
 %   opBoolSeqAsync
 %   opByteSeq
@@ -43,12 +43,12 @@
 %   opFloatBufferSeqAsync
 %   opDoubleBufferSeq
 %   opDoubleBufferSeqAsync
-%   opOptCSeq
-%   opOptCSeqAsync
-%   opOptCArray
-%   opOptCArrayAsync
-%   opOptCList
-%   opOptCListAsync
+%   opOptASeq
+%   opOptASeqAsync
+%   opOptAArray
+%   opOptAArrayAsync
+%   opOptAList
+%   opOptAListAsync
 %   opOptBoolSeq
 %   opOptBoolSeqAsync
 %   opOptByteSeq
@@ -95,149 +95,131 @@
 
 classdef TestIntfPrx < Ice.ObjectPrx
     methods
-        function [result, outSeq] = opCSeq(obj, inSeq, varargin)
-            % opCSeq
+        function [result, outSeq] = opASeq(obj, inSeq, varargin)
+            % opASeq
             %
             % Parameters:
-            %   inSeq (Test.CSeq)
+            %   inSeq (Test.ASeq)
             %   context (containers.Map) - Optional request context.
             %
             % Returns:
-            %   result (Test.CSeq)
-            %   outSeq (Test.CSeq)
+            %   result (Test.ASeq)
+            %   outSeq (Test.ASeq)
             
             os_ = obj.iceStartWriteParams([]);
-            Test.CSeq.write(os_, inSeq);
-            os_.writePendingValues();
+            Test.ASeq.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opCSeq', 0, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('opASeq', 0, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
-            outSeq = Test.CSeq.read(is_);
-            result = Test.CSeq.read(is_);
-            is_.readPendingValues();
+            outSeq = Test.ASeq.read(is_);
+            result = Test.ASeq.read(is_);
             is_.endEncapsulation();
-            outSeq = Test.CSeq.convert(outSeq);
-            result = Test.CSeq.convert(result);
         end
-        function r_ = opCSeqAsync(obj, inSeq, varargin)
-            % opCSeqAsync
+        function r_ = opASeqAsync(obj, inSeq, varargin)
+            % opASeqAsync
             %
             % Parameters:
-            %   inSeq (Test.CSeq)
+            %   inSeq (Test.ASeq)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
-            Test.CSeq.write(os_, inSeq);
-            os_.writePendingValues();
+            Test.ASeq.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
-                outSeq = Test.CSeq.read(is_);
-                result = Test.CSeq.read(is_);
-                is_.readPendingValues();
+                outSeq = Test.ASeq.read(is_);
+                result = Test.ASeq.read(is_);
                 is_.endEncapsulation();
-                varargout{1} = Test.CSeq.convert(result);
-                varargout{2} = Test.CSeq.convert(outSeq);
+                varargout{1} = result;
+                varargout{2} = outSeq;
             end
-            r_ = obj.iceInvokeAsync('opCSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('opASeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, outSeq] = opCArray(obj, inSeq, varargin)
-            % opCArray
+        function [result, outSeq] = opAArray(obj, inSeq, varargin)
+            % opAArray
             %
             % Parameters:
-            %   inSeq (Test.CArray)
+            %   inSeq (Test.AArray)
             %   context (containers.Map) - Optional request context.
             %
             % Returns:
-            %   result (Test.CArray)
-            %   outSeq (Test.CArray)
+            %   result (Test.AArray)
+            %   outSeq (Test.AArray)
             
             os_ = obj.iceStartWriteParams([]);
-            Test.CArray.write(os_, inSeq);
-            os_.writePendingValues();
+            Test.AArray.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opCArray', 0, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('opAArray', 0, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
-            outSeq = Test.CArray.read(is_);
-            result = Test.CArray.read(is_);
-            is_.readPendingValues();
+            outSeq = Test.AArray.read(is_);
+            result = Test.AArray.read(is_);
             is_.endEncapsulation();
-            outSeq = Test.CArray.convert(outSeq);
-            result = Test.CArray.convert(result);
         end
-        function r_ = opCArrayAsync(obj, inSeq, varargin)
-            % opCArrayAsync
+        function r_ = opAArrayAsync(obj, inSeq, varargin)
+            % opAArrayAsync
             %
             % Parameters:
-            %   inSeq (Test.CArray)
+            %   inSeq (Test.AArray)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
-            Test.CArray.write(os_, inSeq);
-            os_.writePendingValues();
+            Test.AArray.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
-                outSeq = Test.CArray.read(is_);
-                result = Test.CArray.read(is_);
-                is_.readPendingValues();
+                outSeq = Test.AArray.read(is_);
+                result = Test.AArray.read(is_);
                 is_.endEncapsulation();
-                varargout{1} = Test.CArray.convert(result);
-                varargout{2} = Test.CArray.convert(outSeq);
+                varargout{1} = result;
+                varargout{2} = outSeq;
             end
-            r_ = obj.iceInvokeAsync('opCArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('opAArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, outSeq] = opCList(obj, inSeq, varargin)
-            % opCList
+        function [result, outSeq] = opAList(obj, inSeq, varargin)
+            % opAList
             %
             % Parameters:
-            %   inSeq (Test.CList)
+            %   inSeq (Test.AList)
             %   context (containers.Map) - Optional request context.
             %
             % Returns:
-            %   result (Test.CList)
-            %   outSeq (Test.CList)
+            %   result (Test.AList)
+            %   outSeq (Test.AList)
             
             os_ = obj.iceStartWriteParams([]);
-            Test.CList.write(os_, inSeq);
-            os_.writePendingValues();
+            Test.AList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opCList', 0, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('opAList', 0, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
-            outSeq = Test.CList.read(is_);
-            result = Test.CList.read(is_);
-            is_.readPendingValues();
+            outSeq = Test.AList.read(is_);
+            result = Test.AList.read(is_);
             is_.endEncapsulation();
-            outSeq = Test.CList.convert(outSeq);
-            result = Test.CList.convert(result);
         end
-        function r_ = opCListAsync(obj, inSeq, varargin)
-            % opCListAsync
+        function r_ = opAListAsync(obj, inSeq, varargin)
+            % opAListAsync
             %
             % Parameters:
-            %   inSeq (Test.CList)
+            %   inSeq (Test.AList)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
-            Test.CList.write(os_, inSeq);
-            os_.writePendingValues();
+            Test.AList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
-                outSeq = Test.CList.read(is_);
-                result = Test.CList.read(is_);
-                is_.readPendingValues();
+                outSeq = Test.AList.read(is_);
+                result = Test.AList.read(is_);
                 is_.endEncapsulation();
-                varargout{1} = Test.CList.convert(result);
-                varargout{2} = Test.CList.convert(outSeq);
+                varargout{1} = result;
+                varargout{2} = outSeq;
             end
-            r_ = obj.iceInvokeAsync('opCList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('opAList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opBoolSeq(obj, inSeq, varargin)
             % opBoolSeq
@@ -995,161 +977,131 @@ classdef TestIntfPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opDoubleBufferSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, outSeq] = opOptCSeq(obj, inSeq, varargin)
-            % opOptCSeq
+        function [result, outSeq] = opOptASeq(obj, inSeq, varargin)
+            % opOptASeq
             %
             % Parameters:
-            %   inSeq (Test.CSeq)
+            %   inSeq (Test.ASeq)
             %   context (containers.Map) - Optional request context.
             %
             % Returns:
-            %   result (Test.CSeq)
-            %   outSeq (Test.CSeq)
+            %   result (Test.ASeq)
+            %   outSeq (Test.ASeq)
             
             os_ = obj.iceStartWriteParams([]);
-            Test.CSeq.writeOpt(os_, 2, inSeq);
+            Test.ASeq.writeOpt(os_, 2, inSeq);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opOptCSeq', 0, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('opOptASeq', 0, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
-            result = Test.CSeq.readOpt(is_, 1);
-            outSeq = Test.CSeq.readOpt(is_, 3);
+            result = Test.ASeq.readOpt(is_, 1);
+            outSeq = Test.ASeq.readOpt(is_, 3);
             is_.endEncapsulation();
-            if result ~= Ice.Unset
-                result = Test.CSeq.convert(result);
-            end
-            if outSeq ~= Ice.Unset
-                outSeq = Test.CSeq.convert(outSeq);
-            end
         end
-        function r_ = opOptCSeqAsync(obj, inSeq, varargin)
-            % opOptCSeqAsync
+        function r_ = opOptASeqAsync(obj, inSeq, varargin)
+            % opOptASeqAsync
             %
             % Parameters:
-            %   inSeq (Test.CSeq)
+            %   inSeq (Test.ASeq)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
-            Test.CSeq.writeOpt(os_, 2, inSeq);
+            Test.ASeq.writeOpt(os_, 2, inSeq);
             obj.iceEndWriteParams(os_);
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
-                result = Test.CSeq.readOpt(is_, 1);
-                outSeq = Test.CSeq.readOpt(is_, 3);
+                result = Test.ASeq.readOpt(is_, 1);
+                outSeq = Test.ASeq.readOpt(is_, 3);
                 is_.endEncapsulation();
-                if result ~= Ice.Unset
-                    varargout{1} = Test.CSeq.convert(result);
-                end
-                if outSeq ~= Ice.Unset
-                    varargout{2} = Test.CSeq.convert(outSeq);
-                end
+                varargout{1} = result;
+                varargout{2} = outSeq;
             end
-            r_ = obj.iceInvokeAsync('opOptCSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('opOptASeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, outSeq] = opOptCArray(obj, inSeq, varargin)
-            % opOptCArray
+        function [result, outSeq] = opOptAArray(obj, inSeq, varargin)
+            % opOptAArray
             %
             % Parameters:
-            %   inSeq (Test.CArray)
+            %   inSeq (Test.AArray)
             %   context (containers.Map) - Optional request context.
             %
             % Returns:
-            %   result (Test.CArray)
-            %   outSeq (Test.CArray)
+            %   result (Test.AArray)
+            %   outSeq (Test.AArray)
             
             os_ = obj.iceStartWriteParams([]);
-            Test.CArray.writeOpt(os_, 2, inSeq);
+            Test.AArray.writeOpt(os_, 2, inSeq);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opOptCArray', 0, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('opOptAArray', 0, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
-            result = Test.CArray.readOpt(is_, 1);
-            outSeq = Test.CArray.readOpt(is_, 3);
+            result = Test.AArray.readOpt(is_, 1);
+            outSeq = Test.AArray.readOpt(is_, 3);
             is_.endEncapsulation();
-            if result ~= Ice.Unset
-                result = Test.CArray.convert(result);
-            end
-            if outSeq ~= Ice.Unset
-                outSeq = Test.CArray.convert(outSeq);
-            end
         end
-        function r_ = opOptCArrayAsync(obj, inSeq, varargin)
-            % opOptCArrayAsync
+        function r_ = opOptAArrayAsync(obj, inSeq, varargin)
+            % opOptAArrayAsync
             %
             % Parameters:
-            %   inSeq (Test.CArray)
+            %   inSeq (Test.AArray)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
-            Test.CArray.writeOpt(os_, 2, inSeq);
+            Test.AArray.writeOpt(os_, 2, inSeq);
             obj.iceEndWriteParams(os_);
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
-                result = Test.CArray.readOpt(is_, 1);
-                outSeq = Test.CArray.readOpt(is_, 3);
+                result = Test.AArray.readOpt(is_, 1);
+                outSeq = Test.AArray.readOpt(is_, 3);
                 is_.endEncapsulation();
-                if result ~= Ice.Unset
-                    varargout{1} = Test.CArray.convert(result);
-                end
-                if outSeq ~= Ice.Unset
-                    varargout{2} = Test.CArray.convert(outSeq);
-                end
+                varargout{1} = result;
+                varargout{2} = outSeq;
             end
-            r_ = obj.iceInvokeAsync('opOptCArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('opOptAArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, outSeq] = opOptCList(obj, inSeq, varargin)
-            % opOptCList
+        function [result, outSeq] = opOptAList(obj, inSeq, varargin)
+            % opOptAList
             %
             % Parameters:
-            %   inSeq (Test.CList)
+            %   inSeq (Test.AList)
             %   context (containers.Map) - Optional request context.
             %
             % Returns:
-            %   result (Test.CList)
-            %   outSeq (Test.CList)
+            %   result (Test.AList)
+            %   outSeq (Test.AList)
             
             os_ = obj.iceStartWriteParams([]);
-            Test.CList.writeOpt(os_, 2, inSeq);
+            Test.AList.writeOpt(os_, 2, inSeq);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opOptCList', 0, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('opOptAList', 0, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
-            result = Test.CList.readOpt(is_, 1);
-            outSeq = Test.CList.readOpt(is_, 3);
+            result = Test.AList.readOpt(is_, 1);
+            outSeq = Test.AList.readOpt(is_, 3);
             is_.endEncapsulation();
-            if result ~= Ice.Unset
-                result = Test.CList.convert(result);
-            end
-            if outSeq ~= Ice.Unset
-                outSeq = Test.CList.convert(outSeq);
-            end
         end
-        function r_ = opOptCListAsync(obj, inSeq, varargin)
-            % opOptCListAsync
+        function r_ = opOptAListAsync(obj, inSeq, varargin)
+            % opOptAListAsync
             %
             % Parameters:
-            %   inSeq (Test.CList)
+            %   inSeq (Test.AList)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
-            Test.CList.writeOpt(os_, 2, inSeq);
+            Test.AList.writeOpt(os_, 2, inSeq);
             obj.iceEndWriteParams(os_);
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
-                result = Test.CList.readOpt(is_, 1);
-                outSeq = Test.CList.readOpt(is_, 3);
+                result = Test.AList.readOpt(is_, 1);
+                outSeq = Test.AList.readOpt(is_, 3);
                 is_.endEncapsulation();
-                if result ~= Ice.Unset
-                    varargout{1} = Test.CList.convert(result);
-                end
-                if outSeq ~= Ice.Unset
-                    varargout{2} = Test.CList.convert(outSeq);
-                end
+                varargout{1} = result;
+                varargout{2} = outSeq;
             end
-            r_ = obj.iceInvokeAsync('opOptCList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('opOptAList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opOptBoolSeq(obj, inSeq, varargin)
             % opOptBoolSeq

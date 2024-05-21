@@ -621,36 +621,4 @@ if '_t_C1DictDict' not in _M_LocalTest.__dict__:
 if '_t_S1DictDict' not in _M_LocalTest.__dict__:
     _M_LocalTest._t_S1DictDict = IcePy.defineDictionary('::LocalTest::S1DictDict', (), IcePy._t_int, _M_LocalTest._t_S1Dict)
 
-if 'Opt' not in _M_LocalTest.__dict__:
-    _M_LocalTest.Opt = Ice.createTempClass()
-    class Opt(Ice.Value):
-        def __init__(self, s1=Ice.Unset, c1seq=Ice.Unset, s1dict=Ice.Unset):
-            self.s1 = s1
-            self.c1seq = c1seq
-            self.s1dict = s1dict
-
-        def ice_id(self):
-            return '::LocalTest::Opt'
-
-        @staticmethod
-        def ice_staticId():
-            return '::LocalTest::Opt'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_LocalTest._t_Opt)
-
-        __repr__ = __str__
-
-    _M_LocalTest._t_Opt = IcePy.declareValue('::LocalTest::Opt')
-
-    _M_LocalTest._t_Opt = IcePy.defineValue('::LocalTest::Opt', Opt, -1, (), False, None, (
-        ('s1', (), _M_LocalTest._t_S1, True, 1),
-        ('c1seq', (), _M_LocalTest._t_C1Seq, True, 2),
-        ('s1dict', (), _M_LocalTest._t_S1Dict, True, 3)
-    ))
-    Opt._ice_type = _M_LocalTest._t_Opt
-
-    _M_LocalTest.Opt = Opt
-    del Opt
-
 # End of module LocalTest

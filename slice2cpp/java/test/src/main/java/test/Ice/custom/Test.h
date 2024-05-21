@@ -28,14 +28,13 @@
 
 namespace Test
 {
-    class C;
-    using CPtr = ::std::shared_ptr<C>;
+    struct A;
 
-    using CSeq = ::std::vector<CPtr>;
+    using ASeq = ::std::vector<A>;
 
-    using CArray = ::std::vector<CPtr>;
+    using AArray = ::std::vector<A>;
 
-    using CList = ::std::vector<CPtr>;
+    using AList = ::std::vector<A>;
 
     using BoolSeq = ::std::vector<bool>;
 
@@ -95,37 +94,37 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    CSeq opCSeq(const CSeq& inSeq, CSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ASeq opASeq(const ASeq& inSeq, ASeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<ASeq, ASeq>> opASeqAsync(const ASeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opCSeqAsync(const CSeq& inSeq, ::std::function<void(::Test::CSeq, ::Test::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opASeqAsync(const ASeq& inSeq, ::std::function<void(::Test::ASeq, ::Test::ASeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CSeq, CSeq>>>&, const CSeq&, const ::Ice::Context&) const;
+    void _iceI_opASeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ASeq, ASeq>>>&, const ASeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    CArray opCArray(const CArray& inSeq, CArray& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    AArray opAArray(const AArray& inSeq, AArray& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CArray, CArray>> opCArrayAsync(const CArray& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<AArray, AArray>> opAArrayAsync(const AArray& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opCArrayAsync(const CArray& inSeq, ::std::function<void(::Test::CArray, ::Test::CArray)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opAArrayAsync(const AArray& inSeq, ::std::function<void(::Test::AArray, ::Test::AArray)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CArray, CArray>>>&, const CArray&, const ::Ice::Context&) const;
+    void _iceI_opAArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AArray, AArray>>>&, const AArray&, const ::Ice::Context&) const;
     /// \endcond
 
-    CList opCList(const CList& inSeq, CList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    AList opAList(const AList& inSeq, AList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CList, CList>> opCListAsync(const CList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<AList, AList>> opAListAsync(const AList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opCListAsync(const CList& inSeq, ::std::function<void(::Test::CList, ::Test::CList)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opAListAsync(const AList& inSeq, ::std::function<void(::Test::AList, ::Test::AList)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CList, CList>>>&, const CList&, const ::Ice::Context&) const;
+    void _iceI_opAList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AList, AList>>>&, const AList&, const ::Ice::Context&) const;
     /// \endcond
 
     BoolSeq opBoolSeq(const BoolSeq& inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -326,37 +325,37 @@ public:
     void _iceI_opDoubleBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleBuffer, DoubleBuffer>>>&, const DoubleBuffer&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<CSeq> opOptCSeq(const ::std::optional<CSeq>& inSeq, ::std::optional<CSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ASeq> opOptASeq(const ::std::optional<ASeq>& inSeq, ::std::optional<ASeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<CSeq>, ::std::optional<CSeq>>> opOptCSeqAsync(const ::std::optional<CSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<ASeq>, ::std::optional<ASeq>>> opOptASeqAsync(const ::std::optional<ASeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opOptCSeqAsync(const ::std::optional<CSeq>& inSeq, ::std::function<void(::std::optional<::Test::CSeq>, ::std::optional<::Test::CSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opOptASeqAsync(const ::std::optional<ASeq>& inSeq, ::std::function<void(::std::optional<::Test::ASeq>, ::std::optional<::Test::ASeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opOptCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<CSeq>, ::std::optional<CSeq>>>>&, const ::std::optional<CSeq>&, const ::Ice::Context&) const;
+    void _iceI_opOptASeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ASeq>, ::std::optional<ASeq>>>>&, const ::std::optional<ASeq>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<CArray> opOptCArray(const ::std::optional<CArray>& inSeq, ::std::optional<CArray>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<AArray> opOptAArray(const ::std::optional<AArray>& inSeq, ::std::optional<AArray>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<CArray>, ::std::optional<CArray>>> opOptCArrayAsync(const ::std::optional<CArray>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<AArray>, ::std::optional<AArray>>> opOptAArrayAsync(const ::std::optional<AArray>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opOptCArrayAsync(const ::std::optional<CArray>& inSeq, ::std::function<void(::std::optional<::Test::CArray>, ::std::optional<::Test::CArray>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opOptAArrayAsync(const ::std::optional<AArray>& inSeq, ::std::function<void(::std::optional<::Test::AArray>, ::std::optional<::Test::AArray>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opOptCArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<CArray>, ::std::optional<CArray>>>>&, const ::std::optional<CArray>&, const ::Ice::Context&) const;
+    void _iceI_opOptAArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<AArray>, ::std::optional<AArray>>>>&, const ::std::optional<AArray>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<CList> opOptCList(const ::std::optional<CList>& inSeq, ::std::optional<CList>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<AList> opOptAList(const ::std::optional<AList>& inSeq, ::std::optional<AList>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<CList>, ::std::optional<CList>>> opOptCListAsync(const ::std::optional<CList>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<AList>, ::std::optional<AList>>> opOptAListAsync(const ::std::optional<AList>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opOptCListAsync(const ::std::optional<CList>& inSeq, ::std::function<void(::std::optional<::Test::CList>, ::std::optional<::Test::CList>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opOptAListAsync(const ::std::optional<AList>& inSeq, ::std::function<void(::std::optional<::Test::AList>, ::std::optional<::Test::AList>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opOptCList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<CList>, ::std::optional<CList>>>>&, const ::std::optional<CList>&, const ::Ice::Context&) const;
+    void _iceI_opOptAList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<AList>, ::std::optional<AList>>>>&, const ::std::optional<AList>&, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::optional<BoolSeq> opOptBoolSeq(const ::std::optional<BoolSeq>& inSeq, ::std::optional<BoolSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -621,39 +620,19 @@ protected:
 namespace Test
 {
 
-class C : public ::Ice::Value
+struct A
 {
-public:
-
-    C() = default;
+    ::std::int32_t i;
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
      */
-    static ::std::string_view ice_staticId() noexcept;
-
-    ::std::string ice_id() const override;
-
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
-    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
-
-protected:
-
-    C(const C&) = default;
-
-    ::Ice::ValuePtr _iceCloneImpl() const override;
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
-
-    void _iceReadImpl(::Ice::InputStream*) override;
+    std::tuple<const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
 };
-
-/// \cond INTERNAL
-static C _iceS_C_init;
-/// \endcond
 
 struct S
 {
@@ -707,19 +686,19 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual CSeq opCSeq(CSeq inSeq, CSeq& outSeq, const ::Ice::Current& current) = 0;
+    virtual ASeq opASeq(ASeq inSeq, ASeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opCSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_opASeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual CArray opCArray(CArray inSeq, CArray& outSeq, const ::Ice::Current& current) = 0;
+    virtual AArray opAArray(AArray inSeq, AArray& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opCArray(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_opAArray(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual CList opCList(CList inSeq, CList& outSeq, const ::Ice::Current& current) = 0;
+    virtual AList opAList(AList inSeq, AList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opCList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_opAList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual BoolSeq opBoolSeq(BoolSeq inSeq, BoolSeq& outSeq, const ::Ice::Current& current) = 0;
@@ -812,19 +791,19 @@ public:
     void _iceD_opDoubleBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<CSeq> opOptCSeq(::std::optional<CSeq> inSeq, ::std::optional<CSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<ASeq> opOptASeq(::std::optional<ASeq> inSeq, ::std::optional<ASeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opOptCSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_opOptASeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<CArray> opOptCArray(::std::optional<CArray> inSeq, ::std::optional<CArray>& outSeq, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<AArray> opOptAArray(::std::optional<AArray> inSeq, ::std::optional<AArray>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opOptCArray(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_opOptAArray(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<CList> opOptCList(::std::optional<CList> inSeq, ::std::optional<CList>& outSeq, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<AList> opOptAList(::std::optional<AList> inSeq, ::std::optional<AList>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opOptCList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_opOptAList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<BoolSeq> opOptBoolSeq(::std::optional<BoolSeq> inSeq, ::std::optional<BoolSeq>& outSeq, const ::Ice::Current& current) = 0;
@@ -934,6 +913,23 @@ using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 /// \cond STREAM
 namespace Ice
 {
+
+template<>
+struct StreamableTraits<::Test::A>
+{
+    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+    static const int minWireSize = 4;
+    static const bool fixedLength = true;
+};
+
+template<>
+struct StreamReader<::Test::A>
+{
+    static void read(InputStream* istr, ::Test::A& v)
+    {
+        istr->readAll(v.i);
+    }
+};
 
 template<>
 struct StreamableTraits< ::Test::E>

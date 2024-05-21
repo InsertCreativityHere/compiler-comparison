@@ -510,30 +510,4 @@ module ::LocalTest
     if not defined?(::LocalTest::T_S1DictDict)
         T_S1DictDict = ::Ice::__defineDictionary('::LocalTest::S1DictDict', ::Ice::T_int, ::LocalTest::T_S1Dict)
     end
-
-    if not defined?(::LocalTest::Opt_Mixin)
-
-        module ::LocalTest::Opt_Mixin
-        end
-        class Opt < ::Ice::Value
-
-            def initialize(s1=::Ice::Unset, c1seq=::Ice::Unset, s1dict=::Ice::Unset)
-                @s1 = s1
-                @c1seq = c1seq
-                @s1dict = s1dict
-            end
-
-            attr_accessor :s1, :c1seq, :s1dict
-        end
-
-        if not defined?(::LocalTest::T_Opt)
-            T_Opt = ::Ice::__declareClass('::LocalTest::Opt')
-        end
-
-        T_Opt.defineClass(Opt, -1, false, nil, [
-            ['s1', ::LocalTest::T_S1, true, 1],
-            ['c1seq', ::LocalTest::T_C1Seq, true, 2],
-            ['s1dict', ::LocalTest::T_S1Dict, true, 3]
-        ])
-    end
 end

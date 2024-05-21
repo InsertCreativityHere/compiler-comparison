@@ -24,17 +24,36 @@
 
     let Test = _ModuleRegistry.module("Test");
 
-    Test.C = class extends Ice.Value
+    Test.A = class
     {
+        constructor(i = 0)
+        {
+            this.i = i;
+        }
+
+        _write(ostr)
+        {
+            ostr.writeInt(this.i);
+        }
+
+        _read(istr)
+        {
+            this.i = istr.readInt();
+        }
+
+        static get minWireSize()
+        {
+            return  4;
+        }
     };
 
-    Slice.defineValue(Test.C, "::Test::C");
+    Slice.defineStruct(Test.A, true, false);
 
-    Slice.defineSequence(Test, "CSeqHelper", "Ice.ObjectHelper", false, "Test.C");
+    Slice.defineSequence(Test, "ASeqHelper", "Test.A", true);
 
-    Slice.defineSequence(Test, "CArrayHelper", "Ice.ObjectHelper", false, "Test.C");
+    Slice.defineSequence(Test, "AArrayHelper", "Test.A", true);
 
-    Slice.defineSequence(Test, "CListHelper", "Ice.ObjectHelper", false, "Test.C");
+    Slice.defineSequence(Test, "AListHelper", "Test.A", true);
 
     Slice.defineSequence(Test, "BoolSeqHelper", "Ice.BoolHelper", true);
 
@@ -117,9 +136,9 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "opCSeq": [, , , ["Test.CSeqHelper"], [["Test.CSeqHelper"]], [["Test.CSeqHelper"]], , true, true],
-        "opCArray": [, , , ["Test.CArrayHelper"], [["Test.CArrayHelper"]], [["Test.CArrayHelper"]], , true, true],
-        "opCList": [, , , ["Test.CListHelper"], [["Test.CListHelper"]], [["Test.CListHelper"]], , true, true],
+        "opASeq": [, , , ["Test.ASeqHelper"], [["Test.ASeqHelper"]], [["Test.ASeqHelper"]], , , ],
+        "opAArray": [, , , ["Test.AArrayHelper"], [["Test.AArrayHelper"]], [["Test.AArrayHelper"]], , , ],
+        "opAList": [, , , ["Test.AListHelper"], [["Test.AListHelper"]], [["Test.AListHelper"]], , , ],
         "opBoolSeq": [, , , ["Test.BoolSeqHelper"], [["Test.BoolSeqHelper"]], [["Test.BoolSeqHelper"]], , , ],
         "opByteSeq": [, , , ["Test.ByteSeqHelper"], [["Test.ByteSeqHelper"]], [["Test.ByteSeqHelper"]], , , ],
         "opShortSeq": [, , , ["Test.ShortSeqHelper"], [["Test.ShortSeqHelper"]], [["Test.ShortSeqHelper"]], , , ],
@@ -138,9 +157,9 @@
         "opLongBufferSeq": [, , , ["Test.LongBufferHelper"], [["Test.LongBufferHelper"]], [["Test.LongBufferHelper"]], , , ],
         "opFloatBufferSeq": [, , , ["Test.FloatBufferHelper"], [["Test.FloatBufferHelper"]], [["Test.FloatBufferHelper"]], , , ],
         "opDoubleBufferSeq": [, , , ["Test.DoubleBufferHelper"], [["Test.DoubleBufferHelper"]], [["Test.DoubleBufferHelper"]], , , ],
-        "opOptCSeq": [, , , ["Test.CSeqHelper", , 1], [["Test.CSeqHelper", , 2]], [["Test.CSeqHelper", , 3]], , , ],
-        "opOptCArray": [, , , ["Test.CArrayHelper", , 1], [["Test.CArrayHelper", , 2]], [["Test.CArrayHelper", , 3]], , , ],
-        "opOptCList": [, , , ["Test.CListHelper", , 1], [["Test.CListHelper", , 2]], [["Test.CListHelper", , 3]], , , ],
+        "opOptASeq": [, , , ["Test.ASeqHelper", , 1], [["Test.ASeqHelper", , 2]], [["Test.ASeqHelper", , 3]], , , ],
+        "opOptAArray": [, , , ["Test.AArrayHelper", , 1], [["Test.AArrayHelper", , 2]], [["Test.AArrayHelper", , 3]], , , ],
+        "opOptAList": [, , , ["Test.AListHelper", , 1], [["Test.AListHelper", , 2]], [["Test.AListHelper", , 3]], , , ],
         "opOptBoolSeq": [, , , ["Test.BoolSeqHelper", , 1], [["Test.BoolSeqHelper", , 2]], [["Test.BoolSeqHelper", , 3]], , , ],
         "opOptByteSeq": [, , , ["Test.ByteSeqHelper", , 1], [["Test.ByteSeqHelper", , 2]], [["Test.ByteSeqHelper", , 3]], , , ],
         "opOptShortSeq": [, , , ["Test.ShortSeqHelper", , 1], [["Test.ShortSeqHelper", , 2]], [["Test.ShortSeqHelper", , 3]], , , ],

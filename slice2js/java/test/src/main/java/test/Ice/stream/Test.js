@@ -127,7 +127,7 @@
 
     Test.OptionalClass = class extends Ice.Value
     {
-        constructor(bo = false, by = 0, sh = undefined, i = undefined, sm = undefined, enumS4 = undefined, myClassS5 = undefined, byteBoolD6 = undefined, shortIntD7 = undefined, enum8 = undefined, class9 = undefined, stringMyClassD10 = undefined, intSeq12 = undefined, byteSeq13 = undefined, stringSeq14 = undefined, p15 = undefined)
+        constructor(bo = false, by = 0, sh = undefined, i = undefined, sm = undefined, enumS4 = undefined, byteBoolD6 = undefined, shortIntD7 = undefined, enum8 = undefined, intSeq12 = undefined, byteSeq13 = undefined, stringSeq14 = undefined, p15 = undefined)
         {
             super();
             this.bo = bo;
@@ -136,12 +136,9 @@
             this.i = i;
             this.sm = sm;
             this.enumS4 = enumS4;
-            this.myClassS5 = myClassS5;
             this.byteBoolD6 = byteBoolD6;
             this.shortIntD7 = shortIntD7;
             this.enum8 = enum8;
-            this.class9 = class9;
-            this.stringMyClassD10 = stringMyClassD10;
             this.intSeq12 = intSeq12;
             this.byteSeq13 = byteSeq13;
             this.stringSeq14 = stringSeq14;
@@ -156,12 +153,9 @@
             Ice.IntHelper.writeOptional(ostr, 2, this.i);
             Test.SmallStruct.writeOptional(ostr, 3, this.sm);
             Test.MyEnumSHelper.writeOptional(ostr, 4, this.enumS4);
-            Test.MyClassSHelper.writeOptional(ostr, 5, this.myClassS5);
             Test.ByteBoolDHelper.writeOptional(ostr, 6, this.byteBoolD6);
             Test.ShortIntDHelper.writeOptional(ostr, 7, this.shortIntD7);
             Test.MyEnum._writeOpt(ostr, 8, this.enum8);
-            ostr.writeOptionalValue(9, this.class9);
-            Test.StringMyClassDHelper.writeOptional(ostr, 10, this.stringMyClassD10);
             Ice.IntSeqHelper.writeOptional(ostr, 12, this.intSeq12);
             Ice.ByteSeqHelper.writeOptional(ostr, 13, this.byteSeq13);
             Ice.StringSeqHelper.writeOptional(ostr, 14, this.stringSeq14);
@@ -176,12 +170,9 @@
             this.i = Ice.IntHelper.readOptional(istr, 2);
             this.sm = Test.SmallStruct.readOptional(istr, 3);
             this.enumS4 = Test.MyEnumSHelper.readOptional(istr, 4);
-            this.myClassS5 = Test.MyClassSHelper.readOptional(istr, 5);
             this.byteBoolD6 = Test.ByteBoolDHelper.readOptional(istr, 6);
             this.shortIntD7 = Test.ShortIntDHelper.readOptional(istr, 7);
             this.enum8 = Test.MyEnum._readOpt(istr, 8);
-            istr.readOptionalValue(9, obj => this.class9 = obj, Test.MyClass);
-            this.stringMyClassD10 = Test.StringMyClassDHelper.readOptional(istr, 10);
             this.intSeq12 = Ice.IntSeqHelper.readOptional(istr, 12);
             this.byteSeq13 = Ice.ByteSeqHelper.readOptional(istr, 13);
             this.stringSeq14 = Ice.StringSeqHelper.readOptional(istr, 14);

@@ -17,206 +17,253 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class`C`.
-public struct CTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::C"]
-    public static let staticId = "::Test::C"
+public struct A: Swift.Hashable {
+    public var i: Swift.Int32 = 0
+
+    public init() {}
+
+    public init(i: Swift.Int32) {
+        self.i = i
+    }
 }
 
-public typealias CSeq = [C?]
+/// An `Ice.InputStream` extension to read `A` structured values from the stream.
+public extension Ice.InputStream {
+    /// Read a `A` structured value from the stream.
+    ///
+    /// - returns: `A` - The structured value read from the stream.
+    func read() throws -> A {
+        var v = A()
+        v.i = try self.read()
+        return v
+    }
 
-/// Helper class to read and write `CSeq` sequence values from
+    /// Read an optional `A?` structured value from the stream.
+    ///
+    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    ///
+    /// - returns: `A?` - The structured value read from the stream.
+    func read(tag: Swift.Int32) throws -> A? {
+        guard try readOptional(tag: tag, expectedFormat: .VSize) else {
+            return nil
+        }
+        try skipSize()
+        return try read() as A
+    }
+}
+
+/// An `Ice.OutputStream` extension to write `A` structured values from the stream.
+public extension Ice.OutputStream {
+    /// Write a `A` structured value to the stream.
+    ///
+    /// - parameter _: `A` - The value to write to the stream.
+    func write(_ v: A) {
+        self.write(v.i)
+    }
+
+    /// Write an optional `A?` structured value to the stream.
+    ///
+    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter value: `A?` - The value to write to the stream.
+    func write(tag: Swift.Int32, value: A?) {
+        if let v = value {
+            if writeOptional(tag: tag, format: .VSize) {
+                write(size: 4)
+                write(v)
+            }
+        }
+    }
+}
+
+public typealias ASeq = [A]
+
+/// Helper class to read and write `ASeq` sequence values from
 /// `Ice.InputStream` and `Ice.OutputStream`.
-public struct CSeqHelper {
-    /// Read a `CSeq` sequence from the stream.
+public struct ASeqHelper {
+    /// Read a `ASeq` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
-    /// - returns: `CSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> CSeq {
-        let sz = try istr.readAndCheckSeqSize(minSize: 1)
-        var v = CSeq(repeating: nil, count: sz)
-        for i in 0 ..< sz {
-            try Swift.withUnsafeMutablePointer(to: &v[i]) { p in
-                try istr.read(C.self) { p.pointee = $0 }
-            }
+    /// - returns: `ASeq` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream) throws -> ASeq {
+        let sz = try istr.readAndCheckSeqSize(minSize: 4)
+        var v = ASeq()
+        v.reserveCapacity(sz)
+        for _ in 0 ..< sz {
+            let j: A = try istr.read()
+            v.append(j)
         }
         return v
     }
-    /// Read an optional `CSeq?` sequence from the stream.
+    /// Read an optional `ASeq?` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
     /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
     ///
-    /// - returns: `CSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> CSeq? {
-        guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
+    /// - returns: `ASeq` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ASeq? {
+        guard try istr.readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
         }
-        try istr.skip(4)
+        try istr.skipSize()
         return try read(from: istr)
     }
 
-    /// Wite a `CSeq` sequence to the stream.
+    /// Wite a `ASeq` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
-    /// - parameter value: `CSeq` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: CSeq) {
+    /// - parameter value: `ASeq` - The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream, value v: ASeq) {
         ostr.write(size: v.count)
         for item in v {
             ostr.write(item)
         }
     }
 
-    /// Wite an optional `CSeq?` sequence to the stream.
+    /// Wite an optional `ASeq?` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
     /// - parameter tag: `Int32` - The numeric tag associated with the value.
     ///
-    /// - parameter value: `CSeq` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: CSeq?) {
+    /// - parameter value: `ASeq` The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ASeq?) {
         guard let val = v else {
             return
         }
-        if ostr.writeOptional(tag: tag, format: .FSize) {
-            let pos = ostr.startSize()
+        if ostr.writeOptionalVSize(tag: tag, len: val.count, elemSize: 4) {
             write(to: ostr, value: val)
-            ostr.endSize(position: pos)
         }
     }
 }
 
-public typealias CArray = [C?]
+public typealias AArray = [A]
 
-/// Helper class to read and write `CArray` sequence values from
+/// Helper class to read and write `AArray` sequence values from
 /// `Ice.InputStream` and `Ice.OutputStream`.
-public struct CArrayHelper {
-    /// Read a `CArray` sequence from the stream.
+public struct AArrayHelper {
+    /// Read a `AArray` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
-    /// - returns: `CArray` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> CArray {
-        let sz = try istr.readAndCheckSeqSize(minSize: 1)
-        var v = CArray(repeating: nil, count: sz)
-        for i in 0 ..< sz {
-            try Swift.withUnsafeMutablePointer(to: &v[i]) { p in
-                try istr.read(C.self) { p.pointee = $0 }
-            }
+    /// - returns: `AArray` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream) throws -> AArray {
+        let sz = try istr.readAndCheckSeqSize(minSize: 4)
+        var v = AArray()
+        v.reserveCapacity(sz)
+        for _ in 0 ..< sz {
+            let j: A = try istr.read()
+            v.append(j)
         }
         return v
     }
-    /// Read an optional `CArray?` sequence from the stream.
+    /// Read an optional `AArray?` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
     /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
     ///
-    /// - returns: `CArray` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> CArray? {
-        guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
+    /// - returns: `AArray` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> AArray? {
+        guard try istr.readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
         }
-        try istr.skip(4)
+        try istr.skipSize()
         return try read(from: istr)
     }
 
-    /// Wite a `CArray` sequence to the stream.
+    /// Wite a `AArray` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
-    /// - parameter value: `CArray` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: CArray) {
+    /// - parameter value: `AArray` - The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream, value v: AArray) {
         ostr.write(size: v.count)
         for item in v {
             ostr.write(item)
         }
     }
 
-    /// Wite an optional `CArray?` sequence to the stream.
+    /// Wite an optional `AArray?` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
     /// - parameter tag: `Int32` - The numeric tag associated with the value.
     ///
-    /// - parameter value: `CArray` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: CArray?) {
+    /// - parameter value: `AArray` The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: AArray?) {
         guard let val = v else {
             return
         }
-        if ostr.writeOptional(tag: tag, format: .FSize) {
-            let pos = ostr.startSize()
+        if ostr.writeOptionalVSize(tag: tag, len: val.count, elemSize: 4) {
             write(to: ostr, value: val)
-            ostr.endSize(position: pos)
         }
     }
 }
 
-public typealias CList = [C?]
+public typealias AList = [A]
 
-/// Helper class to read and write `CList` sequence values from
+/// Helper class to read and write `AList` sequence values from
 /// `Ice.InputStream` and `Ice.OutputStream`.
-public struct CListHelper {
-    /// Read a `CList` sequence from the stream.
+public struct AListHelper {
+    /// Read a `AList` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
-    /// - returns: `CList` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> CList {
-        let sz = try istr.readAndCheckSeqSize(minSize: 1)
-        var v = CList(repeating: nil, count: sz)
-        for i in 0 ..< sz {
-            try Swift.withUnsafeMutablePointer(to: &v[i]) { p in
-                try istr.read(C.self) { p.pointee = $0 }
-            }
+    /// - returns: `AList` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream) throws -> AList {
+        let sz = try istr.readAndCheckSeqSize(minSize: 4)
+        var v = AList()
+        v.reserveCapacity(sz)
+        for _ in 0 ..< sz {
+            let j: A = try istr.read()
+            v.append(j)
         }
         return v
     }
-    /// Read an optional `CList?` sequence from the stream.
+    /// Read an optional `AList?` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
     /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
     ///
-    /// - returns: `CList` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> CList? {
-        guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
+    /// - returns: `AList` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> AList? {
+        guard try istr.readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
         }
-        try istr.skip(4)
+        try istr.skipSize()
         return try read(from: istr)
     }
 
-    /// Wite a `CList` sequence to the stream.
+    /// Wite a `AList` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
-    /// - parameter value: `CList` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: CList) {
+    /// - parameter value: `AList` - The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream, value v: AList) {
         ostr.write(size: v.count)
         for item in v {
             ostr.write(item)
         }
     }
 
-    /// Wite an optional `CList?` sequence to the stream.
+    /// Wite an optional `AList?` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
     /// - parameter tag: `Int32` - The numeric tag associated with the value.
     ///
-    /// - parameter value: `CList` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: CList?) {
+    /// - parameter value: `AList` The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: AList?) {
         guard let val = v else {
             return
         }
-        if ostr.writeOptional(tag: tag, format: .FSize) {
-            let pos = ostr.startSize()
+        if ostr.writeOptionalVSize(tag: tag, len: val.count, elemSize: 4) {
             write(to: ostr, value: val)
-            ostr.endSize(position: pos)
         }
     }
 }
@@ -710,17 +757,17 @@ public struct TestIntfTraits: Ice.SliceTraits {
 ///
 /// TestIntfPrx Methods:
 ///
-///  - opCSeq: 
+///  - opASeq: 
 ///
-///  - opCSeqAsync: 
+///  - opASeqAsync: 
 ///
-///  - opCArray: 
+///  - opAArray: 
 ///
-///  - opCArrayAsync: 
+///  - opAArrayAsync: 
 ///
-///  - opCList: 
+///  - opAList: 
 ///
-///  - opCListAsync: 
+///  - opAListAsync: 
 ///
 ///  - opBoolSeq: 
 ///
@@ -794,17 +841,17 @@ public struct TestIntfTraits: Ice.SliceTraits {
 ///
 ///  - opDoubleBufferSeqAsync: 
 ///
-///  - opOptCSeq: 
+///  - opOptASeq: 
 ///
-///  - opOptCSeqAsync: 
+///  - opOptASeqAsync: 
 ///
-///  - opOptCArray: 
+///  - opOptAArray: 
 ///
-///  - opOptCArrayAsync: 
+///  - opOptAArrayAsync: 
 ///
-///  - opOptCList: 
+///  - opOptAList: 
 ///
-///  - opOptCListAsync: 
+///  - opOptAListAsync: 
 ///
 ///  - opOptBoolSeq: 
 ///
@@ -960,17 +1007,17 @@ public extension Ice.InputStream {
 ///
 /// TestIntfPrx Methods:
 ///
-///  - opCSeq: 
+///  - opASeq: 
 ///
-///  - opCSeqAsync: 
+///  - opASeqAsync: 
 ///
-///  - opCArray: 
+///  - opAArray: 
 ///
-///  - opCArrayAsync: 
+///  - opAArrayAsync: 
 ///
-///  - opCList: 
+///  - opAList: 
 ///
-///  - opCListAsync: 
+///  - opAListAsync: 
 ///
 ///  - opBoolSeq: 
 ///
@@ -1044,17 +1091,17 @@ public extension Ice.InputStream {
 ///
 ///  - opDoubleBufferSeqAsync: 
 ///
-///  - opOptCSeq: 
+///  - opOptASeq: 
 ///
-///  - opOptCSeqAsync: 
+///  - opOptASeqAsync: 
 ///
-///  - opOptCArray: 
+///  - opOptAArray: 
 ///
-///  - opOptCArrayAsync: 
+///  - opOptAArrayAsync: 
 ///
-///  - opOptCList: 
+///  - opOptAList: 
 ///
-///  - opOptCListAsync: 
+///  - opOptAListAsync: 
 ///
 ///  - opOptBoolSeq: 
 ///
@@ -1133,33 +1180,31 @@ public extension Ice.InputStream {
 ///  - shutdownAsync: 
 public extension TestIntfPrx {
     ///
-    /// - parameter _: `CSeq`
+    /// - parameter _: `ASeq`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `(returnValue: CSeq, outSeq: CSeq)`:
+    /// - returns: `(returnValue: ASeq, outSeq: ASeq)`:
     ///
-    ///   - returnValue: `CSeq`
+    ///   - returnValue: `ASeq`
     ///
-    ///   - outSeq: `CSeq`
-    func opCSeq(_ iceP_inSeq: CSeq, context: Ice.Context? = nil) throws -> (returnValue: CSeq, outSeq: CSeq) {
-        return try _impl._invoke(operation: "opCSeq",
+    ///   - outSeq: `ASeq`
+    func opASeq(_ iceP_inSeq: ASeq, context: Ice.Context? = nil) throws -> (returnValue: ASeq, outSeq: ASeq) {
+        return try _impl._invoke(operation: "opASeq",
                                  mode: .Normal,
                                  write: { ostr in
-                                     CSeqHelper.write(to: ostr, value: iceP_inSeq)
-                                     ostr.writePendingValues()
+                                     ASeqHelper.write(to: ostr, value: iceP_inSeq)
                                  },
                                  read: { istr in
-                                     let iceP_outSeq: CSeq = try CSeqHelper.read(from: istr)
-                                     let iceP_returnValue: CSeq = try CSeqHelper.read(from: istr)
-                                     try istr.readPendingValues()
+                                     let iceP_outSeq: ASeq = try ASeqHelper.read(from: istr)
+                                     let iceP_returnValue: ASeq = try ASeqHelper.read(from: istr)
                                      return (iceP_returnValue, iceP_outSeq)
                                  },
                                  context: context)
     }
 
     ///
-    /// - parameter _: `CSeq`
+    /// - parameter _: `ASeq`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1171,18 +1216,16 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: CSeq, outSeq: CSeq)>` - The result of the operation
-    func opCSeqAsync(_ iceP_inSeq: CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: CSeq, outSeq: CSeq)> {
-        return _impl._invokeAsync(operation: "opCSeq",
+    /// - returns: `PromiseKit.Promise<(returnValue: ASeq, outSeq: ASeq)>` - The result of the operation
+    func opASeqAsync(_ iceP_inSeq: ASeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ASeq, outSeq: ASeq)> {
+        return _impl._invokeAsync(operation: "opASeq",
                                   mode: .Normal,
                                   write: { ostr in
-                                      CSeqHelper.write(to: ostr, value: iceP_inSeq)
-                                      ostr.writePendingValues()
+                                      ASeqHelper.write(to: ostr, value: iceP_inSeq)
                                   },
                                   read: { istr in
-                                      let iceP_outSeq: CSeq = try CSeqHelper.read(from: istr)
-                                      let iceP_returnValue: CSeq = try CSeqHelper.read(from: istr)
-                                      try istr.readPendingValues()
+                                      let iceP_outSeq: ASeq = try ASeqHelper.read(from: istr)
+                                      let iceP_returnValue: ASeq = try ASeqHelper.read(from: istr)
                                       return (iceP_returnValue, iceP_outSeq)
                                   },
                                   context: context,
@@ -1192,33 +1235,31 @@ public extension TestIntfPrx {
     }
 
     ///
-    /// - parameter _: `CArray`
+    /// - parameter _: `AArray`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `(returnValue: CArray, outSeq: CArray)`:
+    /// - returns: `(returnValue: AArray, outSeq: AArray)`:
     ///
-    ///   - returnValue: `CArray`
+    ///   - returnValue: `AArray`
     ///
-    ///   - outSeq: `CArray`
-    func opCArray(_ iceP_inSeq: CArray, context: Ice.Context? = nil) throws -> (returnValue: CArray, outSeq: CArray) {
-        return try _impl._invoke(operation: "opCArray",
+    ///   - outSeq: `AArray`
+    func opAArray(_ iceP_inSeq: AArray, context: Ice.Context? = nil) throws -> (returnValue: AArray, outSeq: AArray) {
+        return try _impl._invoke(operation: "opAArray",
                                  mode: .Normal,
                                  write: { ostr in
-                                     CArrayHelper.write(to: ostr, value: iceP_inSeq)
-                                     ostr.writePendingValues()
+                                     AArrayHelper.write(to: ostr, value: iceP_inSeq)
                                  },
                                  read: { istr in
-                                     let iceP_outSeq: CArray = try CArrayHelper.read(from: istr)
-                                     let iceP_returnValue: CArray = try CArrayHelper.read(from: istr)
-                                     try istr.readPendingValues()
+                                     let iceP_outSeq: AArray = try AArrayHelper.read(from: istr)
+                                     let iceP_returnValue: AArray = try AArrayHelper.read(from: istr)
                                      return (iceP_returnValue, iceP_outSeq)
                                  },
                                  context: context)
     }
 
     ///
-    /// - parameter _: `CArray`
+    /// - parameter _: `AArray`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1230,18 +1271,16 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: CArray, outSeq: CArray)>` - The result of the operation
-    func opCArrayAsync(_ iceP_inSeq: CArray, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: CArray, outSeq: CArray)> {
-        return _impl._invokeAsync(operation: "opCArray",
+    /// - returns: `PromiseKit.Promise<(returnValue: AArray, outSeq: AArray)>` - The result of the operation
+    func opAArrayAsync(_ iceP_inSeq: AArray, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: AArray, outSeq: AArray)> {
+        return _impl._invokeAsync(operation: "opAArray",
                                   mode: .Normal,
                                   write: { ostr in
-                                      CArrayHelper.write(to: ostr, value: iceP_inSeq)
-                                      ostr.writePendingValues()
+                                      AArrayHelper.write(to: ostr, value: iceP_inSeq)
                                   },
                                   read: { istr in
-                                      let iceP_outSeq: CArray = try CArrayHelper.read(from: istr)
-                                      let iceP_returnValue: CArray = try CArrayHelper.read(from: istr)
-                                      try istr.readPendingValues()
+                                      let iceP_outSeq: AArray = try AArrayHelper.read(from: istr)
+                                      let iceP_returnValue: AArray = try AArrayHelper.read(from: istr)
                                       return (iceP_returnValue, iceP_outSeq)
                                   },
                                   context: context,
@@ -1251,33 +1290,31 @@ public extension TestIntfPrx {
     }
 
     ///
-    /// - parameter _: `CList`
+    /// - parameter _: `AList`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `(returnValue: CList, outSeq: CList)`:
+    /// - returns: `(returnValue: AList, outSeq: AList)`:
     ///
-    ///   - returnValue: `CList`
+    ///   - returnValue: `AList`
     ///
-    ///   - outSeq: `CList`
-    func opCList(_ iceP_inSeq: CList, context: Ice.Context? = nil) throws -> (returnValue: CList, outSeq: CList) {
-        return try _impl._invoke(operation: "opCList",
+    ///   - outSeq: `AList`
+    func opAList(_ iceP_inSeq: AList, context: Ice.Context? = nil) throws -> (returnValue: AList, outSeq: AList) {
+        return try _impl._invoke(operation: "opAList",
                                  mode: .Normal,
                                  write: { ostr in
-                                     CListHelper.write(to: ostr, value: iceP_inSeq)
-                                     ostr.writePendingValues()
+                                     AListHelper.write(to: ostr, value: iceP_inSeq)
                                  },
                                  read: { istr in
-                                     let iceP_outSeq: CList = try CListHelper.read(from: istr)
-                                     let iceP_returnValue: CList = try CListHelper.read(from: istr)
-                                     try istr.readPendingValues()
+                                     let iceP_outSeq: AList = try AListHelper.read(from: istr)
+                                     let iceP_returnValue: AList = try AListHelper.read(from: istr)
                                      return (iceP_returnValue, iceP_outSeq)
                                  },
                                  context: context)
     }
 
     ///
-    /// - parameter _: `CList`
+    /// - parameter _: `AList`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1289,18 +1326,16 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: CList, outSeq: CList)>` - The result of the operation
-    func opCListAsync(_ iceP_inSeq: CList, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: CList, outSeq: CList)> {
-        return _impl._invokeAsync(operation: "opCList",
+    /// - returns: `PromiseKit.Promise<(returnValue: AList, outSeq: AList)>` - The result of the operation
+    func opAListAsync(_ iceP_inSeq: AList, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: AList, outSeq: AList)> {
+        return _impl._invokeAsync(operation: "opAList",
                                   mode: .Normal,
                                   write: { ostr in
-                                      CListHelper.write(to: ostr, value: iceP_inSeq)
-                                      ostr.writePendingValues()
+                                      AListHelper.write(to: ostr, value: iceP_inSeq)
                                   },
                                   read: { istr in
-                                      let iceP_outSeq: CList = try CListHelper.read(from: istr)
-                                      let iceP_returnValue: CList = try CListHelper.read(from: istr)
-                                      try istr.readPendingValues()
+                                      let iceP_outSeq: AList = try AListHelper.read(from: istr)
+                                      let iceP_returnValue: AList = try AListHelper.read(from: istr)
                                       return (iceP_returnValue, iceP_outSeq)
                                   },
                                   context: context,
@@ -2300,31 +2335,31 @@ public extension TestIntfPrx {
     }
 
     ///
-    /// - parameter _: `CSeq?`
+    /// - parameter _: `ASeq?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `(returnValue: CSeq?, outSeq: CSeq?)`:
+    /// - returns: `(returnValue: ASeq?, outSeq: ASeq?)`:
     ///
-    ///   - returnValue: `CSeq?`
+    ///   - returnValue: `ASeq?`
     ///
-    ///   - outSeq: `CSeq?`
-    func opOptCSeq(_ iceP_inSeq: CSeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: CSeq?, outSeq: CSeq?) {
-        return try _impl._invoke(operation: "opOptCSeq",
+    ///   - outSeq: `ASeq?`
+    func opOptASeq(_ iceP_inSeq: ASeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: ASeq?, outSeq: ASeq?) {
+        return try _impl._invoke(operation: "opOptASeq",
                                  mode: .Normal,
                                  write: { ostr in
-                                     CSeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                     ASeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
                                  },
                                  read: { istr in
-                                     let iceP_returnValue: CSeq? = try CSeqHelper.read(from: istr, tag: 1)
-                                     let iceP_outSeq: CSeq? = try CSeqHelper.read(from: istr, tag: 3)
+                                     let iceP_returnValue: ASeq? = try ASeqHelper.read(from: istr, tag: 1)
+                                     let iceP_outSeq: ASeq? = try ASeqHelper.read(from: istr, tag: 3)
                                      return (iceP_returnValue, iceP_outSeq)
                                  },
                                  context: context)
     }
 
     ///
-    /// - parameter _: `CSeq?`
+    /// - parameter _: `ASeq?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -2336,16 +2371,16 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: CSeq?, outSeq: CSeq?)>` - The result of the operation
-    func opOptCSeqAsync(_ iceP_inSeq: CSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: CSeq?, outSeq: CSeq?)> {
-        return _impl._invokeAsync(operation: "opOptCSeq",
+    /// - returns: `PromiseKit.Promise<(returnValue: ASeq?, outSeq: ASeq?)>` - The result of the operation
+    func opOptASeqAsync(_ iceP_inSeq: ASeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ASeq?, outSeq: ASeq?)> {
+        return _impl._invokeAsync(operation: "opOptASeq",
                                   mode: .Normal,
                                   write: { ostr in
-                                      CSeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                      ASeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
                                   },
                                   read: { istr in
-                                      let iceP_returnValue: CSeq? = try CSeqHelper.read(from: istr, tag: 1)
-                                      let iceP_outSeq: CSeq? = try CSeqHelper.read(from: istr, tag: 3)
+                                      let iceP_returnValue: ASeq? = try ASeqHelper.read(from: istr, tag: 1)
+                                      let iceP_outSeq: ASeq? = try ASeqHelper.read(from: istr, tag: 3)
                                       return (iceP_returnValue, iceP_outSeq)
                                   },
                                   context: context,
@@ -2355,31 +2390,31 @@ public extension TestIntfPrx {
     }
 
     ///
-    /// - parameter _: `CArray?`
+    /// - parameter _: `AArray?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `(returnValue: CArray?, outSeq: CArray?)`:
+    /// - returns: `(returnValue: AArray?, outSeq: AArray?)`:
     ///
-    ///   - returnValue: `CArray?`
+    ///   - returnValue: `AArray?`
     ///
-    ///   - outSeq: `CArray?`
-    func opOptCArray(_ iceP_inSeq: CArray? = nil, context: Ice.Context? = nil) throws -> (returnValue: CArray?, outSeq: CArray?) {
-        return try _impl._invoke(operation: "opOptCArray",
+    ///   - outSeq: `AArray?`
+    func opOptAArray(_ iceP_inSeq: AArray? = nil, context: Ice.Context? = nil) throws -> (returnValue: AArray?, outSeq: AArray?) {
+        return try _impl._invoke(operation: "opOptAArray",
                                  mode: .Normal,
                                  write: { ostr in
-                                     CArrayHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                     AArrayHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
                                  },
                                  read: { istr in
-                                     let iceP_returnValue: CArray? = try CArrayHelper.read(from: istr, tag: 1)
-                                     let iceP_outSeq: CArray? = try CArrayHelper.read(from: istr, tag: 3)
+                                     let iceP_returnValue: AArray? = try AArrayHelper.read(from: istr, tag: 1)
+                                     let iceP_outSeq: AArray? = try AArrayHelper.read(from: istr, tag: 3)
                                      return (iceP_returnValue, iceP_outSeq)
                                  },
                                  context: context)
     }
 
     ///
-    /// - parameter _: `CArray?`
+    /// - parameter _: `AArray?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -2391,16 +2426,16 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: CArray?, outSeq: CArray?)>` - The result of the operation
-    func opOptCArrayAsync(_ iceP_inSeq: CArray? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: CArray?, outSeq: CArray?)> {
-        return _impl._invokeAsync(operation: "opOptCArray",
+    /// - returns: `PromiseKit.Promise<(returnValue: AArray?, outSeq: AArray?)>` - The result of the operation
+    func opOptAArrayAsync(_ iceP_inSeq: AArray? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: AArray?, outSeq: AArray?)> {
+        return _impl._invokeAsync(operation: "opOptAArray",
                                   mode: .Normal,
                                   write: { ostr in
-                                      CArrayHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                      AArrayHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
                                   },
                                   read: { istr in
-                                      let iceP_returnValue: CArray? = try CArrayHelper.read(from: istr, tag: 1)
-                                      let iceP_outSeq: CArray? = try CArrayHelper.read(from: istr, tag: 3)
+                                      let iceP_returnValue: AArray? = try AArrayHelper.read(from: istr, tag: 1)
+                                      let iceP_outSeq: AArray? = try AArrayHelper.read(from: istr, tag: 3)
                                       return (iceP_returnValue, iceP_outSeq)
                                   },
                                   context: context,
@@ -2410,31 +2445,31 @@ public extension TestIntfPrx {
     }
 
     ///
-    /// - parameter _: `CList?`
+    /// - parameter _: `AList?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `(returnValue: CList?, outSeq: CList?)`:
+    /// - returns: `(returnValue: AList?, outSeq: AList?)`:
     ///
-    ///   - returnValue: `CList?`
+    ///   - returnValue: `AList?`
     ///
-    ///   - outSeq: `CList?`
-    func opOptCList(_ iceP_inSeq: CList? = nil, context: Ice.Context? = nil) throws -> (returnValue: CList?, outSeq: CList?) {
-        return try _impl._invoke(operation: "opOptCList",
+    ///   - outSeq: `AList?`
+    func opOptAList(_ iceP_inSeq: AList? = nil, context: Ice.Context? = nil) throws -> (returnValue: AList?, outSeq: AList?) {
+        return try _impl._invoke(operation: "opOptAList",
                                  mode: .Normal,
                                  write: { ostr in
-                                     CListHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                     AListHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
                                  },
                                  read: { istr in
-                                     let iceP_returnValue: CList? = try CListHelper.read(from: istr, tag: 1)
-                                     let iceP_outSeq: CList? = try CListHelper.read(from: istr, tag: 3)
+                                     let iceP_returnValue: AList? = try AListHelper.read(from: istr, tag: 1)
+                                     let iceP_outSeq: AList? = try AListHelper.read(from: istr, tag: 3)
                                      return (iceP_returnValue, iceP_outSeq)
                                  },
                                  context: context)
     }
 
     ///
-    /// - parameter _: `CList?`
+    /// - parameter _: `AList?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -2446,16 +2481,16 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: CList?, outSeq: CList?)>` - The result of the operation
-    func opOptCListAsync(_ iceP_inSeq: CList? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: CList?, outSeq: CList?)> {
-        return _impl._invokeAsync(operation: "opOptCList",
+    /// - returns: `PromiseKit.Promise<(returnValue: AList?, outSeq: AList?)>` - The result of the operation
+    func opOptAListAsync(_ iceP_inSeq: AList? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: AList?, outSeq: AList?)> {
+        return _impl._invokeAsync(operation: "opOptAList",
                                   mode: .Normal,
                                   write: { ostr in
-                                      CListHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                      AListHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
                                   },
                                   read: { istr in
-                                      let iceP_returnValue: CList? = try CListHelper.read(from: istr, tag: 1)
-                                      let iceP_outSeq: CList? = try CListHelper.read(from: istr, tag: 3)
+                                      let iceP_returnValue: AList? = try AListHelper.read(from: istr, tag: 1)
+                                      let iceP_outSeq: AList? = try AListHelper.read(from: istr, tag: 3)
                                       return (iceP_returnValue, iceP_outSeq)
                                   },
                                   context: context,
@@ -3484,47 +3519,6 @@ public extension TestIntfPrx {
     }
 }
 
-/// :nodoc:
-public class C_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return C.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_C() -> Ice.ValueTypeResolver {
-        return C_TypeResolver()
-    }
-}
-
-open class C: Ice.Value {
-    public required init() {}
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        try istr.endSlice()
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CTraits.staticId, compactId: -1, last: true)
-        ostr.endSlice()
-    }
-}
-
 
 /// Dispatcher for `TestIntf` servants.
 public struct TestIntfDisp: Ice.Disp {
@@ -3546,18 +3540,18 @@ public struct TestIntfDisp: Ice.Disp {
             return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
         case "ice_ping":
             return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+        case "opAArray":
+            return try servant._iceD_opAArray(incoming: request, current: current)
+        case "opAList":
+            return try servant._iceD_opAList(incoming: request, current: current)
+        case "opASeq":
+            return try servant._iceD_opASeq(incoming: request, current: current)
         case "opBoolSeq":
             return try servant._iceD_opBoolSeq(incoming: request, current: current)
         case "opByteBufferSeq":
             return try servant._iceD_opByteBufferSeq(incoming: request, current: current)
         case "opByteSeq":
             return try servant._iceD_opByteSeq(incoming: request, current: current)
-        case "opCArray":
-            return try servant._iceD_opCArray(incoming: request, current: current)
-        case "opCList":
-            return try servant._iceD_opCList(incoming: request, current: current)
-        case "opCSeq":
-            return try servant._iceD_opCSeq(incoming: request, current: current)
         case "opDSeq":
             return try servant._iceD_opDSeq(incoming: request, current: current)
         case "opDoubleBufferSeq":
@@ -3578,18 +3572,18 @@ public struct TestIntfDisp: Ice.Disp {
             return try servant._iceD_opLongBufferSeq(incoming: request, current: current)
         case "opLongSeq":
             return try servant._iceD_opLongSeq(incoming: request, current: current)
+        case "opOptAArray":
+            return try servant._iceD_opOptAArray(incoming: request, current: current)
+        case "opOptAList":
+            return try servant._iceD_opOptAList(incoming: request, current: current)
+        case "opOptASeq":
+            return try servant._iceD_opOptASeq(incoming: request, current: current)
         case "opOptBoolSeq":
             return try servant._iceD_opOptBoolSeq(incoming: request, current: current)
         case "opOptByteBufferSeq":
             return try servant._iceD_opOptByteBufferSeq(incoming: request, current: current)
         case "opOptByteSeq":
             return try servant._iceD_opOptByteSeq(incoming: request, current: current)
-        case "opOptCArray":
-            return try servant._iceD_opOptCArray(incoming: request, current: current)
-        case "opOptCList":
-            return try servant._iceD_opOptCList(incoming: request, current: current)
-        case "opOptCSeq":
-            return try servant._iceD_opOptCSeq(incoming: request, current: current)
         case "opOptDSeq":
             return try servant._iceD_opOptDSeq(incoming: request, current: current)
         case "opOptDoubleBufferSeq":
@@ -3640,40 +3634,40 @@ public struct TestIntfDisp: Ice.Disp {
 
 public protocol TestIntf {
     ///
-    /// - parameter inSeq: `CSeq`
+    /// - parameter inSeq: `ASeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CSeq, outSeq: CSeq)`:
+    /// - returns: `(returnValue: ASeq, outSeq: ASeq)`:
     ///
-    ///   - returnValue: `CSeq`
+    ///   - returnValue: `ASeq`
     ///
-    ///   - outSeq: `CSeq`
-    func opCSeq(inSeq: CSeq, current: Ice.Current) throws -> (returnValue: CSeq, outSeq: CSeq)
+    ///   - outSeq: `ASeq`
+    func opASeq(inSeq: ASeq, current: Ice.Current) throws -> (returnValue: ASeq, outSeq: ASeq)
 
     ///
-    /// - parameter inSeq: `CArray`
+    /// - parameter inSeq: `AArray`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CArray, outSeq: CArray)`:
+    /// - returns: `(returnValue: AArray, outSeq: AArray)`:
     ///
-    ///   - returnValue: `CArray`
+    ///   - returnValue: `AArray`
     ///
-    ///   - outSeq: `CArray`
-    func opCArray(inSeq: CArray, current: Ice.Current) throws -> (returnValue: CArray, outSeq: CArray)
+    ///   - outSeq: `AArray`
+    func opAArray(inSeq: AArray, current: Ice.Current) throws -> (returnValue: AArray, outSeq: AArray)
 
     ///
-    /// - parameter inSeq: `CList`
+    /// - parameter inSeq: `AList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CList, outSeq: CList)`:
+    /// - returns: `(returnValue: AList, outSeq: AList)`:
     ///
-    ///   - returnValue: `CList`
+    ///   - returnValue: `AList`
     ///
-    ///   - outSeq: `CList`
-    func opCList(inSeq: CList, current: Ice.Current) throws -> (returnValue: CList, outSeq: CList)
+    ///   - outSeq: `AList`
+    func opAList(inSeq: AList, current: Ice.Current) throws -> (returnValue: AList, outSeq: AList)
 
     ///
     /// - parameter inSeq: `BoolSeq`
@@ -3892,40 +3886,40 @@ public protocol TestIntf {
     func opDoubleBufferSeq(inSeq: DoubleBuffer, current: Ice.Current) throws -> (returnValue: DoubleBuffer, outSeq: DoubleBuffer)
 
     ///
-    /// - parameter inSeq: `CSeq?`
+    /// - parameter inSeq: `ASeq?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CSeq?, outSeq: CSeq?)`:
+    /// - returns: `(returnValue: ASeq?, outSeq: ASeq?)`:
     ///
-    ///   - returnValue: `CSeq?`
+    ///   - returnValue: `ASeq?`
     ///
-    ///   - outSeq: `CSeq?`
-    func opOptCSeq(inSeq: CSeq?, current: Ice.Current) throws -> (returnValue: CSeq?, outSeq: CSeq?)
+    ///   - outSeq: `ASeq?`
+    func opOptASeq(inSeq: ASeq?, current: Ice.Current) throws -> (returnValue: ASeq?, outSeq: ASeq?)
 
     ///
-    /// - parameter inSeq: `CArray?`
+    /// - parameter inSeq: `AArray?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CArray?, outSeq: CArray?)`:
+    /// - returns: `(returnValue: AArray?, outSeq: AArray?)`:
     ///
-    ///   - returnValue: `CArray?`
+    ///   - returnValue: `AArray?`
     ///
-    ///   - outSeq: `CArray?`
-    func opOptCArray(inSeq: CArray?, current: Ice.Current) throws -> (returnValue: CArray?, outSeq: CArray?)
+    ///   - outSeq: `AArray?`
+    func opOptAArray(inSeq: AArray?, current: Ice.Current) throws -> (returnValue: AArray?, outSeq: AArray?)
 
     ///
-    /// - parameter inSeq: `CList?`
+    /// - parameter inSeq: `AList?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CList?, outSeq: CList?)`:
+    /// - returns: `(returnValue: AList?, outSeq: AList?)`:
     ///
-    ///   - returnValue: `CList?`
+    ///   - returnValue: `AList?`
     ///
-    ///   - outSeq: `CList?`
-    func opOptCList(inSeq: CList?, current: Ice.Current) throws -> (returnValue: CList?, outSeq: CList?)
+    ///   - outSeq: `AList?`
+    func opOptAList(inSeq: AList?, current: Ice.Current) throws -> (returnValue: AList?, outSeq: AList?)
 
     ///
     /// - parameter inSeq: `BoolSeq?`
@@ -4152,11 +4146,11 @@ public protocol TestIntf {
 ///
 /// TestIntf Methods:
 ///
-///  - opCSeq: 
+///  - opASeq: 
 ///
-///  - opCArray: 
+///  - opAArray: 
 ///
-///  - opCList: 
+///  - opAList: 
 ///
 ///  - opBoolSeq: 
 ///
@@ -4194,11 +4188,11 @@ public protocol TestIntf {
 ///
 ///  - opDoubleBufferSeq: 
 ///
-///  - opOptCSeq: 
+///  - opOptASeq: 
 ///
-///  - opOptCArray: 
+///  - opOptAArray: 
 ///
-///  - opOptCList: 
+///  - opOptAList: 
 ///
 ///  - opOptBoolSeq: 
 ///
@@ -4238,51 +4232,45 @@ public protocol TestIntf {
 ///
 ///  - shutdown: 
 public extension TestIntf {
-    func _iceD_opCSeq(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inSeq: CSeq = try inS.read { istr in
-            let iceP_inSeq: CSeq = try CSeqHelper.read(from: istr)
-            try istr.readPendingValues()
+    func _iceD_opASeq(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let iceP_inSeq: ASeq = try inS.read { istr in
+            let iceP_inSeq: ASeq = try ASeqHelper.read(from: istr)
             return iceP_inSeq
         }
 
-        let (iceP_returnValue, iceP_outSeq) = try self.opCSeq(inSeq: iceP_inSeq, current: current)
+        let (iceP_returnValue, iceP_outSeq) = try self.opASeq(inSeq: iceP_inSeq, current: current)
 
         return inS.setResult{ ostr in
-            CSeqHelper.write(to: ostr, value: iceP_outSeq)
-            CSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
+            ASeqHelper.write(to: ostr, value: iceP_outSeq)
+            ASeqHelper.write(to: ostr, value: iceP_returnValue)
         }
     }
 
-    func _iceD_opCArray(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inSeq: CArray = try inS.read { istr in
-            let iceP_inSeq: CArray = try CArrayHelper.read(from: istr)
-            try istr.readPendingValues()
+    func _iceD_opAArray(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let iceP_inSeq: AArray = try inS.read { istr in
+            let iceP_inSeq: AArray = try AArrayHelper.read(from: istr)
             return iceP_inSeq
         }
 
-        let (iceP_returnValue, iceP_outSeq) = try self.opCArray(inSeq: iceP_inSeq, current: current)
+        let (iceP_returnValue, iceP_outSeq) = try self.opAArray(inSeq: iceP_inSeq, current: current)
 
         return inS.setResult{ ostr in
-            CArrayHelper.write(to: ostr, value: iceP_outSeq)
-            CArrayHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
+            AArrayHelper.write(to: ostr, value: iceP_outSeq)
+            AArrayHelper.write(to: ostr, value: iceP_returnValue)
         }
     }
 
-    func _iceD_opCList(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inSeq: CList = try inS.read { istr in
-            let iceP_inSeq: CList = try CListHelper.read(from: istr)
-            try istr.readPendingValues()
+    func _iceD_opAList(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let iceP_inSeq: AList = try inS.read { istr in
+            let iceP_inSeq: AList = try AListHelper.read(from: istr)
             return iceP_inSeq
         }
 
-        let (iceP_returnValue, iceP_outSeq) = try self.opCList(inSeq: iceP_inSeq, current: current)
+        let (iceP_returnValue, iceP_outSeq) = try self.opAList(inSeq: iceP_inSeq, current: current)
 
         return inS.setResult{ ostr in
-            CListHelper.write(to: ostr, value: iceP_outSeq)
-            CListHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
+            AListHelper.write(to: ostr, value: iceP_outSeq)
+            AListHelper.write(to: ostr, value: iceP_returnValue)
         }
     }
 
@@ -4538,45 +4526,45 @@ public extension TestIntf {
         }
     }
 
-    func _iceD_opOptCSeq(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inSeq: CSeq? = try inS.read { istr in
-            let iceP_inSeq: CSeq? = try CSeqHelper.read(from: istr, tag: 2)
+    func _iceD_opOptASeq(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let iceP_inSeq: ASeq? = try inS.read { istr in
+            let iceP_inSeq: ASeq? = try ASeqHelper.read(from: istr, tag: 2)
             return iceP_inSeq
         }
 
-        let (iceP_returnValue, iceP_outSeq) = try self.opOptCSeq(inSeq: iceP_inSeq, current: current)
+        let (iceP_returnValue, iceP_outSeq) = try self.opOptASeq(inSeq: iceP_inSeq, current: current)
 
         return inS.setResult{ ostr in
-            CSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            CSeqHelper.write(to: ostr, tag: 3, value: iceP_outSeq)
+            ASeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
+            ASeqHelper.write(to: ostr, tag: 3, value: iceP_outSeq)
         }
     }
 
-    func _iceD_opOptCArray(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inSeq: CArray? = try inS.read { istr in
-            let iceP_inSeq: CArray? = try CArrayHelper.read(from: istr, tag: 2)
+    func _iceD_opOptAArray(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let iceP_inSeq: AArray? = try inS.read { istr in
+            let iceP_inSeq: AArray? = try AArrayHelper.read(from: istr, tag: 2)
             return iceP_inSeq
         }
 
-        let (iceP_returnValue, iceP_outSeq) = try self.opOptCArray(inSeq: iceP_inSeq, current: current)
+        let (iceP_returnValue, iceP_outSeq) = try self.opOptAArray(inSeq: iceP_inSeq, current: current)
 
         return inS.setResult{ ostr in
-            CArrayHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            CArrayHelper.write(to: ostr, tag: 3, value: iceP_outSeq)
+            AArrayHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
+            AArrayHelper.write(to: ostr, tag: 3, value: iceP_outSeq)
         }
     }
 
-    func _iceD_opOptCList(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inSeq: CList? = try inS.read { istr in
-            let iceP_inSeq: CList? = try CListHelper.read(from: istr, tag: 2)
+    func _iceD_opOptAList(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let iceP_inSeq: AList? = try inS.read { istr in
+            let iceP_inSeq: AList? = try AListHelper.read(from: istr, tag: 2)
             return iceP_inSeq
         }
 
-        let (iceP_returnValue, iceP_outSeq) = try self.opOptCList(inSeq: iceP_inSeq, current: current)
+        let (iceP_returnValue, iceP_outSeq) = try self.opOptAList(inSeq: iceP_inSeq, current: current)
 
         return inS.setResult{ ostr in
-            CListHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            CListHelper.write(to: ostr, tag: 3, value: iceP_outSeq)
+            AListHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
+            AListHelper.write(to: ostr, tag: 3, value: iceP_outSeq)
         }
     }
 

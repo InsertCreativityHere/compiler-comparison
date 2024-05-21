@@ -18,104 +18,104 @@ package test.Ice.custom.Test;
 public interface TestIntf extends com.zeroc.Ice.Object
 {
     /**
-     * Holds the result of operation opCSeq.
+     * Holds the result of operation opASeq.
      **/
-    public static class OpCSeqResult
+    public static class OpASeqResult
     {
         /**
          * Default constructor.
          **/
-        public OpCSeqResult()
+        public OpASeqResult()
         {
         }
 
-        public OpCSeqResult(C[] returnValue, C[] outSeq)
+        public OpASeqResult(A[] returnValue, A[] outSeq)
         {
             this.returnValue = returnValue;
             this.outSeq = outSeq;
         }
 
-        public C[] returnValue;
-        public C[] outSeq;
+        public A[] returnValue;
+        public A[] outSeq;
 
         public void write(com.zeroc.Ice.OutputStream ostr)
         {
-            CSeqHelper.write(ostr, this.outSeq);
-            CSeqHelper.write(ostr, returnValue);
+            ASeqHelper.write(ostr, this.outSeq);
+            ASeqHelper.write(ostr, returnValue);
         }
 
         public void read(com.zeroc.Ice.InputStream istr)
         {
-            this.outSeq = CSeqHelper.read(istr);
-            returnValue = CSeqHelper.read(istr);
+            this.outSeq = ASeqHelper.read(istr);
+            returnValue = ASeqHelper.read(istr);
         }
     }
 
     /**
-     * Holds the result of operation opCArray.
+     * Holds the result of operation opAArray.
      **/
-    public static class OpCArrayResult
+    public static class OpAArrayResult
     {
         /**
          * Default constructor.
          **/
-        public OpCArrayResult()
+        public OpAArrayResult()
         {
         }
 
-        public OpCArrayResult(java.util.List<C> returnValue, java.util.List<C> outSeq)
+        public OpAArrayResult(java.util.List<A> returnValue, java.util.List<A> outSeq)
         {
             this.returnValue = returnValue;
             this.outSeq = outSeq;
         }
 
-        public java.util.List<C> returnValue;
-        public java.util.List<C> outSeq;
+        public java.util.List<A> returnValue;
+        public java.util.List<A> outSeq;
 
         public void write(com.zeroc.Ice.OutputStream ostr)
         {
-            CArrayHelper.write(ostr, this.outSeq);
-            CArrayHelper.write(ostr, returnValue);
+            AArrayHelper.write(ostr, this.outSeq);
+            AArrayHelper.write(ostr, returnValue);
         }
 
         public void read(com.zeroc.Ice.InputStream istr)
         {
-            this.outSeq = CArrayHelper.read(istr);
-            returnValue = CArrayHelper.read(istr);
+            this.outSeq = AArrayHelper.read(istr);
+            returnValue = AArrayHelper.read(istr);
         }
     }
 
     /**
-     * Holds the result of operation opCList.
+     * Holds the result of operation opAList.
      **/
-    public static class OpCListResult
+    public static class OpAListResult
     {
         /**
          * Default constructor.
          **/
-        public OpCListResult()
+        public OpAListResult()
         {
         }
 
-        public OpCListResult(java.util.List<C> returnValue, java.util.List<C> outSeq)
+        public OpAListResult(java.util.List<A> returnValue, java.util.List<A> outSeq)
         {
             this.returnValue = returnValue;
             this.outSeq = outSeq;
         }
 
-        public java.util.List<C> returnValue;
-        public java.util.List<C> outSeq;
+        public java.util.List<A> returnValue;
+        public java.util.List<A> outSeq;
 
         public void write(com.zeroc.Ice.OutputStream ostr)
         {
-            CListHelper.write(ostr, this.outSeq);
-            CListHelper.write(ostr, returnValue);
+            AListHelper.write(ostr, this.outSeq);
+            AListHelper.write(ostr, returnValue);
         }
 
         public void read(com.zeroc.Ice.InputStream istr)
         {
-            this.outSeq = CListHelper.read(istr);
-            returnValue = CListHelper.read(istr);
+            this.outSeq = AListHelper.read(istr);
+            returnValue = AListHelper.read(istr);
         }
     }
 
@@ -732,122 +732,122 @@ public interface TestIntf extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opOptCSeq.
+     * Holds the result of operation opOptASeq.
      **/
-    public static class OpOptCSeqResult
+    public static class OpOptASeqResult
     {
         /**
          * Default constructor.
          **/
-        public OpOptCSeqResult()
+        public OpOptASeqResult()
         {
         }
 
-        public OpOptCSeqResult(java.util.Optional<C[]> returnValue, java.util.Optional<C[]> outSeq)
+        public OpOptASeqResult(java.util.Optional<A[]> returnValue, java.util.Optional<A[]> outSeq)
         {
             this.returnValue = returnValue;
             this.outSeq = outSeq;
         }
 
-        public OpOptCSeqResult(C[] returnValue, C[] outSeq)
+        public OpOptASeqResult(A[] returnValue, A[] outSeq)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.outSeq = java.util.Optional.ofNullable(outSeq);
         }
 
-        public java.util.Optional<C[]> returnValue;
-        public java.util.Optional<C[]> outSeq;
+        public java.util.Optional<A[]> returnValue;
+        public java.util.Optional<A[]> outSeq;
 
         public void write(com.zeroc.Ice.OutputStream ostr)
         {
-            CSeqHelper.write(ostr, 1, returnValue);
-            CSeqHelper.write(ostr, 3, this.outSeq);
+            ASeqHelper.write(ostr, 1, returnValue);
+            ASeqHelper.write(ostr, 3, this.outSeq);
         }
 
         public void read(com.zeroc.Ice.InputStream istr)
         {
-            returnValue = CSeqHelper.read(istr, 1);
-            this.outSeq = CSeqHelper.read(istr, 3);
+            returnValue = ASeqHelper.read(istr, 1);
+            this.outSeq = ASeqHelper.read(istr, 3);
         }
     }
 
     /**
-     * Holds the result of operation opOptCArray.
+     * Holds the result of operation opOptAArray.
      **/
-    public static class OpOptCArrayResult
+    public static class OpOptAArrayResult
     {
         /**
          * Default constructor.
          **/
-        public OpOptCArrayResult()
+        public OpOptAArrayResult()
         {
         }
 
-        public OpOptCArrayResult(java.util.Optional<java.util.List<C>> returnValue, java.util.Optional<java.util.List<C>> outSeq)
+        public OpOptAArrayResult(java.util.Optional<java.util.List<A>> returnValue, java.util.Optional<java.util.List<A>> outSeq)
         {
             this.returnValue = returnValue;
             this.outSeq = outSeq;
         }
 
-        public OpOptCArrayResult(java.util.List<C> returnValue, java.util.List<C> outSeq)
+        public OpOptAArrayResult(java.util.List<A> returnValue, java.util.List<A> outSeq)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.outSeq = java.util.Optional.ofNullable(outSeq);
         }
 
-        public java.util.Optional<java.util.List<C>> returnValue;
-        public java.util.Optional<java.util.List<C>> outSeq;
+        public java.util.Optional<java.util.List<A>> returnValue;
+        public java.util.Optional<java.util.List<A>> outSeq;
 
         public void write(com.zeroc.Ice.OutputStream ostr)
         {
-            CArrayHelper.write(ostr, 1, returnValue);
-            CArrayHelper.write(ostr, 3, this.outSeq);
+            AArrayHelper.write(ostr, 1, returnValue);
+            AArrayHelper.write(ostr, 3, this.outSeq);
         }
 
         public void read(com.zeroc.Ice.InputStream istr)
         {
-            returnValue = CArrayHelper.read(istr, 1);
-            this.outSeq = CArrayHelper.read(istr, 3);
+            returnValue = AArrayHelper.read(istr, 1);
+            this.outSeq = AArrayHelper.read(istr, 3);
         }
     }
 
     /**
-     * Holds the result of operation opOptCList.
+     * Holds the result of operation opOptAList.
      **/
-    public static class OpOptCListResult
+    public static class OpOptAListResult
     {
         /**
          * Default constructor.
          **/
-        public OpOptCListResult()
+        public OpOptAListResult()
         {
         }
 
-        public OpOptCListResult(java.util.Optional<java.util.List<C>> returnValue, java.util.Optional<java.util.List<C>> outSeq)
+        public OpOptAListResult(java.util.Optional<java.util.List<A>> returnValue, java.util.Optional<java.util.List<A>> outSeq)
         {
             this.returnValue = returnValue;
             this.outSeq = outSeq;
         }
 
-        public OpOptCListResult(java.util.List<C> returnValue, java.util.List<C> outSeq)
+        public OpOptAListResult(java.util.List<A> returnValue, java.util.List<A> outSeq)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.outSeq = java.util.Optional.ofNullable(outSeq);
         }
 
-        public java.util.Optional<java.util.List<C>> returnValue;
-        public java.util.Optional<java.util.List<C>> outSeq;
+        public java.util.Optional<java.util.List<A>> returnValue;
+        public java.util.Optional<java.util.List<A>> outSeq;
 
         public void write(com.zeroc.Ice.OutputStream ostr)
         {
-            CListHelper.write(ostr, 1, returnValue);
-            CListHelper.write(ostr, 3, this.outSeq);
+            AListHelper.write(ostr, 1, returnValue);
+            AListHelper.write(ostr, 3, this.outSeq);
         }
 
         public void read(com.zeroc.Ice.InputStream istr)
         {
-            returnValue = CListHelper.read(istr, 1);
-            this.outSeq = CListHelper.read(istr, 3);
+            returnValue = AListHelper.read(istr, 1);
+            this.outSeq = AListHelper.read(istr, 3);
         }
     }
 
@@ -1745,11 +1745,11 @@ public interface TestIntf extends com.zeroc.Ice.Object
         }
     }
 
-    TestIntf.OpCSeqResult opCSeq(C[] inSeq, com.zeroc.Ice.Current current);
+    TestIntf.OpASeqResult opASeq(A[] inSeq, com.zeroc.Ice.Current current);
 
-    TestIntf.OpCArrayResult opCArray(java.util.List<C> inSeq, com.zeroc.Ice.Current current);
+    TestIntf.OpAArrayResult opAArray(java.util.List<A> inSeq, com.zeroc.Ice.Current current);
 
-    TestIntf.OpCListResult opCList(java.util.List<C> inSeq, com.zeroc.Ice.Current current);
+    TestIntf.OpAListResult opAList(java.util.List<A> inSeq, com.zeroc.Ice.Current current);
 
     TestIntf.OpBoolSeqResult opBoolSeq(java.util.List<java.lang.Boolean> inSeq, com.zeroc.Ice.Current current);
 
@@ -1787,11 +1787,11 @@ public interface TestIntf extends com.zeroc.Ice.Object
 
     TestIntf.OpDoubleBufferSeqResult opDoubleBufferSeq(java.nio.DoubleBuffer inSeq, com.zeroc.Ice.Current current);
 
-    TestIntf.OpOptCSeqResult opOptCSeq(java.util.Optional<C[]> inSeq, com.zeroc.Ice.Current current);
+    TestIntf.OpOptASeqResult opOptASeq(java.util.Optional<A[]> inSeq, com.zeroc.Ice.Current current);
 
-    TestIntf.OpOptCArrayResult opOptCArray(java.util.Optional<java.util.List<C>> inSeq, com.zeroc.Ice.Current current);
+    TestIntf.OpOptAArrayResult opOptAArray(java.util.Optional<java.util.List<A>> inSeq, com.zeroc.Ice.Current current);
 
-    TestIntf.OpOptCListResult opOptCList(java.util.Optional<java.util.List<C>> inSeq, com.zeroc.Ice.Current current);
+    TestIntf.OpOptAListResult opOptAList(java.util.Optional<java.util.List<A>> inSeq, com.zeroc.Ice.Current current);
 
     TestIntf.OpOptBoolSeqResult opOptBoolSeq(java.util.Optional<java.util.List<java.lang.Boolean>> inSeq, com.zeroc.Ice.Current current);
 
@@ -1862,18 +1862,16 @@ public interface TestIntf extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opCSeq(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opASeq(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        C[] iceP_inSeq;
-        iceP_inSeq = CSeqHelper.read(istr);
-        istr.readPendingValues();
+        A[] iceP_inSeq;
+        iceP_inSeq = ASeqHelper.read(istr);
         inS.endReadParams();
-        TestIntf.OpCSeqResult ret = obj.opCSeq(iceP_inSeq, current);
+        TestIntf.OpASeqResult ret = obj.opASeq(iceP_inSeq, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ret.write(ostr);
-        ostr.writePendingValues();
         inS.endWriteParams(ostr);
         return inS.setResult(ostr);
     }
@@ -1885,18 +1883,16 @@ public interface TestIntf extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opCArray(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opAArray(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.List<C> iceP_inSeq;
-        iceP_inSeq = CArrayHelper.read(istr);
-        istr.readPendingValues();
+        java.util.List<A> iceP_inSeq;
+        iceP_inSeq = AArrayHelper.read(istr);
         inS.endReadParams();
-        TestIntf.OpCArrayResult ret = obj.opCArray(iceP_inSeq, current);
+        TestIntf.OpAArrayResult ret = obj.opAArray(iceP_inSeq, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ret.write(ostr);
-        ostr.writePendingValues();
         inS.endWriteParams(ostr);
         return inS.setResult(ostr);
     }
@@ -1908,18 +1904,16 @@ public interface TestIntf extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opCList(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opAList(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.List<C> iceP_inSeq;
-        iceP_inSeq = CListHelper.read(istr);
-        istr.readPendingValues();
+        java.util.List<A> iceP_inSeq;
+        iceP_inSeq = AListHelper.read(istr);
         inS.endReadParams();
-        TestIntf.OpCListResult ret = obj.opCList(iceP_inSeq, current);
+        TestIntf.OpAListResult ret = obj.opAList(iceP_inSeq, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ret.write(ostr);
-        ostr.writePendingValues();
         inS.endWriteParams(ostr);
         return inS.setResult(ostr);
     }
@@ -2309,14 +2303,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opOptCSeq(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opOptASeq(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<C[]> iceP_inSeq;
-        iceP_inSeq = CSeqHelper.read(istr, 2);
+        java.util.Optional<A[]> iceP_inSeq;
+        iceP_inSeq = ASeqHelper.read(istr, 2);
         inS.endReadParams();
-        TestIntf.OpOptCSeqResult ret = obj.opOptCSeq(iceP_inSeq, current);
+        TestIntf.OpOptASeqResult ret = obj.opOptASeq(iceP_inSeq, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ret.write(ostr);
         inS.endWriteParams(ostr);
@@ -2330,14 +2324,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opOptCArray(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opOptAArray(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.util.List<C>> iceP_inSeq;
-        iceP_inSeq = CArrayHelper.read(istr, 2);
+        java.util.Optional<java.util.List<A>> iceP_inSeq;
+        iceP_inSeq = AArrayHelper.read(istr, 2);
         inS.endReadParams();
-        TestIntf.OpOptCArrayResult ret = obj.opOptCArray(iceP_inSeq, current);
+        TestIntf.OpOptAArrayResult ret = obj.opOptAArray(iceP_inSeq, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ret.write(ostr);
         inS.endWriteParams(ostr);
@@ -2351,14 +2345,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opOptCList(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opOptAList(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.util.List<C>> iceP_inSeq;
-        iceP_inSeq = CListHelper.read(istr, 2);
+        java.util.Optional<java.util.List<A>> iceP_inSeq;
+        iceP_inSeq = AListHelper.read(istr, 2);
         inS.endReadParams();
-        TestIntf.OpOptCListResult ret = obj.opOptCList(iceP_inSeq, current);
+        TestIntf.OpOptAListResult ret = obj.opOptAList(iceP_inSeq, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ret.write(ostr);
         inS.endWriteParams(ostr);
@@ -2824,12 +2818,12 @@ public interface TestIntf extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
+        "opAArray",
+        "opAList",
+        "opASeq",
         "opBoolSeq",
         "opByteBufferSeq",
         "opByteSeq",
-        "opCArray",
-        "opCList",
-        "opCSeq",
         "opDSeq",
         "opDoubleBufferSeq",
         "opDoubleSeq",
@@ -2840,12 +2834,12 @@ public interface TestIntf extends com.zeroc.Ice.Object
         "opIntSeq",
         "opLongBufferSeq",
         "opLongSeq",
+        "opOptAArray",
+        "opOptAList",
+        "opOptASeq",
         "opOptBoolSeq",
         "opOptByteBufferSeq",
         "opOptByteSeq",
-        "opOptCArray",
-        "opOptCList",
-        "opOptCSeq",
         "opOptDSeq",
         "opOptDoubleBufferSeq",
         "opOptDoubleSeq",
@@ -2900,27 +2894,27 @@ public interface TestIntf extends com.zeroc.Ice.Object
             }
             case 4:
             {
-                return _iceD_opBoolSeq(this, in, current);
+                return _iceD_opAArray(this, in, current);
             }
             case 5:
             {
-                return _iceD_opByteBufferSeq(this, in, current);
+                return _iceD_opAList(this, in, current);
             }
             case 6:
             {
-                return _iceD_opByteSeq(this, in, current);
+                return _iceD_opASeq(this, in, current);
             }
             case 7:
             {
-                return _iceD_opCArray(this, in, current);
+                return _iceD_opBoolSeq(this, in, current);
             }
             case 8:
             {
-                return _iceD_opCList(this, in, current);
+                return _iceD_opByteBufferSeq(this, in, current);
             }
             case 9:
             {
-                return _iceD_opCSeq(this, in, current);
+                return _iceD_opByteSeq(this, in, current);
             }
             case 10:
             {
@@ -2964,27 +2958,27 @@ public interface TestIntf extends com.zeroc.Ice.Object
             }
             case 20:
             {
-                return _iceD_opOptBoolSeq(this, in, current);
+                return _iceD_opOptAArray(this, in, current);
             }
             case 21:
             {
-                return _iceD_opOptByteBufferSeq(this, in, current);
+                return _iceD_opOptAList(this, in, current);
             }
             case 22:
             {
-                return _iceD_opOptByteSeq(this, in, current);
+                return _iceD_opOptASeq(this, in, current);
             }
             case 23:
             {
-                return _iceD_opOptCArray(this, in, current);
+                return _iceD_opOptBoolSeq(this, in, current);
             }
             case 24:
             {
-                return _iceD_opOptCList(this, in, current);
+                return _iceD_opOptByteBufferSeq(this, in, current);
             }
             case 25:
             {
-                return _iceD_opOptCSeq(this, in, current);
+                return _iceD_opOptByteSeq(this, in, current);
             }
             case 26:
             {

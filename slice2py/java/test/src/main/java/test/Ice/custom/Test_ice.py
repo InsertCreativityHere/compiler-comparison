@@ -24,38 +24,93 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-if 'C' not in _M_Test.__dict__:
-    _M_Test.C = Ice.createTempClass()
-    class C(Ice.Value):
-        def __init__(self):
-            pass
+if 'A' not in _M_Test.__dict__:
+    _M_Test.A = Ice.createTempClass()
+    class A(object):
+        def __init__(self, i=0):
+            self.i = i
 
-        def ice_id(self):
-            return '::Test::C'
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + Ice.getHash(self.i)
+            return _h % 0x7fffffff
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::C'
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.A):
+                return NotImplemented
+            else:
+                if self.i is None or other.i is None:
+                    if self.i != other.i:
+                        return (-1 if self.i is None else 1)
+                else:
+                    if self.i < other.i:
+                        return -1
+                    elif self.i > other.i:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
         def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_C)
+            return IcePy.stringify(self, _M_Test._t_A)
 
         __repr__ = __str__
 
-    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, ())
-    C._ice_type = _M_Test._t_C
+    _M_Test._t_A = IcePy.defineStruct('::Test::A', A, (), (('i', (), IcePy._t_int),))
 
-    _M_Test.C = C
-    del C
+    _M_Test.A = A
+    del A
 
-if '_t_CSeq' not in _M_Test.__dict__:
-    _M_Test._t_CSeq = IcePy.defineSequence('::Test::CSeq', (), _M_Test._t_C)
+if '_t_ASeq' not in _M_Test.__dict__:
+    _M_Test._t_ASeq = IcePy.defineSequence('::Test::ASeq', (), _M_Test._t_A)
 
-if '_t_CArray' not in _M_Test.__dict__:
-    _M_Test._t_CArray = IcePy.defineSequence('::Test::CArray', (), _M_Test._t_C)
+if '_t_AArray' not in _M_Test.__dict__:
+    _M_Test._t_AArray = IcePy.defineSequence('::Test::AArray', (), _M_Test._t_A)
 
-if '_t_CList' not in _M_Test.__dict__:
-    _M_Test._t_CList = IcePy.defineSequence('::Test::CList', (), _M_Test._t_C)
+if '_t_AList' not in _M_Test.__dict__:
+    _M_Test._t_AList = IcePy.defineSequence('::Test::AList', (), _M_Test._t_A)
 
 if '_t_BoolSeq' not in _M_Test.__dict__:
     _M_Test._t_BoolSeq = IcePy.defineSequence('::Test::BoolSeq', (), IcePy._t_bool)
@@ -222,23 +277,23 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = Ice.createTempClass()
     class TestIntfPrx(Ice.ObjectPrx):
 
-        def opCSeq(self, inSeq, context=None):
-            return _M_Test.TestIntf._op_opCSeq.invoke(self, ((inSeq, ), context))
+        def opASeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opASeq.invoke(self, ((inSeq, ), context))
 
-        def opCSeqAsync(self, inSeq, context=None):
-            return _M_Test.TestIntf._op_opCSeq.invokeAsync(self, ((inSeq, ), context))
+        def opASeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opASeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opCArray(self, inSeq, context=None):
-            return _M_Test.TestIntf._op_opCArray.invoke(self, ((inSeq, ), context))
+        def opAArray(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opAArray.invoke(self, ((inSeq, ), context))
 
-        def opCArrayAsync(self, inSeq, context=None):
-            return _M_Test.TestIntf._op_opCArray.invokeAsync(self, ((inSeq, ), context))
+        def opAArrayAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opAArray.invokeAsync(self, ((inSeq, ), context))
 
-        def opCList(self, inSeq, context=None):
-            return _M_Test.TestIntf._op_opCList.invoke(self, ((inSeq, ), context))
+        def opAList(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opAList.invoke(self, ((inSeq, ), context))
 
-        def opCListAsync(self, inSeq, context=None):
-            return _M_Test.TestIntf._op_opCList.invokeAsync(self, ((inSeq, ), context))
+        def opAListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opAList.invokeAsync(self, ((inSeq, ), context))
 
         def opBoolSeq(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opBoolSeq.invoke(self, ((inSeq, ), context))
@@ -348,23 +403,23 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opDoubleBufferSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opDoubleBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptCSeq(self, inSeq=Ice.Unset, context=None):
-            return _M_Test.TestIntf._op_opOptCSeq.invoke(self, ((inSeq, ), context))
+        def opOptASeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptASeq.invoke(self, ((inSeq, ), context))
 
-        def opOptCSeqAsync(self, inSeq, context=None):
-            return _M_Test.TestIntf._op_opOptCSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptASeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptASeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptCArray(self, inSeq=Ice.Unset, context=None):
-            return _M_Test.TestIntf._op_opOptCArray.invoke(self, ((inSeq, ), context))
+        def opOptAArray(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptAArray.invoke(self, ((inSeq, ), context))
 
-        def opOptCArrayAsync(self, inSeq, context=None):
-            return _M_Test.TestIntf._op_opOptCArray.invokeAsync(self, ((inSeq, ), context))
+        def opOptAArrayAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptAArray.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptCList(self, inSeq=Ice.Unset, context=None):
-            return _M_Test.TestIntf._op_opOptCList.invoke(self, ((inSeq, ), context))
+        def opOptAList(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptAList.invoke(self, ((inSeq, ), context))
 
-        def opOptCListAsync(self, inSeq, context=None):
-            return _M_Test.TestIntf._op_opOptCList.invokeAsync(self, ((inSeq, ), context))
+        def opOptAListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptAList.invokeAsync(self, ((inSeq, ), context))
 
         def opOptBoolSeq(self, inSeq=Ice.Unset, context=None):
             return _M_Test.TestIntf._op_opOptBoolSeq.invoke(self, ((inSeq, ), context))
@@ -509,14 +564,14 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def ice_staticId():
             return '::Test::TestIntf'
 
-        def opCSeq(self, inSeq, current=None):
-            raise NotImplementedError("servant method 'opCSeq' not implemented")
+        def opASeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opASeq' not implemented")
 
-        def opCArray(self, inSeq, current=None):
-            raise NotImplementedError("servant method 'opCArray' not implemented")
+        def opAArray(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opAArray' not implemented")
 
-        def opCList(self, inSeq, current=None):
-            raise NotImplementedError("servant method 'opCList' not implemented")
+        def opAList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opAList' not implemented")
 
         def opBoolSeq(self, inSeq, current=None):
             raise NotImplementedError("servant method 'opBoolSeq' not implemented")
@@ -572,14 +627,14 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opDoubleBufferSeq(self, inSeq, current=None):
             raise NotImplementedError("servant method 'opDoubleBufferSeq' not implemented")
 
-        def opOptCSeq(self, inSeq, current=None):
-            raise NotImplementedError("servant method 'opOptCSeq' not implemented")
+        def opOptASeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptASeq' not implemented")
 
-        def opOptCArray(self, inSeq, current=None):
-            raise NotImplementedError("servant method 'opOptCArray' not implemented")
+        def opOptAArray(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptAArray' not implemented")
 
-        def opOptCList(self, inSeq, current=None):
-            raise NotImplementedError("servant method 'opOptCList' not implemented")
+        def opOptAList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptAList' not implemented")
 
         def opOptBoolSeq(self, inSeq, current=None):
             raise NotImplementedError("servant method 'opOptBoolSeq' not implemented")
@@ -646,9 +701,9 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    TestIntf._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CSeq, False, 0),), (((), _M_Test._t_CSeq, False, 0),), ((), _M_Test._t_CSeq, False, 0), ())
-    TestIntf._op_opCArray = IcePy.Operation('opCArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CArray, False, 0),), (((), _M_Test._t_CArray, False, 0),), ((), _M_Test._t_CArray, False, 0), ())
-    TestIntf._op_opCList = IcePy.Operation('opCList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CList, False, 0),), (((), _M_Test._t_CList, False, 0),), ((), _M_Test._t_CList, False, 0), ())
+    TestIntf._op_opASeq = IcePy.Operation('opASeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ASeq, False, 0),), (((), _M_Test._t_ASeq, False, 0),), ((), _M_Test._t_ASeq, False, 0), ())
+    TestIntf._op_opAArray = IcePy.Operation('opAArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AArray, False, 0),), (((), _M_Test._t_AArray, False, 0),), ((), _M_Test._t_AArray, False, 0), ())
+    TestIntf._op_opAList = IcePy.Operation('opAList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AList, False, 0),), (((), _M_Test._t_AList, False, 0),), ((), _M_Test._t_AList, False, 0), ())
     TestIntf._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, False, 0),), (((), _M_Test._t_BoolSeq, False, 0),), ((), _M_Test._t_BoolSeq, False, 0), ())
     TestIntf._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), ((), _M_Test._t_ByteSeq, False, 0), ())
     TestIntf._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq, False, 0),), (((), _M_Test._t_ShortSeq, False, 0),), ((), _M_Test._t_ShortSeq, False, 0), ())
@@ -667,9 +722,9 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_opLongBufferSeq = IcePy.Operation('opLongBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongBuffer, False, 0),), (((), _M_Test._t_LongBuffer, False, 0),), ((), _M_Test._t_LongBuffer, False, 0), ())
     TestIntf._op_opFloatBufferSeq = IcePy.Operation('opFloatBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatBuffer, False, 0),), (((), _M_Test._t_FloatBuffer, False, 0),), ((), _M_Test._t_FloatBuffer, False, 0), ())
     TestIntf._op_opDoubleBufferSeq = IcePy.Operation('opDoubleBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleBuffer, False, 0),), (((), _M_Test._t_DoubleBuffer, False, 0),), ((), _M_Test._t_DoubleBuffer, False, 0), ())
-    TestIntf._op_opOptCSeq = IcePy.Operation('opOptCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CSeq, True, 2),), (((), _M_Test._t_CSeq, True, 3),), ((), _M_Test._t_CSeq, True, 1), ())
-    TestIntf._op_opOptCArray = IcePy.Operation('opOptCArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CArray, True, 2),), (((), _M_Test._t_CArray, True, 3),), ((), _M_Test._t_CArray, True, 1), ())
-    TestIntf._op_opOptCList = IcePy.Operation('opOptCList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CList, True, 2),), (((), _M_Test._t_CList, True, 3),), ((), _M_Test._t_CList, True, 1), ())
+    TestIntf._op_opOptASeq = IcePy.Operation('opOptASeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ASeq, True, 2),), (((), _M_Test._t_ASeq, True, 3),), ((), _M_Test._t_ASeq, True, 1), ())
+    TestIntf._op_opOptAArray = IcePy.Operation('opOptAArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AArray, True, 2),), (((), _M_Test._t_AArray, True, 3),), ((), _M_Test._t_AArray, True, 1), ())
+    TestIntf._op_opOptAList = IcePy.Operation('opOptAList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AList, True, 2),), (((), _M_Test._t_AList, True, 3),), ((), _M_Test._t_AList, True, 1), ())
     TestIntf._op_opOptBoolSeq = IcePy.Operation('opOptBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, True, 2),), (((), _M_Test._t_BoolSeq, True, 3),), ((), _M_Test._t_BoolSeq, True, 1), ())
     TestIntf._op_opOptByteSeq = IcePy.Operation('opOptByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, True, 2),), (((), _M_Test._t_ByteSeq, True, 3),), ((), _M_Test._t_ByteSeq, True, 1), ())
     TestIntf._op_opOptShortSeq = IcePy.Operation('opOptShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq, True, 2),), (((), _M_Test._t_ShortSeq, True, 3),), ((), _M_Test._t_ShortSeq, True, 1), ())

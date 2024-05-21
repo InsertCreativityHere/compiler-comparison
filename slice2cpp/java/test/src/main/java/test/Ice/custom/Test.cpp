@@ -33,146 +33,134 @@
 #   endif
 #endif
 
-namespace
+::Test::ASeq
+Test::TestIntfPrx::opASeq(const ASeq& iceP_inSeq, ASeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
-}
-
-::Test::CSeq
-Test::TestIntfPrx::opCSeq(const CSeq& iceP_inSeq, CSeq& iceP_outSeq, const ::Ice::Context& context) const
-{
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<CSeq, CSeq>>(true, this, &TestIntfPrx::_iceI_opCSeq, iceP_inSeq, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<ASeq, ASeq>>(true, this, &TestIntfPrx::_iceI_opASeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::Test::CSeq, ::Test::CSeq>>
-Test::TestIntfPrx::opCSeqAsync(const CSeq& iceP_inSeq, const ::Ice::Context& context) const
+::std::future<::std::tuple<::Test::ASeq, ::Test::ASeq>>
+Test::TestIntfPrx::opASeqAsync(const ASeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<CSeq, CSeq>>(false, this, &TestIntfPrx::_iceI_opCSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ASeq, ASeq>>(false, this, &TestIntfPrx::_iceI_opASeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::opCSeqAsync(const CSeq& iceP_inSeq, ::std::function<void(::Test::CSeq, ::Test::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::opASeqAsync(const ASeq& iceP_inSeq, ::std::function<void(::Test::ASeq, ::Test::ASeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<CSeq, CSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ASeq, ASeq>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CSeq, CSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opCSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ASeq, ASeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opASeq, iceP_inSeq, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CSeq, CSeq>>>& outAsync, const CSeq& iceP_inSeq, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opASeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ASeq, ASeq>>>& outAsync, const ASeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opCSeq";
+    static constexpr ::std::string_view operationName = "opASeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
-            ostr->writePendingValues();
         },
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<CSeq, CSeq> v;
+            ::std::tuple<ASeq, ASeq> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
-            istr->readPendingValues();
             return v;
         });
 }
 
-::Test::CArray
-Test::TestIntfPrx::opCArray(const CArray& iceP_inSeq, CArray& iceP_outSeq, const ::Ice::Context& context) const
+::Test::AArray
+Test::TestIntfPrx::opAArray(const AArray& iceP_inSeq, AArray& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<CArray, CArray>>(true, this, &TestIntfPrx::_iceI_opCArray, iceP_inSeq, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<AArray, AArray>>(true, this, &TestIntfPrx::_iceI_opAArray, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::Test::CArray, ::Test::CArray>>
-Test::TestIntfPrx::opCArrayAsync(const CArray& iceP_inSeq, const ::Ice::Context& context) const
+::std::future<::std::tuple<::Test::AArray, ::Test::AArray>>
+Test::TestIntfPrx::opAArrayAsync(const AArray& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<CArray, CArray>>(false, this, &TestIntfPrx::_iceI_opCArray, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<AArray, AArray>>(false, this, &TestIntfPrx::_iceI_opAArray, iceP_inSeq, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::opCArrayAsync(const CArray& iceP_inSeq, ::std::function<void(::Test::CArray, ::Test::CArray)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::opAArrayAsync(const AArray& iceP_inSeq, ::std::function<void(::Test::AArray, ::Test::AArray)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<CArray, CArray>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<AArray, AArray>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CArray, CArray>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opCArray, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<AArray, AArray>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opAArray, iceP_inSeq, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opCArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CArray, CArray>>>& outAsync, const CArray& iceP_inSeq, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opAArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AArray, AArray>>>& outAsync, const AArray& iceP_inSeq, const ::Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opCArray";
+    static constexpr ::std::string_view operationName = "opAArray";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
-            ostr->writePendingValues();
         },
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<CArray, CArray> v;
+            ::std::tuple<AArray, AArray> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
-            istr->readPendingValues();
             return v;
         });
 }
 
-::Test::CList
-Test::TestIntfPrx::opCList(const CList& iceP_inSeq, CList& iceP_outSeq, const ::Ice::Context& context) const
+::Test::AList
+Test::TestIntfPrx::opAList(const AList& iceP_inSeq, AList& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<CList, CList>>(true, this, &TestIntfPrx::_iceI_opCList, iceP_inSeq, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<AList, AList>>(true, this, &TestIntfPrx::_iceI_opAList, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::Test::CList, ::Test::CList>>
-Test::TestIntfPrx::opCListAsync(const CList& iceP_inSeq, const ::Ice::Context& context) const
+::std::future<::std::tuple<::Test::AList, ::Test::AList>>
+Test::TestIntfPrx::opAListAsync(const AList& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<CList, CList>>(false, this, &TestIntfPrx::_iceI_opCList, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<AList, AList>>(false, this, &TestIntfPrx::_iceI_opAList, iceP_inSeq, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::opCListAsync(const CList& iceP_inSeq, ::std::function<void(::Test::CList, ::Test::CList)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::opAListAsync(const AList& iceP_inSeq, ::std::function<void(::Test::AList, ::Test::AList)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<CList, CList>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<AList, AList>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CList, CList>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opCList, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<AList, AList>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opAList, iceP_inSeq, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opCList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CList, CList>>>& outAsync, const CList& iceP_inSeq, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opAList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AList, AList>>>& outAsync, const AList& iceP_inSeq, const ::Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opCList";
+    static constexpr ::std::string_view operationName = "opAList";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
-            ostr->writePendingValues();
         },
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<CList, CList> v;
+            ::std::tuple<AList, AList> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
-            istr->readPendingValues();
             return v;
         });
 }
@@ -969,34 +957,34 @@ Test::TestIntfPrx::_iceI_opDoubleBufferSeq(const ::std::shared_ptr<::IceInternal
         });
 }
 
-::std::optional<::Test::CSeq>
-Test::TestIntfPrx::opOptCSeq(const ::std::optional<CSeq>& iceP_inSeq, ::std::optional<CSeq>& iceP_outSeq, const ::Ice::Context& context) const
+::std::optional<::Test::ASeq>
+Test::TestIntfPrx::opOptASeq(const ::std::optional<ASeq>& iceP_inSeq, ::std::optional<ASeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<CSeq>, ::std::optional<CSeq>>>(true, this, &TestIntfPrx::_iceI_opOptCSeq, iceP_inSeq, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ASeq>, ::std::optional<ASeq>>>(true, this, &TestIntfPrx::_iceI_opOptASeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::optional<::Test::CSeq>, ::std::optional<::Test::CSeq>>>
-Test::TestIntfPrx::opOptCSeqAsync(const ::std::optional<CSeq>& iceP_inSeq, const ::Ice::Context& context) const
+::std::future<::std::tuple<::std::optional<::Test::ASeq>, ::std::optional<::Test::ASeq>>>
+Test::TestIntfPrx::opOptASeqAsync(const ::std::optional<ASeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<CSeq>, ::std::optional<CSeq>>>(false, this, &TestIntfPrx::_iceI_opOptCSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ASeq>, ::std::optional<ASeq>>>(false, this, &TestIntfPrx::_iceI_opOptASeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::opOptCSeqAsync(const ::std::optional<CSeq>& iceP_inSeq, ::std::function<void(::std::optional<::Test::CSeq>, ::std::optional<::Test::CSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::opOptASeqAsync(const ::std::optional<ASeq>& iceP_inSeq, ::std::function<void(::std::optional<::Test::ASeq>, ::std::optional<::Test::ASeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<CSeq>, ::std::optional<CSeq>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ASeq>, ::std::optional<ASeq>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<CSeq>, ::std::optional<CSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ASeq>, ::std::optional<ASeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptASeq, iceP_inSeq, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opOptCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<CSeq>, ::std::optional<CSeq>>>>& outAsync, const ::std::optional<CSeq>& iceP_inSeq, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opOptASeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ASeq>, ::std::optional<ASeq>>>>& outAsync, const ::std::optional<ASeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opOptCSeq";
+    static constexpr ::std::string_view operationName = "opOptASeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1007,40 +995,40 @@ Test::TestIntfPrx::_iceI_opOptCSeq(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::optional<CSeq>, ::std::optional<CSeq>> v;
+            ::std::tuple<::std::optional<ASeq>, ::std::optional<ASeq>> v;
             istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
             return v;
         });
 }
 
-::std::optional<::Test::CArray>
-Test::TestIntfPrx::opOptCArray(const ::std::optional<CArray>& iceP_inSeq, ::std::optional<CArray>& iceP_outSeq, const ::Ice::Context& context) const
+::std::optional<::Test::AArray>
+Test::TestIntfPrx::opOptAArray(const ::std::optional<AArray>& iceP_inSeq, ::std::optional<AArray>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<CArray>, ::std::optional<CArray>>>(true, this, &TestIntfPrx::_iceI_opOptCArray, iceP_inSeq, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<AArray>, ::std::optional<AArray>>>(true, this, &TestIntfPrx::_iceI_opOptAArray, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::optional<::Test::CArray>, ::std::optional<::Test::CArray>>>
-Test::TestIntfPrx::opOptCArrayAsync(const ::std::optional<CArray>& iceP_inSeq, const ::Ice::Context& context) const
+::std::future<::std::tuple<::std::optional<::Test::AArray>, ::std::optional<::Test::AArray>>>
+Test::TestIntfPrx::opOptAArrayAsync(const ::std::optional<AArray>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<CArray>, ::std::optional<CArray>>>(false, this, &TestIntfPrx::_iceI_opOptCArray, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<AArray>, ::std::optional<AArray>>>(false, this, &TestIntfPrx::_iceI_opOptAArray, iceP_inSeq, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::opOptCArrayAsync(const ::std::optional<CArray>& iceP_inSeq, ::std::function<void(::std::optional<::Test::CArray>, ::std::optional<::Test::CArray>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::opOptAArrayAsync(const ::std::optional<AArray>& iceP_inSeq, ::std::function<void(::std::optional<::Test::AArray>, ::std::optional<::Test::AArray>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<CArray>, ::std::optional<CArray>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<AArray>, ::std::optional<AArray>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<CArray>, ::std::optional<CArray>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCArray, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<AArray>, ::std::optional<AArray>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptAArray, iceP_inSeq, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opOptCArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<CArray>, ::std::optional<CArray>>>>& outAsync, const ::std::optional<CArray>& iceP_inSeq, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opOptAArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<AArray>, ::std::optional<AArray>>>>& outAsync, const ::std::optional<AArray>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opOptCArray";
+    static constexpr ::std::string_view operationName = "opOptAArray";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1051,40 +1039,40 @@ Test::TestIntfPrx::_iceI_opOptCArray(const ::std::shared_ptr<::IceInternal::Outg
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::optional<CArray>, ::std::optional<CArray>> v;
+            ::std::tuple<::std::optional<AArray>, ::std::optional<AArray>> v;
             istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
             return v;
         });
 }
 
-::std::optional<::Test::CList>
-Test::TestIntfPrx::opOptCList(const ::std::optional<CList>& iceP_inSeq, ::std::optional<CList>& iceP_outSeq, const ::Ice::Context& context) const
+::std::optional<::Test::AList>
+Test::TestIntfPrx::opOptAList(const ::std::optional<AList>& iceP_inSeq, ::std::optional<AList>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<CList>, ::std::optional<CList>>>(true, this, &TestIntfPrx::_iceI_opOptCList, iceP_inSeq, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<AList>, ::std::optional<AList>>>(true, this, &TestIntfPrx::_iceI_opOptAList, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::optional<::Test::CList>, ::std::optional<::Test::CList>>>
-Test::TestIntfPrx::opOptCListAsync(const ::std::optional<CList>& iceP_inSeq, const ::Ice::Context& context) const
+::std::future<::std::tuple<::std::optional<::Test::AList>, ::std::optional<::Test::AList>>>
+Test::TestIntfPrx::opOptAListAsync(const ::std::optional<AList>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<CList>, ::std::optional<CList>>>(false, this, &TestIntfPrx::_iceI_opOptCList, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<AList>, ::std::optional<AList>>>(false, this, &TestIntfPrx::_iceI_opOptAList, iceP_inSeq, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::opOptCListAsync(const ::std::optional<CList>& iceP_inSeq, ::std::function<void(::std::optional<::Test::CList>, ::std::optional<::Test::CList>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::opOptAListAsync(const ::std::optional<AList>& iceP_inSeq, ::std::function<void(::std::optional<::Test::AList>, ::std::optional<::Test::AList>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<CList>, ::std::optional<CList>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<AList>, ::std::optional<AList>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<CList>, ::std::optional<CList>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCList, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<AList>, ::std::optional<AList>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptAList, iceP_inSeq, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opOptCList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<CList>, ::std::optional<CList>>>>& outAsync, const ::std::optional<CList>& iceP_inSeq, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opOptAList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<AList>, ::std::optional<AList>>>>& outAsync, const ::std::optional<AList>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opOptCList";
+    static constexpr ::std::string_view operationName = "opOptAList";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1095,7 +1083,7 @@ Test::TestIntfPrx::_iceI_opOptCList(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::optional<CList>, ::std::optional<CList>> v;
+            ::std::tuple<::std::optional<AList>, ::std::optional<AList>> v;
             istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
             return v;
         });
@@ -1928,39 +1916,6 @@ Test::TestIntfPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string
-Test::C::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
-Test::C::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::Test::C";
-    return typeId;
-}
-
-::Ice::ValuePtr
-Test::C::_iceCloneImpl() const
-{
-    return CloneEnabler<C>::clone(*this);
-}
-
-void
-Test::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ostr->endSlice();
-}
-
-void
-Test::C::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    istr->endSlice();
-}
-
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
@@ -1983,21 +1938,19 @@ Test::TestIntf::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opASeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    CSeq iceP_inSeq;
+    ASeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    istr->readPendingValues();
     istr->endEncapsulation();
-    CSeq iceP_outSeq;
-    CSeq ret = this->opCSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    ASeq iceP_outSeq;
+    ASeq ret = this->opASeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_outSeq, ret);
-            ostr->writePendingValues();
         },
         request.current()));
 }
@@ -2005,21 +1958,19 @@ Test::TestIntf::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opCArray(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opAArray(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    CArray iceP_inSeq;
+    AArray iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    istr->readPendingValues();
     istr->endEncapsulation();
-    CArray iceP_outSeq;
-    CArray ret = this->opCArray(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    AArray iceP_outSeq;
+    AArray ret = this->opAArray(::std::move(iceP_inSeq), iceP_outSeq, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_outSeq, ret);
-            ostr->writePendingValues();
         },
         request.current()));
 }
@@ -2027,21 +1978,19 @@ Test::TestIntf::_iceD_opCArray(::Ice::IncomingRequest& request, ::std::function<
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opCList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opAList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    CList iceP_inSeq;
+    AList iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    istr->readPendingValues();
     istr->endEncapsulation();
-    CList iceP_outSeq;
-    CList ret = this->opCList(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    AList iceP_outSeq;
+    AList ret = this->opAList(::std::move(iceP_inSeq), iceP_outSeq, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_outSeq, ret);
-            ostr->writePendingValues();
         },
         request.current()));
 }
@@ -2409,16 +2358,16 @@ Test::TestIntf::_iceD_opDoubleBufferSeq(::Ice::IncomingRequest& request, ::std::
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opOptCSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opOptASeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<CSeq> iceP_inSeq;
+    ::std::optional<ASeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     istr->endEncapsulation();
-    ::std::optional<CSeq> iceP_outSeq;
-    ::std::optional<CSeq> ret = this->opOptCSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    ::std::optional<ASeq> iceP_outSeq;
+    ::std::optional<ASeq> ret = this->opOptASeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_outSeq);
@@ -2429,16 +2378,16 @@ Test::TestIntf::_iceD_opOptCSeq(::Ice::IncomingRequest& request, ::std::function
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opOptCArray(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opOptAArray(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<CArray> iceP_inSeq;
+    ::std::optional<AArray> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     istr->endEncapsulation();
-    ::std::optional<CArray> iceP_outSeq;
-    ::std::optional<CArray> ret = this->opOptCArray(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    ::std::optional<AArray> iceP_outSeq;
+    ::std::optional<AArray> ret = this->opOptAArray(::std::move(iceP_inSeq), iceP_outSeq, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_outSeq);
@@ -2449,16 +2398,16 @@ Test::TestIntf::_iceD_opOptCArray(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opOptCList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opOptAList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<CList> iceP_inSeq;
+    ::std::optional<AList> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     istr->endEncapsulation();
-    ::std::optional<CList> iceP_outSeq;
-    ::std::optional<CList> ret = this->opOptCList(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    ::std::optional<AList> iceP_outSeq;
+    ::std::optional<AList> ret = this->opOptAList(::std::move(iceP_inSeq), iceP_outSeq, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_outSeq);
@@ -2842,7 +2791,7 @@ Test::TestIntf::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<
 void
 Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBoolSeq", "opByteBufferSeq", "opByteSeq", "opCArray", "opCList", "opCSeq", "opDSeq", "opDoubleBufferSeq", "opDoubleSeq", "opESeq", "opFloatBufferSeq", "opFloatSeq", "opIntBufferSeq", "opIntSeq", "opLongBufferSeq", "opLongSeq", "opOptBoolSeq", "opOptByteBufferSeq", "opOptByteSeq", "opOptCArray", "opOptCList", "opOptCSeq", "opOptDSeq", "opOptDoubleBufferSeq", "opOptDoubleSeq", "opOptESeq", "opOptFloatBufferSeq", "opOptFloatSeq", "opOptIntBufferSeq", "opOptIntSeq", "opOptLongBufferSeq", "opOptLongSeq", "opOptSSeq", "opOptShortBufferSeq", "opOptShortSeq", "opOptStringSeq", "opOptStringSeqSeq", "opSSeq", "opShortBufferSeq", "opShortSeq", "opStringSeq", "opStringSeqSeq", "shutdown"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opAArray", "opAList", "opASeq", "opBoolSeq", "opByteBufferSeq", "opByteSeq", "opDSeq", "opDoubleBufferSeq", "opDoubleSeq", "opESeq", "opFloatBufferSeq", "opFloatSeq", "opIntBufferSeq", "opIntSeq", "opLongBufferSeq", "opLongSeq", "opOptAArray", "opOptAList", "opOptASeq", "opOptBoolSeq", "opOptByteBufferSeq", "opOptByteSeq", "opOptDSeq", "opOptDoubleBufferSeq", "opOptDoubleSeq", "opOptESeq", "opOptFloatBufferSeq", "opOptFloatSeq", "opOptIntBufferSeq", "opOptIntSeq", "opOptLongBufferSeq", "opOptLongSeq", "opOptSSeq", "opOptShortBufferSeq", "opOptShortSeq", "opOptStringSeq", "opOptStringSeqSeq", "opSSeq", "opShortBufferSeq", "opShortSeq", "opStringSeq", "opStringSeqSeq", "shutdown"};
 
     const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 47, current.operation);
@@ -2876,32 +2825,32 @@ Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
         }
         case 4:
         {
-            _iceD_opBoolSeq(request, ::std::move(sendResponse));
+            _iceD_opAArray(request, ::std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_opByteBufferSeq(request, ::std::move(sendResponse));
+            _iceD_opAList(request, ::std::move(sendResponse));
             break;
         }
         case 6:
         {
-            _iceD_opByteSeq(request, ::std::move(sendResponse));
+            _iceD_opASeq(request, ::std::move(sendResponse));
             break;
         }
         case 7:
         {
-            _iceD_opCArray(request, ::std::move(sendResponse));
+            _iceD_opBoolSeq(request, ::std::move(sendResponse));
             break;
         }
         case 8:
         {
-            _iceD_opCList(request, ::std::move(sendResponse));
+            _iceD_opByteBufferSeq(request, ::std::move(sendResponse));
             break;
         }
         case 9:
         {
-            _iceD_opCSeq(request, ::std::move(sendResponse));
+            _iceD_opByteSeq(request, ::std::move(sendResponse));
             break;
         }
         case 10:
@@ -2956,32 +2905,32 @@ Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
         }
         case 20:
         {
-            _iceD_opOptBoolSeq(request, ::std::move(sendResponse));
+            _iceD_opOptAArray(request, ::std::move(sendResponse));
             break;
         }
         case 21:
         {
-            _iceD_opOptByteBufferSeq(request, ::std::move(sendResponse));
+            _iceD_opOptAList(request, ::std::move(sendResponse));
             break;
         }
         case 22:
         {
-            _iceD_opOptByteSeq(request, ::std::move(sendResponse));
+            _iceD_opOptASeq(request, ::std::move(sendResponse));
             break;
         }
         case 23:
         {
-            _iceD_opOptCArray(request, ::std::move(sendResponse));
+            _iceD_opOptBoolSeq(request, ::std::move(sendResponse));
             break;
         }
         case 24:
         {
-            _iceD_opOptCList(request, ::std::move(sendResponse));
+            _iceD_opOptByteBufferSeq(request, ::std::move(sendResponse));
             break;
         }
         case 25:
         {
-            _iceD_opOptCSeq(request, ::std::move(sendResponse));
+            _iceD_opOptByteSeq(request, ::std::move(sendResponse));
             break;
         }
         case 26:

@@ -19,30 +19,45 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
-    if not defined?(::Test::C_Mixin)
+    if not defined?(::Test::A)
+        class A
+            include ::Ice::Inspect_mixin
+            def initialize(i=0)
+                @i = i
+            end
 
-        module ::Test::C_Mixin
-        end
-        class C < ::Ice::Value
+            def hash
+                _h = 0
+                _h = 5 * _h + @i.hash
+                _h % 0x7fffffff
+            end
+
+            def ==(other)
+                return false if !other.is_a? ::Test::A or
+                    @i != other.i
+                true
+            end
+
+            def eql?(other)
+                return other.class == self.class && other == self
+            end
+
+            attr_accessor :i
         end
 
-        if not defined?(::Test::T_C)
-            T_C = ::Ice::__declareClass('::Test::C')
-        end
-
-        T_C.defineClass(C, -1, false, nil, [])
+        T_A = ::Ice::__defineStruct('::Test::A', A, [["i", ::Ice::T_int]])
     end
 
-    if not defined?(::Test::T_CSeq)
-        T_CSeq = ::Ice::__defineSequence('::Test::CSeq', ::Test::T_C)
+    if not defined?(::Test::T_ASeq)
+        T_ASeq = ::Ice::__defineSequence('::Test::ASeq', ::Test::T_A)
     end
 
-    if not defined?(::Test::T_CArray)
-        T_CArray = ::Ice::__defineSequence('::Test::CArray', ::Test::T_C)
+    if not defined?(::Test::T_AArray)
+        T_AArray = ::Ice::__defineSequence('::Test::AArray', ::Test::T_A)
     end
 
-    if not defined?(::Test::T_CList)
-        T_CList = ::Ice::__defineSequence('::Test::CList', ::Test::T_C)
+    if not defined?(::Test::T_AList)
+        T_AList = ::Ice::__defineSequence('::Test::AList', ::Test::T_A)
     end
 
     if not defined?(::Test::T_BoolSeq)
@@ -206,16 +221,16 @@ module ::Test
         end
         module TestIntfPrx_mixin
 
-            def opCSeq(inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opCSeq.invoke(self, [inSeq], context)
+            def opASeq(inSeq, context=nil)
+                TestIntfPrx_mixin::OP_opASeq.invoke(self, [inSeq], context)
             end
 
-            def opCArray(inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opCArray.invoke(self, [inSeq], context)
+            def opAArray(inSeq, context=nil)
+                TestIntfPrx_mixin::OP_opAArray.invoke(self, [inSeq], context)
             end
 
-            def opCList(inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opCList.invoke(self, [inSeq], context)
+            def opAList(inSeq, context=nil)
+                TestIntfPrx_mixin::OP_opAList.invoke(self, [inSeq], context)
             end
 
             def opBoolSeq(inSeq, context=nil)
@@ -290,16 +305,16 @@ module ::Test
                 TestIntfPrx_mixin::OP_opDoubleBufferSeq.invoke(self, [inSeq], context)
             end
 
-            def opOptCSeq(inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opOptCSeq.invoke(self, [inSeq], context)
+            def opOptASeq(inSeq, context=nil)
+                TestIntfPrx_mixin::OP_opOptASeq.invoke(self, [inSeq], context)
             end
 
-            def opOptCArray(inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opOptCArray.invoke(self, [inSeq], context)
+            def opOptAArray(inSeq, context=nil)
+                TestIntfPrx_mixin::OP_opOptAArray.invoke(self, [inSeq], context)
             end
 
-            def opOptCList(inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opOptCList.invoke(self, [inSeq], context)
+            def opOptAList(inSeq, context=nil)
+                TestIntfPrx_mixin::OP_opOptAList.invoke(self, [inSeq], context)
             end
 
             def opOptBoolSeq(inSeq, context=nil)
@@ -391,9 +406,9 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CSeq, false, 0]], [[::Test::T_CSeq, false, 0]], [::Test::T_CSeq, false, 0], [])
-        TestIntfPrx_mixin::OP_opCArray = ::Ice::__defineOperation('opCArray', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CArray, false, 0]], [[::Test::T_CArray, false, 0]], [::Test::T_CArray, false, 0], [])
-        TestIntfPrx_mixin::OP_opCList = ::Ice::__defineOperation('opCList', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CList, false, 0]], [[::Test::T_CList, false, 0]], [::Test::T_CList, false, 0], [])
+        TestIntfPrx_mixin::OP_opASeq = ::Ice::__defineOperation('opASeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ASeq, false, 0]], [[::Test::T_ASeq, false, 0]], [::Test::T_ASeq, false, 0], [])
+        TestIntfPrx_mixin::OP_opAArray = ::Ice::__defineOperation('opAArray', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_AArray, false, 0]], [[::Test::T_AArray, false, 0]], [::Test::T_AArray, false, 0], [])
+        TestIntfPrx_mixin::OP_opAList = ::Ice::__defineOperation('opAList', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_AList, false, 0]], [[::Test::T_AList, false, 0]], [::Test::T_AList, false, 0], [])
         TestIntfPrx_mixin::OP_opBoolSeq = ::Ice::__defineOperation('opBoolSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolSeq, false, 0]], [[::Test::T_BoolSeq, false, 0]], [::Test::T_BoolSeq, false, 0], [])
         TestIntfPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteSeq, false, 0]], [[::Test::T_ByteSeq, false, 0]], [::Test::T_ByteSeq, false, 0], [])
         TestIntfPrx_mixin::OP_opShortSeq = ::Ice::__defineOperation('opShortSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortSeq, false, 0]], [[::Test::T_ShortSeq, false, 0]], [::Test::T_ShortSeq, false, 0], [])
@@ -412,9 +427,9 @@ module ::Test
         TestIntfPrx_mixin::OP_opLongBufferSeq = ::Ice::__defineOperation('opLongBufferSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_LongBuffer, false, 0]], [[::Test::T_LongBuffer, false, 0]], [::Test::T_LongBuffer, false, 0], [])
         TestIntfPrx_mixin::OP_opFloatBufferSeq = ::Ice::__defineOperation('opFloatBufferSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_FloatBuffer, false, 0]], [[::Test::T_FloatBuffer, false, 0]], [::Test::T_FloatBuffer, false, 0], [])
         TestIntfPrx_mixin::OP_opDoubleBufferSeq = ::Ice::__defineOperation('opDoubleBufferSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_DoubleBuffer, false, 0]], [[::Test::T_DoubleBuffer, false, 0]], [::Test::T_DoubleBuffer, false, 0], [])
-        TestIntfPrx_mixin::OP_opOptCSeq = ::Ice::__defineOperation('opOptCSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CSeq, true, 2]], [[::Test::T_CSeq, true, 3]], [::Test::T_CSeq, true, 1], [])
-        TestIntfPrx_mixin::OP_opOptCArray = ::Ice::__defineOperation('opOptCArray', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CArray, true, 2]], [[::Test::T_CArray, true, 3]], [::Test::T_CArray, true, 1], [])
-        TestIntfPrx_mixin::OP_opOptCList = ::Ice::__defineOperation('opOptCList', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CList, true, 2]], [[::Test::T_CList, true, 3]], [::Test::T_CList, true, 1], [])
+        TestIntfPrx_mixin::OP_opOptASeq = ::Ice::__defineOperation('opOptASeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ASeq, true, 2]], [[::Test::T_ASeq, true, 3]], [::Test::T_ASeq, true, 1], [])
+        TestIntfPrx_mixin::OP_opOptAArray = ::Ice::__defineOperation('opOptAArray', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_AArray, true, 2]], [[::Test::T_AArray, true, 3]], [::Test::T_AArray, true, 1], [])
+        TestIntfPrx_mixin::OP_opOptAList = ::Ice::__defineOperation('opOptAList', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_AList, true, 2]], [[::Test::T_AList, true, 3]], [::Test::T_AList, true, 1], [])
         TestIntfPrx_mixin::OP_opOptBoolSeq = ::Ice::__defineOperation('opOptBoolSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolSeq, true, 2]], [[::Test::T_BoolSeq, true, 3]], [::Test::T_BoolSeq, true, 1], [])
         TestIntfPrx_mixin::OP_opOptByteSeq = ::Ice::__defineOperation('opOptByteSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteSeq, true, 2]], [[::Test::T_ByteSeq, true, 3]], [::Test::T_ByteSeq, true, 1], [])
         TestIntfPrx_mixin::OP_opOptShortSeq = ::Ice::__defineOperation('opOptShortSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortSeq, true, 2]], [[::Test::T_ShortSeq, true, 3]], [::Test::T_ShortSeq, true, 1], [])
