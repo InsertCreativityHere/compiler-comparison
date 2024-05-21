@@ -46,7 +46,7 @@ public class SBase extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -5353764709358136855L;
+    public static final long serialVersionUID = -5353757673284793927L;
 
     /** @hidden */
     @Override

@@ -278,9 +278,9 @@ public extension RouterPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
                                      } catch let error as CannotCreateSessionException {
+                                         throw error
+                                     } catch let error as PermissionDeniedException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -324,9 +324,9 @@ public extension RouterPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as PermissionDeniedException {
-                                          throw error
                                       } catch let error as CannotCreateSessionException {
+                                          throw error
+                                      } catch let error as PermissionDeniedException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -365,9 +365,9 @@ public extension RouterPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
                                      } catch let error as CannotCreateSessionException {
+                                         throw error
+                                     } catch let error as PermissionDeniedException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -404,9 +404,9 @@ public extension RouterPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as PermissionDeniedException {
-                                          throw error
                                       } catch let error as CannotCreateSessionException {
+                                          throw error
+                                      } catch let error as PermissionDeniedException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
