@@ -84,7 +84,7 @@ module ::Test
     if not defined?(::Test::SmallStruct)
         class SmallStruct
             include ::Ice::Inspect_mixin
-            def initialize(bo=false, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=::Test::MyEnum::Enum1, c=nil, p=nil, ss=nil)
+            def initialize(bo=false, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=::Test::MyEnum::Enum1, p=nil, ss=nil)
                 @bo = bo
                 @by = by
                 @sh = sh
@@ -94,7 +94,6 @@ module ::Test
                 @d = d
                 @str = str
                 @e = e
-                @c = c
                 @p = p
                 @ss = ss
             end
@@ -110,7 +109,6 @@ module ::Test
                 _h = 5 * _h + @d.hash
                 _h = 5 * _h + @str.hash
                 _h = 5 * _h + @e.hash
-                _h = 5 * _h + @c.hash
                 _h = 5 * _h + @p.hash
                 _h = 5 * _h + @ss.hash
                 _h % 0x7fffffff
@@ -127,7 +125,6 @@ module ::Test
                     @d != other.d or
                     @str != other.str or
                     @e != other.e or
-                    @c != other.c or
                     @p != other.p or
                     @ss != other.ss
                 true
@@ -137,7 +134,7 @@ module ::Test
                 return other.class == self.class && other == self
             end
 
-            attr_accessor :bo, :by, :sh, :i, :l, :f, :d, :str, :e, :c, :p, :ss
+            attr_accessor :bo, :by, :sh, :i, :l, :f, :d, :str, :e, :p, :ss
         end
 
         T_SmallStruct = ::Ice::__defineStruct('::Test::SmallStruct', SmallStruct, [
@@ -150,7 +147,6 @@ module ::Test
             ["d", ::Ice::T_double],
             ["str", ::Ice::T_string],
             ["e", ::Test::T_MyEnum],
-            ["c", ::Test::T_MyClass],
             ["p", ::Test::T_MyInterfacePrx],
             ["ss", ::Test::T_SerialSmall]
         ])

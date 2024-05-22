@@ -29,11 +29,11 @@ if 'Initial2Prx' not in _M_Test.__dict__:
     _M_Test.Initial2Prx = Ice.createTempClass()
     class Initial2Prx(Ice.ObjectPrx):
 
-        def opClassAndUnknownOptional(self, p, o=Ice.Unset, context=None):
-            return _M_Test.Initial2._op_opClassAndUnknownOptional.invoke(self, ((p, o), context))
+        def opClassAndUnknownOptional(self, p, ovs=Ice.Unset, context=None):
+            return _M_Test.Initial2._op_opClassAndUnknownOptional.invoke(self, ((p, ovs), context))
 
-        def opClassAndUnknownOptionalAsync(self, p, o, context=None):
-            return _M_Test.Initial2._op_opClassAndUnknownOptional.invokeAsync(self, ((p, o), context))
+        def opClassAndUnknownOptionalAsync(self, p, ovs, context=None):
+            return _M_Test.Initial2._op_opClassAndUnknownOptional.invokeAsync(self, ((p, ovs), context))
 
         def opVoid(self, a=Ice.Unset, v=Ice.Unset, context=None):
             return _M_Test.Initial2._op_opVoid.invoke(self, ((a, v), context))
@@ -70,7 +70,7 @@ if 'Initial2Prx' not in _M_Test.__dict__:
         def ice_staticId():
             return '::Test::Initial2'
 
-        def opClassAndUnknownOptional(self, p, o, current=None):
+        def opClassAndUnknownOptional(self, p, ovs, current=None):
             raise NotImplementedError("servant method 'opClassAndUnknownOptional' not implemented")
 
         def opVoid(self, a, v, current=None):
@@ -84,7 +84,7 @@ if 'Initial2Prx' not in _M_Test.__dict__:
     _M_Test._t_Initial2Disp = IcePy.defineClass('::Test::Initial2', Initial2, (), None, ())
     Initial2._ice_type = _M_Test._t_Initial2Disp
 
-    Initial2._op_opClassAndUnknownOptional = IcePy.Operation('opClassAndUnknownOptional', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_A, False, 0), ((), IcePy._t_Value, True, 1)), (), None, ())
+    Initial2._op_opClassAndUnknownOptional = IcePy.Operation('opClassAndUnknownOptional', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_A, False, 0), ((), _M_Test._t_VarStruct, True, 1)), (), None, ())
     Initial2._op_opVoid = IcePy.Operation('opVoid', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, ())
 
     _M_Test.Initial2 = Initial2

@@ -10,7 +10,6 @@
 %   d
 %   str
 %   e
-%   c
 %   p
 %   ss
 
@@ -28,12 +27,11 @@ classdef SmallStruct
         d double
         str char
         e Test.MyEnum
-        c
         p
         ss
     end
     methods
-        function obj = SmallStruct(bo, by, sh, i, l, f, d, str, e, c, p, ss)
+        function obj = SmallStruct(bo, by, sh, i, l, f, d, str, e, p, ss)
             if nargin == 0
                 obj.bo = false;
                 obj.by = 0;
@@ -44,7 +42,6 @@ classdef SmallStruct
                 obj.d = 0;
                 obj.str = '';
                 obj.e = Test.MyEnum.enum1;
-                obj.c = [];
                 obj.p = [];
                 obj.ss = [];
             elseif ne(bo, IceInternal.NoInit.Instance)
@@ -57,7 +54,6 @@ classdef SmallStruct
                 obj.d = d;
                 obj.str = str;
                 obj.e = e;
-                obj.c = c;
                 obj.p = p;
                 obj.ss = ss;
             end
@@ -67,9 +63,6 @@ classdef SmallStruct
         end
         function r = ne(obj, other)
             r = ~isequal(obj, other);
-        end
-        function obj = ice_convert(obj)
-            obj.c = obj.c.value;
         end
     end
     methods(Static)
@@ -84,9 +77,6 @@ classdef SmallStruct
             r.d = is.readDouble();
             r.str = is.readString();
             r.e = Test.MyEnum.ice_read(is);
-            c_ = IceInternal.ValueHolder();
-            r.c = c_;
-            is.readValue(@(v_) c_.set(v_), 'Test.MyClass');
             r.p = Test.MyInterfacePrx.ice_read(is);
             r.ss = is.readByteSeq();
         end
@@ -111,7 +101,6 @@ classdef SmallStruct
             os.writeDouble(v.d);
             os.writeString(v.str);
             Test.MyEnum.ice_write(os, v.e);
-            os.writeValue(v.c);
             os.writeProxy(v.p);
             os.writeByteSeq(v.ss);
         end

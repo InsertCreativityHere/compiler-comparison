@@ -60,7 +60,7 @@ if '_t_SerialSmall' not in _M_Test.__dict__:
 if 'SmallStruct' not in _M_Test.__dict__:
     _M_Test.SmallStruct = Ice.createTempClass()
     class SmallStruct(object):
-        def __init__(self, bo=False, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=_M_Test.MyEnum.enum1, c=None, p=None, ss=None):
+        def __init__(self, bo=False, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=_M_Test.MyEnum.enum1, p=None, ss=None):
             self.bo = bo
             self.by = by
             self.sh = sh
@@ -70,7 +70,6 @@ if 'SmallStruct' not in _M_Test.__dict__:
             self.d = d
             self.str = str
             self.e = e
-            self.c = c
             self.p = p
             self.ss = ss
 
@@ -98,8 +97,6 @@ if 'SmallStruct' not in _M_Test.__dict__:
                     return False
                 if self.e != other.e:
                     return False
-                if self.c != other.c:
-                    return False
                 if self.p != other.p:
                     return False
                 if self.ss != other.ss:
@@ -124,7 +121,6 @@ if 'SmallStruct' not in _M_Test.__dict__:
         ('d', (), IcePy._t_double),
         ('str', (), IcePy._t_string),
         ('e', (), _M_Test._t_MyEnum),
-        ('c', (), _M_Test._t_MyClass),
         ('p', (), _M_Test._t_MyInterfacePrx),
         ('ss', (), _M_Test._t_SerialSmall)
     ))
@@ -268,8 +264,6 @@ if 'OptionalClass' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_OptionalClass)
 
         __repr__ = __str__
-
-    _M_Test._t_OptionalClass = IcePy.declareValue('::Test::OptionalClass')
 
     _M_Test._t_OptionalClass = IcePy.defineValue('::Test::OptionalClass', OptionalClass, -1, (), False, None, (
         ('bo', (), IcePy._t_bool, False, 0),

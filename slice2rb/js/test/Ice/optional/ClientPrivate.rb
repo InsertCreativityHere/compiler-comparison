@@ -25,8 +25,8 @@ module ::Test
         end
         module Initial2Prx_mixin
 
-            def opClassAndUnknownOptional(p, o, context=nil)
-                Initial2Prx_mixin::OP_opClassAndUnknownOptional.invoke(self, [p, o], context)
+            def opClassAndUnknownOptional(p, ovs, context=nil)
+                Initial2Prx_mixin::OP_opClassAndUnknownOptional.invoke(self, [p, ovs], context)
             end
 
             def opVoid(a, v, context=nil)
@@ -46,7 +46,7 @@ module ::Test
 
         T_Initial2Prx.defineProxy(Initial2Prx, nil, [])
 
-        Initial2Prx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_A, false, 0], [::Ice::T_Value, true, 1]], [], nil, [])
+        Initial2Prx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_A, false, 0], [::Test::T_VarStruct, true, 1]], [], nil, [])
         Initial2Prx_mixin::OP_opVoid = ::Ice::__defineOperation('opVoid', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2]], [], nil, [])
     end
 end

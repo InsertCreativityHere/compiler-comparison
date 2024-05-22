@@ -23,50 +23,17 @@ _M_Test = Ice.openModule('Test')
 # Start of module Test
 __name__ = 'Test'
 
-if 'D' not in _M_Test.__dict__:
-    _M_Test.D = Ice.createTempClass()
-    class D(_M_Test.B):
-        def __init__(self, requiredA=0, ma=Ice.Unset, mb=Ice.Unset, mc=Ice.Unset, requiredB=0, md=Ice.Unset, ds='', seq=Ice.Unset, ao=Ice.Unset):
-            _M_Test.B.__init__(self, requiredA, ma, mb, mc, requiredB, md)
-            self.ds = ds
-            self.seq = seq
-            self.ao = ao
-
-        def ice_id(self):
-            return '::Test::D'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::D'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_D)
-
-        __repr__ = __str__
-
-    _M_Test._t_D = IcePy.declareValue('::Test::D')
-
-    _M_Test._t_D = IcePy.defineValue('::Test::D', D, -1, (), False, _M_Test._t_B, (
-        ('ds', (), IcePy._t_string, False, 0),
-        ('seq', (), _M_Test._t_StringSeq, True, 990),
-        ('ao', (), _M_Test._t_A, True, 1000)
-    ))
-    D._ice_type = _M_Test._t_D
-
-    _M_Test.D = D
-    del D
-
 _M_Test._t_Initial2 = IcePy.defineValue('::Test::Initial2', Ice.Value, -1, (), True, None, ())
 
 if 'Initial2Prx' not in _M_Test.__dict__:
     _M_Test.Initial2Prx = Ice.createTempClass()
     class Initial2Prx(Ice.ObjectPrx):
 
-        def opClassAndUnknownOptional(self, p, o=Ice.Unset, context=None):
-            return _M_Test.Initial2._op_opClassAndUnknownOptional.invoke(self, ((p, o), context))
+        def opClassAndUnknownOptional(self, p, ovs=Ice.Unset, context=None):
+            return _M_Test.Initial2._op_opClassAndUnknownOptional.invoke(self, ((p, ovs), context))
 
-        def opClassAndUnknownOptionalAsync(self, p, o, context=None):
-            return _M_Test.Initial2._op_opClassAndUnknownOptional.invokeAsync(self, ((p, o), context))
+        def opClassAndUnknownOptionalAsync(self, p, ovs, context=None):
+            return _M_Test.Initial2._op_opClassAndUnknownOptional.invokeAsync(self, ((p, ovs), context))
 
         def opVoid(self, a=Ice.Unset, v=Ice.Unset, context=None):
             return _M_Test.Initial2._op_opVoid.invoke(self, ((a, v), context))
@@ -103,7 +70,7 @@ if 'Initial2Prx' not in _M_Test.__dict__:
         def ice_staticId():
             return '::Test::Initial2'
 
-        def opClassAndUnknownOptional(self, p, o, current=None):
+        def opClassAndUnknownOptional(self, p, ovs, current=None):
             raise NotImplementedError("servant method 'opClassAndUnknownOptional' not implemented")
 
         def opVoid(self, a, v, current=None):
@@ -117,7 +84,7 @@ if 'Initial2Prx' not in _M_Test.__dict__:
     _M_Test._t_Initial2Disp = IcePy.defineClass('::Test::Initial2', Initial2, (), None, ())
     Initial2._ice_type = _M_Test._t_Initial2Disp
 
-    Initial2._op_opClassAndUnknownOptional = IcePy.Operation('opClassAndUnknownOptional', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_A, False, 0), ((), IcePy._t_Value, True, 1)), (), None, ())
+    Initial2._op_opClassAndUnknownOptional = IcePy.Operation('opClassAndUnknownOptional', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_A, False, 0), ((), _M_Test._t_VarStruct, True, 1)), (), None, ())
     Initial2._op_opVoid = IcePy.Operation('opVoid', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, ())
 
     _M_Test.Initial2 = Initial2

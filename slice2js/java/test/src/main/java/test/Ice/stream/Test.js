@@ -31,7 +31,7 @@
 
     Test.SmallStruct = class
     {
-        constructor(bo = false, by = 0, sh = 0, i = 0, l = new Ice.Long(0, 0), f = 0.0, d = 0.0, str = "", e = Test.MyEnum.enum1, c = null, p = null, ss = null)
+        constructor(bo = false, by = 0, sh = 0, i = 0, l = new Ice.Long(0, 0), f = 0.0, d = 0.0, str = "", e = Test.MyEnum.enum1, p = null, ss = null)
         {
             this.bo = bo;
             this.by = by;
@@ -42,7 +42,6 @@
             this.d = d;
             this.str = str;
             this.e = e;
-            this.c = c;
             this.p = p;
             this.ss = ss;
         }
@@ -58,7 +57,6 @@
             ostr.writeDouble(this.d);
             ostr.writeString(this.str);
             Test.MyEnum._write(ostr, this.e);
-            ostr.writeValue(this.c);
             Test.MyInterfacePrx.write(ostr, this.p);
             Test.SerialSmallHelper.write(ostr, this.ss);
         }
@@ -74,14 +72,13 @@
             this.d = istr.readDouble();
             this.str = istr.readString();
             this.e = Test.MyEnum._read(istr);
-            istr.readValue(obj => this.c = obj, Test.MyClass);
             this.p = Test.MyInterfacePrx.read(istr, this.p);
             this.ss = Test.SerialSmallHelper.read(istr);
         }
 
         static get minWireSize()
         {
-            return  34;
+            return  33;
         }
     };
 

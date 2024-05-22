@@ -83,7 +83,6 @@ classdef MyClass < Ice.Value
             r = true;
         end
         function icePostUnmarshal(obj)
-            obj.s = obj.s.ice_convert();
             obj.seq10 = Test.MyClassS.convert(obj.seq10);
             obj.d = Test.StringMyClassD.convert(obj.d);
         end

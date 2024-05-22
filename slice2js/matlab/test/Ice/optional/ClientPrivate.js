@@ -23,33 +23,6 @@
     const Test = require("Test").Test;
     const Slice = Ice.Slice;
 
-    Test.D = class extends Test.B
-    {
-        constructor(requiredA, ma, mb, mc, requiredB, md, ds = "", seq = undefined, ao = undefined)
-        {
-            super(requiredA, ma, mb, mc, requiredB, md);
-            this.ds = ds;
-            this.seq = seq;
-            this.ao = ao;
-        }
-
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.ds);
-            Test.StringSeqHelper.writeOptional(ostr, 990, this.seq);
-            ostr.writeOptionalValue(1000, this.ao);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.ds = istr.readString();
-            this.seq = Test.StringSeqHelper.readOptional(istr, 990);
-            istr.readOptionalValue(1000, obj => this.ao = obj, Test.A);
-        }
-    };
-
-    Slice.defineValue(Test.D, "::Test::D");
-
     const iceC_Test_Initial2_ids = [
         "::Ice::Object",
         "::Test::Initial2"
@@ -65,7 +38,7 @@
 
     Slice.defineOperations(Test.Initial2, Test.Initial2Prx, iceC_Test_Initial2_ids, "::Test::Initial2",
     {
-        "opClassAndUnknownOptional": [, , , , [["Test.A", true], [8, true, 1]], , , true, ],
+        "opClassAndUnknownOptional": [, , , , [["Test.A", true], [Test.VarStruct, , 1]], , , true, ],
         "opVoid": [, , , , [[3, , 1], [7, , 2]], , , , ]
     });
     exports.Test = Test;

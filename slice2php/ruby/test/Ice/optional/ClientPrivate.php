@@ -22,52 +22,6 @@ namespace
 
 namespace Test
 {
-    global $Test__t_D;
-    class D extends \Test\B
-    {
-        public function __construct($requiredA=0, $ma=\Ice\None, $mb=\Ice\None, $mc=\Ice\None, $requiredB=0, $md=\Ice\None, $ds='', $seq=\Ice\None, $ao=\Ice\None)
-        {
-            parent::__construct($requiredA, $ma, $mb, $mc, $requiredB, $md);
-            $this->ds = $ds;
-            $this->seq = $seq;
-            $this->ao = $ao;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::D';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::D';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_D;
-            return IcePHP_stringify($this, $Test__t_D);
-        }
-
-        public $ds;
-        public $seq;
-        public $ao;
-    }
-
-    $Test__t_D = IcePHP_declareClass('::Test::D');
-
-    global $Test__t_B;
-    global $IcePHP__t_string;
-    global $Test__t_StringSeq;
-    global $Test__t_A;
-    $Test__t_D = IcePHP_defineClass('::Test::D', '\\Test\\D', -1, false, $Test__t_B, array(
-        array('ds', $IcePHP__t_string, false, 0),
-        array('seq', $Test__t_StringSeq, true, 990),
-        array('ao', $Test__t_A, true, 1000)));
-}
-
-namespace Test
-{
     global $Test__t_Initial2;
     global $Test__t_Initial2Prx;
 
@@ -93,10 +47,10 @@ namespace Test
     $Test__t_Initial2Prx = IcePHP_defineProxy('::Test::Initial2', $Ice__t_ObjectPrx, null);
 
     global $Test__t_A;
-    global $Ice__t_Value;
+    global $Test__t_VarStruct;
     global $IcePHP__t_int;
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_Initial2Prx, 'opClassAndUnknownOptional', 0, 0, array(array($Test__t_A), array($Ice__t_Value, 1)), null, null, null);
+    IcePHP_defineOperation($Test__t_Initial2Prx, 'opClassAndUnknownOptional', 0, 0, array(array($Test__t_A), array($Test__t_VarStruct, 1)), null, null, null);
     IcePHP_defineOperation($Test__t_Initial2Prx, 'opVoid', 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, null);
 }
 ?>

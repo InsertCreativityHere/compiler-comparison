@@ -17,7 +17,7 @@ package Test;
 
 public interface Initial2 extends com.zeroc.Ice.Object
 {
-    void opClassAndUnknownOptional(A p, java.util.Optional<com.zeroc.Ice.Value> o, com.zeroc.Ice.Current current);
+    void opClassAndUnknownOptional(A p, java.util.Optional<VarStruct> ovs, com.zeroc.Ice.Current current);
 
     void opVoid(java.util.OptionalInt a, java.util.Optional<java.lang.String> v, com.zeroc.Ice.Current current);
 
@@ -57,14 +57,13 @@ public interface Initial2 extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
         final com.zeroc.IceInternal.Holder<A> icePP_p = new com.zeroc.IceInternal.Holder<>();
-        final com.zeroc.IceInternal.Holder<java.util.Optional<com.zeroc.Ice.Value>> icePP_o = new com.zeroc.IceInternal.Holder<>();
+        java.util.Optional<VarStruct> iceP_ovs;
         istr.readValue(v -> icePP_p.value = v, A.class);
-        istr.readValue(1, v -> icePP_o.value = v, com.zeroc.Ice.Value.class);
+        iceP_ovs = VarStruct.ice_read(istr, 1);
         istr.readPendingValues();
         inS.endReadParams();
         A iceP_p = icePP_p.value;
-        java.util.Optional<com.zeroc.Ice.Value> iceP_o = icePP_o.value;
-        obj.opClassAndUnknownOptional(iceP_p, iceP_o, current);
+        obj.opClassAndUnknownOptional(iceP_p, iceP_ovs, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 

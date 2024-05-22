@@ -124,15 +124,15 @@ public extension Initial2Prx {
     ///
     /// - parameter p: `A?`
     ///
-    /// - parameter o: `Ice.Value?`
+    /// - parameter ovs: `VarStruct?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func opClassAndUnknownOptional(p iceP_p: A?, o iceP_o: Ice.Value? = nil, context: Ice.Context? = nil) throws {
+    func opClassAndUnknownOptional(p iceP_p: A?, ovs iceP_ovs: VarStruct? = nil, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "opClassAndUnknownOptional",
                           mode: .Normal,
                           write: { ostr in
                               ostr.write(iceP_p)
-                              ostr.write(tag: 1, value: iceP_o)
+                              ostr.write(tag: 1, value: iceP_ovs)
                               ostr.writePendingValues()
                           },
                           context: context)
@@ -141,7 +141,7 @@ public extension Initial2Prx {
     ///
     /// - parameter p: `A?`
     ///
-    /// - parameter o: `Ice.Value?`
+    /// - parameter ovs: `VarStruct?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -154,12 +154,12 @@ public extension Initial2Prx {
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opClassAndUnknownOptionalAsync(p iceP_p: A?, o iceP_o: Ice.Value? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
+    func opClassAndUnknownOptionalAsync(p iceP_p: A?, ovs iceP_ovs: VarStruct? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "opClassAndUnknownOptional",
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(iceP_p)
-                                      ostr.write(tag: 1, value: iceP_o)
+                                      ostr.write(tag: 1, value: iceP_ovs)
                                       ostr.writePendingValues()
                                   },
                                   context: context,
@@ -249,10 +249,10 @@ public protocol Initial2 {
     ///
     /// - parameter p: `A?`
     ///
-    /// - parameter o: `Ice.Value?`
+    /// - parameter ovs: `VarStruct?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opClassAndUnknownOptional(p: A?, o: Ice.Value?, current: Ice.Current) throws
+    func opClassAndUnknownOptional(p: A?, ovs: VarStruct?, current: Ice.Current) throws
 
     ///
     /// - parameter a: `Swift.Int32?`
@@ -272,16 +272,15 @@ public protocol Initial2 {
 ///  - opVoid: 
 public extension Initial2 {
     func _iceD_opClassAndUnknownOptional(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p, iceP_o): (A?, Ice.Value?) = try inS.read { istr in
+        let (iceP_p, iceP_ovs): (A?, VarStruct?) = try inS.read { istr in
             var iceP_p: A?
             try istr.read(A.self) { iceP_p = $0 }
-            var iceP_o: Ice.Value?
-            try istr.read(tag: 1) { iceP_o = $0 }
+            let iceP_ovs: VarStruct? = try istr.read(tag: 1)
             try istr.readPendingValues()
-            return (iceP_p, iceP_o)
+            return (iceP_p, iceP_ovs)
         }
 
-        try self.opClassAndUnknownOptional(p: iceP_p, o: iceP_o, current: current)
+        try self.opClassAndUnknownOptional(p: iceP_p, ovs: iceP_ovs, current: current)
 
         return inS.setResult()
     }

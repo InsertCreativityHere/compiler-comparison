@@ -13,34 +13,34 @@
 
 classdef Initial2Prx < Ice.ObjectPrx
     methods
-        function opClassAndUnknownOptional(obj, p, o, varargin)
+        function opClassAndUnknownOptional(obj, p, ovs, varargin)
             % opClassAndUnknownOptional
             %
             % Parameters:
             %   p (Test.A)
-            %   o (Ice.Object)
+            %   ovs (Test.VarStruct)
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(p);
-            os_.writeValueOpt(1, o);
+            Test.VarStruct.ice_writeOpt(os_, 1, ovs);
             os_.writePendingValues();
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('opClassAndUnknownOptional', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = opClassAndUnknownOptionalAsync(obj, p, o, varargin)
+        function r_ = opClassAndUnknownOptionalAsync(obj, p, ovs, varargin)
             % opClassAndUnknownOptionalAsync
             %
             % Parameters:
             %   p (Test.A)
-            %   o (Ice.Object)
+            %   ovs (Test.VarStruct)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(p);
-            os_.writeValueOpt(1, o);
+            Test.VarStruct.ice_writeOpt(os_, 1, ovs);
             os_.writePendingValues();
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('opClassAndUnknownOptional', 0, false, os_, 0, [], {}, varargin{:});

@@ -70,16 +70,6 @@ classdef OptionalClass < Ice.Value
             id = obj.ice_staticId();
         end
     end
-    methods(Hidden=true)
-        function r = iceDelayPostUnmarshal(~)
-            r = true;
-        end
-        function icePostUnmarshal(obj)
-            if obj.sm ~= Ice.Unset
-                obj.sm = obj.sm.ice_convert();
-            end
-        end
-    end
     methods(Access=protected)
         function iceWriteImpl(obj, os)
             os.startSlice('::Test::OptionalClass', -1, true);

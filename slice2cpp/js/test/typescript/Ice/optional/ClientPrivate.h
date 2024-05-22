@@ -39,15 +39,15 @@ class Initial2Prx : public ::Ice::Proxy<Initial2Prx, ::Ice::ObjectPrx>
 {
 public:
 
-    void opClassAndUnknownOptional(const APtr& p, const ::std::optional<::Ice::ValuePtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void opClassAndUnknownOptional(const APtr& p, const ::std::optional<VarStruct>& ovs, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opClassAndUnknownOptionalAsync(const APtr& p, const ::std::optional<::Ice::ValuePtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> opClassAndUnknownOptionalAsync(const APtr& p, const ::std::optional<VarStruct>& ovs, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opClassAndUnknownOptionalAsync(const APtr& p, const ::std::optional<::Ice::ValuePtr>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opClassAndUnknownOptionalAsync(const APtr& p, const ::std::optional<VarStruct>& ovs, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const APtr&, const ::std::optional<::Ice::ValuePtr>&, const ::Ice::Context&) const;
+    void _iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const APtr&, const ::std::optional<VarStruct>&, const ::Ice::Context&) const;
     /// \endcond
 
     void opVoid(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> v, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -140,7 +140,7 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual void opClassAndUnknownOptional(APtr p, ::std::optional<::Ice::ValuePtr> o, const ::Ice::Current& current) = 0;
+    virtual void opClassAndUnknownOptional(APtr p, ::std::optional<VarStruct> ovs, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opClassAndUnknownOptional(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

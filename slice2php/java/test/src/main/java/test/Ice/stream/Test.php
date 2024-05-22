@@ -69,7 +69,7 @@ namespace Test
     global $Test__t_SmallStruct;
     class SmallStruct
     {
-        public function __construct($bo=false, $by=0, $sh=0, $i=0, $l=0, $f=0.0, $d=0.0, $str='', $e=\Test\MyEnum::enum1, $c=null, $p=null, $ss=null)
+        public function __construct($bo=false, $by=0, $sh=0, $i=0, $l=0, $f=0.0, $d=0.0, $str='', $e=\Test\MyEnum::enum1, $p=null, $ss=null)
         {
             $this->bo = $bo;
             $this->by = $by;
@@ -80,7 +80,6 @@ namespace Test
             $this->d = $d;
             $this->str = $str;
             $this->e = $e;
-            $this->c = $c;
             $this->p = $p;
             $this->ss = $ss;
         }
@@ -100,7 +99,6 @@ namespace Test
         public $d;
         public $str;
         public $e;
-        public $c;
         public $p;
         public $ss;
     }
@@ -114,7 +112,6 @@ namespace Test
     global $IcePHP__t_double;
     global $IcePHP__t_string;
     global $Test__t_MyEnum;
-    global $Test__t_MyClass;
     global $Test__t_MyInterfacePrx;
     global $Test__t_SerialSmall;
     $Test__t_SmallStruct = IcePHP_defineStruct('::Test::SmallStruct', '\\Test\\SmallStruct', array(
@@ -127,7 +124,6 @@ namespace Test
         array('d', $IcePHP__t_double),
         array('str', $IcePHP__t_string),
         array('e', $Test__t_MyEnum),
-        array('c', $Test__t_MyClass),
         array('p', $Test__t_MyInterfacePrx),
         array('ss', $Test__t_SerialSmall)));
 }
@@ -269,8 +265,6 @@ namespace Test
         public $stringSeq14;
         public $p15;
     }
-
-    $Test__t_OptionalClass = IcePHP_declareClass('::Test::OptionalClass');
 
     global $Ice__t_Value;
     global $IcePHP__t_bool;

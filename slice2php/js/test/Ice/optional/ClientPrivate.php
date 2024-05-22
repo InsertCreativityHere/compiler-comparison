@@ -47,10 +47,10 @@ namespace Test
     $Test__t_Initial2Prx = IcePHP_defineProxy('::Test::Initial2', $Ice__t_ObjectPrx, null);
 
     global $Test__t_A;
-    global $Ice__t_Value;
+    global $Test__t_VarStruct;
     global $IcePHP__t_int;
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_Initial2Prx, 'opClassAndUnknownOptional', 0, 0, array(array($Test__t_A), array($Ice__t_Value, 1)), null, null, null);
+    IcePHP_defineOperation($Test__t_Initial2Prx, 'opClassAndUnknownOptional', 0, 0, array(array($Test__t_A), array($Test__t_VarStruct, 1)), null, null, null);
     IcePHP_defineOperation($Test__t_Initial2Prx, 'opVoid', 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, null);
 }
 ?>

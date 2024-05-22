@@ -79,7 +79,7 @@ public extension Ice.OutputStream {
 
 public typealias SerialSmall = Foundation.Data
 
-public class SmallStruct {
+public struct SmallStruct {
     public var bo: Swift.Bool = false
     public var by: Swift.UInt8 = 0
     public var sh: Swift.Int16 = 0
@@ -89,13 +89,12 @@ public class SmallStruct {
     public var d: Swift.Double = 0.0
     public var str: Swift.String = ""
     public var e: MyEnum = .enum1
-    public var c: MyClass? = nil
     public var p: MyInterfacePrx? = nil
     public var ss: SerialSmall = SerialSmall()
 
     public init() {}
 
-    public init(bo: Swift.Bool, by: Swift.UInt8, sh: Swift.Int16, i: Swift.Int32, l: Swift.Int64, f: Swift.Float, d: Swift.Double, str: Swift.String, e: MyEnum, c: MyClass?, p: MyInterfacePrx?, ss: SerialSmall) {
+    public init(bo: Swift.Bool, by: Swift.UInt8, sh: Swift.Int16, i: Swift.Int32, l: Swift.Int64, f: Swift.Float, d: Swift.Double, str: Swift.String, e: MyEnum, p: MyInterfacePrx?, ss: SerialSmall) {
         self.bo = bo
         self.by = by
         self.sh = sh
@@ -105,7 +104,6 @@ public class SmallStruct {
         self.d = d
         self.str = str
         self.e = e
-        self.c = c
         self.p = p
         self.ss = ss
     }
@@ -117,7 +115,7 @@ public extension Ice.InputStream {
     ///
     /// - returns: `SmallStruct` - The structured value read from the stream.
     func read() throws -> SmallStruct {
-        let v = SmallStruct()
+        var v = SmallStruct()
         v.bo = try self.read()
         v.by = try self.read()
         v.sh = try self.read()
@@ -127,7 +125,6 @@ public extension Ice.InputStream {
         v.d = try self.read()
         v.str = try self.read()
         v.e = try self.read()
-        try self.read(MyClass.self) { v.c = $0 }
         v.p = try self.read(MyInterfacePrx.self)
         v.ss = try self.read()
         return v
@@ -162,7 +159,6 @@ public extension Ice.OutputStream {
         self.write(v.d)
         self.write(v.str)
         self.write(v.e)
-        self.write(v.c)
         self.write(v.p)
         self.write(v.ss)
     }

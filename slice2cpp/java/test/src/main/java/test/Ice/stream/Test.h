@@ -159,7 +159,6 @@ struct SmallStruct
     double d;
     ::std::string str;
     ::Test::MyEnum e;
-    ::Test::MyClassPtr c;
     ::std::optional<::Test::MyInterfacePrx> p;
     ::Test::SerialSmall ss;
 
@@ -167,9 +166,9 @@ struct SmallStruct
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::Test::MyClassPtr&, const ::std::optional<::Test::MyInterfacePrx>&, const ::Test::SerialSmall&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::optional<::Test::MyInterfacePrx>&, const ::Test::SerialSmall&> ice_tuple() const
     {
-        return std::tie(bo, by, sh, i, l, f, d, str, e, c, p, ss);
+        return std::tie(bo, by, sh, i, l, f, d, str, e, p, ss);
     }
 };
 
@@ -447,7 +446,7 @@ template<>
 struct StreamableTraits<::Test::SmallStruct>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 34;
+    static const int minWireSize = 33;
     static const bool fixedLength = false;
 };
 
@@ -456,7 +455,7 @@ struct StreamReader<::Test::SmallStruct>
 {
     static void read(InputStream* istr, ::Test::SmallStruct& v)
     {
-        istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.f, v.d, v.str, v.e, v.c, v.p, v.ss);
+        istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.f, v.d, v.str, v.e, v.p, v.ss);
     }
 };
 

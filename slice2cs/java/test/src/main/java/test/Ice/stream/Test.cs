@@ -86,9 +86,6 @@ namespace Test
         public MyEnum e;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass? c;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MyInterfacePrx? p;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -104,7 +101,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SmallStruct(bool bo, byte by, short sh, int i, long l, float f, double d, string str, MyEnum e, MyClass? c, MyInterfacePrx? p, byte[] ss)
+        public SmallStruct(bool bo, byte by, short sh, int i, long l, float f, double d, string str, MyEnum e, MyInterfacePrx? p, byte[] ss)
         {
             this.bo = bo;
             this.by = by;
@@ -115,7 +112,6 @@ namespace Test
             this.d = d;
             this.str = str;
             this.e = e;
-            this.c = c;
             this.p = p;
             this.ss = ss;
             ice_initialize();
@@ -133,7 +129,6 @@ namespace Test
             this.d = istr.readDouble();
             this.str = istr.readString();
             this.e = (MyEnum)istr.readEnum(2);
-            istr.readValue((MyClass? v) => { this.c = v; });
             this.p = MyInterfacePrxHelper.read(istr);
             this.ss = SerialSmallHelper.read(istr);
             ice_initialize();
@@ -155,7 +150,6 @@ namespace Test
             hash.Add(this.d);
             hash.Add(this.str);
             hash.Add(this.e);
-            hash.Add(this.c);
             hash.Add(this.p);
             Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.ss);
             return hash.ToHashCode();
@@ -181,7 +175,6 @@ namespace Test
                 this.d == other.d && 
                 this.str == other.str && 
                 this.e == other.e && 
-                this.c == other.c && 
                 (Ice.ObjectPrxHelperBase?)this.p == (Ice.ObjectPrxHelperBase?)other.p && 
                 Ice.UtilInternal.Collections.NullableSequenceEqual(this.ss, other.ss);
         }
@@ -204,7 +197,6 @@ namespace Test
             ostr.writeDouble(this.d);
             ostr.writeString(this.str);
             ostr.writeEnum((int)this.e, 2);
-            ostr.writeValue(this.c);
             MyInterfacePrxHelper.write(ostr, this.p);
             SerialSmallHelper.write(ostr, this.ss);
         }

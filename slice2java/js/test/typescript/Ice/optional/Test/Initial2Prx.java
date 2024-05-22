@@ -17,79 +17,79 @@ package Test;
 
 public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
 {
-    default void opClassAndUnknownOptional(A p, com.zeroc.Ice.Value o)
+    default void opClassAndUnknownOptional(A p, VarStruct ovs)
     {
-        opClassAndUnknownOptional(p, o, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        opClassAndUnknownOptional(p, ovs, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void opClassAndUnknownOptional(A p, com.zeroc.Ice.Value o, java.util.Map<String, String> context)
+    default void opClassAndUnknownOptional(A p, VarStruct ovs, java.util.Map<String, String> context)
     {
-        _iceI_opClassAndUnknownOptionalAsync(p, o, context, true).waitForResponse();
+        _iceI_opClassAndUnknownOptionalAsync(p, ovs, context, true).waitForResponse();
     }
 
-    default void opClassAndUnknownOptional(A p, java.util.Optional<com.zeroc.Ice.Value> o)
+    default void opClassAndUnknownOptional(A p, java.util.Optional<VarStruct> ovs)
     {
-        opClassAndUnknownOptional(p, o, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        opClassAndUnknownOptional(p, ovs, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void opClassAndUnknownOptional(A p, java.util.Optional<com.zeroc.Ice.Value> o, java.util.Map<String, String> context)
+    default void opClassAndUnknownOptional(A p, java.util.Optional<VarStruct> ovs, java.util.Map<String, String> context)
     {
-        _iceI_opClassAndUnknownOptionalAsync(p, o, context, true).waitForResponse();
+        _iceI_opClassAndUnknownOptionalAsync(p, ovs, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opClassAndUnknownOptionalAsync(A p, com.zeroc.Ice.Value o)
+    default java.util.concurrent.CompletableFuture<Void> opClassAndUnknownOptionalAsync(A p, VarStruct ovs)
     {
-        return _iceI_opClassAndUnknownOptionalAsync(p, o, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opClassAndUnknownOptionalAsync(p, ovs, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opClassAndUnknownOptionalAsync(A p, com.zeroc.Ice.Value o, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> opClassAndUnknownOptionalAsync(A p, VarStruct ovs, java.util.Map<String, String> context)
     {
-        return _iceI_opClassAndUnknownOptionalAsync(p, o, context, false);
+        return _iceI_opClassAndUnknownOptionalAsync(p, ovs, context, false);
     }
 
     /**
      * @hidden
      * @param iceP_p -
-     * @param iceP_o -
+     * @param iceP_ovs -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opClassAndUnknownOptionalAsync(A iceP_p, com.zeroc.Ice.Value iceP_o, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opClassAndUnknownOptionalAsync(A iceP_p, VarStruct iceP_ovs, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opClassAndUnknownOptional", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeValue(iceP_p);
-                     ostr.writeValue(1, iceP_o);
+                     VarStruct.ice_write(ostr, 1, iceP_ovs);
                      ostr.writePendingValues();
                  }, null);
         return f;
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opClassAndUnknownOptionalAsync(A p, java.util.Optional<com.zeroc.Ice.Value> o)
+    default java.util.concurrent.CompletableFuture<Void> opClassAndUnknownOptionalAsync(A p, java.util.Optional<VarStruct> ovs)
     {
-        return _iceI_opClassAndUnknownOptionalAsync(p, o, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opClassAndUnknownOptionalAsync(p, ovs, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opClassAndUnknownOptionalAsync(A p, java.util.Optional<com.zeroc.Ice.Value> o, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> opClassAndUnknownOptionalAsync(A p, java.util.Optional<VarStruct> ovs, java.util.Map<String, String> context)
     {
-        return _iceI_opClassAndUnknownOptionalAsync(p, o, context, false);
+        return _iceI_opClassAndUnknownOptionalAsync(p, ovs, context, false);
     }
 
     /**
      * @hidden
      * @param iceP_p -
-     * @param iceP_o -
+     * @param iceP_ovs -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opClassAndUnknownOptionalAsync(A iceP_p, java.util.Optional<com.zeroc.Ice.Value> iceP_o, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opClassAndUnknownOptionalAsync(A iceP_p, java.util.Optional<VarStruct> iceP_ovs, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opClassAndUnknownOptional", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeValue(iceP_p);
-                     ostr.writeValue(1, iceP_o);
+                     VarStruct.ice_write(ostr, 1, iceP_ovs);
                      ostr.writePendingValues();
                  }, null);
         return f;
