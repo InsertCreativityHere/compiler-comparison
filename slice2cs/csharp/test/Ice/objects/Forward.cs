@@ -45,6 +45,7 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public F1(string name)
             {
+                global::System.ArgumentNullException.ThrowIfNull(name);
                 this.name = name;
                 ice_initialize();
             }

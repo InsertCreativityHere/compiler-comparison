@@ -72,6 +72,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AnotherStruct(string s)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
             ice_initialize();
         }
@@ -156,6 +157,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Structure(AnotherStruct s)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
             ice_initialize();
         }
@@ -165,6 +167,7 @@ namespace Test
         {
             this.p = p;
             this.e = e;
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
             ice_initialize();
         }
@@ -541,8 +544,10 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MyStruct1(string tesT, MyClassPrx? myClass, string myStruct1)
         {
+            global::System.ArgumentNullException.ThrowIfNull(tesT);
             this.tesT = tesT;
             this.myClass = myClass;
+            global::System.ArgumentNullException.ThrowIfNull(myStruct1);
             this.myStruct1 = myStruct1;
             ice_initialize();
         }
@@ -637,8 +642,10 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MyClass1(string tesT, MyClassPrx? myClass, string myClass1)
         {
+            global::System.ArgumentNullException.ThrowIfNull(tesT);
             this.tesT = tesT;
             this.myClass = myClass;
+            global::System.ArgumentNullException.ThrowIfNull(myClass1);
             this.myClass1 = myClass1;
             ice_initialize();
         }

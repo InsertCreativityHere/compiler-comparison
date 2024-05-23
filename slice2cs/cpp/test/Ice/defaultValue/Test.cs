@@ -171,6 +171,7 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
             this.c1 = c1;
             this.c2 = c2;
@@ -178,6 +179,7 @@ namespace Test
             this.nc1 = nc1;
             this.nc2 = nc2;
             this.nc3 = nc3;
+            global::System.ArgumentNullException.ThrowIfNull(noDefault);
             this.noDefault = noDefault;
             this.zeroI = zeroI;
             this.zeroL = zeroL;
@@ -536,6 +538,7 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
             this.c1 = c1;
             this.c2 = c2;
@@ -779,6 +782,7 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
             this.c1 = c1;
             this.c2 = c2;
@@ -786,6 +790,7 @@ namespace Test
             this.nc1 = nc1;
             this.nc2 = nc2;
             this.nc3 = nc3;
+            global::System.ArgumentNullException.ThrowIfNull(noDefault);
             this.noDefault = noDefault;
             this.zeroI = zeroI;
             this.zeroL = zeroL;
@@ -1009,7 +1014,9 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
+            global::System.ArgumentNullException.ThrowIfNull(noDefault);
             this.noDefault = noDefault;
             this.zeroI = zeroI;
             this.zeroL = zeroL;
@@ -1254,7 +1261,9 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
+            global::System.ArgumentNullException.ThrowIfNull(noDefault);
             this.noDefault = noDefault;
             this.zeroI = zeroI;
             this.zeroL = zeroL;

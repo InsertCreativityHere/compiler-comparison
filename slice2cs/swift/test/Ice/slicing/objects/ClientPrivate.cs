@@ -46,6 +46,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D3(string sb, B? pb, string sd3, B? pd3) : base(sb, pb)
         {
+            global::System.ArgumentNullException.ThrowIfNull(sd3);
             this.sd3 = sd3;
             this.pd3 = pd3;
             ice_initialize();
@@ -113,6 +114,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PCUnknown(int pi, string pu) : base(pi)
         {
+            global::System.ArgumentNullException.ThrowIfNull(pu);
             this.pu = pu;
             ice_initialize();
         }
@@ -177,6 +179,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PCDerived(int pi, string ps, PBase? pb, PBase?[] pbs) : base(pi, ps, pb)
         {
+            global::System.ArgumentNullException.ThrowIfNull(pbs);
             this.pbs = pbs;
             ice_initialize();
         }
@@ -184,6 +187,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PCDerived(PBase?[] pbs)
         {
+            global::System.ArgumentNullException.ThrowIfNull(pbs);
             this.pbs = pbs;
             ice_initialize();
         }
@@ -393,6 +397,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CompactPCDerived(int pi, string ps, PBase? pb, PBase?[] pbs) : base(pi, ps, pb)
         {
+            global::System.ArgumentNullException.ThrowIfNull(pbs);
             this.pbs = pbs;
             ice_initialize();
         }
@@ -400,6 +405,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CompactPCDerived(PBase?[] pbs)
         {
+            global::System.ArgumentNullException.ThrowIfNull(pbs);
             this.pbs = pbs;
             ice_initialize();
         }

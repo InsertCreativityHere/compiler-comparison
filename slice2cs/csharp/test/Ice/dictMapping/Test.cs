@@ -46,7 +46,9 @@ namespace Ice.dictMapping
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public TEstNv(global::System.Collections.Generic.Dictionary<int, int> d, int[] s)
             {
+                global::System.ArgumentNullException.ThrowIfNull(d);
                 this.d = d;
+                global::System.ArgumentNullException.ThrowIfNull(s);
                 this.s = s;
                 ice_initialize();
             }

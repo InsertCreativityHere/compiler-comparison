@@ -54,6 +54,7 @@ namespace IceStorm
         public LinkInfo(TopicPrx? theTopic, string name, int cost)
         {
             this.theTopic = theTopic;
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
             this.cost = cost;
             ice_initialize();
@@ -146,6 +147,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public LinkExists(string name, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
         }
 
@@ -207,6 +209,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NoSuchLink(string name, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
         }
 
@@ -318,6 +321,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InvalidSubscriber(string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 
@@ -379,6 +383,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BadQoS(string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 
@@ -572,6 +577,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TopicExists(string name, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
         }
 
@@ -633,6 +639,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NoSuchTopic(string name, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
         }
 

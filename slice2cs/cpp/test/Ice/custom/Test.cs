@@ -94,7 +94,9 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Variable(bool[] bl, string[] ss)
         {
+            global::System.ArgumentNullException.ThrowIfNull(bl);
             this.bl = bl;
+            global::System.ArgumentNullException.ThrowIfNull(ss);
             this.ss = ss;
             ice_initialize();
         }
@@ -102,8 +104,11 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Variable(string s, bool[] bl, string[] ss)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(bl);
             this.bl = bl;
+            global::System.ArgumentNullException.ThrowIfNull(ss);
             this.ss = ss;
             ice_initialize();
         }
@@ -283,6 +288,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DictClass(global::System.Collections.Generic.Dictionary<int, string> isdict)
         {
+            global::System.ArgumentNullException.ThrowIfNull(isdict);
             this.isdict = isdict;
             ice_initialize();
         }
@@ -363,12 +369,19 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BufferStruct(byte[] byteBuf, bool[] boolBuf, short[] shortBuf, int[] intBuf, long[] longBuf, float[] floatBuf, double[] doubleBuf)
         {
+            global::System.ArgumentNullException.ThrowIfNull(byteBuf);
             this.byteBuf = byteBuf;
+            global::System.ArgumentNullException.ThrowIfNull(boolBuf);
             this.boolBuf = boolBuf;
+            global::System.ArgumentNullException.ThrowIfNull(shortBuf);
             this.shortBuf = shortBuf;
+            global::System.ArgumentNullException.ThrowIfNull(intBuf);
             this.intBuf = intBuf;
+            global::System.ArgumentNullException.ThrowIfNull(longBuf);
             this.longBuf = longBuf;
+            global::System.ArgumentNullException.ThrowIfNull(floatBuf);
             this.floatBuf = floatBuf;
+            global::System.ArgumentNullException.ThrowIfNull(doubleBuf);
             this.doubleBuf = doubleBuf;
             ice_initialize();
         }

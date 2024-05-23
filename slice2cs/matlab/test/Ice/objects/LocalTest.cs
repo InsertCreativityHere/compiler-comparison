@@ -187,6 +187,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S2(S1 s1)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s1);
             this.s1 = s1;
             ice_initialize();
         }
@@ -265,6 +266,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S3(C1?[] c1seq)
         {
+            global::System.ArgumentNullException.ThrowIfNull(c1seq);
             this.c1seq = c1seq;
             ice_initialize();
         }
@@ -343,6 +345,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S4(S1[] s1seq)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s1seq);
             this.s1seq = s1seq;
             ice_initialize();
         }
@@ -421,6 +424,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S5(global::System.Collections.Generic.Dictionary<int, C1?> c1dict)
         {
+            global::System.ArgumentNullException.ThrowIfNull(c1dict);
             this.c1dict = c1dict;
             ice_initialize();
         }
@@ -499,6 +503,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S6(global::System.Collections.Generic.Dictionary<int, S1> s1dict)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s1dict);
             this.s1dict = s1dict;
             ice_initialize();
         }
@@ -577,6 +582,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S7(C1?[][] c1seqseq)
         {
+            global::System.ArgumentNullException.ThrowIfNull(c1seqseq);
             this.c1seqseq = c1seqseq;
             ice_initialize();
         }
@@ -655,6 +661,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S8(S1[][] s1seqseq)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s1seqseq);
             this.s1seqseq = s1seqseq;
             ice_initialize();
         }
@@ -735,6 +742,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB1(S1 s1)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s1);
             this.s1 = s1;
             ice_initialize();
         }
@@ -799,6 +807,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB2(C1?[] c1seq)
         {
+            global::System.ArgumentNullException.ThrowIfNull(c1seq);
             this.c1seq = c1seq;
             ice_initialize();
         }
@@ -863,6 +872,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB3(S1[] s1seq)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s1seq);
             this.s1seq = s1seq;
             ice_initialize();
         }
@@ -927,6 +937,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB4(global::System.Collections.Generic.Dictionary<int, C1?> c1dict)
         {
+            global::System.ArgumentNullException.ThrowIfNull(c1dict);
             this.c1dict = c1dict;
             ice_initialize();
         }
@@ -991,6 +1002,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB5(global::System.Collections.Generic.Dictionary<int, S1> s1dict)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s1dict);
             this.s1dict = s1dict;
             ice_initialize();
         }
@@ -1055,6 +1067,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB6(C1?[][] c1seqseq)
         {
+            global::System.ArgumentNullException.ThrowIfNull(c1seqseq);
             this.c1seqseq = c1seqseq;
             ice_initialize();
         }
@@ -1119,6 +1132,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB7(S1[][] s1seqseq)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s1seqseq);
             this.s1seqseq = s1seqseq;
             ice_initialize();
         }
@@ -1189,8 +1203,11 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB8(S1 s1, C1?[] c1seq, global::System.Collections.Generic.Dictionary<int, S1> s1dict)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s1);
             this.s1 = s1;
+            global::System.ArgumentNullException.ThrowIfNull(c1seq);
             this.c1seq = c1seq;
+            global::System.ArgumentNullException.ThrowIfNull(s1dict);
             this.s1dict = s1dict;
             ice_initialize();
         }

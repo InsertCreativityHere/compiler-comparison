@@ -109,6 +109,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1(string name)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
             ice_initialize();
         }
@@ -226,9 +227,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S2(string[] ss, global::System.Collections.Generic.List<int> il, global::System.Collections.Generic.Dictionary<string, string> sd, S1 s)
         {
+            global::System.ArgumentNullException.ThrowIfNull(ss);
             this.ss = ss;
+            global::System.ArgumentNullException.ThrowIfNull(il);
             this.il = il;
+            global::System.ArgumentNullException.ThrowIfNull(sd);
             this.sd = sd;
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
             ice_initialize();
         }
@@ -243,10 +248,15 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
+            global::System.ArgumentNullException.ThrowIfNull(ss);
             this.ss = ss;
+            global::System.ArgumentNullException.ThrowIfNull(il);
             this.il = il;
+            global::System.ArgumentNullException.ThrowIfNull(sd);
             this.sd = sd;
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
             this.cls = cls;
             this.prx = prx;

@@ -50,7 +50,9 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public EventData(byte[] data, global::System.Collections.Generic.Dictionary<string, string> context)
         {
+            global::System.ArgumentNullException.ThrowIfNull(data);
             this.data = data;
+            global::System.ArgumentNullException.ThrowIfNull(context);
             this.context = context;
             ice_initialize();
         }
@@ -58,9 +60,12 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public EventData(string op, global::Ice.OperationMode mode, byte[] data, global::System.Collections.Generic.Dictionary<string, string> context)
         {
+            global::System.ArgumentNullException.ThrowIfNull(op);
             this.op = op;
             this.mode = mode;
+            global::System.ArgumentNullException.ThrowIfNull(data);
             this.data = data;
+            global::System.ArgumentNullException.ThrowIfNull(context);
             this.context = context;
             ice_initialize();
         }

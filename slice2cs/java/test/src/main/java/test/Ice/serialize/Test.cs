@@ -106,6 +106,7 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
             this.e = e;
             this.p = p;
@@ -256,14 +257,23 @@ namespace Test
         {
             this.b = b;
             this.o = o;
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(seq1);
             this.seq1 = seq1;
+            global::System.ArgumentNullException.ThrowIfNull(seq2);
             this.seq2 = seq2;
+            global::System.ArgumentNullException.ThrowIfNull(seq3);
             this.seq3 = seq3;
+            global::System.ArgumentNullException.ThrowIfNull(seq4);
             this.seq4 = seq4;
+            global::System.ArgumentNullException.ThrowIfNull(d1);
             this.d1 = d1;
+            global::System.ArgumentNullException.ThrowIfNull(d2);
             this.d2 = d2;
+            global::System.ArgumentNullException.ThrowIfNull(d3);
             this.d3 = d3;
+            global::System.ArgumentNullException.ThrowIfNull(d4);
             this.d4 = d4;
             ice_initialize();
         }
@@ -271,14 +281,23 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @Base(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base?> d4)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(seq1);
             this.seq1 = seq1;
+            global::System.ArgumentNullException.ThrowIfNull(seq2);
             this.seq2 = seq2;
+            global::System.ArgumentNullException.ThrowIfNull(seq3);
             this.seq3 = seq3;
+            global::System.ArgumentNullException.ThrowIfNull(seq4);
             this.seq4 = seq4;
+            global::System.ArgumentNullException.ThrowIfNull(d1);
             this.d1 = d1;
+            global::System.ArgumentNullException.ThrowIfNull(d2);
             this.d2 = d2;
+            global::System.ArgumentNullException.ThrowIfNull(d3);
             this.d3 = d3;
+            global::System.ArgumentNullException.ThrowIfNull(d4);
             this.d4 = d4;
             ice_initialize();
         }
@@ -444,6 +463,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Ex(Struct1 s, @Base? b, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
             this.b = b;
         }
@@ -451,6 +471,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Ex(Struct1 s, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
         }
 

@@ -49,6 +49,7 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S(string str)
             {
+                global::System.ArgumentNullException.ThrowIfNull(str);
                 this.str = str;
                 ice_initialize();
             }
@@ -132,7 +133,9 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public @Base(S theS, string str)
             {
+                global::System.ArgumentNullException.ThrowIfNull(theS);
                 this.theS = theS;
+                global::System.ArgumentNullException.ThrowIfNull(str);
                 this.str = str;
                 ice_initialize();
             }
@@ -140,6 +143,7 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public @Base(S theS)
             {
+                global::System.ArgumentNullException.ThrowIfNull(theS);
                 this.theS = theS;
                 ice_initialize();
             }
@@ -514,6 +518,7 @@ namespace Ice.objects
             public E(int i, string s)
             {
                 this.i = i;
+                global::System.ArgumentNullException.ThrowIfNull(s);
                 this.s = s;
                 ice_initialize();
             }
@@ -916,6 +921,7 @@ namespace Ice.objects
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public Ex(string reason, global::System.Exception? innerException = null) : base(innerException)
                 {
+                    global::System.ArgumentNullException.ThrowIfNull(reason);
                     this.reason = reason;
                 }
 
@@ -1037,6 +1043,7 @@ namespace Ice.objects
                     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     public Ex(string reason, global::System.Exception? innerException = null) : base(innerException)
                     {
+                        global::System.ArgumentNullException.ThrowIfNull(reason);
                         this.reason = reason;
                     }
 
@@ -1097,6 +1104,7 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public A1(string name)
             {
+                global::System.ArgumentNullException.ThrowIfNull(name);
                 this.name = name;
                 ice_initialize();
             }
@@ -1555,6 +1563,7 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public L(string data)
             {
+                global::System.ArgumentNullException.ThrowIfNull(data);
                 this.data = data;
                 ice_initialize();
             }
@@ -1625,6 +1634,7 @@ namespace Ice.objects
             public StructKey(int i, string s)
             {
                 this.i = i;
+                global::System.ArgumentNullException.ThrowIfNull(s);
                 this.s = s;
                 ice_initialize();
             }
@@ -1709,6 +1719,7 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public M(global::System.Collections.Generic.Dictionary<StructKey, L?> v)
             {
+                global::System.ArgumentNullException.ThrowIfNull(v);
                 this.v = v;
                 ice_initialize();
             }
@@ -2070,6 +2081,7 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public IBase(string id)
             {
+                global::System.ArgumentNullException.ThrowIfNull(id);
                 this.id = id;
                 ice_initialize();
             }
@@ -2132,6 +2144,7 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public IDerived(string id, string name) : base(id)
             {
+                global::System.ArgumentNullException.ThrowIfNull(name);
                 this.name = name;
                 ice_initialize();
             }
@@ -2355,6 +2368,7 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public SC1(string id)
             {
+                global::System.ArgumentNullException.ThrowIfNull(id);
                 this.id = id;
                 ice_initialize();
             }

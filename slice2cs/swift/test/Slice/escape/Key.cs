@@ -118,6 +118,7 @@ namespace and
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public defer(string @else)
         {
+            global::System.ArgumentNullException.ThrowIfNull(@else);
             this.@else = @else;
             ice_initialize();
         }

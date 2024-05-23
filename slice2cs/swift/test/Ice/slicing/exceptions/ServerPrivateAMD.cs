@@ -42,6 +42,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownDerived(string b, string ud, global::System.Exception? innerException = null) : base(b, innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(ud);
             this.ud = ud;
         }
 
@@ -101,6 +102,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownIntermediate(string b, string ui, global::System.Exception? innerException = null) : base(b, innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(ui);
             this.ui = ui;
         }
 
@@ -160,6 +162,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownMostDerived1(string b, string ki, string umd1, global::System.Exception? innerException = null) : base(b, ki, innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(umd1);
             this.umd1 = umd1;
         }
 
@@ -219,6 +222,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownMostDerived2(string b, string ui, string umd2, global::System.Exception? innerException = null) : base(b, ui, innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(umd2);
             this.umd2 = umd2;
         }
 

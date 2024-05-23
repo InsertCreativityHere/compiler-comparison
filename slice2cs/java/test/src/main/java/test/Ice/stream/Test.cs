@@ -96,6 +96,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SmallStruct(byte[] ss)
         {
+            global::System.ArgumentNullException.ThrowIfNull(ss);
             this.ss = ss;
             ice_initialize();
         }
@@ -110,9 +111,11 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
             this.e = e;
             this.p = p;
+            global::System.ArgumentNullException.ThrowIfNull(ss);
             this.ss = ss;
             ice_initialize();
         }
@@ -578,17 +581,29 @@ namespace Test
             this.c = c;
             this.prx = prx;
             this.o = o;
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(seq1);
             this.seq1 = seq1;
+            global::System.ArgumentNullException.ThrowIfNull(seq2);
             this.seq2 = seq2;
+            global::System.ArgumentNullException.ThrowIfNull(seq3);
             this.seq3 = seq3;
+            global::System.ArgumentNullException.ThrowIfNull(seq4);
             this.seq4 = seq4;
+            global::System.ArgumentNullException.ThrowIfNull(seq5);
             this.seq5 = seq5;
+            global::System.ArgumentNullException.ThrowIfNull(seq6);
             this.seq6 = seq6;
+            global::System.ArgumentNullException.ThrowIfNull(seq7);
             this.seq7 = seq7;
+            global::System.ArgumentNullException.ThrowIfNull(seq8);
             this.seq8 = seq8;
+            global::System.ArgumentNullException.ThrowIfNull(seq9);
             this.seq9 = seq9;
+            global::System.ArgumentNullException.ThrowIfNull(seq10);
             this.seq10 = seq10;
+            global::System.ArgumentNullException.ThrowIfNull(d);
             this.d = d;
             ice_initialize();
         }
@@ -596,17 +611,29 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MyClass(SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(seq1);
             this.seq1 = seq1;
+            global::System.ArgumentNullException.ThrowIfNull(seq2);
             this.seq2 = seq2;
+            global::System.ArgumentNullException.ThrowIfNull(seq3);
             this.seq3 = seq3;
+            global::System.ArgumentNullException.ThrowIfNull(seq4);
             this.seq4 = seq4;
+            global::System.ArgumentNullException.ThrowIfNull(seq5);
             this.seq5 = seq5;
+            global::System.ArgumentNullException.ThrowIfNull(seq6);
             this.seq6 = seq6;
+            global::System.ArgumentNullException.ThrowIfNull(seq7);
             this.seq7 = seq7;
+            global::System.ArgumentNullException.ThrowIfNull(seq8);
             this.seq8 = seq8;
+            global::System.ArgumentNullException.ThrowIfNull(seq9);
             this.seq9 = seq9;
+            global::System.ArgumentNullException.ThrowIfNull(seq10);
             this.seq10 = seq10;
+            global::System.ArgumentNullException.ThrowIfNull(d);
             this.d = d;
             ice_initialize();
         }

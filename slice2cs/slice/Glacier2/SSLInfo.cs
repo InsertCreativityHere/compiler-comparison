@@ -56,6 +56,7 @@ namespace Glacier2
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SSLInfo(string[] certs)
         {
+            global::System.ArgumentNullException.ThrowIfNull(certs);
             this.certs = certs;
             ice_initialize();
         }
@@ -63,11 +64,15 @@ namespace Glacier2
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SSLInfo(string remoteHost, int remotePort, string localHost, int localPort, string cipher, string[] certs)
         {
+            global::System.ArgumentNullException.ThrowIfNull(remoteHost);
             this.remoteHost = remoteHost;
             this.remotePort = remotePort;
+            global::System.ArgumentNullException.ThrowIfNull(localHost);
             this.localHost = localHost;
             this.localPort = localPort;
+            global::System.ArgumentNullException.ThrowIfNull(cipher);
             this.cipher = cipher;
+            global::System.ArgumentNullException.ThrowIfNull(certs);
             this.certs = certs;
             ice_initialize();
         }

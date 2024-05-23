@@ -246,6 +246,7 @@ namespace Ice.optional
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public VarStruct(string m)
             {
+                global::System.ArgumentNullException.ThrowIfNull(m);
                 this.m = m;
                 ice_initialize();
             }
@@ -932,6 +933,7 @@ namespace Ice.optional
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public C(int requiredA, int? ma, int? mb, int? mc, int requiredB, int? md, string ss, string? ms) : base(requiredA, ma, mb, mc, requiredB, md)
             {
+                global::System.ArgumentNullException.ThrowIfNull(ss);
                 this.ss = ss;
                 this.ms = ms;
                 ice_initialize();
@@ -1141,8 +1143,10 @@ namespace Ice.optional
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public DerivedException(bool req, int? a, string? b, string d1, string? ss, string d2, global::System.Exception? innerException = null) : base(req, a, b, innerException)
             {
+                global::System.ArgumentNullException.ThrowIfNull(d1);
                 this.d1 = d1;
                 this.ss = ss;
+                global::System.ArgumentNullException.ThrowIfNull(d2);
                 this.d2 = d2;
             }
 
@@ -1206,6 +1210,7 @@ namespace Ice.optional
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public RequiredException(bool req, int? a, string? b, string ss, global::System.Exception? innerException = null) : base(req, a, b, innerException)
             {
+                global::System.ArgumentNullException.ThrowIfNull(ss);
                 this.ss = ss;
             }
 
@@ -1502,6 +1507,7 @@ namespace Ice.optional
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public G1(string a)
             {
+                global::System.ArgumentNullException.ThrowIfNull(a);
                 this.a = a;
                 ice_initialize();
             }
@@ -1641,6 +1647,7 @@ namespace Ice.optional
                 this.gg1Opt = gg1Opt;
                 this.gg2 = gg2;
                 this.gg2Opt = gg2Opt;
+                global::System.ArgumentNullException.ThrowIfNull(gg1);
                 this.gg1 = gg1;
                 ice_initialize();
             }
@@ -1648,6 +1655,7 @@ namespace Ice.optional
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public G(G1 gg1)
             {
+                global::System.ArgumentNullException.ThrowIfNull(gg1);
                 this.gg1 = gg1;
                 ice_initialize();
             }

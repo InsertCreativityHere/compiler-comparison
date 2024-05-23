@@ -71,7 +71,9 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Foo(byte[] SLmem, byte[][] SLSmem)
         {
+            global::System.ArgumentNullException.ThrowIfNull(SLmem);
             this.SLmem = SLmem;
+            global::System.ArgumentNullException.ThrowIfNull(SLSmem);
             this.SLSmem = SLSmem;
             ice_initialize();
         }
@@ -158,7 +160,9 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Bar(byte[] SLmem, byte[][] SLSmem, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(SLmem);
             this.SLmem = SLmem;
+            global::System.ArgumentNullException.ThrowIfNull(SLSmem);
             this.SLSmem = SLSmem;
         }
 
@@ -220,7 +224,9 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Baz(byte[] SLmem, byte[][] SLSmem)
         {
+            global::System.ArgumentNullException.ThrowIfNull(SLmem);
             this.SLmem = SLmem;
+            global::System.ArgumentNullException.ThrowIfNull(SLSmem);
             this.SLSmem = SLSmem;
             ice_initialize();
         }

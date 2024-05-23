@@ -46,6 +46,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationNotExistException(string name, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
         }
 
@@ -107,6 +108,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerNotExistException(string id, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
         }
 
@@ -171,7 +173,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerStartException(string id, string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 
@@ -238,7 +242,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerStopException(string id, string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 
@@ -302,6 +308,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterNotExistException(string id, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
         }
 
@@ -363,6 +370,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObjectExistsException(global::Ice.Identity id, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
         }
 
@@ -421,6 +429,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObjectNotRegisteredException(global::Ice.Identity id, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
         }
 
@@ -479,6 +488,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeNotExistException(string name, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
         }
 
@@ -540,6 +550,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public RegistryNotExistException(string name, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
         }
 
@@ -601,6 +612,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DeploymentException(string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 
@@ -665,7 +677,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeUnreachableException(string name, string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 
@@ -732,7 +746,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerUnreachableException(string name, string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 
@@ -799,7 +815,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public RegistryUnreachableException(string name, string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 
@@ -863,6 +881,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BadSignalException(string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 
@@ -924,6 +943,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AccessDeniedException(string lockUserId, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(lockUserId);
             this.lockUserId = lockUserId;
         }
 
@@ -985,6 +1005,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AllocationException(string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 
@@ -1103,6 +1124,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PermissionDeniedException(string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 
@@ -1164,6 +1186,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObserverAlreadyRegisteredException(global::Ice.Identity id, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
         }
 
@@ -1222,6 +1245,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public FileNotAvailableException(string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 

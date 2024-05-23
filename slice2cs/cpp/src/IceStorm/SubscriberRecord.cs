@@ -44,7 +44,9 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberRecordKey(global::Ice.Identity topic, global::Ice.Identity id)
         {
+            global::System.ArgumentNullException.ThrowIfNull(topic);
             this.topic = topic;
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
             ice_initialize();
         }
@@ -145,7 +147,9 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberRecord(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> theQoS)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
+            global::System.ArgumentNullException.ThrowIfNull(theQoS);
             this.theQoS = theQoS;
             ice_initialize();
         }
@@ -153,10 +157,13 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberRecord(string topicName, global::Ice.Identity id, bool link, global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string> theQoS, int cost, TopicPrx? theTopic)
         {
+            global::System.ArgumentNullException.ThrowIfNull(topicName);
             this.topicName = topicName;
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
             this.link = link;
             this.obj = obj;
+            global::System.ArgumentNullException.ThrowIfNull(theQoS);
             this.theQoS = theQoS;
             this.cost = cost;
             this.theTopic = theTopic;

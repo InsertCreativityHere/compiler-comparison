@@ -46,7 +46,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InternalDbEnvDescriptor(string name, PropertyDescriptor[] properties)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(properties);
             this.properties = properties;
             ice_initialize();
         }
@@ -54,6 +56,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InternalDbEnvDescriptor(PropertyDescriptor[] properties)
         {
+            global::System.ArgumentNullException.ThrowIfNull(properties);
             this.properties = properties;
             ice_initialize();
         }
@@ -123,6 +126,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InternalAdapterDescriptor(string id, bool serverLifetime)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
             this.serverLifetime = serverLifetime;
             ice_initialize();
@@ -242,23 +246,39 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InternalServerDescriptor(string id, string application, string uuid, int revision, string sessionId, string exe, string pwd, string user, string activation, string activationTimeout, string deactivationTimeout, bool processRegistered, string[] options, string[] envs, string[] logs, InternalAdapterDescriptor?[] adapters, InternalDbEnvDescriptor?[] dbEnvs, global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> properties, string[]? services)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
+            global::System.ArgumentNullException.ThrowIfNull(application);
             this.application = application;
+            global::System.ArgumentNullException.ThrowIfNull(uuid);
             this.uuid = uuid;
             this.revision = revision;
+            global::System.ArgumentNullException.ThrowIfNull(sessionId);
             this.sessionId = sessionId;
+            global::System.ArgumentNullException.ThrowIfNull(exe);
             this.exe = exe;
+            global::System.ArgumentNullException.ThrowIfNull(pwd);
             this.pwd = pwd;
+            global::System.ArgumentNullException.ThrowIfNull(user);
             this.user = user;
+            global::System.ArgumentNullException.ThrowIfNull(activation);
             this.activation = activation;
+            global::System.ArgumentNullException.ThrowIfNull(activationTimeout);
             this.activationTimeout = activationTimeout;
+            global::System.ArgumentNullException.ThrowIfNull(deactivationTimeout);
             this.deactivationTimeout = deactivationTimeout;
             this.processRegistered = processRegistered;
+            global::System.ArgumentNullException.ThrowIfNull(options);
             this.options = options;
+            global::System.ArgumentNullException.ThrowIfNull(envs);
             this.envs = envs;
+            global::System.ArgumentNullException.ThrowIfNull(logs);
             this.logs = logs;
+            global::System.ArgumentNullException.ThrowIfNull(adapters);
             this.adapters = adapters;
+            global::System.ArgumentNullException.ThrowIfNull(dbEnvs);
             this.dbEnvs = dbEnvs;
+            global::System.ArgumentNullException.ThrowIfNull(properties);
             this.properties = properties;
             this.services = services;
             ice_initialize();
@@ -267,11 +287,17 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InternalServerDescriptor(string[] options, string[] envs, string[] logs, InternalAdapterDescriptor?[] adapters, InternalDbEnvDescriptor?[] dbEnvs, global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> properties)
         {
+            global::System.ArgumentNullException.ThrowIfNull(options);
             this.options = options;
+            global::System.ArgumentNullException.ThrowIfNull(envs);
             this.envs = envs;
+            global::System.ArgumentNullException.ThrowIfNull(logs);
             this.logs = logs;
+            global::System.ArgumentNullException.ThrowIfNull(adapters);
             this.adapters = adapters;
+            global::System.ArgumentNullException.ThrowIfNull(dbEnvs);
             this.dbEnvs = dbEnvs;
+            global::System.ArgumentNullException.ThrowIfNull(properties);
             this.properties = properties;
             ice_initialize();
         }
@@ -545,6 +571,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterExistsException(string id, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
         }
 
@@ -1209,13 +1236,20 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InternalNodeInfo(string name, string os, string hostname, string release, string version, string machine, int nProcessors, string dataDir)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(os);
             this.os = os;
+            global::System.ArgumentNullException.ThrowIfNull(hostname);
             this.hostname = hostname;
+            global::System.ArgumentNullException.ThrowIfNull(release);
             this.release = release;
+            global::System.ArgumentNullException.ThrowIfNull(version);
             this.version = version;
+            global::System.ArgumentNullException.ThrowIfNull(machine);
             this.machine = machine;
             this.nProcessors = nProcessors;
+            global::System.ArgumentNullException.ThrowIfNull(dataDir);
             this.dataDir = dataDir;
             ice_initialize();
         }
@@ -1295,7 +1329,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InternalReplicaInfo(string name, string hostname)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(hostname);
             this.hostname = hostname;
             ice_initialize();
         }
@@ -6904,9 +6940,9 @@ namespace IceGrid
 
         public abstract global::System.Threading.Tasks.Task setProcessAsync(global::Ice.ProcessPrx? proc, Ice.Current current);
 
-        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
-
         public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
+
+        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -6987,9 +7023,9 @@ namespace IceGrid
 
         public abstract void shutdown(Ice.Current current);
 
-        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
-
         public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
+
+        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
 
         public abstract void replicaInit(InternalRegistryPrx?[] replicas, Ice.Current current);
 
@@ -7074,18 +7110,6 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class DatabaseObserverDisp_ : Ice.ObjectImpl, DatabaseObserver
     {
-        public abstract void adapterUpdated(AdapterInfo info, Ice.Current current);
-
-        public abstract void adapterRemoved(string id, Ice.Current current);
-
-        public abstract void objectInit(ObjectInfo[] objects, Ice.Current current);
-
-        public abstract void objectAdded(ObjectInfo info, Ice.Current current);
-
-        public abstract void objectUpdated(ObjectInfo info, Ice.Current current);
-
-        public abstract void objectRemoved(global::Ice.Identity id, Ice.Current current);
-
         public abstract void applicationInit(int serial, ApplicationInfo[] applications, Ice.Current current);
 
         public abstract void applicationAdded(int serial, ApplicationInfo desc, Ice.Current current);
@@ -7097,6 +7121,18 @@ namespace IceGrid
         public abstract void adapterInit(AdapterInfo[] adpts, Ice.Current current);
 
         public abstract void adapterAdded(AdapterInfo info, Ice.Current current);
+
+        public abstract void adapterUpdated(AdapterInfo info, Ice.Current current);
+
+        public abstract void adapterRemoved(string id, Ice.Current current);
+
+        public abstract void objectInit(ObjectInfo[] objects, Ice.Current current);
+
+        public abstract void objectAdded(ObjectInfo info, Ice.Current current);
+
+        public abstract void objectUpdated(ObjectInfo info, Ice.Current current);
+
+        public abstract void objectRemoved(global::Ice.Identity id, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -7190,9 +7226,9 @@ namespace IceGrid
 
         public abstract void shutdown(Ice.Current current);
 
-        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
-
         public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
+
+        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

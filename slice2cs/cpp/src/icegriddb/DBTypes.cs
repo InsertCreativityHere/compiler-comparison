@@ -53,10 +53,15 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AllData(ApplicationInfo[] applications, AdapterInfo[] adapters, ObjectInfo[] objects, ObjectInfo[] internalObjects, global::System.Collections.Generic.Dictionary<string, long> serials)
         {
+            global::System.ArgumentNullException.ThrowIfNull(applications);
             this.applications = applications;
+            global::System.ArgumentNullException.ThrowIfNull(adapters);
             this.adapters = adapters;
+            global::System.ArgumentNullException.ThrowIfNull(objects);
             this.objects = objects;
+            global::System.ArgumentNullException.ThrowIfNull(internalObjects);
             this.internalObjects = internalObjects;
+            global::System.ArgumentNullException.ThrowIfNull(serials);
             this.serials = serials;
             ice_initialize();
         }

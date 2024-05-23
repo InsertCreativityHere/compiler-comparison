@@ -451,6 +451,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Polyline(Point[] vertices)
         {
+            global::System.ArgumentNullException.ThrowIfNull(vertices);
             this.vertices = vertices;
             ice_initialize();
         }
@@ -594,6 +595,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ColorPalette(global::System.Collections.Generic.Dictionary<int, Color> colors)
         {
+            global::System.ArgumentNullException.ThrowIfNull(colors);
             this.colors = colors;
             ice_initialize();
         }

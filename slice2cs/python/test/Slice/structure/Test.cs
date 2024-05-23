@@ -47,6 +47,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1(string name)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
             ice_initialize();
         }
@@ -146,7 +147,9 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S2(int[] seq, S1 s)
         {
+            global::System.ArgumentNullException.ThrowIfNull(seq);
             this.seq = seq;
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
             ice_initialize();
         }
@@ -159,8 +162,11 @@ namespace Test
             this.sh = sh;
             this.i = i;
             this.l = l;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
+            global::System.ArgumentNullException.ThrowIfNull(seq);
             this.seq = seq;
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
             ice_initialize();
         }
@@ -269,6 +275,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C(string name)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
             ice_initialize();
         }
@@ -335,6 +342,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S3(global::System.Collections.Generic.Dictionary<string, string> sd)
         {
+            global::System.ArgumentNullException.ThrowIfNull(sd);
             this.sd = sd;
             ice_initialize();
         }
@@ -343,6 +351,7 @@ namespace Test
         public S3(C? obj, global::System.Collections.Generic.Dictionary<string, string> sd, global::Ice.ObjectPrx? prx)
         {
             this.obj = obj;
+            global::System.ArgumentNullException.ThrowIfNull(sd);
             this.sd = sd;
             this.prx = prx;
             ice_initialize();

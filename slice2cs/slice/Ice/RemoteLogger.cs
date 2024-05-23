@@ -104,7 +104,9 @@ namespace Ice
         {
             this.type = type;
             this.timestamp = timestamp;
+            global::System.ArgumentNullException.ThrowIfNull(traceCategory);
             this.traceCategory = traceCategory;
+            global::System.ArgumentNullException.ThrowIfNull(message);
             this.message = message;
             ice_initialize();
         }

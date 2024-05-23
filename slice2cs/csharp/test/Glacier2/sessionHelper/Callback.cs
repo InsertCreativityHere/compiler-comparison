@@ -46,6 +46,7 @@ namespace Test
         public CallbackException(double someValue, string someString, global::System.Exception? innerException = null) : base(innerException)
         {
             this.someValue = someValue;
+            global::System.ArgumentNullException.ThrowIfNull(someString);
             this.someString = someString;
         }
 

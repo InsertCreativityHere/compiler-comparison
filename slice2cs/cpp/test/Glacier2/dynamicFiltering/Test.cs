@@ -109,10 +109,12 @@ namespace Test
         public TestToken(bool expectedResult, string description, StateCode code, short config, short caseIndex, string testReference)
         {
             this.expectedResult = expectedResult;
+            global::System.ArgumentNullException.ThrowIfNull(description);
             this.description = description;
             this.code = code;
             this.config = config;
             this.caseIndex = caseIndex;
+            global::System.ArgumentNullException.ThrowIfNull(testReference);
             this.testReference = testReference;
             ice_initialize();
         }

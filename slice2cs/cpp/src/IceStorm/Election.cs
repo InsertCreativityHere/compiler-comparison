@@ -44,7 +44,9 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TopicContent(global::Ice.Identity id, global::IceStorm.SubscriberRecord[] records)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
+            global::System.ArgumentNullException.ThrowIfNull(records);
             this.records = records;
             ice_initialize();
         }
@@ -132,6 +134,7 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObserverInconsistencyException(string reason, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
         }
 
@@ -511,6 +514,7 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public QueryInfo(GroupInfo[] up)
         {
+            global::System.ArgumentNullException.ThrowIfNull(up);
             this.up = up;
             ice_initialize();
         }
@@ -520,9 +524,11 @@ namespace IceStormElection
         {
             this.id = id;
             this.coord = coord;
+            global::System.ArgumentNullException.ThrowIfNull(group);
             this.group = group;
             this.replica = replica;
             this.state = state;
+            global::System.ArgumentNullException.ThrowIfNull(up);
             this.up = up;
             this.max = max;
             ice_initialize();

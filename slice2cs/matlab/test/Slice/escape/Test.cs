@@ -214,6 +214,7 @@ namespace classdef
             public logical(bitand @else, bitor @for, bool int64)
             {
                 this.@else = @else;
+                global::System.ArgumentNullException.ThrowIfNull(@for);
                 this.@for = @for;
                 this.int64 = int64;
                 ice_initialize();
@@ -222,6 +223,7 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public logical(bitor @for)
             {
+                global::System.ArgumentNullException.ThrowIfNull(@for);
                 this.@for = @for;
                 ice_initialize();
             }
@@ -440,7 +442,9 @@ namespace classdef
             {
                 this.@if = @if;
                 this.@catch = @catch;
+                global::System.ArgumentNullException.ThrowIfNull(spmd);
                 this.spmd = spmd;
+                global::System.ArgumentNullException.ThrowIfNull(otherwise);
                 this.otherwise = otherwise;
                 ice_initialize();
             }
@@ -448,7 +452,9 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public properties(bitor[] spmd, global::System.Collections.Generic.Dictionary<int, bitor> otherwise)
             {
+                global::System.ArgumentNullException.ThrowIfNull(spmd);
                 this.spmd = spmd;
+                global::System.ArgumentNullException.ThrowIfNull(otherwise);
                 this.otherwise = otherwise;
                 ice_initialize();
             }
@@ -536,10 +542,15 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public persistent(string identifier, string ice_message_, string stack, string cause, string type, logical? end, global::System.Exception? innerException = null) : base(innerException)
             {
+                global::System.ArgumentNullException.ThrowIfNull(identifier);
                 this.identifier = identifier;
+                global::System.ArgumentNullException.ThrowIfNull(ice_message_);
                 this.ice_message_ = ice_message_;
+                global::System.ArgumentNullException.ThrowIfNull(stack);
                 this.stack = stack;
+                global::System.ArgumentNullException.ThrowIfNull(cause);
                 this.cause = cause;
+                global::System.ArgumentNullException.ThrowIfNull(type);
                 this.type = type;
                 this.end = end;
             }

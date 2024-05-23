@@ -50,7 +50,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PropertyDescriptor(string name, string value)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(value);
             this.value = value;
             ice_initialize();
         }
@@ -136,7 +138,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PropertySetDescriptor(string[] references, PropertyDescriptor[] properties)
         {
+            global::System.ArgumentNullException.ThrowIfNull(references);
             this.references = references;
+            global::System.ArgumentNullException.ThrowIfNull(properties);
             this.properties = properties;
             ice_initialize();
         }
@@ -225,6 +229,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObjectDescriptor(global::Ice.Identity id)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
             ice_initialize();
         }
@@ -232,8 +237,11 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObjectDescriptor(global::Ice.Identity id, string type, string proxyOptions)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
+            global::System.ArgumentNullException.ThrowIfNull(type);
             this.type = type;
+            global::System.ArgumentNullException.ThrowIfNull(proxyOptions);
             this.proxyOptions = proxyOptions;
             ice_initialize();
         }
@@ -344,7 +352,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterDescriptor(ObjectDescriptor[] objects, ObjectDescriptor[] allocatables)
         {
+            global::System.ArgumentNullException.ThrowIfNull(objects);
             this.objects = objects;
+            global::System.ArgumentNullException.ThrowIfNull(allocatables);
             this.allocatables = allocatables;
             ice_initialize();
         }
@@ -352,14 +362,21 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterDescriptor(string name, string description, string id, string replicaGroupId, string priority, bool registerProcess, bool serverLifetime, ObjectDescriptor[] objects, ObjectDescriptor[] allocatables)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(description);
             this.description = description;
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
+            global::System.ArgumentNullException.ThrowIfNull(replicaGroupId);
             this.replicaGroupId = replicaGroupId;
+            global::System.ArgumentNullException.ThrowIfNull(priority);
             this.priority = priority;
             this.registerProcess = registerProcess;
             this.serverLifetime = serverLifetime;
+            global::System.ArgumentNullException.ThrowIfNull(objects);
             this.objects = objects;
+            global::System.ArgumentNullException.ThrowIfNull(allocatables);
             this.allocatables = allocatables;
             ice_initialize();
         }
@@ -481,9 +498,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CommunicatorDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description)
         {
+            global::System.ArgumentNullException.ThrowIfNull(adapters);
             this.adapters = adapters;
+            global::System.ArgumentNullException.ThrowIfNull(propertySet);
             this.propertySet = propertySet;
+            global::System.ArgumentNullException.ThrowIfNull(logs);
             this.logs = logs;
+            global::System.ArgumentNullException.ThrowIfNull(description);
             this.description = description;
             ice_initialize();
         }
@@ -491,8 +512,11 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CommunicatorDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs)
         {
+            global::System.ArgumentNullException.ThrowIfNull(adapters);
             this.adapters = adapters;
+            global::System.ArgumentNullException.ThrowIfNull(propertySet);
             this.propertySet = propertySet;
+            global::System.ArgumentNullException.ThrowIfNull(logs);
             this.logs = logs;
             ice_initialize();
         }
@@ -566,6 +590,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DistributionDescriptor(string[] directories)
         {
+            global::System.ArgumentNullException.ThrowIfNull(directories);
             this.directories = directories;
             ice_initialize();
         }
@@ -573,7 +598,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DistributionDescriptor(string icepatch, string[] directories)
         {
+            global::System.ArgumentNullException.ThrowIfNull(icepatch);
             this.icepatch = icepatch;
+            global::System.ArgumentNullException.ThrowIfNull(directories);
             this.directories = directories;
             ice_initialize();
         }
@@ -694,18 +721,29 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string id, string exe, string iceVersion, string pwd, string[] options, string[] envs, string activation, string activationTimeout, string deactivationTimeout, bool applicationDistrib, DistributionDescriptor distrib, bool allocatable, string user) : base(adapters, propertySet, logs, description)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
+            global::System.ArgumentNullException.ThrowIfNull(exe);
             this.exe = exe;
+            global::System.ArgumentNullException.ThrowIfNull(iceVersion);
             this.iceVersion = iceVersion;
+            global::System.ArgumentNullException.ThrowIfNull(pwd);
             this.pwd = pwd;
+            global::System.ArgumentNullException.ThrowIfNull(options);
             this.options = options;
+            global::System.ArgumentNullException.ThrowIfNull(envs);
             this.envs = envs;
+            global::System.ArgumentNullException.ThrowIfNull(activation);
             this.activation = activation;
+            global::System.ArgumentNullException.ThrowIfNull(activationTimeout);
             this.activationTimeout = activationTimeout;
+            global::System.ArgumentNullException.ThrowIfNull(deactivationTimeout);
             this.deactivationTimeout = deactivationTimeout;
             this.applicationDistrib = applicationDistrib;
+            global::System.ArgumentNullException.ThrowIfNull(distrib);
             this.distrib = distrib;
             this.allocatable = allocatable;
+            global::System.ArgumentNullException.ThrowIfNull(user);
             this.user = user;
             ice_initialize();
         }
@@ -713,8 +751,11 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string[] options, string[] envs, DistributionDescriptor distrib) : base(adapters, propertySet, logs)
         {
+            global::System.ArgumentNullException.ThrowIfNull(options);
             this.options = options;
+            global::System.ArgumentNullException.ThrowIfNull(envs);
             this.envs = envs;
+            global::System.ArgumentNullException.ThrowIfNull(distrib);
             this.distrib = distrib;
             ice_initialize();
         }
@@ -810,7 +851,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServiceDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string name, string entry) : base(adapters, propertySet, logs, description)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(entry);
             this.entry = entry;
             ice_initialize();
         }
@@ -891,8 +934,11 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerInstanceDescriptor(global::System.Collections.Generic.Dictionary<string, string> parameterValues, PropertySetDescriptor propertySet, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> servicePropertySets)
         {
+            global::System.ArgumentNullException.ThrowIfNull(parameterValues);
             this.parameterValues = parameterValues;
+            global::System.ArgumentNullException.ThrowIfNull(propertySet);
             this.propertySet = propertySet;
+            global::System.ArgumentNullException.ThrowIfNull(servicePropertySets);
             this.servicePropertySets = servicePropertySets;
             ice_initialize();
         }
@@ -900,9 +946,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerInstanceDescriptor(string template, global::System.Collections.Generic.Dictionary<string, string> parameterValues, PropertySetDescriptor propertySet, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> servicePropertySets)
         {
+            global::System.ArgumentNullException.ThrowIfNull(template);
             this.template = template;
+            global::System.ArgumentNullException.ThrowIfNull(parameterValues);
             this.parameterValues = parameterValues;
+            global::System.ArgumentNullException.ThrowIfNull(propertySet);
             this.propertySet = propertySet;
+            global::System.ArgumentNullException.ThrowIfNull(servicePropertySets);
             this.servicePropertySets = servicePropertySets;
             ice_initialize();
         }
@@ -999,7 +1049,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TemplateDescriptor(string[] parameters, global::System.Collections.Generic.Dictionary<string, string> parameterDefaults)
         {
+            global::System.ArgumentNullException.ThrowIfNull(parameters);
             this.parameters = parameters;
+            global::System.ArgumentNullException.ThrowIfNull(parameterDefaults);
             this.parameterDefaults = parameterDefaults;
             ice_initialize();
         }
@@ -1008,7 +1060,9 @@ namespace IceGrid
         public TemplateDescriptor(CommunicatorDescriptor? descriptor, string[] parameters, global::System.Collections.Generic.Dictionary<string, string> parameterDefaults)
         {
             this.descriptor = descriptor;
+            global::System.ArgumentNullException.ThrowIfNull(parameters);
             this.parameters = parameters;
+            global::System.ArgumentNullException.ThrowIfNull(parameterDefaults);
             this.parameterDefaults = parameterDefaults;
             ice_initialize();
         }
@@ -1104,7 +1158,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServiceInstanceDescriptor(global::System.Collections.Generic.Dictionary<string, string> parameterValues, PropertySetDescriptor propertySet)
         {
+            global::System.ArgumentNullException.ThrowIfNull(parameterValues);
             this.parameterValues = parameterValues;
+            global::System.ArgumentNullException.ThrowIfNull(propertySet);
             this.propertySet = propertySet;
             ice_initialize();
         }
@@ -1112,9 +1168,12 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServiceInstanceDescriptor(string template, global::System.Collections.Generic.Dictionary<string, string> parameterValues, ServiceDescriptor? descriptor, PropertySetDescriptor propertySet)
         {
+            global::System.ArgumentNullException.ThrowIfNull(template);
             this.template = template;
+            global::System.ArgumentNullException.ThrowIfNull(parameterValues);
             this.parameterValues = parameterValues;
             this.descriptor = descriptor;
+            global::System.ArgumentNullException.ThrowIfNull(propertySet);
             this.propertySet = propertySet;
             ice_initialize();
         }
@@ -1207,6 +1266,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public IceBoxDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string id, string exe, string iceVersion, string pwd, string[] options, string[] envs, string activation, string activationTimeout, string deactivationTimeout, bool applicationDistrib, DistributionDescriptor distrib, bool allocatable, string user, ServiceInstanceDescriptor[] services) : base(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
         {
+            global::System.ArgumentNullException.ThrowIfNull(services);
             this.services = services;
             ice_initialize();
         }
@@ -1214,6 +1274,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public IceBoxDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string[] options, string[] envs, DistributionDescriptor distrib, ServiceInstanceDescriptor[] services) : base(adapters, propertySet, logs, options, envs, distrib)
         {
+            global::System.ArgumentNullException.ThrowIfNull(services);
             this.services = services;
             ice_initialize();
         }
@@ -1293,9 +1354,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, ServerInstanceDescriptor[] serverInstances, ServerDescriptor?[] servers, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets)
         {
+            global::System.ArgumentNullException.ThrowIfNull(variables);
             this.variables = variables;
+            global::System.ArgumentNullException.ThrowIfNull(serverInstances);
             this.serverInstances = serverInstances;
+            global::System.ArgumentNullException.ThrowIfNull(servers);
             this.servers = servers;
+            global::System.ArgumentNullException.ThrowIfNull(propertySets);
             this.propertySets = propertySets;
             ice_initialize();
         }
@@ -1303,11 +1368,17 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, ServerInstanceDescriptor[] serverInstances, ServerDescriptor?[] servers, string loadFactor, string description, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets)
         {
+            global::System.ArgumentNullException.ThrowIfNull(variables);
             this.variables = variables;
+            global::System.ArgumentNullException.ThrowIfNull(serverInstances);
             this.serverInstances = serverInstances;
+            global::System.ArgumentNullException.ThrowIfNull(servers);
             this.servers = servers;
+            global::System.ArgumentNullException.ThrowIfNull(loadFactor);
             this.loadFactor = loadFactor;
+            global::System.ArgumentNullException.ThrowIfNull(description);
             this.description = description;
+            global::System.ArgumentNullException.ThrowIfNull(propertySets);
             this.propertySets = propertySets;
             ice_initialize();
         }
@@ -1408,6 +1479,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public LoadBalancingPolicy(string nReplicas)
         {
+            global::System.ArgumentNullException.ThrowIfNull(nReplicas);
             this.nReplicas = nReplicas;
             ice_initialize();
         }
@@ -1644,6 +1716,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdaptiveLoadBalancingPolicy(string nReplicas, string loadSample) : base(nReplicas)
         {
+            global::System.ArgumentNullException.ThrowIfNull(loadSample);
             this.loadSample = loadSample;
             ice_initialize();
         }
@@ -1721,6 +1794,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ReplicaGroupDescriptor(ObjectDescriptor[] objects)
         {
+            global::System.ArgumentNullException.ThrowIfNull(objects);
             this.objects = objects;
             ice_initialize();
         }
@@ -1728,11 +1802,16 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ReplicaGroupDescriptor(string id, LoadBalancingPolicy? loadBalancing, string proxyOptions, ObjectDescriptor[] objects, string description, string filter)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
             this.loadBalancing = loadBalancing;
+            global::System.ArgumentNullException.ThrowIfNull(proxyOptions);
             this.proxyOptions = proxyOptions;
+            global::System.ArgumentNullException.ThrowIfNull(objects);
             this.objects = objects;
+            global::System.ArgumentNullException.ThrowIfNull(description);
             this.description = description;
+            global::System.ArgumentNullException.ThrowIfNull(filter);
             this.filter = filter;
             ice_initialize();
         }
@@ -1855,12 +1934,19 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, ReplicaGroupDescriptor[] replicaGroups, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serverTemplates, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serviceTemplates, global::System.Collections.Generic.Dictionary<string, NodeDescriptor> nodes, DistributionDescriptor distrib, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets)
         {
+            global::System.ArgumentNullException.ThrowIfNull(variables);
             this.variables = variables;
+            global::System.ArgumentNullException.ThrowIfNull(replicaGroups);
             this.replicaGroups = replicaGroups;
+            global::System.ArgumentNullException.ThrowIfNull(serverTemplates);
             this.serverTemplates = serverTemplates;
+            global::System.ArgumentNullException.ThrowIfNull(serviceTemplates);
             this.serviceTemplates = serviceTemplates;
+            global::System.ArgumentNullException.ThrowIfNull(nodes);
             this.nodes = nodes;
+            global::System.ArgumentNullException.ThrowIfNull(distrib);
             this.distrib = distrib;
+            global::System.ArgumentNullException.ThrowIfNull(propertySets);
             this.propertySets = propertySets;
             ice_initialize();
         }
@@ -1868,14 +1954,23 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationDescriptor(string name, global::System.Collections.Generic.Dictionary<string, string> variables, ReplicaGroupDescriptor[] replicaGroups, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serverTemplates, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serviceTemplates, global::System.Collections.Generic.Dictionary<string, NodeDescriptor> nodes, DistributionDescriptor distrib, string description, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(variables);
             this.variables = variables;
+            global::System.ArgumentNullException.ThrowIfNull(replicaGroups);
             this.replicaGroups = replicaGroups;
+            global::System.ArgumentNullException.ThrowIfNull(serverTemplates);
             this.serverTemplates = serverTemplates;
+            global::System.ArgumentNullException.ThrowIfNull(serviceTemplates);
             this.serviceTemplates = serviceTemplates;
+            global::System.ArgumentNullException.ThrowIfNull(nodes);
             this.nodes = nodes;
+            global::System.ArgumentNullException.ThrowIfNull(distrib);
             this.distrib = distrib;
+            global::System.ArgumentNullException.ThrowIfNull(description);
             this.description = description;
+            global::System.ArgumentNullException.ThrowIfNull(propertySets);
             this.propertySets = propertySets;
             ice_initialize();
         }
@@ -1988,6 +2083,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BoxedString(string value)
         {
+            global::System.ArgumentNullException.ThrowIfNull(value);
             this.value = value;
             ice_initialize();
         }
@@ -2075,12 +2171,19 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeUpdateDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ServerInstanceDescriptor[] serverInstances, ServerDescriptor?[] servers, string[] removeServers)
         {
+            global::System.ArgumentNullException.ThrowIfNull(variables);
             this.variables = variables;
+            global::System.ArgumentNullException.ThrowIfNull(removeVariables);
             this.removeVariables = removeVariables;
+            global::System.ArgumentNullException.ThrowIfNull(propertySets);
             this.propertySets = propertySets;
+            global::System.ArgumentNullException.ThrowIfNull(removePropertySets);
             this.removePropertySets = removePropertySets;
+            global::System.ArgumentNullException.ThrowIfNull(serverInstances);
             this.serverInstances = serverInstances;
+            global::System.ArgumentNullException.ThrowIfNull(servers);
             this.servers = servers;
+            global::System.ArgumentNullException.ThrowIfNull(removeServers);
             this.removeServers = removeServers;
             ice_initialize();
         }
@@ -2088,14 +2191,22 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeUpdateDescriptor(string name, BoxedString? description, global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ServerInstanceDescriptor[] serverInstances, ServerDescriptor?[] servers, string[] removeServers, BoxedString? loadFactor)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
             this.description = description;
+            global::System.ArgumentNullException.ThrowIfNull(variables);
             this.variables = variables;
+            global::System.ArgumentNullException.ThrowIfNull(removeVariables);
             this.removeVariables = removeVariables;
+            global::System.ArgumentNullException.ThrowIfNull(propertySets);
             this.propertySets = propertySets;
+            global::System.ArgumentNullException.ThrowIfNull(removePropertySets);
             this.removePropertySets = removePropertySets;
+            global::System.ArgumentNullException.ThrowIfNull(serverInstances);
             this.serverInstances = serverInstances;
+            global::System.ArgumentNullException.ThrowIfNull(servers);
             this.servers = servers;
+            global::System.ArgumentNullException.ThrowIfNull(removeServers);
             this.removeServers = removeServers;
             this.loadFactor = loadFactor;
             ice_initialize();
@@ -2213,6 +2324,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BoxedDistributionDescriptor(DistributionDescriptor value)
         {
+            global::System.ArgumentNullException.ThrowIfNull(value);
             this.value = value;
             ice_initialize();
         }
@@ -2317,17 +2429,29 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationUpdateDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ReplicaGroupDescriptor[] replicaGroups, string[] removeReplicaGroups, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serverTemplates, string[] removeServerTemplates, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serviceTemplates, string[] removeServiceTemplates, NodeUpdateDescriptor[] nodes, string[] removeNodes)
         {
+            global::System.ArgumentNullException.ThrowIfNull(variables);
             this.variables = variables;
+            global::System.ArgumentNullException.ThrowIfNull(removeVariables);
             this.removeVariables = removeVariables;
+            global::System.ArgumentNullException.ThrowIfNull(propertySets);
             this.propertySets = propertySets;
+            global::System.ArgumentNullException.ThrowIfNull(removePropertySets);
             this.removePropertySets = removePropertySets;
+            global::System.ArgumentNullException.ThrowIfNull(replicaGroups);
             this.replicaGroups = replicaGroups;
+            global::System.ArgumentNullException.ThrowIfNull(removeReplicaGroups);
             this.removeReplicaGroups = removeReplicaGroups;
+            global::System.ArgumentNullException.ThrowIfNull(serverTemplates);
             this.serverTemplates = serverTemplates;
+            global::System.ArgumentNullException.ThrowIfNull(removeServerTemplates);
             this.removeServerTemplates = removeServerTemplates;
+            global::System.ArgumentNullException.ThrowIfNull(serviceTemplates);
             this.serviceTemplates = serviceTemplates;
+            global::System.ArgumentNullException.ThrowIfNull(removeServiceTemplates);
             this.removeServiceTemplates = removeServiceTemplates;
+            global::System.ArgumentNullException.ThrowIfNull(nodes);
             this.nodes = nodes;
+            global::System.ArgumentNullException.ThrowIfNull(removeNodes);
             this.removeNodes = removeNodes;
             ice_initialize();
         }
@@ -2335,20 +2459,33 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationUpdateDescriptor(string name, BoxedString? description, BoxedDistributionDescriptor? distrib, global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ReplicaGroupDescriptor[] replicaGroups, string[] removeReplicaGroups, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serverTemplates, string[] removeServerTemplates, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serviceTemplates, string[] removeServiceTemplates, NodeUpdateDescriptor[] nodes, string[] removeNodes)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
             this.description = description;
             this.distrib = distrib;
+            global::System.ArgumentNullException.ThrowIfNull(variables);
             this.variables = variables;
+            global::System.ArgumentNullException.ThrowIfNull(removeVariables);
             this.removeVariables = removeVariables;
+            global::System.ArgumentNullException.ThrowIfNull(propertySets);
             this.propertySets = propertySets;
+            global::System.ArgumentNullException.ThrowIfNull(removePropertySets);
             this.removePropertySets = removePropertySets;
+            global::System.ArgumentNullException.ThrowIfNull(replicaGroups);
             this.replicaGroups = replicaGroups;
+            global::System.ArgumentNullException.ThrowIfNull(removeReplicaGroups);
             this.removeReplicaGroups = removeReplicaGroups;
+            global::System.ArgumentNullException.ThrowIfNull(serverTemplates);
             this.serverTemplates = serverTemplates;
+            global::System.ArgumentNullException.ThrowIfNull(removeServerTemplates);
             this.removeServerTemplates = removeServerTemplates;
+            global::System.ArgumentNullException.ThrowIfNull(serviceTemplates);
             this.serviceTemplates = serviceTemplates;
+            global::System.ArgumentNullException.ThrowIfNull(removeServiceTemplates);
             this.removeServiceTemplates = removeServiceTemplates;
+            global::System.ArgumentNullException.ThrowIfNull(nodes);
             this.nodes = nodes;
+            global::System.ArgumentNullException.ThrowIfNull(removeNodes);
             this.removeNodes = removeNodes;
             ice_initialize();
         }

@@ -62,13 +62,21 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S(byte[] b1, byte[] b2, byte[] b3, byte[] b4, string[] s1, string[] s2, string[] s3, string[] s4)
         {
+            global::System.ArgumentNullException.ThrowIfNull(b1);
             this.b1 = b1;
+            global::System.ArgumentNullException.ThrowIfNull(b2);
             this.b2 = b2;
+            global::System.ArgumentNullException.ThrowIfNull(b3);
             this.b3 = b3;
+            global::System.ArgumentNullException.ThrowIfNull(b4);
             this.b4 = b4;
+            global::System.ArgumentNullException.ThrowIfNull(s1);
             this.s1 = s1;
+            global::System.ArgumentNullException.ThrowIfNull(s2);
             this.s2 = s2;
+            global::System.ArgumentNullException.ThrowIfNull(s3);
             this.s3 = s3;
+            global::System.ArgumentNullException.ThrowIfNull(s4);
             this.s4 = s4;
             ice_initialize();
         }
@@ -198,13 +206,21 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C(byte[] b1, byte[] b2, byte[] b3, byte[] b4, string[] s1, string[] s2, string[] s3, string[] s4)
         {
+            global::System.ArgumentNullException.ThrowIfNull(b1);
             this.b1 = b1;
+            global::System.ArgumentNullException.ThrowIfNull(b2);
             this.b2 = b2;
+            global::System.ArgumentNullException.ThrowIfNull(b3);
             this.b3 = b3;
+            global::System.ArgumentNullException.ThrowIfNull(b4);
             this.b4 = b4;
+            global::System.ArgumentNullException.ThrowIfNull(s1);
             this.s1 = s1;
+            global::System.ArgumentNullException.ThrowIfNull(s2);
             this.s2 = s2;
+            global::System.ArgumentNullException.ThrowIfNull(s3);
             this.s3 = s3;
+            global::System.ArgumentNullException.ThrowIfNull(s4);
             this.s4 = s4;
             ice_initialize();
         }

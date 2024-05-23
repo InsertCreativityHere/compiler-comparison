@@ -182,6 +182,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CsOnly(string lang, int version)
         {
+            global::System.ArgumentNullException.ThrowIfNull(lang);
             this.lang = lang;
             this.version = version;
             ice_initialize();

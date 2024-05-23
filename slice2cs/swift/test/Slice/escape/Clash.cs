@@ -137,19 +137,27 @@ namespace Clash
         public Cls(IntfPrx? s, string context, int current, short response, string upCast, int typeId, short del, short? cookie, string ex, int result, string istr, string ostr, string inS, string @in, string proxy)
         {
             this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(context);
             this.context = context;
             this.current = current;
             this.response = response;
+            global::System.ArgumentNullException.ThrowIfNull(upCast);
             this.upCast = upCast;
             this.typeId = typeId;
             this.del = del;
             this.cookie = cookie;
+            global::System.ArgumentNullException.ThrowIfNull(ex);
             this.ex = ex;
             this.result = result;
+            global::System.ArgumentNullException.ThrowIfNull(istr);
             this.istr = istr;
+            global::System.ArgumentNullException.ThrowIfNull(ostr);
             this.ostr = ostr;
+            global::System.ArgumentNullException.ThrowIfNull(inS);
             this.inS = inS;
+            global::System.ArgumentNullException.ThrowIfNull(@in);
             this.@in = @in;
+            global::System.ArgumentNullException.ThrowIfNull(proxy);
             this.proxy = proxy;
             ice_initialize();
         }
@@ -253,6 +261,7 @@ namespace Clash
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public St(string v, short istr, int ostr, int rhs)
         {
+            global::System.ArgumentNullException.ThrowIfNull(v);
             this.v = v;
             this.istr = istr;
             this.ostr = ostr;

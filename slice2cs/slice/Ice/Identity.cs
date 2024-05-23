@@ -50,7 +50,9 @@ namespace Ice
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Identity(string name, string category)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(category);
             this.category = category;
             ice_initialize();
         }

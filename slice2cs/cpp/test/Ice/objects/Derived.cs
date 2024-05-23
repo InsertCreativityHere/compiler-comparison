@@ -43,6 +43,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Derived(S theS, string str, string b) : base(theS, str)
         {
+            global::System.ArgumentNullException.ThrowIfNull(b);
             this.b = b;
             ice_initialize();
         }

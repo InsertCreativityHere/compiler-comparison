@@ -171,6 +171,7 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
             this.c1 = c1;
             this.c2 = c2;
@@ -178,6 +179,7 @@ namespace Test
             this.nc1 = nc1;
             this.nc2 = nc2;
             this.nc3 = nc3;
+            global::System.ArgumentNullException.ThrowIfNull(noDefault);
             this.noDefault = noDefault;
             this.zeroI = zeroI;
             this.zeroL = zeroL;
@@ -536,6 +538,7 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
             this.c1 = c1;
             this.c2 = c2;
@@ -757,7 +760,9 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
+            global::System.ArgumentNullException.ThrowIfNull(noDefault);
             this.noDefault = noDefault;
             this.zeroI = zeroI;
             this.zeroL = zeroL;
@@ -1002,7 +1007,9 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
+            global::System.ArgumentNullException.ThrowIfNull(noDefault);
             this.noDefault = noDefault;
             this.zeroI = zeroI;
             this.zeroL = zeroL;
@@ -1267,8 +1274,11 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public StructNoDefaults(byte[] bs, int[] iseq, global::System.Collections.Generic.Dictionary<int, string> dict)
         {
+            global::System.ArgumentNullException.ThrowIfNull(bs);
             this.bs = bs;
+            global::System.ArgumentNullException.ThrowIfNull(iseq);
             this.iseq = iseq;
+            global::System.ArgumentNullException.ThrowIfNull(dict);
             this.dict = dict;
             ice_initialize();
         }
@@ -1283,10 +1293,14 @@ namespace Test
             this.l = l;
             this.f = f;
             this.d = d;
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
             this.c1 = c1;
+            global::System.ArgumentNullException.ThrowIfNull(bs);
             this.bs = bs;
+            global::System.ArgumentNullException.ThrowIfNull(iseq);
             this.iseq = iseq;
+            global::System.ArgumentNullException.ThrowIfNull(dict);
             this.dict = dict;
             this.st = st;
             ice_initialize();
@@ -1421,14 +1435,17 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ExceptionNoDefaultsBase(string str, Color c1, byte[] bs, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
             this.c1 = c1;
+            global::System.ArgumentNullException.ThrowIfNull(bs);
             this.bs = bs;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ExceptionNoDefaultsBase(byte[] bs, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(bs);
             this.bs = bs;
         }
 
@@ -1491,12 +1508,14 @@ namespace Test
         public ExceptionNoDefaults(string str, Color c1, byte[] bs, InnerStruct st, global::System.Collections.Generic.Dictionary<int, string> dict, global::System.Exception? innerException = null) : base(str, c1, bs, innerException)
         {
             this.st = st;
+            global::System.ArgumentNullException.ThrowIfNull(dict);
             this.dict = dict;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ExceptionNoDefaults(byte[] bs, global::System.Collections.Generic.Dictionary<int, string> dict, global::System.Exception? innerException = null) : base(bs, innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(dict);
             this.dict = dict;
         }
 
@@ -1562,8 +1581,10 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ClassNoDefaultsBase(string str, Color c1, byte[] bs)
         {
+            global::System.ArgumentNullException.ThrowIfNull(str);
             this.str = str;
             this.c1 = c1;
+            global::System.ArgumentNullException.ThrowIfNull(bs);
             this.bs = bs;
             ice_initialize();
         }
@@ -1571,6 +1592,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ClassNoDefaultsBase(byte[] bs)
         {
+            global::System.ArgumentNullException.ThrowIfNull(bs);
             this.bs = bs;
             ice_initialize();
         }
@@ -1643,6 +1665,7 @@ namespace Test
         public ClassNoDefaults(string str, Color c1, byte[] bs, InnerStruct st, global::System.Collections.Generic.Dictionary<int, string> dict) : base(str, c1, bs)
         {
             this.st = st;
+            global::System.ArgumentNullException.ThrowIfNull(dict);
             this.dict = dict;
             ice_initialize();
         }
@@ -1650,6 +1673,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ClassNoDefaults(byte[] bs, global::System.Collections.Generic.Dictionary<int, string> dict) : base(bs)
         {
+            global::System.ArgumentNullException.ThrowIfNull(dict);
             this.dict = dict;
             ice_initialize();
         }

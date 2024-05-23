@@ -181,6 +181,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1(string s)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
             ice_initialize();
         }
@@ -261,6 +262,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C1(string s)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
             ice_initialize();
         }
@@ -327,6 +329,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S2(S1 S1)
         {
+            global::System.ArgumentNullException.ThrowIfNull(S1);
             this.S1 = S1;
             ice_initialize();
         }
@@ -335,6 +338,7 @@ namespace Test
         public S2(E1 E1, S1 S1, C1? C1)
         {
             this.E1 = E1;
+            global::System.ArgumentNullException.ThrowIfNull(S1);
             this.S1 = S1;
             this.C1 = C1;
             ice_initialize();
@@ -431,6 +435,7 @@ namespace Test
         public C2(E1 E1, S1 S1, C1? C1)
         {
             this.E1 = E1;
+            global::System.ArgumentNullException.ThrowIfNull(S1);
             this.S1 = S1;
             this.C1 = C1;
             ice_initialize();
@@ -439,6 +444,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C2(S1 S1)
         {
+            global::System.ArgumentNullException.ThrowIfNull(S1);
             this.S1 = S1;
             ice_initialize();
         }

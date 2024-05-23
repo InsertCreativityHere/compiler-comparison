@@ -43,6 +43,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SBase(string sb)
         {
+            global::System.ArgumentNullException.ThrowIfNull(sb);
             this.sb = sb;
             ice_initialize();
         }
@@ -105,6 +106,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SBSKnownDerived(string sb, string sbskd) : base(sb)
         {
+            global::System.ArgumentNullException.ThrowIfNull(sbskd);
             this.sbskd = sbskd;
             ice_initialize();
         }
@@ -172,6 +174,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public B(string sb, B? pb)
         {
+            global::System.ArgumentNullException.ThrowIfNull(sb);
             this.sb = sb;
             this.pb = pb;
             ice_initialize();
@@ -240,6 +243,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D1(string sb, B? pb, string sd1, B? pd1) : base(sb, pb)
         {
+            global::System.ArgumentNullException.ThrowIfNull(sd1);
             this.sd1 = sd1;
             this.pd1 = pd1;
             ice_initialize();
@@ -307,6 +311,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SS1(B?[] s)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
             ice_initialize();
         }
@@ -371,6 +376,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SS2(B?[] s)
         {
+            global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
             ice_initialize();
         }
@@ -529,6 +535,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BaseException(string sbe, B? pb, global::System.Exception? innerException = null) : base(innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(sbe);
             this.sbe = sbe;
             this.pb = pb;
         }
@@ -598,6 +605,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DerivedException(string sbe, B? pb, string sde, D1? pd1, global::System.Exception? innerException = null) : base(sbe, pb, innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(sde);
             this.sde = sde;
             this.pd1 = pd1;
         }
@@ -723,6 +731,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Preserved(int pi, string ps) : base(pi)
         {
+            global::System.ArgumentNullException.ThrowIfNull(ps);
             this.ps = ps;
             ice_initialize();
         }

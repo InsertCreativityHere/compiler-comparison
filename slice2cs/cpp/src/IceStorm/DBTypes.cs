@@ -48,7 +48,9 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AllData(global::System.Collections.Generic.Dictionary<string, global::IceStormElection.LogUpdate> llus, global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> subscribers)
         {
+            global::System.ArgumentNullException.ThrowIfNull(llus);
             this.llus = llus;
+            global::System.ArgumentNullException.ThrowIfNull(subscribers);
             this.subscribers = subscribers;
             ice_initialize();
         }

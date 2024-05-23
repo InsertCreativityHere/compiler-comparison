@@ -113,6 +113,7 @@ namespace IceGrid
         public ObjectInfo(global::Ice.ObjectPrx? proxy, string type)
         {
             this.proxy = proxy;
+            global::System.ArgumentNullException.ThrowIfNull(type);
             this.type = type;
             ice_initialize();
         }
@@ -207,8 +208,10 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterInfo(string id, global::Ice.ObjectPrx? proxy, string replicaGroupId)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
             this.proxy = proxy;
+            global::System.ArgumentNullException.ThrowIfNull(replicaGroupId);
             this.replicaGroupId = replicaGroupId;
             ice_initialize();
         }
@@ -316,11 +319,15 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerInfo(string application, string uuid, int revision, string node, ServerDescriptor? descriptor, string sessionId)
         {
+            global::System.ArgumentNullException.ThrowIfNull(application);
             this.application = application;
+            global::System.ArgumentNullException.ThrowIfNull(uuid);
             this.uuid = uuid;
             this.revision = revision;
+            global::System.ArgumentNullException.ThrowIfNull(node);
             this.node = node;
             this.descriptor = descriptor;
+            global::System.ArgumentNullException.ThrowIfNull(sessionId);
             this.sessionId = sessionId;
             ice_initialize();
         }
@@ -446,13 +453,20 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeInfo(string name, string os, string hostname, string release, string version, string machine, int nProcessors, string dataDir)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(os);
             this.os = os;
+            global::System.ArgumentNullException.ThrowIfNull(hostname);
             this.hostname = hostname;
+            global::System.ArgumentNullException.ThrowIfNull(release);
             this.release = release;
+            global::System.ArgumentNullException.ThrowIfNull(version);
             this.version = version;
+            global::System.ArgumentNullException.ThrowIfNull(machine);
             this.machine = machine;
             this.nProcessors = nProcessors;
+            global::System.ArgumentNullException.ThrowIfNull(dataDir);
             this.dataDir = dataDir;
             ice_initialize();
         }
@@ -568,7 +582,9 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public RegistryInfo(string name, string hostname)
         {
+            global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(hostname);
             this.hostname = hostname;
             ice_initialize();
         }
@@ -728,6 +744,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationInfo(ApplicationDescriptor descriptor)
         {
+            global::System.ArgumentNullException.ThrowIfNull(descriptor);
             this.descriptor = descriptor;
             ice_initialize();
         }
@@ -735,12 +752,16 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationInfo(string uuid, long createTime, string createUser, long updateTime, string updateUser, int revision, ApplicationDescriptor descriptor)
         {
+            global::System.ArgumentNullException.ThrowIfNull(uuid);
             this.uuid = uuid;
             this.createTime = createTime;
+            global::System.ArgumentNullException.ThrowIfNull(createUser);
             this.createUser = createUser;
             this.updateTime = updateTime;
+            global::System.ArgumentNullException.ThrowIfNull(updateUser);
             this.updateUser = updateUser;
             this.revision = revision;
+            global::System.ArgumentNullException.ThrowIfNull(descriptor);
             this.descriptor = descriptor;
             ice_initialize();
         }
@@ -852,6 +873,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationUpdateInfo(ApplicationUpdateDescriptor descriptor)
         {
+            global::System.ArgumentNullException.ThrowIfNull(descriptor);
             this.descriptor = descriptor;
             ice_initialize();
         }
@@ -860,8 +882,10 @@ namespace IceGrid
         public ApplicationUpdateInfo(long updateTime, string updateUser, int revision, ApplicationUpdateDescriptor descriptor)
         {
             this.updateTime = updateTime;
+            global::System.ArgumentNullException.ThrowIfNull(updateUser);
             this.updateUser = updateUser;
             this.revision = revision;
+            global::System.ArgumentNullException.ThrowIfNull(descriptor);
             this.descriptor = descriptor;
             ice_initialize();
         }
@@ -1659,6 +1683,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerDynamicInfo(string id, ServerState state, int pid, bool enabled)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
             this.state = state;
             this.pid = pid;
@@ -1761,6 +1786,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterDynamicInfo(string id, global::Ice.ObjectPrx? proxy)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
             this.proxy = proxy;
             ice_initialize();
@@ -1850,8 +1876,11 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeDynamicInfo(NodeInfo info, ServerDynamicInfo[] servers, AdapterDynamicInfo[] adapters)
         {
+            global::System.ArgumentNullException.ThrowIfNull(info);
             this.info = info;
+            global::System.ArgumentNullException.ThrowIfNull(servers);
             this.servers = servers;
+            global::System.ArgumentNullException.ThrowIfNull(adapters);
             this.adapters = adapters;
             ice_initialize();
         }

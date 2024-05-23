@@ -143,21 +143,29 @@ namespace Clash
         public Cls(IntfPrx? s, string context, int current, short response, int typeId, short del, short? cookie, string ex, int result, string istr, string ostr, string inS, string @in, string proxy, int obj, int getCookie, string ice_clone_)
         {
             this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(context);
             this.context = context;
             this.current = current;
             this.response = response;
             this.typeId = typeId;
             this.del = del;
             this.cookie = cookie;
+            global::System.ArgumentNullException.ThrowIfNull(ex);
             this.ex = ex;
             this.result = result;
+            global::System.ArgumentNullException.ThrowIfNull(istr);
             this.istr = istr;
+            global::System.ArgumentNullException.ThrowIfNull(ostr);
             this.ostr = ostr;
+            global::System.ArgumentNullException.ThrowIfNull(inS);
             this.inS = inS;
+            global::System.ArgumentNullException.ThrowIfNull(@in);
             this.@in = @in;
+            global::System.ArgumentNullException.ThrowIfNull(proxy);
             this.proxy = proxy;
             this.obj = obj;
             this.getCookie = getCookie;
+            global::System.ArgumentNullException.ThrowIfNull(ice_clone_);
             this.ice_clone_ = ice_clone_;
             ice_initialize();
         }
@@ -271,10 +279,12 @@ namespace Clash
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public St(string v, short istr, int ostr, int rhs, string hashCode, int ice_clone_)
         {
+            global::System.ArgumentNullException.ThrowIfNull(v);
             this.v = v;
             this.istr = istr;
             this.ostr = ostr;
             this.rhs = rhs;
+            global::System.ArgumentNullException.ThrowIfNull(hashCode);
             this.hashCode = hashCode;
             this.ice_clone_ = ice_clone_;
             ice_initialize();
@@ -383,6 +393,7 @@ namespace Clash
         {
             this.istr = istr;
             this.ostr = ostr;
+            global::System.ArgumentNullException.ThrowIfNull(cause);
             this.cause = cause;
         }
 

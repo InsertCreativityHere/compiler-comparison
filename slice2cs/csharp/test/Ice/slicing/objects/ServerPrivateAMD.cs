@@ -43,6 +43,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SBSUnknownDerived(string sb, string sbsud) : base(sb)
         {
+            global::System.ArgumentNullException.ThrowIfNull(sbsud);
             this.sbsud = sbsud;
             ice_initialize();
         }
@@ -110,6 +111,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SUnknown(string su, SUnknown? cycle)
         {
+            global::System.ArgumentNullException.ThrowIfNull(su);
             this.su = su;
             this.cycle = cycle;
             ice_initialize();
@@ -178,6 +180,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D2(string sb, B? pb, string sd2, B? pd2) : base(sb, pb)
         {
+            global::System.ArgumentNullException.ThrowIfNull(sd2);
             this.sd2 = sd2;
             this.pd2 = pd2;
             ice_initialize();
@@ -317,6 +320,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownDerivedException(string sbe, B? pb, string sude, D2? pd2, global::System.Exception? innerException = null) : base(sbe, pb, innerException)
         {
+            global::System.ArgumentNullException.ThrowIfNull(sude);
             this.sude = sude;
             this.pd2 = pd2;
         }
@@ -448,6 +452,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PSUnknown(int pi, string ps, string psu, PNode? graph, MyClass? cl) : base(pi, ps)
         {
+            global::System.ArgumentNullException.ThrowIfNull(psu);
             this.psu = psu;
             this.graph = graph;
             this.cl = cl;

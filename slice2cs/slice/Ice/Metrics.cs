@@ -55,6 +55,7 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Metrics(string id, long total, int current, long totalLifetime, int failures)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
             this.total = total;
             this.current = current;
@@ -130,6 +131,7 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MetricsFailures(global::System.Collections.Generic.Dictionary<string, int> failures)
         {
+            global::System.ArgumentNullException.ThrowIfNull(failures);
             this.failures = failures;
             ice_initialize();
         }
@@ -137,7 +139,9 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MetricsFailures(string id, global::System.Collections.Generic.Dictionary<string, int> failures)
         {
+            global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
+            global::System.ArgumentNullException.ThrowIfNull(failures);
             this.failures = failures;
             ice_initialize();
         }
@@ -719,7 +723,9 @@ namespace IceMX
         {
             this.retry = retry;
             this.userException = userException;
+            global::System.ArgumentNullException.ThrowIfNull(remotes);
             this.remotes = remotes;
+            global::System.ArgumentNullException.ThrowIfNull(collocated);
             this.collocated = collocated;
             ice_initialize();
         }
@@ -727,7 +733,9 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InvocationMetrics(Metrics?[] remotes, Metrics?[] collocated)
         {
+            global::System.ArgumentNullException.ThrowIfNull(remotes);
             this.remotes = remotes;
+            global::System.ArgumentNullException.ThrowIfNull(collocated);
             this.collocated = collocated;
             ice_initialize();
         }
