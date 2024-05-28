@@ -96,7 +96,7 @@ public class OneOptional extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -7219602524938340618L;
+    public static final long serialVersionUID = -7219607836815633040L;
 
     /** @hidden */
     @Override

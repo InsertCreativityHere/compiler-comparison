@@ -71,5 +71,5 @@ public class NodeNotExistException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -5774528671901574021L;
+    public static final long serialVersionUID = -5774526783935157586L;
 }
