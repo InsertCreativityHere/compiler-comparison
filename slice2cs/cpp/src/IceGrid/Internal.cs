@@ -5978,11 +5978,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ObserverAlreadyRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(ObserverAlreadyRegisteredException)
                     {
                         throw;
                     }
@@ -6560,11 +6560,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -7023,15 +7023,15 @@ namespace IceGrid
 
         public abstract void shutdown(Ice.Current current);
 
-        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
-
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
-
         public abstract void replicaInit(InternalRegistryPrx?[] replicas, Ice.Current current);
 
         public abstract void replicaAdded(InternalRegistryPrx? replica, Ice.Current current);
 
         public abstract void replicaRemoved(InternalRegistryPrx? replica, Ice.Current current);
+
+        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -7110,6 +7110,10 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class DatabaseObserverDisp_ : Ice.ObjectImpl, DatabaseObserver
     {
+        public abstract void adapterAdded(AdapterInfo info, Ice.Current current);
+
+        public abstract void adapterUpdated(AdapterInfo info, Ice.Current current);
+
         public abstract void applicationInit(int serial, ApplicationInfo[] applications, Ice.Current current);
 
         public abstract void applicationAdded(int serial, ApplicationInfo desc, Ice.Current current);
@@ -7119,10 +7123,6 @@ namespace IceGrid
         public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, Ice.Current current);
 
         public abstract void adapterInit(AdapterInfo[] adpts, Ice.Current current);
-
-        public abstract void adapterAdded(AdapterInfo info, Ice.Current current);
-
-        public abstract void adapterUpdated(AdapterInfo info, Ice.Current current);
 
         public abstract void adapterRemoved(string id, Ice.Current current);
 

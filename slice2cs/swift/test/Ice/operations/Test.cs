@@ -14133,6 +14133,8 @@ namespace Test
 
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
 
+        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, Ice.Current current);
+
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, Ice.Current current);
 
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, Ice.Current current);
@@ -14190,8 +14192,6 @@ namespace Test
         public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, Ice.Current current);
 
@@ -14368,6 +14368,8 @@ namespace Test2
 
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
 
+        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, Ice.Current current);
+
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, Ice.Current current);
 
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, Ice.Current current);
@@ -14425,8 +14427,6 @@ namespace Test2
         public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, Ice.Current current);
 
