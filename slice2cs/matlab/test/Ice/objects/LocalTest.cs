@@ -93,7 +93,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class S1 : global::System.IEquatable<S1>
+    public sealed partial record class S1
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C1? c1;
@@ -121,37 +121,6 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S1 Clone() => (S1)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.c1);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as S1);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S1? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.c1 == other.c1;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S1? lhs, S1? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S1? lhs, S1? rhs) => !(lhs == rhs);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeValue(this.c1);
@@ -177,7 +146,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class S2 : global::System.IEquatable<S2>
+    public sealed partial record class S2
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1 s1;
@@ -198,37 +167,6 @@ namespace LocalTest
             this.s1 = new S1(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S2 Clone() => (S2)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.s1);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as S2);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S2? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.s1 == other.s1;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S2? lhs, S2? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S2? lhs, S2? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -256,7 +194,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class S3 : global::System.IEquatable<S3>
+    public sealed partial record class S3
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C1?[] c1seq;
@@ -277,37 +215,6 @@ namespace LocalTest
             this.c1seq = C1SeqHelper.read(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S3 Clone() => (S3)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.c1seq);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as S3);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S3? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.c1seq, other.c1seq);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S3? lhs, S3? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S3? lhs, S3? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -335,7 +242,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class S4 : global::System.IEquatable<S4>
+    public sealed partial record class S4
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1[] s1seq;
@@ -356,37 +263,6 @@ namespace LocalTest
             this.s1seq = S1SeqHelper.read(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S4 Clone() => (S4)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.s1seq);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as S4);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S4? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.s1seq, other.s1seq);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S4? lhs, S4? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S4? lhs, S4? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -414,7 +290,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class S5 : global::System.IEquatable<S5>
+    public sealed partial record class S5
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<int, C1?> c1dict;
@@ -435,37 +311,6 @@ namespace LocalTest
             this.c1dict = C1DictHelper.read(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S5 Clone() => (S5)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.c1dict);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as S5);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S5? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.c1dict, other.c1dict);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S5? lhs, S5? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S5? lhs, S5? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -493,7 +338,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class S6 : global::System.IEquatable<S6>
+    public sealed partial record class S6
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<int, S1> s1dict;
@@ -514,37 +359,6 @@ namespace LocalTest
             this.s1dict = S1DictHelper.read(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S6 Clone() => (S6)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.s1dict);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as S6);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S6? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.s1dict, other.s1dict);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S6? lhs, S6? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S6? lhs, S6? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -572,7 +386,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class S7 : global::System.IEquatable<S7>
+    public sealed partial record class S7
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C1?[][] c1seqseq;
@@ -593,37 +407,6 @@ namespace LocalTest
             this.c1seqseq = C1SeqSeqHelper.read(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S7 Clone() => (S7)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.c1seqseq);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as S7);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S7? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.c1seqseq, other.c1seqseq);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S7? lhs, S7? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S7? lhs, S7? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -651,7 +434,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class S8 : global::System.IEquatable<S8>
+    public sealed partial record class S8
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1[][] s1seqseq;
@@ -672,37 +455,6 @@ namespace LocalTest
             this.s1seqseq = S1SeqSeqHelper.read(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S8 Clone() => (S8)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.s1seqseq);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as S8);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S8? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.s1seqseq, other.s1seqseq);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S8? lhs, S8? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S8? lhs, S8? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)

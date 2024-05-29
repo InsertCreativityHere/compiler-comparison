@@ -31,7 +31,7 @@ namespace Test1
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class WstringStruct : global::System.IEquatable<WstringStruct>
+    public sealed partial record class WstringStruct
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string s = "";
@@ -58,37 +58,6 @@ namespace Test1
             this.s = istr.readString();
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringStruct Clone() => (WstringStruct)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.s);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as WstringStruct);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(WstringStruct? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.s == other.s;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(WstringStruct? lhs, WstringStruct? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(WstringStruct? lhs, WstringStruct? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -201,7 +170,7 @@ namespace Test2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class WstringStruct : global::System.IEquatable<WstringStruct>
+    public sealed partial record class WstringStruct
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string s = "";
@@ -228,37 +197,6 @@ namespace Test2
             this.s = istr.readString();
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringStruct Clone() => (WstringStruct)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.s);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as WstringStruct);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(WstringStruct? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.s == other.s;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(WstringStruct? lhs, WstringStruct? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(WstringStruct? lhs, WstringStruct? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)

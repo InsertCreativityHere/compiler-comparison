@@ -31,7 +31,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class SSLInfo : global::System.IEquatable<SSLInfo>
+    public sealed partial record class SSLInfo
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string remoteHost = "";
@@ -88,47 +88,6 @@ namespace Glacier2
             this.certs = global::Ice.StringSeqHelper.read(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SSLInfo Clone() => (SSLInfo)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.remoteHost);
-            hash.Add(this.remotePort);
-            hash.Add(this.localHost);
-            hash.Add(this.localPort);
-            hash.Add(this.cipher);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.certs);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as SSLInfo);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(SSLInfo? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.remoteHost == other.remoteHost && 
-                this.remotePort == other.remotePort && 
-                this.localHost == other.localHost && 
-                this.localPort == other.localPort && 
-                this.cipher == other.cipher && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.certs, other.certs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(SSLInfo? lhs, SSLInfo? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(SSLInfo? lhs, SSLInfo? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)

@@ -31,7 +31,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class PropertyDescriptor : global::System.IEquatable<PropertyDescriptor>
+    public sealed partial record class PropertyDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string name = "";
@@ -66,39 +66,6 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PropertyDescriptor Clone() => (PropertyDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.name);
-            hash.Add(this.value);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as PropertyDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(PropertyDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.name == other.name && 
-                this.value == other.value;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(PropertyDescriptor? lhs, PropertyDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(PropertyDescriptor? lhs, PropertyDescriptor? rhs) => !(lhs == rhs);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.name);
@@ -125,7 +92,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class PropertySetDescriptor : global::System.IEquatable<PropertySetDescriptor>
+    public sealed partial record class PropertySetDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string[] references;
@@ -154,39 +121,6 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PropertySetDescriptor Clone() => (PropertySetDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.references);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.properties);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as PropertySetDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(PropertySetDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.references, other.references) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.properties, other.properties);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(PropertySetDescriptor? lhs, PropertySetDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(PropertySetDescriptor? lhs, PropertySetDescriptor? rhs) => !(lhs == rhs);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
             global::Ice.StringSeqHelper.write(ostr, this.references);
@@ -213,7 +147,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ObjectDescriptor : global::System.IEquatable<ObjectDescriptor>
+    public sealed partial record class ObjectDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.Identity id;
@@ -256,41 +190,6 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectDescriptor Clone() => (ObjectDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.id);
-            hash.Add(this.type);
-            hash.Add(this.proxyOptions);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as ObjectDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ObjectDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.id == other.id && 
-                this.type == other.type && 
-                this.proxyOptions == other.proxyOptions;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ObjectDescriptor? lhs, ObjectDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ObjectDescriptor? lhs, ObjectDescriptor? rhs) => !(lhs == rhs);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
             global::Ice.Identity.ice_write(ostr, this.id);
@@ -318,7 +217,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class AdapterDescriptor : global::System.IEquatable<AdapterDescriptor>
+    public sealed partial record class AdapterDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string name = "";
@@ -395,53 +294,6 @@ namespace IceGrid
             this.allocatables = ObjectDescriptorSeqHelper.read(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterDescriptor Clone() => (AdapterDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.name);
-            hash.Add(this.description);
-            hash.Add(this.id);
-            hash.Add(this.replicaGroupId);
-            hash.Add(this.priority);
-            hash.Add(this.registerProcess);
-            hash.Add(this.serverLifetime);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.objects);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.allocatables);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as AdapterDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(AdapterDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.name == other.name && 
-                this.description == other.description && 
-                this.id == other.id && 
-                this.replicaGroupId == other.replicaGroupId && 
-                this.priority == other.priority && 
-                this.registerProcess == other.registerProcess && 
-                this.serverLifetime == other.serverLifetime && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.objects, other.objects) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.allocatables, other.allocatables);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(AdapterDescriptor? lhs, AdapterDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(AdapterDescriptor? lhs, AdapterDescriptor? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -577,7 +429,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class DistributionDescriptor : global::System.IEquatable<DistributionDescriptor>
+    public sealed partial record class DistributionDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string icepatch = "";
@@ -612,39 +464,6 @@ namespace IceGrid
             this.directories = global::Ice.StringSeqHelper.read(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DistributionDescriptor Clone() => (DistributionDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.icepatch);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.directories);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as DistributionDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(DistributionDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.icepatch == other.icepatch && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.directories, other.directories);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(DistributionDescriptor? lhs, DistributionDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(DistributionDescriptor? lhs, DistributionDescriptor? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -915,7 +734,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ServerInstanceDescriptor : global::System.IEquatable<ServerInstanceDescriptor>
+    public sealed partial record class ServerInstanceDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string template = "";
@@ -968,43 +787,6 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerInstanceDescriptor Clone() => (ServerInstanceDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.template);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.parameterValues);
-            hash.Add(this.propertySet);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.servicePropertySets);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as ServerInstanceDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ServerInstanceDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.template == other.template && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.parameterValues, other.parameterValues) && 
-                this.propertySet == other.propertySet && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.servicePropertySets, other.servicePropertySets);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ServerInstanceDescriptor? lhs, ServerInstanceDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ServerInstanceDescriptor? lhs, ServerInstanceDescriptor? rhs) => !(lhs == rhs);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.template);
@@ -1033,7 +815,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class TemplateDescriptor : global::System.IEquatable<TemplateDescriptor>
+    public sealed partial record class TemplateDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CommunicatorDescriptor? descriptor;
@@ -1077,41 +859,6 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TemplateDescriptor Clone() => (TemplateDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.descriptor);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.parameters);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.parameterDefaults);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as TemplateDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(TemplateDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.descriptor == other.descriptor && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.parameters, other.parameters) && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.parameterDefaults, other.parameterDefaults);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(TemplateDescriptor? lhs, TemplateDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(TemplateDescriptor? lhs, TemplateDescriptor? rhs) => !(lhs == rhs);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeValue(this.descriptor);
@@ -1139,7 +886,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ServiceInstanceDescriptor : global::System.IEquatable<ServiceInstanceDescriptor>
+    public sealed partial record class ServiceInstanceDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string template = "";
@@ -1187,43 +934,6 @@ namespace IceGrid
             this.propertySet = new PropertySetDescriptor(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServiceInstanceDescriptor Clone() => (ServiceInstanceDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.template);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.parameterValues);
-            hash.Add(this.descriptor);
-            hash.Add(this.propertySet);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as ServiceInstanceDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ServiceInstanceDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.template == other.template && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.parameterValues, other.parameterValues) && 
-                this.descriptor == other.descriptor && 
-                this.propertySet == other.propertySet;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ServiceInstanceDescriptor? lhs, ServiceInstanceDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ServiceInstanceDescriptor? lhs, ServiceInstanceDescriptor? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -1329,7 +1039,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class NodeDescriptor : global::System.IEquatable<NodeDescriptor>
+    public sealed partial record class NodeDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, string> variables;
@@ -1394,47 +1104,6 @@ namespace IceGrid
             this.propertySets = PropertySetDescriptorDictHelper.read(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeDescriptor Clone() => (NodeDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.variables);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.serverInstances);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.servers);
-            hash.Add(this.loadFactor);
-            hash.Add(this.description);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.propertySets);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as NodeDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(NodeDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.serverInstances, other.serverInstances) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.servers, other.servers) && 
-                this.loadFactor == other.loadFactor && 
-                this.description == other.description && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(NodeDescriptor? lhs, NodeDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(NodeDescriptor? lhs, NodeDescriptor? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -1769,7 +1438,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ReplicaGroupDescriptor : global::System.IEquatable<ReplicaGroupDescriptor>
+    public sealed partial record class ReplicaGroupDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string id = "";
@@ -1829,47 +1498,6 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ReplicaGroupDescriptor Clone() => (ReplicaGroupDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.id);
-            hash.Add(this.loadBalancing);
-            hash.Add(this.proxyOptions);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.objects);
-            hash.Add(this.description);
-            hash.Add(this.filter);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as ReplicaGroupDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ReplicaGroupDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.id == other.id && 
-                this.loadBalancing == other.loadBalancing && 
-                this.proxyOptions == other.proxyOptions && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.objects, other.objects) && 
-                this.description == other.description && 
-                this.filter == other.filter;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ReplicaGroupDescriptor? lhs, ReplicaGroupDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ReplicaGroupDescriptor? lhs, ReplicaGroupDescriptor? rhs) => !(lhs == rhs);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.id);
@@ -1900,7 +1528,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ApplicationDescriptor : global::System.IEquatable<ApplicationDescriptor>
+    public sealed partial record class ApplicationDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string name = "";
@@ -1989,53 +1617,6 @@ namespace IceGrid
             this.propertySets = PropertySetDescriptorDictHelper.read(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationDescriptor Clone() => (ApplicationDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.name);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.variables);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.replicaGroups);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.serverTemplates);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.serviceTemplates);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.nodes);
-            hash.Add(this.distrib);
-            hash.Add(this.description);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.propertySets);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as ApplicationDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ApplicationDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.name == other.name && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.replicaGroups, other.replicaGroups) && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.serverTemplates, other.serverTemplates) && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.serviceTemplates, other.serviceTemplates) && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.nodes, other.nodes) && 
-                this.distrib == other.distrib && 
-                this.description == other.description && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ApplicationDescriptor? lhs, ApplicationDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ApplicationDescriptor? lhs, ApplicationDescriptor? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -2134,7 +1715,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class NodeUpdateDescriptor : global::System.IEquatable<NodeUpdateDescriptor>
+    public sealed partial record class NodeUpdateDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string name = "";
@@ -2227,55 +1808,6 @@ namespace IceGrid
             istr.readValue((BoxedString? v) => { this.loadFactor = v; });
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeUpdateDescriptor Clone() => (NodeUpdateDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.name);
-            hash.Add(this.description);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.variables);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.removeVariables);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.propertySets);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.removePropertySets);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.serverInstances);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.servers);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.removeServers);
-            hash.Add(this.loadFactor);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as NodeUpdateDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(NodeUpdateDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.name == other.name && 
-                this.description == other.description && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeVariables, other.removeVariables) && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removePropertySets, other.removePropertySets) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.serverInstances, other.serverInstances) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.servers, other.servers) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeServers, other.removeServers) && 
-                this.loadFactor == other.loadFactor;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(NodeUpdateDescriptor? lhs, NodeUpdateDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(NodeUpdateDescriptor? lhs, NodeUpdateDescriptor? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
@@ -2377,7 +1909,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ApplicationUpdateDescriptor : global::System.IEquatable<ApplicationUpdateDescriptor>
+    public sealed partial record class ApplicationUpdateDescriptor
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string name = "";
@@ -2510,65 +2042,6 @@ namespace IceGrid
             this.removeNodes = global::Ice.StringSeqHelper.read(istr);
             ice_initialize();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationUpdateDescriptor Clone() => (ApplicationUpdateDescriptor)MemberwiseClone();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            var hash = new global::System.HashCode();
-            hash.Add(this.name);
-            hash.Add(this.description);
-            hash.Add(this.distrib);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.variables);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.removeVariables);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.propertySets);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.removePropertySets);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.replicaGroups);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.removeReplicaGroups);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.serverTemplates);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.removeServerTemplates);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.serviceTemplates);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.removeServiceTemplates);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.nodes);
-            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.removeNodes);
-            return hash.ToHashCode();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object? other) => Equals(other as ApplicationUpdateDescriptor);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ApplicationUpdateDescriptor? other)
-        {
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            return other is not null && 
-                this.name == other.name && 
-                this.description == other.description && 
-                this.distrib == other.distrib && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeVariables, other.removeVariables) && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removePropertySets, other.removePropertySets) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.replicaGroups, other.replicaGroups) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeReplicaGroups, other.removeReplicaGroups) && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.serverTemplates, other.serverTemplates) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeServerTemplates, other.removeServerTemplates) && 
-                Ice.UtilInternal.Collections.DictionaryEquals(this.serviceTemplates, other.serviceTemplates) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeServiceTemplates, other.removeServiceTemplates) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.nodes, other.nodes) && 
-                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeNodes, other.removeNodes);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ApplicationUpdateDescriptor? lhs, ApplicationUpdateDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ApplicationUpdateDescriptor? lhs, ApplicationUpdateDescriptor? rhs) => !(lhs == rhs);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)

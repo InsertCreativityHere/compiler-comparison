@@ -33,7 +33,7 @@ namespace Ice.dictMapping
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public sealed partial class TEstNv : global::System.IEquatable<TEstNv>
+        public sealed partial record class TEstNv
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public global::System.Collections.Generic.Dictionary<int, int> d;
@@ -60,39 +60,6 @@ namespace Ice.dictMapping
                 this.s = IntSeqHelper.read(istr);
                 ice_initialize();
             }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TEstNv Clone() => (TEstNv)MemberwiseClone();
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                var hash = new global::System.HashCode();
-                Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.d);
-                Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.s);
-                return hash.ToHashCode();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object? other) => Equals(other as TEstNv);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(TEstNv? other)
-            {
-                if (ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                return other is not null && 
-                    Ice.UtilInternal.Collections.DictionaryEquals(this.d, other.d) && 
-                    Ice.UtilInternal.Collections.NullableSequenceEqual(this.s, other.s);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(TEstNv? lhs, TEstNv? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(TEstNv? lhs, TEstNv? rhs) => !(lhs == rhs);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)

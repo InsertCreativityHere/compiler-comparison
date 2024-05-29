@@ -86,7 +86,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public sealed partial class Struct1 : global::System.IEquatable<Struct1>
+        public sealed partial record class Struct1
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolFalse = false;
@@ -219,79 +219,6 @@ namespace Ice.defaultValue
                 this.zeroDotD = istr.readDouble();
                 ice_initialize();
             }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Struct1 Clone() => (Struct1)MemberwiseClone();
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                var hash = new global::System.HashCode();
-                hash.Add(this.boolFalse);
-                hash.Add(this.boolTrue);
-                hash.Add(this.b);
-                hash.Add(this.s);
-                hash.Add(this.i);
-                hash.Add(this.l);
-                hash.Add(this.f);
-                hash.Add(this.d);
-                hash.Add(this.str);
-                hash.Add(this.c1);
-                hash.Add(this.c2);
-                hash.Add(this.c3);
-                hash.Add(this.nc1);
-                hash.Add(this.nc2);
-                hash.Add(this.nc3);
-                hash.Add(this.noDefault);
-                hash.Add(this.zeroI);
-                hash.Add(this.zeroL);
-                hash.Add(this.zeroF);
-                hash.Add(this.zeroDotF);
-                hash.Add(this.zeroD);
-                hash.Add(this.zeroDotD);
-                return hash.ToHashCode();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object? other) => Equals(other as Struct1);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(Struct1? other)
-            {
-                if (ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                return other is not null && 
-                    this.boolFalse == other.boolFalse && 
-                    this.boolTrue == other.boolTrue && 
-                    this.b == other.b && 
-                    this.s == other.s && 
-                    this.i == other.i && 
-                    this.l == other.l && 
-                    this.f == other.f && 
-                    this.d == other.d && 
-                    this.str == other.str && 
-                    this.c1 == other.c1 && 
-                    this.c2 == other.c2 && 
-                    this.c3 == other.c3 && 
-                    this.nc1 == other.nc1 && 
-                    this.nc2 == other.nc2 && 
-                    this.nc3 == other.nc3 && 
-                    this.noDefault == other.noDefault && 
-                    this.zeroI == other.zeroI && 
-                    this.zeroL == other.zeroL && 
-                    this.zeroF == other.zeroF && 
-                    this.zeroDotF == other.zeroDotF && 
-                    this.zeroD == other.zeroD && 
-                    this.zeroDotD == other.zeroDotD;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(Struct1? lhs, Struct1? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(Struct1? lhs, Struct1? rhs) => !(lhs == rhs);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
@@ -460,7 +387,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public sealed partial class Struct2 : global::System.IEquatable<Struct2>
+        public sealed partial record class Struct2
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolTrue = Test.ConstBool.value;
@@ -584,75 +511,6 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Struct2 Clone() => (Struct2)MemberwiseClone();
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                var hash = new global::System.HashCode();
-                hash.Add(this.boolTrue);
-                hash.Add(this.b);
-                hash.Add(this.s);
-                hash.Add(this.i);
-                hash.Add(this.l);
-                hash.Add(this.f);
-                hash.Add(this.d);
-                hash.Add(this.str);
-                hash.Add(this.c1);
-                hash.Add(this.c2);
-                hash.Add(this.c3);
-                hash.Add(this.nc1);
-                hash.Add(this.nc2);
-                hash.Add(this.nc3);
-                hash.Add(this.zeroI);
-                hash.Add(this.zeroL);
-                hash.Add(this.zeroF);
-                hash.Add(this.zeroDotF);
-                hash.Add(this.zeroD);
-                hash.Add(this.zeroDotD);
-                return hash.ToHashCode();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object? other) => Equals(other as Struct2);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(Struct2? other)
-            {
-                if (ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                return other is not null && 
-                    this.boolTrue == other.boolTrue && 
-                    this.b == other.b && 
-                    this.s == other.s && 
-                    this.i == other.i && 
-                    this.l == other.l && 
-                    this.f == other.f && 
-                    this.d == other.d && 
-                    this.str == other.str && 
-                    this.c1 == other.c1 && 
-                    this.c2 == other.c2 && 
-                    this.c3 == other.c3 && 
-                    this.nc1 == other.nc1 && 
-                    this.nc2 == other.nc2 && 
-                    this.nc3 == other.nc3 && 
-                    this.zeroI == other.zeroI && 
-                    this.zeroL == other.zeroL && 
-                    this.zeroF == other.zeroF && 
-                    this.zeroDotF == other.zeroDotF && 
-                    this.zeroD == other.zeroD && 
-                    this.zeroDotD == other.zeroDotD;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(Struct2? lhs, Struct2? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(Struct2? lhs, Struct2? rhs) => !(lhs == rhs);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeBool(this.boolTrue);
@@ -697,7 +555,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public sealed partial class Struct3 : global::System.IEquatable<Struct3>
+        public sealed partial record class Struct3
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolFalse = false;
@@ -820,75 +678,6 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Struct3 Clone() => (Struct3)MemberwiseClone();
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                var hash = new global::System.HashCode();
-                hash.Add(this.boolFalse);
-                hash.Add(this.boolTrue);
-                hash.Add(this.b);
-                hash.Add(this.s);
-                hash.Add(this.i);
-                hash.Add(this.l);
-                hash.Add(this.f);
-                hash.Add(this.d);
-                hash.Add(this.c1);
-                hash.Add(this.c2);
-                hash.Add(this.c3);
-                hash.Add(this.nc1);
-                hash.Add(this.nc2);
-                hash.Add(this.nc3);
-                hash.Add(this.zeroI);
-                hash.Add(this.zeroL);
-                hash.Add(this.zeroF);
-                hash.Add(this.zeroDotF);
-                hash.Add(this.zeroD);
-                hash.Add(this.zeroDotD);
-                return hash.ToHashCode();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object? other) => Equals(other as Struct3);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(Struct3? other)
-            {
-                if (ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                return other is not null && 
-                    this.boolFalse == other.boolFalse && 
-                    this.boolTrue == other.boolTrue && 
-                    this.b == other.b && 
-                    this.s == other.s && 
-                    this.i == other.i && 
-                    this.l == other.l && 
-                    this.f == other.f && 
-                    this.d == other.d && 
-                    this.c1 == other.c1 && 
-                    this.c2 == other.c2 && 
-                    this.c3 == other.c3 && 
-                    this.nc1 == other.nc1 && 
-                    this.nc2 == other.nc2 && 
-                    this.nc3 == other.nc3 && 
-                    this.zeroI == other.zeroI && 
-                    this.zeroL == other.zeroL && 
-                    this.zeroF == other.zeroF && 
-                    this.zeroDotF == other.zeroDotF && 
-                    this.zeroD == other.zeroD && 
-                    this.zeroDotD == other.zeroDotD;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(Struct3? lhs, Struct3? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(Struct3? lhs, Struct3? rhs) => !(lhs == rhs);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeBool(this.boolFalse);
@@ -933,7 +722,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public sealed partial class Struct4 : global::System.IEquatable<Struct4>
+        public sealed partial record class Struct4
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolFalse = false;
@@ -1054,75 +843,6 @@ namespace Ice.defaultValue
                 this.zeroDotD = istr.readDouble();
                 ice_initialize();
             }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Struct4 Clone() => (Struct4)MemberwiseClone();
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                var hash = new global::System.HashCode();
-                hash.Add(this.boolFalse);
-                hash.Add(this.boolTrue);
-                hash.Add(this.b);
-                hash.Add(this.s);
-                hash.Add(this.i);
-                hash.Add(this.l);
-                hash.Add(this.f);
-                hash.Add(this.d);
-                hash.Add(this.c1);
-                hash.Add(this.c2);
-                hash.Add(this.c3);
-                hash.Add(this.nc1);
-                hash.Add(this.nc2);
-                hash.Add(this.nc3);
-                hash.Add(this.zeroI);
-                hash.Add(this.zeroL);
-                hash.Add(this.zeroF);
-                hash.Add(this.zeroDotF);
-                hash.Add(this.zeroD);
-                hash.Add(this.zeroDotD);
-                return hash.ToHashCode();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object? other) => Equals(other as Struct4);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(Struct4? other)
-            {
-                if (ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                return other is not null && 
-                    this.boolFalse == other.boolFalse && 
-                    this.boolTrue == other.boolTrue && 
-                    this.b == other.b && 
-                    this.s == other.s && 
-                    this.i == other.i && 
-                    this.l == other.l && 
-                    this.f == other.f && 
-                    this.d == other.d && 
-                    this.c1 == other.c1 && 
-                    this.c2 == other.c2 && 
-                    this.c3 == other.c3 && 
-                    this.nc1 == other.nc1 && 
-                    this.nc2 == other.nc2 && 
-                    this.nc3 == other.nc3 && 
-                    this.zeroI == other.zeroI && 
-                    this.zeroL == other.zeroL && 
-                    this.zeroF == other.zeroF && 
-                    this.zeroDotF == other.zeroDotF && 
-                    this.zeroD == other.zeroD && 
-                    this.zeroDotD == other.zeroDotD;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(Struct4? lhs, Struct4? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(Struct4? lhs, Struct4? rhs) => !(lhs == rhs);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
@@ -1809,7 +1529,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public sealed partial class StructProperty : global::System.IEquatable<StructProperty>
+        public sealed partial record class StructProperty
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool boolFalse { get; set; } = false;
@@ -1912,67 +1632,6 @@ namespace Ice.defaultValue
                 this.zeroDotD = istr.readDouble();
                 ice_initialize();
             }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public StructProperty Clone() => (StructProperty)MemberwiseClone();
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                var hash = new global::System.HashCode();
-                hash.Add(this.boolFalse);
-                hash.Add(this.boolTrue);
-                hash.Add(this.b);
-                hash.Add(this.s);
-                hash.Add(this.i);
-                hash.Add(this.l);
-                hash.Add(this.f);
-                hash.Add(this.d);
-                hash.Add(this.str);
-                hash.Add(this.noDefault);
-                hash.Add(this.zeroI);
-                hash.Add(this.zeroL);
-                hash.Add(this.zeroF);
-                hash.Add(this.zeroDotF);
-                hash.Add(this.zeroD);
-                hash.Add(this.zeroDotD);
-                return hash.ToHashCode();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object? other) => Equals(other as StructProperty);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(StructProperty? other)
-            {
-                if (ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                return other is not null && 
-                    this.boolFalse == other.boolFalse && 
-                    this.boolTrue == other.boolTrue && 
-                    this.b == other.b && 
-                    this.s == other.s && 
-                    this.i == other.i && 
-                    this.l == other.l && 
-                    this.f == other.f && 
-                    this.d == other.d && 
-                    this.str == other.str && 
-                    this.noDefault == other.noDefault && 
-                    this.zeroI == other.zeroI && 
-                    this.zeroL == other.zeroL && 
-                    this.zeroF == other.zeroF && 
-                    this.zeroDotF == other.zeroDotF && 
-                    this.zeroD == other.zeroD && 
-                    this.zeroDotD == other.zeroDotD;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(StructProperty? lhs, StructProperty? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(StructProperty? lhs, StructProperty? rhs) => !(lhs == rhs);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
@@ -2211,7 +1870,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public sealed partial class InnerStruct2 : global::System.IEquatable<InnerStruct2>
+        public sealed partial record class InnerStruct2
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string a = "";
@@ -2240,37 +1899,6 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public InnerStruct2 Clone() => (InnerStruct2)MemberwiseClone();
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                var hash = new global::System.HashCode();
-                hash.Add(this.a);
-                return hash.ToHashCode();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object? other) => Equals(other as InnerStruct2);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(InnerStruct2? other)
-            {
-                if (ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                return other is not null && 
-                    this.a == other.a;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(InnerStruct2? lhs, InnerStruct2? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(InnerStruct2? lhs, InnerStruct2? rhs) => !(lhs == rhs);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeString(this.a);
@@ -2296,7 +1924,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public sealed partial class StructNoDefaults : global::System.IEquatable<StructNoDefaults>
+        public sealed partial record class StructNoDefaults
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool bo;
@@ -2400,63 +2028,6 @@ namespace Ice.defaultValue
                 this.dict = IntStringDictHelper.read(istr);
                 ice_initialize();
             }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public StructNoDefaults Clone() => (StructNoDefaults)MemberwiseClone();
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                var hash = new global::System.HashCode();
-                hash.Add(this.bo);
-                hash.Add(this.b);
-                hash.Add(this.s);
-                hash.Add(this.i);
-                hash.Add(this.l);
-                hash.Add(this.f);
-                hash.Add(this.d);
-                hash.Add(this.str);
-                hash.Add(this.c1);
-                Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.bs);
-                Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.iseq);
-                hash.Add(this.st);
-                hash.Add(this.st2);
-                Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.dict);
-                return hash.ToHashCode();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object? other) => Equals(other as StructNoDefaults);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(StructNoDefaults? other)
-            {
-                if (ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                return other is not null && 
-                    this.bo == other.bo && 
-                    this.b == other.b && 
-                    this.s == other.s && 
-                    this.i == other.i && 
-                    this.l == other.l && 
-                    this.f == other.f && 
-                    this.d == other.d && 
-                    this.str == other.str && 
-                    this.c1 == other.c1 && 
-                    Ice.UtilInternal.Collections.NullableSequenceEqual(this.bs, other.bs) && 
-                    Ice.UtilInternal.Collections.NullableSequenceEqual(this.iseq, other.iseq) && 
-                    this.st == other.st && 
-                    this.st2 == other.st2 && 
-                    Ice.UtilInternal.Collections.DictionaryEquals(this.dict, other.dict);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(StructNoDefaults? lhs, StructNoDefaults? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(StructNoDefaults? lhs, StructNoDefaults? rhs) => !(lhs == rhs);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)

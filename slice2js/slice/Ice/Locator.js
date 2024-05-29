@@ -225,8 +225,8 @@ Slice.defineOperations(Ice.LocatorRegistry, Ice.LocatorRegistryPrx, iceC_Ice_Loc
     "setReplicatedAdapterDirectProxy": [, 2, , , [[7], [7], [9]], ,
     [
         Ice.AdapterNotFoundException,
-        Ice.InvalidReplicaGroupIdException,
-        Ice.AdapterAlreadyActiveException
+        Ice.AdapterAlreadyActiveException,
+        Ice.InvalidReplicaGroupIdException
     ], , ],
     "setServerProcessProxy": [, 2, , , [[7], ["Ice.ProcessPrx"]], ,
     [

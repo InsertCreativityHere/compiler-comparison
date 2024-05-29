@@ -87,7 +87,7 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public sealed partial class bitor : global::System.IEquatable<bitor>
+        public sealed partial record class bitor
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bitand @case = classdef.@break.bitand.@catch;
@@ -128,43 +128,6 @@ namespace classdef
                 this.ne = istr.readInt();
                 ice_initialize();
             }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bitor Clone() => (bitor)MemberwiseClone();
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                var hash = new global::System.HashCode();
-                hash.Add(this.@case);
-                hash.Add(this.@continue);
-                hash.Add(this.eq);
-                hash.Add(this.ne);
-                return hash.ToHashCode();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object? other) => Equals(other as bitor);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(bitor? other)
-            {
-                if (ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                return other is not null && 
-                    this.@case == other.@case && 
-                    this.@continue == other.@continue && 
-                    this.eq == other.eq && 
-                    this.ne == other.ne;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(bitor? lhs, bitor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(bitor? lhs, bitor? rhs) => !(lhs == rhs);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
