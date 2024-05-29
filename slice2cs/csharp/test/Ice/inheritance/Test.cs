@@ -1287,11 +1287,11 @@ namespace Ice.inheritance
             {
                 public abstract ICPrx? icop(ICPrx? p, Ice.Current current);
 
-                public abstract IAPrx? iaop(IAPrx? p, Ice.Current current);
-
                 public abstract global::Ice.inheritance.Test.MB.IB1Prx? ib1op(global::Ice.inheritance.Test.MB.IB1Prx? p, Ice.Current current);
 
                 public abstract global::Ice.inheritance.Test.MB.IB2Prx? ib2op(global::Ice.inheritance.Test.MB.IB2Prx? p, Ice.Current current);
+
+                public abstract IAPrx? iaop(IAPrx? p, Ice.Current current);
 
                 public override string ice_id(Ice.Current current) => ice_staticId();
 

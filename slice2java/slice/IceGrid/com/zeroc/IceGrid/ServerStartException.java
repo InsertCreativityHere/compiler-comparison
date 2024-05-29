@@ -82,5 +82,5 @@ public class ServerStartException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 8921384224662407943L;
+    public static final long serialVersionUID = 8387139970889847751L;
 }
