@@ -47,7 +47,7 @@ public class PCDerived3 extends PCDerived2
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -4328899530120442720L;
+    public static final long serialVersionUID = -4328903316934350313L;
 
     /** @hidden */
     @Override
