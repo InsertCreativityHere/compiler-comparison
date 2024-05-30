@@ -55,7 +55,7 @@ public class InternalDbEnvDescriptor extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -4537366267688852174L;
+    public static final long serialVersionUID = -455667115144910862L;
 
     /** @hidden */
     @Override
