@@ -1168,11 +1168,11 @@ IceGrid::AdminPrx::_iceI_removeAdapter(const ::std::shared_ptr<::IceInternal::Ou
             {
                 ex.ice_throw();
             }
-            catch(const DeploymentException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
-            catch(const AdapterNotExistException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
