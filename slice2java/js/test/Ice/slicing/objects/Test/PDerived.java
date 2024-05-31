@@ -47,7 +47,7 @@ public class PDerived extends Preserved
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 643077311044490234L;
+    public static final long serialVersionUID = 643087809157676541L;
 
     /** @hidden */
     @Override
