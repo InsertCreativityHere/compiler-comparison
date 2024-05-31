@@ -239,5 +239,5 @@ public class NodeDescriptor implements java.lang.Cloneable,
     private static final NodeDescriptor _nullMarshalValue = new NodeDescriptor();
 
     /** @hidden */
-    public static final long serialVersionUID = -2666742244284297707L;
+    public static final long serialVersionUID = 7191895650973772270L;
 }
