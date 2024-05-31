@@ -10193,6 +10193,8 @@ namespace Ice.operations.AMD
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, Ice.Current current);
 
+            public abstract global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, Ice.Current current);
+
             public abstract global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, Ice.Current current);
@@ -10290,8 +10292,6 @@ namespace Ice.operations.AMD
             public abstract global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<string> opString1Async(string opString1, Ice.Current current);
 
