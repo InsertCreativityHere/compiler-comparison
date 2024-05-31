@@ -13736,12 +13736,6 @@ namespace Test
 
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
 
-        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
-
-        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
-
-        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
-
         public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, Ice.Current current);
 
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, Ice.Current current);
@@ -13761,6 +13755,12 @@ namespace Test
         public abstract global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3, Ice.Current current);
+
+        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
+
+        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
+
+        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, Ice.Current current);
 
@@ -13968,12 +13968,6 @@ namespace Test2
 
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
 
-        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
-
-        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
-
-        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
-
         public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, Ice.Current current);
 
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, Ice.Current current);
@@ -13993,6 +13987,12 @@ namespace Test2
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p3, Ice.Current current);
+
+        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
+
+        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
+
+        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, Ice.Current current);
 
