@@ -66,8 +66,8 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_SmallStruct;
-    class SmallStruct
+    global $Test__t_LargeStruct;
+    class LargeStruct
     {
         public function __construct($bo=false, $by=0, $sh=0, $i=0, $l=0, $f=0.0, $d=0.0, $str='', $e=\Test\MyEnum::enum1, $p=null, $ss=null)
         {
@@ -86,8 +86,8 @@ namespace Test
 
         public function __toString(): string
         {
-            global $Test__t_SmallStruct;
-            return IcePHP_stringify($this, $Test__t_SmallStruct);
+            global $Test__t_LargeStruct;
+            return IcePHP_stringify($this, $Test__t_LargeStruct);
         }
 
         public $bo;
@@ -114,7 +114,7 @@ namespace Test
     global $Test__t_MyEnum;
     global $Test__t_MyInterfacePrx;
     global $Test__t_SerialSmall;
-    $Test__t_SmallStruct = IcePHP_defineStruct('::Test::SmallStruct', '\\Test\\SmallStruct', array(
+    $Test__t_LargeStruct = IcePHP_defineStruct('::Test::LargeStruct', '\\Test\\LargeStruct', array(
         array('bo', $IcePHP__t_bool),
         array('by', $IcePHP__t_byte),
         array('sh', $IcePHP__t_short),
@@ -218,13 +218,13 @@ namespace Test
     global $Test__t_OptionalClass;
     class OptionalClass extends \Ice\Value
     {
-        public function __construct($bo=false, $by=0, $sh=\Ice\None, $i=\Ice\None, $sm=\Ice\None, $enumS4=\Ice\None, $byteBoolD6=\Ice\None, $shortIntD7=\Ice\None, $enum8=\Ice\None, $intSeq12=\Ice\None, $byteSeq13=\Ice\None, $stringSeq14=\Ice\None, $p15=\Ice\None)
+        public function __construct($bo=false, $by=0, $sh=\Ice\None, $i=\Ice\None, $s=\Ice\None, $enumS4=\Ice\None, $byteBoolD6=\Ice\None, $shortIntD7=\Ice\None, $enum8=\Ice\None, $intSeq12=\Ice\None, $byteSeq13=\Ice\None, $stringSeq14=\Ice\None, $p15=\Ice\None)
         {
             $this->bo = $bo;
             $this->by = $by;
             $this->sh = $sh;
             $this->i = $i;
-            $this->sm = is_null($sm) ? new \Test\SmallStruct : $sm;
+            $this->s = is_null($s) ? new \Test\LargeStruct : $s;
             $this->enumS4 = $enumS4;
             $this->byteBoolD6 = $byteBoolD6;
             $this->shortIntD7 = $shortIntD7;
@@ -255,7 +255,7 @@ namespace Test
         public $by;
         public $sh;
         public $i;
-        public $sm;
+        public $s;
         public $enumS4;
         public $byteBoolD6;
         public $shortIntD7;
@@ -271,7 +271,7 @@ namespace Test
     global $IcePHP__t_byte;
     global $IcePHP__t_short;
     global $IcePHP__t_int;
-    global $Test__t_SmallStruct;
+    global $Test__t_LargeStruct;
     global $Test__t_MyEnumS;
     global $Test__t_ByteBoolD;
     global $Test__t_ShortIntD;
@@ -285,7 +285,7 @@ namespace Test
         array('by', $IcePHP__t_byte, false, 0),
         array('sh', $IcePHP__t_short, true, 1),
         array('i', $IcePHP__t_int, true, 2),
-        array('sm', $Test__t_SmallStruct, true, 3),
+        array('s', $Test__t_LargeStruct, true, 3),
         array('enumS4', $Test__t_MyEnumS, true, 4),
         array('byteBoolD6', $Test__t_ByteBoolD, true, 6),
         array('shortIntD7', $Test__t_ShortIntD, true, 7),
@@ -449,7 +449,7 @@ namespace Test
             $this->c = $c;
             $this->prx = $prx;
             $this->o = $o;
-            $this->s = is_null($s) ? new \Test\SmallStruct : $s;
+            $this->s = is_null($s) ? new \Test\LargeStruct : $s;
             $this->seq1 = $seq1;
             $this->seq2 = $seq2;
             $this->seq3 = $seq3;
@@ -499,7 +499,7 @@ namespace Test
     global $Ice__t_Value;
     global $Test__t_MyClass;
     global $Test__t_MyInterfacePrx;
-    global $Test__t_SmallStruct;
+    global $Test__t_LargeStruct;
     global $Ice__t_BoolSeq;
     global $Ice__t_ByteSeq;
     global $Ice__t_ShortSeq;
@@ -515,7 +515,7 @@ namespace Test
         array('c', $Test__t_MyClass, false, 0),
         array('prx', $Test__t_MyInterfacePrx, false, 0),
         array('o', $Ice__t_Value, false, 0),
-        array('s', $Test__t_SmallStruct, false, 0),
+        array('s', $Test__t_LargeStruct, false, 0),
         array('seq1', $Ice__t_BoolSeq, false, 0),
         array('seq2', $Ice__t_ByteSeq, false, 0),
         array('seq3', $Ice__t_ShortSeq, false, 0),

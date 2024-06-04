@@ -54,9 +54,9 @@ if 'MyInterface' not in _M_Test.__dict__:
     _M_Test._t_MyInterfaceDisp = IcePy.declareClass('::Test::MyInterface')
     _M_Test._t_MyInterfacePrx = IcePy.declareProxy('::Test::MyInterface')
 
-if 'SmallStruct' not in _M_Test.__dict__:
-    _M_Test.SmallStruct = Ice.createTempClass()
-    class SmallStruct(object):
+if 'LargeStruct' not in _M_Test.__dict__:
+    _M_Test.LargeStruct = Ice.createTempClass()
+    class LargeStruct(object):
         def __init__(self, bo=False, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=_M_Test.MyEnum.enum1, p=None):
             self.bo = bo
             self.by = by
@@ -72,7 +72,7 @@ if 'SmallStruct' not in _M_Test.__dict__:
         def __eq__(self, other):
             if other is None:
                 return False
-            elif not isinstance(other, _M_Test.SmallStruct):
+            elif not isinstance(other, _M_Test.LargeStruct):
                 return NotImplemented
             else:
                 if self.bo != other.bo:
@@ -101,11 +101,11 @@ if 'SmallStruct' not in _M_Test.__dict__:
             return not self.__eq__(other)
 
         def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_SmallStruct)
+            return IcePy.stringify(self, _M_Test._t_LargeStruct)
 
         __repr__ = __str__
 
-    _M_Test._t_SmallStruct = IcePy.defineStruct('::Test::SmallStruct', SmallStruct, (), (
+    _M_Test._t_LargeStruct = IcePy.defineStruct('::Test::LargeStruct', LargeStruct, (), (
         ('bo', (), IcePy._t_bool),
         ('by', (), IcePy._t_byte),
         ('sh', (), IcePy._t_short),
@@ -118,8 +118,8 @@ if 'SmallStruct' not in _M_Test.__dict__:
         ('p', (), _M_Test._t_MyInterfacePrx)
     ))
 
-    _M_Test.SmallStruct = SmallStruct
-    del SmallStruct
+    _M_Test.LargeStruct = LargeStruct
+    del LargeStruct
 
 if 'OptionalClass' not in _M_Test.__dict__:
     _M_Test.OptionalClass = Ice.createTempClass()
@@ -211,7 +211,7 @@ if 'MyClass' not in _M_Test.__dict__:
             self.c = c
             self.o = o
             if s is Ice._struct_marker:
-                self.s = _M_Test.SmallStruct()
+                self.s = _M_Test.LargeStruct()
             else:
                 self.s = s
             self.seq1 = seq1
@@ -241,7 +241,7 @@ if 'MyClass' not in _M_Test.__dict__:
     _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', MyClass, -1, (), False, None, (
         ('c', (), _M_Test._t_MyClass, False, 0),
         ('o', (), IcePy._t_Value, False, 0),
-        ('s', (), _M_Test._t_SmallStruct, False, 0),
+        ('s', (), _M_Test._t_LargeStruct, False, 0),
         ('seq1', (), _M_Ice._t_BoolSeq, False, 0),
         ('seq2', (), _M_Ice._t_ByteSeq, False, 0),
         ('seq3', (), _M_Ice._t_ShortSeq, False, 0),

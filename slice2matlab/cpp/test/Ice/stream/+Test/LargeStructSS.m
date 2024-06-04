@@ -2,19 +2,19 @@
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
 
-classdef SmallStructSS
+classdef LargeStructSS
     methods(Static)
         function write(os, seq)
             sz = length(seq);
             os.writeSize(sz);
             for i = 1:sz
-                Test.SmallStructS.write(os, seq{i});
+                Test.LargeStructS.write(os, seq{i});
             end
         end
         function writeOpt(os, tag, seq)
             if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
                 pos = os.startSize();
-                Test.SmallStructSS.write(os, seq);
+                Test.LargeStructSS.write(os, seq);
                 os.endSize(pos);
             end
         end
@@ -25,14 +25,14 @@ classdef SmallStructSS
             else
                 r = cell(1, sz);
                 for i = 1:sz
-                    r{i} = Test.SmallStructS.read(is);
+                    r{i} = Test.LargeStructS.read(is);
                 end
             end
         end
         function r = readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
-                r = Test.SmallStructSS.read(is);
+                r = Test.LargeStructSS.read(is);
             else
                 r = Ice.Unset;
             end

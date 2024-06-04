@@ -5,7 +5,7 @@
 %   by
 %   sh
 %   i
-%   sm
+%   s
 %   enumS4
 %   byteBoolD6
 %   shortIntD7
@@ -24,7 +24,7 @@ classdef OptionalClass < Ice.Value
         by uint8
         sh
         i
-        sm
+        s
         enumS4
         byteBoolD6
         shortIntD7
@@ -35,13 +35,13 @@ classdef OptionalClass < Ice.Value
         p15
     end
     methods
-        function obj = OptionalClass(bo, by, sh, i, sm, enumS4, byteBoolD6, shortIntD7, enum8, intSeq12, byteSeq13, stringSeq14, p15)
+        function obj = OptionalClass(bo, by, sh, i, s, enumS4, byteBoolD6, shortIntD7, enum8, intSeq12, byteSeq13, stringSeq14, p15)
             if nargin == 0
                 obj.bo = false;
                 obj.by = 0;
                 obj.sh = IceInternal.UnsetI.Instance;
                 obj.i = IceInternal.UnsetI.Instance;
-                obj.sm = IceInternal.UnsetI.Instance;
+                obj.s = IceInternal.UnsetI.Instance;
                 obj.enumS4 = IceInternal.UnsetI.Instance;
                 obj.byteBoolD6 = IceInternal.UnsetI.Instance;
                 obj.shortIntD7 = IceInternal.UnsetI.Instance;
@@ -55,7 +55,7 @@ classdef OptionalClass < Ice.Value
                 obj.by = by;
                 obj.sh = sh;
                 obj.i = i;
-                obj.sm = sm;
+                obj.s = s;
                 obj.enumS4 = enumS4;
                 obj.byteBoolD6 = byteBoolD6;
                 obj.shortIntD7 = shortIntD7;
@@ -77,7 +77,7 @@ classdef OptionalClass < Ice.Value
             os.writeByte(obj.by);
             os.writeShortOpt(1, obj.sh);
             os.writeIntOpt(2, obj.i);
-            Test.SmallStruct.ice_writeOpt(os, 3, obj.sm);
+            Test.LargeStruct.ice_writeOpt(os, 3, obj.s);
             Test.MyEnumS.writeOpt(os, 4, obj.enumS4);
             Test.ByteBoolD.writeOpt(os, 6, obj.byteBoolD6);
             Test.ShortIntD.writeOpt(os, 7, obj.shortIntD7);
@@ -94,7 +94,7 @@ classdef OptionalClass < Ice.Value
             obj.by = is.readByte();
             obj.sh = is.readShortOpt(1);
             obj.i = is.readIntOpt(2);
-            obj.sm = Test.SmallStruct.ice_readOpt(is, 3);
+            obj.s = Test.LargeStruct.ice_readOpt(is, 3);
             obj.enumS4 = Test.MyEnumS.readOpt(is, 4);
             obj.byteBoolD6 = Test.ByteBoolD.readOpt(is, 6);
             obj.shortIntD7 = Test.ShortIntD.readOpt(is, 7);

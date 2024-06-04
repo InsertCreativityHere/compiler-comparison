@@ -40,7 +40,7 @@ namespace Test
     class MyClass;
     using MyClassPtr = ::std::shared_ptr<MyClass>;
 
-    struct SmallStruct;
+    struct LargeStruct;
 
     struct ClassStruct;
 
@@ -49,7 +49,7 @@ namespace Test
 
     using MyEnumS = ::std::vector<MyEnum>;
 
-    using SmallStructS = ::std::vector<SmallStruct>;
+    using LargeStructS = ::std::vector<LargeStruct>;
 
     using MyClassS = ::std::vector<MyClassPtr>;
 
@@ -71,7 +71,7 @@ namespace Test
 
     using MyEnumSS = ::std::vector<MyEnumS>;
 
-    using SmallStructSS = ::std::vector<SmallStructS>;
+    using LargeStructSS = ::std::vector<LargeStructS>;
 
     using MyClassSS = ::std::vector<MyClassS>;
 
@@ -177,7 +177,7 @@ protected:
 namespace Test
 {
 
-struct SmallStruct
+struct LargeStruct
 {
     bool bo;
     ::std::uint8_t by;
@@ -282,7 +282,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyClass(::Test::MyClassPtr c, ::Ice::ValuePtr o, ::Test::SmallStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) :
+    MyClass(::Test::MyClassPtr c, ::Ice::ValuePtr o, ::Test::LargeStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) :
         c(::std::move(c)),
         o(::std::move(o)),
         s(::std::move(s)),
@@ -312,7 +312,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::Test::MyClassPtr&, const ::Ice::ValuePtr&, const ::Test::SmallStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
+    std::tuple<const ::Test::MyClassPtr&, const ::Ice::ValuePtr&, const ::Test::LargeStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
     {
         return std::tie(c, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d);
     }
@@ -325,7 +325,7 @@ public:
 
     ::Test::MyClassPtr c;
     ::Ice::ValuePtr o;
-    ::Test::SmallStruct s;
+    ::Test::LargeStruct s;
     ::Ice::BoolSeq seq1;
     ::Ice::ByteSeq seq2;
     ::Ice::ShortSeq seq3;
@@ -610,7 +610,7 @@ struct StreamableTraits< ::Test::MyEnum>
 };
 
 template<>
-struct StreamableTraits<::Test::SmallStruct>
+struct StreamableTraits<::Test::LargeStruct>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
     static const int minWireSize = 32;
@@ -618,9 +618,9 @@ struct StreamableTraits<::Test::SmallStruct>
 };
 
 template<>
-struct StreamReader<::Test::SmallStruct>
+struct StreamReader<::Test::LargeStruct>
 {
-    static void read(InputStream* istr, ::Test::SmallStruct& v)
+    static void read(InputStream* istr, ::Test::LargeStruct& v)
     {
         istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.f, v.d, v.str, v.e, v.p);
     }

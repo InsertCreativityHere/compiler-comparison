@@ -77,7 +77,7 @@ public extension Ice.OutputStream {
     }
 }
 
-public struct SmallStruct {
+public struct LargeStruct {
     public var bo: Swift.Bool = false
     public var by: Swift.UInt8 = 0
     public var sh: Swift.Int16 = 0
@@ -105,13 +105,13 @@ public struct SmallStruct {
     }
 }
 
-/// An `Ice.InputStream` extension to read `SmallStruct` structured values from the stream.
+/// An `Ice.InputStream` extension to read `LargeStruct` structured values from the stream.
 public extension Ice.InputStream {
-    /// Read a `SmallStruct` structured value from the stream.
+    /// Read a `LargeStruct` structured value from the stream.
     ///
-    /// - returns: `SmallStruct` - The structured value read from the stream.
-    func read() throws -> SmallStruct {
-        var v = SmallStruct()
+    /// - returns: `LargeStruct` - The structured value read from the stream.
+    func read() throws -> LargeStruct {
+        var v = LargeStruct()
         v.bo = try self.read()
         v.by = try self.read()
         v.sh = try self.read()
@@ -125,26 +125,26 @@ public extension Ice.InputStream {
         return v
     }
 
-    /// Read an optional `SmallStruct?` structured value from the stream.
+    /// Read an optional `LargeStruct?` structured value from the stream.
     ///
     /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
     ///
-    /// - returns: `SmallStruct?` - The structured value read from the stream.
-    func read(tag: Swift.Int32) throws -> SmallStruct? {
+    /// - returns: `LargeStruct?` - The structured value read from the stream.
+    func read(tag: Swift.Int32) throws -> LargeStruct? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
         }
         try skip(4)
-        return try read() as SmallStruct
+        return try read() as LargeStruct
     }
 }
 
-/// An `Ice.OutputStream` extension to write `SmallStruct` structured values from the stream.
+/// An `Ice.OutputStream` extension to write `LargeStruct` structured values from the stream.
 public extension Ice.OutputStream {
-    /// Write a `SmallStruct` structured value to the stream.
+    /// Write a `LargeStruct` structured value to the stream.
     ///
-    /// - parameter _: `SmallStruct` - The value to write to the stream.
-    func write(_ v: SmallStruct) {
+    /// - parameter _: `LargeStruct` - The value to write to the stream.
+    func write(_ v: LargeStruct) {
         self.write(v.bo)
         self.write(v.by)
         self.write(v.sh)
@@ -157,12 +157,12 @@ public extension Ice.OutputStream {
         self.write(v.p)
     }
 
-    /// Write an optional `SmallStruct?` structured value to the stream.
+    /// Write an optional `LargeStruct?` structured value to the stream.
     ///
     /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
     ///
-    /// - parameter value: `SmallStruct?` - The value to write to the stream.
-    func write(tag: Swift.Int32, value: SmallStruct?) {
+    /// - parameter value: `LargeStruct?` - The value to write to the stream.
+    func write(tag: Swift.Int32, value: LargeStruct?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
                 let pos = startSize()
@@ -1523,7 +1523,7 @@ public extension Ice.ClassResolver {
 open class MyClass: Ice.Value {
     public var c: MyClass? = nil
     public var o: Ice.Value? = nil
-    public var s: SmallStruct = SmallStruct()
+    public var s: LargeStruct = LargeStruct()
     public var seq1: Ice.BoolSeq = Ice.BoolSeq()
     public var seq2: Ice.ByteSeq = Ice.ByteSeq()
     public var seq3: Ice.ShortSeq = Ice.ShortSeq()
@@ -1538,7 +1538,7 @@ open class MyClass: Ice.Value {
 
     public required init() {}
 
-    public init(c: MyClass?, o: Ice.Value?, s: SmallStruct, seq1: Ice.BoolSeq, seq2: Ice.ByteSeq, seq3: Ice.ShortSeq, seq4: Ice.IntSeq, seq5: Ice.LongSeq, seq6: Ice.FloatSeq, seq7: Ice.DoubleSeq, seq8: Ice.StringSeq, seq9: MyEnumS, seq10: MyClassS, d: StringMyClassD) {
+    public init(c: MyClass?, o: Ice.Value?, s: LargeStruct, seq1: Ice.BoolSeq, seq2: Ice.ByteSeq, seq3: Ice.ShortSeq, seq4: Ice.IntSeq, seq5: Ice.LongSeq, seq6: Ice.FloatSeq, seq7: Ice.DoubleSeq, seq8: Ice.StringSeq, seq9: MyEnumS, seq10: MyClassS, d: StringMyClassD) {
         self.c = c
         self.o = o
         self.s = s

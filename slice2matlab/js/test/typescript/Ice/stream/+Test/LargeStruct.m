@@ -1,6 +1,6 @@
-% SmallStruct   Summary of SmallStruct
+% LargeStruct   Summary of LargeStruct
 %
-% SmallStruct Properties:
+% LargeStruct Properties:
 %   bo
 %   by
 %   sh
@@ -11,12 +11,11 @@
 %   str
 %   e
 %   p
-%   ss
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
 
-classdef SmallStruct
+classdef LargeStruct
     properties
         bo logical
         by uint8
@@ -28,10 +27,9 @@ classdef SmallStruct
         str char
         e Test.MyEnum
         p
-        ss
     end
     methods
-        function obj = SmallStruct(bo, by, sh, i, l, f, d, str, e, p, ss)
+        function obj = LargeStruct(bo, by, sh, i, l, f, d, str, e, p)
             if nargin == 0
                 obj.bo = false;
                 obj.by = 0;
@@ -43,7 +41,6 @@ classdef SmallStruct
                 obj.str = '';
                 obj.e = Test.MyEnum.enum1;
                 obj.p = [];
-                obj.ss = [];
             elseif ne(bo, IceInternal.NoInit.Instance)
                 obj.bo = bo;
                 obj.by = by;
@@ -55,7 +52,6 @@ classdef SmallStruct
                 obj.str = str;
                 obj.e = e;
                 obj.p = p;
-                obj.ss = ss;
             end
         end
         function r = eq(obj, other)
@@ -67,7 +63,7 @@ classdef SmallStruct
     end
     methods(Static)
         function r = ice_read(is)
-            r = Test.SmallStruct(IceInternal.NoInit.Instance);
+            r = Test.LargeStruct(IceInternal.NoInit.Instance);
             r.bo = is.readBool();
             r.by = is.readByte();
             r.sh = is.readShort();
@@ -78,19 +74,18 @@ classdef SmallStruct
             r.str = is.readString();
             r.e = Test.MyEnum.ice_read(is);
             r.p = Test.MyInterfacePrx.ice_read(is);
-            r.ss = is.readByteSeq();
         end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
-                r = Test.SmallStruct.ice_read(is);
+                r = Test.LargeStruct.ice_read(is);
             else
                 r = Ice.Unset;
             end
         end
         function ice_write(os, v)
             if isempty(v)
-                v = Test.SmallStruct();
+                v = Test.LargeStruct();
             end
             os.writeBool(v.bo);
             os.writeByte(v.by);
@@ -102,12 +97,11 @@ classdef SmallStruct
             os.writeString(v.str);
             Test.MyEnum.ice_write(os, v.e);
             os.writeProxy(v.p);
-            os.writeByteSeq(v.ss);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
                 pos = os.startSize();
-                Test.SmallStruct.ice_write(os, v);
+                Test.LargeStruct.ice_write(os, v);
                 os.endSize(pos);
             end
         end

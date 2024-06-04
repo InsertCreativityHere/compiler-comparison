@@ -25,7 +25,7 @@ classdef MyClass < Ice.Value
         c
         prx
         o
-        s Test.SmallStruct
+        s Test.LargeStruct
         seq1
         seq2
         seq3
@@ -44,7 +44,7 @@ classdef MyClass < Ice.Value
                 obj.c = [];
                 obj.prx = [];
                 obj.o = [];
-                obj.s = Test.SmallStruct();
+                obj.s = Test.LargeStruct();
                 obj.seq1 = [];
                 obj.seq2 = [];
                 obj.seq3 = [];
@@ -93,7 +93,7 @@ classdef MyClass < Ice.Value
             os.writeValue(obj.c);
             os.writeProxy(obj.prx);
             os.writeValue(obj.o);
-            Test.SmallStruct.ice_write(os, obj.s);
+            Test.LargeStruct.ice_write(os, obj.s);
             os.writeBoolSeq(obj.seq1);
             os.writeByteSeq(obj.seq2);
             os.writeShortSeq(obj.seq3);
@@ -112,7 +112,7 @@ classdef MyClass < Ice.Value
             is.readValue(@obj.iceSetMember_c, 'Test.MyClass');
             obj.prx = Test.MyInterfacePrx.ice_read(is);
             is.readValue(@obj.iceSetMember_o, 'Ice.Value');
-            obj.s = Test.SmallStruct.ice_read(is);
+            obj.s = Test.LargeStruct.ice_read(is);
             obj.seq1 = is.readBoolSeq();
             obj.seq2 = is.readByteSeq();
             obj.seq3 = is.readShortSeq();

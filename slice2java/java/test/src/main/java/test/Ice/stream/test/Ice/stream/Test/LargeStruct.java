@@ -13,9 +13,9 @@
 // </auto-generated>
 //
 
-package Test;
+package test.Ice.stream.Test;
 
-public class SmallStruct implements java.lang.Cloneable,
+public class LargeStruct implements java.lang.Cloneable,
                                     java.io.Serializable
 {
     public boolean bo;
@@ -38,13 +38,15 @@ public class SmallStruct implements java.lang.Cloneable,
 
     public MyInterfacePrx p;
 
-    public SmallStruct()
+    public test.Ice.stream.Serialize.Small ss;
+
+    public LargeStruct()
     {
         this.str = "";
         this.e = MyEnum.enum1;
     }
 
-    public SmallStruct(boolean bo, byte by, short sh, int i, long l, float f, double d, String str, MyEnum e, MyInterfacePrx p)
+    public LargeStruct(boolean bo, byte by, short sh, int i, long l, float f, double d, String str, MyEnum e, MyInterfacePrx p, test.Ice.stream.Serialize.Small ss)
     {
         this.bo = bo;
         this.by = by;
@@ -56,6 +58,7 @@ public class SmallStruct implements java.lang.Cloneable,
         this.str = str;
         this.e = e;
         this.p = p;
+        this.ss = ss;
     }
 
     public boolean equals(java.lang.Object rhs)
@@ -64,10 +67,10 @@ public class SmallStruct implements java.lang.Cloneable,
         {
             return true;
         }
-        SmallStruct r = null;
-        if(rhs instanceof SmallStruct)
+        LargeStruct r = null;
+        if(rhs instanceof LargeStruct)
         {
-            r = (SmallStruct)rhs;
+            r = (LargeStruct)rhs;
         }
 
         if(r != null)
@@ -121,6 +124,13 @@ public class SmallStruct implements java.lang.Cloneable,
                     return false;
                 }
             }
+            if(this.ss != r.ss)
+            {
+                if(this.ss == null || r.ss == null || !this.ss.equals(r.ss))
+                {
+                    return false;
+                }
+            }
 
             return true;
         }
@@ -131,7 +141,7 @@ public class SmallStruct implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::SmallStruct");
+        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::LargeStruct");
         h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, bo);
         h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, by);
         h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, sh);
@@ -142,15 +152,16 @@ public class SmallStruct implements java.lang.Cloneable,
         h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, str);
         h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, e);
         h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, p);
+        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, ss);
         return h_;
     }
 
-    public SmallStruct clone()
+    public LargeStruct clone()
     {
-        SmallStruct c = null;
+        LargeStruct c = null;
         try
         {
-            c = (SmallStruct)super.clone();
+            c = (LargeStruct)super.clone();
         }
         catch(CloneNotSupportedException ex)
         {
@@ -171,6 +182,7 @@ public class SmallStruct implements java.lang.Cloneable,
         ostr.writeString(this.str);
         MyEnum.ice_write(ostr, this.e);
         ostr.writeProxy(this.p);
+        ostr.writeSerializable(this.ss);
     }
 
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
@@ -185,9 +197,10 @@ public class SmallStruct implements java.lang.Cloneable,
         this.str = istr.readString();
         this.e = MyEnum.ice_read(istr);
         this.p = MyInterfacePrx.uncheckedCast(istr.readProxy());
+        this.ss = istr.readSerializable(test.Ice.stream.Serialize.Small.class);
     }
 
-    static public void ice_write(com.zeroc.Ice.OutputStream ostr, SmallStruct v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, LargeStruct v)
     {
         if(v == null)
         {
@@ -199,14 +212,14 @@ public class SmallStruct implements java.lang.Cloneable,
         }
     }
 
-    static public SmallStruct ice_read(com.zeroc.Ice.InputStream istr)
+    static public LargeStruct ice_read(com.zeroc.Ice.InputStream istr)
     {
-        SmallStruct v = new SmallStruct();
+        LargeStruct v = new LargeStruct();
         v.ice_readMembers(istr);
         return v;
     }
 
-    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<SmallStruct> v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<LargeStruct> v)
     {
         if(v != null && v.isPresent())
         {
@@ -214,7 +227,7 @@ public class SmallStruct implements java.lang.Cloneable,
         }
     }
 
-    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, SmallStruct v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, LargeStruct v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
@@ -224,12 +237,12 @@ public class SmallStruct implements java.lang.Cloneable,
         }
     }
 
-    static public java.util.Optional<SmallStruct> ice_read(com.zeroc.Ice.InputStream istr, int tag)
+    static public java.util.Optional<LargeStruct> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
             istr.skip(4);
-            return java.util.Optional.of(SmallStruct.ice_read(istr));
+            return java.util.Optional.of(LargeStruct.ice_read(istr));
         }
         else
         {
@@ -237,8 +250,8 @@ public class SmallStruct implements java.lang.Cloneable,
         }
     }
 
-    private static final SmallStruct _nullMarshalValue = new SmallStruct();
+    private static final LargeStruct _nullMarshalValue = new LargeStruct();
 
     /** @hidden */
-    public static final long serialVersionUID = 5807549773395829682L;
+    public static final long serialVersionUID = -1860891533017528667L;
 }

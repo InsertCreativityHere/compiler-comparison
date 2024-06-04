@@ -55,8 +55,8 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_SmallStruct;
-    class SmallStruct
+    global $Test__t_LargeStruct;
+    class LargeStruct
     {
         public function __construct($bo=false, $by=0, $sh=0, $i=0, $l=0, $f=0.0, $d=0.0, $str='', $e=\Test\MyEnum::enum1, $p=null)
         {
@@ -74,8 +74,8 @@ namespace Test
 
         public function __toString(): string
         {
-            global $Test__t_SmallStruct;
-            return IcePHP_stringify($this, $Test__t_SmallStruct);
+            global $Test__t_LargeStruct;
+            return IcePHP_stringify($this, $Test__t_LargeStruct);
         }
 
         public $bo;
@@ -100,7 +100,7 @@ namespace Test
     global $IcePHP__t_string;
     global $Test__t_MyEnum;
     global $Test__t_MyInterfacePrx;
-    $Test__t_SmallStruct = IcePHP_defineStruct('::Test::SmallStruct', '\\Test\\SmallStruct', array(
+    $Test__t_LargeStruct = IcePHP_defineStruct('::Test::LargeStruct', '\\Test\\LargeStruct', array(
         array('bo', $IcePHP__t_bool),
         array('by', $IcePHP__t_byte),
         array('sh', $IcePHP__t_short),
@@ -197,12 +197,12 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_SmallStructS;
+    global $Test__t_LargeStructS;
 
-    if(!isset($Test__t_SmallStructS))
+    if(!isset($Test__t_LargeStructS))
     {
-        global $Test__t_SmallStruct;
-        $Test__t_SmallStructS = IcePHP_defineSequence('::Test::SmallStructS', $Test__t_SmallStruct);
+        global $Test__t_LargeStruct;
+        $Test__t_LargeStructS = IcePHP_defineSequence('::Test::LargeStructS', $Test__t_LargeStruct);
     }
 }
 
@@ -318,12 +318,12 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_SmallStructSS;
+    global $Test__t_LargeStructSS;
 
-    if(!isset($Test__t_SmallStructSS))
+    if(!isset($Test__t_LargeStructSS))
     {
-        global $Test__t_SmallStructS;
-        $Test__t_SmallStructSS = IcePHP_defineSequence('::Test::SmallStructSS', $Test__t_SmallStructS);
+        global $Test__t_LargeStructS;
+        $Test__t_LargeStructSS = IcePHP_defineSequence('::Test::LargeStructSS', $Test__t_LargeStructS);
     }
 }
 
@@ -407,7 +407,7 @@ namespace Test
         {
             $this->c = $c;
             $this->o = $o;
-            $this->s = is_null($s) ? new \Test\SmallStruct : $s;
+            $this->s = is_null($s) ? new \Test\LargeStruct : $s;
             $this->seq1 = $seq1;
             $this->seq2 = $seq2;
             $this->seq3 = $seq3;
@@ -455,7 +455,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_MyClass;
-    global $Test__t_SmallStruct;
+    global $Test__t_LargeStruct;
     global $Ice__t_BoolSeq;
     global $Ice__t_ByteSeq;
     global $Ice__t_ShortSeq;
@@ -470,7 +470,7 @@ namespace Test
     $Test__t_MyClass = IcePHP_defineClass('::Test::MyClass', '\\Test\\MyClass', -1, false, $Ice__t_Value, array(
         array('c', $Test__t_MyClass, false, 0),
         array('o', $Ice__t_Value, false, 0),
-        array('s', $Test__t_SmallStruct, false, 0),
+        array('s', $Test__t_LargeStruct, false, 0),
         array('seq1', $Ice__t_BoolSeq, false, 0),
         array('seq2', $Ice__t_ByteSeq, false, 0),
         array('seq3', $Ice__t_ShortSeq, false, 0),

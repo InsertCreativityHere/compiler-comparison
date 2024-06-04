@@ -19,10 +19,10 @@ public class MyClass extends com.zeroc.Ice.Value
 {
     public MyClass()
     {
-        this.s = new SmallStruct();
+        this.s = new LargeStruct();
     }
 
-    public MyClass(MyClass c, com.zeroc.Ice.Value o, SmallStruct s, boolean[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, String[] seq8, MyEnum[] seq9, MyClass[] seq10, java.util.Map<java.lang.String, MyClass> d)
+    public MyClass(MyClass c, com.zeroc.Ice.Value o, LargeStruct s, boolean[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, String[] seq8, MyEnum[] seq9, MyClass[] seq10, java.util.Map<java.lang.String, MyClass> d)
     {
         this.c = c;
         this.o = o;
@@ -44,7 +44,7 @@ public class MyClass extends com.zeroc.Ice.Value
 
     public com.zeroc.Ice.Value o;
 
-    public SmallStruct s;
+    public LargeStruct s;
 
     public boolean[] seq1;
 
@@ -85,7 +85,7 @@ public class MyClass extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 3311717639854000445L;
+    public static final long serialVersionUID = 6306288938268912365L;
 
     /** @hidden */
     @Override
@@ -94,7 +94,7 @@ public class MyClass extends com.zeroc.Ice.Value
         ostr_.startSlice(ice_staticId(), -1, true);
         ostr_.writeValue(c);
         ostr_.writeValue(o);
-        SmallStruct.ice_write(ostr_, s);
+        LargeStruct.ice_write(ostr_, s);
         ostr_.writeBoolSeq(seq1);
         ostr_.writeByteSeq(seq2);
         ostr_.writeShortSeq(seq3);
@@ -116,7 +116,7 @@ public class MyClass extends com.zeroc.Ice.Value
         istr_.startSlice();
         istr_.readValue(v -> c = v, MyClass.class);
         istr_.readValue(v -> o = v, com.zeroc.Ice.Value.class);
-        s = SmallStruct.ice_read(istr_);
+        s = LargeStruct.ice_read(istr_);
         seq1 = istr_.readBoolSeq();
         seq2 = istr_.readByteSeq();
         seq3 = istr_.readShortSeq();

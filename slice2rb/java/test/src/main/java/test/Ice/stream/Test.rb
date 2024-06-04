@@ -81,8 +81,8 @@ module ::Test
         T_SerialSmall = ::Ice::__defineSequence('::Test::SerialSmall', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::SmallStruct)
-        class SmallStruct
+    if not defined?(::Test::LargeStruct)
+        class LargeStruct
             include ::Ice::Inspect_mixin
             def initialize(bo=false, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=::Test::MyEnum::Enum1, p=nil, ss=nil)
                 @bo = bo
@@ -115,7 +115,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::SmallStruct or
+                return false if !other.is_a? ::Test::LargeStruct or
                     @bo != other.bo or
                     @by != other.by or
                     @sh != other.sh or
@@ -137,7 +137,7 @@ module ::Test
             attr_accessor :bo, :by, :sh, :i, :l, :f, :d, :str, :e, :p, :ss
         end
 
-        T_SmallStruct = ::Ice::__defineStruct('::Test::SmallStruct', SmallStruct, [
+        T_LargeStruct = ::Ice::__defineStruct('::Test::LargeStruct', LargeStruct, [
             ["bo", ::Ice::T_bool],
             ["by", ::Ice::T_byte],
             ["sh", ::Ice::T_short],
@@ -213,12 +213,12 @@ module ::Test
         end
         class OptionalClass < ::Ice::Value
 
-            def initialize(bo=false, by=0, sh=::Ice::Unset, i=::Ice::Unset, sm=::Ice::Unset, enumS4=::Ice::Unset, byteBoolD6=::Ice::Unset, shortIntD7=::Ice::Unset, enum8=::Ice::Unset, intSeq12=::Ice::Unset, byteSeq13=::Ice::Unset, stringSeq14=::Ice::Unset, p15=::Ice::Unset)
+            def initialize(bo=false, by=0, sh=::Ice::Unset, i=::Ice::Unset, s=::Ice::Unset, enumS4=::Ice::Unset, byteBoolD6=::Ice::Unset, shortIntD7=::Ice::Unset, enum8=::Ice::Unset, intSeq12=::Ice::Unset, byteSeq13=::Ice::Unset, stringSeq14=::Ice::Unset, p15=::Ice::Unset)
                 @bo = bo
                 @by = by
                 @sh = sh
                 @i = i
-                @sm = sm
+                @s = s
                 @enumS4 = enumS4
                 @byteBoolD6 = byteBoolD6
                 @shortIntD7 = shortIntD7
@@ -229,7 +229,7 @@ module ::Test
                 @p15 = p15
             end
 
-            attr_accessor :bo, :by, :sh, :i, :sm, :enumS4, :byteBoolD6, :shortIntD7, :enum8, :intSeq12, :byteSeq13, :stringSeq14, :p15
+            attr_accessor :bo, :by, :sh, :i, :s, :enumS4, :byteBoolD6, :shortIntD7, :enum8, :intSeq12, :byteSeq13, :stringSeq14, :p15
         end
 
         if not defined?(::Test::T_OptionalClass)
@@ -241,7 +241,7 @@ module ::Test
             ['by', ::Ice::T_byte, false, 0],
             ['sh', ::Ice::T_short, true, 1],
             ['i', ::Ice::T_int, true, 2],
-            ['sm', ::Test::T_SmallStruct, true, 3],
+            ['s', ::Test::T_LargeStruct, true, 3],
             ['enumS4', ::Test::T_MyEnumS, true, 4],
             ['byteBoolD6', ::Test::T_ByteBoolD, true, 6],
             ['shortIntD7', ::Test::T_ShortIntD, true, 7],
@@ -311,7 +311,7 @@ module ::Test
         end
         class MyClass < ::Ice::Value
 
-            def initialize(c=nil, prx=nil, o=nil, s=::Test::SmallStruct.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, seq5=nil, seq6=nil, seq7=nil, seq8=nil, seq9=nil, seq10=nil, d=nil)
+            def initialize(c=nil, prx=nil, o=nil, s=::Test::LargeStruct.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, seq5=nil, seq6=nil, seq7=nil, seq8=nil, seq9=nil, seq10=nil, d=nil)
                 @c = c
                 @prx = prx
                 @o = o
@@ -340,7 +340,7 @@ module ::Test
             ['c', ::Test::T_MyClass, false, 0],
             ['prx', ::Test::T_MyInterfacePrx, false, 0],
             ['o', ::Ice::T_Value, false, 0],
-            ['s', ::Test::T_SmallStruct, false, 0],
+            ['s', ::Test::T_LargeStruct, false, 0],
             ['seq1', ::Ice::T_BoolSeq, false, 0],
             ['seq2', ::Ice::T_ByteSeq, false, 0],
             ['seq3', ::Ice::T_ShortSeq, false, 0],

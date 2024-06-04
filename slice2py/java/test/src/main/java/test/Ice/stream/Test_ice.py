@@ -57,9 +57,9 @@ if 'MyInterface' not in _M_Test.__dict__:
 if '_t_SerialSmall' not in _M_Test.__dict__:
     _M_Test._t_SerialSmall = IcePy.defineSequence('::Test::SerialSmall', (), IcePy._t_byte)
 
-if 'SmallStruct' not in _M_Test.__dict__:
-    _M_Test.SmallStruct = Ice.createTempClass()
-    class SmallStruct(object):
+if 'LargeStruct' not in _M_Test.__dict__:
+    _M_Test.LargeStruct = Ice.createTempClass()
+    class LargeStruct(object):
         def __init__(self, bo=False, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=_M_Test.MyEnum.enum1, p=None, ss=None):
             self.bo = bo
             self.by = by
@@ -76,7 +76,7 @@ if 'SmallStruct' not in _M_Test.__dict__:
         def __eq__(self, other):
             if other is None:
                 return False
-            elif not isinstance(other, _M_Test.SmallStruct):
+            elif not isinstance(other, _M_Test.LargeStruct):
                 return NotImplemented
             else:
                 if self.bo != other.bo:
@@ -107,11 +107,11 @@ if 'SmallStruct' not in _M_Test.__dict__:
             return not self.__eq__(other)
 
         def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_SmallStruct)
+            return IcePy.stringify(self, _M_Test._t_LargeStruct)
 
         __repr__ = __str__
 
-    _M_Test._t_SmallStruct = IcePy.defineStruct('::Test::SmallStruct', SmallStruct, (), (
+    _M_Test._t_LargeStruct = IcePy.defineStruct('::Test::LargeStruct', LargeStruct, (), (
         ('bo', (), IcePy._t_bool),
         ('by', (), IcePy._t_byte),
         ('sh', (), IcePy._t_short),
@@ -125,8 +125,8 @@ if 'SmallStruct' not in _M_Test.__dict__:
         ('ss', (), _M_Test._t_SerialSmall)
     ))
 
-    _M_Test.SmallStruct = SmallStruct
-    del SmallStruct
+    _M_Test.LargeStruct = LargeStruct
+    del LargeStruct
 
 if 'Point' not in _M_Test.__dict__:
     _M_Test.Point = Ice.createTempClass()
@@ -238,12 +238,12 @@ if '_t_StringMyClassD' not in _M_Test.__dict__:
 if 'OptionalClass' not in _M_Test.__dict__:
     _M_Test.OptionalClass = Ice.createTempClass()
     class OptionalClass(Ice.Value):
-        def __init__(self, bo=False, by=0, sh=Ice.Unset, i=Ice.Unset, sm=Ice.Unset, enumS4=Ice.Unset, byteBoolD6=Ice.Unset, shortIntD7=Ice.Unset, enum8=Ice.Unset, intSeq12=Ice.Unset, byteSeq13=Ice.Unset, stringSeq14=Ice.Unset, p15=Ice.Unset):
+        def __init__(self, bo=False, by=0, sh=Ice.Unset, i=Ice.Unset, s=Ice.Unset, enumS4=Ice.Unset, byteBoolD6=Ice.Unset, shortIntD7=Ice.Unset, enum8=Ice.Unset, intSeq12=Ice.Unset, byteSeq13=Ice.Unset, stringSeq14=Ice.Unset, p15=Ice.Unset):
             self.bo = bo
             self.by = by
             self.sh = sh
             self.i = i
-            self.sm = sm
+            self.s = s
             self.enumS4 = enumS4
             self.byteBoolD6 = byteBoolD6
             self.shortIntD7 = shortIntD7
@@ -270,7 +270,7 @@ if 'OptionalClass' not in _M_Test.__dict__:
         ('by', (), IcePy._t_byte, False, 0),
         ('sh', (), IcePy._t_short, True, 1),
         ('i', (), IcePy._t_int, True, 2),
-        ('sm', (), _M_Test._t_SmallStruct, True, 3),
+        ('s', (), _M_Test._t_LargeStruct, True, 3),
         ('enumS4', (), _M_Test._t_MyEnumS, True, 4),
         ('byteBoolD6', (), _M_Test._t_ByteBoolD, True, 6),
         ('shortIntD7', (), _M_Test._t_ShortIntD, True, 7),
@@ -332,7 +332,7 @@ if 'MyClass' not in _M_Test.__dict__:
             self.prx = prx
             self.o = o
             if s is Ice._struct_marker:
-                self.s = _M_Test.SmallStruct()
+                self.s = _M_Test.LargeStruct()
             else:
                 self.s = s
             self.seq1 = seq1
@@ -363,7 +363,7 @@ if 'MyClass' not in _M_Test.__dict__:
         ('c', (), _M_Test._t_MyClass, False, 0),
         ('prx', (), _M_Test._t_MyInterfacePrx, False, 0),
         ('o', (), IcePy._t_Value, False, 0),
-        ('s', (), _M_Test._t_SmallStruct, False, 0),
+        ('s', (), _M_Test._t_LargeStruct, False, 0),
         ('seq1', (), _M_Ice._t_BoolSeq, False, 0),
         ('seq2', (), _M_Ice._t_ByteSeq, False, 0),
         ('seq3', (), _M_Ice._t_ShortSeq, False, 0),

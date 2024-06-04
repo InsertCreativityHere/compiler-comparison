@@ -77,7 +77,7 @@ public extension Ice.OutputStream {
     }
 }
 
-public struct SmallStruct {
+public struct LargeStruct {
     public var bo: Swift.Bool = false
     public var by: Swift.UInt8 = 0
     public var sh: Swift.Int16 = 0
@@ -105,13 +105,13 @@ public struct SmallStruct {
     }
 }
 
-/// An `Ice.InputStream` extension to read `SmallStruct` structured values from the stream.
+/// An `Ice.InputStream` extension to read `LargeStruct` structured values from the stream.
 public extension Ice.InputStream {
-    /// Read a `SmallStruct` structured value from the stream.
+    /// Read a `LargeStruct` structured value from the stream.
     ///
-    /// - returns: `SmallStruct` - The structured value read from the stream.
-    func read() throws -> SmallStruct {
-        var v = SmallStruct()
+    /// - returns: `LargeStruct` - The structured value read from the stream.
+    func read() throws -> LargeStruct {
+        var v = LargeStruct()
         v.bo = try self.read()
         v.by = try self.read()
         v.sh = try self.read()
@@ -125,26 +125,26 @@ public extension Ice.InputStream {
         return v
     }
 
-    /// Read an optional `SmallStruct?` structured value from the stream.
+    /// Read an optional `LargeStruct?` structured value from the stream.
     ///
     /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
     ///
-    /// - returns: `SmallStruct?` - The structured value read from the stream.
-    func read(tag: Swift.Int32) throws -> SmallStruct? {
+    /// - returns: `LargeStruct?` - The structured value read from the stream.
+    func read(tag: Swift.Int32) throws -> LargeStruct? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
         }
         try skip(4)
-        return try read() as SmallStruct
+        return try read() as LargeStruct
     }
 }
 
-/// An `Ice.OutputStream` extension to write `SmallStruct` structured values from the stream.
+/// An `Ice.OutputStream` extension to write `LargeStruct` structured values from the stream.
 public extension Ice.OutputStream {
-    /// Write a `SmallStruct` structured value to the stream.
+    /// Write a `LargeStruct` structured value to the stream.
     ///
-    /// - parameter _: `SmallStruct` - The value to write to the stream.
-    func write(_ v: SmallStruct) {
+    /// - parameter _: `LargeStruct` - The value to write to the stream.
+    func write(_ v: LargeStruct) {
         self.write(v.bo)
         self.write(v.by)
         self.write(v.sh)
@@ -157,12 +157,12 @@ public extension Ice.OutputStream {
         self.write(v.p)
     }
 
-    /// Write an optional `SmallStruct?` structured value to the stream.
+    /// Write an optional `LargeStruct?` structured value to the stream.
     ///
     /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
     ///
-    /// - parameter value: `SmallStruct?` - The value to write to the stream.
-    func write(tag: Swift.Int32, value: SmallStruct?) {
+    /// - parameter value: `LargeStruct?` - The value to write to the stream.
+    func write(tag: Swift.Int32, value: LargeStruct?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
                 let pos = startSize()
@@ -1379,34 +1379,34 @@ public struct MyEnumListHelper {
     }
 }
 
-public typealias SmallStructList = [SmallStruct]
+public typealias LargeStructList = [LargeStruct]
 
-/// Helper class to read and write `SmallStructList` sequence values from
+/// Helper class to read and write `LargeStructList` sequence values from
 /// `Ice.InputStream` and `Ice.OutputStream`.
-public struct SmallStructListHelper {
-    /// Read a `SmallStructList` sequence from the stream.
+public struct LargeStructListHelper {
+    /// Read a `LargeStructList` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
-    /// - returns: `SmallStructList` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> SmallStructList {
+    /// - returns: `LargeStructList` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream) throws -> LargeStructList {
         let sz = try istr.readAndCheckSeqSize(minSize: 32)
-        var v = SmallStructList()
+        var v = LargeStructList()
         v.reserveCapacity(sz)
         for _ in 0 ..< sz {
-            let j: SmallStruct = try istr.read()
+            let j: LargeStruct = try istr.read()
             v.append(j)
         }
         return v
     }
-    /// Read an optional `SmallStructList?` sequence from the stream.
+    /// Read an optional `LargeStructList?` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
     /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
     ///
-    /// - returns: `SmallStructList` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> SmallStructList? {
+    /// - returns: `LargeStructList` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> LargeStructList? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
         }
@@ -1414,26 +1414,26 @@ public struct SmallStructListHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `SmallStructList` sequence to the stream.
+    /// Wite a `LargeStructList` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
-    /// - parameter value: `SmallStructList` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: SmallStructList) {
+    /// - parameter value: `LargeStructList` - The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream, value v: LargeStructList) {
         ostr.write(size: v.count)
         for item in v {
             ostr.write(item)
         }
     }
 
-    /// Wite an optional `SmallStructList?` sequence to the stream.
+    /// Wite an optional `LargeStructList?` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
     /// - parameter tag: `Int32` - The numeric tag associated with the value.
     ///
-    /// - parameter value: `SmallStructList` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: SmallStructList?) {
+    /// - parameter value: `LargeStructList` The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: LargeStructList?) {
         guard let val = v else {
             return
         }
@@ -1647,34 +1647,34 @@ public struct MyEnumLinkedListHelper {
     }
 }
 
-public typealias SmallStructLinkedList = [SmallStruct]
+public typealias LargeStructLinkedList = [LargeStruct]
 
-/// Helper class to read and write `SmallStructLinkedList` sequence values from
+/// Helper class to read and write `LargeStructLinkedList` sequence values from
 /// `Ice.InputStream` and `Ice.OutputStream`.
-public struct SmallStructLinkedListHelper {
-    /// Read a `SmallStructLinkedList` sequence from the stream.
+public struct LargeStructLinkedListHelper {
+    /// Read a `LargeStructLinkedList` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
-    /// - returns: `SmallStructLinkedList` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> SmallStructLinkedList {
+    /// - returns: `LargeStructLinkedList` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream) throws -> LargeStructLinkedList {
         let sz = try istr.readAndCheckSeqSize(minSize: 32)
-        var v = SmallStructLinkedList()
+        var v = LargeStructLinkedList()
         v.reserveCapacity(sz)
         for _ in 0 ..< sz {
-            let j: SmallStruct = try istr.read()
+            let j: LargeStruct = try istr.read()
             v.append(j)
         }
         return v
     }
-    /// Read an optional `SmallStructLinkedList?` sequence from the stream.
+    /// Read an optional `LargeStructLinkedList?` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
     /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
     ///
-    /// - returns: `SmallStructLinkedList` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> SmallStructLinkedList? {
+    /// - returns: `LargeStructLinkedList` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> LargeStructLinkedList? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
         }
@@ -1682,26 +1682,26 @@ public struct SmallStructLinkedListHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `SmallStructLinkedList` sequence to the stream.
+    /// Wite a `LargeStructLinkedList` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
-    /// - parameter value: `SmallStructLinkedList` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: SmallStructLinkedList) {
+    /// - parameter value: `LargeStructLinkedList` - The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream, value v: LargeStructLinkedList) {
         ostr.write(size: v.count)
         for item in v {
             ostr.write(item)
         }
     }
 
-    /// Wite an optional `SmallStructLinkedList?` sequence to the stream.
+    /// Wite an optional `LargeStructLinkedList?` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
     /// - parameter tag: `Int32` - The numeric tag associated with the value.
     ///
-    /// - parameter value: `SmallStructLinkedList` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: SmallStructLinkedList?) {
+    /// - parameter value: `LargeStructLinkedList` The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: LargeStructLinkedList?) {
         guard let val = v else {
             return
         }
@@ -1717,34 +1717,34 @@ public typealias LongStack = [Swift.Int64]
 
 public typealias FloatStack = [Swift.Float]
 
-public typealias SmallStructStack = [SmallStruct]
+public typealias LargeStructStack = [LargeStruct]
 
-/// Helper class to read and write `SmallStructStack` sequence values from
+/// Helper class to read and write `LargeStructStack` sequence values from
 /// `Ice.InputStream` and `Ice.OutputStream`.
-public struct SmallStructStackHelper {
-    /// Read a `SmallStructStack` sequence from the stream.
+public struct LargeStructStackHelper {
+    /// Read a `LargeStructStack` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
-    /// - returns: `SmallStructStack` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> SmallStructStack {
+    /// - returns: `LargeStructStack` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream) throws -> LargeStructStack {
         let sz = try istr.readAndCheckSeqSize(minSize: 32)
-        var v = SmallStructStack()
+        var v = LargeStructStack()
         v.reserveCapacity(sz)
         for _ in 0 ..< sz {
-            let j: SmallStruct = try istr.read()
+            let j: LargeStruct = try istr.read()
             v.append(j)
         }
         return v
     }
-    /// Read an optional `SmallStructStack?` sequence from the stream.
+    /// Read an optional `LargeStructStack?` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
     /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
     ///
-    /// - returns: `SmallStructStack` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> SmallStructStack? {
+    /// - returns: `LargeStructStack` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> LargeStructStack? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
         }
@@ -1752,26 +1752,26 @@ public struct SmallStructStackHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `SmallStructStack` sequence to the stream.
+    /// Wite a `LargeStructStack` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
-    /// - parameter value: `SmallStructStack` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: SmallStructStack) {
+    /// - parameter value: `LargeStructStack` - The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream, value v: LargeStructStack) {
         ostr.write(size: v.count)
         for item in v {
             ostr.write(item)
         }
     }
 
-    /// Wite an optional `SmallStructStack?` sequence to the stream.
+    /// Wite an optional `LargeStructStack?` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
     /// - parameter tag: `Int32` - The numeric tag associated with the value.
     ///
-    /// - parameter value: `SmallStructStack` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: SmallStructStack?) {
+    /// - parameter value: `LargeStructStack` The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: LargeStructStack?) {
         guard let val = v else {
             return
         }
@@ -1985,34 +1985,34 @@ public typealias DoubleQueue = [Swift.Double]
 
 public typealias StringQueue = [Swift.String]
 
-public typealias SmallStructQueue = [SmallStruct]
+public typealias LargeStructQueue = [LargeStruct]
 
-/// Helper class to read and write `SmallStructQueue` sequence values from
+/// Helper class to read and write `LargeStructQueue` sequence values from
 /// `Ice.InputStream` and `Ice.OutputStream`.
-public struct SmallStructQueueHelper {
-    /// Read a `SmallStructQueue` sequence from the stream.
+public struct LargeStructQueueHelper {
+    /// Read a `LargeStructQueue` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
-    /// - returns: `SmallStructQueue` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> SmallStructQueue {
+    /// - returns: `LargeStructQueue` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream) throws -> LargeStructQueue {
         let sz = try istr.readAndCheckSeqSize(minSize: 32)
-        var v = SmallStructQueue()
+        var v = LargeStructQueue()
         v.reserveCapacity(sz)
         for _ in 0 ..< sz {
-            let j: SmallStruct = try istr.read()
+            let j: LargeStruct = try istr.read()
             v.append(j)
         }
         return v
     }
-    /// Read an optional `SmallStructQueue?` sequence from the stream.
+    /// Read an optional `LargeStructQueue?` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
     /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
     ///
-    /// - returns: `SmallStructQueue` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> SmallStructQueue? {
+    /// - returns: `LargeStructQueue` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> LargeStructQueue? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
         }
@@ -2020,26 +2020,26 @@ public struct SmallStructQueueHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `SmallStructQueue` sequence to the stream.
+    /// Wite a `LargeStructQueue` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
-    /// - parameter value: `SmallStructQueue` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: SmallStructQueue) {
+    /// - parameter value: `LargeStructQueue` - The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream, value v: LargeStructQueue) {
         ostr.write(size: v.count)
         for item in v {
             ostr.write(item)
         }
     }
 
-    /// Wite an optional `SmallStructQueue?` sequence to the stream.
+    /// Wite an optional `LargeStructQueue?` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
     /// - parameter tag: `Int32` - The numeric tag associated with the value.
     ///
-    /// - parameter value: `SmallStructQueue` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: SmallStructQueue?) {
+    /// - parameter value: `LargeStructQueue` The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: LargeStructQueue?) {
         guard let val = v else {
             return
         }
@@ -2464,7 +2464,7 @@ public extension Ice.ClassResolver {
 open class MyClass: Ice.Value {
     public var c: MyClass? = nil
     public var o: Ice.Value? = nil
-    public var s: SmallStruct = SmallStruct()
+    public var s: LargeStruct = LargeStruct()
     public var seq1: Ice.BoolSeq = Ice.BoolSeq()
     public var seq2: Ice.ByteSeq = Ice.ByteSeq()
     public var seq3: Ice.ShortSeq = Ice.ShortSeq()
@@ -2479,7 +2479,7 @@ open class MyClass: Ice.Value {
 
     public required init() {}
 
-    public init(c: MyClass?, o: Ice.Value?, s: SmallStruct, seq1: Ice.BoolSeq, seq2: Ice.ByteSeq, seq3: Ice.ShortSeq, seq4: Ice.IntSeq, seq5: Ice.LongSeq, seq6: Ice.FloatSeq, seq7: Ice.DoubleSeq, seq8: Ice.StringSeq, seq9: MyEnumS, seq10: MyClassS, d: StringMyClassD) {
+    public init(c: MyClass?, o: Ice.Value?, s: LargeStruct, seq1: Ice.BoolSeq, seq2: Ice.ByteSeq, seq3: Ice.ShortSeq, seq4: Ice.IntSeq, seq5: Ice.LongSeq, seq6: Ice.FloatSeq, seq7: Ice.DoubleSeq, seq8: Ice.StringSeq, seq9: MyEnumS, seq10: MyClassS, d: StringMyClassD) {
         self.c = c
         self.o = o
         self.s = s

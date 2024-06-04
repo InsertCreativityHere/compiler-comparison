@@ -56,7 +56,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial record class SmallStruct
+    public sealed partial record class LargeStruct
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool bo;
@@ -94,7 +94,7 @@ namespace Test
         partial void ice_initialize();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SmallStruct(byte[] ss)
+        public LargeStruct(byte[] ss)
         {
             global::System.ArgumentNullException.ThrowIfNull(ss);
             this.ss = ss;
@@ -102,7 +102,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SmallStruct(bool bo, byte by, short sh, int i, long l, float f, double d, string str, MyEnum e, MyInterfacePrx? p, byte[] ss)
+        public LargeStruct(bool bo, byte by, short sh, int i, long l, float f, double d, string str, MyEnum e, MyInterfacePrx? p, byte[] ss)
         {
             this.bo = bo;
             this.by = by;
@@ -121,7 +121,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SmallStruct(Ice.InputStream istr)
+        public LargeStruct(Ice.InputStream istr)
         {
             this.bo = istr.readBool();
             this.by = istr.readByte();
@@ -154,13 +154,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(Ice.OutputStream ostr, SmallStruct v)
+        public static void ice_write(Ice.OutputStream ostr, LargeStruct v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static SmallStruct ice_read(Ice.InputStream istr) => new(istr);
+        public static LargeStruct ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -243,7 +243,7 @@ namespace Test
         public int? i;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SmallStruct? sm;
+        public LargeStruct? s;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MyEnum[]? enumS4;
@@ -272,13 +272,13 @@ namespace Test
         partial void ice_initialize();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OptionalClass(bool bo, byte by, short? sh, int? i, SmallStruct? sm, MyEnum[]? enumS4, global::System.Collections.Generic.Dictionary<byte, bool>? byteBoolD6, global::System.Collections.Generic.Dictionary<short, int>? shortIntD7, MyEnum? enum8, int[]? intSeq12, byte[]? byteSeq13, string[]? stringSeq14, Point? p15)
+        public OptionalClass(bool bo, byte by, short? sh, int? i, LargeStruct? s, MyEnum[]? enumS4, global::System.Collections.Generic.Dictionary<byte, bool>? byteBoolD6, global::System.Collections.Generic.Dictionary<short, int>? shortIntD7, MyEnum? enum8, int[]? intSeq12, byte[]? byteSeq13, string[]? stringSeq14, Point? p15)
         {
             this.bo = bo;
             this.by = by;
             this.sh = sh;
             this.i = i;
-            this.sm = sm;
+            this.s = s;
             this.enumS4 = enumS4;
             this.byteBoolD6 = byteBoolD6;
             this.shortIntD7 = shortIntD7;
@@ -317,10 +317,10 @@ namespace Test
             ostr_.writeByte(by);
             ostr_.writeShort(1, sh);
             ostr_.writeInt(2, i);
-            if (sm is not null && ostr_.writeOptional(3, Ice.OptionalFormat.FSize))
+            if (s is not null && ostr_.writeOptional(3, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                SmallStruct.ice_write(ostr_, sm);
+                LargeStruct.ice_write(ostr_, s);
                 ostr_.endSize(pos);
             }
             if (enumS4 is not null && ostr_.writeOptional(4, Ice.OptionalFormat.FSize))
@@ -365,13 +365,13 @@ namespace Test
             if (istr_.readOptional(3, Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                SmallStruct tmpVal;
-                tmpVal = new SmallStruct(istr_);
-                sm = tmpVal;
+                LargeStruct tmpVal;
+                tmpVal = new LargeStruct(istr_);
+                s = tmpVal;
             }
             else
             {
-                sm = null;
+                s = null;
             }
             if (istr_.readOptional(4, Ice.OptionalFormat.FSize))
             {
@@ -487,7 +487,7 @@ namespace Test
         public global::Ice.Value? o;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SmallStruct s;
+        public LargeStruct s;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool[] seq1;
@@ -525,7 +525,7 @@ namespace Test
         partial void ice_initialize();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass(MyClass? c, MyInterfacePrx? prx, global::Ice.Value? o, SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
+        public MyClass(MyClass? c, MyInterfacePrx? prx, global::Ice.Value? o, LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
         {
             this.c = c;
             this.prx = prx;
@@ -558,7 +558,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass(SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
+        public MyClass(LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
         {
             global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
@@ -626,7 +626,7 @@ namespace Test
             ostr_.writeValue(c);
             MyInterfacePrxHelper.write(ostr_, prx);
             ostr_.writeValue(o);
-            SmallStruct.ice_write(ostr_, s);
+            LargeStruct.ice_write(ostr_, s);
             global::Ice.BoolSeqHelper.write(ostr_, seq1);
             global::Ice.ByteSeqHelper.write(ostr_, seq2);
             global::Ice.ShortSeqHelper.write(ostr_, seq3);
@@ -648,7 +648,7 @@ namespace Test
             istr_.readValue((MyClass? v) => { this.c = v; });
             prx = MyInterfacePrxHelper.read(istr_);
             istr_.readValue((global::Ice.Value? v) => { this.o = v; });
-            s = new SmallStruct(istr_);
+            s = new LargeStruct(istr_);
             seq1 = global::Ice.BoolSeqHelper.read(istr_);
             seq2 = global::Ice.ByteSeqHelper.read(istr_);
             seq3 = global::Ice.ShortSeqHelper.read(istr_);

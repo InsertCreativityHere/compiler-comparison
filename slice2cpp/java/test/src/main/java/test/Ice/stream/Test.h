@@ -42,7 +42,7 @@ namespace Test
 
     using SerialSmall = ::std::vector<std::byte>;
 
-    struct SmallStruct;
+    struct LargeStruct;
 
     struct Point;
 
@@ -148,7 +148,7 @@ protected:
 namespace Test
 {
 
-struct SmallStruct
+struct LargeStruct
 {
     bool bo;
     ::std::uint8_t by;
@@ -196,12 +196,12 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i, ::std::optional<::Test::SmallStruct> sm, ::std::optional<::Test::MyEnumS> enumS4, ::std::optional<::Test::ByteBoolD> byteBoolD6, ::std::optional<::Test::ShortIntD> shortIntD7, ::std::optional<::Test::MyEnum> enum8, ::std::optional<::Ice::IntSeq> intSeq12, ::std::optional<::Ice::ByteSeq> byteSeq13, ::std::optional<::Ice::StringSeq> stringSeq14, ::std::optional<::Test::Point> p15) :
+    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i, ::std::optional<::Test::LargeStruct> s, ::std::optional<::Test::MyEnumS> enumS4, ::std::optional<::Test::ByteBoolD> byteBoolD6, ::std::optional<::Test::ShortIntD> shortIntD7, ::std::optional<::Test::MyEnum> enum8, ::std::optional<::Ice::IntSeq> intSeq12, ::std::optional<::Ice::ByteSeq> byteSeq13, ::std::optional<::Ice::StringSeq> stringSeq14, ::std::optional<::Test::Point> p15) :
         bo(bo),
         by(by),
         sh(sh),
         i(i),
-        sm(::std::move(sm)),
+        s(::std::move(s)),
         enumS4(::std::move(enumS4)),
         byteBoolD6(::std::move(byteBoolD6)),
         shortIntD7(::std::move(shortIntD7)),
@@ -225,9 +225,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::std::uint8_t&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::Test::SmallStruct>&, const ::std::optional<::Test::MyEnumS>&, const ::std::optional<::Test::ByteBoolD>&, const ::std::optional<::Test::ShortIntD>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Ice::IntSeq>&, const ::std::optional<::Ice::ByteSeq>&, const ::std::optional<::Ice::StringSeq>&, const ::std::optional<::Test::Point>&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::Test::LargeStruct>&, const ::std::optional<::Test::MyEnumS>&, const ::std::optional<::Test::ByteBoolD>&, const ::std::optional<::Test::ShortIntD>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Ice::IntSeq>&, const ::std::optional<::Ice::ByteSeq>&, const ::std::optional<::Ice::StringSeq>&, const ::std::optional<::Test::Point>&> ice_tuple() const
     {
-        return std::tie(bo, by, sh, i, sm, enumS4, byteBoolD6, shortIntD7, enum8, intSeq12, byteSeq13, stringSeq14, p15);
+        return std::tie(bo, by, sh, i, s, enumS4, byteBoolD6, shortIntD7, enum8, intSeq12, byteSeq13, stringSeq14, p15);
     }
 
     /**
@@ -240,7 +240,7 @@ public:
     ::std::uint8_t by;
     ::std::optional<::std::int16_t> sh;
     ::std::optional<::std::int32_t> i;
-    ::std::optional<::Test::SmallStruct> sm;
+    ::std::optional<::Test::LargeStruct> s;
     ::std::optional<::Test::MyEnumS> enumS4;
     ::std::optional<::Test::ByteBoolD> byteBoolD6;
     ::std::optional<::Test::ShortIntD> shortIntD7;
@@ -273,7 +273,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyClass(::Test::MyClassPtr c, ::std::optional<::Test::MyInterfacePrx> prx, ::Ice::ValuePtr o, ::Test::SmallStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) :
+    MyClass(::Test::MyClassPtr c, ::std::optional<::Test::MyInterfacePrx> prx, ::Ice::ValuePtr o, ::Test::LargeStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) :
         c(::std::move(c)),
         prx(::std::move(prx)),
         o(::std::move(o)),
@@ -304,7 +304,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::Test::MyClassPtr&, const ::std::optional<::Test::MyInterfacePrx>&, const ::Ice::ValuePtr&, const ::Test::SmallStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
+    std::tuple<const ::Test::MyClassPtr&, const ::std::optional<::Test::MyInterfacePrx>&, const ::Ice::ValuePtr&, const ::Test::LargeStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
     {
         return std::tie(c, prx, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d);
     }
@@ -318,7 +318,7 @@ public:
     ::Test::MyClassPtr c;
     ::std::optional<::Test::MyInterfacePrx> prx;
     ::Ice::ValuePtr o;
-    ::Test::SmallStruct s;
+    ::Test::LargeStruct s;
     ::Ice::BoolSeq seq1;
     ::Ice::ByteSeq seq2;
     ::Ice::ShortSeq seq3;
@@ -443,7 +443,7 @@ struct StreamableTraits< ::Test::MyEnum>
 };
 
 template<>
-struct StreamableTraits<::Test::SmallStruct>
+struct StreamableTraits<::Test::LargeStruct>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
     static const int minWireSize = 33;
@@ -451,9 +451,9 @@ struct StreamableTraits<::Test::SmallStruct>
 };
 
 template<>
-struct StreamReader<::Test::SmallStruct>
+struct StreamReader<::Test::LargeStruct>
 {
-    static void read(InputStream* istr, ::Test::SmallStruct& v)
+    static void read(InputStream* istr, ::Test::LargeStruct& v)
     {
         istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.f, v.d, v.str, v.e, v.p, v.ss);
     }
@@ -482,7 +482,7 @@ struct StreamWriter<::Test::OptionalClass>
     static void write(OutputStream* ostr, const ::Test::OptionalClass& v)
     {
         ostr->writeAll(v.bo, v.by);
-        ostr->writeAll({1, 2, 3, 4, 6, 7, 8, 12, 13, 14, 15}, v.sh, v.i, v.sm, v.enumS4, v.byteBoolD6, v.shortIntD7, v.enum8, v.intSeq12, v.byteSeq13, v.stringSeq14, v.p15);
+        ostr->writeAll({1, 2, 3, 4, 6, 7, 8, 12, 13, 14, 15}, v.sh, v.i, v.s, v.enumS4, v.byteBoolD6, v.shortIntD7, v.enum8, v.intSeq12, v.byteSeq13, v.stringSeq14, v.p15);
     }
 };
 
@@ -492,7 +492,7 @@ struct StreamReader<::Test::OptionalClass>
     static void read(InputStream* istr, ::Test::OptionalClass& v)
     {
         istr->readAll(v.bo, v.by);
-        istr->readAll({1, 2, 3, 4, 6, 7, 8, 12, 13, 14, 15}, v.sh, v.i, v.sm, v.enumS4, v.byteBoolD6, v.shortIntD7, v.enum8, v.intSeq12, v.byteSeq13, v.stringSeq14, v.p15);
+        istr->readAll({1, 2, 3, 4, 6, 7, 8, 12, 13, 14, 15}, v.sh, v.i, v.s, v.enumS4, v.byteBoolD6, v.shortIntD7, v.enum8, v.intSeq12, v.byteSeq13, v.stringSeq14, v.p15);
     }
 };
 

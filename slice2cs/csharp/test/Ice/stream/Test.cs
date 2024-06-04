@@ -58,7 +58,7 @@ namespace Ice.stream
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public sealed partial record class SmallStruct
+        public sealed partial record class LargeStruct
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool bo;
@@ -93,13 +93,13 @@ namespace Ice.stream
             partial void ice_initialize();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public SmallStruct()
+            public LargeStruct()
             {
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public SmallStruct(bool bo, byte by, short sh, int i, long l, float f, double d, string str, MyEnum e, MyInterfacePrx? p)
+            public LargeStruct(bool bo, byte by, short sh, int i, long l, float f, double d, string str, MyEnum e, MyInterfacePrx? p)
             {
                 this.bo = bo;
                 this.by = by;
@@ -116,7 +116,7 @@ namespace Ice.stream
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public SmallStruct(Ice.InputStream istr)
+            public LargeStruct(Ice.InputStream istr)
             {
                 this.bo = istr.readBool();
                 this.by = istr.readByte();
@@ -147,13 +147,13 @@ namespace Ice.stream
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(Ice.OutputStream ostr, SmallStruct v)
+            public static void ice_write(Ice.OutputStream ostr, LargeStruct v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static SmallStruct ice_read(Ice.InputStream istr) => new(istr);
+            public static LargeStruct ice_read(Ice.InputStream istr) => new(istr);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -257,7 +257,7 @@ namespace Ice.stream
             public global::Ice.Value? o;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public SmallStruct s;
+            public LargeStruct s;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool[] seq1;
@@ -295,7 +295,7 @@ namespace Ice.stream
             partial void ice_initialize();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public MyClass(MyClass? c, global::Ice.Value? o, SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
+            public MyClass(MyClass? c, global::Ice.Value? o, LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
             {
                 this.c = c;
                 this.o = o;
@@ -327,7 +327,7 @@ namespace Ice.stream
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public MyClass(SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
+            public MyClass(LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
             {
                 global::System.ArgumentNullException.ThrowIfNull(s);
                 this.s = s;
@@ -394,7 +394,7 @@ namespace Ice.stream
                 ostr_.startSlice(ice_staticId(), -1, true);
                 ostr_.writeValue(c);
                 ostr_.writeValue(o);
-                SmallStruct.ice_write(ostr_, s);
+                LargeStruct.ice_write(ostr_, s);
                 global::Ice.BoolSeqHelper.write(ostr_, seq1);
                 global::Ice.ByteSeqHelper.write(ostr_, seq2);
                 global::Ice.ShortSeqHelper.write(ostr_, seq3);
@@ -415,7 +415,7 @@ namespace Ice.stream
                 istr_.startSlice();
                 istr_.readValue((MyClass? v) => { this.c = v; });
                 istr_.readValue((global::Ice.Value? v) => { this.o = v; });
-                s = new SmallStruct(istr_);
+                s = new LargeStruct(istr_);
                 seq1 = global::Ice.BoolSeqHelper.read(istr_);
                 seq2 = global::Ice.ByteSeqHelper.read(istr_);
                 seq3 = global::Ice.ShortSeqHelper.read(istr_);
@@ -1185,9 +1185,9 @@ namespace Ice.stream
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class SmallStructListHelper
+        public sealed class LargeStructListHelper
         {
-            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<SmallStruct> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<LargeStruct> v)
             {
                 if (v is null)
                 {
@@ -1203,15 +1203,15 @@ namespace Ice.stream
                 }
             }
 
-            public static global::System.Collections.Generic.List<SmallStruct> read(Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<LargeStruct> read(Ice.InputStream istr)
             {
-                global::System.Collections.Generic.List<SmallStruct> v;
+                global::System.Collections.Generic.List<LargeStruct> v;
                 {
                     int szx = istr.readAndCheckSeqSize(32);
-                    v = new global::System.Collections.Generic.List<SmallStruct>(szx);
+                    v = new global::System.Collections.Generic.List<LargeStruct>(szx);
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        SmallStruct val = new SmallStruct(istr);
+                        LargeStruct val = new LargeStruct(istr);
                         v.Add(val);
                     }
                 }
@@ -1355,9 +1355,9 @@ namespace Ice.stream
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class SmallStructLinkedListHelper
+        public sealed class LargeStructLinkedListHelper
         {
-            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<SmallStruct> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<LargeStruct> v)
             {
                 if (v is null)
                 {
@@ -1366,23 +1366,23 @@ namespace Ice.stream
                 else
                 {
                     ostr.writeSize(v.Count);
-                    global::System.Collections.Generic.IEnumerator<SmallStruct> e = v.GetEnumerator();
+                    global::System.Collections.Generic.IEnumerator<LargeStruct> e = v.GetEnumerator();
                     while(e.MoveNext())
                     {
-                        (e.Current == null ? new SmallStruct() : e.Current).ice_writeMembers(ostr);
+                        (e.Current == null ? new LargeStruct() : e.Current).ice_writeMembers(ostr);
                     }
                 }
             }
 
-            public static global::System.Collections.Generic.LinkedList<SmallStruct> read(Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<LargeStruct> read(Ice.InputStream istr)
             {
-                global::System.Collections.Generic.LinkedList<SmallStruct> v;
+                global::System.Collections.Generic.LinkedList<LargeStruct> v;
                 {
                     int szx = istr.readAndCheckSeqSize(32);
-                    v = new global::System.Collections.Generic.LinkedList<SmallStruct>();
+                    v = new global::System.Collections.Generic.LinkedList<LargeStruct>();
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        SmallStruct val = new SmallStruct(istr);
+                        LargeStruct val = new LargeStruct(istr);
                         v.AddLast(val);
                     }
                 }
@@ -1423,9 +1423,9 @@ namespace Ice.stream
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class SmallStructStackHelper
+        public sealed class LargeStructStackHelper
         {
-            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<SmallStruct> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<LargeStruct> v)
             {
                 if (v is null)
                 {
@@ -1434,7 +1434,7 @@ namespace Ice.stream
                 else
                 {
                     ostr.writeSize(v.Count);
-                    SmallStruct[] v_tmp = v.ToArray();
+                    LargeStruct[] v_tmp = v.ToArray();
                     for(int ix = 0; ix < v_tmp.Length; ++ix)
                     {
                         v_tmp[ix].ice_writeMembers(ostr);
@@ -1442,18 +1442,18 @@ namespace Ice.stream
                 }
             }
 
-            public static global::System.Collections.Generic.Stack<SmallStruct> read(Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<LargeStruct> read(Ice.InputStream istr)
             {
-                global::System.Collections.Generic.Stack<SmallStruct> v;
+                global::System.Collections.Generic.Stack<LargeStruct> v;
                 {
                     int szx = istr.readAndCheckSeqSize(32);
-                    SmallStruct[] v_tmp = new SmallStruct[szx];
+                    LargeStruct[] v_tmp = new LargeStruct[szx];
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        v_tmp[ix] = new SmallStruct(istr);
+                        v_tmp[ix] = new LargeStruct(istr);
                     }
                     global::System.Array.Reverse(v_tmp);
-                    v = new global::System.Collections.Generic.Stack<SmallStruct>(v_tmp);
+                    v = new global::System.Collections.Generic.Stack<LargeStruct>(v_tmp);
                 }
                 return v;
             }
@@ -1595,9 +1595,9 @@ namespace Ice.stream
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class SmallStructQueueHelper
+        public sealed class LargeStructQueueHelper
         {
-            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<SmallStruct> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<LargeStruct> v)
             {
                 if (v is null)
                 {
@@ -1606,23 +1606,23 @@ namespace Ice.stream
                 else
                 {
                     ostr.writeSize(v.Count);
-                    global::System.Collections.Generic.IEnumerator<SmallStruct> e = v.GetEnumerator();
+                    global::System.Collections.Generic.IEnumerator<LargeStruct> e = v.GetEnumerator();
                     while(e.MoveNext())
                     {
-                        (e.Current == null ? new SmallStruct() : e.Current).ice_writeMembers(ostr);
+                        (e.Current == null ? new LargeStruct() : e.Current).ice_writeMembers(ostr);
                     }
                 }
             }
 
-            public static global::System.Collections.Generic.Queue<SmallStruct> read(Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<LargeStruct> read(Ice.InputStream istr)
             {
-                global::System.Collections.Generic.Queue<SmallStruct> v;
+                global::System.Collections.Generic.Queue<LargeStruct> v;
                 {
                     int szx = istr.readAndCheckSeqSize(32);
-                    v = new global::System.Collections.Generic.Queue<SmallStruct>(szx);
+                    v = new global::System.Collections.Generic.Queue<LargeStruct>(szx);
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        SmallStruct val = new SmallStruct(istr);
+                        LargeStruct val = new LargeStruct(istr);
                         v.Enqueue(val);
                     }
                 }

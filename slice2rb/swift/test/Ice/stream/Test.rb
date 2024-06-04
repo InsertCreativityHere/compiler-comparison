@@ -77,8 +77,8 @@ module ::Test
         T_MyClass = ::Ice::__declareClass('::Test::MyClass')
     end
 
-    if not defined?(::Test::SmallStruct)
-        class SmallStruct
+    if not defined?(::Test::LargeStruct)
+        class LargeStruct
             include ::Ice::Inspect_mixin
             def initialize(bo=false, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=::Test::MyEnum::Enum1, p=nil)
                 @bo = bo
@@ -109,7 +109,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::SmallStruct or
+                return false if !other.is_a? ::Test::LargeStruct or
                     @bo != other.bo or
                     @by != other.by or
                     @sh != other.sh or
@@ -130,7 +130,7 @@ module ::Test
             attr_accessor :bo, :by, :sh, :i, :l, :f, :d, :str, :e, :p
         end
 
-        T_SmallStruct = ::Ice::__defineStruct('::Test::SmallStruct', SmallStruct, [
+        T_LargeStruct = ::Ice::__defineStruct('::Test::LargeStruct', LargeStruct, [
             ["bo", ::Ice::T_bool],
             ["by", ::Ice::T_byte],
             ["sh", ::Ice::T_short],
@@ -176,8 +176,8 @@ module ::Test
         T_MyEnumS = ::Ice::__defineSequence('::Test::MyEnumS', ::Test::T_MyEnum)
     end
 
-    if not defined?(::Test::T_SmallStructS)
-        T_SmallStructS = ::Ice::__defineSequence('::Test::SmallStructS', ::Test::T_SmallStruct)
+    if not defined?(::Test::T_LargeStructS)
+        T_LargeStructS = ::Ice::__defineSequence('::Test::LargeStructS', ::Test::T_LargeStruct)
     end
 
     if not defined?(::Test::T_MyClassS)
@@ -220,8 +220,8 @@ module ::Test
         T_MyEnumSS = ::Ice::__defineSequence('::Test::MyEnumSS', ::Test::T_MyEnumS)
     end
 
-    if not defined?(::Test::T_SmallStructSS)
-        T_SmallStructSS = ::Ice::__defineSequence('::Test::SmallStructSS', ::Test::T_SmallStructS)
+    if not defined?(::Test::T_LargeStructSS)
+        T_LargeStructSS = ::Ice::__defineSequence('::Test::LargeStructSS', ::Test::T_LargeStructS)
     end
 
     if not defined?(::Test::T_MyClassSS)
@@ -254,7 +254,7 @@ module ::Test
         end
         class MyClass < ::Ice::Value
 
-            def initialize(c=nil, o=nil, s=::Test::SmallStruct.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, seq5=nil, seq6=nil, seq7=nil, seq8=nil, seq9=nil, seq10=nil, d=nil)
+            def initialize(c=nil, o=nil, s=::Test::LargeStruct.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, seq5=nil, seq6=nil, seq7=nil, seq8=nil, seq9=nil, seq10=nil, d=nil)
                 @c = c
                 @o = o
                 @s = s
@@ -281,7 +281,7 @@ module ::Test
         T_MyClass.defineClass(MyClass, -1, false, nil, [
             ['c', ::Test::T_MyClass, false, 0],
             ['o', ::Ice::T_Value, false, 0],
-            ['s', ::Test::T_SmallStruct, false, 0],
+            ['s', ::Test::T_LargeStruct, false, 0],
             ['seq1', ::Ice::T_BoolSeq, false, 0],
             ['seq2', ::Ice::T_ByteSeq, false, 0],
             ['seq3', ::Ice::T_ShortSeq, false, 0],

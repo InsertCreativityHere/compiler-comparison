@@ -19,7 +19,7 @@ public class OptionalClass extends com.zeroc.Ice.Value
 {
     public OptionalClass()
     {
-        this.sm = new SmallStruct();
+        this.s = new LargeStruct();
         this.enum8 = MyEnum.enum1;
         this.p15 = new Point();
     }
@@ -28,18 +28,18 @@ public class OptionalClass extends com.zeroc.Ice.Value
     {
         this.bo = bo;
         this.by = by;
-        this.sm = new SmallStruct();
+        this.s = new LargeStruct();
         this.enum8 = MyEnum.enum1;
         this.p15 = new Point();
     }
 
-    public OptionalClass(boolean bo, byte by, short sh, int i, SmallStruct sm, MyEnum[] enumS4, java.util.Map<java.lang.Byte, java.lang.Boolean> byteBoolD6, java.util.Map<java.lang.Short, java.lang.Integer> shortIntD7, MyEnum enum8, int[] intSeq12, byte[] byteSeq13, String[] stringSeq14, Point p15)
+    public OptionalClass(boolean bo, byte by, short sh, int i, LargeStruct s, MyEnum[] enumS4, java.util.Map<java.lang.Byte, java.lang.Boolean> byteBoolD6, java.util.Map<java.lang.Short, java.lang.Integer> shortIntD7, MyEnum enum8, int[] intSeq12, byte[] byteSeq13, String[] stringSeq14, Point p15)
     {
         this.bo = bo;
         this.by = by;
         setSh(sh);
         setI(i);
-        setSm(sm);
+        setS(s);
         setEnumS4(enumS4);
         setByteBoolD6(byteBoolD6);
         setShortIntD7(shortIntD7);
@@ -160,52 +160,52 @@ public class OptionalClass extends com.zeroc.Ice.Value
         }
     }
 
-    private SmallStruct sm;
-    private boolean _sm;
+    private LargeStruct s;
+    private boolean _s;
 
-    public SmallStruct getSm()
+    public LargeStruct getS()
     {
-        if(!_sm)
+        if(!_s)
         {
-            throw new java.util.NoSuchElementException("sm is not set");
+            throw new java.util.NoSuchElementException("s is not set");
         }
-        return sm;
+        return s;
     }
 
-    public void setSm(SmallStruct sm)
+    public void setS(LargeStruct s)
     {
-        _sm = true;
-        this.sm = sm;
+        _s = true;
+        this.s = s;
     }
 
-    public boolean hasSm()
+    public boolean hasS()
     {
-        return _sm;
+        return _s;
     }
 
-    public void clearSm()
+    public void clearS()
     {
-        _sm = false;
+        _s = false;
     }
 
-    public void optionalSm(java.util.Optional<SmallStruct> v)
+    public void optionalS(java.util.Optional<LargeStruct> v)
     {
         if(v == null || !v.isPresent())
         {
-            _sm = false;
+            _s = false;
         }
         else
         {
-            _sm = true;
-            sm = v.get();
+            _s = true;
+            s = v.get();
         }
     }
 
-    public java.util.Optional<SmallStruct> optionalSm()
+    public java.util.Optional<LargeStruct> optionalS()
     {
-        if(_sm)
+        if(_s)
         {
-            return java.util.Optional.of(sm);
+            return java.util.Optional.of(s);
         }
         else
         {
@@ -726,7 +726,7 @@ public class OptionalClass extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 7377222471238543817L;
+    public static final long serialVersionUID = 4299790300108484263L;
 
     /** @hidden */
     @Override
@@ -743,9 +743,9 @@ public class OptionalClass extends com.zeroc.Ice.Value
         {
             ostr_.writeInt(2, i);
         }
-        if(_sm)
+        if(_s)
         {
-            SmallStruct.ice_write(ostr_, 3, sm);
+            LargeStruct.ice_write(ostr_, 3, s);
         }
         if(_enumS4)
         {
@@ -797,10 +797,10 @@ public class OptionalClass extends com.zeroc.Ice.Value
         {
             i = istr_.readInt();
         }
-        if(_sm = istr_.readOptional(3, com.zeroc.Ice.OptionalFormat.FSize))
+        if(_s = istr_.readOptional(3, com.zeroc.Ice.OptionalFormat.FSize))
         {
             istr_.skip(4);
-            sm = SmallStruct.ice_read(istr_);
+            s = LargeStruct.ice_read(istr_);
         }
         if(_enumS4 = istr_.readOptional(4, com.zeroc.Ice.OptionalFormat.FSize))
         {

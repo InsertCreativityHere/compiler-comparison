@@ -27,7 +27,7 @@
     Test.MyEnum = Slice.defineEnum([
         ['enum1', 0], ['enum2', 1], ['enum3', 2]]);
 
-    Test.SmallStruct = class
+    Test.LargeStruct = class
     {
         constructor(bo = false, by = 0, sh = 0, i = 0, l = new Ice.Long(0, 0), f = 0.0, d = 0.0, str = "", e = Test.MyEnum.enum1, p = null)
         {
@@ -77,7 +77,7 @@
         }
     };
 
-    Slice.defineStruct(Test.SmallStruct, false, true);
+    Slice.defineStruct(Test.LargeStruct, false, true);
 
     Test.OptionalClass = class extends Ice.Value
     {
@@ -145,7 +145,7 @@
 
     Test.MyClass = class extends Ice.Value
     {
-        constructor(c = null, o = null, s = new Test.SmallStruct(), seq1 = null, seq2 = null, seq3 = null, seq4 = null, seq5 = null, seq6 = null, seq7 = null, seq8 = null, seq9 = null, seq10 = null, d = null)
+        constructor(c = null, o = null, s = new Test.LargeStruct(), seq1 = null, seq2 = null, seq3 = null, seq4 = null, seq5 = null, seq6 = null, seq7 = null, seq8 = null, seq9 = null, seq10 = null, d = null)
         {
             super();
             this.c = c;
@@ -168,7 +168,7 @@
         {
             ostr.writeValue(this.c);
             ostr.writeValue(this.o);
-            Test.SmallStruct.write(ostr, this.s);
+            Test.LargeStruct.write(ostr, this.s);
             Ice.BoolSeqHelper.write(ostr, this.seq1);
             Ice.ByteSeqHelper.write(ostr, this.seq2);
             Ice.ShortSeqHelper.write(ostr, this.seq3);
@@ -186,7 +186,7 @@
         {
             istr.readValue(obj => this.c = obj, Test.MyClass);
             istr.readValue(obj => this.o = obj, Ice.Value);
-            this.s = Test.SmallStruct.read(istr, this.s);
+            this.s = Test.LargeStruct.read(istr, this.s);
             this.seq1 = Ice.BoolSeqHelper.read(istr);
             this.seq2 = Ice.ByteSeqHelper.read(istr);
             this.seq3 = Ice.ShortSeqHelper.read(istr);

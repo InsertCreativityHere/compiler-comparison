@@ -16,11 +16,11 @@
 package Test;
 
 /**
- * Helper class for marshaling/unmarshaling SmallStructS.
+ * Helper class for marshaling/unmarshaling LargeStructS.
  **/
-public final class SmallStructSHelper
+public final class LargeStructSHelper
 {
-    public static void write(com.zeroc.Ice.OutputStream ostr, SmallStruct[] v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, LargeStruct[] v)
     {
         if(v == null)
         {
@@ -31,24 +31,24 @@ public final class SmallStructSHelper
             ostr.writeSize(v.length);
             for(int i0 = 0; i0 < v.length; i0++)
             {
-                SmallStruct.ice_write(ostr, v[i0]);
+                LargeStruct.ice_write(ostr, v[i0]);
             }
         }
     }
 
-    public static SmallStruct[] read(com.zeroc.Ice.InputStream istr)
+    public static LargeStruct[] read(com.zeroc.Ice.InputStream istr)
     {
-        final SmallStruct[] v;
+        final LargeStruct[] v;
         final int len0 = istr.readAndCheckSeqSize(32);
-        v = new SmallStruct[len0];
+        v = new LargeStruct[len0];
         for(int i0 = 0; i0 < len0; i0++)
         {
-            v[i0] = SmallStruct.ice_read(istr);
+            v[i0] = LargeStruct.ice_read(istr);
         }
         return v;
     }
 
-    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<SmallStruct[]> v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<LargeStruct[]> v)
     {
         if(v != null && v.isPresent())
         {
@@ -56,23 +56,23 @@ public final class SmallStructSHelper
         }
     }
 
-    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, SmallStruct[] v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, LargeStruct[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
             int pos = ostr.startSize();
-            SmallStructSHelper.write(ostr, v);
+            LargeStructSHelper.write(ostr, v);
             ostr.endSize(pos);
         }
     }
 
-    public static java.util.Optional<SmallStruct[]> read(com.zeroc.Ice.InputStream istr, int tag)
+    public static java.util.Optional<LargeStruct[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
             istr.skip(4);
-            SmallStruct[] v;
-            v = SmallStructSHelper.read(istr);
+            LargeStruct[] v;
+            v = LargeStructSHelper.read(istr);
             return java.util.Optional.of(v);
         }
         else
