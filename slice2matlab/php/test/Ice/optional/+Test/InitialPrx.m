@@ -89,8 +89,6 @@
 %   opMDict2Async
 %   supportsJavaSerializable
 %   supportsJavaSerializableAsync
-%   supportsCsharpSerializable
-%   supportsCsharpSerializableAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -1846,35 +1844,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{1} = result;
             end
             r_ = obj.iceInvokeAsync('supportsJavaSerializable', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = supportsCsharpSerializable(obj, varargin)
-            % supportsCsharpSerializable
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (logical)
-            
-            is_ = obj.iceInvoke('supportsCsharpSerializable', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readBool();
-            is_.endEncapsulation();
-        end
-        function r_ = supportsCsharpSerializableAsync(obj, varargin)
-            % supportsCsharpSerializableAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readBool();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('supportsCsharpSerializable', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

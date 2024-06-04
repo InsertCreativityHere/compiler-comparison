@@ -1832,9 +1832,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<bool> supportsCsharpSerializableAsync(Ice.Current current);
     }
 }
 
@@ -2225,10 +2222,6 @@ namespace Test
         bool supportsJavaSerializable(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        bool supportsCsharpSerializable(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<bool> supportsCsharpSerializableAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -3543,18 +3536,6 @@ namespace Test
             try
             {
                 return _iceI_supportsJavaSerializableAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public bool supportsCsharpSerializable(global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                return _iceI_supportsCsharpSerializableAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -5772,38 +5753,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<bool> supportsCsharpSerializableAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_supportsCsharpSerializableAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<bool> _iceI_supportsCsharpSerializableAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_supportsCsharpSerializable_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
-            _iceI_supportsCsharpSerializable(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _supportsCsharpSerializable_name = "supportsCsharpSerializable";
-
-        private void _iceI_supportsCsharpSerializable(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<bool>(completed);
-            outAsync.invoke(
-                _supportsCsharpSerializable_name,
-                Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                read: (Ice.InputStream istr) =>
-                {
-                    bool ret;
-                    ret = istr.readBool();
-                    return ret;
-                });
-        }
-
         public static InitialPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new InitialPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
@@ -5984,8 +5933,6 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<bool> supportsCsharpSerializableAsync(Ice.Current current);
-
         public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Test::Initial";
@@ -6038,7 +5985,6 @@ namespace Test
                 "opMDict1" => Initial.iceD_opMDict1Async(this, request),
                 "opMDict2" => Initial.iceD_opMDict2Async(this, request),
                 "supportsJavaSerializable" => Initial.iceD_supportsJavaSerializableAsync(this, request),
-                "supportsCsharpSerializable" => Initial.iceD_supportsCsharpSerializableAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -7235,22 +7181,6 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var result = await obj.supportsJavaSerializableAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    ostr.writeBool(ret);
-                });
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_supportsCsharpSerializableAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var result = await obj.supportsCsharpSerializableAsync(request.current).ConfigureAwait(false);
             return Ice.CurrentExtensions.createOutgoingResponse(
                 request.current,
                 result,

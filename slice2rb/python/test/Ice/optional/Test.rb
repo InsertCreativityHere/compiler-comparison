@@ -870,10 +870,6 @@ module ::Test
             def supportsJavaSerializable(context=nil)
                 InitialPrx_mixin::OP_supportsJavaSerializable.invoke(self, [], context)
             end
-
-            def supportsCsharpSerializable(context=nil)
-                InitialPrx_mixin::OP_supportsCsharpSerializable.invoke(self, [], context)
-            end
         end
 
         class InitialPrx < ::Ice::ObjectPrx
@@ -935,6 +931,5 @@ module ::Test
         InitialPrx_mixin::OP_opMDict1 = ::Ice::__defineOperation('opMDict1', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_StringIntDict, true, 1], [])
         InitialPrx_mixin::OP_opMDict2 = ::Ice::__defineOperation('opMDict2', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringIntDict, true, 2]], [[::Test::T_StringIntDict, true, 3]], [::Test::T_StringIntDict, true, 1], [])
         InitialPrx_mixin::OP_supportsJavaSerializable = ::Ice::__defineOperation('supportsJavaSerializable', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
-        InitialPrx_mixin::OP_supportsCsharpSerializable = ::Ice::__defineOperation('supportsCsharpSerializable', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
     end
 end

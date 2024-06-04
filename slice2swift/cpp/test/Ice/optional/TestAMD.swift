@@ -1832,10 +1832,6 @@ public extension MyInterfacePrx {
 ///  - supportsJavaSerializable: 
 ///
 ///  - supportsJavaSerializableAsync: 
-///
-///  - supportsCsharpSerializable: 
-///
-///  - supportsCsharpSerializableAsync: 
 public protocol InitialPrx: Ice.ObjectPrx {}
 
 private final class InitialPrxI: Ice.ObjectPrxI, InitialPrx {
@@ -2094,10 +2090,6 @@ public extension Ice.InputStream {
 ///  - supportsJavaSerializable: 
 ///
 ///  - supportsJavaSerializableAsync: 
-///
-///  - supportsCsharpSerializable: 
-///
-///  - supportsCsharpSerializableAsync: 
 public extension InitialPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -4463,45 +4455,6 @@ public extension InitialPrx {
                                   sentFlags: sentFlags,
                                   sent: sent)
     }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
-    func supportsCsharpSerializable(context: Ice.Context? = nil) throws -> Swift.Bool {
-        return try _impl._invoke(operation: "supportsCsharpSerializable",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func supportsCsharpSerializableAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "supportsCsharpSerializable",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
 }
 
 /// :nodoc:
@@ -5297,8 +5250,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_pingPong(incoming: request, current: current)
         case "shutdown":
             return try servant._iceD_shutdown(incoming: request, current: current)
-        case "supportsCsharpSerializable":
-            return try servant._iceD_supportsCsharpSerializable(incoming: request, current: current)
         case "supportsJavaSerializable":
             return try servant._iceD_supportsJavaSerializable(incoming: request, current: current)
         default:
@@ -5661,12 +5612,6 @@ public protocol Initial {
     ///
     /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
     func supportsJavaSerializableAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Bool>
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func supportsCsharpSerializableAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Bool>
 }
 
 /// MyInterface overview.
@@ -5777,8 +5722,6 @@ public extension MyInterface {
 ///  - opMDict2: 
 ///
 ///  - supportsJavaSerializable: 
-///
-///  - supportsCsharpSerializable: 
 public extension Initial {
     func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         try inS.readEmptyParams()
@@ -6326,15 +6269,6 @@ public extension Initial {
         try inS.readEmptyParams()
 
         return inS.setResultPromise(supportsJavaSerializableAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_supportsCsharpSerializable(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(supportsCsharpSerializableAsync(current: current)) { (ostr, retVals) in
             let iceP_returnValue = retVals
             ostr.write(iceP_returnValue)
         }

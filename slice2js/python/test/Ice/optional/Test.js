@@ -716,8 +716,7 @@
         "opMSeq2": [, , , ["Test.StringSeqHelper", , 1], [["Test.StringSeqHelper", , 2]], [["Test.StringSeqHelper", , 3]], , , ],
         "opMDict1": [, , , ["Test.StringIntDictHelper", , 1], , , , , ],
         "opMDict2": [, , , ["Test.StringIntDictHelper", , 1], [["Test.StringIntDictHelper", , 2]], [["Test.StringIntDictHelper", , 3]], , , ],
-        "supportsJavaSerializable": [, , , [1], , , , , ],
-        "supportsCsharpSerializable": [, , , [1], , , , , ]
+        "supportsJavaSerializable": [, , , [1], , , , , ]
     });
     exports.Test = Test;
 }

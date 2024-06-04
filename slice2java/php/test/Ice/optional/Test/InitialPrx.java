@@ -3245,43 +3245,6 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default boolean supportsCsharpSerializable()
-    {
-        return supportsCsharpSerializable(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default boolean supportsCsharpSerializable(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsCsharpSerializableAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsCsharpSerializableAsync()
-    {
-        return _iceI_supportsCsharpSerializableAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsCsharpSerializableAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsCsharpSerializableAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_supportsCsharpSerializableAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "supportsCsharpSerializable", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
-                     boolean ret;
-                     ret = istr.readBool();
-                     return ret;
-                 });
-        return f;
-    }
-
     /**
      * Contacts the remote server to verify that the object implements this type.
      * Raises a local exception if a communication error occurs.

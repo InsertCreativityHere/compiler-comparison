@@ -1696,8 +1696,6 @@ public interface Initial extends com.zeroc.Ice.Object
 
     boolean supportsJavaSerializable(com.zeroc.Ice.Current current);
 
-    boolean supportsCsharpSerializable(com.zeroc.Ice.Current current);
-
     /** @hidden */
     static final String[] _iceIds =
     {
@@ -2674,24 +2672,6 @@ public interface Initial extends com.zeroc.Ice.Object
         return inS.setResult(ostr);
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsCsharpSerializable(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        boolean ret = obj.supportsCsharpSerializable(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeBool(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
     /** @hidden */
     final static String[] _iceOps =
     {
@@ -2745,7 +2725,6 @@ public interface Initial extends com.zeroc.Ice.Object
         "opVoid",
         "pingPong",
         "shutdown",
-        "supportsCsharpSerializable",
         "supportsJavaSerializable"
     };
 
@@ -2963,10 +2942,6 @@ public interface Initial extends com.zeroc.Ice.Object
                 return _iceD_shutdown(this, in, current);
             }
             case 50:
-            {
-                return _iceD_supportsCsharpSerializable(this, in, current);
-            }
-            case 51:
             {
                 return _iceD_supportsJavaSerializable(this, in, current);
             }

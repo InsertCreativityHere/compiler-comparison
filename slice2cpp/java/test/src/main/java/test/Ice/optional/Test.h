@@ -687,17 +687,6 @@ public:
     void _iceI_supportsJavaSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    bool supportsCsharpSerializable(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<bool> supportsCsharpSerializableAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    supportsCsharpSerializableAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_supportsCsharpSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
-    /// \endcond
-
     /**
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
@@ -1903,11 +1892,6 @@ public:
     virtual bool supportsJavaSerializable(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_supportsJavaSerializable(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual bool supportsCsharpSerializable(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_supportsCsharpSerializable(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
