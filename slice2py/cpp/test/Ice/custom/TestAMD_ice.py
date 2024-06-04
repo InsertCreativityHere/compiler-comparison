@@ -167,90 +167,22 @@ if 'Variable' not in _M_Test.__dict__:
             self.bl = bl
             self.ss = ss
 
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + Ice.getHash(self.s)
-            if self.bl:
-                for _i0 in self.bl:
-                    _h = 5 * _h + Ice.getHash(_i0)
-            if self.ss:
-                for _i1 in self.ss:
-                    _h = 5 * _h + Ice.getHash(_i1)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
+        def __eq__(self, other):
             if other is None:
-                return 1
+                return False
             elif not isinstance(other, _M_Test.Variable):
                 return NotImplemented
             else:
-                if self.s is None or other.s is None:
-                    if self.s != other.s:
-                        return (-1 if self.s is None else 1)
-                else:
-                    if self.s < other.s:
-                        return -1
-                    elif self.s > other.s:
-                        return 1
-                if self.bl is None or other.bl is None:
-                    if self.bl != other.bl:
-                        return (-1 if self.bl is None else 1)
-                else:
-                    if self.bl < other.bl:
-                        return -1
-                    elif self.bl > other.bl:
-                        return 1
-                if self.ss is None or other.ss is None:
-                    if self.ss != other.ss:
-                        return (-1 if self.ss is None else 1)
-                else:
-                    if self.ss < other.ss:
-                        return -1
-                    elif self.ss > other.ss:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
+                if self.s != other.s:
+                    return False
+                if self.bl != other.bl:
+                    return False
+                if self.ss != other.ss:
+                    return False
+                return True
 
         def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
+            return not self.__eq__(other)
 
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_Variable)

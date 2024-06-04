@@ -101,7 +101,7 @@ IceGrid.PropertySetDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.PropertySetDescriptor, true, true);
+Slice.defineStruct(IceGrid.PropertySetDescriptor, false, true);
 
 Slice.defineDictionary(IceGrid, "PropertySetDescriptorDict", "PropertySetDescriptorDictHelper", "Ice.StringHelper", "IceGrid.PropertySetDescriptor", false, undefined, undefined);
 
@@ -191,7 +191,7 @@ IceGrid.AdapterDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.AdapterDescriptor, true, true);
+Slice.defineStruct(IceGrid.AdapterDescriptor, false, true);
 
 Slice.defineSequence(IceGrid, "AdapterDescriptorSeqHelper", "IceGrid.AdapterDescriptor", false);
 
@@ -259,7 +259,7 @@ IceGrid.DistributionDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.DistributionDescriptor, true, true);
+Slice.defineStruct(IceGrid.DistributionDescriptor, false, true);
 
 /**
  *  An Ice server descriptor.

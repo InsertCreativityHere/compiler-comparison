@@ -118,7 +118,7 @@
         }
     };
 
-    Slice.defineStruct(Test.Variable, true, true);
+    Slice.defineStruct(Test.Variable, false, true);
 
     Slice.defineSequence(Test, "VariableSeqHelper", "Test.Variable", false);
 

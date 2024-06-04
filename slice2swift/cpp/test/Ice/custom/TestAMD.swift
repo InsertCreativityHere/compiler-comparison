@@ -1008,7 +1008,7 @@ public struct FixedSeqListHelper {
     }
 }
 
-public struct Variable: Swift.Hashable {
+public struct Variable {
     public var s: Swift.String = ""
     public var bl: BoolList = BoolList()
     public var ss: StringSeq = StringSeq()

@@ -145,7 +145,7 @@ public extension Ice.OutputStream {
     }
 }
 
-public struct S2: Swift.Hashable {
+public struct S2 {
     public var bo: Swift.Bool = false
     public var by: Swift.UInt8 = 0
     public var sh: Swift.Int16 = 0

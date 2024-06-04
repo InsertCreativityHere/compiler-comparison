@@ -295,7 +295,7 @@ public struct SLSDHelper {
     }
 }
 
-public struct Foo: Swift.Hashable {
+public struct Foo {
     public var SLmem: SerialLarge = SerialLarge()
     public var SLSmem: SLS = SLS()
 

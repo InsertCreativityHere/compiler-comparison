@@ -219,7 +219,7 @@ public struct PropertyDescriptorSeqHelper {
 }
 
 /// A property set descriptor.
-public struct PropertySetDescriptor: Swift.Hashable {
+public struct PropertySetDescriptor {
     /// References to named property sets.
     public var references: Ice.StringSeq = Ice.StringSeq()
     /// The property set properties.
@@ -494,7 +494,7 @@ public struct ObjectDescriptorSeqHelper {
 }
 
 /// An Ice object adapter descriptor.
-public struct AdapterDescriptor: Swift.Hashable {
+public struct AdapterDescriptor {
     /// The object adapter name.
     public var name: Swift.String = ""
     /// The description of this object adapter.
@@ -674,7 +674,7 @@ public struct CommunicatorDescriptorTraits: Ice.SliceTraits {
 /// A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
 /// This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier
 /// releases.
-public struct DistributionDescriptor: Swift.Hashable {
+public struct DistributionDescriptor {
     /// The proxy of the IcePatch2 server.
     public var icepatch: Swift.String = ""
     /// The source directories.

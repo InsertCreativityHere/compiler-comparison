@@ -55,7 +55,7 @@ public typealias DoubleSeq1 = [Swift.Double]
 
 public typealias DoubleSeq2 = [Swift.Double]
 
-public struct S: Swift.Hashable {
+public struct S {
     public var b1: ByteString = ByteString()
     public var b2: ByteString = ByteString()
     public var b3: ByteList = ByteList()

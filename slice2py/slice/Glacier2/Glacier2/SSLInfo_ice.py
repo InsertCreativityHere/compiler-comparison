@@ -45,115 +45,28 @@ if 'SSLInfo' not in _M_Glacier2.__dict__:
             self.cipher = cipher
             self.certs = certs
 
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + Ice.getHash(self.remoteHost)
-            _h = 5 * _h + Ice.getHash(self.remotePort)
-            _h = 5 * _h + Ice.getHash(self.localHost)
-            _h = 5 * _h + Ice.getHash(self.localPort)
-            _h = 5 * _h + Ice.getHash(self.cipher)
-            if self.certs:
-                for _i0 in self.certs:
-                    _h = 5 * _h + Ice.getHash(_i0)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
+        def __eq__(self, other):
             if other is None:
-                return 1
+                return False
             elif not isinstance(other, _M_Glacier2.SSLInfo):
                 return NotImplemented
             else:
-                if self.remoteHost is None or other.remoteHost is None:
-                    if self.remoteHost != other.remoteHost:
-                        return (-1 if self.remoteHost is None else 1)
-                else:
-                    if self.remoteHost < other.remoteHost:
-                        return -1
-                    elif self.remoteHost > other.remoteHost:
-                        return 1
-                if self.remotePort is None or other.remotePort is None:
-                    if self.remotePort != other.remotePort:
-                        return (-1 if self.remotePort is None else 1)
-                else:
-                    if self.remotePort < other.remotePort:
-                        return -1
-                    elif self.remotePort > other.remotePort:
-                        return 1
-                if self.localHost is None or other.localHost is None:
-                    if self.localHost != other.localHost:
-                        return (-1 if self.localHost is None else 1)
-                else:
-                    if self.localHost < other.localHost:
-                        return -1
-                    elif self.localHost > other.localHost:
-                        return 1
-                if self.localPort is None or other.localPort is None:
-                    if self.localPort != other.localPort:
-                        return (-1 if self.localPort is None else 1)
-                else:
-                    if self.localPort < other.localPort:
-                        return -1
-                    elif self.localPort > other.localPort:
-                        return 1
-                if self.cipher is None or other.cipher is None:
-                    if self.cipher != other.cipher:
-                        return (-1 if self.cipher is None else 1)
-                else:
-                    if self.cipher < other.cipher:
-                        return -1
-                    elif self.cipher > other.cipher:
-                        return 1
-                if self.certs is None or other.certs is None:
-                    if self.certs != other.certs:
-                        return (-1 if self.certs is None else 1)
-                else:
-                    if self.certs < other.certs:
-                        return -1
-                    elif self.certs > other.certs:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
+                if self.remoteHost != other.remoteHost:
+                    return False
+                if self.remotePort != other.remotePort:
+                    return False
+                if self.localHost != other.localHost:
+                    return False
+                if self.localPort != other.localPort:
+                    return False
+                if self.cipher != other.cipher:
+                    return False
+                if self.certs != other.certs:
+                    return False
+                return True
 
         def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
+            return not self.__eq__(other)
 
         def __str__(self):
             return IcePy.stringify(self, _M_Glacier2._t_SSLInfo)

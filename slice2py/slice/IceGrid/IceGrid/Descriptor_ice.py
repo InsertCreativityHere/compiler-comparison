@@ -142,81 +142,20 @@ if 'PropertySetDescriptor' not in _M_IceGrid.__dict__:
             self.references = references
             self.properties = properties
 
-        def __hash__(self):
-            _h = 0
-            if self.references:
-                for _i0 in self.references:
-                    _h = 5 * _h + Ice.getHash(_i0)
-            if self.properties:
-                for _i1 in self.properties:
-                    _h = 5 * _h + Ice.getHash(_i1)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
+        def __eq__(self, other):
             if other is None:
-                return 1
+                return False
             elif not isinstance(other, _M_IceGrid.PropertySetDescriptor):
                 return NotImplemented
             else:
-                if self.references is None or other.references is None:
-                    if self.references != other.references:
-                        return (-1 if self.references is None else 1)
-                else:
-                    if self.references < other.references:
-                        return -1
-                    elif self.references > other.references:
-                        return 1
-                if self.properties is None or other.properties is None:
-                    if self.properties != other.properties:
-                        return (-1 if self.properties is None else 1)
-                else:
-                    if self.properties < other.properties:
-                        return -1
-                    elif self.properties > other.properties:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
+                if self.references != other.references:
+                    return False
+                if self.properties != other.properties:
+                    return False
+                return True
 
         def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
+            return not self.__eq__(other)
 
         def __str__(self):
             return IcePy.stringify(self, _M_IceGrid._t_PropertySetDescriptor)
@@ -381,144 +320,34 @@ if 'AdapterDescriptor' not in _M_IceGrid.__dict__:
             self.objects = objects
             self.allocatables = allocatables
 
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + Ice.getHash(self.name)
-            _h = 5 * _h + Ice.getHash(self.description)
-            _h = 5 * _h + Ice.getHash(self.id)
-            _h = 5 * _h + Ice.getHash(self.replicaGroupId)
-            _h = 5 * _h + Ice.getHash(self.priority)
-            _h = 5 * _h + Ice.getHash(self.registerProcess)
-            _h = 5 * _h + Ice.getHash(self.serverLifetime)
-            if self.objects:
-                for _i0 in self.objects:
-                    _h = 5 * _h + Ice.getHash(_i0)
-            if self.allocatables:
-                for _i1 in self.allocatables:
-                    _h = 5 * _h + Ice.getHash(_i1)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
+        def __eq__(self, other):
             if other is None:
-                return 1
+                return False
             elif not isinstance(other, _M_IceGrid.AdapterDescriptor):
                 return NotImplemented
             else:
-                if self.name is None or other.name is None:
-                    if self.name != other.name:
-                        return (-1 if self.name is None else 1)
-                else:
-                    if self.name < other.name:
-                        return -1
-                    elif self.name > other.name:
-                        return 1
-                if self.description is None or other.description is None:
-                    if self.description != other.description:
-                        return (-1 if self.description is None else 1)
-                else:
-                    if self.description < other.description:
-                        return -1
-                    elif self.description > other.description:
-                        return 1
-                if self.id is None or other.id is None:
-                    if self.id != other.id:
-                        return (-1 if self.id is None else 1)
-                else:
-                    if self.id < other.id:
-                        return -1
-                    elif self.id > other.id:
-                        return 1
-                if self.replicaGroupId is None or other.replicaGroupId is None:
-                    if self.replicaGroupId != other.replicaGroupId:
-                        return (-1 if self.replicaGroupId is None else 1)
-                else:
-                    if self.replicaGroupId < other.replicaGroupId:
-                        return -1
-                    elif self.replicaGroupId > other.replicaGroupId:
-                        return 1
-                if self.priority is None or other.priority is None:
-                    if self.priority != other.priority:
-                        return (-1 if self.priority is None else 1)
-                else:
-                    if self.priority < other.priority:
-                        return -1
-                    elif self.priority > other.priority:
-                        return 1
-                if self.registerProcess is None or other.registerProcess is None:
-                    if self.registerProcess != other.registerProcess:
-                        return (-1 if self.registerProcess is None else 1)
-                else:
-                    if self.registerProcess < other.registerProcess:
-                        return -1
-                    elif self.registerProcess > other.registerProcess:
-                        return 1
-                if self.serverLifetime is None or other.serverLifetime is None:
-                    if self.serverLifetime != other.serverLifetime:
-                        return (-1 if self.serverLifetime is None else 1)
-                else:
-                    if self.serverLifetime < other.serverLifetime:
-                        return -1
-                    elif self.serverLifetime > other.serverLifetime:
-                        return 1
-                if self.objects is None or other.objects is None:
-                    if self.objects != other.objects:
-                        return (-1 if self.objects is None else 1)
-                else:
-                    if self.objects < other.objects:
-                        return -1
-                    elif self.objects > other.objects:
-                        return 1
-                if self.allocatables is None or other.allocatables is None:
-                    if self.allocatables != other.allocatables:
-                        return (-1 if self.allocatables is None else 1)
-                else:
-                    if self.allocatables < other.allocatables:
-                        return -1
-                    elif self.allocatables > other.allocatables:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
+                if self.name != other.name:
+                    return False
+                if self.description != other.description:
+                    return False
+                if self.id != other.id:
+                    return False
+                if self.replicaGroupId != other.replicaGroupId:
+                    return False
+                if self.priority != other.priority:
+                    return False
+                if self.registerProcess != other.registerProcess:
+                    return False
+                if self.serverLifetime != other.serverLifetime:
+                    return False
+                if self.objects != other.objects:
+                    return False
+                if self.allocatables != other.allocatables:
+                    return False
+                return True
 
         def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
+            return not self.__eq__(other)
 
         def __str__(self):
             return IcePy.stringify(self, _M_IceGrid._t_AdapterDescriptor)
@@ -601,79 +430,20 @@ if 'DistributionDescriptor' not in _M_IceGrid.__dict__:
             self.icepatch = icepatch
             self.directories = directories
 
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + Ice.getHash(self.icepatch)
-            if self.directories:
-                for _i0 in self.directories:
-                    _h = 5 * _h + Ice.getHash(_i0)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
+        def __eq__(self, other):
             if other is None:
-                return 1
+                return False
             elif not isinstance(other, _M_IceGrid.DistributionDescriptor):
                 return NotImplemented
             else:
-                if self.icepatch is None or other.icepatch is None:
-                    if self.icepatch != other.icepatch:
-                        return (-1 if self.icepatch is None else 1)
-                else:
-                    if self.icepatch < other.icepatch:
-                        return -1
-                    elif self.icepatch > other.icepatch:
-                        return 1
-                if self.directories is None or other.directories is None:
-                    if self.directories != other.directories:
-                        return (-1 if self.directories is None else 1)
-                else:
-                    if self.directories < other.directories:
-                        return -1
-                    elif self.directories > other.directories:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
+                if self.icepatch != other.icepatch:
+                    return False
+                if self.directories != other.directories:
+                    return False
+                return True
 
         def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
+            return not self.__eq__(other)
 
         def __str__(self):
             return IcePy.stringify(self, _M_IceGrid._t_DistributionDescriptor)

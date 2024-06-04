@@ -135,83 +135,20 @@ if 'Foo' not in _M_Test.__dict__:
             self.SLmem = SLmem
             self.SLSmem = SLSmem
 
-        def __hash__(self):
-            _h = 0
-            if self.SLmem:
-                for _i0 in self.SLmem:
-                    _h = 5 * _h + Ice.getHash(_i0)
-            if self.SLSmem:
-                for _i1 in self.SLSmem:
-                    if _i1:
-                        for _i2 in _i1:
-                            _h = 5 * _h + Ice.getHash(_i2)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
+        def __eq__(self, other):
             if other is None:
-                return 1
+                return False
             elif not isinstance(other, _M_Test.Foo):
                 return NotImplemented
             else:
-                if self.SLmem is None or other.SLmem is None:
-                    if self.SLmem != other.SLmem:
-                        return (-1 if self.SLmem is None else 1)
-                else:
-                    if self.SLmem < other.SLmem:
-                        return -1
-                    elif self.SLmem > other.SLmem:
-                        return 1
-                if self.SLSmem is None or other.SLSmem is None:
-                    if self.SLSmem != other.SLSmem:
-                        return (-1 if self.SLSmem is None else 1)
-                else:
-                    if self.SLSmem < other.SLSmem:
-                        return -1
-                    elif self.SLSmem > other.SLSmem:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
+                if self.SLmem != other.SLmem:
+                    return False
+                if self.SLSmem != other.SLSmem:
+                    return False
+                return True
 
         def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
+            return not self.__eq__(other)
 
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_Foo)

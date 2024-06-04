@@ -85,7 +85,7 @@
         }
     };
 
-    Slice.defineStruct(Test.Foo, true, true);
+    Slice.defineStruct(Test.Foo, false, true);
 
     Test.Bar = class extends Ice.UserException
     {

@@ -87,147 +87,32 @@ if 'S' not in _M_Test.__dict__:
             self.s3 = s3
             self.s4 = s4
 
-        def __hash__(self):
-            _h = 0
-            if self.b1:
-                for _i0 in self.b1:
-                    _h = 5 * _h + Ice.getHash(_i0)
-            if self.b2:
-                for _i1 in self.b2:
-                    _h = 5 * _h + Ice.getHash(_i1)
-            if self.b3:
-                for _i2 in self.b3:
-                    _h = 5 * _h + Ice.getHash(_i2)
-            if self.b4:
-                for _i3 in self.b4:
-                    _h = 5 * _h + Ice.getHash(_i3)
-            if self.s1:
-                for _i4 in self.s1:
-                    _h = 5 * _h + Ice.getHash(_i4)
-            if self.s2:
-                for _i5 in self.s2:
-                    _h = 5 * _h + Ice.getHash(_i5)
-            if self.s3:
-                for _i6 in self.s3:
-                    _h = 5 * _h + Ice.getHash(_i6)
-            if self.s4:
-                for _i7 in self.s4:
-                    _h = 5 * _h + Ice.getHash(_i7)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
+        def __eq__(self, other):
             if other is None:
-                return 1
+                return False
             elif not isinstance(other, _M_Test.S):
                 return NotImplemented
             else:
-                if self.b1 is None or other.b1 is None:
-                    if self.b1 != other.b1:
-                        return (-1 if self.b1 is None else 1)
-                else:
-                    if self.b1 < other.b1:
-                        return -1
-                    elif self.b1 > other.b1:
-                        return 1
-                if self.b2 is None or other.b2 is None:
-                    if self.b2 != other.b2:
-                        return (-1 if self.b2 is None else 1)
-                else:
-                    if self.b2 < other.b2:
-                        return -1
-                    elif self.b2 > other.b2:
-                        return 1
-                if self.b3 is None or other.b3 is None:
-                    if self.b3 != other.b3:
-                        return (-1 if self.b3 is None else 1)
-                else:
-                    if self.b3 < other.b3:
-                        return -1
-                    elif self.b3 > other.b3:
-                        return 1
-                if self.b4 is None or other.b4 is None:
-                    if self.b4 != other.b4:
-                        return (-1 if self.b4 is None else 1)
-                else:
-                    if self.b4 < other.b4:
-                        return -1
-                    elif self.b4 > other.b4:
-                        return 1
-                if self.s1 is None or other.s1 is None:
-                    if self.s1 != other.s1:
-                        return (-1 if self.s1 is None else 1)
-                else:
-                    if self.s1 < other.s1:
-                        return -1
-                    elif self.s1 > other.s1:
-                        return 1
-                if self.s2 is None or other.s2 is None:
-                    if self.s2 != other.s2:
-                        return (-1 if self.s2 is None else 1)
-                else:
-                    if self.s2 < other.s2:
-                        return -1
-                    elif self.s2 > other.s2:
-                        return 1
-                if self.s3 is None or other.s3 is None:
-                    if self.s3 != other.s3:
-                        return (-1 if self.s3 is None else 1)
-                else:
-                    if self.s3 < other.s3:
-                        return -1
-                    elif self.s3 > other.s3:
-                        return 1
-                if self.s4 is None or other.s4 is None:
-                    if self.s4 != other.s4:
-                        return (-1 if self.s4 is None else 1)
-                else:
-                    if self.s4 < other.s4:
-                        return -1
-                    elif self.s4 > other.s4:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
+                if self.b1 != other.b1:
+                    return False
+                if self.b2 != other.b2:
+                    return False
+                if self.b3 != other.b3:
+                    return False
+                if self.b4 != other.b4:
+                    return False
+                if self.s1 != other.s1:
+                    return False
+                if self.s2 != other.s2:
+                    return False
+                if self.s3 != other.s3:
+                    return False
+                if self.s4 != other.s4:
+                    return False
+                return True
 
         def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
+            return not self.__eq__(other)
 
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_S)

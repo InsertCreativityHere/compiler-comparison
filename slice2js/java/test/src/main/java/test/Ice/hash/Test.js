@@ -139,7 +139,7 @@
         }
     };
 
-    Slice.defineStruct(Test.Polyline, true, true);
+    Slice.defineStruct(Test.Polyline, false, true);
 
     Test.Color = class
     {

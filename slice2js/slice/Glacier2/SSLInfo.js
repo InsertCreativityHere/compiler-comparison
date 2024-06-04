@@ -76,7 +76,7 @@ Glacier2.SSLInfo = class
     }
 };
 
-Slice.defineStruct(Glacier2.SSLInfo, true, true);
+Slice.defineStruct(Glacier2.SSLInfo, false, true);
 /* slice2js browser-bundle-skip */
 exports.Glacier2 = Glacier2;
 /* slice2js browser-bundle-skip-end */

@@ -199,70 +199,18 @@ if 'Polyline' not in _M_Test.__dict__:
         def __init__(self, vertices=None):
             self.vertices = vertices
 
-        def __hash__(self):
-            _h = 0
-            if self.vertices:
-                for _i0 in self.vertices:
-                    _h = 5 * _h + Ice.getHash(_i0)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
+        def __eq__(self, other):
             if other is None:
-                return 1
+                return False
             elif not isinstance(other, _M_Test.Polyline):
                 return NotImplemented
             else:
-                if self.vertices is None or other.vertices is None:
-                    if self.vertices != other.vertices:
-                        return (-1 if self.vertices is None else 1)
-                else:
-                    if self.vertices < other.vertices:
-                        return -1
-                    elif self.vertices > other.vertices:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
+                if self.vertices != other.vertices:
+                    return False
+                return True
 
         def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
+            return not self.__eq__(other)
 
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_Polyline)

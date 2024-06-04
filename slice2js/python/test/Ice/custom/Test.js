@@ -104,7 +104,7 @@
         }
     };
 
-    Slice.defineStruct(Test.S, true, true);
+    Slice.defineStruct(Test.S, false, true);
 
     Test.C = class extends Ice.Value
     {

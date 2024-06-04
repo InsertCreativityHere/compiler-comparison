@@ -459,7 +459,7 @@ public struct PointsHelper {
     }
 }
 
-public struct Polyline: Swift.Hashable {
+public struct Polyline {
     public var vertices: Points = Points()
 
     public init() {}
