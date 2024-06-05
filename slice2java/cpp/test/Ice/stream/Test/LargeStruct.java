@@ -240,5 +240,5 @@ public class LargeStruct implements java.lang.Cloneable,
     private static final LargeStruct _nullMarshalValue = new LargeStruct();
 
     /** @hidden */
-    public static final long serialVersionUID = -1800243520513386843L;
+    public static final long serialVersionUID = 5252011285655839516L;
 }
