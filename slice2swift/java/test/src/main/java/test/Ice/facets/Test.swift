@@ -1229,7 +1229,7 @@ public extension HPrx {
 
 
 /// Dispatcher for `Empty` servants.
-public struct EmptyDisp: Ice.Disp {
+public struct EmptyDisp: Ice.Dispatcher {
     public let servant: Empty
     private static let defaultObject = Ice.ObjectI<EmptyTraits>()
 
@@ -1237,19 +1237,18 @@ public struct EmptyDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? EmptyDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? EmptyDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? EmptyDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? EmptyDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1258,7 +1257,7 @@ public protocol Empty {}
 
 
 /// Dispatcher for `A` servants.
-public struct ADisp: Ice.Disp {
+public struct ADisp: Ice.Dispatcher {
     public let servant: A
     private static let defaultObject = Ice.ObjectI<ATraits>()
 
@@ -1266,21 +1265,20 @@ public struct ADisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "callA":
-            return try servant._iceD_callA(incoming: request, current: current)
+            servant._iceD_callA(request)
         case "ice_id":
-            return try (servant as? Object ?? ADisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? ADisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? ADisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? ADisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? ADisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? ADisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? ADisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? ADisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1295,7 +1293,7 @@ public protocol A {
 
 
 /// Dispatcher for `B` servants.
-public struct BDisp: Ice.Disp {
+public struct BDisp: Ice.Dispatcher {
     public let servant: B
     private static let defaultObject = Ice.ObjectI<BTraits>()
 
@@ -1303,23 +1301,22 @@ public struct BDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "callA":
-            return try servant._iceD_callA(incoming: request, current: current)
+            servant._iceD_callA(request)
         case "callB":
-            return try servant._iceD_callB(incoming: request, current: current)
+            servant._iceD_callB(request)
         case "ice_id":
-            return try (servant as? Object ?? BDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? BDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? BDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? BDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? BDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? BDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? BDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? BDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1334,7 +1331,7 @@ public protocol B: A {
 
 
 /// Dispatcher for `C` servants.
-public struct CDisp: Ice.Disp {
+public struct CDisp: Ice.Dispatcher {
     public let servant: C
     private static let defaultObject = Ice.ObjectI<CTraits>()
 
@@ -1342,23 +1339,22 @@ public struct CDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "callA":
-            return try servant._iceD_callA(incoming: request, current: current)
+            servant._iceD_callA(request)
         case "callC":
-            return try servant._iceD_callC(incoming: request, current: current)
+            servant._iceD_callC(request)
         case "ice_id":
-            return try (servant as? Object ?? CDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? CDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? CDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? CDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? CDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? CDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? CDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? CDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1373,7 +1369,7 @@ public protocol C: A {
 
 
 /// Dispatcher for `D` servants.
-public struct DDisp: Ice.Disp {
+public struct DDisp: Ice.Dispatcher {
     public let servant: D
     private static let defaultObject = Ice.ObjectI<DTraits>()
 
@@ -1381,27 +1377,26 @@ public struct DDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "callA":
-            return try servant._iceD_callA(incoming: request, current: current)
+            servant._iceD_callA(request)
         case "callB":
-            return try servant._iceD_callB(incoming: request, current: current)
+            servant._iceD_callB(request)
         case "callC":
-            return try servant._iceD_callC(incoming: request, current: current)
+            servant._iceD_callC(request)
         case "callD":
-            return try servant._iceD_callD(incoming: request, current: current)
+            servant._iceD_callD(request)
         case "ice_id":
-            return try (servant as? Object ?? DDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? DDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? DDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? DDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1416,7 +1411,7 @@ public protocol D: B, C {
 
 
 /// Dispatcher for `E` servants.
-public struct EDisp: Ice.Disp {
+public struct EDisp: Ice.Dispatcher {
     public let servant: E
     private static let defaultObject = Ice.ObjectI<ETraits>()
 
@@ -1424,21 +1419,20 @@ public struct EDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "callE":
-            return try servant._iceD_callE(incoming: request, current: current)
+            servant._iceD_callE(request)
         case "ice_id":
-            return try (servant as? Object ?? EDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? EDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? EDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? EDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? EDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? EDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? EDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? EDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1453,7 +1447,7 @@ public protocol E {
 
 
 /// Dispatcher for `F` servants.
-public struct FDisp: Ice.Disp {
+public struct FDisp: Ice.Dispatcher {
     public let servant: F
     private static let defaultObject = Ice.ObjectI<FTraits>()
 
@@ -1461,23 +1455,22 @@ public struct FDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "callE":
-            return try servant._iceD_callE(incoming: request, current: current)
+            servant._iceD_callE(request)
         case "callF":
-            return try servant._iceD_callF(incoming: request, current: current)
+            servant._iceD_callF(request)
         case "ice_id":
-            return try (servant as? Object ?? FDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? FDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? FDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? FDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? FDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? FDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? FDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? FDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1492,7 +1485,7 @@ public protocol F: E {
 
 
 /// Dispatcher for `G` servants.
-public struct GDisp: Ice.Disp {
+public struct GDisp: Ice.Dispatcher {
     public let servant: G
     private static let defaultObject = Ice.ObjectI<GTraits>()
 
@@ -1500,23 +1493,22 @@ public struct GDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "callG":
-            return try servant._iceD_callG(incoming: request, current: current)
+            servant._iceD_callG(request)
         case "ice_id":
-            return try (servant as? Object ?? GDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? GDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? GDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? GDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? GDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? GDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? GDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? GDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1535,7 +1527,7 @@ public protocol G {
 
 
 /// Dispatcher for `H` servants.
-public struct HDisp: Ice.Disp {
+public struct HDisp: Ice.Dispatcher {
     public let servant: H
     private static let defaultObject = Ice.ObjectI<HTraits>()
 
@@ -1543,25 +1535,24 @@ public struct HDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "callG":
-            return try servant._iceD_callG(incoming: request, current: current)
+            servant._iceD_callG(request)
         case "callH":
-            return try servant._iceD_callH(incoming: request, current: current)
+            servant._iceD_callH(request)
         case "ice_id":
-            return try (servant as? Object ?? HDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? HDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? HDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? HDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? HDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? HDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? HDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? HDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1575,21 +1566,26 @@ public protocol H: G {
 }
 
 /// Empty overview.
-public extension Empty {}
+extension Empty {}
 
 /// A overview.
 ///
 /// A Methods:
 ///
 ///  - callA: 
-public extension A {
-    func _iceD_callA(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension A {
+    public func _iceD_callA(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.callA(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.callA(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1599,14 +1595,19 @@ public extension A {
 /// B Methods:
 ///
 ///  - callB: 
-public extension B {
-    func _iceD_callB(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension B {
+    public func _iceD_callB(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.callB(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.callB(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1616,14 +1617,19 @@ public extension B {
 /// C Methods:
 ///
 ///  - callC: 
-public extension C {
-    func _iceD_callC(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension C {
+    public func _iceD_callC(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.callC(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.callC(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1633,14 +1639,19 @@ public extension C {
 /// D Methods:
 ///
 ///  - callD: 
-public extension D {
-    func _iceD_callD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension D {
+    public func _iceD_callD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.callD(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.callD(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1650,14 +1661,19 @@ public extension D {
 /// E Methods:
 ///
 ///  - callE: 
-public extension E {
-    func _iceD_callE(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension E {
+    public func _iceD_callE(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.callE(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.callE(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1667,14 +1683,19 @@ public extension E {
 /// F Methods:
 ///
 ///  - callF: 
-public extension F {
-    func _iceD_callF(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension F {
+    public func _iceD_callF(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.callF(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.callF(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1686,22 +1707,30 @@ public extension F {
 ///  - shutdown: 
 ///
 ///  - callG: 
-public extension G {
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension G {
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_callG(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_callG(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.callG(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.callG(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1711,14 +1740,19 @@ public extension G {
 /// H Methods:
 ///
 ///  - callH: 
-public extension H {
-    func _iceD_callH(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension H {
+    public func _iceD_callH(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.callH(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.callH(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

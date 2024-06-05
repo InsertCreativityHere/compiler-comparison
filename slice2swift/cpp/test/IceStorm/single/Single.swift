@@ -155,7 +155,7 @@ public extension SinglePrx {
 
 
 /// Dispatcher for `Single` servants.
-public struct SingleDisp: Ice.Disp {
+public struct SingleDisp: Ice.Dispatcher {
     public let servant: Single
     private static let defaultObject = Ice.ObjectI<SingleTraits>()
 
@@ -163,21 +163,20 @@ public struct SingleDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "event":
-            return try servant._iceD_event(incoming: request, current: current)
+            servant._iceD_event(request)
         case "ice_id":
-            return try (servant as? Object ?? SingleDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? SingleDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? SingleDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? SingleDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -195,15 +194,17 @@ public protocol Single {
 /// Single Methods:
 ///
 ///  - event: 
-public extension Single {
-    func _iceD_event(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: Swift.Int32 = try inS.read { istr in
+extension Single {
+    public func _iceD_event(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_i: Swift.Int32 = try istr.read()
-            return iceP_i
+
+            try self.event(i: iceP_i, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.event(i: iceP_i, current: current)
-
-        return inS.setResult()
     }
 }

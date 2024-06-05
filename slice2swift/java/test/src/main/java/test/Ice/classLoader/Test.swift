@@ -336,7 +336,7 @@ open class ConcreteClass: Ice.Value {
 
 
 /// Dispatcher for `Initial` servants.
-public struct InitialDisp: Ice.Disp {
+public struct InitialDisp: Ice.Dispatcher {
     public let servant: Initial
     private static let defaultObject = Ice.ObjectI<InitialTraits>()
 
@@ -344,25 +344,24 @@ public struct InitialDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getConcreteClass":
-            return try servant._iceD_getConcreteClass(incoming: request, current: current)
+            servant._iceD_getConcreteClass(request)
         case "ice_id":
-            return try (servant as? Object ?? InitialDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? InitialDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? InitialDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? InitialDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "throwException":
-            return try servant._iceD_throwException(incoming: request, current: current)
+            servant._iceD_throwException(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -392,31 +391,42 @@ public protocol Initial {
 ///  - throwException: 
 ///
 ///  - shutdown: 
-public extension Initial {
-    func _iceD_getConcreteClass(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension Initial {
+    public func _iceD_getConcreteClass(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getConcreteClass(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getConcreteClass(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_throwException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_throwException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.throwException(current: current)
-
-        return inS.setResult()
+            try self.throwException(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

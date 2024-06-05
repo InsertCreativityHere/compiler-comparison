@@ -445,7 +445,7 @@ public extension LookupPrx {
 
 
 /// Dispatcher for `LookupReply` servants.
-public struct LookupReplyDisp: Ice.Disp {
+public struct LookupReplyDisp: Ice.Dispatcher {
     public let servant: LookupReply
     private static let defaultObject = Ice.ObjectI<LookupReplyTraits>()
 
@@ -453,23 +453,22 @@ public struct LookupReplyDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "foundAdapterById":
-            return try servant._iceD_foundAdapterById(incoming: request, current: current)
+            servant._iceD_foundAdapterById(request)
         case "foundObjectById":
-            return try servant._iceD_foundObjectById(incoming: request, current: current)
+            servant._iceD_foundObjectById(request)
         case "ice_id":
-            return try (servant as? Object ?? LookupReplyDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? LookupReplyDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -500,7 +499,7 @@ public protocol LookupReply {
 
 
 /// Dispatcher for `Lookup` servants.
-public struct LookupDisp: Ice.Disp {
+public struct LookupDisp: Ice.Dispatcher {
     public let servant: Lookup
     private static let defaultObject = Ice.ObjectI<LookupTraits>()
 
@@ -508,23 +507,22 @@ public struct LookupDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "findAdapterById":
-            return try servant._iceD_findAdapterById(incoming: request, current: current)
+            servant._iceD_findAdapterById(request)
         case "findObjectById":
-            return try servant._iceD_findObjectById(incoming: request, current: current)
+            servant._iceD_findObjectById(request)
         case "ice_id":
-            return try (servant as? Object ?? LookupDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? LookupDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? LookupDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? LookupDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -565,30 +563,34 @@ public protocol Lookup {
 ///  - foundObjectById: Reply to the findObjectById request.
 ///
 ///  - foundAdapterById: Reply to the findAdpaterById request.
-public extension LookupReply {
-    func _iceD_foundObjectById(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_id, iceP_prx): (Ice.Identity, Ice.ObjectPrx?) = try inS.read { istr in
+extension LookupReply {
+    public func _iceD_foundObjectById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_id: Ice.Identity = try istr.read()
             let iceP_prx: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            return (iceP_id, iceP_prx)
+
+            try self.foundObjectById(id: iceP_id, prx: iceP_prx, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.foundObjectById(id: iceP_id, prx: iceP_prx, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_foundAdapterById(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_id, iceP_prx, iceP_isReplicaGroup): (Swift.String, Ice.ObjectPrx?, Swift.Bool) = try inS.read { istr in
+    public func _iceD_foundAdapterById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_id: Swift.String = try istr.read()
             let iceP_prx: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
             let iceP_isReplicaGroup: Swift.Bool = try istr.read()
-            return (iceP_id, iceP_prx, iceP_isReplicaGroup)
+
+            try self.foundAdapterById(id: iceP_id, prx: iceP_prx, isReplicaGroup: iceP_isReplicaGroup, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.foundAdapterById(id: iceP_id, prx: iceP_prx, isReplicaGroup: iceP_isReplicaGroup, current: current)
-
-        return inS.setResult()
     }
 }
 
@@ -599,30 +601,34 @@ public extension LookupReply {
 ///  - findObjectById: Request to find an Ice object
 ///
 ///  - findAdapterById: Request to find an object adapter
-public extension Lookup {
-    func _iceD_findObjectById(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_domainId, iceP_id, iceP_reply): (Swift.String, Ice.Identity, LookupReplyPrx?) = try inS.read { istr in
+extension Lookup {
+    public func _iceD_findObjectById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_domainId: Swift.String = try istr.read()
             let iceP_id: Ice.Identity = try istr.read()
             let iceP_reply: LookupReplyPrx? = try istr.read(LookupReplyPrx.self)
-            return (iceP_domainId, iceP_id, iceP_reply)
+
+            try self.findObjectById(domainId: iceP_domainId, id: iceP_id, reply: iceP_reply, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.findObjectById(domainId: iceP_domainId, id: iceP_id, reply: iceP_reply, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_findAdapterById(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_domainId, iceP_id, iceP_reply): (Swift.String, Swift.String, LookupReplyPrx?) = try inS.read { istr in
+    public func _iceD_findAdapterById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_domainId: Swift.String = try istr.read()
             let iceP_id: Swift.String = try istr.read()
             let iceP_reply: LookupReplyPrx? = try istr.read(LookupReplyPrx.self)
-            return (iceP_domainId, iceP_id, iceP_reply)
+
+            try self.findAdapterById(domainId: iceP_domainId, id: iceP_id, reply: iceP_reply, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.findAdapterById(domainId: iceP_domainId, id: iceP_id, reply: iceP_reply, current: current)
-
-        return inS.setResult()
     }
 }

@@ -1482,7 +1482,7 @@ open class MXConnectionMetrics: MXMetrics {
 
 
 /// Dispatcher for `MXMetricsAdmin` servants.
-public struct MXMetricsAdminDisp: Disp {
+public struct MXMetricsAdminDisp: Ice.Dispatcher {
     public let servant: MXMetricsAdmin
     private static let defaultObject = ObjectI<MXMetricsAdminTraits>()
 
@@ -1490,31 +1490,30 @@ public struct MXMetricsAdminDisp: Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Request, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "disableMetricsView":
-            return try servant._iceD_disableMetricsView(incoming: request, current: current)
+            servant._iceD_disableMetricsView(request)
         case "enableMetricsView":
-            return try servant._iceD_enableMetricsView(incoming: request, current: current)
+            servant._iceD_enableMetricsView(request)
         case "getMapMetricsFailures":
-            return try servant._iceD_getMapMetricsFailures(incoming: request, current: current)
+            servant._iceD_getMapMetricsFailures(request)
         case "getMetricsFailures":
-            return try servant._iceD_getMetricsFailures(incoming: request, current: current)
+            servant._iceD_getMetricsFailures(request)
         case "getMetricsView":
-            return try servant._iceD_getMetricsView(incoming: request, current: current)
+            servant._iceD_getMetricsView(request)
         case "getMetricsViewNames":
-            return try servant._iceD_getMetricsViewNames(incoming: request, current: current)
+            servant._iceD_getMetricsViewNames(request)
         case "ice_id":
-            return try (servant as? Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1623,87 +1622,102 @@ public protocol MXMetricsAdmin {
 ///  - getMapMetricsFailures: Get the metrics failures associated with the given view and map.
 ///
 ///  - getMetricsFailures: Get the metrics failure associated for the given metrics.
-public extension MXMetricsAdmin {
-    func _iceD_getMetricsViewNames(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
+extension MXMetricsAdmin {
+    public func _iceD_getMetricsViewNames(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let (iceP_returnValue, iceP_disabledViews) = try self.getMetricsViewNames(current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_disabledViews) = try self.getMetricsViewNames(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
             ostr.write(iceP_disabledViews)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_enableMetricsView(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let iceP_name: Swift.String = try inS.read { istr in
+    public func _iceD_enableMetricsView(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_name: Swift.String = try istr.read()
-            return iceP_name
+
+            try self.enableMetricsView(name: iceP_name, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-        inS.setFormat(.SlicedFormat)
-
-        try self.enableMetricsView(name: iceP_name, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_disableMetricsView(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let iceP_name: Swift.String = try inS.read { istr in
+    public func _iceD_disableMetricsView(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_name: Swift.String = try istr.read()
-            return iceP_name
+
+            try self.disableMetricsView(name: iceP_name, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-        inS.setFormat(.SlicedFormat)
-
-        try self.disableMetricsView(name: iceP_name, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_getMetricsView(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let iceP_view: Swift.String = try inS.read { istr in
+    public func _iceD_getMetricsView(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_view: Swift.String = try istr.read()
-            return iceP_view
-        }
-        inS.setFormat(.SlicedFormat)
 
-        let (iceP_returnValue, iceP_timestamp) = try self.getMetricsView(view: iceP_view, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_timestamp) = try self.getMetricsView(view: iceP_view, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
             ostr.write(iceP_timestamp)
             MXMetricsViewHelper.write(to: ostr, value: iceP_returnValue)
             ostr.writePendingValues()
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getMapMetricsFailures(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let (iceP_view, iceP_map): (Swift.String, Swift.String) = try inS.read { istr in
+    public func _iceD_getMapMetricsFailures(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_view: Swift.String = try istr.read()
             let iceP_map: Swift.String = try istr.read()
-            return (iceP_view, iceP_map)
-        }
-        inS.setFormat(.SlicedFormat)
 
-        let iceP_returnValue = try self.getMapMetricsFailures(view: iceP_view, map: iceP_map, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getMapMetricsFailures(view: iceP_view, map: iceP_map, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
             MXMetricsFailuresSeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getMetricsFailures(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let (iceP_view, iceP_map, iceP_id): (Swift.String, Swift.String, Swift.String) = try inS.read { istr in
+    public func _iceD_getMetricsFailures(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_view: Swift.String = try istr.read()
             let iceP_map: Swift.String = try istr.read()
             let iceP_id: Swift.String = try istr.read()
-            return (iceP_view, iceP_map, iceP_id)
-        }
-        inS.setFormat(.SlicedFormat)
 
-        let iceP_returnValue = try self.getMetricsFailures(view: iceP_view, map: iceP_map, id: iceP_id, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getMetricsFailures(view: iceP_view, map: iceP_map, id: iceP_id, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

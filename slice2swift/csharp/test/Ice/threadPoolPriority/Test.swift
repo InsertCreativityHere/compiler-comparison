@@ -192,7 +192,7 @@ public extension PriorityPrx {
 
 
 /// Dispatcher for `Priority` servants.
-public struct PriorityDisp: Ice.Disp {
+public struct PriorityDisp: Ice.Dispatcher {
     public let servant: Priority
     private static let defaultObject = Ice.ObjectI<PriorityTraits>()
 
@@ -200,23 +200,22 @@ public struct PriorityDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getPriority":
-            return try servant._iceD_getPriority(incoming: request, current: current)
+            servant._iceD_getPriority(request)
         case "ice_id":
-            return try (servant as? Object ?? PriorityDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? PriorityDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? PriorityDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? PriorityDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? PriorityDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? PriorityDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? PriorityDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? PriorityDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -240,22 +239,30 @@ public protocol Priority {
 ///  - shutdown: 
 ///
 ///  - getPriority: 
-public extension Priority {
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension Priority {
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_getPriority(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getPriority(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getPriority(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getPriority(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

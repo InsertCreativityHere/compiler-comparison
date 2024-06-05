@@ -318,7 +318,7 @@ public extension CallbackPrx {
 
 
 /// Dispatcher for `CallbackReceiver` servants.
-public struct CallbackReceiverDisp: Ice.Disp {
+public struct CallbackReceiverDisp: Ice.Dispatcher {
     public let servant: CallbackReceiver
     private static let defaultObject = Ice.ObjectI<CallbackReceiverTraits>()
 
@@ -326,21 +326,20 @@ public struct CallbackReceiverDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "callback":
-            return try servant._iceD_callback(incoming: request, current: current)
+            servant._iceD_callback(request)
         case "ice_id":
-            return try (servant as? Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -353,7 +352,7 @@ public protocol CallbackReceiver {
 
 
 /// Dispatcher for `Callback` servants.
-public struct CallbackDisp: Ice.Disp {
+public struct CallbackDisp: Ice.Dispatcher {
     public let servant: Callback
     private static let defaultObject = Ice.ObjectI<CallbackTraits>()
 
@@ -361,23 +360,22 @@ public struct CallbackDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? CallbackDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? CallbackDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? CallbackDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(request)
         case "initiateCallback":
-            return try servant._iceD_initiateCallback(incoming: request, current: current)
+            servant._iceD_initiateCallback(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -399,13 +397,16 @@ public protocol Callback {
 /// CallbackReceiver Methods:
 ///
 ///  - callback: 
-public extension CallbackReceiver {
-    func _iceD_callback(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension CallbackReceiver {
+    public func _iceD_callback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.callback(current: current)
-
-        return inS.setResult()
+            try self.callback(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -416,23 +417,28 @@ public extension CallbackReceiver {
 ///  - initiateCallback: 
 ///
 ///  - shutdown: 
-public extension Callback {
-    func _iceD_initiateCallback(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_proxy: CallbackReceiverPrx? = try inS.read { istr in
+extension Callback {
+    public func _iceD_initiateCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-            return iceP_proxy
+
+            try self.initiateCallback(proxy: iceP_proxy, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.initiateCallback(proxy: iceP_proxy, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

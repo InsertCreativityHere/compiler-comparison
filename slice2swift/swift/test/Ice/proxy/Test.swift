@@ -338,7 +338,7 @@ public extension MyDerivedClassPrx {
 
 
 /// Dispatcher for `MyClass` servants.
-public struct MyClassDisp: Ice.Disp {
+public struct MyClassDisp: Ice.Dispatcher {
     public let servant: MyClass
     private static let defaultObject = Ice.ObjectI<MyClassTraits>()
 
@@ -346,23 +346,22 @@ public struct MyClassDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getContext":
-            return try servant._iceD_getContext(incoming: request, current: current)
+            servant._iceD_getContext(request)
         case "ice_id":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -381,7 +380,7 @@ public protocol MyClass {
 
 
 /// Dispatcher for `MyDerivedClass` servants.
-public struct MyDerivedClassDisp: Ice.Disp {
+public struct MyDerivedClassDisp: Ice.Dispatcher {
     public let servant: MyDerivedClass
     private static let defaultObject = Ice.ObjectI<MyDerivedClassTraits>()
 
@@ -389,25 +388,24 @@ public struct MyDerivedClassDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "echo":
-            return try servant._iceD_echo(incoming: request, current: current)
+            servant._iceD_echo(request)
         case "getContext":
-            return try servant._iceD_getContext(incoming: request, current: current)
+            servant._iceD_getContext(request)
         case "ice_id":
-            return try (servant as? Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -429,22 +427,30 @@ public protocol MyDerivedClass: MyClass {
 ///  - shutdown: 
 ///
 ///  - getContext: 
-public extension MyClass {
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension MyClass {
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_getContext(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getContext(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getContext(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getContext(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             Ice.ContextHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -454,17 +460,21 @@ public extension MyClass {
 /// MyDerivedClass Methods:
 ///
 ///  - echo: 
-public extension MyDerivedClass {
-    func _iceD_echo(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_obj: Ice.ObjectPrx? = try inS.read { istr in
+extension MyDerivedClass {
+    public func _iceD_echo(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_obj: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            return iceP_obj
-        }
 
-        let iceP_returnValue = try self.echo(obj: iceP_obj, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.echo(obj: iceP_obj, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

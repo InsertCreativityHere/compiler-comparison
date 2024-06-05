@@ -1772,7 +1772,7 @@ open class CommonOptionOverrides: Ice.Value {
 
 
 /// Dispatcher for `CommonTestCase` servants.
-public struct CommonTestCaseDisp: Ice.Disp {
+public struct CommonTestCaseDisp: Ice.Dispatcher {
     public let servant: CommonTestCase
     private static let defaultObject = Ice.ObjectI<CommonTestCaseTraits>()
 
@@ -1780,27 +1780,26 @@ public struct CommonTestCaseDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "destroy":
-            return try servant._iceD_destroy(incoming: request, current: current)
+            servant._iceD_destroy(request)
         case "ice_id":
-            return try (servant as? Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_ping(request)
         case "runClientSide":
-            return try servant._iceD_runClientSide(incoming: request, current: current)
+            servant._iceD_runClientSide(request)
         case "startServerSide":
-            return try servant._iceD_startServerSide(incoming: request, current: current)
+            servant._iceD_startServerSide(request)
         case "stopServerSide":
-            return try servant._iceD_stopServerSide(incoming: request, current: current)
+            servant._iceD_stopServerSide(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1839,7 +1838,7 @@ public protocol CommonTestCase {
 
 
 /// Dispatcher for `CommonController` servants.
-public struct CommonControllerDisp: Ice.Disp {
+public struct CommonControllerDisp: Ice.Dispatcher {
     public let servant: CommonController
     private static let defaultObject = Ice.ObjectI<CommonControllerTraits>()
 
@@ -1847,27 +1846,26 @@ public struct CommonControllerDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getHost":
-            return try servant._iceD_getHost(incoming: request, current: current)
+            servant._iceD_getHost(request)
         case "getOptionOverrides":
-            return try servant._iceD_getOptionOverrides(incoming: request, current: current)
+            servant._iceD_getOptionOverrides(request)
         case "getTestSuites":
-            return try servant._iceD_getTestSuites(incoming: request, current: current)
+            servant._iceD_getTestSuites(request)
         case "ice_id":
-            return try (servant as? Object ?? CommonControllerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? CommonControllerDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? CommonControllerDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? CommonControllerDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "runTestCase":
-            return try servant._iceD_runTestCase(incoming: request, current: current)
+            servant._iceD_runTestCase(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1914,7 +1912,7 @@ public protocol CommonController {
 
 
 /// Dispatcher for `CommonProcess` servants.
-public struct CommonProcessDisp: Ice.Disp {
+public struct CommonProcessDisp: Ice.Dispatcher {
     public let servant: CommonProcess
     private static let defaultObject = Ice.ObjectI<CommonProcessTraits>()
 
@@ -1922,25 +1920,24 @@ public struct CommonProcessDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? CommonProcessDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonProcessDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? CommonProcessDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonProcessDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? CommonProcessDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonProcessDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? CommonProcessDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonProcessDisp.defaultObject)._iceD_ice_ping(request)
         case "terminate":
-            return try servant._iceD_terminate(incoming: request, current: current)
+            servant._iceD_terminate(request)
         case "waitReady":
-            return try servant._iceD_waitReady(incoming: request, current: current)
+            servant._iceD_waitReady(request)
         case "waitSuccess":
-            return try servant._iceD_waitSuccess(incoming: request, current: current)
+            servant._iceD_waitSuccess(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1969,7 +1966,7 @@ public protocol CommonProcess {
 
 
 /// Dispatcher for `CommonProcessController` servants.
-public struct CommonProcessControllerDisp: Ice.Disp {
+public struct CommonProcessControllerDisp: Ice.Dispatcher {
     public let servant: CommonProcessController
     private static let defaultObject = Ice.ObjectI<CommonProcessControllerTraits>()
 
@@ -1977,23 +1974,22 @@ public struct CommonProcessControllerDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getHost":
-            return try servant._iceD_getHost(incoming: request, current: current)
+            servant._iceD_getHost(request)
         case "ice_id":
-            return try (servant as? Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "start":
-            return try servant._iceD_start(incoming: request, current: current)
+            servant._iceD_start(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -2024,7 +2020,7 @@ public protocol CommonProcessController {
 
 
 /// Dispatcher for `CommonBrowserProcessController` servants.
-public struct CommonBrowserProcessControllerDisp: Ice.Disp {
+public struct CommonBrowserProcessControllerDisp: Ice.Dispatcher {
     public let servant: CommonBrowserProcessController
     private static let defaultObject = Ice.ObjectI<CommonBrowserProcessControllerTraits>()
 
@@ -2032,25 +2028,24 @@ public struct CommonBrowserProcessControllerDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getHost":
-            return try servant._iceD_getHost(incoming: request, current: current)
+            servant._iceD_getHost(request)
         case "ice_id":
-            return try (servant as? Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "redirect":
-            return try servant._iceD_redirect(incoming: request, current: current)
+            servant._iceD_redirect(request)
         case "start":
-            return try servant._iceD_start(incoming: request, current: current)
+            servant._iceD_start(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -2065,7 +2060,7 @@ public protocol CommonBrowserProcessController: CommonProcessController {
 
 
 /// Dispatcher for `CommonProcessControllerRegistry` servants.
-public struct CommonProcessControllerRegistryDisp: Ice.Disp {
+public struct CommonProcessControllerRegistryDisp: Ice.Dispatcher {
     public let servant: CommonProcessControllerRegistry
     private static let defaultObject = Ice.ObjectI<CommonProcessControllerRegistryTraits>()
 
@@ -2073,21 +2068,20 @@ public struct CommonProcessControllerRegistryDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_ping(request)
         case "setProcessController":
-            return try servant._iceD_setProcessController(incoming: request, current: current)
+            servant._iceD_setProcessController(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -2111,57 +2105,72 @@ public protocol CommonProcessControllerRegistry {
 ///  - runClientSide: 
 ///
 ///  - destroy: 
-public extension CommonTestCase {
-    func _iceD_startServerSide(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_config: CommonConfig? = try inS.read { istr in
+extension CommonTestCase {
+    public func _iceD_startServerSide(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_config: CommonConfig?
             try istr.read(CommonConfig.self) { iceP_config = $0 }
             try istr.readPendingValues()
-            return iceP_config
-        }
 
-        let iceP_returnValue = try self.startServerSide(config: iceP_config, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.startServerSide(config: iceP_config, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_stopServerSide(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_success: Swift.Bool = try inS.read { istr in
+    public func _iceD_stopServerSide(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_success: Swift.Bool = try istr.read()
-            return iceP_success
-        }
 
-        let iceP_returnValue = try self.stopServerSide(success: iceP_success, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.stopServerSide(success: iceP_success, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_runClientSide(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_host, iceP_config): (Swift.String, CommonConfig?) = try inS.read { istr in
+    public func _iceD_runClientSide(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_host: Swift.String = try istr.read()
             var iceP_config: CommonConfig?
             try istr.read(CommonConfig.self) { iceP_config = $0 }
             try istr.readPendingValues()
-            return (iceP_host, iceP_config)
-        }
 
-        let iceP_returnValue = try self.runClientSide(host: iceP_host, config: iceP_config, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.runClientSide(host: iceP_host, config: iceP_config, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_destroy(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_destroy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.destroy(current: current)
-
-        return inS.setResult()
+            try self.destroy(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -2176,58 +2185,75 @@ public extension CommonTestCase {
 ///  - getTestSuites: 
 ///
 ///  - getHost: 
-public extension CommonController {
-    func _iceD_runTestCase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross): (Swift.String, Swift.String, Swift.String, Swift.String) = try inS.read { istr in
+extension CommonController {
+    public func _iceD_runTestCase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_mapping: Swift.String = try istr.read()
             let iceP_testsuite: Swift.String = try istr.read()
             let iceP_testcase: Swift.String = try istr.read()
             let iceP_cross: Swift.String = try istr.read()
-            return (iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross)
-        }
 
-        let iceP_returnValue = try self.runTestCase(mapping: iceP_mapping, testsuite: iceP_testsuite, testcase: iceP_testcase, cross: iceP_cross, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.runTestCase(mapping: iceP_mapping, testsuite: iceP_testsuite, testcase: iceP_testcase, cross: iceP_cross, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getOptionOverrides(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getOptionOverrides(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getOptionOverrides(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getOptionOverrides(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getTestSuites(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_mapping: Swift.String = try inS.read { istr in
+    public func _iceD_getTestSuites(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_mapping: Swift.String = try istr.read()
-            return iceP_mapping
-        }
 
-        let iceP_returnValue = try self.getTestSuites(mapping: iceP_mapping, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getTestSuites(mapping: iceP_mapping, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getHost(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_protocol, iceP_ipv6): (Swift.String, Swift.Bool) = try inS.read { istr in
+    public func _iceD_getHost(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_protocol: Swift.String = try istr.read()
             let iceP_ipv6: Swift.Bool = try istr.read()
-            return (iceP_protocol, iceP_ipv6)
-        }
 
-        let iceP_returnValue = try self.getHost(protocol: iceP_protocol, ipv6: iceP_ipv6, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getHost(protocol: iceP_protocol, ipv6: iceP_ipv6, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -2241,38 +2267,49 @@ public extension CommonController {
 ///  - waitSuccess: 
 ///
 ///  - terminate: 
-public extension CommonProcess {
-    func _iceD_waitReady(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_timeout: Swift.Int32 = try inS.read { istr in
+extension CommonProcess {
+    public func _iceD_waitReady(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_timeout: Swift.Int32 = try istr.read()
-            return iceP_timeout
-        }
 
-        try self.waitReady(timeout: iceP_timeout, current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_waitSuccess(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_timeout: Swift.Int32 = try inS.read { istr in
-            let iceP_timeout: Swift.Int32 = try istr.read()
-            return iceP_timeout
-        }
-
-        let iceP_returnValue = try self.waitSuccess(timeout: iceP_timeout, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
+            try self.waitReady(timeout: iceP_timeout, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_terminate(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_waitSuccess(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
+            let iceP_timeout: Swift.Int32 = try istr.read()
 
-        let iceP_returnValue = try self.terminate(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.waitSuccess(timeout: iceP_timeout, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_terminate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            let iceP_returnValue = try self.terminate(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+            ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -2284,33 +2321,41 @@ public extension CommonProcess {
 ///  - start: 
 ///
 ///  - getHost: 
-public extension CommonProcessController {
-    func _iceD_start(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_testsuite, iceP_exe, iceP_args): (Swift.String, Swift.String, CommonStringSeq) = try inS.read { istr in
+extension CommonProcessController {
+    public func _iceD_start(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_testsuite: Swift.String = try istr.read()
             let iceP_exe: Swift.String = try istr.read()
             let iceP_args: CommonStringSeq = try istr.read()
-            return (iceP_testsuite, iceP_exe, iceP_args)
-        }
 
-        let iceP_returnValue = try self.start(testsuite: iceP_testsuite, exe: iceP_exe, args: iceP_args, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.start(testsuite: iceP_testsuite, exe: iceP_exe, args: iceP_args, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getHost(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_protocol, iceP_ipv6): (Swift.String, Swift.Bool) = try inS.read { istr in
+    public func _iceD_getHost(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_protocol: Swift.String = try istr.read()
             let iceP_ipv6: Swift.Bool = try istr.read()
-            return (iceP_protocol, iceP_ipv6)
-        }
 
-        let iceP_returnValue = try self.getHost(protocol: iceP_protocol, ipv6: iceP_ipv6, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getHost(protocol: iceP_protocol, ipv6: iceP_ipv6, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -2320,16 +2365,18 @@ public extension CommonProcessController {
 /// CommonBrowserProcessController Methods:
 ///
 ///  - redirect: 
-public extension CommonBrowserProcessController {
-    func _iceD_redirect(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_url: Swift.String = try inS.read { istr in
+extension CommonBrowserProcessController {
+    public func _iceD_redirect(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_url: Swift.String = try istr.read()
-            return iceP_url
+
+            try self.redirect(url: iceP_url, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.redirect(url: iceP_url, current: current)
-
-        return inS.setResult()
     }
 }
 
@@ -2338,15 +2385,17 @@ public extension CommonBrowserProcessController {
 /// CommonProcessControllerRegistry Methods:
 ///
 ///  - setProcessController: 
-public extension CommonProcessControllerRegistry {
-    func _iceD_setProcessController(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_controller: CommonProcessControllerPrx? = try inS.read { istr in
+extension CommonProcessControllerRegistry {
+    public func _iceD_setProcessController(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_controller: CommonProcessControllerPrx? = try istr.read(CommonProcessControllerPrx.self)
-            return iceP_controller
+
+            try self.setProcessController(controller: iceP_controller, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.setProcessController(controller: iceP_controller, current: current)
-
-        return inS.setResult()
     }
 }

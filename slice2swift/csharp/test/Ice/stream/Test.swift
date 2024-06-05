@@ -2551,7 +2551,7 @@ open class MyClass: Ice.Value {
 
 
 /// Dispatcher for `MyInterface` servants.
-public struct MyInterfaceDisp: Ice.Disp {
+public struct MyInterfaceDisp: Ice.Dispatcher {
     public let servant: MyInterface
     private static let defaultObject = Ice.ObjectI<MyInterfaceTraits>()
 
@@ -2559,19 +2559,18 @@ public struct MyInterfaceDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -2579,4 +2578,4 @@ public struct MyInterfaceDisp: Ice.Disp {
 public protocol MyInterface {}
 
 /// MyInterface overview.
-public extension MyInterface {}
+extension MyInterface {}

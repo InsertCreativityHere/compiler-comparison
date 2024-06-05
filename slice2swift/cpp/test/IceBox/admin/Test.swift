@@ -155,7 +155,7 @@ public extension TestFacetPrx {
 
 
 /// Dispatcher for `TestFacet` servants.
-public struct TestFacetDisp: Ice.Disp {
+public struct TestFacetDisp: Ice.Dispatcher {
     public let servant: TestFacet
     private static let defaultObject = Ice.ObjectI<TestFacetTraits>()
 
@@ -163,21 +163,20 @@ public struct TestFacetDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getChanges":
-            return try servant._iceD_getChanges(incoming: request, current: current)
+            servant._iceD_getChanges(request)
         case "ice_id":
-            return try (servant as? Object ?? TestFacetDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TestFacetDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TestFacetDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TestFacetDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -195,14 +194,19 @@ public protocol TestFacet {
 /// TestFacet Methods:
 ///
 ///  - getChanges: 
-public extension TestFacet {
-    func _iceD_getChanges(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension TestFacet {
+    public func _iceD_getChanges(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getChanges(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getChanges(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             Ice.PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

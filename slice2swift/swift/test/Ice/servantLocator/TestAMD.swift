@@ -864,7 +864,7 @@ public extension TestActivationPrx {
 
 
 /// Dispatcher for `TestIntf` servants.
-public struct TestIntfDisp: Ice.Disp {
+public struct TestIntfDisp: Ice.Dispatcher {
     public let servant: TestIntf
     private static let defaultObject = Ice.ObjectI<TestIntfTraits>()
 
@@ -872,43 +872,42 @@ public struct TestIntfDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "asyncException":
-            return try servant._iceD_asyncException(incoming: request, current: current)
+            servant._iceD_asyncException(request)
         case "asyncResponse":
-            return try servant._iceD_asyncResponse(incoming: request, current: current)
+            servant._iceD_asyncResponse(request)
         case "ice_id":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "impossibleException":
-            return try servant._iceD_impossibleException(incoming: request, current: current)
+            servant._iceD_impossibleException(request)
         case "intfUserException":
-            return try servant._iceD_intfUserException(incoming: request, current: current)
+            servant._iceD_intfUserException(request)
         case "localException":
-            return try servant._iceD_localException(incoming: request, current: current)
+            servant._iceD_localException(request)
         case "requestFailedException":
-            return try servant._iceD_requestFailedException(incoming: request, current: current)
+            servant._iceD_requestFailedException(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "unknownException":
-            return try servant._iceD_unknownException(incoming: request, current: current)
+            servant._iceD_unknownException(request)
         case "unknownExceptionWithServantException":
-            return try servant._iceD_unknownExceptionWithServantException(incoming: request, current: current)
+            servant._iceD_unknownExceptionWithServantException(request)
         case "unknownLocalException":
-            return try servant._iceD_unknownLocalException(incoming: request, current: current)
+            servant._iceD_unknownLocalException(request)
         case "unknownUserException":
-            return try servant._iceD_unknownUserException(incoming: request, current: current)
+            servant._iceD_unknownUserException(request)
         case "userException":
-            return try servant._iceD_userException(incoming: request, current: current)
+            servant._iceD_userException(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -993,7 +992,7 @@ public protocol TestIntf {
 
 
 /// Dispatcher for `TestActivation` servants.
-public struct TestActivationDisp: Ice.Disp {
+public struct TestActivationDisp: Ice.Dispatcher {
     public let servant: TestActivation
     private static let defaultObject = Ice.ObjectI<TestActivationTraits>()
 
@@ -1001,21 +1000,20 @@ public struct TestActivationDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "activateServantLocator":
-            return try servant._iceD_activateServantLocator(incoming: request, current: current)
+            servant._iceD_activateServantLocator(request)
         case "ice_id":
-            return try (servant as? Object ?? TestActivationDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TestActivationDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TestActivationDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TestActivationDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1057,89 +1055,171 @@ public protocol TestActivation {
 ///  - asyncException: 
 ///
 ///  - shutdown: 
-public extension TestIntf {
-    func _iceD_requestFailedException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(requestFailedExceptionAsync(current: current))
+extension TestIntf {
+    public func _iceD_requestFailedException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.requestFailedExceptionAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_unknownUserException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(unknownUserExceptionAsync(current: current))
+    public func _iceD_unknownUserException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.unknownUserExceptionAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_unknownLocalException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(unknownLocalExceptionAsync(current: current))
+    public func _iceD_unknownLocalException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.unknownLocalExceptionAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_unknownException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(unknownExceptionAsync(current: current))
+    public func _iceD_unknownException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.unknownExceptionAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_localException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(localExceptionAsync(current: current))
+    public func _iceD_localException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.localExceptionAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_userException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(userExceptionAsync(current: current))
+    public func _iceD_userException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.userExceptionAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_unknownExceptionWithServantException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(unknownExceptionWithServantExceptionAsync(current: current))
+    public func _iceD_unknownExceptionWithServantException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.unknownExceptionWithServantExceptionAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_impossibleException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_throw: Swift.Bool = try inS.read { istr in
+    public func _iceD_impossibleException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_throw: Swift.Bool = try istr.read()
-            return iceP_throw
-        }
-
-        return inS.setResultPromise(impossibleExceptionAsync(throw: iceP_throw, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+            return self.impossibleExceptionAsync(
+                throw: iceP_throw, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_intfUserException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_throw: Swift.Bool = try inS.read { istr in
+    public func _iceD_intfUserException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_throw: Swift.Bool = try istr.read()
-            return iceP_throw
+            return self.intfUserExceptionAsync(
+                throw: iceP_throw, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
+    }
 
-        return inS.setResultPromise(intfUserExceptionAsync(throw: iceP_throw, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+    public func _iceD_asyncResponse(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.asyncResponseAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_asyncResponse(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(asyncResponseAsync(current: current))
+    public func _iceD_asyncException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.asyncExceptionAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_asyncException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(asyncExceptionAsync(current: current))
-    }
-
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(shutdownAsync(current: current))
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.shutdownAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -1148,13 +1228,19 @@ public extension TestIntf {
 /// TestActivation Methods:
 ///
 ///  - activateServantLocator: 
-public extension TestActivation {
-    func _iceD_activateServantLocator(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_activate: Swift.Bool = try inS.read { istr in
+extension TestActivation {
+    public func _iceD_activateServantLocator(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_activate: Swift.Bool = try istr.read()
-            return iceP_activate
+            return self.activateServantLocatorAsync(
+                activate: iceP_activate, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        return inS.setResultPromise(activateServantLocatorAsync(activate: iceP_activate, current: current))
     }
 }

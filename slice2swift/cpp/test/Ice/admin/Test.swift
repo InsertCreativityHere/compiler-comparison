@@ -890,7 +890,7 @@ public extension TestFacetPrx {
 
 
 /// Dispatcher for `RemoteCommunicator` servants.
-public struct RemoteCommunicatorDisp: Ice.Disp {
+public struct RemoteCommunicatorDisp: Ice.Dispatcher {
     public let servant: RemoteCommunicator
     private static let defaultObject = Ice.ObjectI<RemoteCommunicatorTraits>()
 
@@ -898,41 +898,40 @@ public struct RemoteCommunicatorDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "addUpdateCallback":
-            return try servant._iceD_addUpdateCallback(incoming: request, current: current)
+            servant._iceD_addUpdateCallback(request)
         case "destroy":
-            return try servant._iceD_destroy(incoming: request, current: current)
+            servant._iceD_destroy(request)
         case "error":
-            return try servant._iceD_error(incoming: request, current: current)
+            servant._iceD_error(request)
         case "getAdmin":
-            return try servant._iceD_getAdmin(incoming: request, current: current)
+            servant._iceD_getAdmin(request)
         case "getChanges":
-            return try servant._iceD_getChanges(incoming: request, current: current)
+            servant._iceD_getChanges(request)
         case "ice_id":
-            return try (servant as? Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ping(request)
         case "print":
-            return try servant._iceD_print(incoming: request, current: current)
+            servant._iceD_print(request)
         case "removeUpdateCallback":
-            return try servant._iceD_removeUpdateCallback(incoming: request, current: current)
+            servant._iceD_removeUpdateCallback(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "trace":
-            return try servant._iceD_trace(incoming: request, current: current)
+            servant._iceD_trace(request)
         case "waitForShutdown":
-            return try servant._iceD_waitForShutdown(incoming: request, current: current)
+            servant._iceD_waitForShutdown(request)
         case "warning":
-            return try servant._iceD_warning(incoming: request, current: current)
+            servant._iceD_warning(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -999,7 +998,7 @@ public protocol RemoteCommunicator {
 
 
 /// Dispatcher for `RemoteCommunicatorFactory` servants.
-public struct RemoteCommunicatorFactoryDisp: Ice.Disp {
+public struct RemoteCommunicatorFactoryDisp: Ice.Dispatcher {
     public let servant: RemoteCommunicatorFactory
     private static let defaultObject = Ice.ObjectI<RemoteCommunicatorFactoryTraits>()
 
@@ -1007,23 +1006,22 @@ public struct RemoteCommunicatorFactoryDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "createCommunicator":
-            return try servant._iceD_createCommunicator(incoming: request, current: current)
+            servant._iceD_createCommunicator(request)
         case "ice_id":
-            return try (servant as? Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1044,7 +1042,7 @@ public protocol RemoteCommunicatorFactory {
 
 
 /// Dispatcher for `TestFacet` servants.
-public struct TestFacetDisp: Ice.Disp {
+public struct TestFacetDisp: Ice.Dispatcher {
     public let servant: TestFacet
     private static let defaultObject = Ice.ObjectI<TestFacetTraits>()
 
@@ -1052,21 +1050,20 @@ public struct TestFacetDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? TestFacetDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TestFacetDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TestFacetDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TestFacetDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
-            return try servant._iceD_op(incoming: request, current: current)
+            servant._iceD_op(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1102,110 +1099,143 @@ public protocol TestFacet {
 ///  - waitForShutdown: 
 ///
 ///  - destroy: 
-public extension RemoteCommunicator {
-    func _iceD_getAdmin(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension RemoteCommunicator {
+    public func _iceD_getAdmin(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getAdmin(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getAdmin(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getChanges(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getChanges(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getChanges(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getChanges(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             Ice.PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_addUpdateCallback(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_addUpdateCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.addUpdateCallback(current: current)
-
-        return inS.setResult()
+            try self.addUpdateCallback(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_removeUpdateCallback(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_removeUpdateCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.removeUpdateCallback(current: current)
-
-        return inS.setResult()
+            try self.removeUpdateCallback(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_print(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_message: Swift.String = try inS.read { istr in
+    public func _iceD_print(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_message: Swift.String = try istr.read()
-            return iceP_message
+
+            try self.print(message: iceP_message, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.print(message: iceP_message, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_trace(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_category, iceP_message): (Swift.String, Swift.String) = try inS.read { istr in
+    public func _iceD_trace(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_category: Swift.String = try istr.read()
             let iceP_message: Swift.String = try istr.read()
-            return (iceP_category, iceP_message)
+
+            try self.trace(category: iceP_category, message: iceP_message, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.trace(category: iceP_category, message: iceP_message, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_warning(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_message: Swift.String = try inS.read { istr in
+    public func _iceD_warning(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_message: Swift.String = try istr.read()
-            return iceP_message
+
+            try self.warning(message: iceP_message, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.warning(message: iceP_message, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_error(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_message: Swift.String = try inS.read { istr in
+    public func _iceD_error(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_message: Swift.String = try istr.read()
-            return iceP_message
+
+            try self.error(message: iceP_message, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.error(message: iceP_message, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_waitForShutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_waitForShutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.waitForShutdown(current: current)
-
-        return inS.setResult()
+            try self.waitForShutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_destroy(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_destroy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.destroy(current: current)
-
-        return inS.setResult()
+            try self.destroy(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -1216,26 +1246,33 @@ public extension RemoteCommunicator {
 ///  - createCommunicator: 
 ///
 ///  - shutdown: 
-public extension RemoteCommunicatorFactory {
-    func _iceD_createCommunicator(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_props: Ice.PropertyDict = try inS.read { istr in
+extension RemoteCommunicatorFactory {
+    public func _iceD_createCommunicator(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_props: Ice.PropertyDict = try Ice.PropertyDictHelper.read(from: istr)
-            return iceP_props
-        }
 
-        let iceP_returnValue = try self.createCommunicator(props: iceP_props, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.createCommunicator(props: iceP_props, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -1244,12 +1281,15 @@ public extension RemoteCommunicatorFactory {
 /// TestFacet Methods:
 ///
 ///  - op: 
-public extension TestFacet {
-    func _iceD_op(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension TestFacet {
+    public func _iceD_op(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.op(current: current)
-
-        return inS.setResult()
+            try self.op(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

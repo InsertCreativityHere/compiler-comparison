@@ -861,7 +861,7 @@ open class `switch`: Ice.Value {
 
 
 /// Dispatcher for ``break`` servants.
-public struct breakDisp: Ice.Disp {
+public struct breakDisp: Ice.Dispatcher {
     public let servant: `break`
     private static let defaultObject = Ice.ObjectI<breakTraits>()
 
@@ -869,21 +869,20 @@ public struct breakDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "case":
-            return try servant._iceD_case(incoming: request, current: current)
+            servant._iceD_case(request)
         case "ice_id":
-            return try (servant as? Object ?? breakDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? breakDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? breakDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? breakDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -900,7 +899,7 @@ public protocol `break` {
 
 
 /// Dispatcher for ``func`` servants.
-public struct funcDisp: Ice.Disp {
+public struct funcDisp: Ice.Dispatcher {
     public let servant: `func`
     private static let defaultObject = Ice.ObjectI<funcTraits>()
 
@@ -908,21 +907,20 @@ public struct funcDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? funcDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? funcDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? funcDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? funcDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? funcDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? funcDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? funcDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? funcDisp.defaultObject)._iceD_ice_ping(request)
         case "public":
-            return try servant._iceD_public(incoming: request, current: current)
+            servant._iceD_public(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -935,7 +933,7 @@ public protocol `func` {
 
 
 /// Dispatcher for ``do`` servants.
-public struct doDisp: Ice.Disp {
+public struct doDisp: Ice.Dispatcher {
     public let servant: `do`
     private static let defaultObject = Ice.ObjectI<doTraits>()
 
@@ -943,23 +941,22 @@ public struct doDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "case":
-            return try servant._iceD_case(incoming: request, current: current)
+            servant._iceD_case(request)
         case "ice_id":
-            return try (servant as? Object ?? doDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? doDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? doDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? doDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? doDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? doDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? doDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? doDisp.defaultObject)._iceD_ice_ping(request)
         case "public":
-            return try servant._iceD_public(incoming: request, current: current)
+            servant._iceD_public(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -971,16 +968,22 @@ public protocol `do`: `func`, `break` {}
 /// break Methods:
 ///
 ///  - `case`: 
-public extension `break` {
-    func _iceD_case(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_catch: Swift.Int32 = try inS.read { istr in
+extension `break` {
+    public func _iceD_case(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_catch: Swift.Int32 = try istr.read()
-            return iceP_catch
-        }
-
-        return inS.setResultPromise(caseAsync(catch: iceP_catch, current: current)) { (ostr, retVals) in
-            let iceP_try = retVals
-            ostr.write(iceP_try)
+            return self.caseAsync(
+                catch: iceP_catch, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_try = value
+                    ostr.write(iceP_try)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -990,15 +993,18 @@ public extension `break` {
 /// func Methods:
 ///
 ///  - `public`: 
-public extension `func` {
-    func _iceD_public(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension `func` {
+    public func _iceD_public(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.`public`(current: current)
-
-        return inS.setResult()
+            try self.`public`(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
 /// do overview.
-public extension `do` {}
+extension `do` {}

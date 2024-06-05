@@ -155,7 +155,7 @@ public extension EventPrx {
 
 
 /// Dispatcher for `Event` servants.
-public struct EventDisp: Ice.Disp {
+public struct EventDisp: Ice.Dispatcher {
     public let servant: Event
     private static let defaultObject = Ice.ObjectI<EventTraits>()
 
@@ -163,21 +163,20 @@ public struct EventDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? EventDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? EventDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? EventDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? EventDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_ping(request)
         case "pub":
-            return try servant._iceD_pub(incoming: request, current: current)
+            servant._iceD_pub(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -195,15 +194,17 @@ public protocol Event {
 /// Event Methods:
 ///
 ///  - pub: 
-public extension Event {
-    func _iceD_pub(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_counter: Swift.Int32 = try inS.read { istr in
+extension Event {
+    public func _iceD_pub(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_counter: Swift.Int32 = try istr.read()
-            return iceP_counter
+
+            try self.pub(counter: iceP_counter, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.pub(counter: iceP_counter, current: current)
-
-        return inS.setResult()
     }
 }

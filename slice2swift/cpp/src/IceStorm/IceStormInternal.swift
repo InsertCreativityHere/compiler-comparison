@@ -680,7 +680,7 @@ public extension TopicManagerInternalPrx {
 
 
 /// Dispatcher for `TopicLink` servants.
-public struct TopicLinkDisp: Ice.Disp {
+public struct TopicLinkDisp: Ice.Dispatcher {
     public let servant: TopicLink
     private static let defaultObject = Ice.ObjectI<TopicLinkTraits>()
 
@@ -688,21 +688,20 @@ public struct TopicLinkDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "forward":
-            return try servant._iceD_forward(incoming: request, current: current)
+            servant._iceD_forward(request)
         case "ice_id":
-            return try (servant as? Object ?? TopicLinkDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TopicLinkDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TopicLinkDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TopicLinkDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TopicLinkDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TopicLinkDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TopicLinkDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TopicLinkDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -719,7 +718,7 @@ public protocol TopicLink {
 
 
 /// Dispatcher for `TopicInternal` servants.
-public struct TopicInternalDisp: Ice.Disp {
+public struct TopicInternalDisp: Ice.Dispatcher {
     public let servant: TopicInternal
     private static let defaultObject = Ice.ObjectI<TopicInternalTraits>()
 
@@ -727,43 +726,42 @@ public struct TopicInternalDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "destroy":
-            return try servant._iceD_destroy(incoming: request, current: current)
+            servant._iceD_destroy(request)
         case "getLinkInfoSeq":
-            return try servant._iceD_getLinkInfoSeq(incoming: request, current: current)
+            servant._iceD_getLinkInfoSeq(request)
         case "getLinkProxy":
-            return try servant._iceD_getLinkProxy(incoming: request, current: current)
+            servant._iceD_getLinkProxy(request)
         case "getName":
-            return try servant._iceD_getName(incoming: request, current: current)
+            servant._iceD_getName(request)
         case "getNonReplicatedPublisher":
-            return try servant._iceD_getNonReplicatedPublisher(incoming: request, current: current)
+            servant._iceD_getNonReplicatedPublisher(request)
         case "getPublisher":
-            return try servant._iceD_getPublisher(incoming: request, current: current)
+            servant._iceD_getPublisher(request)
         case "getSubscribers":
-            return try servant._iceD_getSubscribers(incoming: request, current: current)
+            servant._iceD_getSubscribers(request)
         case "ice_id":
-            return try (servant as? Object ?? TopicInternalDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TopicInternalDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TopicInternalDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TopicInternalDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TopicInternalDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TopicInternalDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TopicInternalDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TopicInternalDisp.defaultObject)._iceD_ice_ping(request)
         case "link":
-            return try servant._iceD_link(incoming: request, current: current)
+            servant._iceD_link(request)
         case "reap":
-            return try servant._iceD_reap(incoming: request, current: current)
+            servant._iceD_reap(request)
         case "subscribeAndGetPublisher":
-            return try servant._iceD_subscribeAndGetPublisher(incoming: request, current: current)
+            servant._iceD_subscribeAndGetPublisher(request)
         case "unlink":
-            return try servant._iceD_unlink(incoming: request, current: current)
+            servant._iceD_unlink(request)
         case "unsubscribe":
-            return try servant._iceD_unsubscribe(incoming: request, current: current)
+            servant._iceD_unsubscribe(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -791,7 +789,7 @@ public protocol TopicInternal: Topic {
 
 
 /// Dispatcher for `TopicManagerInternal` servants.
-public struct TopicManagerInternalDisp: Ice.Disp {
+public struct TopicManagerInternalDisp: Ice.Dispatcher {
     public let servant: TopicManagerInternal
     private static let defaultObject = Ice.ObjectI<TopicManagerInternalTraits>()
 
@@ -799,27 +797,26 @@ public struct TopicManagerInternalDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "create":
-            return try servant._iceD_create(incoming: request, current: current)
+            servant._iceD_create(request)
         case "getReplicaNode":
-            return try servant._iceD_getReplicaNode(incoming: request, current: current)
+            servant._iceD_getReplicaNode(request)
         case "ice_id":
-            return try (servant as? Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_ping(request)
         case "retrieve":
-            return try servant._iceD_retrieve(incoming: request, current: current)
+            servant._iceD_retrieve(request)
         case "retrieveAll":
-            return try servant._iceD_retrieveAll(incoming: request, current: current)
+            servant._iceD_retrieveAll(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -839,16 +836,18 @@ public protocol TopicManagerInternal: TopicManager {
 /// TopicLink Methods:
 ///
 ///  - forward: Forward a sequence of events.
-public extension TopicLink {
-    func _iceD_forward(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_events: EventDataSeq = try inS.read { istr in
+extension TopicLink {
+    public func _iceD_forward(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_events: EventDataSeq = try EventDataSeqHelper.read(from: istr)
-            return iceP_events
+
+            try self.forward(events: iceP_events, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.forward(events: iceP_events, current: current)
-
-        return inS.setResult()
     }
 }
 
@@ -859,26 +858,33 @@ public extension TopicLink {
 ///  - getLinkProxy: Retrieve a proxy to the TopicLink interface.
 ///
 ///  - reap: Reap the given identities.
-public extension TopicInternal {
-    func _iceD_getLinkProxy(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension TopicInternal {
+    public func _iceD_getLinkProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getLinkProxy(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getLinkProxy(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_reap(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_id: Ice.IdentitySeq = try inS.read { istr in
+    public func _iceD_reap(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_id: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
-            return iceP_id
+
+            try self.reap(id: iceP_id, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.reap(id: iceP_id, current: current)
-
-        return inS.setResult()
     }
 }
 
@@ -887,14 +893,19 @@ public extension TopicInternal {
 /// TopicManagerInternal Methods:
 ///
 ///  - getReplicaNode: Return the replica node proxy for this topic manager.
-public extension TopicManagerInternal {
-    func _iceD_getReplicaNode(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension TopicManagerInternal {
+    public func _iceD_getReplicaNode(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getReplicaNode(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getReplicaNode(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

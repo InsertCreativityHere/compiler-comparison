@@ -775,7 +775,7 @@ open class Baz: Ice.Value {
 
 
 /// Dispatcher for `MyClass` servants.
-public struct MyClassDisp: Ice.Disp {
+public struct MyClassDisp: Ice.Dispatcher {
     public let servant: MyClass
     private static let defaultObject = Ice.ObjectI<MyClassTraits>()
 
@@ -783,27 +783,26 @@ public struct MyClassDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "opSerialLargeJava":
-            return try servant._iceD_opSerialLargeJava(incoming: request, current: current)
+            servant._iceD_opSerialLargeJava(request)
         case "opSerialSmallJava":
-            return try servant._iceD_opSerialSmallJava(incoming: request, current: current)
+            servant._iceD_opSerialSmallJava(request)
         case "opSerialStructJava":
-            return try servant._iceD_opSerialStructJava(incoming: request, current: current)
+            servant._iceD_opSerialStructJava(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -861,54 +860,69 @@ public protocol MyClass {
 ///  - opSerialLargeJava: 
 ///
 ///  - opSerialStructJava: 
-public extension MyClass {
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension MyClass {
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_opSerialSmallJava(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: SerialSmall = try inS.read { istr in
+    public func _iceD_opSerialSmallJava(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_i: SerialSmall = try istr.read()
-            return iceP_i
-        }
 
-        let (iceP_returnValue, iceP_o) = try self.opSerialSmallJava(i: iceP_i, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_o) = try self.opSerialSmallJava(i: iceP_i, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opSerialLargeJava(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: SerialLarge = try inS.read { istr in
+    public func _iceD_opSerialLargeJava(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_i: SerialLarge = try istr.read()
-            return iceP_i
-        }
 
-        let (iceP_returnValue, iceP_o) = try self.opSerialLargeJava(i: iceP_i, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_o) = try self.opSerialLargeJava(i: iceP_i, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opSerialStructJava(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: SerialStruct = try inS.read { istr in
+    public func _iceD_opSerialStructJava(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_i: SerialStruct = try istr.read()
-            return iceP_i
-        }
 
-        let (iceP_returnValue, iceP_o) = try self.opSerialStructJava(i: iceP_i, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_o) = try self.opSerialStructJava(i: iceP_i, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

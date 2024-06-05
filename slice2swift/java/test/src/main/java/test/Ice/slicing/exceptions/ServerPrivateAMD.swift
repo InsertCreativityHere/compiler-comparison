@@ -1207,7 +1207,7 @@ public extension TestIntfPrx {
 
 
 /// Dispatcher for `TestIntf` servants.
-public struct TestIntfDisp: Ice.Disp {
+public struct TestIntfDisp: Ice.Dispatcher {
     public let servant: TestIntf
     private static let defaultObject = Ice.ObjectI<TestIntfTraits>()
 
@@ -1215,47 +1215,46 @@ public struct TestIntfDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "baseAsBase":
-            return try servant._iceD_baseAsBase(incoming: request, current: current)
+            servant._iceD_baseAsBase(request)
         case "ice_id":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "knownDerivedAsBase":
-            return try servant._iceD_knownDerivedAsBase(incoming: request, current: current)
+            servant._iceD_knownDerivedAsBase(request)
         case "knownDerivedAsKnownDerived":
-            return try servant._iceD_knownDerivedAsKnownDerived(incoming: request, current: current)
+            servant._iceD_knownDerivedAsKnownDerived(request)
         case "knownIntermediateAsBase":
-            return try servant._iceD_knownIntermediateAsBase(incoming: request, current: current)
+            servant._iceD_knownIntermediateAsBase(request)
         case "knownIntermediateAsKnownIntermediate":
-            return try servant._iceD_knownIntermediateAsKnownIntermediate(incoming: request, current: current)
+            servant._iceD_knownIntermediateAsKnownIntermediate(request)
         case "knownMostDerivedAsBase":
-            return try servant._iceD_knownMostDerivedAsBase(incoming: request, current: current)
+            servant._iceD_knownMostDerivedAsBase(request)
         case "knownMostDerivedAsKnownIntermediate":
-            return try servant._iceD_knownMostDerivedAsKnownIntermediate(incoming: request, current: current)
+            servant._iceD_knownMostDerivedAsKnownIntermediate(request)
         case "knownMostDerivedAsKnownMostDerived":
-            return try servant._iceD_knownMostDerivedAsKnownMostDerived(incoming: request, current: current)
+            servant._iceD_knownMostDerivedAsKnownMostDerived(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "unknownDerivedAsBase":
-            return try servant._iceD_unknownDerivedAsBase(incoming: request, current: current)
+            servant._iceD_unknownDerivedAsBase(request)
         case "unknownIntermediateAsBase":
-            return try servant._iceD_unknownIntermediateAsBase(incoming: request, current: current)
+            servant._iceD_unknownIntermediateAsBase(request)
         case "unknownMostDerived1AsBase":
-            return try servant._iceD_unknownMostDerived1AsBase(incoming: request, current: current)
+            servant._iceD_unknownMostDerived1AsBase(request)
         case "unknownMostDerived1AsKnownIntermediate":
-            return try servant._iceD_unknownMostDerived1AsKnownIntermediate(incoming: request, current: current)
+            servant._iceD_unknownMostDerived1AsKnownIntermediate(request)
         case "unknownMostDerived2AsBase":
-            return try servant._iceD_unknownMostDerived2AsBase(incoming: request, current: current)
+            servant._iceD_unknownMostDerived2AsBase(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1377,102 +1376,186 @@ public protocol TestIntf {
 ///  - unknownMostDerived2AsBase: 
 ///
 ///  - shutdown: 
-public extension TestIntf {
-    func _iceD_baseAsBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(baseAsBaseAsync(current: current))
+extension TestIntf {
+    public func _iceD_baseAsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.baseAsBaseAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_unknownDerivedAsBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.CompactFormat)
-
-        return inS.setResultPromise(unknownDerivedAsBaseAsync(current: current))
+    public func _iceD_unknownDerivedAsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.unknownDerivedAsBaseAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_knownDerivedAsBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(knownDerivedAsBaseAsync(current: current))
+    public func _iceD_knownDerivedAsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.knownDerivedAsBaseAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_knownDerivedAsKnownDerived(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(knownDerivedAsKnownDerivedAsync(current: current))
+    public func _iceD_knownDerivedAsKnownDerived(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.knownDerivedAsKnownDerivedAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_unknownIntermediateAsBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(unknownIntermediateAsBaseAsync(current: current))
+    public func _iceD_unknownIntermediateAsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.unknownIntermediateAsBaseAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_knownIntermediateAsBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(knownIntermediateAsBaseAsync(current: current))
+    public func _iceD_knownIntermediateAsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.knownIntermediateAsBaseAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_knownMostDerivedAsBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(knownMostDerivedAsBaseAsync(current: current))
+    public func _iceD_knownMostDerivedAsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.knownMostDerivedAsBaseAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_knownIntermediateAsKnownIntermediate(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(knownIntermediateAsKnownIntermediateAsync(current: current))
+    public func _iceD_knownIntermediateAsKnownIntermediate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.knownIntermediateAsKnownIntermediateAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_knownMostDerivedAsKnownIntermediate(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(knownMostDerivedAsKnownIntermediateAsync(current: current))
+    public func _iceD_knownMostDerivedAsKnownIntermediate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.knownMostDerivedAsKnownIntermediateAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_knownMostDerivedAsKnownMostDerived(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(knownMostDerivedAsKnownMostDerivedAsync(current: current))
+    public func _iceD_knownMostDerivedAsKnownMostDerived(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.knownMostDerivedAsKnownMostDerivedAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_unknownMostDerived1AsBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(unknownMostDerived1AsBaseAsync(current: current))
+    public func _iceD_unknownMostDerived1AsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.unknownMostDerived1AsBaseAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_unknownMostDerived1AsKnownIntermediate(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(unknownMostDerived1AsKnownIntermediateAsync(current: current))
+    public func _iceD_unknownMostDerived1AsKnownIntermediate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.unknownMostDerived1AsKnownIntermediateAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_unknownMostDerived2AsBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(unknownMostDerived2AsBaseAsync(current: current))
+    public func _iceD_unknownMostDerived2AsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.unknownMostDerived2AsBaseAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(shutdownAsync(current: current))
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.shutdownAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

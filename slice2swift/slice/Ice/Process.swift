@@ -207,7 +207,7 @@ public extension ProcessPrx {
 
 
 /// Dispatcher for `Process` servants.
-public struct ProcessDisp: Disp {
+public struct ProcessDisp: Ice.Dispatcher {
     public let servant: Process
     private static let defaultObject = ObjectI<ProcessTraits>()
 
@@ -215,23 +215,22 @@ public struct ProcessDisp: Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Request, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? ProcessDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? ProcessDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? ProcessDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? ProcessDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? ProcessDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? ProcessDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? ProcessDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? ProcessDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "writeMessage":
-            return try servant._iceD_writeMessage(incoming: request, current: current)
+            servant._iceD_writeMessage(request)
         default:
-            throw OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -266,24 +265,29 @@ public protocol Process {
 ///  - shutdown: Initiate a graceful shut-down.
 ///
 ///  - writeMessage: Write a message on the process' stdout or stderr.
-public extension Process {
-    func _iceD_shutdown(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        try inS.readEmptyParams()
+extension Process {
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_writeMessage(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let (iceP_message, iceP_fd): (Swift.String, Swift.Int32) = try inS.read { istr in
+    public func _iceD_writeMessage(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_message: Swift.String = try istr.read()
             let iceP_fd: Swift.Int32 = try istr.read()
-            return (iceP_message, iceP_fd)
+
+            try self.writeMessage(message: iceP_message, fd: iceP_fd, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.writeMessage(message: iceP_message, fd: iceP_fd, current: current)
-
-        return inS.setResult()
     }
 }

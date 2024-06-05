@@ -936,7 +936,7 @@ public extension MyClassPrx {
 
 
 /// Dispatcher for `Callback` servants.
-public struct CallbackDisp: Ice.Disp {
+public struct CallbackDisp: Ice.Dispatcher {
     public let servant: Callback
     private static let defaultObject = Ice.ObjectI<CallbackTraits>()
 
@@ -944,27 +944,26 @@ public struct CallbackDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "datagram":
-            return try servant._iceD_datagram(incoming: request, current: current)
+            servant._iceD_datagram(request)
         case "getCount":
-            return try servant._iceD_getCount(incoming: request, current: current)
+            servant._iceD_getCount(request)
         case "getDatagramCount":
-            return try servant._iceD_getDatagramCount(incoming: request, current: current)
+            servant._iceD_getDatagramCount(request)
         case "ice_id":
-            return try (servant as? Object ?? CallbackDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? CallbackDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? CallbackDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(request)
         case "ping":
-            return try servant._iceD_ping(incoming: request, current: current)
+            servant._iceD_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -993,7 +992,7 @@ public protocol Callback {
 
 
 /// Dispatcher for `MyClass` servants.
-public struct MyClassDisp: Ice.Disp {
+public struct MyClassDisp: Ice.Dispatcher {
     public let servant: MyClass
     private static let defaultObject = Ice.ObjectI<MyClassTraits>()
 
@@ -1001,45 +1000,44 @@ public struct MyClassDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "callCallback":
-            return try servant._iceD_callCallback(incoming: request, current: current)
+            servant._iceD_callCallback(request)
         case "callDatagramCallback":
-            return try servant._iceD_callDatagramCallback(incoming: request, current: current)
+            servant._iceD_callDatagramCallback(request)
         case "closeConnection":
-            return try servant._iceD_closeConnection(incoming: request, current: current)
+            servant._iceD_closeConnection(request)
         case "datagram":
-            return try servant._iceD_datagram(incoming: request, current: current)
+            servant._iceD_datagram(request)
         case "getCallbackCount":
-            return try servant._iceD_getCallbackCount(incoming: request, current: current)
+            servant._iceD_getCallbackCount(request)
         case "getCallbackDatagramCount":
-            return try servant._iceD_getCallbackDatagramCount(incoming: request, current: current)
+            servant._iceD_getCallbackDatagramCount(request)
         case "getConnectionCount":
-            return try servant._iceD_getConnectionCount(incoming: request, current: current)
+            servant._iceD_getConnectionCount(request)
         case "getConnectionInfo":
-            return try servant._iceD_getConnectionInfo(incoming: request, current: current)
+            servant._iceD_getConnectionInfo(request)
         case "getDatagramCount":
-            return try servant._iceD_getDatagramCount(incoming: request, current: current)
+            servant._iceD_getDatagramCount(request)
         case "getHeartbeatCount":
-            return try servant._iceD_getHeartbeatCount(incoming: request, current: current)
+            servant._iceD_getHeartbeatCount(request)
         case "ice_id":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "incCounter":
-            return try servant._iceD_incCounter(incoming: request, current: current)
+            servant._iceD_incCounter(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "waitCounter":
-            return try servant._iceD_waitCounter(incoming: request, current: current)
+            servant._iceD_waitCounter(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1129,40 +1127,56 @@ public protocol MyClass {
 ///  - datagram: 
 ///
 ///  - getDatagramCount: 
-public extension Callback {
-    func _iceD_ping(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension Callback {
+    public func _iceD_ping(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.ping(current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_getCount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getCount(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
+            try self.ping(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_datagram(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getCount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.datagram(current: current)
-
-        return inS.setResult()
+            let iceP_returnValue = try self.getCount(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+            ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_getDatagramCount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_datagram(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getDatagramCount(current: current)
+            try self.datagram(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
 
-        return inS.setResult{ ostr in
+    public func _iceD_getDatagramCount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            let iceP_returnValue = try self.getDatagramCount(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1196,125 +1210,181 @@ public extension Callback {
 ///  - getHeartbeatCount: 
 ///
 ///  - shutdown: 
-public extension MyClass {
-    func _iceD_callCallback(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(callCallbackAsync(current: current))
-    }
-
-    func _iceD_getCallbackCount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(getCallbackCountAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+extension MyClass {
+    public func _iceD_callCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.callCallbackAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_incCounter(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_expected: Swift.Int32 = try inS.read { istr in
+    public func _iceD_getCallbackCount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.getCallbackCountAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_incCounter(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_expected: Swift.Int32 = try istr.read()
-            return iceP_expected
+
+            try self.incCounter(expected: iceP_expected, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.incCounter(expected: iceP_expected, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_waitCounter(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_value: Swift.Int32 = try inS.read { istr in
+    public func _iceD_waitCounter(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_value: Swift.Int32 = try istr.read()
-            return iceP_value
+
+            try self.waitCounter(value: iceP_value, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.waitCounter(value: iceP_value, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_getConnectionCount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getConnectionCount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getConnectionCount(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getConnectionCount(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getConnectionInfo(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getConnectionInfo(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getConnectionInfo(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getConnectionInfo(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_closeConnection(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_force: Swift.Bool = try inS.read { istr in
+    public func _iceD_closeConnection(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_force: Swift.Bool = try istr.read()
-            return iceP_force
+
+            try self.closeConnection(force: iceP_force, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.closeConnection(force: iceP_force, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_datagram(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_datagram(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.datagram(current: current)
-
-        return inS.setResult()
+            try self.datagram(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_getDatagramCount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getDatagramCount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getDatagramCount(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getDatagramCount(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_callDatagramCallback(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_callDatagramCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.callDatagramCallback(current: current)
-
-        return inS.setResult()
+            try self.callDatagramCallback(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_getCallbackDatagramCount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getCallbackDatagramCount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.getCallbackDatagramCountAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
 
-        return inS.setResultPromise(getCallbackDatagramCountAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
+    public func _iceD_getHeartbeatCount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            let iceP_returnValue = try self.getHeartbeatCount(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getHeartbeatCount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getHeartbeatCount(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-    }
-
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        try self.shutdown(current: current)
-
-        return inS.setResult()
     }
 }

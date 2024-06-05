@@ -837,7 +837,7 @@ public extension TestIntfPrx {
 
 
 /// Dispatcher for `TestLocatorRegistry` servants.
-public struct TestLocatorRegistryDisp: Ice.Disp {
+public struct TestLocatorRegistryDisp: Ice.Dispatcher {
     public let servant: TestLocatorRegistry
     private static let defaultObject = Ice.ObjectI<TestLocatorRegistryTraits>()
 
@@ -845,27 +845,26 @@ public struct TestLocatorRegistryDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "addObject":
-            return try servant._iceD_addObject(incoming: request, current: current)
+            servant._iceD_addObject(request)
         case "ice_id":
-            return try (servant as? Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_ping(request)
         case "setAdapterDirectProxy":
-            return try servant._iceD_setAdapterDirectProxy(incoming: request, current: current)
+            servant._iceD_setAdapterDirectProxy(request)
         case "setReplicatedAdapterDirectProxy":
-            return try servant._iceD_setReplicatedAdapterDirectProxy(incoming: request, current: current)
+            servant._iceD_setReplicatedAdapterDirectProxy(request)
         case "setServerProcessProxy":
-            return try servant._iceD_setServerProcessProxy(incoming: request, current: current)
+            servant._iceD_setServerProcessProxy(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -880,7 +879,7 @@ public protocol TestLocatorRegistry: Ice.LocatorRegistry {
 
 
 /// Dispatcher for `TestLocator` servants.
-public struct TestLocatorDisp: Ice.Disp {
+public struct TestLocatorDisp: Ice.Dispatcher {
     public let servant: TestLocator
     private static let defaultObject = Ice.ObjectI<TestLocatorTraits>()
 
@@ -888,27 +887,26 @@ public struct TestLocatorDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "findAdapterById":
-            return try servant._iceD_findAdapterById(incoming: request, current: current)
+            servant._iceD_findAdapterById(request)
         case "findObjectById":
-            return try servant._iceD_findObjectById(incoming: request, current: current)
+            servant._iceD_findObjectById(request)
         case "getRegistry":
-            return try servant._iceD_getRegistry(incoming: request, current: current)
+            servant._iceD_getRegistry(request)
         case "getRequestCount":
-            return try servant._iceD_getRequestCount(incoming: request, current: current)
+            servant._iceD_getRequestCount(request)
         case "ice_id":
-            return try (servant as? Object ?? TestLocatorDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestLocatorDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TestLocatorDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestLocatorDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TestLocatorDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestLocatorDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TestLocatorDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestLocatorDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -923,7 +921,7 @@ public protocol TestLocator: Ice.Locator {
 
 
 /// Dispatcher for `ServerManager` servants.
-public struct ServerManagerDisp: Ice.Disp {
+public struct ServerManagerDisp: Ice.Dispatcher {
     public let servant: ServerManager
     private static let defaultObject = Ice.ObjectI<ServerManagerTraits>()
 
@@ -931,23 +929,22 @@ public struct ServerManagerDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? ServerManagerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServerManagerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? ServerManagerDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServerManagerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? ServerManagerDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServerManagerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? ServerManagerDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServerManagerDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "startServer":
-            return try servant._iceD_startServer(incoming: request, current: current)
+            servant._iceD_startServer(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -964,7 +961,7 @@ public protocol ServerManager {
 
 
 /// Dispatcher for `Hello` servants.
-public struct HelloDisp: Ice.Disp {
+public struct HelloDisp: Ice.Dispatcher {
     public let servant: Hello
     private static let defaultObject = Ice.ObjectI<HelloTraits>()
 
@@ -972,21 +969,20 @@ public struct HelloDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? HelloDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? HelloDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? HelloDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? HelloDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_ping(request)
         case "sayHello":
-            return try servant._iceD_sayHello(incoming: request, current: current)
+            servant._iceD_sayHello(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -999,7 +995,7 @@ public protocol Hello {
 
 
 /// Dispatcher for `TestIntf` servants.
-public struct TestIntfDisp: Ice.Disp {
+public struct TestIntfDisp: Ice.Dispatcher {
     public let servant: TestIntf
     private static let defaultObject = Ice.ObjectI<TestIntfTraits>()
 
@@ -1007,27 +1003,26 @@ public struct TestIntfDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getHello":
-            return try servant._iceD_getHello(incoming: request, current: current)
+            servant._iceD_getHello(request)
         case "getReplicatedHello":
-            return try servant._iceD_getReplicatedHello(incoming: request, current: current)
+            servant._iceD_getReplicatedHello(request)
         case "ice_id":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "migrateHello":
-            return try servant._iceD_migrateHello(incoming: request, current: current)
+            servant._iceD_migrateHello(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1059,16 +1054,18 @@ public protocol TestIntf {
 /// TestLocatorRegistry Methods:
 ///
 ///  - addObject: 
-public extension TestLocatorRegistry {
-    func _iceD_addObject(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_obj: Ice.ObjectPrx? = try inS.read { istr in
+extension TestLocatorRegistry {
+    public func _iceD_addObject(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_obj: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            return iceP_obj
+
+            try self.addObject(obj: iceP_obj, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.addObject(obj: iceP_obj, current: current)
-
-        return inS.setResult()
     }
 }
 
@@ -1077,14 +1074,19 @@ public extension TestLocatorRegistry {
 /// TestLocator Methods:
 ///
 ///  - getRequestCount: 
-public extension TestLocator {
-    func _iceD_getRequestCount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension TestLocator {
+    public func _iceD_getRequestCount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getRequestCount(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getRequestCount(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1096,21 +1098,27 @@ public extension TestLocator {
 ///  - startServer: 
 ///
 ///  - shutdown: 
-public extension ServerManager {
-    func _iceD_startServer(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension ServerManager {
+    public func _iceD_startServer(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.startServer(current: current)
-
-        return inS.setResult()
+            try self.startServer(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -1119,13 +1127,16 @@ public extension ServerManager {
 /// Hello Methods:
 ///
 ///  - sayHello: 
-public extension Hello {
-    func _iceD_sayHello(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension Hello {
+    public func _iceD_sayHello(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.sayHello(current: current)
-
-        return inS.setResult()
+            try self.sayHello(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -1140,40 +1151,56 @@ public extension Hello {
 ///  - getReplicatedHello: 
 ///
 ///  - migrateHello: 
-public extension TestIntf {
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension TestIntf {
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_getHello(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getHello(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getReplicatedHello(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getHello(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getReplicatedHello(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getHello(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_migrateHello(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getReplicatedHello(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.migrateHello(current: current)
+            let iceP_returnValue = try self.getReplicatedHello(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+            ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
 
-        return inS.setResult()
+    public func _iceD_migrateHello(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            try self.migrateHello(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

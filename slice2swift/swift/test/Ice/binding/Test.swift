@@ -564,7 +564,7 @@ public extension RemoteCommunicatorPrx {
 
 
 /// Dispatcher for `TestIntf` servants.
-public struct TestIntfDisp: Ice.Disp {
+public struct TestIntfDisp: Ice.Dispatcher {
     public let servant: TestIntf
     private static let defaultObject = Ice.ObjectI<TestIntfTraits>()
 
@@ -572,21 +572,20 @@ public struct TestIntfDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getAdapterName":
-            return try servant._iceD_getAdapterName(incoming: request, current: current)
+            servant._iceD_getAdapterName(request)
         case "ice_id":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -601,7 +600,7 @@ public protocol TestIntf {
 
 
 /// Dispatcher for `RemoteObjectAdapter` servants.
-public struct RemoteObjectAdapterDisp: Ice.Disp {
+public struct RemoteObjectAdapterDisp: Ice.Dispatcher {
     public let servant: RemoteObjectAdapter
     private static let defaultObject = Ice.ObjectI<RemoteObjectAdapterTraits>()
 
@@ -609,23 +608,22 @@ public struct RemoteObjectAdapterDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "deactivate":
-            return try servant._iceD_deactivate(incoming: request, current: current)
+            servant._iceD_deactivate(request)
         case "getTestIntf":
-            return try servant._iceD_getTestIntf(incoming: request, current: current)
+            servant._iceD_getTestIntf(request)
         case "ice_id":
-            return try (servant as? Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -644,7 +642,7 @@ public protocol RemoteObjectAdapter {
 
 
 /// Dispatcher for `RemoteCommunicator` servants.
-public struct RemoteCommunicatorDisp: Ice.Disp {
+public struct RemoteCommunicatorDisp: Ice.Dispatcher {
     public let servant: RemoteCommunicator
     private static let defaultObject = Ice.ObjectI<RemoteCommunicatorTraits>()
 
@@ -652,25 +650,24 @@ public struct RemoteCommunicatorDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "createObjectAdapter":
-            return try servant._iceD_createObjectAdapter(incoming: request, current: current)
+            servant._iceD_createObjectAdapter(request)
         case "deactivateObjectAdapter":
-            return try servant._iceD_deactivateObjectAdapter(incoming: request, current: current)
+            servant._iceD_deactivateObjectAdapter(request)
         case "ice_id":
-            return try (servant as? Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -702,14 +699,19 @@ public protocol RemoteCommunicator {
 /// TestIntf Methods:
 ///
 ///  - getAdapterName: 
-public extension TestIntf {
-    func _iceD_getAdapterName(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension TestIntf {
+    public func _iceD_getAdapterName(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getAdapterName(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getAdapterName(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -721,23 +723,31 @@ public extension TestIntf {
 ///  - getTestIntf: 
 ///
 ///  - deactivate: 
-public extension RemoteObjectAdapter {
-    func _iceD_getTestIntf(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension RemoteObjectAdapter {
+    public func _iceD_getTestIntf(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getTestIntf(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getTestIntf(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_deactivate(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_deactivate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.deactivate(current: current)
-
-        return inS.setResult()
+            try self.deactivate(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -750,37 +760,46 @@ public extension RemoteObjectAdapter {
 ///  - deactivateObjectAdapter: 
 ///
 ///  - shutdown: 
-public extension RemoteCommunicator {
-    func _iceD_createObjectAdapter(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_name, iceP_endpoints): (Swift.String, Swift.String) = try inS.read { istr in
+extension RemoteCommunicator {
+    public func _iceD_createObjectAdapter(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_name: Swift.String = try istr.read()
             let iceP_endpoints: Swift.String = try istr.read()
-            return (iceP_name, iceP_endpoints)
-        }
 
-        let iceP_returnValue = try self.createObjectAdapter(name: iceP_name, endpoints: iceP_endpoints, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.createObjectAdapter(name: iceP_name, endpoints: iceP_endpoints, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_deactivateObjectAdapter(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_adapter: RemoteObjectAdapterPrx? = try inS.read { istr in
+    public func _iceD_deactivateObjectAdapter(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_adapter: RemoteObjectAdapterPrx? = try istr.read(RemoteObjectAdapterPrx.self)
-            return iceP_adapter
+
+            try self.deactivateObjectAdapter(adapter: iceP_adapter, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.deactivateObjectAdapter(adapter: iceP_adapter, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

@@ -7821,7 +7821,7 @@ open class MyClass1: Ice.Value {
 
 
 /// Dispatcher for `MyClass` servants.
-public struct MyClassDisp: Ice.Disp {
+public struct MyClassDisp: Ice.Dispatcher {
     public let servant: MyClass
     private static let defaultObject = Ice.ObjectI<MyClassTraits>()
 
@@ -7829,159 +7829,158 @@ public struct MyClassDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "opBool":
-            return try servant._iceD_opBool(incoming: request, current: current)
+            servant._iceD_opBool(request)
         case "opBoolBoolSD":
-            return try servant._iceD_opBoolBoolSD(incoming: request, current: current)
+            servant._iceD_opBoolBoolSD(request)
         case "opBoolS":
-            return try servant._iceD_opBoolS(incoming: request, current: current)
+            servant._iceD_opBoolS(request)
         case "opBoolSS":
-            return try servant._iceD_opBoolSS(incoming: request, current: current)
+            servant._iceD_opBoolSS(request)
         case "opByte":
-            return try servant._iceD_opByte(incoming: request, current: current)
+            servant._iceD_opByte(request)
         case "opByte1":
-            return try servant._iceD_opByte1(incoming: request, current: current)
+            servant._iceD_opByte1(request)
         case "opByteBoolD":
-            return try servant._iceD_opByteBoolD(incoming: request, current: current)
+            servant._iceD_opByteBoolD(request)
         case "opByteBoolD1":
-            return try servant._iceD_opByteBoolD1(incoming: request, current: current)
+            servant._iceD_opByteBoolD1(request)
         case "opByteBoolD2":
-            return try servant._iceD_opByteBoolD2(incoming: request, current: current)
+            servant._iceD_opByteBoolD2(request)
         case "opByteBoolDS":
-            return try servant._iceD_opByteBoolDS(incoming: request, current: current)
+            servant._iceD_opByteBoolDS(request)
         case "opByteByteSD":
-            return try servant._iceD_opByteByteSD(incoming: request, current: current)
+            servant._iceD_opByteByteSD(request)
         case "opByteS":
-            return try servant._iceD_opByteS(incoming: request, current: current)
+            servant._iceD_opByteS(request)
         case "opByteSOneway":
-            return try servant._iceD_opByteSOneway(incoming: request, current: current)
+            servant._iceD_opByteSOneway(request)
         case "opByteSOnewayCallCount":
-            return try servant._iceD_opByteSOnewayCallCount(incoming: request, current: current)
+            servant._iceD_opByteSOnewayCallCount(request)
         case "opByteSS":
-            return try servant._iceD_opByteSS(incoming: request, current: current)
+            servant._iceD_opByteSS(request)
         case "opContext":
-            return try servant._iceD_opContext(incoming: request, current: current)
+            servant._iceD_opContext(request)
         case "opDouble1":
-            return try servant._iceD_opDouble1(incoming: request, current: current)
+            servant._iceD_opDouble1(request)
         case "opDoubleMarshaling":
-            return try servant._iceD_opDoubleMarshaling(incoming: request, current: current)
+            servant._iceD_opDoubleMarshaling(request)
         case "opFloat1":
-            return try servant._iceD_opFloat1(incoming: request, current: current)
+            servant._iceD_opFloat1(request)
         case "opFloatDouble":
-            return try servant._iceD_opFloatDouble(incoming: request, current: current)
+            servant._iceD_opFloatDouble(request)
         case "opFloatDoubleS":
-            return try servant._iceD_opFloatDoubleS(incoming: request, current: current)
+            servant._iceD_opFloatDoubleS(request)
         case "opFloatDoubleSS":
-            return try servant._iceD_opFloatDoubleSS(incoming: request, current: current)
+            servant._iceD_opFloatDoubleSS(request)
         case "opIdempotent":
-            return try servant._iceD_opIdempotent(incoming: request, current: current)
+            servant._iceD_opIdempotent(request)
         case "opInt1":
-            return try servant._iceD_opInt1(incoming: request, current: current)
+            servant._iceD_opInt1(request)
         case "opIntIntSD":
-            return try servant._iceD_opIntIntSD(incoming: request, current: current)
+            servant._iceD_opIntIntSD(request)
         case "opIntS":
-            return try servant._iceD_opIntS(incoming: request, current: current)
+            servant._iceD_opIntS(request)
         case "opLong1":
-            return try servant._iceD_opLong1(incoming: request, current: current)
+            servant._iceD_opLong1(request)
         case "opLongFloatD":
-            return try servant._iceD_opLongFloatD(incoming: request, current: current)
+            servant._iceD_opLongFloatD(request)
         case "opLongFloatDS":
-            return try servant._iceD_opLongFloatDS(incoming: request, current: current)
+            servant._iceD_opLongFloatDS(request)
         case "opLongLongSD":
-            return try servant._iceD_opLongLongSD(incoming: request, current: current)
+            servant._iceD_opLongLongSD(request)
         case "opMDict1":
-            return try servant._iceD_opMDict1(incoming: request, current: current)
+            servant._iceD_opMDict1(request)
         case "opMDict2":
-            return try servant._iceD_opMDict2(incoming: request, current: current)
+            servant._iceD_opMDict2(request)
         case "opMSeq1":
-            return try servant._iceD_opMSeq1(incoming: request, current: current)
+            servant._iceD_opMSeq1(request)
         case "opMSeq2":
-            return try servant._iceD_opMSeq2(incoming: request, current: current)
+            servant._iceD_opMSeq2(request)
         case "opMStruct1":
-            return try servant._iceD_opMStruct1(incoming: request, current: current)
+            servant._iceD_opMStruct1(request)
         case "opMStruct2":
-            return try servant._iceD_opMStruct2(incoming: request, current: current)
+            servant._iceD_opMStruct2(request)
         case "opMyClass":
-            return try servant._iceD_opMyClass(incoming: request, current: current)
+            servant._iceD_opMyClass(request)
         case "opMyEnum":
-            return try servant._iceD_opMyEnum(incoming: request, current: current)
+            servant._iceD_opMyEnum(request)
         case "opMyEnumMyEnumSD":
-            return try servant._iceD_opMyEnumMyEnumSD(incoming: request, current: current)
+            servant._iceD_opMyEnumMyEnumSD(request)
         case "opMyEnumStringD":
-            return try servant._iceD_opMyEnumStringD(incoming: request, current: current)
+            servant._iceD_opMyEnumStringD(request)
         case "opMyEnumStringDS":
-            return try servant._iceD_opMyEnumStringDS(incoming: request, current: current)
+            servant._iceD_opMyEnumStringDS(request)
         case "opMyStructMyEnumD":
-            return try servant._iceD_opMyStructMyEnumD(incoming: request, current: current)
+            servant._iceD_opMyStructMyEnumD(request)
         case "opMyStructMyEnumDS":
-            return try servant._iceD_opMyStructMyEnumDS(incoming: request, current: current)
+            servant._iceD_opMyStructMyEnumDS(request)
         case "opShort1":
-            return try servant._iceD_opShort1(incoming: request, current: current)
+            servant._iceD_opShort1(request)
         case "opShortIntD":
-            return try servant._iceD_opShortIntD(incoming: request, current: current)
+            servant._iceD_opShortIntD(request)
         case "opShortIntDS":
-            return try servant._iceD_opShortIntDS(incoming: request, current: current)
+            servant._iceD_opShortIntDS(request)
         case "opShortIntLong":
-            return try servant._iceD_opShortIntLong(incoming: request, current: current)
+            servant._iceD_opShortIntLong(request)
         case "opShortIntLongS":
-            return try servant._iceD_opShortIntLongS(incoming: request, current: current)
+            servant._iceD_opShortIntLongS(request)
         case "opShortIntLongSS":
-            return try servant._iceD_opShortIntLongSS(incoming: request, current: current)
+            servant._iceD_opShortIntLongSS(request)
         case "opShortShortSD":
-            return try servant._iceD_opShortShortSD(incoming: request, current: current)
+            servant._iceD_opShortShortSD(request)
         case "opString":
-            return try servant._iceD_opString(incoming: request, current: current)
+            servant._iceD_opString(request)
         case "opString1":
-            return try servant._iceD_opString1(incoming: request, current: current)
+            servant._iceD_opString1(request)
         case "opStringDoubleSD":
-            return try servant._iceD_opStringDoubleSD(incoming: request, current: current)
+            servant._iceD_opStringDoubleSD(request)
         case "opStringFloatSD":
-            return try servant._iceD_opStringFloatSD(incoming: request, current: current)
+            servant._iceD_opStringFloatSD(request)
         case "opStringLiterals":
-            return try servant._iceD_opStringLiterals(incoming: request, current: current)
+            servant._iceD_opStringLiterals(request)
         case "opStringMyEnumD":
-            return try servant._iceD_opStringMyEnumD(incoming: request, current: current)
+            servant._iceD_opStringMyEnumD(request)
         case "opStringMyEnumDS":
-            return try servant._iceD_opStringMyEnumDS(incoming: request, current: current)
+            servant._iceD_opStringMyEnumDS(request)
         case "opStringS":
-            return try servant._iceD_opStringS(incoming: request, current: current)
+            servant._iceD_opStringS(request)
         case "opStringS1":
-            return try servant._iceD_opStringS1(incoming: request, current: current)
+            servant._iceD_opStringS1(request)
         case "opStringS2":
-            return try servant._iceD_opStringS2(incoming: request, current: current)
+            servant._iceD_opStringS2(request)
         case "opStringSS":
-            return try servant._iceD_opStringSS(incoming: request, current: current)
+            servant._iceD_opStringSS(request)
         case "opStringSSS":
-            return try servant._iceD_opStringSSS(incoming: request, current: current)
+            servant._iceD_opStringSSS(request)
         case "opStringStringD":
-            return try servant._iceD_opStringStringD(incoming: request, current: current)
+            servant._iceD_opStringStringD(request)
         case "opStringStringDS":
-            return try servant._iceD_opStringStringDS(incoming: request, current: current)
+            servant._iceD_opStringStringDS(request)
         case "opStringStringSD":
-            return try servant._iceD_opStringStringSD(incoming: request, current: current)
+            servant._iceD_opStringStringSD(request)
         case "opStruct":
-            return try servant._iceD_opStruct(incoming: request, current: current)
+            servant._iceD_opStruct(request)
         case "opVoid":
-            return try servant._iceD_opVoid(incoming: request, current: current)
+            servant._iceD_opVoid(request)
         case "opWStringLiterals":
-            return try servant._iceD_opWStringLiterals(incoming: request, current: current)
+            servant._iceD_opWStringLiterals(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "supportsCompress":
-            return try servant._iceD_supportsCompress(incoming: request, current: current)
+            servant._iceD_supportsCompress(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -8806,7 +8805,7 @@ public protocol MyClass {
 
 
 /// Dispatcher for `MyDerivedClass` servants.
-public struct MyDerivedClassDisp: Ice.Disp {
+public struct MyDerivedClassDisp: Ice.Dispatcher {
     public let servant: MyDerivedClass
     private static let defaultObject = Ice.ObjectI<MyDerivedClassTraits>()
 
@@ -8814,165 +8813,164 @@ public struct MyDerivedClassDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ping(request)
         case "opBool":
-            return try servant._iceD_opBool(incoming: request, current: current)
+            servant._iceD_opBool(request)
         case "opBoolBoolSD":
-            return try servant._iceD_opBoolBoolSD(incoming: request, current: current)
+            servant._iceD_opBoolBoolSD(request)
         case "opBoolS":
-            return try servant._iceD_opBoolS(incoming: request, current: current)
+            servant._iceD_opBoolS(request)
         case "opBoolSS":
-            return try servant._iceD_opBoolSS(incoming: request, current: current)
+            servant._iceD_opBoolSS(request)
         case "opByte":
-            return try servant._iceD_opByte(incoming: request, current: current)
+            servant._iceD_opByte(request)
         case "opByte1":
-            return try servant._iceD_opByte1(incoming: request, current: current)
+            servant._iceD_opByte1(request)
         case "opByteBoolD":
-            return try servant._iceD_opByteBoolD(incoming: request, current: current)
+            servant._iceD_opByteBoolD(request)
         case "opByteBoolD1":
-            return try servant._iceD_opByteBoolD1(incoming: request, current: current)
+            servant._iceD_opByteBoolD1(request)
         case "opByteBoolD2":
-            return try servant._iceD_opByteBoolD2(incoming: request, current: current)
+            servant._iceD_opByteBoolD2(request)
         case "opByteBoolDS":
-            return try servant._iceD_opByteBoolDS(incoming: request, current: current)
+            servant._iceD_opByteBoolDS(request)
         case "opByteByteSD":
-            return try servant._iceD_opByteByteSD(incoming: request, current: current)
+            servant._iceD_opByteByteSD(request)
         case "opByteS":
-            return try servant._iceD_opByteS(incoming: request, current: current)
+            servant._iceD_opByteS(request)
         case "opByteSOneway":
-            return try servant._iceD_opByteSOneway(incoming: request, current: current)
+            servant._iceD_opByteSOneway(request)
         case "opByteSOnewayCallCount":
-            return try servant._iceD_opByteSOnewayCallCount(incoming: request, current: current)
+            servant._iceD_opByteSOnewayCallCount(request)
         case "opByteSS":
-            return try servant._iceD_opByteSS(incoming: request, current: current)
+            servant._iceD_opByteSS(request)
         case "opContext":
-            return try servant._iceD_opContext(incoming: request, current: current)
+            servant._iceD_opContext(request)
         case "opDerived":
-            return try servant._iceD_opDerived(incoming: request, current: current)
+            servant._iceD_opDerived(request)
         case "opDouble1":
-            return try servant._iceD_opDouble1(incoming: request, current: current)
+            servant._iceD_opDouble1(request)
         case "opDoubleMarshaling":
-            return try servant._iceD_opDoubleMarshaling(incoming: request, current: current)
+            servant._iceD_opDoubleMarshaling(request)
         case "opFloat1":
-            return try servant._iceD_opFloat1(incoming: request, current: current)
+            servant._iceD_opFloat1(request)
         case "opFloatDouble":
-            return try servant._iceD_opFloatDouble(incoming: request, current: current)
+            servant._iceD_opFloatDouble(request)
         case "opFloatDoubleS":
-            return try servant._iceD_opFloatDoubleS(incoming: request, current: current)
+            servant._iceD_opFloatDoubleS(request)
         case "opFloatDoubleSS":
-            return try servant._iceD_opFloatDoubleSS(incoming: request, current: current)
+            servant._iceD_opFloatDoubleSS(request)
         case "opIdempotent":
-            return try servant._iceD_opIdempotent(incoming: request, current: current)
+            servant._iceD_opIdempotent(request)
         case "opInt1":
-            return try servant._iceD_opInt1(incoming: request, current: current)
+            servant._iceD_opInt1(request)
         case "opIntIntSD":
-            return try servant._iceD_opIntIntSD(incoming: request, current: current)
+            servant._iceD_opIntIntSD(request)
         case "opIntS":
-            return try servant._iceD_opIntS(incoming: request, current: current)
+            servant._iceD_opIntS(request)
         case "opLong1":
-            return try servant._iceD_opLong1(incoming: request, current: current)
+            servant._iceD_opLong1(request)
         case "opLongFloatD":
-            return try servant._iceD_opLongFloatD(incoming: request, current: current)
+            servant._iceD_opLongFloatD(request)
         case "opLongFloatDS":
-            return try servant._iceD_opLongFloatDS(incoming: request, current: current)
+            servant._iceD_opLongFloatDS(request)
         case "opLongLongSD":
-            return try servant._iceD_opLongLongSD(incoming: request, current: current)
+            servant._iceD_opLongLongSD(request)
         case "opMDict1":
-            return try servant._iceD_opMDict1(incoming: request, current: current)
+            servant._iceD_opMDict1(request)
         case "opMDict2":
-            return try servant._iceD_opMDict2(incoming: request, current: current)
+            servant._iceD_opMDict2(request)
         case "opMSeq1":
-            return try servant._iceD_opMSeq1(incoming: request, current: current)
+            servant._iceD_opMSeq1(request)
         case "opMSeq2":
-            return try servant._iceD_opMSeq2(incoming: request, current: current)
+            servant._iceD_opMSeq2(request)
         case "opMStruct1":
-            return try servant._iceD_opMStruct1(incoming: request, current: current)
+            servant._iceD_opMStruct1(request)
         case "opMStruct2":
-            return try servant._iceD_opMStruct2(incoming: request, current: current)
+            servant._iceD_opMStruct2(request)
         case "opMyClass":
-            return try servant._iceD_opMyClass(incoming: request, current: current)
+            servant._iceD_opMyClass(request)
         case "opMyClass1":
-            return try servant._iceD_opMyClass1(incoming: request, current: current)
+            servant._iceD_opMyClass1(request)
         case "opMyEnum":
-            return try servant._iceD_opMyEnum(incoming: request, current: current)
+            servant._iceD_opMyEnum(request)
         case "opMyEnumMyEnumSD":
-            return try servant._iceD_opMyEnumMyEnumSD(incoming: request, current: current)
+            servant._iceD_opMyEnumMyEnumSD(request)
         case "opMyEnumStringD":
-            return try servant._iceD_opMyEnumStringD(incoming: request, current: current)
+            servant._iceD_opMyEnumStringD(request)
         case "opMyEnumStringDS":
-            return try servant._iceD_opMyEnumStringDS(incoming: request, current: current)
+            servant._iceD_opMyEnumStringDS(request)
         case "opMyStruct1":
-            return try servant._iceD_opMyStruct1(incoming: request, current: current)
+            servant._iceD_opMyStruct1(request)
         case "opMyStructMyEnumD":
-            return try servant._iceD_opMyStructMyEnumD(incoming: request, current: current)
+            servant._iceD_opMyStructMyEnumD(request)
         case "opMyStructMyEnumDS":
-            return try servant._iceD_opMyStructMyEnumDS(incoming: request, current: current)
+            servant._iceD_opMyStructMyEnumDS(request)
         case "opShort1":
-            return try servant._iceD_opShort1(incoming: request, current: current)
+            servant._iceD_opShort1(request)
         case "opShortIntD":
-            return try servant._iceD_opShortIntD(incoming: request, current: current)
+            servant._iceD_opShortIntD(request)
         case "opShortIntDS":
-            return try servant._iceD_opShortIntDS(incoming: request, current: current)
+            servant._iceD_opShortIntDS(request)
         case "opShortIntLong":
-            return try servant._iceD_opShortIntLong(incoming: request, current: current)
+            servant._iceD_opShortIntLong(request)
         case "opShortIntLongS":
-            return try servant._iceD_opShortIntLongS(incoming: request, current: current)
+            servant._iceD_opShortIntLongS(request)
         case "opShortIntLongSS":
-            return try servant._iceD_opShortIntLongSS(incoming: request, current: current)
+            servant._iceD_opShortIntLongSS(request)
         case "opShortShortSD":
-            return try servant._iceD_opShortShortSD(incoming: request, current: current)
+            servant._iceD_opShortShortSD(request)
         case "opString":
-            return try servant._iceD_opString(incoming: request, current: current)
+            servant._iceD_opString(request)
         case "opString1":
-            return try servant._iceD_opString1(incoming: request, current: current)
+            servant._iceD_opString1(request)
         case "opStringDoubleSD":
-            return try servant._iceD_opStringDoubleSD(incoming: request, current: current)
+            servant._iceD_opStringDoubleSD(request)
         case "opStringFloatSD":
-            return try servant._iceD_opStringFloatSD(incoming: request, current: current)
+            servant._iceD_opStringFloatSD(request)
         case "opStringLiterals":
-            return try servant._iceD_opStringLiterals(incoming: request, current: current)
+            servant._iceD_opStringLiterals(request)
         case "opStringMyEnumD":
-            return try servant._iceD_opStringMyEnumD(incoming: request, current: current)
+            servant._iceD_opStringMyEnumD(request)
         case "opStringMyEnumDS":
-            return try servant._iceD_opStringMyEnumDS(incoming: request, current: current)
+            servant._iceD_opStringMyEnumDS(request)
         case "opStringS":
-            return try servant._iceD_opStringS(incoming: request, current: current)
+            servant._iceD_opStringS(request)
         case "opStringS1":
-            return try servant._iceD_opStringS1(incoming: request, current: current)
+            servant._iceD_opStringS1(request)
         case "opStringS2":
-            return try servant._iceD_opStringS2(incoming: request, current: current)
+            servant._iceD_opStringS2(request)
         case "opStringSS":
-            return try servant._iceD_opStringSS(incoming: request, current: current)
+            servant._iceD_opStringSS(request)
         case "opStringSSS":
-            return try servant._iceD_opStringSSS(incoming: request, current: current)
+            servant._iceD_opStringSSS(request)
         case "opStringStringD":
-            return try servant._iceD_opStringStringD(incoming: request, current: current)
+            servant._iceD_opStringStringD(request)
         case "opStringStringDS":
-            return try servant._iceD_opStringStringDS(incoming: request, current: current)
+            servant._iceD_opStringStringDS(request)
         case "opStringStringSD":
-            return try servant._iceD_opStringStringSD(incoming: request, current: current)
+            servant._iceD_opStringStringSD(request)
         case "opStruct":
-            return try servant._iceD_opStruct(incoming: request, current: current)
+            servant._iceD_opStruct(request)
         case "opVoid":
-            return try servant._iceD_opVoid(incoming: request, current: current)
+            servant._iceD_opVoid(request)
         case "opWStringLiterals":
-            return try servant._iceD_opWStringLiterals(incoming: request, current: current)
+            servant._iceD_opWStringLiterals(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "supportsCompress":
-            return try servant._iceD_supportsCompress(incoming: request, current: current)
+            servant._iceD_supportsCompress(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -9001,7 +8999,7 @@ public protocol MyDerivedClass: MyClass {
 
 
 /// Dispatcher for `Test2MyDerivedClass` servants.
-public struct Test2MyDerivedClassDisp: Ice.Disp {
+public struct Test2MyDerivedClassDisp: Ice.Dispatcher {
     public let servant: Test2MyDerivedClass
     private static let defaultObject = Ice.ObjectI<Test2MyDerivedClassTraits>()
 
@@ -9009,159 +9007,158 @@ public struct Test2MyDerivedClassDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? Test2MyDerivedClassDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? Test2MyDerivedClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? Test2MyDerivedClassDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? Test2MyDerivedClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? Test2MyDerivedClassDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? Test2MyDerivedClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? Test2MyDerivedClassDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? Test2MyDerivedClassDisp.defaultObject)._iceD_ice_ping(request)
         case "opBool":
-            return try servant._iceD_opBool(incoming: request, current: current)
+            servant._iceD_opBool(request)
         case "opBoolBoolSD":
-            return try servant._iceD_opBoolBoolSD(incoming: request, current: current)
+            servant._iceD_opBoolBoolSD(request)
         case "opBoolS":
-            return try servant._iceD_opBoolS(incoming: request, current: current)
+            servant._iceD_opBoolS(request)
         case "opBoolSS":
-            return try servant._iceD_opBoolSS(incoming: request, current: current)
+            servant._iceD_opBoolSS(request)
         case "opByte":
-            return try servant._iceD_opByte(incoming: request, current: current)
+            servant._iceD_opByte(request)
         case "opByte1":
-            return try servant._iceD_opByte1(incoming: request, current: current)
+            servant._iceD_opByte1(request)
         case "opByteBoolD":
-            return try servant._iceD_opByteBoolD(incoming: request, current: current)
+            servant._iceD_opByteBoolD(request)
         case "opByteBoolD1":
-            return try servant._iceD_opByteBoolD1(incoming: request, current: current)
+            servant._iceD_opByteBoolD1(request)
         case "opByteBoolD2":
-            return try servant._iceD_opByteBoolD2(incoming: request, current: current)
+            servant._iceD_opByteBoolD2(request)
         case "opByteBoolDS":
-            return try servant._iceD_opByteBoolDS(incoming: request, current: current)
+            servant._iceD_opByteBoolDS(request)
         case "opByteByteSD":
-            return try servant._iceD_opByteByteSD(incoming: request, current: current)
+            servant._iceD_opByteByteSD(request)
         case "opByteS":
-            return try servant._iceD_opByteS(incoming: request, current: current)
+            servant._iceD_opByteS(request)
         case "opByteSOneway":
-            return try servant._iceD_opByteSOneway(incoming: request, current: current)
+            servant._iceD_opByteSOneway(request)
         case "opByteSOnewayCallCount":
-            return try servant._iceD_opByteSOnewayCallCount(incoming: request, current: current)
+            servant._iceD_opByteSOnewayCallCount(request)
         case "opByteSS":
-            return try servant._iceD_opByteSS(incoming: request, current: current)
+            servant._iceD_opByteSS(request)
         case "opContext":
-            return try servant._iceD_opContext(incoming: request, current: current)
+            servant._iceD_opContext(request)
         case "opDouble1":
-            return try servant._iceD_opDouble1(incoming: request, current: current)
+            servant._iceD_opDouble1(request)
         case "opDoubleMarshaling":
-            return try servant._iceD_opDoubleMarshaling(incoming: request, current: current)
+            servant._iceD_opDoubleMarshaling(request)
         case "opFloat1":
-            return try servant._iceD_opFloat1(incoming: request, current: current)
+            servant._iceD_opFloat1(request)
         case "opFloatDouble":
-            return try servant._iceD_opFloatDouble(incoming: request, current: current)
+            servant._iceD_opFloatDouble(request)
         case "opFloatDoubleS":
-            return try servant._iceD_opFloatDoubleS(incoming: request, current: current)
+            servant._iceD_opFloatDoubleS(request)
         case "opFloatDoubleSS":
-            return try servant._iceD_opFloatDoubleSS(incoming: request, current: current)
+            servant._iceD_opFloatDoubleSS(request)
         case "opIdempotent":
-            return try servant._iceD_opIdempotent(incoming: request, current: current)
+            servant._iceD_opIdempotent(request)
         case "opInt1":
-            return try servant._iceD_opInt1(incoming: request, current: current)
+            servant._iceD_opInt1(request)
         case "opIntIntSD":
-            return try servant._iceD_opIntIntSD(incoming: request, current: current)
+            servant._iceD_opIntIntSD(request)
         case "opIntS":
-            return try servant._iceD_opIntS(incoming: request, current: current)
+            servant._iceD_opIntS(request)
         case "opLong1":
-            return try servant._iceD_opLong1(incoming: request, current: current)
+            servant._iceD_opLong1(request)
         case "opLongFloatD":
-            return try servant._iceD_opLongFloatD(incoming: request, current: current)
+            servant._iceD_opLongFloatD(request)
         case "opLongFloatDS":
-            return try servant._iceD_opLongFloatDS(incoming: request, current: current)
+            servant._iceD_opLongFloatDS(request)
         case "opLongLongSD":
-            return try servant._iceD_opLongLongSD(incoming: request, current: current)
+            servant._iceD_opLongLongSD(request)
         case "opMDict1":
-            return try servant._iceD_opMDict1(incoming: request, current: current)
+            servant._iceD_opMDict1(request)
         case "opMDict2":
-            return try servant._iceD_opMDict2(incoming: request, current: current)
+            servant._iceD_opMDict2(request)
         case "opMSeq1":
-            return try servant._iceD_opMSeq1(incoming: request, current: current)
+            servant._iceD_opMSeq1(request)
         case "opMSeq2":
-            return try servant._iceD_opMSeq2(incoming: request, current: current)
+            servant._iceD_opMSeq2(request)
         case "opMStruct1":
-            return try servant._iceD_opMStruct1(incoming: request, current: current)
+            servant._iceD_opMStruct1(request)
         case "opMStruct2":
-            return try servant._iceD_opMStruct2(incoming: request, current: current)
+            servant._iceD_opMStruct2(request)
         case "opMyClass":
-            return try servant._iceD_opMyClass(incoming: request, current: current)
+            servant._iceD_opMyClass(request)
         case "opMyEnum":
-            return try servant._iceD_opMyEnum(incoming: request, current: current)
+            servant._iceD_opMyEnum(request)
         case "opMyEnumMyEnumSD":
-            return try servant._iceD_opMyEnumMyEnumSD(incoming: request, current: current)
+            servant._iceD_opMyEnumMyEnumSD(request)
         case "opMyEnumStringD":
-            return try servant._iceD_opMyEnumStringD(incoming: request, current: current)
+            servant._iceD_opMyEnumStringD(request)
         case "opMyEnumStringDS":
-            return try servant._iceD_opMyEnumStringDS(incoming: request, current: current)
+            servant._iceD_opMyEnumStringDS(request)
         case "opMyStructMyEnumD":
-            return try servant._iceD_opMyStructMyEnumD(incoming: request, current: current)
+            servant._iceD_opMyStructMyEnumD(request)
         case "opMyStructMyEnumDS":
-            return try servant._iceD_opMyStructMyEnumDS(incoming: request, current: current)
+            servant._iceD_opMyStructMyEnumDS(request)
         case "opShort1":
-            return try servant._iceD_opShort1(incoming: request, current: current)
+            servant._iceD_opShort1(request)
         case "opShortIntD":
-            return try servant._iceD_opShortIntD(incoming: request, current: current)
+            servant._iceD_opShortIntD(request)
         case "opShortIntDS":
-            return try servant._iceD_opShortIntDS(incoming: request, current: current)
+            servant._iceD_opShortIntDS(request)
         case "opShortIntLong":
-            return try servant._iceD_opShortIntLong(incoming: request, current: current)
+            servant._iceD_opShortIntLong(request)
         case "opShortIntLongS":
-            return try servant._iceD_opShortIntLongS(incoming: request, current: current)
+            servant._iceD_opShortIntLongS(request)
         case "opShortIntLongSS":
-            return try servant._iceD_opShortIntLongSS(incoming: request, current: current)
+            servant._iceD_opShortIntLongSS(request)
         case "opShortShortSD":
-            return try servant._iceD_opShortShortSD(incoming: request, current: current)
+            servant._iceD_opShortShortSD(request)
         case "opString":
-            return try servant._iceD_opString(incoming: request, current: current)
+            servant._iceD_opString(request)
         case "opString1":
-            return try servant._iceD_opString1(incoming: request, current: current)
+            servant._iceD_opString1(request)
         case "opStringDoubleSD":
-            return try servant._iceD_opStringDoubleSD(incoming: request, current: current)
+            servant._iceD_opStringDoubleSD(request)
         case "opStringFloatSD":
-            return try servant._iceD_opStringFloatSD(incoming: request, current: current)
+            servant._iceD_opStringFloatSD(request)
         case "opStringLiterals":
-            return try servant._iceD_opStringLiterals(incoming: request, current: current)
+            servant._iceD_opStringLiterals(request)
         case "opStringMyEnumD":
-            return try servant._iceD_opStringMyEnumD(incoming: request, current: current)
+            servant._iceD_opStringMyEnumD(request)
         case "opStringMyEnumDS":
-            return try servant._iceD_opStringMyEnumDS(incoming: request, current: current)
+            servant._iceD_opStringMyEnumDS(request)
         case "opStringS":
-            return try servant._iceD_opStringS(incoming: request, current: current)
+            servant._iceD_opStringS(request)
         case "opStringS1":
-            return try servant._iceD_opStringS1(incoming: request, current: current)
+            servant._iceD_opStringS1(request)
         case "opStringS2":
-            return try servant._iceD_opStringS2(incoming: request, current: current)
+            servant._iceD_opStringS2(request)
         case "opStringSS":
-            return try servant._iceD_opStringSS(incoming: request, current: current)
+            servant._iceD_opStringSS(request)
         case "opStringSSS":
-            return try servant._iceD_opStringSSS(incoming: request, current: current)
+            servant._iceD_opStringSSS(request)
         case "opStringStringD":
-            return try servant._iceD_opStringStringD(incoming: request, current: current)
+            servant._iceD_opStringStringD(request)
         case "opStringStringDS":
-            return try servant._iceD_opStringStringDS(incoming: request, current: current)
+            servant._iceD_opStringStringDS(request)
         case "opStringStringSD":
-            return try servant._iceD_opStringStringSD(incoming: request, current: current)
+            servant._iceD_opStringStringSD(request)
         case "opStruct":
-            return try servant._iceD_opStruct(incoming: request, current: current)
+            servant._iceD_opStruct(request)
         case "opVoid":
-            return try servant._iceD_opVoid(incoming: request, current: current)
+            servant._iceD_opVoid(request)
         case "opWStringLiterals":
-            return try servant._iceD_opWStringLiterals(incoming: request, current: current)
+            servant._iceD_opWStringLiterals(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "supportsCompress":
-            return try servant._iceD_supportsCompress(incoming: request, current: current)
+            servant._iceD_supportsCompress(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -9313,970 +9310,1251 @@ public protocol Test2MyDerivedClass: MyClass {}
 ///  - opMDict1: 
 ///
 ///  - opMDict2: 
-public extension MyClass {
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension MyClass {
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_supportsCompress(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.supportsCompress(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opVoid(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_supportsCompress(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.opVoid(current: current)
-
-        return inS.setResult()
+            let iceP_returnValue = try self.supportsCompress(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+            ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_opByte(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (Swift.UInt8, Swift.UInt8) = try inS.read { istr in
+    public func _iceD_opVoid(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            try self.opVoid(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_opByte(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: Swift.UInt8 = try istr.read()
             let iceP_p2: Swift.UInt8 = try istr.read()
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opByte(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opByte(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opBool(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (Swift.Bool, Swift.Bool) = try inS.read { istr in
+    public func _iceD_opBool(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: Swift.Bool = try istr.read()
             let iceP_p2: Swift.Bool = try istr.read()
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opBool(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opBool(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opShortIntLong(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2, iceP_p3): (Swift.Int16, Swift.Int32, Swift.Int64) = try inS.read { istr in
+    public func _iceD_opShortIntLong(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: Swift.Int16 = try istr.read()
             let iceP_p2: Swift.Int32 = try istr.read()
             let iceP_p3: Swift.Int64 = try istr.read()
-            return (iceP_p1, iceP_p2, iceP_p3)
-        }
 
-        let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = try self.opShortIntLong(p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = try self.opShortIntLong(p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p4)
             ostr.write(iceP_p5)
             ostr.write(iceP_p6)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opFloatDouble(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (Swift.Float, Swift.Double) = try inS.read { istr in
+    public func _iceD_opFloatDouble(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: Swift.Float = try istr.read()
             let iceP_p2: Swift.Double = try istr.read()
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3, iceP_p4) = try self.opFloatDouble(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3, iceP_p4) = try self.opFloatDouble(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p3)
             ostr.write(iceP_p4)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opString(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (Swift.String, Swift.String) = try inS.read { istr in
+    public func _iceD_opString(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: Swift.String = try istr.read()
             let iceP_p2: Swift.String = try istr.read()
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opString(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opString(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMyEnum(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: MyEnum = try inS.read { istr in
+    public func _iceD_opMyEnum(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: MyEnum = try istr.read()
-            return iceP_p1
-        }
 
-        let (iceP_returnValue, iceP_p2) = try self.opMyEnum(p1: iceP_p1, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p2) = try self.opMyEnum(p1: iceP_p1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p2)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMyClass(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: MyClassPrx? = try inS.read { istr in
+    public func _iceD_opMyClass(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: MyClassPrx? = try istr.read(MyClassPrx.self)
-            return iceP_p1
-        }
 
-        let (iceP_returnValue, iceP_p2, iceP_p3) = try self.opMyClass(p1: iceP_p1, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p2, iceP_p3) = try self.opMyClass(p1: iceP_p1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p2)
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStruct(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (Structure, Structure) = try inS.read { istr in
+    public func _iceD_opStruct(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: Structure = try istr.read()
             let iceP_p2: Structure = try istr.read()
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opStruct(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opStruct(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opByteS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (ByteS, ByteS) = try inS.read { istr in
+    public func _iceD_opByteS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: ByteS = try istr.read()
             let iceP_p2: ByteS = try istr.read()
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opByteS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opByteS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opBoolS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (BoolS, BoolS) = try inS.read { istr in
+    public func _iceD_opBoolS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: BoolS = try istr.read()
             let iceP_p2: BoolS = try istr.read()
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opBoolS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opBoolS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opShortIntLongS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2, iceP_p3): (ShortS, IntS, LongS) = try inS.read { istr in
+    public func _iceD_opShortIntLongS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: ShortS = try istr.read()
             let iceP_p2: IntS = try istr.read()
             let iceP_p3: LongS = try istr.read()
-            return (iceP_p1, iceP_p2, iceP_p3)
-        }
 
-        let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = try self.opShortIntLongS(p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = try self.opShortIntLongS(p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p4)
             ostr.write(iceP_p5)
             ostr.write(iceP_p6)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opFloatDoubleS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (FloatS, DoubleS) = try inS.read { istr in
+    public func _iceD_opFloatDoubleS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: FloatS = try istr.read()
             let iceP_p2: DoubleS = try istr.read()
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3, iceP_p4) = try self.opFloatDoubleS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3, iceP_p4) = try self.opFloatDoubleS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p3)
             ostr.write(iceP_p4)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (StringS, StringS) = try inS.read { istr in
+    public func _iceD_opStringS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: StringS = try istr.read()
             let iceP_p2: StringS = try istr.read()
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opStringS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opStringS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opByteSS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (ByteSS, ByteSS) = try inS.read { istr in
+    public func _iceD_opByteSS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: ByteSS = try ByteSSHelper.read(from: istr)
             let iceP_p2: ByteSS = try ByteSSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opByteSS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opByteSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ByteSSHelper.write(to: ostr, value: iceP_p3)
             ByteSSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opBoolSS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (BoolSS, BoolSS) = try inS.read { istr in
+    public func _iceD_opBoolSS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: BoolSS = try BoolSSHelper.read(from: istr)
             let iceP_p2: BoolSS = try BoolSSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opBoolSS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opBoolSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             BoolSSHelper.write(to: ostr, value: iceP_p3)
             BoolSSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opShortIntLongSS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2, iceP_p3): (ShortSS, IntSS, LongSS) = try inS.read { istr in
+    public func _iceD_opShortIntLongSS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: ShortSS = try ShortSSHelper.read(from: istr)
             let iceP_p2: IntSS = try IntSSHelper.read(from: istr)
             let iceP_p3: LongSS = try LongSSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2, iceP_p3)
-        }
 
-        let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = try self.opShortIntLongSS(p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = try self.opShortIntLongSS(p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ShortSSHelper.write(to: ostr, value: iceP_p4)
             IntSSHelper.write(to: ostr, value: iceP_p5)
             LongSSHelper.write(to: ostr, value: iceP_p6)
             LongSSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opFloatDoubleSS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (FloatSS, DoubleSS) = try inS.read { istr in
+    public func _iceD_opFloatDoubleSS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: FloatSS = try FloatSSHelper.read(from: istr)
             let iceP_p2: DoubleSS = try DoubleSSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3, iceP_p4) = try self.opFloatDoubleSS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3, iceP_p4) = try self.opFloatDoubleSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             FloatSSHelper.write(to: ostr, value: iceP_p3)
             DoubleSSHelper.write(to: ostr, value: iceP_p4)
             DoubleSSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringSS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (StringSS, StringSS) = try inS.read { istr in
+    public func _iceD_opStringSS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: StringSS = try StringSSHelper.read(from: istr)
             let iceP_p2: StringSS = try StringSSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opStringSS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opStringSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             StringSSHelper.write(to: ostr, value: iceP_p3)
             StringSSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringSSS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (StringSSS, StringSSS) = try inS.read { istr in
+    public func _iceD_opStringSSS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: StringSSS = try StringSSSHelper.read(from: istr)
             let iceP_p2: StringSSS = try StringSSSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opStringSSS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opStringSSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             StringSSSHelper.write(to: ostr, value: iceP_p3)
             StringSSSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opByteBoolD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (ByteBoolD, ByteBoolD) = try inS.read { istr in
+    public func _iceD_opByteBoolD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: ByteBoolD = try ByteBoolDHelper.read(from: istr)
             let iceP_p2: ByteBoolD = try ByteBoolDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opByteBoolD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opByteBoolD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ByteBoolDHelper.write(to: ostr, value: iceP_p3)
             ByteBoolDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opShortIntD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (ShortIntD, ShortIntD) = try inS.read { istr in
+    public func _iceD_opShortIntD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: ShortIntD = try ShortIntDHelper.read(from: istr)
             let iceP_p2: ShortIntD = try ShortIntDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opShortIntD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opShortIntD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ShortIntDHelper.write(to: ostr, value: iceP_p3)
             ShortIntDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opLongFloatD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (LongFloatD, LongFloatD) = try inS.read { istr in
+    public func _iceD_opLongFloatD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: LongFloatD = try LongFloatDHelper.read(from: istr)
             let iceP_p2: LongFloatD = try LongFloatDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opLongFloatD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opLongFloatD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             LongFloatDHelper.write(to: ostr, value: iceP_p3)
             LongFloatDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringStringD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (StringStringD, StringStringD) = try inS.read { istr in
+    public func _iceD_opStringStringD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: StringStringD = try StringStringDHelper.read(from: istr)
             let iceP_p2: StringStringD = try StringStringDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opStringStringD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opStringStringD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             StringStringDHelper.write(to: ostr, value: iceP_p3)
             StringStringDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringMyEnumD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (StringMyEnumD, StringMyEnumD) = try inS.read { istr in
+    public func _iceD_opStringMyEnumD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: StringMyEnumD = try StringMyEnumDHelper.read(from: istr)
             let iceP_p2: StringMyEnumD = try StringMyEnumDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opStringMyEnumD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opStringMyEnumD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             StringMyEnumDHelper.write(to: ostr, value: iceP_p3)
             StringMyEnumDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMyEnumStringD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (MyEnumStringD, MyEnumStringD) = try inS.read { istr in
+    public func _iceD_opMyEnumStringD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: MyEnumStringD = try MyEnumStringDHelper.read(from: istr)
             let iceP_p2: MyEnumStringD = try MyEnumStringDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opMyEnumStringD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opMyEnumStringD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             MyEnumStringDHelper.write(to: ostr, value: iceP_p3)
             MyEnumStringDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMyStructMyEnumD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (MyStructMyEnumD, MyStructMyEnumD) = try inS.read { istr in
+    public func _iceD_opMyStructMyEnumD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: MyStructMyEnumD = try MyStructMyEnumDHelper.read(from: istr)
             let iceP_p2: MyStructMyEnumD = try MyStructMyEnumDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opMyStructMyEnumD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opMyStructMyEnumD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             MyStructMyEnumDHelper.write(to: ostr, value: iceP_p3)
             MyStructMyEnumDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opByteBoolDS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (ByteBoolDS, ByteBoolDS) = try inS.read { istr in
+    public func _iceD_opByteBoolDS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: ByteBoolDS = try ByteBoolDSHelper.read(from: istr)
             let iceP_p2: ByteBoolDS = try ByteBoolDSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opByteBoolDS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opByteBoolDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ByteBoolDSHelper.write(to: ostr, value: iceP_p3)
             ByteBoolDSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opShortIntDS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (ShortIntDS, ShortIntDS) = try inS.read { istr in
+    public func _iceD_opShortIntDS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: ShortIntDS = try ShortIntDSHelper.read(from: istr)
             let iceP_p2: ShortIntDS = try ShortIntDSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opShortIntDS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opShortIntDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ShortIntDSHelper.write(to: ostr, value: iceP_p3)
             ShortIntDSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opLongFloatDS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (LongFloatDS, LongFloatDS) = try inS.read { istr in
+    public func _iceD_opLongFloatDS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: LongFloatDS = try LongFloatDSHelper.read(from: istr)
             let iceP_p2: LongFloatDS = try LongFloatDSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opLongFloatDS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opLongFloatDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             LongFloatDSHelper.write(to: ostr, value: iceP_p3)
             LongFloatDSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringStringDS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (StringStringDS, StringStringDS) = try inS.read { istr in
+    public func _iceD_opStringStringDS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: StringStringDS = try StringStringDSHelper.read(from: istr)
             let iceP_p2: StringStringDS = try StringStringDSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opStringStringDS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opStringStringDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             StringStringDSHelper.write(to: ostr, value: iceP_p3)
             StringStringDSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringMyEnumDS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (StringMyEnumDS, StringMyEnumDS) = try inS.read { istr in
+    public func _iceD_opStringMyEnumDS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: StringMyEnumDS = try StringMyEnumDSHelper.read(from: istr)
             let iceP_p2: StringMyEnumDS = try StringMyEnumDSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opStringMyEnumDS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opStringMyEnumDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             StringMyEnumDSHelper.write(to: ostr, value: iceP_p3)
             StringMyEnumDSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMyEnumStringDS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (MyEnumStringDS, MyEnumStringDS) = try inS.read { istr in
+    public func _iceD_opMyEnumStringDS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: MyEnumStringDS = try MyEnumStringDSHelper.read(from: istr)
             let iceP_p2: MyEnumStringDS = try MyEnumStringDSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opMyEnumStringDS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opMyEnumStringDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             MyEnumStringDSHelper.write(to: ostr, value: iceP_p3)
             MyEnumStringDSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMyStructMyEnumDS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (MyStructMyEnumDS, MyStructMyEnumDS) = try inS.read { istr in
+    public func _iceD_opMyStructMyEnumDS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: MyStructMyEnumDS = try MyStructMyEnumDSHelper.read(from: istr)
             let iceP_p2: MyStructMyEnumDS = try MyStructMyEnumDSHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opMyStructMyEnumDS(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opMyStructMyEnumDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             MyStructMyEnumDSHelper.write(to: ostr, value: iceP_p3)
             MyStructMyEnumDSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opByteByteSD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (ByteByteSD, ByteByteSD) = try inS.read { istr in
+    public func _iceD_opByteByteSD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: ByteByteSD = try ByteByteSDHelper.read(from: istr)
             let iceP_p2: ByteByteSD = try ByteByteSDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opByteByteSD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opByteByteSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ByteByteSDHelper.write(to: ostr, value: iceP_p3)
             ByteByteSDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opBoolBoolSD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (BoolBoolSD, BoolBoolSD) = try inS.read { istr in
+    public func _iceD_opBoolBoolSD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: BoolBoolSD = try BoolBoolSDHelper.read(from: istr)
             let iceP_p2: BoolBoolSD = try BoolBoolSDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opBoolBoolSD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opBoolBoolSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             BoolBoolSDHelper.write(to: ostr, value: iceP_p3)
             BoolBoolSDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opShortShortSD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (ShortShortSD, ShortShortSD) = try inS.read { istr in
+    public func _iceD_opShortShortSD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: ShortShortSD = try ShortShortSDHelper.read(from: istr)
             let iceP_p2: ShortShortSD = try ShortShortSDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opShortShortSD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opShortShortSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ShortShortSDHelper.write(to: ostr, value: iceP_p3)
             ShortShortSDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opIntIntSD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (IntIntSD, IntIntSD) = try inS.read { istr in
+    public func _iceD_opIntIntSD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: IntIntSD = try IntIntSDHelper.read(from: istr)
             let iceP_p2: IntIntSD = try IntIntSDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opIntIntSD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opIntIntSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             IntIntSDHelper.write(to: ostr, value: iceP_p3)
             IntIntSDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opLongLongSD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (LongLongSD, LongLongSD) = try inS.read { istr in
+    public func _iceD_opLongLongSD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: LongLongSD = try LongLongSDHelper.read(from: istr)
             let iceP_p2: LongLongSD = try LongLongSDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opLongLongSD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opLongLongSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             LongLongSDHelper.write(to: ostr, value: iceP_p3)
             LongLongSDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringFloatSD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (StringFloatSD, StringFloatSD) = try inS.read { istr in
+    public func _iceD_opStringFloatSD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: StringFloatSD = try StringFloatSDHelper.read(from: istr)
             let iceP_p2: StringFloatSD = try StringFloatSDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opStringFloatSD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opStringFloatSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             StringFloatSDHelper.write(to: ostr, value: iceP_p3)
             StringFloatSDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringDoubleSD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (StringDoubleSD, StringDoubleSD) = try inS.read { istr in
+    public func _iceD_opStringDoubleSD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: StringDoubleSD = try StringDoubleSDHelper.read(from: istr)
             let iceP_p2: StringDoubleSD = try StringDoubleSDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opStringDoubleSD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opStringDoubleSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             StringDoubleSDHelper.write(to: ostr, value: iceP_p3)
             StringDoubleSDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringStringSD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (StringStringSD, StringStringSD) = try inS.read { istr in
+    public func _iceD_opStringStringSD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: StringStringSD = try StringStringSDHelper.read(from: istr)
             let iceP_p2: StringStringSD = try StringStringSDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opStringStringSD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opStringStringSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             StringStringSDHelper.write(to: ostr, value: iceP_p3)
             StringStringSDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMyEnumMyEnumSD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (MyEnumMyEnumSD, MyEnumMyEnumSD) = try inS.read { istr in
+    public func _iceD_opMyEnumMyEnumSD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: MyEnumMyEnumSD = try MyEnumMyEnumSDHelper.read(from: istr)
             let iceP_p2: MyEnumMyEnumSD = try MyEnumMyEnumSDHelper.read(from: istr)
-            return (iceP_p1, iceP_p2)
-        }
 
-        let (iceP_returnValue, iceP_p3) = try self.opMyEnumMyEnumSD(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p3) = try self.opMyEnumMyEnumSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             MyEnumMyEnumSDHelper.write(to: ostr, value: iceP_p3)
             MyEnumMyEnumSDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opIntS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_s: IntS = try inS.read { istr in
+    public func _iceD_opIntS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_s: IntS = try istr.read()
-            return iceP_s
-        }
 
-        let iceP_returnValue = try self.opIntS(s: iceP_s, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opIntS(s: iceP_s, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opByteSOneway(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_s: ByteS = try inS.read { istr in
+    public func _iceD_opByteSOneway(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_s: ByteS = try istr.read()
-            return iceP_s
+
+            try self.opByteSOneway(s: iceP_s, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.opByteSOneway(s: iceP_s, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_opByteSOnewayCallCount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_opByteSOnewayCallCount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.opByteSOnewayCallCount(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opByteSOnewayCallCount(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opContext(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_opContext(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.opContext(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opContext(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             Ice.ContextHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opDoubleMarshaling(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (Swift.Double, DoubleS) = try inS.read { istr in
+    public func _iceD_opDoubleMarshaling(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: Swift.Double = try istr.read()
             let iceP_p2: DoubleS = try istr.read()
-            return (iceP_p1, iceP_p2)
+
+            try self.opDoubleMarshaling(p1: iceP_p1, p2: iceP_p2, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.opDoubleMarshaling(p1: iceP_p1, p2: iceP_p2, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_opIdempotent(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_opIdempotent(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.opIdempotent(current: current)
-
-        return inS.setResult()
+            try self.opIdempotent(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_opByte1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_opByte1: Swift.UInt8 = try inS.read { istr in
+    public func _iceD_opByte1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_opByte1: Swift.UInt8 = try istr.read()
-            return iceP_opByte1
-        }
 
-        let iceP_returnValue = try self.opByte1(opByte1: iceP_opByte1, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opByte1(opByte1: iceP_opByte1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opShort1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_opShort1: Swift.Int16 = try inS.read { istr in
+    public func _iceD_opShort1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_opShort1: Swift.Int16 = try istr.read()
-            return iceP_opShort1
-        }
 
-        let iceP_returnValue = try self.opShort1(opShort1: iceP_opShort1, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opShort1(opShort1: iceP_opShort1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opInt1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_opInt1: Swift.Int32 = try inS.read { istr in
+    public func _iceD_opInt1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_opInt1: Swift.Int32 = try istr.read()
-            return iceP_opInt1
-        }
 
-        let iceP_returnValue = try self.opInt1(opInt1: iceP_opInt1, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opInt1(opInt1: iceP_opInt1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opLong1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_opLong1: Swift.Int64 = try inS.read { istr in
+    public func _iceD_opLong1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_opLong1: Swift.Int64 = try istr.read()
-            return iceP_opLong1
-        }
 
-        let iceP_returnValue = try self.opLong1(opLong1: iceP_opLong1, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opLong1(opLong1: iceP_opLong1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opFloat1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_opFloat1: Swift.Float = try inS.read { istr in
+    public func _iceD_opFloat1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_opFloat1: Swift.Float = try istr.read()
-            return iceP_opFloat1
-        }
 
-        let iceP_returnValue = try self.opFloat1(opFloat1: iceP_opFloat1, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opFloat1(opFloat1: iceP_opFloat1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opDouble1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_opDouble1: Swift.Double = try inS.read { istr in
+    public func _iceD_opDouble1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_opDouble1: Swift.Double = try istr.read()
-            return iceP_opDouble1
-        }
 
-        let iceP_returnValue = try self.opDouble1(opDouble1: iceP_opDouble1, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opDouble1(opDouble1: iceP_opDouble1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opString1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_opString1: Swift.String = try inS.read { istr in
+    public func _iceD_opString1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_opString1: Swift.String = try istr.read()
-            return iceP_opString1
-        }
 
-        let iceP_returnValue = try self.opString1(opString1: iceP_opString1, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opString1(opString1: iceP_opString1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringS1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_opStringS1: StringS = try inS.read { istr in
+    public func _iceD_opStringS1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_opStringS1: StringS = try istr.read()
-            return iceP_opStringS1
-        }
 
-        let iceP_returnValue = try self.opStringS1(opStringS1: iceP_opStringS1, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opStringS1(opStringS1: iceP_opStringS1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opByteBoolD1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_opByteBoolD1: ByteBoolD = try inS.read { istr in
+    public func _iceD_opByteBoolD1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_opByteBoolD1: ByteBoolD = try ByteBoolDHelper.read(from: istr)
-            return iceP_opByteBoolD1
-        }
 
-        let iceP_returnValue = try self.opByteBoolD1(opByteBoolD1: iceP_opByteBoolD1, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opByteBoolD1(opByteBoolD1: iceP_opByteBoolD1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ByteBoolDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringS2(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_stringS: StringS = try inS.read { istr in
+    public func _iceD_opStringS2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_stringS: StringS = try istr.read()
-            return iceP_stringS
-        }
 
-        let iceP_returnValue = try self.opStringS2(stringS: iceP_stringS, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opStringS2(stringS: iceP_stringS, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opByteBoolD2(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_byteBoolD: ByteBoolD = try inS.read { istr in
+    public func _iceD_opByteBoolD2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_byteBoolD: ByteBoolD = try ByteBoolDHelper.read(from: istr)
-            return iceP_byteBoolD
-        }
 
-        let iceP_returnValue = try self.opByteBoolD2(byteBoolD: iceP_byteBoolD, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opByteBoolD2(byteBoolD: iceP_byteBoolD, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ByteBoolDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringLiterals(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_opStringLiterals(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.opStringLiterals(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opStringLiterals(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opWStringLiterals(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_opWStringLiterals(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.opWStringLiterals(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opWStringLiterals(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMStruct1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_opMStruct1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.opMStruct1(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opMStruct1(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMStruct2(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: Structure = try inS.read { istr in
+    public func _iceD_opMStruct2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: Structure = try istr.read()
-            return iceP_p1
-        }
 
-        let (iceP_returnValue, iceP_p2) = try self.opMStruct2(p1: iceP_p1, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p2) = try self.opMStruct2(p1: iceP_p1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p2)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMSeq1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_opMSeq1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.opMSeq1(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opMSeq1(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMSeq2(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: StringS = try inS.read { istr in
+    public func _iceD_opMSeq2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: StringS = try istr.read()
-            return iceP_p1
-        }
 
-        let (iceP_returnValue, iceP_p2) = try self.opMSeq2(p1: iceP_p1, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p2) = try self.opMSeq2(p1: iceP_p1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_p2)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMDict1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_opMDict1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.opMDict1(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opMDict1(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             StringStringDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMDict2(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: StringStringD = try inS.read { istr in
+    public func _iceD_opMDict2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_p1: StringStringD = try StringStringDHelper.read(from: istr)
-            return iceP_p1
-        }
 
-        let (iceP_returnValue, iceP_p2) = try self.opMDict2(p1: iceP_p1, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_p2) = try self.opMDict2(p1: iceP_p1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             StringStringDHelper.write(to: ostr, value: iceP_p2)
             StringStringDHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -10290,45 +10568,56 @@ public extension MyClass {
 ///  - opMyClass1: 
 ///
 ///  - opMyStruct1: 
-public extension MyDerivedClass {
-    func _iceD_opDerived(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension MyDerivedClass {
+    public func _iceD_opDerived(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.opDerived(current: current)
-
-        return inS.setResult()
+            try self.opDerived(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_opMyClass1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_opMyClass1: MyClass1? = try inS.read { istr in
+    public func _iceD_opMyClass1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_opMyClass1: MyClass1?
             try istr.read(MyClass1.self) { iceP_opMyClass1 = $0 }
             try istr.readPendingValues()
-            return iceP_opMyClass1
-        }
 
-        let iceP_returnValue = try self.opMyClass1(opMyClass1: iceP_opMyClass1, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opMyClass1(opMyClass1: iceP_opMyClass1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opMyStruct1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_opMyStruct1: MyStruct1 = try inS.read { istr in
+    public func _iceD_opMyStruct1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_opMyStruct1: MyStruct1 = try istr.read()
-            return iceP_opMyStruct1
-        }
 
-        let iceP_returnValue = try self.opMyStruct1(opMyStruct1: iceP_opMyStruct1, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.opMyStruct1(opMyStruct1: iceP_opMyStruct1, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
 
 /// Makes sure that proxy operations are correctly generated when extending an interface from
 /// a different module (ICE-7639).
-public extension Test2MyDerivedClass {}
+extension Test2MyDerivedClass {}

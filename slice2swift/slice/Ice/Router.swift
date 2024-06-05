@@ -421,7 +421,7 @@ public extension RouterFinderPrx {
 
 
 /// Dispatcher for `Router` servants.
-public struct RouterDisp: Disp {
+public struct RouterDisp: Ice.Dispatcher {
     public let servant: Router
     private static let defaultObject = ObjectI<RouterTraits>()
 
@@ -429,25 +429,24 @@ public struct RouterDisp: Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Request, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "addProxies":
-            return try servant._iceD_addProxies(incoming: request, current: current)
+            servant._iceD_addProxies(request)
         case "getClientProxy":
-            return try servant._iceD_getClientProxy(incoming: request, current: current)
+            servant._iceD_getClientProxy(request)
         case "getServerProxy":
-            return try servant._iceD_getServerProxy(incoming: request, current: current)
+            servant._iceD_getServerProxy(request)
         case "ice_id":
-            return try (servant as? Object ?? RouterDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? RouterDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? RouterDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? RouterDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -489,7 +488,7 @@ public protocol Router {
 
 
 /// Dispatcher for `RouterFinder` servants.
-public struct RouterFinderDisp: Disp {
+public struct RouterFinderDisp: Ice.Dispatcher {
     public let servant: RouterFinder
     private static let defaultObject = ObjectI<RouterFinderTraits>()
 
@@ -497,21 +496,20 @@ public struct RouterFinderDisp: Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Request, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getRouter":
-            return try servant._iceD_getRouter(incoming: request, current: current)
+            servant._iceD_getRouter(request)
         case "ice_id":
-            return try (servant as? Object ?? RouterFinderDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? RouterFinderDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? RouterFinderDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? RouterFinderDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? RouterFinderDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? RouterFinderDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? RouterFinderDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? RouterFinderDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -539,38 +537,52 @@ public protocol RouterFinder {
 ///  - getServerProxy: Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
 ///
 ///  - addProxies: Add new proxy information to the router's routing table.
-public extension Router {
-    func _iceD_getClientProxy(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        try inS.readEmptyParams()
+extension Router {
+    public func _iceD_getClientProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let (iceP_returnValue, iceP_hasRoutingTable) = try self.getClientProxy(current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_hasRoutingTable) = try self.getClientProxy(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
             ostr.write(tag: 1, value: iceP_hasRoutingTable)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getServerProxy(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getServerProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getServerProxy(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getServerProxy(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_addProxies(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let iceP_proxies: ObjectProxySeq = try inS.read { istr in
+    public func _iceD_addProxies(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_proxies: ObjectProxySeq = try ObjectProxySeqHelper.read(from: istr)
-            return iceP_proxies
-        }
 
-        let iceP_returnValue = try self.addProxies(proxies: iceP_proxies, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.addProxies(proxies: iceP_proxies, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ObjectProxySeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -582,14 +594,19 @@ public extension Router {
 /// RouterFinder Methods:
 ///
 ///  - getRouter: Get the router proxy implemented by the process hosting this finder object.
-public extension RouterFinder {
-    func _iceD_getRouter(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        try inS.readEmptyParams()
+extension RouterFinder {
+    public func _iceD_getRouter(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getRouter(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getRouter(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

@@ -226,7 +226,7 @@ public extension UserAccountMapperPrx {
 
 
 /// Dispatcher for `UserAccountMapper` servants.
-public struct UserAccountMapperDisp: Ice.Disp {
+public struct UserAccountMapperDisp: Ice.Dispatcher {
     public let servant: UserAccountMapper
     private static let defaultObject = Ice.ObjectI<UserAccountMapperTraits>()
 
@@ -234,21 +234,20 @@ public struct UserAccountMapperDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getUserAccount":
-            return try servant._iceD_getUserAccount(incoming: request, current: current)
+            servant._iceD_getUserAccount(request)
         case "ice_id":
-            return try (servant as? Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -277,17 +276,21 @@ public protocol UserAccountMapper {
 /// UserAccountMapper Methods:
 ///
 ///  - getUserAccount: Get the name of the user account for the given user.
-public extension UserAccountMapper {
-    func _iceD_getUserAccount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_user: Swift.String = try inS.read { istr in
+extension UserAccountMapper {
+    public func _iceD_getUserAccount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_user: Swift.String = try istr.read()
-            return iceP_user
-        }
 
-        let iceP_returnValue = try self.getUserAccount(user: iceP_user, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getUserAccount(user: iceP_user, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

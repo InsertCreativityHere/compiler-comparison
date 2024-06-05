@@ -5037,7 +5037,7 @@ open class InternalReplicaInfo: Ice.Value {
 
 
 /// Dispatcher for `Adapter` servants.
-public struct AdapterDisp: Ice.Disp {
+public struct AdapterDisp: Ice.Dispatcher {
     public let servant: Adapter
     private static let defaultObject = Ice.ObjectI<AdapterTraits>()
 
@@ -5045,25 +5045,24 @@ public struct AdapterDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "activate":
-            return try servant._iceD_activate(incoming: request, current: current)
+            servant._iceD_activate(request)
         case "getDirectProxy":
-            return try servant._iceD_getDirectProxy(incoming: request, current: current)
+            servant._iceD_getDirectProxy(request)
         case "ice_id":
-            return try (servant as? Object ?? AdapterDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? AdapterDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? AdapterDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? AdapterDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_ping(request)
         case "setDirectProxy":
-            return try servant._iceD_setDirectProxy(incoming: request, current: current)
+            servant._iceD_setDirectProxy(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -5101,7 +5100,7 @@ public protocol Adapter {
 
 
 /// Dispatcher for `FileReader` servants.
-public struct FileReaderDisp: Ice.Disp {
+public struct FileReaderDisp: Ice.Dispatcher {
     public let servant: FileReader
     private static let defaultObject = Ice.ObjectI<FileReaderTraits>()
 
@@ -5109,23 +5108,22 @@ public struct FileReaderDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getOffsetFromEnd":
-            return try servant._iceD_getOffsetFromEnd(incoming: request, current: current)
+            servant._iceD_getOffsetFromEnd(request)
         case "ice_id":
-            return try (servant as? Object ?? FileReaderDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? FileReaderDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? FileReaderDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? FileReaderDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_ping(request)
         case "read":
-            return try servant._iceD_read(incoming: request, current: current)
+            servant._iceD_read(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -5164,7 +5162,7 @@ public protocol FileReader {
 
 
 /// Dispatcher for `Server` servants.
-public struct ServerDisp: Ice.Disp {
+public struct ServerDisp: Ice.Dispatcher {
     public let servant: Server
     private static let defaultObject = Ice.ObjectI<ServerTraits>()
 
@@ -5172,43 +5170,42 @@ public struct ServerDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "checkUpdate":
-            return try servant._iceD_checkUpdate(incoming: request, current: current)
+            servant._iceD_checkUpdate(request)
         case "getOffsetFromEnd":
-            return try servant._iceD_getOffsetFromEnd(incoming: request, current: current)
+            servant._iceD_getOffsetFromEnd(request)
         case "getPid":
-            return try servant._iceD_getPid(incoming: request, current: current)
+            servant._iceD_getPid(request)
         case "getState":
-            return try servant._iceD_getState(incoming: request, current: current)
+            servant._iceD_getState(request)
         case "ice_id":
-            return try (servant as? Object ?? ServerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? ServerDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? ServerDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? ServerDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ping(request)
         case "isEnabled":
-            return try servant._iceD_isEnabled(incoming: request, current: current)
+            servant._iceD_isEnabled(request)
         case "read":
-            return try servant._iceD_read(incoming: request, current: current)
+            servant._iceD_read(request)
         case "sendSignal":
-            return try servant._iceD_sendSignal(incoming: request, current: current)
+            servant._iceD_sendSignal(request)
         case "setEnabled":
-            return try servant._iceD_setEnabled(incoming: request, current: current)
+            servant._iceD_setEnabled(request)
         case "setProcess":
-            return try servant._iceD_setProcess(incoming: request, current: current)
+            servant._iceD_setProcess(request)
         case "start":
-            return try servant._iceD_start(incoming: request, current: current)
+            servant._iceD_start(request)
         case "stop":
-            return try servant._iceD_stop(incoming: request, current: current)
+            servant._iceD_stop(request)
         case "writeMessage":
-            return try servant._iceD_writeMessage(incoming: request, current: current)
+            servant._iceD_writeMessage(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -5301,7 +5298,7 @@ public protocol Server: FileReader {
 
 
 /// Dispatcher for `ReplicaObserver` servants.
-public struct ReplicaObserverDisp: Ice.Disp {
+public struct ReplicaObserverDisp: Ice.Dispatcher {
     public let servant: ReplicaObserver
     private static let defaultObject = Ice.ObjectI<ReplicaObserverTraits>()
 
@@ -5309,25 +5306,24 @@ public struct ReplicaObserverDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "replicaAdded":
-            return try servant._iceD_replicaAdded(incoming: request, current: current)
+            servant._iceD_replicaAdded(request)
         case "replicaInit":
-            return try servant._iceD_replicaInit(incoming: request, current: current)
+            servant._iceD_replicaInit(request)
         case "replicaRemoved":
-            return try servant._iceD_replicaRemoved(incoming: request, current: current)
+            servant._iceD_replicaRemoved(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -5357,7 +5353,7 @@ public protocol ReplicaObserver {
 
 
 /// Dispatcher for `Node` servants.
-public struct NodeDisp: Ice.Disp {
+public struct NodeDisp: Ice.Dispatcher {
     public let servant: Node
     private static let defaultObject = Ice.ObjectI<NodeTraits>()
 
@@ -5365,49 +5361,48 @@ public struct NodeDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "destroyServer":
-            return try servant._iceD_destroyServer(incoming: request, current: current)
+            servant._iceD_destroyServer(request)
         case "destroyServerWithoutRestart":
-            return try servant._iceD_destroyServerWithoutRestart(incoming: request, current: current)
+            servant._iceD_destroyServerWithoutRestart(request)
         case "getHostname":
-            return try servant._iceD_getHostname(incoming: request, current: current)
+            servant._iceD_getHostname(request)
         case "getLoad":
-            return try servant._iceD_getLoad(incoming: request, current: current)
+            servant._iceD_getLoad(request)
         case "getName":
-            return try servant._iceD_getName(incoming: request, current: current)
+            servant._iceD_getName(request)
         case "getOffsetFromEnd":
-            return try servant._iceD_getOffsetFromEnd(incoming: request, current: current)
+            servant._iceD_getOffsetFromEnd(request)
         case "getProcessorSocketCount":
-            return try servant._iceD_getProcessorSocketCount(incoming: request, current: current)
+            servant._iceD_getProcessorSocketCount(request)
         case "ice_id":
-            return try (servant as? Object ?? NodeDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? NodeDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? NodeDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? NodeDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ping(request)
         case "loadServer":
-            return try servant._iceD_loadServer(incoming: request, current: current)
+            servant._iceD_loadServer(request)
         case "loadServerWithoutRestart":
-            return try servant._iceD_loadServerWithoutRestart(incoming: request, current: current)
+            servant._iceD_loadServerWithoutRestart(request)
         case "read":
-            return try servant._iceD_read(incoming: request, current: current)
+            servant._iceD_read(request)
         case "registerWithReplica":
-            return try servant._iceD_registerWithReplica(incoming: request, current: current)
+            servant._iceD_registerWithReplica(request)
         case "replicaAdded":
-            return try servant._iceD_replicaAdded(incoming: request, current: current)
+            servant._iceD_replicaAdded(request)
         case "replicaInit":
-            return try servant._iceD_replicaInit(incoming: request, current: current)
+            servant._iceD_replicaInit(request)
         case "replicaRemoved":
-            return try servant._iceD_replicaRemoved(incoming: request, current: current)
+            servant._iceD_replicaRemoved(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -5512,7 +5507,7 @@ public protocol Node: FileReader, ReplicaObserver {
 
 
 /// Dispatcher for `NodeSession` servants.
-public struct NodeSessionDisp: Ice.Disp {
+public struct NodeSessionDisp: Ice.Dispatcher {
     public let servant: NodeSession
     private static let defaultObject = Ice.ObjectI<NodeSessionTraits>()
 
@@ -5520,35 +5515,34 @@ public struct NodeSessionDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "destroy":
-            return try servant._iceD_destroy(incoming: request, current: current)
+            servant._iceD_destroy(request)
         case "getObserver":
-            return try servant._iceD_getObserver(incoming: request, current: current)
+            servant._iceD_getObserver(request)
         case "getServers":
-            return try servant._iceD_getServers(incoming: request, current: current)
+            servant._iceD_getServers(request)
         case "getTimeout":
-            return try servant._iceD_getTimeout(incoming: request, current: current)
+            servant._iceD_getTimeout(request)
         case "ice_id":
-            return try (servant as? Object ?? NodeSessionDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? NodeSessionDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? NodeSessionDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? NodeSessionDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_ping(request)
         case "keepAlive":
-            return try servant._iceD_keepAlive(incoming: request, current: current)
+            servant._iceD_keepAlive(request)
         case "loadServers":
-            return try servant._iceD_loadServers(incoming: request, current: current)
+            servant._iceD_loadServers(request)
         case "setReplicaObserver":
-            return try servant._iceD_setReplicaObserver(incoming: request, current: current)
+            servant._iceD_setReplicaObserver(request)
         case "waitForApplicationUpdate":
-            return try servant._iceD_waitForApplicationUpdate(incoming: request, current: current)
+            servant._iceD_waitForApplicationUpdate(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -5618,7 +5612,7 @@ public protocol NodeSession {
 
 
 /// Dispatcher for `DatabaseObserver` servants.
-public struct DatabaseObserverDisp: Ice.Disp {
+public struct DatabaseObserverDisp: Ice.Dispatcher {
     public let servant: DatabaseObserver
     private static let defaultObject = Ice.ObjectI<DatabaseObserverTraits>()
 
@@ -5626,43 +5620,42 @@ public struct DatabaseObserverDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "adapterAdded":
-            return try servant._iceD_adapterAdded(incoming: request, current: current)
+            servant._iceD_adapterAdded(request)
         case "adapterInit":
-            return try servant._iceD_adapterInit(incoming: request, current: current)
+            servant._iceD_adapterInit(request)
         case "adapterRemoved":
-            return try servant._iceD_adapterRemoved(incoming: request, current: current)
+            servant._iceD_adapterRemoved(request)
         case "adapterUpdated":
-            return try servant._iceD_adapterUpdated(incoming: request, current: current)
+            servant._iceD_adapterUpdated(request)
         case "applicationAdded":
-            return try servant._iceD_applicationAdded(incoming: request, current: current)
+            servant._iceD_applicationAdded(request)
         case "applicationInit":
-            return try servant._iceD_applicationInit(incoming: request, current: current)
+            servant._iceD_applicationInit(request)
         case "applicationRemoved":
-            return try servant._iceD_applicationRemoved(incoming: request, current: current)
+            servant._iceD_applicationRemoved(request)
         case "applicationUpdated":
-            return try servant._iceD_applicationUpdated(incoming: request, current: current)
+            servant._iceD_applicationUpdated(request)
         case "ice_id":
-            return try (servant as? Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "objectAdded":
-            return try servant._iceD_objectAdded(incoming: request, current: current)
+            servant._iceD_objectAdded(request)
         case "objectInit":
-            return try servant._iceD_objectInit(incoming: request, current: current)
+            servant._iceD_objectInit(request)
         case "objectRemoved":
-            return try servant._iceD_objectRemoved(incoming: request, current: current)
+            servant._iceD_objectRemoved(request)
         case "objectUpdated":
-            return try servant._iceD_objectUpdated(incoming: request, current: current)
+            servant._iceD_objectUpdated(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -5671,7 +5664,7 @@ public protocol DatabaseObserver: ApplicationObserver, ObjectObserver, AdapterOb
 
 
 /// Dispatcher for `ReplicaSession` servants.
-public struct ReplicaSessionDisp: Ice.Disp {
+public struct ReplicaSessionDisp: Ice.Dispatcher {
     public let servant: ReplicaSession
     private static let defaultObject = Ice.ObjectI<ReplicaSessionTraits>()
 
@@ -5679,35 +5672,34 @@ public struct ReplicaSessionDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "destroy":
-            return try servant._iceD_destroy(incoming: request, current: current)
+            servant._iceD_destroy(request)
         case "getTimeout":
-            return try servant._iceD_getTimeout(incoming: request, current: current)
+            servant._iceD_getTimeout(request)
         case "ice_id":
-            return try (servant as? Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_ping(request)
         case "keepAlive":
-            return try servant._iceD_keepAlive(incoming: request, current: current)
+            servant._iceD_keepAlive(request)
         case "receivedUpdate":
-            return try servant._iceD_receivedUpdate(incoming: request, current: current)
+            servant._iceD_receivedUpdate(request)
         case "registerWellKnownObjects":
-            return try servant._iceD_registerWellKnownObjects(incoming: request, current: current)
+            servant._iceD_registerWellKnownObjects(request)
         case "setAdapterDirectProxy":
-            return try servant._iceD_setAdapterDirectProxy(incoming: request, current: current)
+            servant._iceD_setAdapterDirectProxy(request)
         case "setDatabaseObserver":
-            return try servant._iceD_setDatabaseObserver(incoming: request, current: current)
+            servant._iceD_setDatabaseObserver(request)
         case "setEndpoints":
-            return try servant._iceD_setEndpoints(incoming: request, current: current)
+            servant._iceD_setEndpoints(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -5781,7 +5773,7 @@ public protocol ReplicaSession {
 
 
 /// Dispatcher for `InternalRegistry` servants.
-public struct InternalRegistryDisp: Ice.Disp {
+public struct InternalRegistryDisp: Ice.Dispatcher {
     public let servant: InternalRegistry
     private static let defaultObject = Ice.ObjectI<InternalRegistryTraits>()
 
@@ -5789,41 +5781,40 @@ public struct InternalRegistryDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getAdapters":
-            return try servant._iceD_getAdapters(incoming: request, current: current)
+            servant._iceD_getAdapters(request)
         case "getApplications":
-            return try servant._iceD_getApplications(incoming: request, current: current)
+            servant._iceD_getApplications(request)
         case "getNodes":
-            return try servant._iceD_getNodes(incoming: request, current: current)
+            servant._iceD_getNodes(request)
         case "getObjects":
-            return try servant._iceD_getObjects(incoming: request, current: current)
+            servant._iceD_getObjects(request)
         case "getOffsetFromEnd":
-            return try servant._iceD_getOffsetFromEnd(incoming: request, current: current)
+            servant._iceD_getOffsetFromEnd(request)
         case "getReplicas":
-            return try servant._iceD_getReplicas(incoming: request, current: current)
+            servant._iceD_getReplicas(request)
         case "ice_id":
-            return try (servant as? Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_ping(request)
         case "read":
-            return try servant._iceD_read(incoming: request, current: current)
+            servant._iceD_read(request)
         case "registerNode":
-            return try servant._iceD_registerNode(incoming: request, current: current)
+            servant._iceD_registerNode(request)
         case "registerReplica":
-            return try servant._iceD_registerReplica(incoming: request, current: current)
+            servant._iceD_registerReplica(request)
         case "registerWithReplica":
-            return try servant._iceD_registerWithReplica(incoming: request, current: current)
+            servant._iceD_registerWithReplica(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -5933,35 +5924,49 @@ public protocol InternalRegistry: FileReader {
 ///  - getDirectProxy: Get the adapter direct proxy.
 ///
 ///  - setDirectProxy: Set the direct proxy for this adapter.
-public extension Adapter {
-    func _iceD_activate(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(activateAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+extension Adapter {
+    public func _iceD_activate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.activateAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getDirectProxy(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getDirectProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getDirectProxy(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getDirectProxy(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_setDirectProxy(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_proxy: Ice.ObjectPrx? = try inS.read { istr in
+    public func _iceD_setDirectProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_proxy: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            return iceP_proxy
+
+            try self.setDirectProxy(proxy: iceP_proxy, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.setDirectProxy(proxy: iceP_proxy, current: current)
-
-        return inS.setResult()
     }
 }
 
@@ -5972,35 +5977,43 @@ public extension Adapter {
 ///  - getOffsetFromEnd: Count the number of given lines from the end of the file and return the file offset.
 ///
 ///  - read: Read lines (or size bytes) at the specified position from the given file.
-public extension FileReader {
-    func _iceD_getOffsetFromEnd(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_filename, iceP_lines): (Swift.String, Swift.Int32) = try inS.read { istr in
+extension FileReader {
+    public func _iceD_getOffsetFromEnd(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_filename: Swift.String = try istr.read()
             let iceP_lines: Swift.Int32 = try istr.read()
-            return (iceP_filename, iceP_lines)
-        }
 
-        let iceP_returnValue = try self.getOffsetFromEnd(filename: iceP_filename, lines: iceP_lines, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getOffsetFromEnd(filename: iceP_filename, lines: iceP_lines, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_read(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_filename, iceP_pos, iceP_size): (Swift.String, Swift.Int64, Swift.Int32) = try inS.read { istr in
+    public func _iceD_read(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_filename: Swift.String = try istr.read()
             let iceP_pos: Swift.Int64 = try istr.read()
             let iceP_size: Swift.Int32 = try istr.read()
-            return (iceP_filename, iceP_pos, iceP_size)
-        }
 
-        let (iceP_returnValue, iceP_newPos, iceP_lines) = try self.read(filename: iceP_filename, pos: iceP_pos, size: iceP_size, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_newPos, iceP_lines) = try self.read(filename: iceP_filename, pos: iceP_pos, size: iceP_size, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_newPos)
             ostr.write(iceP_lines)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -6028,106 +6041,151 @@ public extension FileReader {
 ///  - getPid: Get the server pid.
 ///
 ///  - setProcess: Set the process proxy.
-public extension Server {
-    func _iceD_start(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(startAsync(current: current))
+extension Server {
+    public func _iceD_start(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.startAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_stop(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(stopAsync(current: current))
+    public func _iceD_stop(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.stopAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_checkUpdate(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_svr, iceP_noRestart): (InternalServerDescriptor?, Swift.Bool) = try inS.read { istr in
+    public func _iceD_checkUpdate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_svr: InternalServerDescriptor?
             try istr.read(InternalServerDescriptor.self) { iceP_svr = $0 }
             let iceP_noRestart: Swift.Bool = try istr.read()
             try istr.readPendingValues()
-            return (iceP_svr, iceP_noRestart)
-        }
 
-        let iceP_returnValue = try self.checkUpdate(svr: iceP_svr, noRestart: iceP_noRestart, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.checkUpdate(svr: iceP_svr, noRestart: iceP_noRestart, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_setEnabled(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_enable: Swift.Bool = try inS.read { istr in
+    public func _iceD_setEnabled(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_enable: Swift.Bool = try istr.read()
-            return iceP_enable
+
+            try self.setEnabled(enable: iceP_enable, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.setEnabled(enable: iceP_enable, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_isEnabled(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_isEnabled(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.isEnabled(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.isEnabled(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_sendSignal(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_signal: Swift.String = try inS.read { istr in
+    public func _iceD_sendSignal(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_signal: Swift.String = try istr.read()
-            return iceP_signal
+
+            try self.sendSignal(signal: iceP_signal, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.sendSignal(signal: iceP_signal, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_writeMessage(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_message, iceP_fd): (Swift.String, Swift.Int32) = try inS.read { istr in
+    public func _iceD_writeMessage(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_message: Swift.String = try istr.read()
             let iceP_fd: Swift.Int32 = try istr.read()
-            return (iceP_message, iceP_fd)
+
+            try self.writeMessage(message: iceP_message, fd: iceP_fd, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.writeMessage(message: iceP_message, fd: iceP_fd, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_getState(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getState(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getState(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getState(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getPid(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getPid(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getPid(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getPid(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_setProcess(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_proc: Ice.ProcessPrx? = try inS.read { istr in
+    public func _iceD_setProcess(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_proc: Ice.ProcessPrx? = try istr.read(Ice.ProcessPrx.self)
-            return iceP_proc
+            return self.setProcessAsync(
+                proc: iceP_proc, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        return inS.setResultPromise(setProcessAsync(proc: iceP_proc, current: current))
     }
 }
 
@@ -6140,38 +6198,44 @@ public extension Server {
 ///  - replicaAdded: Notification that a replica has been added.
 ///
 ///  - replicaRemoved: Notification that a replica has been removed.
-public extension ReplicaObserver {
-    func _iceD_replicaInit(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_replicas: InternalRegistryPrxSeq = try inS.read { istr in
+extension ReplicaObserver {
+    public func _iceD_replicaInit(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_replicas: InternalRegistryPrxSeq = try InternalRegistryPrxSeqHelper.read(from: istr)
-            return iceP_replicas
+
+            try self.replicaInit(replicas: iceP_replicas, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.replicaInit(replicas: iceP_replicas, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_replicaAdded(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_replica: InternalRegistryPrx? = try inS.read { istr in
+    public func _iceD_replicaAdded(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_replica: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
-            return iceP_replica
+
+            try self.replicaAdded(replica: iceP_replica, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.replicaAdded(replica: iceP_replica, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_replicaRemoved(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_replica: InternalRegistryPrx? = try inS.read { istr in
+    public func _iceD_replicaRemoved(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_replica: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
-            return iceP_replica
+
+            try self.replicaRemoved(replica: iceP_replica, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.replicaRemoved(replica: iceP_replica, current: current)
-
-        return inS.setResult()
     }
 }
 
@@ -6198,124 +6262,173 @@ public extension ReplicaObserver {
 ///  - getProcessorSocketCount: Get the number of processor sockets for the machine where this node is running.
 ///
 ///  - shutdown: Shutdown the node.
-public extension Node {
-    func _iceD_loadServer(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_svr, iceP_replicaName): (InternalServerDescriptor?, Swift.String) = try inS.read { istr in
+extension Node {
+    public func _iceD_loadServer(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_svr: InternalServerDescriptor?
             try istr.read(InternalServerDescriptor.self) { iceP_svr = $0 }
             let iceP_replicaName: Swift.String = try istr.read()
             try istr.readPendingValues()
-            return (iceP_svr, iceP_replicaName)
-        }
-
-        return inS.setResultPromise(loadServerAsync(svr: iceP_svr, replicaName: iceP_replicaName, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = retVals
-            AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
-            ostr.write(iceP_activateTimeout)
-            ostr.write(iceP_deactivateTimeout)
-            ostr.write(iceP_returnValue)
+            return self.loadServerAsync(
+                svr: iceP_svr, replicaName: iceP_replicaName, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = value
+                    AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
+                    ostr.write(iceP_activateTimeout)
+                    ostr.write(iceP_deactivateTimeout)
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_loadServerWithoutRestart(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_svr, iceP_replicaName): (InternalServerDescriptor?, Swift.String) = try inS.read { istr in
+    public func _iceD_loadServerWithoutRestart(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_svr: InternalServerDescriptor?
             try istr.read(InternalServerDescriptor.self) { iceP_svr = $0 }
             let iceP_replicaName: Swift.String = try istr.read()
             try istr.readPendingValues()
-            return (iceP_svr, iceP_replicaName)
-        }
-
-        return inS.setResultPromise(loadServerWithoutRestartAsync(svr: iceP_svr, replicaName: iceP_replicaName, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = retVals
-            AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
-            ostr.write(iceP_activateTimeout)
-            ostr.write(iceP_deactivateTimeout)
-            ostr.write(iceP_returnValue)
+            return self.loadServerWithoutRestartAsync(
+                svr: iceP_svr, replicaName: iceP_replicaName, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = value
+                    AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
+                    ostr.write(iceP_activateTimeout)
+                    ostr.write(iceP_deactivateTimeout)
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_destroyServer(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_name, iceP_uuid, iceP_revision, iceP_replicaName): (Swift.String, Swift.String, Swift.Int32, Swift.String) = try inS.read { istr in
+    public func _iceD_destroyServer(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_name: Swift.String = try istr.read()
             let iceP_uuid: Swift.String = try istr.read()
             let iceP_revision: Swift.Int32 = try istr.read()
             let iceP_replicaName: Swift.String = try istr.read()
-            return (iceP_name, iceP_uuid, iceP_revision, iceP_replicaName)
+            return self.destroyServerAsync(
+                name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        return inS.setResultPromise(destroyServerAsync(name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: current))
     }
 
-    func _iceD_destroyServerWithoutRestart(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_name, iceP_uuid, iceP_revision, iceP_replicaName): (Swift.String, Swift.String, Swift.Int32, Swift.String) = try inS.read { istr in
+    public func _iceD_destroyServerWithoutRestart(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_name: Swift.String = try istr.read()
             let iceP_uuid: Swift.String = try istr.read()
             let iceP_revision: Swift.Int32 = try istr.read()
             let iceP_replicaName: Swift.String = try istr.read()
-            return (iceP_name, iceP_uuid, iceP_revision, iceP_replicaName)
+            return self.destroyServerWithoutRestartAsync(
+                name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        return inS.setResultPromise(destroyServerWithoutRestartAsync(name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: current))
     }
 
-    func _iceD_registerWithReplica(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_replica: InternalRegistryPrx? = try inS.read { istr in
+    public func _iceD_registerWithReplica(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_replica: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
-            return iceP_replica
+
+            try self.registerWithReplica(replica: iceP_replica, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.registerWithReplica(replica: iceP_replica, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_getName(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getName(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getName(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getName(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getHostname(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getHostname(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getHostname(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getHostname(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getLoad(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getLoad(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getLoad(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getLoad(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getProcessorSocketCount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getProcessorSocketCount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getProcessorSocketCount(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getProcessorSocketCount(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -6338,86 +6451,121 @@ public extension Node {
 ///  - waitForApplicationUpdate: Wait for the application update to complete (the application is completely updated once all the registry replicas have been updated).
 ///
 ///  - destroy: Destroy the session.
-public extension NodeSession {
-    func _iceD_keepAlive(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_load: LoadInfo = try inS.read { istr in
+extension NodeSession {
+    public func _iceD_keepAlive(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_load: LoadInfo = try istr.read()
-            return iceP_load
+
+            try self.keepAlive(load: iceP_load, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.keepAlive(load: iceP_load, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_setReplicaObserver(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_observer: ReplicaObserverPrx? = try inS.read { istr in
+    public func _iceD_setReplicaObserver(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_observer: ReplicaObserverPrx? = try istr.read(ReplicaObserverPrx.self)
-            return iceP_observer
+
+            try self.setReplicaObserver(observer: iceP_observer, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.setReplicaObserver(observer: iceP_observer, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_getTimeout(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getTimeout(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getTimeout(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getTimeout(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getObserver(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getObserver(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getObserver(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getObserver(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_loadServers(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(loadServersAsync(current: current))
+    public func _iceD_loadServers(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.loadServersAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_getServers(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getServers(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getServers(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getServers(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_waitForApplicationUpdate(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_application, iceP_revision): (Swift.String, Swift.Int32) = try inS.read { istr in
+    public func _iceD_waitForApplicationUpdate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_application: Swift.String = try istr.read()
             let iceP_revision: Swift.Int32 = try istr.read()
-            return (iceP_application, iceP_revision)
+            return self.waitForApplicationUpdateAsync(
+                application: iceP_application, revision: iceP_revision, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        return inS.setResultPromise(waitForApplicationUpdateAsync(application: iceP_application, revision: iceP_revision, current: current))
     }
 
-    func _iceD_destroy(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_destroy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.destroy(current: current)
-
-        return inS.setResult()
+            try self.destroy(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
 /// DatabaseObserver overview.
-public extension DatabaseObserver {}
+extension DatabaseObserver {}
 
 /// ReplicaSession overview.
 ///
@@ -6438,91 +6586,112 @@ public extension DatabaseObserver {}
 ///  - receivedUpdate: Notify the master that an update was received.
 ///
 ///  - destroy: Destroy the session.
-public extension ReplicaSession {
-    func _iceD_keepAlive(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension ReplicaSession {
+    public func _iceD_keepAlive(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.keepAlive(current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_getTimeout(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getTimeout(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
+            try self.keepAlive(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_setDatabaseObserver(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_dbObs, iceP_serials): (DatabaseObserverPrx?, StringLongDict?) = try inS.read { istr in
+    public func _iceD_getTimeout(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            let iceP_returnValue = try self.getTimeout(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+            ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_setDatabaseObserver(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_dbObs: DatabaseObserverPrx? = try istr.read(DatabaseObserverPrx.self)
             let iceP_serials: StringLongDict? = try StringLongDictHelper.read(from: istr, tag: 1)
-            return (iceP_dbObs, iceP_serials)
+
+            try self.setDatabaseObserver(dbObs: iceP_dbObs, serials: iceP_serials, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.setDatabaseObserver(dbObs: iceP_dbObs, serials: iceP_serials, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_setEndpoints(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_endpoints: StringObjectProxyDict = try inS.read { istr in
+    public func _iceD_setEndpoints(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_endpoints: StringObjectProxyDict = try StringObjectProxyDictHelper.read(from: istr)
-            return iceP_endpoints
+
+            try self.setEndpoints(endpoints: iceP_endpoints, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.setEndpoints(endpoints: iceP_endpoints, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_registerWellKnownObjects(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_objects: ObjectInfoSeq = try inS.read { istr in
+    public func _iceD_registerWellKnownObjects(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_objects: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
-            return iceP_objects
+
+            try self.registerWellKnownObjects(objects: iceP_objects, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.registerWellKnownObjects(objects: iceP_objects, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_setAdapterDirectProxy(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_adapterId, iceP_replicaGroupId, iceP_proxy): (Swift.String, Swift.String, Ice.ObjectPrx?) = try inS.read { istr in
+    public func _iceD_setAdapterDirectProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_adapterId: Swift.String = try istr.read()
             let iceP_replicaGroupId: Swift.String = try istr.read()
             let iceP_proxy: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            return (iceP_adapterId, iceP_replicaGroupId, iceP_proxy)
+
+            try self.setAdapterDirectProxy(adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.setAdapterDirectProxy(adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_receivedUpdate(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_name, iceP_serial, iceP_failure): (TopicName, Swift.Int32, Swift.String) = try inS.read { istr in
+    public func _iceD_receivedUpdate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_name: TopicName = try istr.read()
             let iceP_serial: Swift.Int32 = try istr.read()
             let iceP_failure: Swift.String = try istr.read()
-            return (iceP_name, iceP_serial, iceP_failure)
+
+            try self.receivedUpdate(name: iceP_name, serial: iceP_serial, failure: iceP_failure, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.receivedUpdate(name: iceP_name, serial: iceP_serial, failure: iceP_failure, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_destroy(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_destroy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.destroy(current: current)
-
-        return inS.setResult()
+            try self.destroy(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -6547,110 +6716,148 @@ public extension ReplicaSession {
 ///  - getObjects: 
 ///
 ///  - shutdown: Shutdown this registry.
-public extension InternalRegistry {
-    func _iceD_registerNode(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_info, iceP_prx, iceP_loadInf): (InternalNodeInfo?, NodePrx?, LoadInfo) = try inS.read { istr in
+extension InternalRegistry {
+    public func _iceD_registerNode(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_info: InternalNodeInfo?
             try istr.read(InternalNodeInfo.self) { iceP_info = $0 }
             let iceP_prx: NodePrx? = try istr.read(NodePrx.self)
             let iceP_loadInf: LoadInfo = try istr.read()
             try istr.readPendingValues()
-            return (iceP_info, iceP_prx, iceP_loadInf)
-        }
 
-        let iceP_returnValue = try self.registerNode(info: iceP_info, prx: iceP_prx, loadInf: iceP_loadInf, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.registerNode(info: iceP_info, prx: iceP_prx, loadInf: iceP_loadInf, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_registerReplica(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_info, iceP_prx): (InternalReplicaInfo?, InternalRegistryPrx?) = try inS.read { istr in
+    public func _iceD_registerReplica(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_info: InternalReplicaInfo?
             try istr.read(InternalReplicaInfo.self) { iceP_info = $0 }
             let iceP_prx: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
             try istr.readPendingValues()
-            return (iceP_info, iceP_prx)
-        }
 
-        let iceP_returnValue = try self.registerReplica(info: iceP_info, prx: iceP_prx, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.registerReplica(info: iceP_info, prx: iceP_prx, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_registerWithReplica(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_prx: InternalRegistryPrx? = try inS.read { istr in
+    public func _iceD_registerWithReplica(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_prx: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
-            return iceP_prx
+
+            try self.registerWithReplica(prx: iceP_prx, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.registerWithReplica(prx: iceP_prx, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_getNodes(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getNodes(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getNodes(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getNodes(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             NodePrxSeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getReplicas(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getReplicas(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getReplicas(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getReplicas(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             InternalRegistryPrxSeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getApplications(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getApplications(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let (iceP_returnValue, iceP_serial) = try self.getApplications(current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_serial) = try self.getApplications(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_serial)
             ApplicationInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
             ostr.writePendingValues()
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getAdapters(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getAdapters(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let (iceP_returnValue, iceP_serial) = try self.getAdapters(current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_serial) = try self.getAdapters(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_serial)
             AdapterInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getObjects(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getObjects(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let (iceP_returnValue, iceP_serial) = try self.getObjects(current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_serial) = try self.getObjects(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_serial)
             ObjectInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

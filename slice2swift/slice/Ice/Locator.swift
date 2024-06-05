@@ -982,7 +982,7 @@ public extension LocatorFinderPrx {
 
 
 /// Dispatcher for `Locator` servants.
-public struct LocatorDisp: Disp {
+public struct LocatorDisp: Ice.Dispatcher {
     public let servant: Locator
     private static let defaultObject = ObjectI<LocatorTraits>()
 
@@ -990,25 +990,24 @@ public struct LocatorDisp: Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Request, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "findAdapterById":
-            return try servant._iceD_findAdapterById(incoming: request, current: current)
+            servant._iceD_findAdapterById(request)
         case "findObjectById":
-            return try servant._iceD_findObjectById(incoming: request, current: current)
+            servant._iceD_findObjectById(request)
         case "getRegistry":
-            return try servant._iceD_getRegistry(incoming: request, current: current)
+            servant._iceD_getRegistry(request)
         case "ice_id":
-            return try (servant as? Object ?? LocatorDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? LocatorDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? LocatorDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? LocatorDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1047,7 +1046,7 @@ public protocol Locator {
 
 
 /// Dispatcher for `LocatorRegistry` servants.
-public struct LocatorRegistryDisp: Disp {
+public struct LocatorRegistryDisp: Ice.Dispatcher {
     public let servant: LocatorRegistry
     private static let defaultObject = ObjectI<LocatorRegistryTraits>()
 
@@ -1055,25 +1054,24 @@ public struct LocatorRegistryDisp: Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Request, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_ping(request)
         case "setAdapterDirectProxy":
-            return try servant._iceD_setAdapterDirectProxy(incoming: request, current: current)
+            servant._iceD_setAdapterDirectProxy(request)
         case "setReplicatedAdapterDirectProxy":
-            return try servant._iceD_setReplicatedAdapterDirectProxy(incoming: request, current: current)
+            servant._iceD_setReplicatedAdapterDirectProxy(request)
         case "setServerProcessProxy":
-            return try servant._iceD_setServerProcessProxy(incoming: request, current: current)
+            servant._iceD_setServerProcessProxy(request)
         default:
-            throw OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1123,7 +1121,7 @@ public protocol LocatorRegistry {
 
 
 /// Dispatcher for `LocatorFinder` servants.
-public struct LocatorFinderDisp: Disp {
+public struct LocatorFinderDisp: Ice.Dispatcher {
     public let servant: LocatorFinder
     private static let defaultObject = ObjectI<LocatorFinderTraits>()
 
@@ -1131,21 +1129,20 @@ public struct LocatorFinderDisp: Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Request, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getLocator":
-            return try servant._iceD_getLocator(incoming: request, current: current)
+            servant._iceD_getLocator(request)
         case "ice_id":
-            return try (servant as? Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1175,38 +1172,55 @@ public protocol LocatorFinder {
 ///  - findAdapterById: Find an adapter by id and return a proxy that contains its endpoints.
 ///
 ///  - getRegistry: Get the locator registry.
-public extension Locator {
-    func _iceD_findObjectById(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let iceP_id: Identity = try inS.read { istr in
+extension Locator {
+    public func _iceD_findObjectById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_id: Identity = try istr.read()
-            return iceP_id
-        }
-
-        return inS.setResultPromise(findObjectByIdAsync(id: iceP_id, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+            return self.findObjectByIdAsync(
+                id: iceP_id, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_findAdapterById(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let iceP_id: Swift.String = try inS.read { istr in
+    public func _iceD_findAdapterById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_id: Swift.String = try istr.read()
-            return iceP_id
-        }
-
-        return inS.setResultPromise(findAdapterByIdAsync(id: iceP_id, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+            return self.findAdapterByIdAsync(
+                id: iceP_id, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getRegistry(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getRegistry(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getRegistry(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getRegistry(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1223,36 +1237,54 @@ public extension Locator {
 ///  - setReplicatedAdapterDirectProxy: Set the adapter endpoints with the locator registry.
 ///
 ///  - setServerProcessProxy: Set the process proxy for a server.
-public extension LocatorRegistry {
-    func _iceD_setAdapterDirectProxy(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let (iceP_id, iceP_proxy): (Swift.String, ObjectPrx?) = try inS.read { istr in
+extension LocatorRegistry {
+    public func _iceD_setAdapterDirectProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_id: Swift.String = try istr.read()
             let iceP_proxy: ObjectPrx? = try istr.read(ObjectPrx.self)
-            return (iceP_id, iceP_proxy)
+            return self.setAdapterDirectProxyAsync(
+                id: iceP_id, proxy: iceP_proxy, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        return inS.setResultPromise(setAdapterDirectProxyAsync(id: iceP_id, proxy: iceP_proxy, current: current))
     }
 
-    func _iceD_setReplicatedAdapterDirectProxy(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let (iceP_adapterId, iceP_replicaGroupId, iceP_proxy): (Swift.String, Swift.String, ObjectPrx?) = try inS.read { istr in
+    public func _iceD_setReplicatedAdapterDirectProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_adapterId: Swift.String = try istr.read()
             let iceP_replicaGroupId: Swift.String = try istr.read()
             let iceP_proxy: ObjectPrx? = try istr.read(ObjectPrx.self)
-            return (iceP_adapterId, iceP_replicaGroupId, iceP_proxy)
+            return self.setReplicatedAdapterDirectProxyAsync(
+                adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        return inS.setResultPromise(setReplicatedAdapterDirectProxyAsync(adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: current))
     }
 
-    func _iceD_setServerProcessProxy(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let (iceP_id, iceP_proxy): (Swift.String, ProcessPrx?) = try inS.read { istr in
+    public func _iceD_setServerProcessProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_id: Swift.String = try istr.read()
             let iceP_proxy: ProcessPrx? = try istr.read(ProcessPrx.self)
-            return (iceP_id, iceP_proxy)
+            return self.setServerProcessProxyAsync(
+                id: iceP_id, proxy: iceP_proxy, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        return inS.setResultPromise(setServerProcessProxyAsync(id: iceP_id, proxy: iceP_proxy, current: current))
     }
 }
 
@@ -1263,14 +1295,19 @@ public extension LocatorRegistry {
 /// LocatorFinder Methods:
 ///
 ///  - getLocator: Get the locator proxy implemented by the process hosting this finder object.
-public extension LocatorFinder {
-    func _iceD_getLocator(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        try inS.readEmptyParams()
+extension LocatorFinder {
+    public func _iceD_getLocator(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getLocator(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getLocator(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

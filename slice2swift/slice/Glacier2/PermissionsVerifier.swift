@@ -419,7 +419,7 @@ public extension SSLPermissionsVerifierPrx {
 
 
 /// Dispatcher for `PermissionsVerifier` servants.
-public struct PermissionsVerifierDisp: Ice.Disp {
+public struct PermissionsVerifierDisp: Ice.Dispatcher {
     public let servant: PermissionsVerifier
     private static let defaultObject = Ice.ObjectI<PermissionsVerifierTraits>()
 
@@ -427,21 +427,20 @@ public struct PermissionsVerifierDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "checkPermissions":
-            return try servant._iceD_checkPermissions(incoming: request, current: current)
+            servant._iceD_checkPermissions(request)
         case "ice_id":
-            return try (servant as? Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -471,7 +470,7 @@ public protocol PermissionsVerifier {
 
 
 /// Dispatcher for `SSLPermissionsVerifier` servants.
-public struct SSLPermissionsVerifierDisp: Ice.Disp {
+public struct SSLPermissionsVerifierDisp: Ice.Dispatcher {
     public let servant: SSLPermissionsVerifier
     private static let defaultObject = Ice.ObjectI<SSLPermissionsVerifierTraits>()
 
@@ -479,21 +478,20 @@ public struct SSLPermissionsVerifierDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "authorize":
-            return try servant._iceD_authorize(incoming: request, current: current)
+            servant._iceD_authorize(request)
         case "ice_id":
-            return try (servant as? Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -524,20 +522,23 @@ public protocol SSLPermissionsVerifier {
 /// PermissionsVerifier Methods:
 ///
 ///  - checkPermissions: Check whether a user has permission to access the router.
-public extension PermissionsVerifier {
-    func _iceD_checkPermissions(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_userId, iceP_password): (Swift.String, Swift.String) = try inS.read { istr in
+extension PermissionsVerifier {
+    public func _iceD_checkPermissions(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_userId: Swift.String = try istr.read()
             let iceP_password: Swift.String = try istr.read()
-            return (iceP_userId, iceP_password)
-        }
-        inS.setFormat(.SlicedFormat)
 
-        let (iceP_returnValue, iceP_reason) = try self.checkPermissions(userId: iceP_userId, password: iceP_password, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_reason) = try self.checkPermissions(userId: iceP_userId, password: iceP_password, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
             ostr.write(iceP_reason)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -547,19 +548,22 @@ public extension PermissionsVerifier {
 /// SSLPermissionsVerifier Methods:
 ///
 ///  - authorize: Check whether a user has permission to access the router.
-public extension SSLPermissionsVerifier {
-    func _iceD_authorize(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_info: SSLInfo = try inS.read { istr in
+extension SSLPermissionsVerifier {
+    public func _iceD_authorize(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_info: SSLInfo = try istr.read()
-            return iceP_info
-        }
-        inS.setFormat(.SlicedFormat)
 
-        let (iceP_returnValue, iceP_reason) = try self.authorize(info: iceP_info, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_reason) = try self.authorize(info: iceP_info, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
             ostr.write(iceP_reason)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

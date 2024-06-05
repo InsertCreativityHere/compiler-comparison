@@ -1257,7 +1257,7 @@ public extension MyClassPrx {
 
 
 /// Dispatcher for `MyClass` servants.
-public struct MyClassDisp: Ice.Disp {
+public struct MyClassDisp: Ice.Dispatcher {
     public let servant: MyClass
     private static let defaultObject = Ice.ObjectI<MyClassTraits>()
 
@@ -1265,37 +1265,36 @@ public struct MyClassDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "opNDAIS":
-            return try servant._iceD_opNDAIS(incoming: request, current: current)
+            servant._iceD_opNDAIS(request)
         case "opNDASS":
-            return try servant._iceD_opNDASS(incoming: request, current: current)
+            servant._iceD_opNDASS(request)
         case "opNDGIS":
-            return try servant._iceD_opNDGIS(incoming: request, current: current)
+            servant._iceD_opNDGIS(request)
         case "opNDGSS":
-            return try servant._iceD_opNDGSS(incoming: request, current: current)
+            servant._iceD_opNDGSS(request)
         case "opNDR":
-            return try servant._iceD_opNDR(incoming: request, current: current)
+            servant._iceD_opNDR(request)
         case "opNDV":
-            return try servant._iceD_opNDV(incoming: request, current: current)
+            servant._iceD_opNDV(request)
         case "opNR":
-            return try servant._iceD_opNR(incoming: request, current: current)
+            servant._iceD_opNR(request)
         case "opNV":
-            return try servant._iceD_opNV(incoming: request, current: current)
+            servant._iceD_opNV(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1423,124 +1422,159 @@ public protocol MyClass {
 ///  - opNDASS: 
 ///
 ///  - opNDGSS: 
-public extension MyClass {
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension MyClass {
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_opNV(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: NV = try inS.read { istr in
+    public func _iceD_opNV(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_i: NV = try NVHelper.read(from: istr)
-            return iceP_i
-        }
 
-        let (iceP_returnValue, iceP_o) = try self.opNV(i: iceP_i, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_o) = try self.opNV(i: iceP_i, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             NVHelper.write(to: ostr, value: iceP_o)
             NVHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opNR(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: NR = try inS.read { istr in
+    public func _iceD_opNR(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_i: NR = try NRHelper.read(from: istr)
-            return iceP_i
-        }
 
-        let (iceP_returnValue, iceP_o) = try self.opNR(i: iceP_i, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_o) = try self.opNR(i: iceP_i, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             NRHelper.write(to: ostr, value: iceP_o)
             NRHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opNDV(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: NDV = try inS.read { istr in
+    public func _iceD_opNDV(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_i: NDV = try NDVHelper.read(from: istr)
-            return iceP_i
-        }
 
-        let (iceP_returnValue, iceP_o) = try self.opNDV(i: iceP_i, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_o) = try self.opNDV(i: iceP_i, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             NDVHelper.write(to: ostr, value: iceP_o)
             NDVHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opNDR(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: NDR = try inS.read { istr in
+    public func _iceD_opNDR(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_i: NDR = try NDRHelper.read(from: istr)
-            return iceP_i
-        }
 
-        let (iceP_returnValue, iceP_o) = try self.opNDR(i: iceP_i, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_o) = try self.opNDR(i: iceP_i, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             NDRHelper.write(to: ostr, value: iceP_o)
             NDRHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opNDAIS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: NDAIS = try inS.read { istr in
+    public func _iceD_opNDAIS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_i: NDAIS = try NDAISHelper.read(from: istr)
-            return iceP_i
-        }
 
-        let (iceP_returnValue, iceP_o) = try self.opNDAIS(i: iceP_i, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_o) = try self.opNDAIS(i: iceP_i, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             NDAISHelper.write(to: ostr, value: iceP_o)
             NDAISHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opNDGIS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: NDGIS = try inS.read { istr in
+    public func _iceD_opNDGIS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_i: NDGIS = try NDGISHelper.read(from: istr)
-            return iceP_i
-        }
 
-        let (iceP_returnValue, iceP_o) = try self.opNDGIS(i: iceP_i, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_o) = try self.opNDGIS(i: iceP_i, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             NDGISHelper.write(to: ostr, value: iceP_o)
             NDGISHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opNDASS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: NDASS = try inS.read { istr in
+    public func _iceD_opNDASS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_i: NDASS = try NDASSHelper.read(from: istr)
-            return iceP_i
-        }
 
-        let (iceP_returnValue, iceP_o) = try self.opNDASS(i: iceP_i, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_o) = try self.opNDASS(i: iceP_i, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             NDASSHelper.write(to: ostr, value: iceP_o)
             NDASSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opNDGSS(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: NDGSS = try inS.read { istr in
+    public func _iceD_opNDGSS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_i: NDGSS = try NDGSSHelper.read(from: istr)
-            return iceP_i
-        }
 
-        let (iceP_returnValue, iceP_o) = try self.opNDGSS(i: iceP_i, current: current)
-
-        return inS.setResult{ ostr in
+            let (iceP_returnValue, iceP_o) = try self.opNDGSS(i: iceP_i, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             NDGSSHelper.write(to: ostr, value: iceP_o)
             NDGSSHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

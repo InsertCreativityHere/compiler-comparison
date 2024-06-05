@@ -815,7 +815,7 @@ public extension BackgroundControllerPrx {
 
 
 /// Dispatcher for `Background` servants.
-public struct BackgroundDisp: Ice.Disp {
+public struct BackgroundDisp: Ice.Dispatcher {
     public let servant: Background
     private static let defaultObject = Ice.ObjectI<BackgroundTraits>()
 
@@ -823,25 +823,24 @@ public struct BackgroundDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? BackgroundDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? BackgroundDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? BackgroundDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? BackgroundDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? BackgroundDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? BackgroundDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? BackgroundDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? BackgroundDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
-            return try servant._iceD_op(incoming: request, current: current)
+            servant._iceD_op(request)
         case "opWithPayload":
-            return try servant._iceD_opWithPayload(incoming: request, current: current)
+            servant._iceD_opWithPayload(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -864,7 +863,7 @@ public protocol Background {
 
 
 /// Dispatcher for `BackgroundController` servants.
-public struct BackgroundControllerDisp: Ice.Disp {
+public struct BackgroundControllerDisp: Ice.Dispatcher {
     public let servant: BackgroundController
     private static let defaultObject = Ice.ObjectI<BackgroundControllerTraits>()
 
@@ -872,41 +871,40 @@ public struct BackgroundControllerDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "buffered":
-            return try servant._iceD_buffered(incoming: request, current: current)
+            servant._iceD_buffered(request)
         case "holdAdapter":
-            return try servant._iceD_holdAdapter(incoming: request, current: current)
+            servant._iceD_holdAdapter(request)
         case "ice_id":
-            return try (servant as? Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "initializeException":
-            return try servant._iceD_initializeException(incoming: request, current: current)
+            servant._iceD_initializeException(request)
         case "initializeSocketOperation":
-            return try servant._iceD_initializeSocketOperation(incoming: request, current: current)
+            servant._iceD_initializeSocketOperation(request)
         case "pauseCall":
-            return try servant._iceD_pauseCall(incoming: request, current: current)
+            servant._iceD_pauseCall(request)
         case "readException":
-            return try servant._iceD_readException(incoming: request, current: current)
+            servant._iceD_readException(request)
         case "readReady":
-            return try servant._iceD_readReady(incoming: request, current: current)
+            servant._iceD_readReady(request)
         case "resumeAdapter":
-            return try servant._iceD_resumeAdapter(incoming: request, current: current)
+            servant._iceD_resumeAdapter(request)
         case "resumeCall":
-            return try servant._iceD_resumeCall(incoming: request, current: current)
+            servant._iceD_resumeCall(request)
         case "writeException":
-            return try servant._iceD_writeException(incoming: request, current: current)
+            servant._iceD_writeException(request)
         case "writeReady":
-            return try servant._iceD_writeReady(incoming: request, current: current)
+            servant._iceD_writeReady(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -984,32 +982,40 @@ public protocol BackgroundController {
 ///  - opWithPayload: 
 ///
 ///  - shutdown: 
-public extension Background {
-    func _iceD_op(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension Background {
+    public func _iceD_op(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.op(current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_opWithPayload(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_seq: Ice.ByteSeq = try inS.read { istr in
-            let iceP_seq: Ice.ByteSeq = try istr.read()
-            return iceP_seq
+            try self.op(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.opWithPayload(seq: iceP_seq, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_opWithPayload(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
+            let iceP_seq: Ice.ByteSeq = try istr.read()
 
-        try self.shutdown(current: current)
+            try self.opWithPayload(seq: iceP_seq, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
 
-        return inS.setResult()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -1038,119 +1044,143 @@ public extension Background {
 ///  - writeException: 
 ///
 ///  - buffered: 
-public extension BackgroundController {
-    func _iceD_pauseCall(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_call: Swift.String = try inS.read { istr in
+extension BackgroundController {
+    public func _iceD_pauseCall(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_call: Swift.String = try istr.read()
-            return iceP_call
+
+            try self.pauseCall(call: iceP_call, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.pauseCall(call: iceP_call, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_resumeCall(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_call: Swift.String = try inS.read { istr in
+    public func _iceD_resumeCall(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_call: Swift.String = try istr.read()
-            return iceP_call
+
+            try self.resumeCall(call: iceP_call, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.resumeCall(call: iceP_call, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_holdAdapter(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_holdAdapter(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.holdAdapter(current: current)
-
-        return inS.setResult()
+            try self.holdAdapter(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_resumeAdapter(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_resumeAdapter(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.resumeAdapter(current: current)
-
-        return inS.setResult()
+            try self.resumeAdapter(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_initializeSocketOperation(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_status: Swift.Int32 = try inS.read { istr in
+    public func _iceD_initializeSocketOperation(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_status: Swift.Int32 = try istr.read()
-            return iceP_status
+
+            try self.initializeSocketOperation(status: iceP_status, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.initializeSocketOperation(status: iceP_status, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_initializeException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_enable: Swift.Bool = try inS.read { istr in
+    public func _iceD_initializeException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_enable: Swift.Bool = try istr.read()
-            return iceP_enable
+
+            try self.initializeException(enable: iceP_enable, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.initializeException(enable: iceP_enable, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_readReady(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_enable: Swift.Bool = try inS.read { istr in
+    public func _iceD_readReady(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_enable: Swift.Bool = try istr.read()
-            return iceP_enable
+
+            try self.readReady(enable: iceP_enable, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.readReady(enable: iceP_enable, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_readException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_enable: Swift.Bool = try inS.read { istr in
+    public func _iceD_readException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_enable: Swift.Bool = try istr.read()
-            return iceP_enable
+
+            try self.readException(enable: iceP_enable, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.readException(enable: iceP_enable, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_writeReady(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_enable: Swift.Bool = try inS.read { istr in
+    public func _iceD_writeReady(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_enable: Swift.Bool = try istr.read()
-            return iceP_enable
+
+            try self.writeReady(enable: iceP_enable, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.writeReady(enable: iceP_enable, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_writeException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_enable: Swift.Bool = try inS.read { istr in
+    public func _iceD_writeException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_enable: Swift.Bool = try istr.read()
-            return iceP_enable
+
+            try self.writeException(enable: iceP_enable, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.writeException(enable: iceP_enable, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_buffered(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_enable: Swift.Bool = try inS.read { istr in
+    public func _iceD_buffered(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_enable: Swift.Bool = try istr.read()
-            return iceP_enable
+
+            try self.buffered(enable: iceP_enable, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.buffered(enable: iceP_enable, current: current)
-
-        return inS.setResult()
     }
 }

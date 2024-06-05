@@ -329,7 +329,7 @@ public extension gxSessionPrx {
 
 
 /// Dispatcher for `gxCanvas` servants.
-public struct gxCanvasDisp: Ice.Disp {
+public struct gxCanvasDisp: Ice.Dispatcher {
     public let servant: gxCanvas
     private static let defaultObject = Ice.ObjectI<gxCanvasTraits>()
 
@@ -337,23 +337,22 @@ public struct gxCanvasDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? gxCanvasDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? gxCanvasDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? gxCanvasDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? gxCanvasDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? gxCanvasDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? gxCanvasDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? gxCanvasDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? gxCanvasDisp.defaultObject)._iceD_ice_ping(request)
         case "paintCircle":
-            return try servant._iceD_paintCircle(incoming: request, current: current)
+            servant._iceD_paintCircle(request)
         case "paintSquare":
-            return try servant._iceD_paintSquare(incoming: request, current: current)
+            servant._iceD_paintSquare(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -374,7 +373,7 @@ public protocol gxCanvas {
 
 
 /// Dispatcher for `gxSession` servants.
-public struct gxSessionDisp: Ice.Disp {
+public struct gxSessionDisp: Ice.Dispatcher {
     public let servant: gxSession
     private static let defaultObject = Ice.ObjectI<gxSessionTraits>()
 
@@ -382,23 +381,22 @@ public struct gxSessionDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "destroy":
-            return try servant._iceD_destroy(incoming: request, current: current)
+            servant._iceD_destroy(request)
         case "destroySession":
-            return try servant._iceD_destroySession(incoming: request, current: current)
+            servant._iceD_destroySession(request)
         case "ice_id":
-            return try (servant as? Object ?? gxSessionDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? gxSessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? gxSessionDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? gxSessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? gxSessionDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? gxSessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? gxSessionDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? gxSessionDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -416,27 +414,31 @@ public protocol gxSession: Glacier2.Session {
 ///  - paintSquare: 
 ///
 ///  - paintCircle: 
-public extension gxCanvas {
-    func _iceD_paintSquare(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_square: gxSquare = try inS.read { istr in
+extension gxCanvas {
+    public func _iceD_paintSquare(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_square: gxSquare = try istr.read()
-            return iceP_square
+
+            try self.paintSquare(square: iceP_square, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.paintSquare(square: iceP_square, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_paintCircle(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_circle: gxCircle = try inS.read { istr in
+    public func _iceD_paintCircle(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_circle: gxCircle = try istr.read()
-            return iceP_circle
+
+            try self.paintCircle(circle: iceP_circle, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.paintCircle(circle: iceP_circle, current: current)
-
-        return inS.setResult()
     }
 }
 
@@ -445,12 +447,15 @@ public extension gxCanvas {
 /// gxSession Methods:
 ///
 ///  - destroySession: 
-public extension gxSession {
-    func _iceD_destroySession(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension gxSession {
+    public func _iceD_destroySession(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.destroySession(current: current)
-
-        return inS.setResult()
+            try self.destroySession(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

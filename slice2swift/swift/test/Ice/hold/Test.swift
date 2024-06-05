@@ -345,7 +345,7 @@ public extension HoldPrx {
 
 
 /// Dispatcher for `Hold` servants.
-public struct HoldDisp: Ice.Disp {
+public struct HoldDisp: Ice.Dispatcher {
     public let servant: Hold
     private static let defaultObject = Ice.ObjectI<HoldTraits>()
 
@@ -353,29 +353,28 @@ public struct HoldDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? HoldDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? HoldDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? HoldDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? HoldDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? HoldDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? HoldDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? HoldDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? HoldDisp.defaultObject)._iceD_ice_ping(request)
         case "putOnHold":
-            return try servant._iceD_putOnHold(incoming: request, current: current)
+            servant._iceD_putOnHold(request)
         case "set":
-            return try servant._iceD_set(incoming: request, current: current)
+            servant._iceD_set(request)
         case "setOneway":
-            return try servant._iceD_setOneway(incoming: request, current: current)
+            servant._iceD_setOneway(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "waitForHold":
-            return try servant._iceD_waitForHold(incoming: request, current: current)
+            servant._iceD_waitForHold(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -427,57 +426,71 @@ public protocol Hold {
 ///  - `set`: 
 ///
 ///  - shutdown: 
-public extension Hold {
-    func _iceD_putOnHold(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_seconds: Swift.Int32 = try inS.read { istr in
+extension Hold {
+    public func _iceD_putOnHold(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_seconds: Swift.Int32 = try istr.read()
-            return iceP_seconds
+
+            try self.putOnHold(seconds: iceP_seconds, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.putOnHold(seconds: iceP_seconds, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_waitForHold(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_waitForHold(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.waitForHold(current: current)
-
-        return inS.setResult()
+            try self.waitForHold(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_setOneway(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_value, iceP_expected): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_setOneway(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_value: Swift.Int32 = try istr.read()
             let iceP_expected: Swift.Int32 = try istr.read()
-            return (iceP_value, iceP_expected)
+
+            try self.setOneway(value: iceP_value, expected: iceP_expected, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.setOneway(value: iceP_value, expected: iceP_expected, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_set(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_value, iceP_delay): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_set(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_value: Swift.Int32 = try istr.read()
             let iceP_delay: Swift.Int32 = try istr.read()
-            return (iceP_value, iceP_delay)
-        }
 
-        let iceP_returnValue = try self.`set`(value: iceP_value, delay: iceP_delay, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.`set`(value: iceP_value, delay: iceP_delay, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

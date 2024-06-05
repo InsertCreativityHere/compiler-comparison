@@ -493,7 +493,7 @@ public extension ControllerPrx {
 
 
 /// Dispatcher for `TestIntf` servants.
-public struct TestIntfDisp: Ice.Disp {
+public struct TestIntfDisp: Ice.Dispatcher {
     public let servant: TestIntf
     private static let defaultObject = Ice.ObjectI<TestIntfTraits>()
 
@@ -501,21 +501,20 @@ public struct TestIntfDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getAdapterId":
-            return try servant._iceD_getAdapterId(incoming: request, current: current)
+            servant._iceD_getAdapterId(request)
         case "ice_id":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -530,7 +529,7 @@ public protocol TestIntf {
 
 
 /// Dispatcher for `Controller` servants.
-public struct ControllerDisp: Ice.Disp {
+public struct ControllerDisp: Ice.Dispatcher {
     public let servant: Controller
     private static let defaultObject = Ice.ObjectI<ControllerTraits>()
 
@@ -538,29 +537,28 @@ public struct ControllerDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "activateObjectAdapter":
-            return try servant._iceD_activateObjectAdapter(incoming: request, current: current)
+            servant._iceD_activateObjectAdapter(request)
         case "addObject":
-            return try servant._iceD_addObject(incoming: request, current: current)
+            servant._iceD_addObject(request)
         case "deactivateObjectAdapter":
-            return try servant._iceD_deactivateObjectAdapter(incoming: request, current: current)
+            servant._iceD_deactivateObjectAdapter(request)
         case "ice_id":
-            return try (servant as? Object ?? ControllerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? ControllerDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? ControllerDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? ControllerDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "removeObject":
-            return try servant._iceD_removeObject(incoming: request, current: current)
+            servant._iceD_removeObject(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -608,14 +606,19 @@ public protocol Controller {
 /// TestIntf Methods:
 ///
 ///  - getAdapterId: 
-public extension TestIntf {
-    func _iceD_getAdapterId(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension TestIntf {
+    public func _iceD_getAdapterId(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getAdapterId(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getAdapterId(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -633,60 +636,71 @@ public extension TestIntf {
 ///  - removeObject: 
 ///
 ///  - shutdown: 
-public extension Controller {
-    func _iceD_activateObjectAdapter(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_name, iceP_adapterId, iceP_replicaGroupId): (Swift.String, Swift.String, Swift.String) = try inS.read { istr in
+extension Controller {
+    public func _iceD_activateObjectAdapter(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_name: Swift.String = try istr.read()
             let iceP_adapterId: Swift.String = try istr.read()
             let iceP_replicaGroupId: Swift.String = try istr.read()
-            return (iceP_name, iceP_adapterId, iceP_replicaGroupId)
+
+            try self.activateObjectAdapter(name: iceP_name, adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.activateObjectAdapter(name: iceP_name, adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_deactivateObjectAdapter(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_name: Swift.String = try inS.read { istr in
+    public func _iceD_deactivateObjectAdapter(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_name: Swift.String = try istr.read()
-            return iceP_name
+
+            try self.deactivateObjectAdapter(name: iceP_name, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.deactivateObjectAdapter(name: iceP_name, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_addObject(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_oaName, iceP_id): (Swift.String, Swift.String) = try inS.read { istr in
+    public func _iceD_addObject(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_oaName: Swift.String = try istr.read()
             let iceP_id: Swift.String = try istr.read()
-            return (iceP_oaName, iceP_id)
+
+            try self.addObject(oaName: iceP_oaName, id: iceP_id, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.addObject(oaName: iceP_oaName, id: iceP_id, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_removeObject(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_oaName, iceP_id): (Swift.String, Swift.String) = try inS.read { istr in
+    public func _iceD_removeObject(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_oaName: Swift.String = try istr.read()
             let iceP_id: Swift.String = try istr.read()
-            return (iceP_oaName, iceP_id)
+
+            try self.removeObject(oaName: iceP_oaName, id: iceP_id, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.removeObject(oaName: iceP_oaName, id: iceP_id, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

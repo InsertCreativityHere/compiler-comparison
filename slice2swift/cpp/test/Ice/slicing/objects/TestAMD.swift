@@ -3197,7 +3197,7 @@ open class Forward: Ice.Value {
 
 
 /// Dispatcher for `TestIntf` servants.
-public struct TestIntfDisp: Ice.Disp {
+public struct TestIntfDisp: Ice.Dispatcher {
     public let servant: TestIntf
     private static let defaultObject = Ice.ObjectI<TestIntfTraits>()
 
@@ -3205,91 +3205,90 @@ public struct TestIntfDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "D1AsB":
-            return try servant._iceD_D1AsB(incoming: request, current: current)
+            servant._iceD_D1AsB(request)
         case "D1AsD1":
-            return try servant._iceD_D1AsD1(incoming: request, current: current)
+            servant._iceD_D1AsD1(request)
         case "D2AsB":
-            return try servant._iceD_D2AsB(incoming: request, current: current)
+            servant._iceD_D2AsB(request)
         case "PBSUnknown2AsPreservedWithGraph":
-            return try servant._iceD_PBSUnknown2AsPreservedWithGraph(incoming: request, current: current)
+            servant._iceD_PBSUnknown2AsPreservedWithGraph(request)
         case "PBSUnknownAsPreserved":
-            return try servant._iceD_PBSUnknownAsPreserved(incoming: request, current: current)
+            servant._iceD_PBSUnknownAsPreserved(request)
         case "PBSUnknownAsPreservedWithGraph":
-            return try servant._iceD_PBSUnknownAsPreservedWithGraph(incoming: request, current: current)
+            servant._iceD_PBSUnknownAsPreservedWithGraph(request)
         case "SBSKnownDerivedAsSBSKnownDerived":
-            return try servant._iceD_SBSKnownDerivedAsSBSKnownDerived(incoming: request, current: current)
+            servant._iceD_SBSKnownDerivedAsSBSKnownDerived(request)
         case "SBSKnownDerivedAsSBase":
-            return try servant._iceD_SBSKnownDerivedAsSBase(incoming: request, current: current)
+            servant._iceD_SBSKnownDerivedAsSBase(request)
         case "SBSUnknownDerivedAsSBase":
-            return try servant._iceD_SBSUnknownDerivedAsSBase(incoming: request, current: current)
+            servant._iceD_SBSUnknownDerivedAsSBase(request)
         case "SBSUnknownDerivedAsSBaseCompact":
-            return try servant._iceD_SBSUnknownDerivedAsSBaseCompact(incoming: request, current: current)
+            servant._iceD_SBSUnknownDerivedAsSBaseCompact(request)
         case "SBaseAsObject":
-            return try servant._iceD_SBaseAsObject(incoming: request, current: current)
+            servant._iceD_SBaseAsObject(request)
         case "SBaseAsSBase":
-            return try servant._iceD_SBaseAsSBase(incoming: request, current: current)
+            servant._iceD_SBaseAsSBase(request)
         case "SUnknownAsObject":
-            return try servant._iceD_SUnknownAsObject(incoming: request, current: current)
+            servant._iceD_SUnknownAsObject(request)
         case "checkPBSUnknown":
-            return try servant._iceD_checkPBSUnknown(incoming: request, current: current)
+            servant._iceD_checkPBSUnknown(request)
         case "checkPBSUnknown2WithGraph":
-            return try servant._iceD_checkPBSUnknown2WithGraph(incoming: request, current: current)
+            servant._iceD_checkPBSUnknown2WithGraph(request)
         case "checkPBSUnknownWithGraph":
-            return try servant._iceD_checkPBSUnknownWithGraph(incoming: request, current: current)
+            servant._iceD_checkPBSUnknownWithGraph(request)
         case "checkSUnknown":
-            return try servant._iceD_checkSUnknown(incoming: request, current: current)
+            servant._iceD_checkSUnknown(request)
         case "dictionaryTest":
-            return try servant._iceD_dictionaryTest(incoming: request, current: current)
+            servant._iceD_dictionaryTest(request)
         case "exchangePBase":
-            return try servant._iceD_exchangePBase(incoming: request, current: current)
+            servant._iceD_exchangePBase(request)
         case "exchangePNode":
-            return try servant._iceD_exchangePNode(incoming: request, current: current)
+            servant._iceD_exchangePNode(request)
         case "ice_id":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "oneElementCycle":
-            return try servant._iceD_oneElementCycle(incoming: request, current: current)
+            servant._iceD_oneElementCycle(request)
         case "paramTest1":
-            return try servant._iceD_paramTest1(incoming: request, current: current)
+            servant._iceD_paramTest1(request)
         case "paramTest2":
-            return try servant._iceD_paramTest2(incoming: request, current: current)
+            servant._iceD_paramTest2(request)
         case "paramTest3":
-            return try servant._iceD_paramTest3(incoming: request, current: current)
+            servant._iceD_paramTest3(request)
         case "paramTest4":
-            return try servant._iceD_paramTest4(incoming: request, current: current)
+            servant._iceD_paramTest4(request)
         case "returnTest1":
-            return try servant._iceD_returnTest1(incoming: request, current: current)
+            servant._iceD_returnTest1(request)
         case "returnTest2":
-            return try servant._iceD_returnTest2(incoming: request, current: current)
+            servant._iceD_returnTest2(request)
         case "returnTest3":
-            return try servant._iceD_returnTest3(incoming: request, current: current)
+            servant._iceD_returnTest3(request)
         case "sequenceTest":
-            return try servant._iceD_sequenceTest(incoming: request, current: current)
+            servant._iceD_sequenceTest(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "throwBaseAsBase":
-            return try servant._iceD_throwBaseAsBase(incoming: request, current: current)
+            servant._iceD_throwBaseAsBase(request)
         case "throwDerivedAsBase":
-            return try servant._iceD_throwDerivedAsBase(incoming: request, current: current)
+            servant._iceD_throwDerivedAsBase(request)
         case "throwDerivedAsDerived":
-            return try servant._iceD_throwDerivedAsDerived(incoming: request, current: current)
+            servant._iceD_throwDerivedAsDerived(request)
         case "throwUnknownDerivedAsBase":
-            return try servant._iceD_throwUnknownDerivedAsBase(incoming: request, current: current)
+            servant._iceD_throwUnknownDerivedAsBase(request)
         case "twoElementCycle":
-            return try servant._iceD_twoElementCycle(incoming: request, current: current)
+            servant._iceD_twoElementCycle(request)
         case "useForward":
-            return try servant._iceD_useForward(incoming: request, current: current)
+            servant._iceD_useForward(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -3610,422 +3609,629 @@ public protocol TestIntf {
 ///  - useForward: Use of forward-declared class to verify that code is generated correctly.
 ///
 ///  - shutdown: 
-public extension TestIntf {
-    func _iceD_SBaseAsObject(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(SBaseAsObjectAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+extension TestIntf {
+    public func _iceD_SBaseAsObject(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.SBaseAsObjectAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_SBaseAsSBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(SBaseAsSBaseAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_SBaseAsSBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.SBaseAsSBaseAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_SBSKnownDerivedAsSBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(SBSKnownDerivedAsSBaseAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_SBSKnownDerivedAsSBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.SBSKnownDerivedAsSBaseAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_SBSKnownDerivedAsSBSKnownDerived(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(SBSKnownDerivedAsSBSKnownDerivedAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_SBSKnownDerivedAsSBSKnownDerived(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.SBSKnownDerivedAsSBSKnownDerivedAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_SBSUnknownDerivedAsSBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(SBSUnknownDerivedAsSBaseAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_SBSUnknownDerivedAsSBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.SBSUnknownDerivedAsSBaseAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_SBSUnknownDerivedAsSBaseCompact(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.CompactFormat)
-
-        return inS.setResultPromise(SBSUnknownDerivedAsSBaseCompactAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_SBSUnknownDerivedAsSBaseCompact(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.SBSUnknownDerivedAsSBaseCompactAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.CompactFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_SUnknownAsObject(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(SUnknownAsObjectAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_SUnknownAsObject(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.SUnknownAsObjectAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_checkSUnknown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_o: Ice.Value? = try inS.read { istr in
+    public func _iceD_checkSUnknown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_o: Ice.Value?
             try istr.read() { iceP_o = $0 }
             try istr.readPendingValues()
-            return iceP_o
-        }
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(checkSUnknownAsync(o: iceP_o, current: current))
-    }
-
-    func _iceD_oneElementCycle(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(oneElementCycleAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+            return self.checkSUnknownAsync(
+                o: iceP_o, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_twoElementCycle(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(twoElementCycleAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_oneElementCycle(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.oneElementCycleAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_D1AsB(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(D1AsBAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_twoElementCycle(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.twoElementCycleAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_D1AsD1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(D1AsD1Async(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_D1AsB(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.D1AsBAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_D2AsB(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(D2AsBAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_D1AsD1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.D1AsD1Async(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_paramTest1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(paramTest1Async(current: current)) { (ostr, retVals) in
-            let (iceP_p1, iceP_p2) = retVals
-            ostr.write(iceP_p1)
-            ostr.write(iceP_p2)
-            ostr.writePendingValues()
+    public func _iceD_D2AsB(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.D2AsBAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_paramTest2(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(paramTest2Async(current: current)) { (ostr, retVals) in
-            let (iceP_p2, iceP_p1) = retVals
-            ostr.write(iceP_p2)
-            ostr.write(iceP_p1)
-            ostr.writePendingValues()
+    public func _iceD_paramTest1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.paramTest1Async(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let (iceP_p1, iceP_p2) = value
+                    ostr.write(iceP_p1)
+                    ostr.write(iceP_p2)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_paramTest3(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(paramTest3Async(current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_p1, iceP_p2) = retVals
-            ostr.write(iceP_p1)
-            ostr.write(iceP_p2)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_paramTest2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.paramTest2Async(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let (iceP_p2, iceP_p1) = value
+                    ostr.write(iceP_p2)
+                    ostr.write(iceP_p1)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_paramTest4(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(paramTest4Async(current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_p) = retVals
-            ostr.write(iceP_p)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_paramTest3(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.paramTest3Async(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_p1, iceP_p2) = value
+                    ostr.write(iceP_p1)
+                    ostr.write(iceP_p2)
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_returnTest1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(returnTest1Async(current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_p1, iceP_p2) = retVals
-            ostr.write(iceP_p1)
-            ostr.write(iceP_p2)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_paramTest4(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.paramTest4Async(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_p) = value
+                    ostr.write(iceP_p)
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_returnTest2(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(returnTest2Async(current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_p2, iceP_p1) = retVals
-            ostr.write(iceP_p2)
-            ostr.write(iceP_p1)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+    public func _iceD_returnTest1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.returnTest1Async(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_p1, iceP_p2) = value
+                    ostr.write(iceP_p1)
+                    ostr.write(iceP_p2)
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_returnTest3(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (B?, B?) = try inS.read { istr in
+    public func _iceD_returnTest2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.returnTest2Async(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_p2, iceP_p1) = value
+                    ostr.write(iceP_p2)
+                    ostr.write(iceP_p1)
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_returnTest3(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_p1: B?
             try istr.read(B.self) { iceP_p1 = $0 }
             var iceP_p2: B?
             try istr.read(B.self) { iceP_p2 = $0 }
             try istr.readPendingValues()
-            return (iceP_p1, iceP_p2)
-        }
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(returnTest3Async(p1: iceP_p1, p2: iceP_p2, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+            return self.returnTest3Async(
+                p1: iceP_p1, p2: iceP_p2, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_sequenceTest(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p1, iceP_p2): (SS1?, SS2?) = try inS.read { istr in
+    public func _iceD_sequenceTest(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_p1: SS1?
             try istr.read(SS1.self) { iceP_p1 = $0 }
             var iceP_p2: SS2?
             try istr.read(SS2.self) { iceP_p2 = $0 }
             try istr.readPendingValues()
-            return (iceP_p1, iceP_p2)
-        }
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(sequenceTestAsync(p1: iceP_p1, p2: iceP_p2, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+            return self.sequenceTestAsync(
+                p1: iceP_p1, p2: iceP_p2, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_dictionaryTest(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_bin: BDict = try inS.read { istr in
+    public func _iceD_dictionaryTest(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_bin: BDict = try BDictHelper.read(from: istr)
             try istr.readPendingValues()
-            return iceP_bin
-        }
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(dictionaryTestAsync(bin: iceP_bin, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_bout) = retVals
-            BDictHelper.write(to: ostr, value: iceP_bout)
-            BDictHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
+            return self.dictionaryTestAsync(
+                bin: iceP_bin, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_bout) = value
+                    BDictHelper.write(to: ostr, value: iceP_bout)
+                    BDictHelper.write(to: ostr, value: iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_exchangePBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_pb: PBase? = try inS.read { istr in
+    public func _iceD_exchangePBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_pb: PBase?
             try istr.read(PBase.self) { iceP_pb = $0 }
             try istr.readPendingValues()
-            return iceP_pb
-        }
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(exchangePBaseAsync(pb: iceP_pb, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-        }
-    }
-
-    func _iceD_PBSUnknownAsPreserved(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(PBSUnknownAsPreservedAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+            return self.exchangePBaseAsync(
+                pb: iceP_pb, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_checkPBSUnknown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p: Preserved? = try inS.read { istr in
+    public func _iceD_PBSUnknownAsPreserved(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.PBSUnknownAsPreservedAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_checkPBSUnknown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_p: Preserved?
             try istr.read(Preserved.self) { iceP_p = $0 }
             try istr.readPendingValues()
-            return iceP_p
-        }
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(checkPBSUnknownAsync(p: iceP_p, current: current))
-    }
-
-    func _iceD_PBSUnknownAsPreservedWithGraph(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(PBSUnknownAsPreservedWithGraphAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+            return self.checkPBSUnknownAsync(
+                p: iceP_p, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_checkPBSUnknownWithGraph(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p: Preserved? = try inS.read { istr in
+    public func _iceD_PBSUnknownAsPreservedWithGraph(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.PBSUnknownAsPreservedWithGraphAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_checkPBSUnknownWithGraph(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_p: Preserved?
             try istr.read(Preserved.self) { iceP_p = $0 }
             try istr.readPendingValues()
-            return iceP_p
-        }
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(checkPBSUnknownWithGraphAsync(p: iceP_p, current: current))
-    }
-
-    func _iceD_PBSUnknown2AsPreservedWithGraph(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(PBSUnknown2AsPreservedWithGraphAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+            return self.checkPBSUnknownWithGraphAsync(
+                p: iceP_p, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_checkPBSUnknown2WithGraph(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p: Preserved? = try inS.read { istr in
+    public func _iceD_PBSUnknown2AsPreservedWithGraph(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.PBSUnknown2AsPreservedWithGraphAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_checkPBSUnknown2WithGraph(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_p: Preserved?
             try istr.read(Preserved.self) { iceP_p = $0 }
             try istr.readPendingValues()
-            return iceP_p
+            return self.checkPBSUnknown2WithGraphAsync(
+                p: iceP_p, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(checkPBSUnknown2WithGraphAsync(p: iceP_p, current: current))
     }
 
-    func _iceD_exchangePNode(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_pn: PNode? = try inS.read { istr in
+    public func _iceD_exchangePNode(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_pn: PNode?
             try istr.read(PNode.self) { iceP_pn = $0 }
             try istr.readPendingValues()
-            return iceP_pn
-        }
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(exchangePNodeAsync(pn: iceP_pn, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-        }
-    }
-
-    func _iceD_throwBaseAsBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(throwBaseAsBaseAsync(current: current))
-    }
-
-    func _iceD_throwDerivedAsBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(throwDerivedAsBaseAsync(current: current))
-    }
-
-    func _iceD_throwDerivedAsDerived(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(throwDerivedAsDerivedAsync(current: current))
-    }
-
-    func _iceD_throwUnknownDerivedAsBase(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(throwUnknownDerivedAsBaseAsync(current: current))
-    }
-
-    func _iceD_useForward(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(useForwardAsync(current: current)) { (ostr, retVals) in
-            let iceP_f = retVals
-            ostr.write(iceP_f)
-            ostr.writePendingValues()
+            return self.exchangePNodeAsync(
+                pn: iceP_pn, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
+    public func _iceD_throwBaseAsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.throwBaseAsBaseAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
 
-        return inS.setResultPromise(shutdownAsync(current: current))
+    public func _iceD_throwDerivedAsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.throwDerivedAsBaseAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_throwDerivedAsDerived(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.throwDerivedAsDerivedAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_throwUnknownDerivedAsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.throwUnknownDerivedAsBaseAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_useForward(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.useForwardAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_f = value
+                    ostr.write(iceP_f)
+                    ostr.writePendingValues()
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.shutdownAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

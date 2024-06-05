@@ -239,7 +239,7 @@ public extension FileParserPrx {
 
 
 /// Dispatcher for `FileParser` servants.
-public struct FileParserDisp: Ice.Disp {
+public struct FileParserDisp: Ice.Dispatcher {
     public let servant: FileParser
     private static let defaultObject = Ice.ObjectI<FileParserTraits>()
 
@@ -247,21 +247,20 @@ public struct FileParserDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? FileParserDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? FileParserDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? FileParserDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? FileParserDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_ping(request)
         case "parse":
-            return try servant._iceD_parse(incoming: request, current: current)
+            servant._iceD_parse(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -291,19 +290,23 @@ public protocol FileParser {
 /// FileParser Methods:
 ///
 ///  - parse: Parse a file.
-public extension FileParser {
-    func _iceD_parse(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_xmlFile, iceP_adminProxy): (Swift.String, AdminPrx?) = try inS.read { istr in
+extension FileParser {
+    public func _iceD_parse(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_xmlFile: Swift.String = try istr.read()
             let iceP_adminProxy: AdminPrx? = try istr.read(AdminPrx.self)
-            return (iceP_xmlFile, iceP_adminProxy)
-        }
 
-        let iceP_returnValue = try self.parse(xmlFile: iceP_xmlFile, adminProxy: iceP_adminProxy, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.parse(xmlFile: iceP_xmlFile, adminProxy: iceP_adminProxy, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

@@ -774,7 +774,7 @@ public extension CallbackPrx {
 
 
 /// Dispatcher for `CallbackReceiver` servants.
-public struct CallbackReceiverDisp: Ice.Disp {
+public struct CallbackReceiverDisp: Ice.Dispatcher {
     public let servant: CallbackReceiver
     private static let defaultObject = Ice.ObjectI<CallbackReceiverTraits>()
 
@@ -782,29 +782,28 @@ public struct CallbackReceiverDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "callback":
-            return try servant._iceD_callback(incoming: request, current: current)
+            servant._iceD_callback(request)
         case "callbackEx":
-            return try servant._iceD_callbackEx(incoming: request, current: current)
+            servant._iceD_callbackEx(request)
         case "callbackWithPayload":
-            return try servant._iceD_callbackWithPayload(incoming: request, current: current)
+            servant._iceD_callbackWithPayload(request)
         case "concurrentCallback":
-            return try servant._iceD_concurrentCallback(incoming: request, current: current)
+            servant._iceD_concurrentCallback(request)
         case "ice_id":
-            return try (servant as? Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ping(request)
         case "waitCallback":
-            return try servant._iceD_waitCallback(incoming: request, current: current)
+            servant._iceD_waitCallback(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -839,7 +838,7 @@ public protocol CallbackReceiver {
 
 
 /// Dispatcher for `Callback` servants.
-public struct CallbackDisp: Ice.Disp {
+public struct CallbackDisp: Ice.Dispatcher {
     public let servant: Callback
     private static let defaultObject = Ice.ObjectI<CallbackTraits>()
 
@@ -847,31 +846,30 @@ public struct CallbackDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? CallbackDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? CallbackDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? CallbackDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(request)
         case "initiateCallback":
-            return try servant._iceD_initiateCallback(incoming: request, current: current)
+            servant._iceD_initiateCallback(request)
         case "initiateCallbackEx":
-            return try servant._iceD_initiateCallbackEx(incoming: request, current: current)
+            servant._iceD_initiateCallbackEx(request)
         case "initiateCallbackWithPayload":
-            return try servant._iceD_initiateCallbackWithPayload(incoming: request, current: current)
+            servant._iceD_initiateCallbackWithPayload(request)
         case "initiateConcurrentCallback":
-            return try servant._iceD_initiateConcurrentCallback(incoming: request, current: current)
+            servant._iceD_initiateConcurrentCallback(request)
         case "initiateWaitCallback":
-            return try servant._iceD_initiateWaitCallback(incoming: request, current: current)
+            servant._iceD_initiateWaitCallback(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -937,52 +935,69 @@ public protocol Callback {
 ///  - waitCallback: 
 ///
 ///  - callbackWithPayload: 
-public extension CallbackReceiver {
-    func _iceD_callback(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension CallbackReceiver {
+    public func _iceD_callback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.callback(current: current)
-
-        return inS.setResult()
+            try self.callback(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_callbackEx(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_callbackEx(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.callbackEx(current: current)
-
-        return inS.setResult()
+            try self.callbackEx(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_concurrentCallback(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_number: Swift.Int32 = try inS.read { istr in
+    public func _iceD_concurrentCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_number: Swift.Int32 = try istr.read()
-            return iceP_number
-        }
-
-        return inS.setResultPromise(concurrentCallbackAsync(number: iceP_number, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+            return self.concurrentCallbackAsync(
+                number: iceP_number, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_waitCallback(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_waitCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.waitCallback(current: current)
-
-        return inS.setResult()
+            try self.waitCallback(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_callbackWithPayload(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_payload: Ice.ByteSeq = try inS.read { istr in
+    public func _iceD_callbackWithPayload(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_payload: Ice.ByteSeq = try istr.read()
-            return iceP_payload
+
+            try self.callbackWithPayload(payload: iceP_payload, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.callbackWithPayload(payload: iceP_payload, current: current)
-
-        return inS.setResult()
     }
 }
 
@@ -1001,61 +1016,94 @@ public extension CallbackReceiver {
 ///  - initiateCallbackWithPayload: 
 ///
 ///  - shutdown: 
-public extension Callback {
-    func _iceD_initiateCallback(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_proxy: CallbackReceiverPrx? = try inS.read { istr in
+extension Callback {
+    public func _iceD_initiateCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-            return iceP_proxy
+            return self.initiateCallbackAsync(
+                proxy: iceP_proxy, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        return inS.setResultPromise(initiateCallbackAsync(proxy: iceP_proxy, current: current))
     }
 
-    func _iceD_initiateCallbackEx(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_proxy: CallbackReceiverPrx? = try inS.read { istr in
+    public func _iceD_initiateCallbackEx(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-            return iceP_proxy
+            return self.initiateCallbackExAsync(
+                proxy: iceP_proxy, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        return inS.setResultPromise(initiateCallbackExAsync(proxy: iceP_proxy, current: current))
     }
 
-    func _iceD_initiateConcurrentCallback(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_number, iceP_proxy): (Swift.Int32, CallbackReceiverPrx?) = try inS.read { istr in
+    public func _iceD_initiateConcurrentCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_number: Swift.Int32 = try istr.read()
             let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-            return (iceP_number, iceP_proxy)
-        }
-
-        return inS.setResultPromise(initiateConcurrentCallbackAsync(number: iceP_number, proxy: iceP_proxy, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+            return self.initiateConcurrentCallbackAsync(
+                number: iceP_number, proxy: iceP_proxy, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_initiateWaitCallback(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_proxy: CallbackReceiverPrx? = try inS.read { istr in
+    public func _iceD_initiateWaitCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-            return iceP_proxy
+            return self.initiateWaitCallbackAsync(
+                proxy: iceP_proxy, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        return inS.setResultPromise(initiateWaitCallbackAsync(proxy: iceP_proxy, current: current))
     }
 
-    func _iceD_initiateCallbackWithPayload(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_proxy: CallbackReceiverPrx? = try inS.read { istr in
+    public func _iceD_initiateCallbackWithPayload(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-            return iceP_proxy
+            return self.initiateCallbackWithPayloadAsync(
+                proxy: iceP_proxy, current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        return inS.setResultPromise(initiateCallbackWithPayloadAsync(proxy: iceP_proxy, current: current))
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

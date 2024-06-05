@@ -529,7 +529,7 @@ public extension TestIntfPrx {
 
 
 /// Dispatcher for `TestIntf` servants.
-public struct TestIntfDisp: Ice.Disp {
+public struct TestIntfDisp: Ice.Dispatcher {
     public let servant: TestIntf
     private static let defaultObject = Ice.ObjectI<TestIntfTraits>()
 
@@ -537,33 +537,32 @@ public struct TestIntfDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "opByteSpan":
-            return try servant._iceD_opByteSpan(incoming: request, current: current)
+            servant._iceD_opByteSpan(request)
         case "opOptionalByteSpan":
-            return try servant._iceD_opOptionalByteSpan(incoming: request, current: current)
+            servant._iceD_opOptionalByteSpan(request)
         case "opOptionalShortSpan":
-            return try servant._iceD_opOptionalShortSpan(incoming: request, current: current)
+            servant._iceD_opOptionalShortSpan(request)
         case "opOptionalStringSpan":
-            return try servant._iceD_opOptionalStringSpan(incoming: request, current: current)
+            servant._iceD_opOptionalStringSpan(request)
         case "opShortSpan":
-            return try servant._iceD_opShortSpan(incoming: request, current: current)
+            servant._iceD_opShortSpan(request)
         case "opStringSpan":
-            return try servant._iceD_opStringSpan(incoming: request, current: current)
+            servant._iceD_opStringSpan(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -641,88 +640,131 @@ public protocol TestIntf {
 ///  - opOptionalStringSpan: 
 ///
 ///  - shutdown: 
-public extension TestIntf {
-    func _iceD_opByteSpan(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_dataIn: ByteSeq = try inS.read { istr in
+extension TestIntf {
+    public func _iceD_opByteSpan(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_dataIn: ByteSeq = try istr.read()
-            return iceP_dataIn
-        }
-
-        return inS.setResultPromise(opByteSpanAsync(dataIn: iceP_dataIn, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_dataOut) = retVals
-            ostr.write(iceP_dataOut)
-            ostr.write(iceP_returnValue)
+            return self.opByteSpanAsync(
+                dataIn: iceP_dataIn, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_dataOut) = value
+                    ostr.write(iceP_dataOut)
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opShortSpan(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_dataIn: ShortSeq = try inS.read { istr in
+    public func _iceD_opShortSpan(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_dataIn: ShortSeq = try istr.read()
-            return iceP_dataIn
-        }
-
-        return inS.setResultPromise(opShortSpanAsync(dataIn: iceP_dataIn, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_dataOut) = retVals
-            ostr.write(iceP_dataOut)
-            ostr.write(iceP_returnValue)
+            return self.opShortSpanAsync(
+                dataIn: iceP_dataIn, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_dataOut) = value
+                    ostr.write(iceP_dataOut)
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opStringSpan(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_dataIn: StringSeq = try inS.read { istr in
+    public func _iceD_opStringSpan(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_dataIn: StringSeq = try istr.read()
-            return iceP_dataIn
-        }
-
-        return inS.setResultPromise(opStringSpanAsync(dataIn: iceP_dataIn, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_dataOut) = retVals
-            ostr.write(iceP_dataOut)
-            ostr.write(iceP_returnValue)
+            return self.opStringSpanAsync(
+                dataIn: iceP_dataIn, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_dataOut) = value
+                    ostr.write(iceP_dataOut)
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opOptionalByteSpan(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_dataIn: ByteSeq? = try inS.read { istr in
+    public func _iceD_opOptionalByteSpan(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_dataIn: ByteSeq? = try istr.read(tag: 1)
-            return iceP_dataIn
-        }
-
-        return inS.setResultPromise(opOptionalByteSpanAsync(dataIn: iceP_dataIn, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_dataOut) = retVals
-            ostr.write(tag: 10, value: iceP_returnValue)
-            ostr.write(tag: 11, value: iceP_dataOut)
+            return self.opOptionalByteSpanAsync(
+                dataIn: iceP_dataIn, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_dataOut) = value
+                    ostr.write(tag: 10, value: iceP_returnValue)
+                    ostr.write(tag: 11, value: iceP_dataOut)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opOptionalShortSpan(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_dataIn: ShortSeq? = try inS.read { istr in
+    public func _iceD_opOptionalShortSpan(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_dataIn: ShortSeq? = try istr.read(tag: 1)
-            return iceP_dataIn
-        }
-
-        return inS.setResultPromise(opOptionalShortSpanAsync(dataIn: iceP_dataIn, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_dataOut) = retVals
-            ostr.write(tag: 10, value: iceP_returnValue)
-            ostr.write(tag: 11, value: iceP_dataOut)
+            return self.opOptionalShortSpanAsync(
+                dataIn: iceP_dataIn, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_dataOut) = value
+                    ostr.write(tag: 10, value: iceP_returnValue)
+                    ostr.write(tag: 11, value: iceP_dataOut)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_opOptionalStringSpan(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_dataIn: StringSeq? = try inS.read { istr in
+    public func _iceD_opOptionalStringSpan(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_dataIn: StringSeq? = try istr.read(tag: 1)
-            return iceP_dataIn
-        }
-
-        return inS.setResultPromise(opOptionalStringSpanAsync(dataIn: iceP_dataIn, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_dataOut) = retVals
-            ostr.write(tag: 10, value: iceP_returnValue)
-            ostr.write(tag: 11, value: iceP_dataOut)
+            return self.opOptionalStringSpanAsync(
+                dataIn: iceP_dataIn, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_dataOut) = value
+                    ostr.write(tag: 10, value: iceP_returnValue)
+                    ostr.write(tag: 11, value: iceP_dataOut)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(shutdownAsync(current: current))
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.shutdownAsync(
+                current: request.current
+            ).map(on: nil) {
+                request.current.makeEmptyOutgoingResponse()
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

@@ -601,7 +601,7 @@ public extension RouterPrx {
 
 
 /// Dispatcher for `Router` servants.
-public struct RouterDisp: Ice.Disp {
+public struct RouterDisp: Ice.Dispatcher {
     public let servant: Router
     private static let defaultObject = Ice.ObjectI<RouterTraits>()
 
@@ -609,39 +609,38 @@ public struct RouterDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "addProxies":
-            return try servant._iceD_addProxies(incoming: request, current: current)
+            servant._iceD_addProxies(request)
         case "createSession":
-            return try servant._iceD_createSession(incoming: request, current: current)
+            servant._iceD_createSession(request)
         case "createSessionFromSecureConnection":
-            return try servant._iceD_createSessionFromSecureConnection(incoming: request, current: current)
+            servant._iceD_createSessionFromSecureConnection(request)
         case "destroySession":
-            return try servant._iceD_destroySession(incoming: request, current: current)
+            servant._iceD_destroySession(request)
         case "getACMTimeout":
-            return try servant._iceD_getACMTimeout(incoming: request, current: current)
+            servant._iceD_getACMTimeout(request)
         case "getCategoryForClient":
-            return try servant._iceD_getCategoryForClient(incoming: request, current: current)
+            servant._iceD_getCategoryForClient(request)
         case "getClientProxy":
-            return try servant._iceD_getClientProxy(incoming: request, current: current)
+            servant._iceD_getClientProxy(request)
         case "getServerProxy":
-            return try servant._iceD_getServerProxy(incoming: request, current: current)
+            servant._iceD_getServerProxy(request)
         case "getSessionTimeout":
-            return try servant._iceD_getSessionTimeout(incoming: request, current: current)
+            servant._iceD_getSessionTimeout(request)
         case "ice_id":
-            return try (servant as? Object ?? RouterDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? RouterDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? RouterDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? RouterDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_ping(request)
         case "refreshSession":
-            return try servant._iceD_refreshSession(incoming: request, current: current)
+            servant._iceD_refreshSession(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -737,74 +736,106 @@ public protocol Router: Ice.Router {
 ///  - getSessionTimeout: Get the idle timeout used by the server-side of the connection.
 ///
 ///  - getACMTimeout: Get the idle timeout used by the server-side of the connection.
-public extension Router {
-    func _iceD_getCategoryForClient(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension Router {
+    public func _iceD_getCategoryForClient(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getCategoryForClient(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getCategoryForClient(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_createSession(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_userId, iceP_password): (Swift.String, Swift.String) = try inS.read { istr in
+    public func _iceD_createSession(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_userId: Swift.String = try istr.read()
             let iceP_password: Swift.String = try istr.read()
-            return (iceP_userId, iceP_password)
-        }
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(createSessionAsync(userId: iceP_userId, password: iceP_password, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_createSessionFromSecureConnection(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(createSessionFromSecureConnectionAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+            return self.createSessionAsync(
+                userId: iceP_userId, password: iceP_password, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_refreshSession(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        try self.refreshSession(current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_destroySession(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        try self.destroySession(current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_getSessionTimeout(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getSessionTimeout(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
+    public func _iceD_createSessionFromSecureConnection(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+            return self.createSessionFromSecureConnectionAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getACMTimeout(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_refreshSession(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getACMTimeout(current: current)
+            try self.refreshSession(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
 
-        return inS.setResult{ ostr in
+    public func _iceD_destroySession(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            try self.destroySession(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_getSessionTimeout(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            let iceP_returnValue = try self.getSessionTimeout(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_getACMTimeout(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            let iceP_returnValue = try self.getACMTimeout(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+            ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

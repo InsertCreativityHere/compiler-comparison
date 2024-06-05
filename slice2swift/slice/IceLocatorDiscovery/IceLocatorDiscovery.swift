@@ -311,7 +311,7 @@ public extension LookupPrx {
 
 
 /// Dispatcher for `LookupReply` servants.
-public struct LookupReplyDisp: Ice.Disp {
+public struct LookupReplyDisp: Ice.Dispatcher {
     public let servant: LookupReply
     private static let defaultObject = Ice.ObjectI<LookupReplyTraits>()
 
@@ -319,21 +319,20 @@ public struct LookupReplyDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "foundLocator":
-            return try servant._iceD_foundLocator(incoming: request, current: current)
+            servant._iceD_foundLocator(request)
         case "ice_id":
-            return try (servant as? Object ?? LookupReplyDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? LookupReplyDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -351,7 +350,7 @@ public protocol LookupReply {
 
 
 /// Dispatcher for `Lookup` servants.
-public struct LookupDisp: Ice.Disp {
+public struct LookupDisp: Ice.Dispatcher {
     public let servant: Lookup
     private static let defaultObject = Ice.ObjectI<LookupTraits>()
 
@@ -359,21 +358,20 @@ public struct LookupDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "findLocator":
-            return try servant._iceD_findLocator(incoming: request, current: current)
+            servant._iceD_findLocator(request)
         case "ice_id":
-            return try (servant as? Object ?? LookupDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? LookupDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? LookupDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? LookupDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -400,16 +398,18 @@ public protocol Lookup {
 /// LookupReply Methods:
 ///
 ///  - foundLocator: This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-public extension LookupReply {
-    func _iceD_foundLocator(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_prx: Ice.LocatorPrx? = try inS.read { istr in
+extension LookupReply {
+    public func _iceD_foundLocator(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_prx: Ice.LocatorPrx? = try istr.read(Ice.LocatorPrx.self)
-            return iceP_prx
+
+            try self.foundLocator(prx: iceP_prx, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.foundLocator(prx: iceP_prx, current: current)
-
-        return inS.setResult()
     }
 }
 
@@ -421,16 +421,18 @@ public extension LookupReply {
 /// Lookup Methods:
 ///
 ///  - findLocator: Find a locator proxy with the given instance name.
-public extension Lookup {
-    func _iceD_findLocator(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_instanceName, iceP_reply): (Swift.String, LookupReplyPrx?) = try inS.read { istr in
+extension Lookup {
+    public func _iceD_findLocator(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_instanceName: Swift.String = try istr.read()
             let iceP_reply: LookupReplyPrx? = try istr.read(LookupReplyPrx.self)
-            return (iceP_instanceName, iceP_reply)
+
+            try self.findLocator(instanceName: iceP_instanceName, reply: iceP_reply, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.findLocator(instanceName: iceP_instanceName, reply: iceP_reply, current: current)
-
-        return inS.setResult()
     }
 }

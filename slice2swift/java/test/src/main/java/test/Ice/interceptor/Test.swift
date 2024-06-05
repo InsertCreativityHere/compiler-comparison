@@ -682,7 +682,7 @@ public extension MyObjectPrx {
 
 
 /// Dispatcher for `MyObject` servants.
-public struct MyObjectDisp: Ice.Disp {
+public struct MyObjectDisp: Ice.Dispatcher {
     public let servant: MyObject
     private static let defaultObject = Ice.ObjectI<MyObjectTraits>()
 
@@ -690,35 +690,34 @@ public struct MyObjectDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "add":
-            return try servant._iceD_add(incoming: request, current: current)
+            servant._iceD_add(request)
         case "addWithRetry":
-            return try servant._iceD_addWithRetry(incoming: request, current: current)
+            servant._iceD_addWithRetry(request)
         case "amdAdd":
-            return try servant._iceD_amdAdd(incoming: request, current: current)
+            servant._iceD_amdAdd(request)
         case "amdAddWithRetry":
-            return try servant._iceD_amdAddWithRetry(incoming: request, current: current)
+            servant._iceD_amdAddWithRetry(request)
         case "amdBadAdd":
-            return try servant._iceD_amdBadAdd(incoming: request, current: current)
+            servant._iceD_amdBadAdd(request)
         case "amdNotExistAdd":
-            return try servant._iceD_amdNotExistAdd(incoming: request, current: current)
+            servant._iceD_amdNotExistAdd(request)
         case "badAdd":
-            return try servant._iceD_badAdd(incoming: request, current: current)
+            servant._iceD_badAdd(request)
         case "ice_id":
-            return try (servant as? Object ?? MyObjectDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? MyObjectDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? MyObjectDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? MyObjectDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ping(request)
         case "notExistAdd":
-            return try servant._iceD_notExistAdd(incoming: request, current: current)
+            servant._iceD_notExistAdd(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -824,112 +823,152 @@ public protocol MyObject {
 ///  - amdBadAdd: 
 ///
 ///  - amdNotExistAdd: 
-public extension MyObject {
-    func _iceD_add(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_x, iceP_y): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+extension MyObject {
+    public func _iceD_add(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_x: Swift.Int32 = try istr.read()
             let iceP_y: Swift.Int32 = try istr.read()
-            return (iceP_x, iceP_y)
-        }
 
-        let iceP_returnValue = try self.add(x: iceP_x, y: iceP_y, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.add(x: iceP_x, y: iceP_y, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_addWithRetry(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_x, iceP_y): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_addWithRetry(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_x: Swift.Int32 = try istr.read()
             let iceP_y: Swift.Int32 = try istr.read()
-            return (iceP_x, iceP_y)
-        }
 
-        let iceP_returnValue = try self.addWithRetry(x: iceP_x, y: iceP_y, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.addWithRetry(x: iceP_x, y: iceP_y, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_badAdd(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_x, iceP_y): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_badAdd(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_x: Swift.Int32 = try istr.read()
             let iceP_y: Swift.Int32 = try istr.read()
-            return (iceP_x, iceP_y)
-        }
 
-        let iceP_returnValue = try self.badAdd(x: iceP_x, y: iceP_y, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.badAdd(x: iceP_x, y: iceP_y, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_notExistAdd(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_x, iceP_y): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_notExistAdd(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_x: Swift.Int32 = try istr.read()
             let iceP_y: Swift.Int32 = try istr.read()
-            return (iceP_x, iceP_y)
-        }
 
-        let iceP_returnValue = try self.notExistAdd(x: iceP_x, y: iceP_y, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.notExistAdd(x: iceP_x, y: iceP_y, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_amdAdd(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_x, iceP_y): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_amdAdd(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_x: Swift.Int32 = try istr.read()
             let iceP_y: Swift.Int32 = try istr.read()
-            return (iceP_x, iceP_y)
-        }
-
-        return inS.setResultPromise(amdAddAsync(x: iceP_x, y: iceP_y, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+            return self.amdAddAsync(
+                x: iceP_x, y: iceP_y, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_amdAddWithRetry(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_x, iceP_y): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_amdAddWithRetry(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_x: Swift.Int32 = try istr.read()
             let iceP_y: Swift.Int32 = try istr.read()
-            return (iceP_x, iceP_y)
-        }
-
-        return inS.setResultPromise(amdAddWithRetryAsync(x: iceP_x, y: iceP_y, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+            return self.amdAddWithRetryAsync(
+                x: iceP_x, y: iceP_y, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_amdBadAdd(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_x, iceP_y): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_amdBadAdd(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_x: Swift.Int32 = try istr.read()
             let iceP_y: Swift.Int32 = try istr.read()
-            return (iceP_x, iceP_y)
-        }
-
-        return inS.setResultPromise(amdBadAddAsync(x: iceP_x, y: iceP_y, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+            return self.amdBadAddAsync(
+                x: iceP_x, y: iceP_y, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_amdNotExistAdd(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_x, iceP_y): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_amdNotExistAdd(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_x: Swift.Int32 = try istr.read()
             let iceP_y: Swift.Int32 = try istr.read()
-            return (iceP_x, iceP_y)
-        }
-
-        return inS.setResultPromise(amdNotExistAddAsync(x: iceP_x, y: iceP_y, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+            return self.amdNotExistAddAsync(
+                x: iceP_x, y: iceP_y, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

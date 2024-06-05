@@ -155,7 +155,7 @@ public extension ClockPrx {
 
 
 /// Dispatcher for `Clock` servants.
-public struct ClockDisp: Ice.Disp {
+public struct ClockDisp: Ice.Dispatcher {
     public let servant: Clock
     private static let defaultObject = Ice.ObjectI<ClockTraits>()
 
@@ -163,21 +163,20 @@ public struct ClockDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? ClockDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? ClockDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? ClockDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? ClockDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? ClockDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? ClockDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? ClockDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? ClockDisp.defaultObject)._iceD_ice_ping(request)
         case "tick":
-            return try servant._iceD_tick(incoming: request, current: current)
+            servant._iceD_tick(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -195,15 +194,17 @@ public protocol Clock {
 /// Clock Methods:
 ///
 ///  - tick: 
-public extension Clock {
-    func _iceD_tick(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_time: Swift.String = try inS.read { istr in
+extension Clock {
+    public func _iceD_tick(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_time: Swift.String = try istr.read()
-            return iceP_time
+
+            try self.tick(time: iceP_time, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.tick(time: iceP_time, current: current)
-
-        return inS.setResult()
     }
 }

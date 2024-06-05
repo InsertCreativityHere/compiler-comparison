@@ -209,9 +209,9 @@ public extension SessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as AllocationException {
-                                         throw error
                                      } catch let error as ObjectNotRegisteredException {
+                                         throw error
+                                     } catch let error as AllocationException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -247,9 +247,9 @@ public extension SessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as AllocationException {
-                                          throw error
                                       } catch let error as ObjectNotRegisteredException {
+                                          throw error
+                                      } catch let error as AllocationException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -353,9 +353,9 @@ public extension SessionPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as AllocationException {
-                                  throw error
                               } catch let error as ObjectNotRegisteredException {
+                                  throw error
+                              } catch let error as AllocationException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -387,9 +387,9 @@ public extension SessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as AllocationException {
-                                          throw error
                                       } catch let error as ObjectNotRegisteredException {
+                                          throw error
+                                      } catch let error as AllocationException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -447,7 +447,7 @@ public extension SessionPrx {
 
 
 /// Dispatcher for `Session` servants.
-public struct SessionDisp: Ice.Disp {
+public struct SessionDisp: Ice.Dispatcher {
     public let servant: Session
     private static let defaultObject = Ice.ObjectI<SessionTraits>()
 
@@ -455,31 +455,30 @@ public struct SessionDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "allocateObjectById":
-            return try servant._iceD_allocateObjectById(incoming: request, current: current)
+            servant._iceD_allocateObjectById(request)
         case "allocateObjectByType":
-            return try servant._iceD_allocateObjectByType(incoming: request, current: current)
+            servant._iceD_allocateObjectByType(request)
         case "destroy":
-            return try servant._iceD_destroy(incoming: request, current: current)
+            servant._iceD_destroy(request)
         case "ice_id":
-            return try (servant as? Object ?? SessionDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? SessionDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? SessionDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? SessionDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ping(request)
         case "keepAlive":
-            return try servant._iceD_keepAlive(incoming: request, current: current)
+            servant._iceD_keepAlive(request)
         case "releaseObject":
-            return try servant._iceD_releaseObject(incoming: request, current: current)
+            servant._iceD_releaseObject(request)
         case "setAllocationTimeout":
-            return try servant._iceD_setAllocationTimeout(incoming: request, current: current)
+            servant._iceD_setAllocationTimeout(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -553,58 +552,77 @@ public protocol Session: Glacier2.Session {
 ///  - releaseObject: Release an object that was allocated using allocateObjectById or allocateObjectByType.
 ///
 ///  - setAllocationTimeout: Set the allocation timeout.
-public extension Session {
-    func _iceD_keepAlive(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension Session {
+    public func _iceD_keepAlive(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.keepAlive(current: current)
-
-        return inS.setResult()
+            try self.keepAlive(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_allocateObjectById(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_id: Ice.Identity = try inS.read { istr in
+    public func _iceD_allocateObjectById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_id: Ice.Identity = try istr.read()
-            return iceP_id
-        }
-
-        return inS.setResultPromise(allocateObjectByIdAsync(id: iceP_id, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+            return self.allocateObjectByIdAsync(
+                id: iceP_id, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_allocateObjectByType(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_type: Swift.String = try inS.read { istr in
+    public func _iceD_allocateObjectByType(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_type: Swift.String = try istr.read()
-            return iceP_type
-        }
-
-        return inS.setResultPromise(allocateObjectByTypeAsync(type: iceP_type, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
+            return self.allocateObjectByTypeAsync(
+                type: iceP_type, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_releaseObject(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_id: Ice.Identity = try inS.read { istr in
+    public func _iceD_releaseObject(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_id: Ice.Identity = try istr.read()
-            return iceP_id
+
+            try self.releaseObject(id: iceP_id, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.releaseObject(id: iceP_id, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_setAllocationTimeout(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_timeout: Swift.Int32 = try inS.read { istr in
+    public func _iceD_setAllocationTimeout(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_timeout: Swift.Int32 = try istr.read()
-            return iceP_timeout
+
+            try self.setAllocationTimeout(timeout: iceP_timeout, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.setAllocationTimeout(timeout: iceP_timeout, current: current)
-
-        return inS.setResult()
     }
 }

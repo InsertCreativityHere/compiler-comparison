@@ -634,7 +634,7 @@ public extension ServiceManagerPrx {
 
 
 /// Dispatcher for `ServiceObserver` servants.
-public struct ServiceObserverDisp: Ice.Disp {
+public struct ServiceObserverDisp: Ice.Dispatcher {
     public let servant: ServiceObserver
     private static let defaultObject = Ice.ObjectI<ServiceObserverTraits>()
 
@@ -642,23 +642,22 @@ public struct ServiceObserverDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "servicesStarted":
-            return try servant._iceD_servicesStarted(incoming: request, current: current)
+            servant._iceD_servicesStarted(request)
         case "servicesStopped":
-            return try servant._iceD_servicesStopped(incoming: request, current: current)
+            servant._iceD_servicesStopped(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -682,7 +681,7 @@ public protocol ServiceObserver {
 
 
 /// Dispatcher for `ServiceManager` servants.
-public struct ServiceManagerDisp: Ice.Disp {
+public struct ServiceManagerDisp: Ice.Dispatcher {
     public let servant: ServiceManager
     private static let defaultObject = Ice.ObjectI<ServiceManagerTraits>()
 
@@ -690,27 +689,26 @@ public struct ServiceManagerDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "addObserver":
-            return try servant._iceD_addObserver(incoming: request, current: current)
+            servant._iceD_addObserver(request)
         case "ice_id":
-            return try (servant as? Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "startService":
-            return try servant._iceD_startService(incoming: request, current: current)
+            servant._iceD_startService(request)
         case "stopService":
-            return try servant._iceD_stopService(incoming: request, current: current)
+            servant._iceD_stopService(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -763,27 +761,31 @@ public protocol ServiceManager {
 ///  - servicesStarted: Receives the names of the services that were started.
 ///
 ///  - servicesStopped: Receives the names of the services that were stopped.
-public extension ServiceObserver {
-    func _iceD_servicesStarted(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_services: Ice.StringSeq = try inS.read { istr in
+extension ServiceObserver {
+    public func _iceD_servicesStarted(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_services: Ice.StringSeq = try istr.read()
-            return iceP_services
+
+            try self.servicesStarted(services: iceP_services, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.servicesStarted(services: iceP_services, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_servicesStopped(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_services: Ice.StringSeq = try inS.read { istr in
+    public func _iceD_servicesStopped(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_services: Ice.StringSeq = try istr.read()
-            return iceP_services
+
+            try self.servicesStopped(services: iceP_services, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.servicesStopped(services: iceP_services, current: current)
-
-        return inS.setResult()
     }
 }
 
@@ -798,45 +800,54 @@ public extension ServiceObserver {
 ///  - addObserver: Registers a new observer with the ServiceManager.
 ///
 ///  - shutdown: Shut down all services.
-public extension ServiceManager {
-    func _iceD_startService(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_service: Swift.String = try inS.read { istr in
+extension ServiceManager {
+    public func _iceD_startService(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_service: Swift.String = try istr.read()
-            return iceP_service
+
+            try self.startService(service: iceP_service, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.startService(service: iceP_service, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_stopService(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_service: Swift.String = try inS.read { istr in
+    public func _iceD_stopService(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_service: Swift.String = try istr.read()
-            return iceP_service
+
+            try self.stopService(service: iceP_service, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.stopService(service: iceP_service, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_addObserver(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_observer: ServiceObserverPrx? = try inS.read { istr in
+    public func _iceD_addObserver(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_observer: ServiceObserverPrx? = try istr.read(ServiceObserverPrx.self)
-            return iceP_observer
+
+            try self.addObserver(observer: iceP_observer, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.addObserver(observer: iceP_observer, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

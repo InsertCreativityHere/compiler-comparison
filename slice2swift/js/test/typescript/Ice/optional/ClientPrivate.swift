@@ -216,7 +216,7 @@ public extension Initial2Prx {
 
 
 /// Dispatcher for `Initial2` servants.
-public struct Initial2Disp: Ice.Disp {
+public struct Initial2Disp: Ice.Dispatcher {
     public let servant: Initial2
     private static let defaultObject = Ice.ObjectI<Initial2Traits>()
 
@@ -224,23 +224,22 @@ public struct Initial2Disp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? Initial2Disp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? Initial2Disp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? Initial2Disp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? Initial2Disp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_ping(request)
         case "opClassAndUnknownOptional":
-            return try servant._iceD_opClassAndUnknownOptional(incoming: request, current: current)
+            servant._iceD_opClassAndUnknownOptional(request)
         case "opVoid":
-            return try servant._iceD_opVoid(incoming: request, current: current)
+            servant._iceD_opVoid(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -270,30 +269,34 @@ public protocol Initial2 {
 ///  - opClassAndUnknownOptional: 
 ///
 ///  - opVoid: 
-public extension Initial2 {
-    func _iceD_opClassAndUnknownOptional(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_p, iceP_ovs): (A?, VarStruct?) = try inS.read { istr in
+extension Initial2 {
+    public func _iceD_opClassAndUnknownOptional(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             var iceP_p: A?
             try istr.read(A.self) { iceP_p = $0 }
             let iceP_ovs: VarStruct? = try istr.read(tag: 1)
             try istr.readPendingValues()
-            return (iceP_p, iceP_ovs)
+
+            try self.opClassAndUnknownOptional(p: iceP_p, ovs: iceP_ovs, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.opClassAndUnknownOptional(p: iceP_p, ovs: iceP_ovs, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_opVoid(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_a, iceP_v): (Swift.Int32?, Swift.String?) = try inS.read { istr in
+    public func _iceD_opVoid(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_a: Swift.Int32? = try istr.read(tag: 1)
             let iceP_v: Swift.String? = try istr.read(tag: 2)
-            return (iceP_a, iceP_v)
+
+            try self.opVoid(a: iceP_a, v: iceP_v, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.opVoid(a: iceP_a, v: iceP_v, current: current)
-
-        return inS.setResult()
     }
 }

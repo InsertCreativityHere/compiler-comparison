@@ -495,7 +495,7 @@ public extension SSLServerFactoryPrx {
 
 
 /// Dispatcher for `SSLServer` servants.
-public struct SSLServerDisp: Ice.Disp {
+public struct SSLServerDisp: Ice.Dispatcher {
     public let servant: SSLServer
     private static let defaultObject = Ice.ObjectI<SSLServerTraits>()
 
@@ -503,23 +503,22 @@ public struct SSLServerDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "checkCert":
-            return try servant._iceD_checkCert(incoming: request, current: current)
+            servant._iceD_checkCert(request)
         case "ice_id":
-            return try (servant as? Object ?? SSLServerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLServerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? SSLServerDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLServerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? SSLServerDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLServerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? SSLServerDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLServerDisp.defaultObject)._iceD_ice_ping(request)
         case "noCert":
-            return try servant._iceD_noCert(incoming: request, current: current)
+            servant._iceD_noCert(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -540,7 +539,7 @@ public protocol SSLServer {
 
 
 /// Dispatcher for `SSLServerFactory` servants.
-public struct SSLServerFactoryDisp: Ice.Disp {
+public struct SSLServerFactoryDisp: Ice.Dispatcher {
     public let servant: SSLServerFactory
     private static let defaultObject = Ice.ObjectI<SSLServerFactoryTraits>()
 
@@ -548,25 +547,24 @@ public struct SSLServerFactoryDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "createServer":
-            return try servant._iceD_createServer(incoming: request, current: current)
+            servant._iceD_createServer(request)
         case "destroyServer":
-            return try servant._iceD_destroyServer(incoming: request, current: current)
+            servant._iceD_destroyServer(request)
         case "ice_id":
-            return try (servant as? Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -598,25 +596,30 @@ public protocol SSLServerFactory {
 ///  - noCert: 
 ///
 ///  - checkCert: 
-public extension SSLServer {
-    func _iceD_noCert(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension SSLServer {
+    public func _iceD_noCert(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.noCert(current: current)
-
-        return inS.setResult()
+            try self.noCert(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_checkCert(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_subjectDN, iceP_issuerDN): (Swift.String, Swift.String) = try inS.read { istr in
+    public func _iceD_checkCert(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_subjectDN: Swift.String = try istr.read()
             let iceP_issuerDN: Swift.String = try istr.read()
-            return (iceP_subjectDN, iceP_issuerDN)
+
+            try self.checkCert(subjectDN: iceP_subjectDN, issuerDN: iceP_issuerDN, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.checkCert(subjectDN: iceP_subjectDN, issuerDN: iceP_issuerDN, current: current)
-
-        return inS.setResult()
     }
 }
 
@@ -629,36 +632,45 @@ public extension SSLServer {
 ///  - destroyServer: 
 ///
 ///  - shutdown: 
-public extension SSLServerFactory {
-    func _iceD_createServer(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_props: SSLProperties = try inS.read { istr in
+extension SSLServerFactory {
+    public func _iceD_createServer(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_props: SSLProperties = try SSLPropertiesHelper.read(from: istr)
-            return iceP_props
-        }
 
-        let iceP_returnValue = try self.createServer(props: iceP_props, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.createServer(props: iceP_props, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_destroyServer(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_srv: SSLServerPrx? = try inS.read { istr in
+    public func _iceD_destroyServer(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_srv: SSLServerPrx? = try istr.read(SSLServerPrx.self)
-            return iceP_srv
+
+            try self.destroyServer(srv: iceP_srv, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.destroyServer(srv: iceP_srv, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

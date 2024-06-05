@@ -1357,7 +1357,7 @@ public extension SSLSessionManagerPrx {
 
 
 /// Dispatcher for `Session` servants.
-public struct SessionDisp: Ice.Disp {
+public struct SessionDisp: Ice.Dispatcher {
     public let servant: Session
     private static let defaultObject = Ice.ObjectI<SessionTraits>()
 
@@ -1365,21 +1365,20 @@ public struct SessionDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "destroy":
-            return try servant._iceD_destroy(incoming: request, current: current)
+            servant._iceD_destroy(request)
         case "ice_id":
-            return try (servant as? Object ?? SessionDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? SessionDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? SessionDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? SessionDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1394,7 +1393,7 @@ public protocol Session {
 
 
 /// Dispatcher for `StringSet` servants.
-public struct StringSetDisp: Ice.Disp {
+public struct StringSetDisp: Ice.Dispatcher {
     public let servant: StringSet
     private static let defaultObject = Ice.ObjectI<StringSetTraits>()
 
@@ -1402,25 +1401,24 @@ public struct StringSetDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "add":
-            return try servant._iceD_add(incoming: request, current: current)
+            servant._iceD_add(request)
         case "get":
-            return try servant._iceD_get(incoming: request, current: current)
+            servant._iceD_get(request)
         case "ice_id":
-            return try (servant as? Object ?? StringSetDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? StringSetDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? StringSetDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? StringSetDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_ping(request)
         case "remove":
-            return try servant._iceD_remove(incoming: request, current: current)
+            servant._iceD_remove(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1453,7 +1451,7 @@ public protocol StringSet {
 
 
 /// Dispatcher for `IdentitySet` servants.
-public struct IdentitySetDisp: Ice.Disp {
+public struct IdentitySetDisp: Ice.Dispatcher {
     public let servant: IdentitySet
     private static let defaultObject = Ice.ObjectI<IdentitySetTraits>()
 
@@ -1461,25 +1459,24 @@ public struct IdentitySetDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "add":
-            return try servant._iceD_add(incoming: request, current: current)
+            servant._iceD_add(request)
         case "get":
-            return try servant._iceD_get(incoming: request, current: current)
+            servant._iceD_get(request)
         case "ice_id":
-            return try (servant as? Object ?? IdentitySetDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? IdentitySetDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? IdentitySetDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? IdentitySetDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_ping(request)
         case "remove":
-            return try servant._iceD_remove(incoming: request, current: current)
+            servant._iceD_remove(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1512,7 +1509,7 @@ public protocol IdentitySet {
 
 
 /// Dispatcher for `SessionControl` servants.
-public struct SessionControlDisp: Ice.Disp {
+public struct SessionControlDisp: Ice.Dispatcher {
     public let servant: SessionControl
     private static let defaultObject = Ice.ObjectI<SessionControlTraits>()
 
@@ -1520,29 +1517,28 @@ public struct SessionControlDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "adapterIds":
-            return try servant._iceD_adapterIds(incoming: request, current: current)
+            servant._iceD_adapterIds(request)
         case "categories":
-            return try servant._iceD_categories(incoming: request, current: current)
+            servant._iceD_categories(request)
         case "destroy":
-            return try servant._iceD_destroy(incoming: request, current: current)
+            servant._iceD_destroy(request)
         case "getSessionTimeout":
-            return try servant._iceD_getSessionTimeout(incoming: request, current: current)
+            servant._iceD_getSessionTimeout(request)
         case "ice_id":
-            return try (servant as? Object ?? SessionControlDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? SessionControlDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? SessionControlDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? SessionControlDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_ping(request)
         case "identities":
-            return try servant._iceD_identities(incoming: request, current: current)
+            servant._iceD_identities(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1585,7 +1581,7 @@ public protocol SessionControl {
 
 
 /// Dispatcher for `SessionManager` servants.
-public struct SessionManagerDisp: Ice.Disp {
+public struct SessionManagerDisp: Ice.Dispatcher {
     public let servant: SessionManager
     private static let defaultObject = Ice.ObjectI<SessionManagerTraits>()
 
@@ -1593,21 +1589,20 @@ public struct SessionManagerDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "create":
-            return try servant._iceD_create(incoming: request, current: current)
+            servant._iceD_create(request)
         case "ice_id":
-            return try (servant as? Object ?? SessionManagerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? SessionManagerDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? SessionManagerDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? SessionManagerDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1637,7 +1632,7 @@ public protocol SessionManager {
 
 
 /// Dispatcher for `SSLSessionManager` servants.
-public struct SSLSessionManagerDisp: Ice.Disp {
+public struct SSLSessionManagerDisp: Ice.Dispatcher {
     public let servant: SSLSessionManager
     private static let defaultObject = Ice.ObjectI<SSLSessionManagerTraits>()
 
@@ -1645,21 +1640,20 @@ public struct SSLSessionManagerDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "create":
-            return try servant._iceD_create(incoming: request, current: current)
+            servant._iceD_create(request)
         case "ice_id":
-            return try (servant as? Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1689,13 +1683,16 @@ public protocol SSLSessionManager {
 /// Session Methods:
 ///
 ///  - destroy: Destroy the session.
-public extension Session {
-    func _iceD_destroy(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension Session {
+    public func _iceD_destroy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.destroy(current: current)
-
-        return inS.setResult()
+            try self.destroy(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -1709,36 +1706,45 @@ public extension Session {
 ///  - remove: Remove a sequence of strings from this set of constraints.
 ///
 ///  - `get`: Returns a sequence of strings describing the constraints in this set.
-public extension StringSet {
-    func _iceD_add(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_additions: Ice.StringSeq = try inS.read { istr in
+extension StringSet {
+    public func _iceD_add(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_additions: Ice.StringSeq = try istr.read()
-            return iceP_additions
+
+            try self.add(additions: iceP_additions, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.add(additions: iceP_additions, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_remove(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_deletions: Ice.StringSeq = try inS.read { istr in
+    public func _iceD_remove(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_deletions: Ice.StringSeq = try istr.read()
-            return iceP_deletions
+
+            try self.remove(deletions: iceP_deletions, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.remove(deletions: iceP_deletions, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_get(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_get(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.`get`(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.`get`(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1752,36 +1758,45 @@ public extension StringSet {
 ///  - remove: Remove a sequence of identities from this set of constraints.
 ///
 ///  - `get`: Returns a sequence of identities describing the constraints in this set.
-public extension IdentitySet {
-    func _iceD_add(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_additions: Ice.IdentitySeq = try inS.read { istr in
+extension IdentitySet {
+    public func _iceD_add(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_additions: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
-            return iceP_additions
+
+            try self.add(additions: iceP_additions, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.add(additions: iceP_additions, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_remove(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_deletions: Ice.IdentitySeq = try inS.read { istr in
+    public func _iceD_remove(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_deletions: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
-            return iceP_deletions
+
+            try self.remove(deletions: iceP_deletions, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.remove(deletions: iceP_deletions, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_get(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_get(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.`get`(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.`get`(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             Ice.IdentitySeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1799,53 +1814,76 @@ public extension IdentitySet {
 ///  - getSessionTimeout: Get the session timeout.
 ///
 ///  - destroy: Destroy the associated session.
-public extension SessionControl {
-    func _iceD_categories(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension SessionControl {
+    public func _iceD_categories(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.categories(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.categories(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_adapterIds(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_adapterIds(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.adapterIds(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.adapterIds(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_identities(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_identities(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.identities(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.identities(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getSessionTimeout(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getSessionTimeout(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getSessionTimeout(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getSessionTimeout(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_destroy(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_destroy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.destroy(current: current)
-
-        return inS.setResult()
+            try self.destroy(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -1857,19 +1895,22 @@ public extension SessionControl {
 /// SessionManager Methods:
 ///
 ///  - create: Create a new session.
-public extension SessionManager {
-    func _iceD_create(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_userId, iceP_control): (Swift.String, SessionControlPrx?) = try inS.read { istr in
+extension SessionManager {
+    public func _iceD_create(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_userId: Swift.String = try istr.read()
             let iceP_control: SessionControlPrx? = try istr.read(SessionControlPrx.self)
-            return (iceP_userId, iceP_control)
-        }
-        inS.setFormat(.SlicedFormat)
 
-        let iceP_returnValue = try self.create(userId: iceP_userId, control: iceP_control, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.create(userId: iceP_userId, control: iceP_control, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1881,19 +1922,22 @@ public extension SessionManager {
 /// SSLSessionManager Methods:
 ///
 ///  - create: Create a new session.
-public extension SSLSessionManager {
-    func _iceD_create(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_info, iceP_control): (SSLInfo, SessionControlPrx?) = try inS.read { istr in
+extension SSLSessionManager {
+    public func _iceD_create(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_info: SSLInfo = try istr.read()
             let iceP_control: SessionControlPrx? = try istr.read(SessionControlPrx.self)
-            return (iceP_info, iceP_control)
-        }
-        inS.setFormat(.SlicedFormat)
 
-        let iceP_returnValue = try self.create(info: iceP_info, control: iceP_control, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.create(info: iceP_info, control: iceP_control, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

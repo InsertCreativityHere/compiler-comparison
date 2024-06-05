@@ -230,7 +230,7 @@ open class UserInfo: Ice.Value {
 
 
 /// Dispatcher for `Registry` servants.
-public struct RegistryDisp: Ice.Disp {
+public struct RegistryDisp: Ice.Dispatcher {
     public let servant: Registry
     private static let defaultObject = Ice.ObjectI<RegistryTraits>()
 
@@ -238,21 +238,20 @@ public struct RegistryDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getUserInfo":
-            return try servant._iceD_getUserInfo(incoming: request, current: current)
+            servant._iceD_getUserInfo(request)
         case "ice_id":
-            return try (servant as? Object ?? RegistryDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? RegistryDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? RegistryDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? RegistryDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -272,18 +271,22 @@ public protocol Registry {
 /// Registry Methods:
 ///
 ///  - getUserInfo: 
-public extension Registry {
-    func _iceD_getUserInfo(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_id: Swift.String = try inS.read { istr in
+extension Registry {
+    public func _iceD_getUserInfo(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_id: Swift.String = try istr.read()
-            return iceP_id
-        }
 
-        let iceP_returnValue = try self.getUserInfo(id: iceP_id, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getUserInfo(id: iceP_id, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

@@ -282,7 +282,7 @@ public extension PropertiesAdminPrx {
 
 
 /// Dispatcher for `PropertiesAdmin` servants.
-public struct PropertiesAdminDisp: Disp {
+public struct PropertiesAdminDisp: Ice.Dispatcher {
     public let servant: PropertiesAdmin
     private static let defaultObject = ObjectI<PropertiesAdminTraits>()
 
@@ -290,25 +290,24 @@ public struct PropertiesAdminDisp: Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Request, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getPropertiesForPrefix":
-            return try servant._iceD_getPropertiesForPrefix(incoming: request, current: current)
+            servant._iceD_getPropertiesForPrefix(request)
         case "getProperty":
-            return try servant._iceD_getProperty(incoming: request, current: current)
+            servant._iceD_getProperty(request)
         case "ice_id":
-            return try (servant as? Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_ping(request)
         case "setProperties":
-            return try servant._iceD_setProperties(incoming: request, current: current)
+            servant._iceD_setProperties(request)
         default:
-            throw OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -354,41 +353,51 @@ public protocol PropertiesAdmin {
 ///  - getPropertiesForPrefix: Get all properties whose keys begin with prefix.
 ///
 ///  - setProperties: Update the communicator's properties with the given property set.
-public extension PropertiesAdmin {
-    func _iceD_getProperty(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let iceP_key: Swift.String = try inS.read { istr in
+extension PropertiesAdmin {
+    public func _iceD_getProperty(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_key: Swift.String = try istr.read()
-            return iceP_key
-        }
 
-        let iceP_returnValue = try self.getProperty(key: iceP_key, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getProperty(key: iceP_key, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getPropertiesForPrefix(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let iceP_prefix: Swift.String = try inS.read { istr in
+    public func _iceD_getPropertiesForPrefix(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_prefix: Swift.String = try istr.read()
-            return iceP_prefix
-        }
 
-        let iceP_returnValue = try self.getPropertiesForPrefix(prefix: iceP_prefix, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getPropertiesForPrefix(prefix: iceP_prefix, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_setProperties(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let iceP_newProperties: PropertyDict = try inS.read { istr in
+    public func _iceD_setProperties(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_newProperties: PropertyDict = try PropertyDictHelper.read(from: istr)
-            return iceP_newProperties
+
+            try self.setProperties(newProperties: iceP_newProperties, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.setProperties(newProperties: iceP_newProperties, current: current)
-
-        return inS.setResult()
     }
 }

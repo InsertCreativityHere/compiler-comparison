@@ -1585,7 +1585,7 @@ public extension WrongOperationPrx {
 
 
 /// Dispatcher for `Empty` servants.
-public struct EmptyDisp: Ice.Disp {
+public struct EmptyDisp: Ice.Dispatcher {
     public let servant: Empty
     private static let defaultObject = Ice.ObjectI<EmptyTraits>()
 
@@ -1593,19 +1593,18 @@ public struct EmptyDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? EmptyDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? EmptyDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? EmptyDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? EmptyDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1614,7 +1613,7 @@ public protocol Empty {}
 
 
 /// Dispatcher for `Thrower` servants.
-public struct ThrowerDisp: Ice.Disp {
+public struct ThrowerDisp: Ice.Dispatcher {
     public let servant: Thrower
     private static let defaultObject = Ice.ObjectI<ThrowerTraits>()
 
@@ -1622,57 +1621,56 @@ public struct ThrowerDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? ThrowerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? ThrowerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? ThrowerDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? ThrowerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? ThrowerDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? ThrowerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? ThrowerDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? ThrowerDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "supportsAssertException":
-            return try servant._iceD_supportsAssertException(incoming: request, current: current)
+            servant._iceD_supportsAssertException(request)
         case "supportsUndeclaredExceptions":
-            return try servant._iceD_supportsUndeclaredExceptions(incoming: request, current: current)
+            servant._iceD_supportsUndeclaredExceptions(request)
         case "throwAasA":
-            return try servant._iceD_throwAasA(incoming: request, current: current)
+            servant._iceD_throwAasA(request)
         case "throwAorDasAorD":
-            return try servant._iceD_throwAorDasAorD(incoming: request, current: current)
+            servant._iceD_throwAorDasAorD(request)
         case "throwAssertException":
-            return try servant._iceD_throwAssertException(incoming: request, current: current)
+            servant._iceD_throwAssertException(request)
         case "throwBasA":
-            return try servant._iceD_throwBasA(incoming: request, current: current)
+            servant._iceD_throwBasA(request)
         case "throwBasB":
-            return try servant._iceD_throwBasB(incoming: request, current: current)
+            servant._iceD_throwBasB(request)
         case "throwCasA":
-            return try servant._iceD_throwCasA(incoming: request, current: current)
+            servant._iceD_throwCasA(request)
         case "throwCasB":
-            return try servant._iceD_throwCasB(incoming: request, current: current)
+            servant._iceD_throwCasB(request)
         case "throwCasC":
-            return try servant._iceD_throwCasC(incoming: request, current: current)
+            servant._iceD_throwCasC(request)
         case "throwLocalException":
-            return try servant._iceD_throwLocalException(incoming: request, current: current)
+            servant._iceD_throwLocalException(request)
         case "throwLocalExceptionIdempotent":
-            return try servant._iceD_throwLocalExceptionIdempotent(incoming: request, current: current)
+            servant._iceD_throwLocalExceptionIdempotent(request)
         case "throwMemoryLimitException":
-            return try servant._iceD_throwMemoryLimitException(incoming: request, current: current)
+            servant._iceD_throwMemoryLimitException(request)
         case "throwModA":
-            return try servant._iceD_throwModA(incoming: request, current: current)
+            servant._iceD_throwModA(request)
         case "throwNonIceException":
-            return try servant._iceD_throwNonIceException(incoming: request, current: current)
+            servant._iceD_throwNonIceException(request)
         case "throwUndeclaredA":
-            return try servant._iceD_throwUndeclaredA(incoming: request, current: current)
+            servant._iceD_throwUndeclaredA(request)
         case "throwUndeclaredB":
-            return try servant._iceD_throwUndeclaredB(incoming: request, current: current)
+            servant._iceD_throwUndeclaredB(request)
         case "throwUndeclaredC":
-            return try servant._iceD_throwUndeclaredC(incoming: request, current: current)
+            servant._iceD_throwUndeclaredC(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1811,7 +1809,7 @@ public protocol Thrower {
 
 
 /// Dispatcher for `WrongOperation` servants.
-public struct WrongOperationDisp: Ice.Disp {
+public struct WrongOperationDisp: Ice.Dispatcher {
     public let servant: WrongOperation
     private static let defaultObject = Ice.ObjectI<WrongOperationTraits>()
 
@@ -1819,21 +1817,20 @@ public struct WrongOperationDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? WrongOperationDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? WrongOperationDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? WrongOperationDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? WrongOperationDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? WrongOperationDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? WrongOperationDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? WrongOperationDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? WrongOperationDisp.defaultObject)._iceD_ice_ping(request)
         case "noSuchOperation":
-            return try servant._iceD_noSuchOperation(incoming: request, current: current)
+            servant._iceD_noSuchOperation(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1845,7 +1842,7 @@ public protocol WrongOperation {
 }
 
 /// Empty overview.
-public extension Empty {}
+extension Empty {}
 
 /// Thrower overview.
 ///
@@ -1888,211 +1885,262 @@ public extension Empty {}
 ///  - throwMemoryLimitException: 
 ///
 ///  - throwLocalExceptionIdempotent: 
-public extension Thrower {
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension Thrower {
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_supportsUndeclaredExceptions(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_supportsUndeclaredExceptions(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.supportsUndeclaredExceptions(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.supportsUndeclaredExceptions(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_supportsAssertException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_supportsAssertException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.supportsAssertException(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.supportsAssertException(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_throwAasA(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_a: Swift.Int32 = try inS.read { istr in
+    public func _iceD_throwAasA(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_a: Swift.Int32 = try istr.read()
-            return iceP_a
+
+            try self.throwAasA(a: iceP_a, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.throwAasA(a: iceP_a, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_throwAorDasAorD(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_a: Swift.Int32 = try inS.read { istr in
+    public func _iceD_throwAorDasAorD(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_a: Swift.Int32 = try istr.read()
-            return iceP_a
+
+            try self.throwAorDasAorD(a: iceP_a, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.throwAorDasAorD(a: iceP_a, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_throwBasA(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_a, iceP_b): (Swift.Int32, Swift.Int32) = try inS.read { istr in
-            let iceP_a: Swift.Int32 = try istr.read()
-            let iceP_b: Swift.Int32 = try istr.read()
-            return (iceP_a, iceP_b)
-        }
-
-        try self.throwBasA(a: iceP_a, b: iceP_b, current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_throwCasA(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_a, iceP_b, iceP_c): (Swift.Int32, Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_throwBasA(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_a: Swift.Int32 = try istr.read()
             let iceP_b: Swift.Int32 = try istr.read()
-            let iceP_c: Swift.Int32 = try istr.read()
-            return (iceP_a, iceP_b, iceP_c)
+
+            try self.throwBasA(a: iceP_a, b: iceP_b, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.throwCasA(a: iceP_a, b: iceP_b, c: iceP_c, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_throwBasB(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_a, iceP_b): (Swift.Int32, Swift.Int32) = try inS.read { istr in
-            let iceP_a: Swift.Int32 = try istr.read()
-            let iceP_b: Swift.Int32 = try istr.read()
-            return (iceP_a, iceP_b)
-        }
-
-        try self.throwBasB(a: iceP_a, b: iceP_b, current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_throwCasB(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_a, iceP_b, iceP_c): (Swift.Int32, Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_throwCasA(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_a: Swift.Int32 = try istr.read()
             let iceP_b: Swift.Int32 = try istr.read()
             let iceP_c: Swift.Int32 = try istr.read()
-            return (iceP_a, iceP_b, iceP_c)
+
+            try self.throwCasA(a: iceP_a, b: iceP_b, c: iceP_c, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.throwCasB(a: iceP_a, b: iceP_b, c: iceP_c, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_throwCasC(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_a, iceP_b, iceP_c): (Swift.Int32, Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_throwBasB(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
+            let iceP_a: Swift.Int32 = try istr.read()
+            let iceP_b: Swift.Int32 = try istr.read()
+
+            try self.throwBasB(a: iceP_a, b: iceP_b, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_throwCasB(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_a: Swift.Int32 = try istr.read()
             let iceP_b: Swift.Int32 = try istr.read()
             let iceP_c: Swift.Int32 = try istr.read()
-            return (iceP_a, iceP_b, iceP_c)
+
+            try self.throwCasB(a: iceP_a, b: iceP_b, c: iceP_c, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.throwCasC(a: iceP_a, b: iceP_b, c: iceP_c, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_throwModA(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_a, iceP_a2): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_throwCasC(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
+            let iceP_a: Swift.Int32 = try istr.read()
+            let iceP_b: Swift.Int32 = try istr.read()
+            let iceP_c: Swift.Int32 = try istr.read()
+
+            try self.throwCasC(a: iceP_a, b: iceP_b, c: iceP_c, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_throwModA(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_a: Swift.Int32 = try istr.read()
             let iceP_a2: Swift.Int32 = try istr.read()
-            return (iceP_a, iceP_a2)
+
+            try self.throwModA(a: iceP_a, a2: iceP_a2, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.throwModA(a: iceP_a, a2: iceP_a2, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_throwUndeclaredA(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_a: Swift.Int32 = try inS.read { istr in
+    public func _iceD_throwUndeclaredA(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_a: Swift.Int32 = try istr.read()
-            return iceP_a
+
+            try self.throwUndeclaredA(a: iceP_a, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.throwUndeclaredA(a: iceP_a, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_throwUndeclaredB(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_a, iceP_b): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_throwUndeclaredB(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_a: Swift.Int32 = try istr.read()
             let iceP_b: Swift.Int32 = try istr.read()
-            return (iceP_a, iceP_b)
+
+            try self.throwUndeclaredB(a: iceP_a, b: iceP_b, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.throwUndeclaredB(a: iceP_a, b: iceP_b, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_throwUndeclaredC(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_a, iceP_b, iceP_c): (Swift.Int32, Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_throwUndeclaredC(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_a: Swift.Int32 = try istr.read()
             let iceP_b: Swift.Int32 = try istr.read()
             let iceP_c: Swift.Int32 = try istr.read()
-            return (iceP_a, iceP_b, iceP_c)
+
+            try self.throwUndeclaredC(a: iceP_a, b: iceP_b, c: iceP_c, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.throwUndeclaredC(a: iceP_a, b: iceP_b, c: iceP_c, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_throwLocalException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_throwLocalException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.throwLocalException(current: current)
-
-        return inS.setResult()
+            try self.throwLocalException(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_throwNonIceException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_throwNonIceException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.throwNonIceException(current: current)
-
-        return inS.setResult()
+            try self.throwNonIceException(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_throwAssertException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_throwAssertException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.throwAssertException(current: current)
-
-        return inS.setResult()
+            try self.throwAssertException(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_throwMemoryLimitException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_seq: Ice.ByteSeq = try inS.read { istr in
+    public func _iceD_throwMemoryLimitException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_seq: Ice.ByteSeq = try istr.read()
-            return iceP_seq
-        }
 
-        let iceP_returnValue = try self.throwMemoryLimitException(seq: iceP_seq, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.throwMemoryLimitException(seq: iceP_seq, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_throwLocalExceptionIdempotent(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_throwLocalExceptionIdempotent(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.throwLocalExceptionIdempotent(current: current)
-
-        return inS.setResult()
+            try self.throwLocalExceptionIdempotent(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
 
@@ -2101,12 +2149,15 @@ public extension Thrower {
 /// WrongOperation Methods:
 ///
 ///  - noSuchOperation: 
-public extension WrongOperation {
-    func _iceD_noSuchOperation(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension WrongOperation {
+    public func _iceD_noSuchOperation(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.noSuchOperation(current: current)
-
-        return inS.setResult()
+            try self.noSuchOperation(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

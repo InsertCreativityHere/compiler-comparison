@@ -1161,7 +1161,7 @@ public extension LocatorPrx {
 
 
 /// Dispatcher for `Query` servants.
-public struct QueryDisp: Ice.Disp {
+public struct QueryDisp: Ice.Dispatcher {
     public let servant: Query
     private static let defaultObject = Ice.ObjectI<QueryTraits>()
 
@@ -1169,29 +1169,28 @@ public struct QueryDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "findAllObjectsByType":
-            return try servant._iceD_findAllObjectsByType(incoming: request, current: current)
+            servant._iceD_findAllObjectsByType(request)
         case "findAllReplicas":
-            return try servant._iceD_findAllReplicas(incoming: request, current: current)
+            servant._iceD_findAllReplicas(request)
         case "findObjectById":
-            return try servant._iceD_findObjectById(incoming: request, current: current)
+            servant._iceD_findObjectById(request)
         case "findObjectByType":
-            return try servant._iceD_findObjectByType(incoming: request, current: current)
+            servant._iceD_findObjectByType(request)
         case "findObjectByTypeOnLeastLoadedNode":
-            return try servant._iceD_findObjectByTypeOnLeastLoadedNode(incoming: request, current: current)
+            servant._iceD_findObjectByTypeOnLeastLoadedNode(request)
         case "ice_id":
-            return try (servant as? Object ?? QueryDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? QueryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? QueryDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? QueryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? QueryDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? QueryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? QueryDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? QueryDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1254,7 +1253,7 @@ public protocol Query {
 
 
 /// Dispatcher for `Registry` servants.
-public struct RegistryDisp: Ice.Disp {
+public struct RegistryDisp: Ice.Dispatcher {
     public let servant: Registry
     private static let defaultObject = Ice.ObjectI<RegistryTraits>()
 
@@ -1262,31 +1261,30 @@ public struct RegistryDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "createAdminSession":
-            return try servant._iceD_createAdminSession(incoming: request, current: current)
+            servant._iceD_createAdminSession(request)
         case "createAdminSessionFromSecureConnection":
-            return try servant._iceD_createAdminSessionFromSecureConnection(incoming: request, current: current)
+            servant._iceD_createAdminSessionFromSecureConnection(request)
         case "createSession":
-            return try servant._iceD_createSession(incoming: request, current: current)
+            servant._iceD_createSession(request)
         case "createSessionFromSecureConnection":
-            return try servant._iceD_createSessionFromSecureConnection(incoming: request, current: current)
+            servant._iceD_createSessionFromSecureConnection(request)
         case "getACMTimeout":
-            return try servant._iceD_getACMTimeout(incoming: request, current: current)
+            servant._iceD_getACMTimeout(request)
         case "getSessionTimeout":
-            return try servant._iceD_getSessionTimeout(incoming: request, current: current)
+            servant._iceD_getSessionTimeout(request)
         case "ice_id":
-            return try (servant as? Object ?? RegistryDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? RegistryDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? RegistryDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? RegistryDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1366,7 +1364,7 @@ public protocol Registry {
 
 
 /// Dispatcher for `Locator` servants.
-public struct LocatorDisp: Ice.Disp {
+public struct LocatorDisp: Ice.Dispatcher {
     public let servant: Locator
     private static let defaultObject = Ice.ObjectI<LocatorTraits>()
 
@@ -1374,29 +1372,28 @@ public struct LocatorDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "findAdapterById":
-            return try servant._iceD_findAdapterById(incoming: request, current: current)
+            servant._iceD_findAdapterById(request)
         case "findObjectById":
-            return try servant._iceD_findObjectById(incoming: request, current: current)
+            servant._iceD_findObjectById(request)
         case "getLocalQuery":
-            return try servant._iceD_getLocalQuery(incoming: request, current: current)
+            servant._iceD_getLocalQuery(request)
         case "getLocalRegistry":
-            return try servant._iceD_getLocalRegistry(incoming: request, current: current)
+            servant._iceD_getLocalRegistry(request)
         case "getRegistry":
-            return try servant._iceD_getRegistry(incoming: request, current: current)
+            servant._iceD_getRegistry(request)
         case "ice_id":
-            return try (servant as? Object ?? LocatorDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? LocatorDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? LocatorDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? LocatorDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -1433,70 +1430,90 @@ public protocol Locator: Ice.Locator {
 ///  - findAllObjectsByType: Find all the well-known objects with the given type.
 ///
 ///  - findAllReplicas: Find all the object replicas associated with the given proxy.
-public extension Query {
-    func _iceD_findObjectById(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_id: Ice.Identity = try inS.read { istr in
+extension Query {
+    public func _iceD_findObjectById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_id: Ice.Identity = try istr.read()
-            return iceP_id
-        }
 
-        let iceP_returnValue = try self.findObjectById(id: iceP_id, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.findObjectById(id: iceP_id, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_findObjectByType(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_type: Swift.String = try inS.read { istr in
+    public func _iceD_findObjectByType(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_type: Swift.String = try istr.read()
-            return iceP_type
-        }
 
-        let iceP_returnValue = try self.findObjectByType(type: iceP_type, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.findObjectByType(type: iceP_type, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_findObjectByTypeOnLeastLoadedNode(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_type, iceP_sample): (Swift.String, LoadSample) = try inS.read { istr in
+    public func _iceD_findObjectByTypeOnLeastLoadedNode(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_type: Swift.String = try istr.read()
             let iceP_sample: LoadSample = try istr.read()
-            return (iceP_type, iceP_sample)
-        }
 
-        let iceP_returnValue = try self.findObjectByTypeOnLeastLoadedNode(type: iceP_type, sample: iceP_sample, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.findObjectByTypeOnLeastLoadedNode(type: iceP_type, sample: iceP_sample, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_findAllObjectsByType(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_type: Swift.String = try inS.read { istr in
+    public func _iceD_findAllObjectsByType(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_type: Swift.String = try istr.read()
-            return iceP_type
-        }
 
-        let iceP_returnValue = try self.findAllObjectsByType(type: iceP_type, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.findAllObjectsByType(type: iceP_type, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             Ice.ObjectProxySeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_findAllReplicas(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_proxy: Ice.ObjectPrx? = try inS.read { istr in
+    public func _iceD_findAllReplicas(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_proxy: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            return iceP_proxy
-        }
 
-        let iceP_returnValue = try self.findAllReplicas(proxy: iceP_proxy, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.findAllReplicas(proxy: iceP_proxy, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             Ice.ObjectProxySeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1516,72 +1533,100 @@ public extension Query {
 ///  - getSessionTimeout: Get the idle timeout used by IceGrid for its side of the connection.
 ///
 ///  - getACMTimeout: Get the idle timeout used by IceGrid for its side of the connection.
-public extension Registry {
-    func _iceD_createSession(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_userId, iceP_password): (Swift.String, Swift.String) = try inS.read { istr in
+extension Registry {
+    public func _iceD_createSession(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_userId: Swift.String = try istr.read()
             let iceP_password: Swift.String = try istr.read()
-            return (iceP_userId, iceP_password)
-        }
 
-        let iceP_returnValue = try self.createSession(userId: iceP_userId, password: iceP_password, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.createSession(userId: iceP_userId, password: iceP_password, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_createAdminSession(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_userId, iceP_password): (Swift.String, Swift.String) = try inS.read { istr in
+    public func _iceD_createAdminSession(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_userId: Swift.String = try istr.read()
             let iceP_password: Swift.String = try istr.read()
-            return (iceP_userId, iceP_password)
-        }
 
-        let iceP_returnValue = try self.createAdminSession(userId: iceP_userId, password: iceP_password, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.createAdminSession(userId: iceP_userId, password: iceP_password, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_createSessionFromSecureConnection(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.createSessionFromSecureConnection(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_createAdminSessionFromSecureConnection(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_createSessionFromSecureConnection(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.createAdminSessionFromSecureConnection(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.createSessionFromSecureConnection(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getSessionTimeout(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_createAdminSessionFromSecureConnection(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getSessionTimeout(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.createAdminSessionFromSecureConnection(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getACMTimeout(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getSessionTimeout(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getACMTimeout(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getSessionTimeout(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_getACMTimeout(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            let iceP_returnValue = try self.getACMTimeout(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+            ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }
@@ -1594,24 +1639,34 @@ public extension Registry {
 ///  - getLocalRegistry: Get the proxy of the registry object hosted by this IceGrid registry.
 ///
 ///  - getLocalQuery: Get the proxy of the query object hosted by this IceGrid registry.
-public extension Locator {
-    func _iceD_getLocalRegistry(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension Locator {
+    public func _iceD_getLocalRegistry(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getLocalRegistry(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getLocalRegistry(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getLocalQuery(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getLocalQuery(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getLocalQuery(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getLocalQuery(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 }

@@ -145,7 +145,7 @@ public extension Interface2Prx {
 
 
 /// Dispatcher for `Interface2` servants.
-public struct Interface2Disp: Ice.Disp {
+public struct Interface2Disp: Ice.Dispatcher {
     public let servant: Interface2
     private static let defaultObject = Ice.ObjectI<Interface2Traits>()
 
@@ -153,21 +153,20 @@ public struct Interface2Disp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "ice_id":
-            return try (servant as? Object ?? Interface2Disp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? Interface2Disp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? Interface2Disp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? Interface2Disp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? Interface2Disp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? Interface2Disp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? Interface2Disp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? Interface2Disp.defaultObject)._iceD_ice_ping(request)
         case "method":
-            return try servant._iceD_method(incoming: request, current: current)
+            servant._iceD_method(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -183,12 +182,15 @@ public protocol Interface2 {
 /// Interface2 Methods:
 ///
 ///  - method: 
-public extension Interface2 {
-    func _iceD_method(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension Interface2 {
+    public func _iceD_method(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.method(current: current)
-
-        return inS.setResult()
+            try self.method(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

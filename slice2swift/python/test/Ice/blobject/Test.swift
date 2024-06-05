@@ -340,7 +340,7 @@ public extension HelloPrx {
 
 
 /// Dispatcher for `Hello` servants.
-public struct HelloDisp: Ice.Disp {
+public struct HelloDisp: Ice.Dispatcher {
     public let servant: Hello
     private static let defaultObject = Ice.ObjectI<HelloTraits>()
 
@@ -348,27 +348,26 @@ public struct HelloDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "add":
-            return try servant._iceD_add(incoming: request, current: current)
+            servant._iceD_add(request)
         case "ice_id":
-            return try (servant as? Object ?? HelloDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? HelloDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? HelloDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? HelloDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_ping(request)
         case "raiseUE":
-            return try servant._iceD_raiseUE(incoming: request, current: current)
+            servant._iceD_raiseUE(request)
         case "sayHello":
-            return try servant._iceD_sayHello(incoming: request, current: current)
+            servant._iceD_sayHello(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -410,45 +409,57 @@ public protocol Hello {
 ///  - raiseUE: 
 ///
 ///  - shutdown: 
-public extension Hello {
-    func _iceD_sayHello(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_delay: Swift.Int32 = try inS.read { istr in
+extension Hello {
+    public func _iceD_sayHello(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_delay: Swift.Int32 = try istr.read()
-            return iceP_delay
+
+            try self.sayHello(delay: iceP_delay, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
-
-        try self.sayHello(delay: iceP_delay, current: current)
-
-        return inS.setResult()
     }
 
-    func _iceD_add(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_s1, iceP_s2): (Swift.Int32, Swift.Int32) = try inS.read { istr in
+    public func _iceD_add(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
             let iceP_s1: Swift.Int32 = try istr.read()
             let iceP_s2: Swift.Int32 = try istr.read()
-            return (iceP_s1, iceP_s2)
-        }
 
-        let iceP_returnValue = try self.add(s1: iceP_s1, s2: iceP_s2, current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.add(s1: iceP_s1, s2: iceP_s2, current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_raiseUE(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_raiseUE(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.raiseUE(current: current)
-
-        return inS.setResult()
+            try self.raiseUE(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
-
-        return inS.setResult()
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }

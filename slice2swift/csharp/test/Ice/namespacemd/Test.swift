@@ -606,7 +606,7 @@ public extension InitialPrx {
 
 
 /// Dispatcher for `Initial` servants.
-public struct InitialDisp: Ice.Disp {
+public struct InitialDisp: Ice.Dispatcher {
     public let servant: Initial
     private static let defaultObject = Ice.ObjectI<InitialTraits>()
 
@@ -614,39 +614,38 @@ public struct InitialDisp: Ice.Disp {
         self.servant = servant
     }
 
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
         case "getNoNamespaceC2AsC1":
-            return try servant._iceD_getNoNamespaceC2AsC1(incoming: request, current: current)
+            servant._iceD_getNoNamespaceC2AsC1(request)
         case "getNoNamespaceC2AsC2":
-            return try servant._iceD_getNoNamespaceC2AsC2(incoming: request, current: current)
+            servant._iceD_getNoNamespaceC2AsC2(request)
         case "getWithNamespaceC2AsC1":
-            return try servant._iceD_getWithNamespaceC2AsC1(incoming: request, current: current)
+            servant._iceD_getWithNamespaceC2AsC1(request)
         case "getWithNamespaceC2AsC2":
-            return try servant._iceD_getWithNamespaceC2AsC2(incoming: request, current: current)
+            servant._iceD_getWithNamespaceC2AsC2(request)
         case "ice_id":
-            return try (servant as? Object ?? InitialDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            return try (servant as? Object ?? InitialDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            return try (servant as? Object ?? InitialDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            return try (servant as? Object ?? InitialDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            return try servant._iceD_shutdown(incoming: request, current: current)
+            servant._iceD_shutdown(request)
         case "throwNoNamespaceE2AsE1":
-            return try servant._iceD_throwNoNamespaceE2AsE1(incoming: request, current: current)
+            servant._iceD_throwNoNamespaceE2AsE1(request)
         case "throwNoNamespaceE2AsE2":
-            return try servant._iceD_throwNoNamespaceE2AsE2(incoming: request, current: current)
+            servant._iceD_throwNoNamespaceE2AsE2(request)
         case "throwNoNamespaceNotify":
-            return try servant._iceD_throwNoNamespaceNotify(incoming: request, current: current)
+            servant._iceD_throwNoNamespaceNotify(request)
         case "throwWithNamespaceE2AsE1":
-            return try servant._iceD_throwWithNamespaceE2AsE1(incoming: request, current: current)
+            servant._iceD_throwWithNamespaceE2AsE1(request)
         case "throwWithNamespaceE2AsE2":
-            return try servant._iceD_throwWithNamespaceE2AsE2(incoming: request, current: current)
+            servant._iceD_throwWithNamespaceE2AsE2(request)
         default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
         }
     }
 }
@@ -724,96 +723,134 @@ public protocol Initial {
 ///  - throwWithNamespaceE2AsE2: 
 ///
 ///  - shutdown: 
-public extension Initial {
-    func _iceD_getNoNamespaceC2AsC1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+extension Initial {
+    public func _iceD_getNoNamespaceC2AsC1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getNoNamespaceC2AsC1(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getNoNamespaceC2AsC1(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getNoNamespaceC2AsC2(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getNoNamespaceC2AsC2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getNoNamespaceC2AsC2(current: current)
-
-        return inS.setResult{ ostr in
+            let iceP_returnValue = try self.getNoNamespaceC2AsC2(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_throwNoNamespaceE2AsE1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_throwNoNamespaceE2AsE1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.throwNoNamespaceE2AsE1(current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_throwNoNamespaceE2AsE2(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        try self.throwNoNamespaceE2AsE2(current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_throwNoNamespaceNotify(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        try self.throwNoNamespaceNotify(current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_getWithNamespaceC2AsC1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getWithNamespaceC2AsC1(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+            try self.throwNoNamespaceE2AsE1(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_getWithNamespaceC2AsC2(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_throwNoNamespaceE2AsE2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        let iceP_returnValue = try self.getWithNamespaceC2AsC2(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
+            try self.throwNoNamespaceE2AsE2(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
         }
     }
 
-    func _iceD_throwWithNamespaceE2AsE1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_throwNoNamespaceNotify(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.throwWithNamespaceE2AsE1(current: current)
-
-        return inS.setResult()
+            try self.throwNoNamespaceNotify(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_throwWithNamespaceE2AsE2(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getWithNamespaceC2AsC1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.throwWithNamespaceE2AsE2(current: current)
-
-        return inS.setResult()
+            let iceP_returnValue = try self.getWithNamespaceC2AsC1(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 
-    func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
+    public func _iceD_getWithNamespaceC2AsC2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
 
-        try self.shutdown(current: current)
+            let iceP_returnValue = try self.getWithNamespaceC2AsC2(current: request.current)
+            let ostr = request.current.startReplyStream()
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+            ostr.endEncapsulation()
+            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
 
-        return inS.setResult()
+    public func _iceD_throwWithNamespaceE2AsE1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            try self.throwWithNamespaceE2AsE1(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_throwWithNamespaceE2AsE2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            try self.throwWithNamespaceE2AsE2(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            try self.shutdown(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
     }
 }
