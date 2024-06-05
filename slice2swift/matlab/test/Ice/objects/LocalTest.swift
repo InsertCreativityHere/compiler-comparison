@@ -789,7 +789,7 @@ public extension Ice.OutputStream {
     }
 }
 
-public struct S7 {
+public class S7 {
     public var c1seqseq: C1SeqSeq = C1SeqSeq()
 
     public init() {}
@@ -805,7 +805,7 @@ public extension Ice.InputStream {
     ///
     /// - returns: `S7` - The structured value read from the stream.
     func read() throws -> S7 {
-        var v = S7()
+        let v = S7()
         v.c1seqseq = try C1SeqSeqHelper.read(from: self)
         return v
     }
@@ -849,7 +849,7 @@ public extension Ice.OutputStream {
     }
 }
 
-public struct S8 {
+public class S8 {
     public var s1seqseq: S1SeqSeq = S1SeqSeq()
 
     public init() {}
@@ -865,7 +865,7 @@ public extension Ice.InputStream {
     ///
     /// - returns: `S8` - The structured value read from the stream.
     func read() throws -> S8 {
-        var v = S8()
+        let v = S8()
         v.s1seqseq = try S1SeqSeqHelper.read(from: self)
         return v
     }
