@@ -49,6 +49,18 @@ private final class gxCanvasPrxI: Ice.ObjectPrxI, gxCanvasPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: gxCanvasPrx.Protocol) throws -> gxCanvasPrx {
+    try communicator.makeProxyImpl(proxyString) as gxCanvasPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -220,6 +232,18 @@ private final class gxSessionPrxI: Ice.ObjectPrxI, gxSessionPrx {
     public override class func ice_staticId() -> Swift.String {
         return gxSessionTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: gxSessionPrx.Protocol) throws -> gxSessionPrx {
+    try communicator.makeProxyImpl(proxyString) as gxSessionPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object

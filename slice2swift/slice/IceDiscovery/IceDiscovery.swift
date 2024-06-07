@@ -48,6 +48,18 @@ private final class LookupReplyPrxI: Ice.ObjectPrxI, LookupReplyPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LookupReplyPrx.Protocol) throws -> LookupReplyPrx {
+    try communicator.makeProxyImpl(proxyString) as LookupReplyPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -247,6 +259,18 @@ private final class LookupPrxI: Ice.ObjectPrxI, LookupPrx {
     public override class func ice_staticId() -> Swift.String {
         return LookupTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LookupPrx.Protocol) throws -> LookupPrx {
+    try communicator.makeProxyImpl(proxyString) as LookupPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object

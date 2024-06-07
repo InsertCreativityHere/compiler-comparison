@@ -660,6 +660,18 @@ private final class TopicPrxI: Ice.ObjectPrxI, TopicPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TopicPrx.Protocol) throws -> TopicPrx {
+    try communicator.makeProxyImpl(proxyString) as TopicPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -1293,6 +1305,18 @@ private final class TopicManagerPrxI: Ice.ObjectPrxI, TopicManagerPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TopicManagerPrx.Protocol) throws -> TopicManagerPrx {
+    try communicator.makeProxyImpl(proxyString) as TopicManagerPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -1570,6 +1594,18 @@ private final class FinderPrxI: Ice.ObjectPrxI, FinderPrx {
     public override class func ice_staticId() -> Swift.String {
         return FinderTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: FinderPrx.Protocol) throws -> FinderPrx {
+    try communicator.makeProxyImpl(proxyString) as FinderPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object

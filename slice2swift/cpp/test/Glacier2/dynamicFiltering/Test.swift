@@ -195,6 +195,18 @@ private final class BackendPrxI: Ice.ObjectPrxI, BackendPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: BackendPrx.Protocol) throws -> BackendPrx {
+    try communicator.makeProxyImpl(proxyString) as BackendPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -354,6 +366,18 @@ private final class TestControllerPrxI: Ice.ObjectPrxI, TestControllerPrx {
     public override class func ice_staticId() -> Swift.String {
         return TestControllerTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TestControllerPrx.Protocol) throws -> TestControllerPrx {
+    try communicator.makeProxyImpl(proxyString) as TestControllerPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
@@ -537,6 +561,18 @@ private final class TestSessionPrxI: Ice.ObjectPrxI, TestSessionPrx {
     public override class func ice_staticId() -> Swift.String {
         return TestSessionTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TestSessionPrx.Protocol) throws -> TestSessionPrx {
+    try communicator.makeProxyImpl(proxyString) as TestSessionPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object

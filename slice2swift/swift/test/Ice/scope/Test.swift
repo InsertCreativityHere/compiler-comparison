@@ -1857,6 +1857,18 @@ private final class IPrxI: Ice.ObjectPrxI, IPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: IPrx.Protocol) throws -> IPrx {
+    try communicator.makeProxyImpl(proxyString) as IPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -2642,6 +2654,18 @@ private final class InnerInner2IPrxI: Ice.ObjectPrxI, InnerInner2IPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: InnerInner2IPrx.Protocol) throws -> InnerInner2IPrx {
+    try communicator.makeProxyImpl(proxyString) as InnerInner2IPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -3156,6 +3180,18 @@ private final class InnerIPrxI: Ice.ObjectPrxI, InnerIPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: InnerIPrx.Protocol) throws -> InnerIPrx {
+    try communicator.makeProxyImpl(proxyString) as InnerIPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -3668,6 +3704,18 @@ private final class InnerTestInner2IPrxI: Ice.ObjectPrxI, InnerTestInner2IPrx {
     public override class func ice_staticId() -> Swift.String {
         return InnerTestInner2ITraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: InnerTestInner2IPrx.Protocol) throws -> InnerTestInner2IPrx {
+    try communicator.makeProxyImpl(proxyString) as InnerTestInner2IPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object

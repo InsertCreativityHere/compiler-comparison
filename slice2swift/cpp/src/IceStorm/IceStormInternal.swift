@@ -230,6 +230,18 @@ private final class TopicLinkPrxI: Ice.ObjectPrxI, TopicLinkPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TopicLinkPrx.Protocol) throws -> TopicLinkPrx {
+    try communicator.makeProxyImpl(proxyString) as TopicLinkPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -364,6 +376,18 @@ private final class TopicInternalPrxI: Ice.ObjectPrxI, TopicInternalPrx {
     public override class func ice_staticId() -> Swift.String {
         return TopicInternalTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TopicInternalPrx.Protocol) throws -> TopicInternalPrx {
+    try communicator.makeProxyImpl(proxyString) as TopicInternalPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
@@ -559,6 +583,18 @@ private final class TopicManagerInternalPrxI: Ice.ObjectPrxI, TopicManagerIntern
     public override class func ice_staticId() -> Swift.String {
         return TopicManagerInternalTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TopicManagerInternalPrx.Protocol) throws -> TopicManagerInternalPrx {
+    try communicator.makeProxyImpl(proxyString) as TopicManagerInternalPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object

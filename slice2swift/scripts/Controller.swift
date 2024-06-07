@@ -222,6 +222,18 @@ private final class CommonTestCasePrxI: Ice.ObjectPrxI, CommonTestCasePrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CommonTestCasePrx.Protocol) throws -> CommonTestCasePrx {
+    try communicator.makeProxyImpl(proxyString) as CommonTestCasePrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -565,6 +577,18 @@ private final class CommonControllerPrxI: Ice.ObjectPrxI, CommonControllerPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CommonControllerPrx.Protocol) throws -> CommonControllerPrx {
+    try communicator.makeProxyImpl(proxyString) as CommonControllerPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -904,6 +928,18 @@ private final class CommonProcessPrxI: Ice.ObjectPrxI, CommonProcessPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CommonProcessPrx.Protocol) throws -> CommonProcessPrx {
+    try communicator.makeProxyImpl(proxyString) as CommonProcessPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -1162,6 +1198,18 @@ private final class CommonProcessControllerPrxI: Ice.ObjectPrxI, CommonProcessCo
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CommonProcessControllerPrx.Protocol) throws -> CommonProcessControllerPrx {
+    try communicator.makeProxyImpl(proxyString) as CommonProcessControllerPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -1387,6 +1435,18 @@ private final class CommonBrowserProcessControllerPrxI: Ice.ObjectPrxI, CommonBr
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CommonBrowserProcessControllerPrx.Protocol) throws -> CommonBrowserProcessControllerPrx {
+    try communicator.makeProxyImpl(proxyString) as CommonBrowserProcessControllerPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -1515,6 +1575,18 @@ private final class CommonProcessControllerRegistryPrxI: Ice.ObjectPrxI, CommonP
     public override class func ice_staticId() -> Swift.String {
         return CommonProcessControllerRegistryTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CommonProcessControllerRegistryPrx.Protocol) throws -> CommonProcessControllerRegistryPrx {
+    try communicator.makeProxyImpl(proxyString) as CommonProcessControllerRegistryPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object

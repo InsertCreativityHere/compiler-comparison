@@ -206,6 +206,18 @@ private final class MAIAPrxI: Ice.ObjectPrxI, MAIAPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MAIAPrx.Protocol) throws -> MAIAPrx {
+    try communicator.makeProxyImpl(proxyString) as MAIAPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -344,6 +356,18 @@ private final class MBIB1PrxI: Ice.ObjectPrxI, MBIB1Prx {
     public override class func ice_staticId() -> Swift.String {
         return MBIB1Traits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MBIB1Prx.Protocol) throws -> MBIB1Prx {
+    try communicator.makeProxyImpl(proxyString) as MBIB1PrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
@@ -486,6 +510,18 @@ private final class MBIB2PrxI: Ice.ObjectPrxI, MBIB2Prx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MBIB2Prx.Protocol) throws -> MBIB2Prx {
+    try communicator.makeProxyImpl(proxyString) as MBIB2PrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -624,6 +660,18 @@ private final class MAICPrxI: Ice.ObjectPrxI, MAICPrx {
     public override class func ice_staticId() -> Swift.String {
         return MAICTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MAICPrx.Protocol) throws -> MAICPrx {
+    try communicator.makeProxyImpl(proxyString) as MAICPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
@@ -780,6 +828,18 @@ private final class InitialPrxI: Ice.ObjectPrxI, InitialPrx {
     public override class func ice_staticId() -> Swift.String {
         return InitialTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: InitialPrx.Protocol) throws -> InitialPrx {
+    try communicator.makeProxyImpl(proxyString) as InitialPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object

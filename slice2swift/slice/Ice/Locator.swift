@@ -235,6 +235,18 @@ internal final class LocatorPrxI: ObjectPrxI, LocatorPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LocatorPrx.Protocol) throws -> LocatorPrx {
+    try communicator.makeProxyImpl(proxyString) as LocatorPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -527,6 +539,18 @@ internal final class LocatorRegistryPrxI: ObjectPrxI, LocatorRegistryPrx {
     public override class func ice_staticId() -> Swift.String {
         return LocatorRegistryTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LocatorRegistryPrx.Protocol) throws -> LocatorRegistryPrx {
+    try communicator.makeProxyImpl(proxyString) as LocatorRegistryPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
@@ -857,6 +881,18 @@ internal final class LocatorFinderPrxI: ObjectPrxI, LocatorFinderPrx {
     public override class func ice_staticId() -> Swift.String {
         return LocatorFinderTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LocatorFinderPrx.Protocol) throws -> LocatorFinderPrx {
+    try communicator.makeProxyImpl(proxyString) as LocatorFinderPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object

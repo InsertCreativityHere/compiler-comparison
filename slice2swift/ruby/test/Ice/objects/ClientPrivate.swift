@@ -434,6 +434,18 @@ private final class UnexpectedObjectExceptionTestPrxI: Ice.ObjectPrxI, Unexpecte
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: UnexpectedObjectExceptionTestPrx.Protocol) throws -> UnexpectedObjectExceptionTestPrx {
+    try communicator.makeProxyImpl(proxyString) as UnexpectedObjectExceptionTestPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///

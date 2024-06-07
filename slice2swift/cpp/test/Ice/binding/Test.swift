@@ -50,6 +50,18 @@ private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TestIntfPrx.Protocol) throws -> TestIntfPrx {
+    try communicator.makeProxyImpl(proxyString) as TestIntfPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -182,6 +194,18 @@ private final class RemoteObjectAdapterPrxI: Ice.ObjectPrxI, RemoteObjectAdapter
     public override class func ice_staticId() -> Swift.String {
         return RemoteObjectAdapterTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: RemoteObjectAdapterPrx.Protocol) throws -> RemoteObjectAdapterPrx {
+    try communicator.makeProxyImpl(proxyString) as RemoteObjectAdapterPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
@@ -353,6 +377,18 @@ private final class RemoteCommunicatorPrxI: Ice.ObjectPrxI, RemoteCommunicatorPr
     public override class func ice_staticId() -> Swift.String {
         return RemoteCommunicatorTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: RemoteCommunicatorPrx.Protocol) throws -> RemoteCommunicatorPrx {
+    try communicator.makeProxyImpl(proxyString) as RemoteCommunicatorPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object

@@ -115,6 +115,18 @@ private final class MyClassPrxI: Ice.ObjectPrxI, MyClassPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MyClassPrx.Protocol) throws -> MyClassPrx {
+    try communicator.makeProxyImpl(proxyString) as MyClassPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -276,6 +288,18 @@ private final class MyDerivedClassPrxI: Ice.ObjectPrxI, MyDerivedClassPrx {
     public override class func ice_staticId() -> Swift.String {
         return MyDerivedClassTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MyDerivedClassPrx.Protocol) throws -> MyDerivedClassPrx {
+    try communicator.makeProxyImpl(proxyString) as MyDerivedClassPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object

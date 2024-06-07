@@ -1712,6 +1712,18 @@ private final class AdminPrxI: Ice.ObjectPrxI, AdminPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: AdminPrx.Protocol) throws -> AdminPrx {
+    try communicator.makeProxyImpl(proxyString) as AdminPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -1986,9 +1998,9 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as DeploymentException {
-                                  throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as DeploymentException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2020,9 +2032,9 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as DeploymentException {
-                                          throw error
                                       } catch let error as AccessDeniedException {
+                                          throw error
+                                      } catch let error as DeploymentException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2057,11 +2069,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as AccessDeniedException {
+                                  throw error
                               } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2094,11 +2106,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as AccessDeniedException {
+                                          throw error
                                       } catch let error as ApplicationNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
-                                          throw error
-                                      } catch let error as AccessDeniedException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2132,11 +2144,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as AccessDeniedException {
+                                  throw error
                               } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2168,11 +2180,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as AccessDeniedException {
+                                          throw error
                                       } catch let error as ApplicationNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
-                                          throw error
-                                      } catch let error as AccessDeniedException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2209,11 +2221,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as AccessDeniedException {
+                                  throw error
                               } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2248,11 +2260,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as AccessDeniedException {
+                                          throw error
                                       } catch let error as ApplicationNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
-                                          throw error
-                                      } catch let error as AccessDeniedException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2288,11 +2300,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as AccessDeniedException {
+                                  throw error
                               } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2326,11 +2338,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as AccessDeniedException {
+                                          throw error
                                       } catch let error as ApplicationNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
-                                          throw error
-                                      } catch let error as AccessDeniedException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2363,11 +2375,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as AccessDeniedException {
+                                  throw error
                               } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2398,11 +2410,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as AccessDeniedException {
+                                          throw error
                                       } catch let error as ApplicationNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
-                                          throw error
-                                      } catch let error as AccessDeniedException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2441,11 +2453,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as AccessDeniedException {
+                                  throw error
                               } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2482,11 +2494,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as AccessDeniedException {
+                                          throw error
                                       } catch let error as ApplicationNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
-                                          throw error
-                                      } catch let error as AccessDeniedException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -3369,13 +3381,13 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as BadSignalException {
+                                  throw error
                               } catch let error as ServerNotExistException {
                                   throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as NodeUnreachableException {
-                                  throw error
-                              } catch let error as BadSignalException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3409,13 +3421,13 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as BadSignalException {
+                                          throw error
                                       } catch let error as ServerNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch let error as BadSignalException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -4740,9 +4752,9 @@ public extension AdminPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as RegistryNotExistException {
-                                         throw error
                                      } catch let error as RegistryUnreachableException {
+                                         throw error
+                                     } catch let error as RegistryNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -4777,9 +4789,9 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as RegistryNotExistException {
-                                          throw error
                                       } catch let error as RegistryUnreachableException {
+                                          throw error
+                                      } catch let error as RegistryNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -4878,9 +4890,9 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as RegistryNotExistException {
-                                  throw error
                               } catch let error as RegistryUnreachableException {
+                                  throw error
+                              } catch let error as RegistryNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -4911,9 +4923,9 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as RegistryNotExistException {
-                                          throw error
                                       } catch let error as RegistryUnreachableException {
+                                          throw error
+                                      } catch let error as RegistryNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -5013,6 +5025,18 @@ private final class FileIteratorPrxI: Ice.ObjectPrxI, FileIteratorPrx {
     public override class func ice_staticId() -> Swift.String {
         return FileIteratorTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: FileIteratorPrx.Protocol) throws -> FileIteratorPrx {
+    try communicator.makeProxyImpl(proxyString) as FileIteratorPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
@@ -5226,6 +5250,18 @@ private final class RegistryObserverPrxI: Ice.ObjectPrxI, RegistryObserverPrx {
     public override class func ice_staticId() -> Swift.String {
         return RegistryObserverTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: RegistryObserverPrx.Protocol) throws -> RegistryObserverPrx {
+    try communicator.makeProxyImpl(proxyString) as RegistryObserverPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
@@ -5467,6 +5503,18 @@ private final class NodeObserverPrxI: Ice.ObjectPrxI, NodeObserverPrx {
     public override class func ice_staticId() -> Swift.String {
         return NodeObserverTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: NodeObserverPrx.Protocol) throws -> NodeObserverPrx {
+    try communicator.makeProxyImpl(proxyString) as NodeObserverPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
@@ -5811,6 +5859,18 @@ private final class ApplicationObserverPrxI: Ice.ObjectPrxI, ApplicationObserver
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ApplicationObserverPrx.Protocol) throws -> ApplicationObserverPrx {
+    try communicator.makeProxyImpl(proxyString) as ApplicationObserverPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -6129,6 +6189,18 @@ private final class AdapterObserverPrxI: Ice.ObjectPrxI, AdapterObserverPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: AdapterObserverPrx.Protocol) throws -> AdapterObserverPrx {
+    try communicator.makeProxyImpl(proxyString) as AdapterObserverPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -6414,6 +6486,18 @@ private final class ObjectObserverPrxI: Ice.ObjectPrxI, ObjectObserverPrx {
     public override class func ice_staticId() -> Swift.String {
         return ObjectObserverTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ObjectObserverPrx.Protocol) throws -> ObjectObserverPrx {
+    try communicator.makeProxyImpl(proxyString) as ObjectObserverPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
@@ -6749,6 +6833,18 @@ private final class AdminSessionPrxI: Ice.ObjectPrxI, AdminSessionPrx {
     public override class func ice_staticId() -> Swift.String {
         return AdminSessionTraits.staticId
     }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: AdminSessionPrx.Protocol) throws -> AdminSessionPrx {
+    try communicator.makeProxyImpl(proxyString) as AdminSessionPrxI
 }
 
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
@@ -7359,13 +7455,13 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as FileNotAvailableException {
+                                         throw error
                                      } catch let error as ServerNotExistException {
                                          throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7408,13 +7504,13 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as FileNotAvailableException {
+                                          throw error
                                       } catch let error as ServerNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch let error as FileNotAvailableException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7458,13 +7554,13 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as FileNotAvailableException {
+                                         throw error
                                      } catch let error as ServerNotExistException {
                                          throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7503,13 +7599,13 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as FileNotAvailableException {
+                                          throw error
                                       } catch let error as ServerNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch let error as FileNotAvailableException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7553,13 +7649,13 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as FileNotAvailableException {
+                                         throw error
                                      } catch let error as ServerNotExistException {
                                          throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7598,13 +7694,13 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as FileNotAvailableException {
+                                          throw error
                                       } catch let error as ServerNotExistException {
                                           throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch let error as FileNotAvailableException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7646,11 +7742,11 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as FileNotAvailableException {
+                                         throw error
                                      } catch let error as NodeNotExistException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7689,11 +7785,11 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as FileNotAvailableException {
+                                          throw error
                                       } catch let error as NodeNotExistException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch let error as FileNotAvailableException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7735,11 +7831,11 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as FileNotAvailableException {
+                                         throw error
                                      } catch let error as NodeNotExistException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7778,11 +7874,11 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as FileNotAvailableException {
+                                          throw error
                                       } catch let error as NodeNotExistException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch let error as FileNotAvailableException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7824,11 +7920,11 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as RegistryNotExistException {
-                                         throw error
                                      } catch let error as RegistryUnreachableException {
                                          throw error
                                      } catch let error as FileNotAvailableException {
+                                         throw error
+                                     } catch let error as RegistryNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7867,11 +7963,11 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as RegistryNotExistException {
-                                          throw error
                                       } catch let error as RegistryUnreachableException {
                                           throw error
                                       } catch let error as FileNotAvailableException {
+                                          throw error
+                                      } catch let error as RegistryNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7913,11 +8009,11 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as RegistryNotExistException {
-                                         throw error
                                      } catch let error as RegistryUnreachableException {
                                          throw error
                                      } catch let error as FileNotAvailableException {
+                                         throw error
+                                     } catch let error as RegistryNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7956,11 +8052,11 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as RegistryNotExistException {
-                                          throw error
                                       } catch let error as RegistryUnreachableException {
                                           throw error
                                       } catch let error as FileNotAvailableException {
+                                          throw error
+                                      } catch let error as RegistryNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },

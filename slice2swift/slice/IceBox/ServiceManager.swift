@@ -153,6 +153,18 @@ private final class ServiceObserverPrxI: Ice.ObjectPrxI, ServiceObserverPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ServiceObserverPrx.Protocol) throws -> ServiceObserverPrx {
+    try communicator.makeProxyImpl(proxyString) as ServiceObserverPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -342,6 +354,18 @@ private final class ServiceManagerPrxI: Ice.ObjectPrxI, ServiceManagerPrx {
     }
 }
 
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ServiceManagerPrx.Protocol) throws -> ServiceManagerPrx {
+    try communicator.makeProxyImpl(proxyString) as ServiceManagerPrxI
+}
+
 /// Casts a proxy to the requested type. This call contacts the server and verifies that the object
 /// implements this type.
 ///
@@ -449,9 +473,9 @@ public extension ServiceManagerPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as AlreadyStartedException {
-                                  throw error
                               } catch let error as NoSuchServiceException {
+                                  throw error
+                              } catch let error as AlreadyStartedException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -482,9 +506,9 @@ public extension ServiceManagerPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as AlreadyStartedException {
-                                          throw error
                                       } catch let error as NoSuchServiceException {
+                                          throw error
+                                      } catch let error as AlreadyStartedException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -514,9 +538,9 @@ public extension ServiceManagerPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as AlreadyStoppedException {
-                                  throw error
                               } catch let error as NoSuchServiceException {
+                                  throw error
+                              } catch let error as AlreadyStoppedException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -547,9 +571,9 @@ public extension ServiceManagerPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as AlreadyStoppedException {
-                                          throw error
                                       } catch let error as NoSuchServiceException {
+                                          throw error
+                                      } catch let error as AlreadyStoppedException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
