@@ -473,9 +473,9 @@ public extension ServiceManagerPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as NoSuchServiceException {
-                                  throw error
                               } catch let error as AlreadyStartedException {
+                                  throw error
+                              } catch let error as NoSuchServiceException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -506,9 +506,9 @@ public extension ServiceManagerPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as NoSuchServiceException {
-                                          throw error
                                       } catch let error as AlreadyStartedException {
+                                          throw error
+                                      } catch let error as NoSuchServiceException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -538,9 +538,9 @@ public extension ServiceManagerPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as NoSuchServiceException {
-                                  throw error
                               } catch let error as AlreadyStoppedException {
+                                  throw error
+                              } catch let error as NoSuchServiceException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -571,9 +571,9 @@ public extension ServiceManagerPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as NoSuchServiceException {
-                                          throw error
                                       } catch let error as AlreadyStoppedException {
+                                          throw error
+                                      } catch let error as NoSuchServiceException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
