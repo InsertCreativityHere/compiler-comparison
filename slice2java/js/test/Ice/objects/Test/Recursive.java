@@ -45,7 +45,7 @@ public class Recursive extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 3617890790994941983L;
+    public static final long serialVersionUID = 3617875709231860543L;
 
     /** @hidden */
     @Override
