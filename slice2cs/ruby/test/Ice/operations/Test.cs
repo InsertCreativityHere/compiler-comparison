@@ -13400,28 +13400,6 @@ namespace Test
 
         public abstract MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, Ice.Current current);
 
-        public abstract void opIdempotent(Ice.Current current);
-
-        public abstract byte opByte1(byte opByte1, Ice.Current current);
-
-        public abstract short opShort1(short opShort1, Ice.Current current);
-
-        public abstract int opInt1(int opInt1, Ice.Current current);
-
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
-        public abstract float opFloat1(float opFloat1, Ice.Current current);
-
-        public abstract double opDouble1(double opDouble1, Ice.Current current);
-
-        public abstract string opString1(string opString1, Ice.Current current);
-
-        public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
-
-        public abstract string[] opStringS2(string[] stringS, Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -13519,6 +13497,28 @@ namespace Test
         public abstract int opByteSOnewayCallCount(Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
+
+        public abstract void opIdempotent(Ice.Current current);
+
+        public abstract byte opByte1(byte opByte1, Ice.Current current);
+
+        public abstract short opShort1(short opShort1, Ice.Current current);
+
+        public abstract int opInt1(int opInt1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
+
+        public abstract float opFloat1(float opFloat1, Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, Ice.Current current);
+
+        public abstract string opString1(string opString1, Ice.Current current);
+
+        public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
+
+        public abstract string[] opStringS2(string[] stringS, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
 
@@ -13629,28 +13629,6 @@ namespace Test2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
-        public abstract void opIdempotent(Ice.Current current);
-
-        public abstract byte opByte1(byte opByte1, Ice.Current current);
-
-        public abstract short opShort1(short opShort1, Ice.Current current);
-
-        public abstract int opInt1(int opInt1, Ice.Current current);
-
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
-        public abstract float opFloat1(float opFloat1, Ice.Current current);
-
-        public abstract double opDouble1(double opDouble1, Ice.Current current);
-
-        public abstract string opString1(string opString1, Ice.Current current);
-
-        public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
-
-        public abstract string[] opStringS2(string[] stringS, Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -13748,6 +13726,28 @@ namespace Test2
         public abstract int opByteSOnewayCallCount(Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
+
+        public abstract void opIdempotent(Ice.Current current);
+
+        public abstract byte opByte1(byte opByte1, Ice.Current current);
+
+        public abstract short opShort1(short opShort1, Ice.Current current);
+
+        public abstract int opInt1(int opInt1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
+
+        public abstract float opFloat1(float opFloat1, Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, Ice.Current current);
+
+        public abstract string opString1(string opString1, Ice.Current current);
+
+        public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
+
+        public abstract string[] opStringS2(string[] stringS, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
 
