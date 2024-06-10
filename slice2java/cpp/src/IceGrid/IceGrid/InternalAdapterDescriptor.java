@@ -55,7 +55,7 @@ public class InternalAdapterDescriptor extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -8530618111720004133L;
+    public static final long serialVersionUID = -2638199829594480159L;
 
     /** @hidden */
     @Override
