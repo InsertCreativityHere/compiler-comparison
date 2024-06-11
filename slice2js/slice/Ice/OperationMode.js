@@ -18,12 +18,10 @@
 
 import * as Ice_EnumBase from "../Ice/EnumBase.js";
 import * as Ice_Long from "../Ice/Long.js";
-import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
 
 const Ice = {
     ...Ice_EnumBase,
     ...Ice_Long,
-    ...Ice_ObjectPrx,
 };
 
 
