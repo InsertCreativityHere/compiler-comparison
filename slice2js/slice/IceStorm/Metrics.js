@@ -16,20 +16,32 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
 
-const IceMX = require("../Ice/Metrics").IceMX;
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+};
+
+import { 
+    IceMX as IceMX_Ice_Metrics, } from "../Ice/Metrics.js"
+
+const IceMX = {
+    ...IceMX_Ice_Metrics,
+};
+
+export { IceMX };
 
 /**
  *  Provides information on IceStorm topics.
@@ -56,7 +68,8 @@ IceMX.TopicMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.TopicMetrics, "::IceMX::TopicMetrics");
+Ice.defineValue(IceMX.TopicMetrics, "::IceMX::TopicMetrics");
+Ice.TypeRegistry.declareValueType("IceMX.TopicMetrics", IceMX.TopicMetrics);
 
 /**
  *  Provides information on IceStorm subscribers.
@@ -86,7 +99,5 @@ IceMX.SubscriberMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.SubscriberMetrics, "::IceMX::SubscriberMetrics");
-/* slice2js browser-bundle-skip */
-exports.IceMX = IceMX;
-/* slice2js browser-bundle-skip-end */
+Ice.defineValue(IceMX.SubscriberMetrics, "::IceMX::SubscriberMetrics");
+Ice.TypeRegistry.declareValueType("IceMX.SubscriberMetrics", IceMX.SubscriberMetrics);

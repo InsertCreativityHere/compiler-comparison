@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 const iceC_Test_Hold_ids = [
     "::Ice::Object",
@@ -34,13 +33,17 @@ Test.Hold = class extends Ice.Object
 Test.HoldPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.HoldPrx", Test.HoldPrx);
 
-Slice.defineOperations(Test.Hold, Test.HoldPrx, iceC_Test_Hold_ids, "::Test::Hold",
-{
-    "putOnHold": [, , , , [[3]], , , , ],
-    "waitForHold": [, , , , , , , , ],
-    "setOneway": [, , , , [[3], [3]], , , , ],
-    "set": [, , , [3], [[3], [3]], , , , ],
-    "shutdown": [, , , , , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.Hold,
+    Test.HoldPrx,
+    iceC_Test_Hold_ids,
+    "::Test::Hold",
+    {
+        "putOnHold": [, , , , [[3]], , , , ],
+        "waitForHold": [, , , , , , , , ],
+        "setOneway": [, , , , [[3], [3]], , , , ],
+        "set": [, , , [3], [[3], [3]], , , , ],
+        "shutdown": [, , , , , , , , ]
+    });

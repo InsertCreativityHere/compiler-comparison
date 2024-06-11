@@ -16,62 +16,67 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.InvalidInputException = class extends Ice.UserException
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.InvalidInputException = class extends Ice.UserException
+    constructor(message = "", _cause = "")
     {
-        constructor(message = "", _cause = "")
-        {
-            super(_cause);
-            this.message = message;
-        }
+        super(_cause);
+        this.message = message;
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::InvalidInputException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.InvalidInputException;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.message);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.message = istr.readString();
-        }
-    };
-
-    const iceC_Test_MyObject_ids = [
-        "::Ice::Object",
-        "::Test::MyObject"
-    ];
-
-    Test.MyObject = class extends Ice.Object
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Test.MyObjectPrx = class extends Ice.ObjectPrx
+    static get _id()
     {
-    };
+        return "::Test::InvalidInputException";
+    }
 
-    Slice.defineOperations(Test.MyObject, Test.MyObjectPrx, iceC_Test_MyObject_ids, "::Test::MyObject",
+    _mostDerivedType()
+    {
+        return Test.InvalidInputException;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.message);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.message = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.InvalidInputException",
+    Test.InvalidInputException);
+
+const iceC_Test_MyObject_ids = [
+    "::Ice::Object",
+    "::Test::MyObject"
+];
+
+Test.MyObject = class extends Ice.Object
+{
+};
+
+Test.MyObjectPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.MyObjectPrx", Test.MyObjectPrx);
+
+Ice.defineOperations(
+    Test.MyObject,
+    Test.MyObjectPrx,
+    iceC_Test_MyObject_ids,
+    "::Test::MyObject",
     {
         "add": [, , , [3], [[3], [3]], , , , ],
         "addWithRetry": [, , , [3], [[3], [3]], , , , ],
@@ -88,10 +93,3 @@
         ], , ],
         "amdNotExistAdd": [, , , [3], [[3], [3]], , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

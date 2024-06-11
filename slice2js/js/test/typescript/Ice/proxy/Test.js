@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 const iceC_Test_MyClass_ids = [
     "::Ice::Object",
@@ -34,12 +33,17 @@ Test.MyClass = class extends Ice.Object
 Test.MyClassPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.MyClassPrx", Test.MyClassPrx);
 
-Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
-{
-    "shutdown": [, , , , , , , , ],
-    "getContext": [, , , ["Ice.ContextHelper"], , , , , ]
-});
+Ice.defineOperations(
+    Test.MyClass,
+    Test.MyClassPrx,
+    iceC_Test_MyClass_ids,
+    "::Test::MyClass",
+    {
+        "shutdown": [, , , , , , , , ],
+        "getContext": [, , , [Ice.ContextHelper], , , , , ]
+    });
 
 const iceC_Test_MyDerivedClass_ids = [
     "::Ice::Object",
@@ -65,9 +69,13 @@ Test.MyDerivedClassPrx = class extends Ice.ObjectPrx
             Test.MyClassPrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("Test.MyDerivedClassPrx", Test.MyDerivedClassPrx);
 
-Slice.defineOperations(Test.MyDerivedClass, Test.MyDerivedClassPrx, iceC_Test_MyDerivedClass_ids, "::Test::MyDerivedClass",
-{
-    "echo": [, , , [9], [[9]], , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.MyDerivedClass,
+    Test.MyDerivedClassPrx,
+    iceC_Test_MyDerivedClass_ids,
+    "::Test::MyDerivedClass",
+    {
+        "echo": [, , , [9], [[9]], , , , ]
+    });

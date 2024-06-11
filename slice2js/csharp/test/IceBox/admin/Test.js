@@ -16,35 +16,30 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_TestFacet_ids = [
+    "::Ice::Object",
+    "::Test::TestFacet"
+];
+
+Test.TestFacet = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.TestFacetPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestFacetPrx", Test.TestFacetPrx);
 
-    const iceC_Test_TestFacet_ids = [
-        "::Ice::Object",
-        "::Test::TestFacet"
-    ];
-
-    Test.TestFacet = class extends Ice.Object
+Ice.defineOperations(
+    Test.TestFacet,
+    Test.TestFacetPrx,
+    iceC_Test_TestFacet_ids,
+    "::Test::TestFacet",
     {
-    };
-
-    Test.TestFacetPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.TestFacet, Test.TestFacetPrx, iceC_Test_TestFacet_ids, "::Test::TestFacet",
-    {
-        "getChanges": [, , , ["Ice.PropertyDictHelper"], , , , , ]
+        "getChanges": [, , , [Ice.PropertyDictHelper], , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

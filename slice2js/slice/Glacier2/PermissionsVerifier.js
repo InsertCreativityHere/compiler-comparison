@@ -16,23 +16,36 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-const Glacier2 = require("./SSLInfo").Glacier2;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Exception");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Exception from "../Ice/Exception.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_Exception,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+};
+
+import { 
+    Glacier2 as Glacier2_SSLInfo, } from "./SSLInfo.js"
+
+const Glacier2 = {
+    ...Glacier2_SSLInfo,
+};
+
+export { Glacier2 };
 
 /**
  *  This exception is raised if a client is denied the ability to create a session with the router.
@@ -70,6 +83,9 @@ Glacier2.PermissionDeniedException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Glacier2.PermissionDeniedException",
+    Glacier2.PermissionDeniedException);
 
 const iceC_Glacier2_PermissionsVerifier_ids = [
     "::Glacier2::PermissionsVerifier",
@@ -87,14 +103,19 @@ Glacier2.PermissionsVerifier = class extends Ice.Object
 Glacier2.PermissionsVerifierPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Glacier2.PermissionsVerifierPrx", Glacier2.PermissionsVerifierPrx);
 
-Slice.defineOperations(Glacier2.PermissionsVerifier, Glacier2.PermissionsVerifierPrx, iceC_Glacier2_PermissionsVerifier_ids, "::Glacier2::PermissionsVerifier",
-{
-    "checkPermissions": [, 2, 2, [1], [[7], [7]], [[7]],
-    [
-        Glacier2.PermissionDeniedException
-    ], , ]
-});
+Ice.defineOperations(
+    Glacier2.PermissionsVerifier,
+    Glacier2.PermissionsVerifierPrx,
+    iceC_Glacier2_PermissionsVerifier_ids,
+    "::Glacier2::PermissionsVerifier",
+    {
+        "checkPermissions": [, 2, 2, [1], [[7], [7]], [[7]],
+        [
+            Glacier2.PermissionDeniedException
+        ], , ]
+    });
 
 const iceC_Glacier2_SSLPermissionsVerifier_ids = [
     "::Glacier2::SSLPermissionsVerifier",
@@ -112,14 +133,16 @@ Glacier2.SSLPermissionsVerifier = class extends Ice.Object
 Glacier2.SSLPermissionsVerifierPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Glacier2.SSLPermissionsVerifierPrx", Glacier2.SSLPermissionsVerifierPrx);
 
-Slice.defineOperations(Glacier2.SSLPermissionsVerifier, Glacier2.SSLPermissionsVerifierPrx, iceC_Glacier2_SSLPermissionsVerifier_ids, "::Glacier2::SSLPermissionsVerifier",
-{
-    "authorize": [, 2, 2, [1], [[Glacier2.SSLInfo]], [[7]],
-    [
-        Glacier2.PermissionDeniedException
-    ], , ]
-});
-/* slice2js browser-bundle-skip */
-exports.Glacier2 = Glacier2;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    Glacier2.SSLPermissionsVerifier,
+    Glacier2.SSLPermissionsVerifierPrx,
+    iceC_Glacier2_SSLPermissionsVerifier_ids,
+    "::Glacier2::SSLPermissionsVerifier",
+    {
+        "authorize": [, 2, 2, [1], [[Glacier2.SSLInfo]], [[7]],
+        [
+            Glacier2.PermissionDeniedException
+        ], , ]
+    });

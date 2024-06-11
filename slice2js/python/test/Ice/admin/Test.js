@@ -16,76 +16,81 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_RemoteCommunicator_ids = [
+    "::Ice::Object",
+    "::Test::RemoteCommunicator"
+];
+
+Test.RemoteCommunicator = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.RemoteCommunicatorPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.RemoteCommunicatorPrx", Test.RemoteCommunicatorPrx);
 
-    const iceC_Test_RemoteCommunicator_ids = [
-        "::Ice::Object",
-        "::Test::RemoteCommunicator"
-    ];
-
-    Test.RemoteCommunicator = class extends Ice.Object
-    {
-    };
-
-    Test.RemoteCommunicatorPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.RemoteCommunicator, Test.RemoteCommunicatorPrx, iceC_Test_RemoteCommunicator_ids, "::Test::RemoteCommunicator",
+Ice.defineOperations(
+    Test.RemoteCommunicator,
+    Test.RemoteCommunicatorPrx,
+    iceC_Test_RemoteCommunicator_ids,
+    "::Test::RemoteCommunicator",
     {
         "getAdmin": [, , , [9], , , , , ],
-        "getChanges": [, , , ["Ice.PropertyDictHelper"], , , , , ],
+        "getChanges": [, , , [Ice.PropertyDictHelper], , , , , ],
         "shutdown": [, , , , , , , , ],
         "waitForShutdown": [, , , , , , , , ],
         "destroy": [, , , , , , , , ]
     });
 
-    const iceC_Test_RemoteCommunicatorFactory_ids = [
-        "::Ice::Object",
-        "::Test::RemoteCommunicatorFactory"
-    ];
+const iceC_Test_RemoteCommunicatorFactory_ids = [
+    "::Ice::Object",
+    "::Test::RemoteCommunicatorFactory"
+];
 
-    Test.RemoteCommunicatorFactory = class extends Ice.Object
-    {
-    };
+Test.RemoteCommunicatorFactory = class extends Ice.Object
+{
+};
 
-    Test.RemoteCommunicatorFactoryPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.RemoteCommunicatorFactoryPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.RemoteCommunicatorFactoryPrx", Test.RemoteCommunicatorFactoryPrx);
 
-    Slice.defineOperations(Test.RemoteCommunicatorFactory, Test.RemoteCommunicatorFactoryPrx, iceC_Test_RemoteCommunicatorFactory_ids, "::Test::RemoteCommunicatorFactory",
+Ice.defineOperations(
+    Test.RemoteCommunicatorFactory,
+    Test.RemoteCommunicatorFactoryPrx,
+    iceC_Test_RemoteCommunicatorFactory_ids,
+    "::Test::RemoteCommunicatorFactory",
     {
-        "createCommunicator": [, , , ["Test.RemoteCommunicatorPrx"], [["Ice.PropertyDictHelper"]], , , , ],
+        "createCommunicator": [, , , ["Test.RemoteCommunicatorPrx"], [[Ice.PropertyDictHelper]], , , , ],
         "shutdown": [, , , , , , , , ]
     });
 
-    const iceC_Test_TestFacet_ids = [
-        "::Ice::Object",
-        "::Test::TestFacet"
-    ];
+const iceC_Test_TestFacet_ids = [
+    "::Ice::Object",
+    "::Test::TestFacet"
+];
 
-    Test.TestFacet = class extends Ice.Object
-    {
-    };
+Test.TestFacet = class extends Ice.Object
+{
+};
 
-    Test.TestFacetPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.TestFacetPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestFacetPrx", Test.TestFacetPrx);
 
-    Slice.defineOperations(Test.TestFacet, Test.TestFacetPrx, iceC_Test_TestFacet_ids, "::Test::TestFacet",
+Ice.defineOperations(
+    Test.TestFacet,
+    Test.TestFacetPrx,
+    iceC_Test_TestFacet_ids,
+    "::Test::TestFacet",
     {
         "op": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

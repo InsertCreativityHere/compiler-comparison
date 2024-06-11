@@ -16,42 +16,42 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+import { 
+    Test as Test_Forward, } from "./Forward.js"
+import { 
+    Test as Test_Test, } from "./Test.js"
+
+const Test = {
+    ...Test_Forward,
+    ...Test_Test,
+};
+
+export { Test };
+
+Test.DerivedEx = class extends Test.BaseEx
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    require("Test");
-    require("Forward");
-    const Test = _ModuleRegistry.module("Test");
-
-    const Slice = Ice.Slice;
-
-    Test.DerivedEx = class extends Test.BaseEx
+    constructor(reason, _cause = "")
     {
-        constructor(reason, _cause = "")
-        {
-            super(reason, _cause);
-        }
+        super(reason, _cause);
+    }
 
-        static get _parent()
-        {
-            return Test.BaseEx;
-        }
+    static get _parent()
+    {
+        return Test.BaseEx;
+    }
 
-        static get _id()
-        {
-            return "::Test::DerivedEx";
-        }
+    static get _id()
+    {
+        return "::Test::DerivedEx";
+    }
 
-        _mostDerivedType()
-        {
-            return Test.DerivedEx;
-        }
-    };
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+    _mostDerivedType()
+    {
+        return Test.DerivedEx;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.DerivedEx",
+    Test.DerivedEx);

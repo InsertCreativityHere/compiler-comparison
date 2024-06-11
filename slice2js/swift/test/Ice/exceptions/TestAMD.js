@@ -16,283 +16,311 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.Mod = Test.Mod || {};
+
+const iceC_Test_Empty_ids = [
+    "::Ice::Object",
+    "::Test::Empty"
+];
+
+Test.Empty = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.EmptyPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.EmptyPrx", Test.EmptyPrx);
 
-    const iceC_Test_Empty_ids = [
-        "::Ice::Object",
-        "::Test::Empty"
-    ];
+Ice.defineOperations(
+    Test.Empty,
+    Test.EmptyPrx,
+    iceC_Test_Empty_ids,
+    "::Test::Empty");
 
-    Test.Empty = class extends Ice.Object
+Test.A = class extends Ice.UserException
+{
+    constructor(aMem = 0, _cause = "")
     {
-    };
+        super(_cause);
+        this.aMem = aMem;
+    }
 
-    Test.EmptyPrx = class extends Ice.ObjectPrx
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Slice.defineOperations(Test.Empty, Test.EmptyPrx, iceC_Test_Empty_ids, "::Test::Empty");
-
-    Test.A = class extends Ice.UserException
+    static get _id()
     {
-        constructor(aMem = 0, _cause = "")
-        {
-            super(_cause);
-            this.aMem = aMem;
-        }
+        return "::Test::A";
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::A";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.A;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.aMem);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.aMem = istr.readInt();
-        }
-    };
-
-    Test.B = class extends Test.A
+    _mostDerivedType()
     {
-        constructor(aMem, bMem = 0, _cause = "")
-        {
-            super(aMem, _cause);
-            this.bMem = bMem;
-        }
+        return Test.A;
+    }
 
-        static get _parent()
-        {
-            return Test.A;
-        }
-
-        static get _id()
-        {
-            return "::Test::B";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.B;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.bMem);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.bMem = istr.readInt();
-        }
-    };
-
-    Test.C = class extends Test.B
+    _writeMemberImpl(ostr)
     {
-        constructor(aMem, bMem, cMem = 0, _cause = "")
-        {
-            super(aMem, bMem, _cause);
-            this.cMem = cMem;
-        }
+        ostr.writeInt(this.aMem);
+    }
 
-        static get _parent()
-        {
-            return Test.B;
-        }
-
-        static get _id()
-        {
-            return "::Test::C";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.C;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.cMem);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.cMem = istr.readInt();
-        }
-    };
-
-    Test.D = class extends Ice.UserException
+    _readMemberImpl(istr)
     {
-        constructor(dMem = 0, _cause = "")
-        {
-            super(_cause);
-            this.dMem = dMem;
-        }
+        this.aMem = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.A",
+    Test.A);
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::D";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.D;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.dMem);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.dMem = istr.readInt();
-        }
-    };
-
-    Test.E = class extends Ice.UserException
+Test.B = class extends Test.A
+{
+    constructor(aMem, bMem = 0, _cause = "")
     {
-        constructor(data = "", _cause = "")
-        {
-            super(_cause);
-            this.data = data;
-        }
+        super(aMem, _cause);
+        this.bMem = bMem;
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::E";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.E;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.data);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.data = istr.readString();
-        }
-    };
-
-    Test.F = class extends Ice.UserException
+    static get _parent()
     {
-        constructor(data = "", _cause = "")
-        {
-            super(_cause);
-            this.data = data;
-        }
+        return Test.A;
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::F";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.F;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.data);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.data = istr.readString();
-        }
-    };
-
-    Test.Mod = _ModuleRegistry.module("Test.Mod");
-
-    Test.Mod.A = class extends Test.A
+    static get _id()
     {
-        constructor(aMem, a2Mem = 0, _cause = "")
-        {
-            super(aMem, _cause);
-            this.a2Mem = a2Mem;
-        }
+        return "::Test::B";
+    }
 
-        static get _parent()
-        {
-            return Test.A;
-        }
-
-        static get _id()
-        {
-            return "::Test::Mod::A";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.Mod.A;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.a2Mem);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.a2Mem = istr.readInt();
-        }
-    };
-
-    const iceC_Test_Thrower_ids = [
-        "::Ice::Object",
-        "::Test::Thrower"
-    ];
-
-    Test.Thrower = class extends Ice.Object
+    _mostDerivedType()
     {
-    };
+        return Test.B;
+    }
 
-    Test.ThrowerPrx = class extends Ice.ObjectPrx
+    _writeMemberImpl(ostr)
     {
-    };
+        ostr.writeInt(this.bMem);
+    }
 
-    Slice.defineOperations(Test.Thrower, Test.ThrowerPrx, iceC_Test_Thrower_ids, "::Test::Thrower",
+    _readMemberImpl(istr)
+    {
+        this.bMem = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.B",
+    Test.B);
+
+Test.C = class extends Test.B
+{
+    constructor(aMem, bMem, cMem = 0, _cause = "")
+    {
+        super(aMem, bMem, _cause);
+        this.cMem = cMem;
+    }
+
+    static get _parent()
+    {
+        return Test.B;
+    }
+
+    static get _id()
+    {
+        return "::Test::C";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.C;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.cMem);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.cMem = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.C",
+    Test.C);
+
+Test.D = class extends Ice.UserException
+{
+    constructor(dMem = 0, _cause = "")
+    {
+        super(_cause);
+        this.dMem = dMem;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test::D";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.D;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.dMem);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.dMem = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.D",
+    Test.D);
+
+Test.E = class extends Ice.UserException
+{
+    constructor(data = "", _cause = "")
+    {
+        super(_cause);
+        this.data = data;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test::E";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.E;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.data);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.data = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.E",
+    Test.E);
+
+Test.F = class extends Ice.UserException
+{
+    constructor(data = "", _cause = "")
+    {
+        super(_cause);
+        this.data = data;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test::F";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.F;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.data);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.data = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.F",
+    Test.F);
+
+Test.Mod.A = class extends Test.A
+{
+    constructor(aMem, a2Mem = 0, _cause = "")
+    {
+        super(aMem, _cause);
+        this.a2Mem = a2Mem;
+    }
+
+    static get _parent()
+    {
+        return Test.A;
+    }
+
+    static get _id()
+    {
+        return "::Test::Mod::A";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.Mod.A;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.a2Mem);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.a2Mem = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.Mod.A",
+    Test.Mod.A);
+
+const iceC_Test_Thrower_ids = [
+    "::Ice::Object",
+    "::Test::Thrower"
+];
+
+Test.Thrower = class extends Ice.Object
+{
+};
+
+Test.ThrowerPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.ThrowerPrx", Test.ThrowerPrx);
+
+Ice.defineOperations(
+    Test.Thrower,
+    Test.ThrowerPrx,
+    iceC_Test_Thrower_ids,
+    "::Test::Thrower",
     {
         "shutdown": [, , , , , , , , ],
         "supportsUndeclaredExceptions": [, , , [1], , , , , ],
@@ -303,8 +331,8 @@
         ], , ],
         "throwAorDasAorD": [, , , , [[3]], ,
         [
-            Test.A,
-            Test.D
+            Test.D,
+            Test.A
         ], , ],
         "throwBasA": [, , , , [[3], [3]], ,
         [
@@ -336,7 +364,7 @@
         "throwLocalException": [, , , , , , , , ],
         "throwNonIceException": [, , , , , , , , ],
         "throwAssertException": [, , , , , , , , ],
-        "throwMemoryLimitException": [, , , ["Ice.ByteSeqHelper"], [["Ice.ByteSeqHelper"]], , , , ],
+        "throwMemoryLimitException": [, , , [Ice.ByteSeqHelper], [[Ice.ByteSeqHelper]], , , , ],
         "throwLocalExceptionIdempotent": [, 2, , , , , , , ],
         "throwAfterResponse": [, , , , , , , , ],
         "throwAfterException": [, , , , , ,
@@ -353,27 +381,25 @@
         ], , ]
     });
 
-    const iceC_Test_WrongOperation_ids = [
-        "::Ice::Object",
-        "::Test::WrongOperation"
-    ];
+const iceC_Test_WrongOperation_ids = [
+    "::Ice::Object",
+    "::Test::WrongOperation"
+];
 
-    Test.WrongOperation = class extends Ice.Object
-    {
-    };
+Test.WrongOperation = class extends Ice.Object
+{
+};
 
-    Test.WrongOperationPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.WrongOperationPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.WrongOperationPrx", Test.WrongOperationPrx);
 
-    Slice.defineOperations(Test.WrongOperation, Test.WrongOperationPrx, iceC_Test_WrongOperation_ids, "::Test::WrongOperation",
+Ice.defineOperations(
+    Test.WrongOperation,
+    Test.WrongOperationPrx,
+    iceC_Test_WrongOperation_ids,
+    "::Test::WrongOperation",
     {
         "noSuchOperation": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

@@ -16,27 +16,32 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Exception");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("../Ice/BuiltinSequences");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Exception from "../Ice/Exception.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
+import { Ice as Ice_Ice_BuiltinSequences } from "../Ice/BuiltinSequences.js"
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
-/* slice2js browser-bundle-skip */
+const Ice = {
+    ...Ice_Exception,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+    ...Ice_Ice_BuiltinSequences,
+};
 
-let IceBox = _ModuleRegistry.module("IceBox");
-/* slice2js browser-bundle-skip-end */
+
+export const IceBox = {};
 
 /**
  *  This exception is thrown if an attempt is made to start an already-started service.
@@ -63,6 +68,9 @@ IceBox.AlreadyStartedException = class extends Ice.UserException
         return IceBox.AlreadyStartedException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceBox.AlreadyStartedException",
+    IceBox.AlreadyStartedException);
 
 /**
  *  This exception is thrown if an attempt is made to stop an already-stopped service.
@@ -89,6 +97,9 @@ IceBox.AlreadyStoppedException = class extends Ice.UserException
         return IceBox.AlreadyStoppedException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceBox.AlreadyStoppedException",
+    IceBox.AlreadyStoppedException);
 
 /**
  *  This exception is thrown if a service name does not refer to an existing service.
@@ -115,6 +126,9 @@ IceBox.NoSuchServiceException = class extends Ice.UserException
         return IceBox.NoSuchServiceException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceBox.NoSuchServiceException",
+    IceBox.NoSuchServiceException);
 
 const iceC_IceBox_ServiceObserver_ids = [
     "::Ice::Object",
@@ -132,12 +146,17 @@ IceBox.ServiceObserver = class extends Ice.Object
 IceBox.ServiceObserverPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("IceBox.ServiceObserverPrx", IceBox.ServiceObserverPrx);
 
-Slice.defineOperations(IceBox.ServiceObserver, IceBox.ServiceObserverPrx, iceC_IceBox_ServiceObserver_ids, "::IceBox::ServiceObserver",
-{
-    "servicesStarted": [, , , , [["Ice.StringSeqHelper"]], , , , ],
-    "servicesStopped": [, , , , [["Ice.StringSeqHelper"]], , , , ]
-});
+Ice.defineOperations(
+    IceBox.ServiceObserver,
+    IceBox.ServiceObserverPrx,
+    iceC_IceBox_ServiceObserver_ids,
+    "::IceBox::ServiceObserver",
+    {
+        "servicesStarted": [, , , , [[Ice.StringSeqHelper]], , , , ],
+        "servicesStopped": [, , , , [[Ice.StringSeqHelper]], , , , ]
+    });
 
 const iceC_IceBox_ServiceManager_ids = [
     "::Ice::Object",
@@ -155,22 +174,24 @@ IceBox.ServiceManager = class extends Ice.Object
 IceBox.ServiceManagerPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("IceBox.ServiceManagerPrx", IceBox.ServiceManagerPrx);
 
-Slice.defineOperations(IceBox.ServiceManager, IceBox.ServiceManagerPrx, iceC_IceBox_ServiceManager_ids, "::IceBox::ServiceManager",
-{
-    "startService": [, , , , [[7]], ,
-    [
-        IceBox.AlreadyStartedException,
-        IceBox.NoSuchServiceException
-    ], , ],
-    "stopService": [, , , , [[7]], ,
-    [
-        IceBox.AlreadyStoppedException,
-        IceBox.NoSuchServiceException
-    ], , ],
-    "addObserver": [, , , , [["IceBox.ServiceObserverPrx"]], , , , ],
-    "shutdown": [, , , , , , , , ]
-});
-/* slice2js browser-bundle-skip */
-exports.IceBox = IceBox;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    IceBox.ServiceManager,
+    IceBox.ServiceManagerPrx,
+    iceC_IceBox_ServiceManager_ids,
+    "::IceBox::ServiceManager",
+    {
+        "startService": [, , , , [[7]], ,
+        [
+            IceBox.AlreadyStartedException,
+            IceBox.NoSuchServiceException
+        ], , ],
+        "stopService": [, , , , [[7]], ,
+        [
+            IceBox.AlreadyStoppedException,
+            IceBox.NoSuchServiceException
+        ], , ],
+        "addObserver": [, , , , [["IceBox.ServiceObserverPrx"]], , , , ],
+        "shutdown": [, , , , , , , , ]
+    });

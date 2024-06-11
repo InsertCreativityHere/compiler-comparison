@@ -16,222 +16,219 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.ByteStringHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.ByteListHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.StringListHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
+
+Test.StringTupleHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
+
+Test.BoolSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.BoolHelper, true);
+
+Test.BoolSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.BoolHelper, true);
+
+Test.ByteSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.ByteSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.ShortSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.ShortHelper, true);
+
+Test.ShortSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.ShortHelper, true);
+
+Test.IntSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
+
+Test.IntSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
+
+Test.LongSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.LongHelper, true);
+
+Test.LongSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.LongHelper, true);
+
+Test.FloatSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.FloatHelper, true);
+
+Test.FloatSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.FloatHelper, true);
+
+Test.DoubleSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.DoubleHelper, true);
+
+Test.DoubleSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.DoubleHelper, true);
+
+Test.S = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Slice.defineSequence(Test, "ByteStringHelper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "ByteListHelper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "StringListHelper", "Ice.StringHelper", false);
-
-    Slice.defineSequence(Test, "StringTupleHelper", "Ice.StringHelper", false);
-
-    Slice.defineSequence(Test, "BoolSeq1Helper", "Ice.BoolHelper", true);
-
-    Slice.defineSequence(Test, "BoolSeq2Helper", "Ice.BoolHelper", true);
-
-    Slice.defineSequence(Test, "ByteSeq1Helper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "ByteSeq2Helper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "ShortSeq1Helper", "Ice.ShortHelper", true);
-
-    Slice.defineSequence(Test, "ShortSeq2Helper", "Ice.ShortHelper", true);
-
-    Slice.defineSequence(Test, "IntSeq1Helper", "Ice.IntHelper", true);
-
-    Slice.defineSequence(Test, "IntSeq2Helper", "Ice.IntHelper", true);
-
-    Slice.defineSequence(Test, "LongSeq1Helper", "Ice.LongHelper", true);
-
-    Slice.defineSequence(Test, "LongSeq2Helper", "Ice.LongHelper", true);
-
-    Slice.defineSequence(Test, "FloatSeq1Helper", "Ice.FloatHelper", true);
-
-    Slice.defineSequence(Test, "FloatSeq2Helper", "Ice.FloatHelper", true);
-
-    Slice.defineSequence(Test, "DoubleSeq1Helper", "Ice.DoubleHelper", true);
-
-    Slice.defineSequence(Test, "DoubleSeq2Helper", "Ice.DoubleHelper", true);
-
-    Test.S = class
+    constructor(b1 = null, b2 = null, b3 = null, b4 = null, s1 = null, s2 = null, s3 = null, s4 = null)
     {
-        constructor(b1 = null, b2 = null, b3 = null, b4 = null, s1 = null, s2 = null, s3 = null, s4 = null)
-        {
-            this.b1 = b1;
-            this.b2 = b2;
-            this.b3 = b3;
-            this.b4 = b4;
-            this.s1 = s1;
-            this.s2 = s2;
-            this.s3 = s3;
-            this.s4 = s4;
-        }
+        this.b1 = b1;
+        this.b2 = b2;
+        this.b3 = b3;
+        this.b4 = b4;
+        this.s1 = s1;
+        this.s2 = s2;
+        this.s3 = s3;
+        this.s4 = s4;
+    }
 
-        _write(ostr)
-        {
-            Test.ByteStringHelper.write(ostr, this.b1);
-            Test.ByteStringHelper.write(ostr, this.b2);
-            Test.ByteListHelper.write(ostr, this.b3);
-            Test.ByteListHelper.write(ostr, this.b4);
-            Test.StringListHelper.write(ostr, this.s1);
-            Test.StringListHelper.write(ostr, this.s2);
-            Test.StringTupleHelper.write(ostr, this.s3);
-            Test.StringTupleHelper.write(ostr, this.s4);
-        }
-
-        _read(istr)
-        {
-            this.b1 = Test.ByteStringHelper.read(istr);
-            this.b2 = Test.ByteStringHelper.read(istr);
-            this.b3 = Test.ByteListHelper.read(istr);
-            this.b4 = Test.ByteListHelper.read(istr);
-            this.s1 = Test.StringListHelper.read(istr);
-            this.s2 = Test.StringListHelper.read(istr);
-            this.s3 = Test.StringTupleHelper.read(istr);
-            this.s4 = Test.StringTupleHelper.read(istr);
-        }
-
-        static get minWireSize()
-        {
-            return  8;
-        }
-    };
-
-    Slice.defineStruct(Test.S, false, true);
-
-    Test.C = class extends Ice.Value
+    _write(ostr)
     {
-        constructor(b1 = null, b2 = null, b3 = null, b4 = null, s1 = null, s2 = null, s3 = null, s4 = null)
-        {
-            super();
-            this.b1 = b1;
-            this.b2 = b2;
-            this.b3 = b3;
-            this.b4 = b4;
-            this.s1 = s1;
-            this.s2 = s2;
-            this.s3 = s3;
-            this.s4 = s4;
-        }
+        Test.ByteStringHelper.write(ostr, this.b1);
+        Test.ByteStringHelper.write(ostr, this.b2);
+        Test.ByteListHelper.write(ostr, this.b3);
+        Test.ByteListHelper.write(ostr, this.b4);
+        Test.StringListHelper.write(ostr, this.s1);
+        Test.StringListHelper.write(ostr, this.s2);
+        Test.StringTupleHelper.write(ostr, this.s3);
+        Test.StringTupleHelper.write(ostr, this.s4);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.ByteStringHelper.write(ostr, this.b1);
-            Test.ByteStringHelper.write(ostr, this.b2);
-            Test.ByteListHelper.write(ostr, this.b3);
-            Test.ByteListHelper.write(ostr, this.b4);
-            Test.StringListHelper.write(ostr, this.s1);
-            Test.StringListHelper.write(ostr, this.s2);
-            Test.StringTupleHelper.write(ostr, this.s3);
-            Test.StringTupleHelper.write(ostr, this.s4);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.b1 = Test.ByteStringHelper.read(istr);
-            this.b2 = Test.ByteStringHelper.read(istr);
-            this.b3 = Test.ByteListHelper.read(istr);
-            this.b4 = Test.ByteListHelper.read(istr);
-            this.s1 = Test.StringListHelper.read(istr);
-            this.s2 = Test.StringListHelper.read(istr);
-            this.s3 = Test.StringTupleHelper.read(istr);
-            this.s4 = Test.StringTupleHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(Test.C, "::Test::C");
-
-    Test.D = class extends Ice.Value
+    _read(istr)
     {
-        constructor(boolSeq = undefined, byteSeq = undefined, shortSeq = undefined, intSeq = undefined, longSeq = undefined, floatSeq = undefined, doubleSeq = undefined)
-        {
-            super();
-            this.boolSeq = boolSeq;
-            this.byteSeq = byteSeq;
-            this.shortSeq = shortSeq;
-            this.intSeq = intSeq;
-            this.longSeq = longSeq;
-            this.floatSeq = floatSeq;
-            this.doubleSeq = doubleSeq;
-        }
+        this.b1 = Test.ByteStringHelper.read(istr);
+        this.b2 = Test.ByteStringHelper.read(istr);
+        this.b3 = Test.ByteListHelper.read(istr);
+        this.b4 = Test.ByteListHelper.read(istr);
+        this.s1 = Test.StringListHelper.read(istr);
+        this.s2 = Test.StringListHelper.read(istr);
+        this.s3 = Test.StringTupleHelper.read(istr);
+        this.s4 = Test.StringTupleHelper.read(istr);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.BoolSeq1Helper.writeOptional(ostr, 1, this.boolSeq);
-            Test.ByteSeq1Helper.writeOptional(ostr, 2, this.byteSeq);
-            Test.ShortSeq1Helper.writeOptional(ostr, 3, this.shortSeq);
-            Test.IntSeq1Helper.writeOptional(ostr, 4, this.intSeq);
-            Test.LongSeq1Helper.writeOptional(ostr, 5, this.longSeq);
-            Test.FloatSeq1Helper.writeOptional(ostr, 6, this.floatSeq);
-            Test.DoubleSeq1Helper.writeOptional(ostr, 7, this.doubleSeq);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.boolSeq = Test.BoolSeq1Helper.readOptional(istr, 1);
-            this.byteSeq = Test.ByteSeq1Helper.readOptional(istr, 2);
-            this.shortSeq = Test.ShortSeq1Helper.readOptional(istr, 3);
-            this.intSeq = Test.IntSeq1Helper.readOptional(istr, 4);
-            this.longSeq = Test.LongSeq1Helper.readOptional(istr, 5);
-            this.floatSeq = Test.FloatSeq1Helper.readOptional(istr, 6);
-            this.doubleSeq = Test.DoubleSeq1Helper.readOptional(istr, 7);
-        }
-    };
-
-    Slice.defineValue(Test.D, "::Test::D");
-
-    const iceC_Test_Custom_ids = [
-        "::Ice::Object",
-        "::Test::Custom"
-    ];
-
-    Test.Custom = class extends Ice.Object
+    static get minWireSize()
     {
-    };
+        return  8;
+    }
+};
 
-    Test.CustomPrx = class extends Ice.ObjectPrx
-    {
-    };
+Ice.defineStruct(Test.S, false, true);
 
-    Slice.defineOperations(Test.Custom, Test.CustomPrx, iceC_Test_Custom_ids, "::Test::Custom",
+Test.C = class extends Ice.Value
+{
+    constructor(b1 = null, b2 = null, b3 = null, b4 = null, s1 = null, s2 = null, s3 = null, s4 = null)
     {
-        "opByteString1": [, , , ["Test.ByteStringHelper"], [["Test.ByteStringHelper"]], [["Test.ByteStringHelper"]], , , ],
-        "opByteString2": [, , , ["Test.ByteStringHelper"], [["Test.ByteStringHelper"]], [["Test.ByteStringHelper"]], , , ],
-        "opByteList1": [, , , ["Test.ByteListHelper"], [["Test.ByteListHelper"]], [["Test.ByteListHelper"]], , , ],
-        "opByteList2": [, , , ["Test.ByteListHelper"], [["Test.ByteListHelper"]], [["Test.ByteListHelper"]], , , ],
-        "opStringList1": [, , , ["Test.StringListHelper"], [["Test.StringListHelper"]], [["Test.StringListHelper"]], , , ],
-        "opStringList2": [, , , ["Test.StringListHelper"], [["Test.StringListHelper"]], [["Test.StringListHelper"]], , , ],
-        "opStringTuple1": [, , , ["Test.StringTupleHelper"], [["Test.StringTupleHelper"]], [["Test.StringTupleHelper"]], , , ],
-        "opStringTuple2": [, , , ["Test.StringTupleHelper"], [["Test.StringTupleHelper"]], [["Test.StringTupleHelper"]], , , ],
+        super();
+        this.b1 = b1;
+        this.b2 = b2;
+        this.b3 = b3;
+        this.b4 = b4;
+        this.s1 = s1;
+        this.s2 = s2;
+        this.s3 = s3;
+        this.s4 = s4;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        Test.ByteStringHelper.write(ostr, this.b1);
+        Test.ByteStringHelper.write(ostr, this.b2);
+        Test.ByteListHelper.write(ostr, this.b3);
+        Test.ByteListHelper.write(ostr, this.b4);
+        Test.StringListHelper.write(ostr, this.s1);
+        Test.StringListHelper.write(ostr, this.s2);
+        Test.StringTupleHelper.write(ostr, this.s3);
+        Test.StringTupleHelper.write(ostr, this.s4);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.b1 = Test.ByteStringHelper.read(istr);
+        this.b2 = Test.ByteStringHelper.read(istr);
+        this.b3 = Test.ByteListHelper.read(istr);
+        this.b4 = Test.ByteListHelper.read(istr);
+        this.s1 = Test.StringListHelper.read(istr);
+        this.s2 = Test.StringListHelper.read(istr);
+        this.s3 = Test.StringTupleHelper.read(istr);
+        this.s4 = Test.StringTupleHelper.read(istr);
+    }
+};
+
+Ice.defineValue(Test.C, "::Test::C");
+Ice.TypeRegistry.declareValueType("Test.C", Test.C);
+
+Test.D = class extends Ice.Value
+{
+    constructor(boolSeq = undefined, byteSeq = undefined, shortSeq = undefined, intSeq = undefined, longSeq = undefined, floatSeq = undefined, doubleSeq = undefined)
+    {
+        super();
+        this.boolSeq = boolSeq;
+        this.byteSeq = byteSeq;
+        this.shortSeq = shortSeq;
+        this.intSeq = intSeq;
+        this.longSeq = longSeq;
+        this.floatSeq = floatSeq;
+        this.doubleSeq = doubleSeq;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        Test.BoolSeq1Helper.writeOptional(ostr, 1, this.boolSeq);
+        Test.ByteSeq1Helper.writeOptional(ostr, 2, this.byteSeq);
+        Test.ShortSeq1Helper.writeOptional(ostr, 3, this.shortSeq);
+        Test.IntSeq1Helper.writeOptional(ostr, 4, this.intSeq);
+        Test.LongSeq1Helper.writeOptional(ostr, 5, this.longSeq);
+        Test.FloatSeq1Helper.writeOptional(ostr, 6, this.floatSeq);
+        Test.DoubleSeq1Helper.writeOptional(ostr, 7, this.doubleSeq);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.boolSeq = Test.BoolSeq1Helper.readOptional(istr, 1);
+        this.byteSeq = Test.ByteSeq1Helper.readOptional(istr, 2);
+        this.shortSeq = Test.ShortSeq1Helper.readOptional(istr, 3);
+        this.intSeq = Test.IntSeq1Helper.readOptional(istr, 4);
+        this.longSeq = Test.LongSeq1Helper.readOptional(istr, 5);
+        this.floatSeq = Test.FloatSeq1Helper.readOptional(istr, 6);
+        this.doubleSeq = Test.DoubleSeq1Helper.readOptional(istr, 7);
+    }
+};
+
+Ice.defineValue(Test.D, "::Test::D");
+Ice.TypeRegistry.declareValueType("Test.D", Test.D);
+
+const iceC_Test_Custom_ids = [
+    "::Ice::Object",
+    "::Test::Custom"
+];
+
+Test.Custom = class extends Ice.Object
+{
+};
+
+Test.CustomPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.CustomPrx", Test.CustomPrx);
+
+Ice.defineOperations(
+    Test.Custom,
+    Test.CustomPrx,
+    iceC_Test_Custom_ids,
+    "::Test::Custom",
+    {
+        "opByteString1": [, , , [Test.ByteStringHelper], [[Test.ByteStringHelper]], [[Test.ByteStringHelper]], , , ],
+        "opByteString2": [, , , [Test.ByteStringHelper], [[Test.ByteStringHelper]], [[Test.ByteStringHelper]], , , ],
+        "opByteList1": [, , , [Test.ByteListHelper], [[Test.ByteListHelper]], [[Test.ByteListHelper]], , , ],
+        "opByteList2": [, , , [Test.ByteListHelper], [[Test.ByteListHelper]], [[Test.ByteListHelper]], , , ],
+        "opStringList1": [, , , [Test.StringListHelper], [[Test.StringListHelper]], [[Test.StringListHelper]], , , ],
+        "opStringList2": [, , , [Test.StringListHelper], [[Test.StringListHelper]], [[Test.StringListHelper]], , , ],
+        "opStringTuple1": [, , , [Test.StringTupleHelper], [[Test.StringTupleHelper]], [[Test.StringTupleHelper]], , , ],
+        "opStringTuple2": [, , , [Test.StringTupleHelper], [[Test.StringTupleHelper]], [[Test.StringTupleHelper]], , , ],
         "sendS": [, , , , [[Test.S]], , , , ],
         "sendC": [, , , , [["Test.C", true]], , , true, ],
-        "opBoolSeq": [, , , ["Test.BoolSeq1Helper"], [["Test.BoolSeq1Helper"]], [["Test.BoolSeq2Helper"]], , , ],
-        "opByteSeq": [, , , ["Test.ByteSeq1Helper"], [["Test.ByteSeq1Helper"]], [["Test.ByteSeq2Helper"]], , , ],
-        "opShortSeq": [, , , ["Test.ShortSeq1Helper"], [["Test.ShortSeq1Helper"]], [["Test.ShortSeq2Helper"]], , , ],
-        "opIntSeq": [, , , ["Test.IntSeq1Helper"], [["Test.IntSeq1Helper"]], [["Test.IntSeq2Helper"]], , , ],
-        "opLongSeq": [, , , ["Test.LongSeq1Helper"], [["Test.LongSeq1Helper"]], [["Test.LongSeq2Helper"]], , , ],
-        "opFloatSeq": [, , , ["Test.FloatSeq1Helper"], [["Test.FloatSeq1Helper"]], [["Test.FloatSeq2Helper"]], , , ],
-        "opDoubleSeq": [, , , ["Test.DoubleSeq1Helper"], [["Test.DoubleSeq1Helper"]], [["Test.DoubleSeq2Helper"]], , , ],
-        "opBogusArrayNotExistsFactory": [, , , ["Test.BoolSeq1Helper"], , , , , ],
-        "opBogusArrayThrowFactory": [, , , ["Test.BoolSeq1Helper"], , , , , ],
-        "opBogusArrayType": [, , , ["Test.BoolSeq1Helper"], , , , , ],
-        "opBogusArrayNoneFactory": [, , , ["Test.BoolSeq1Helper"], , , , , ],
-        "opBogusArraySignatureFactory": [, , , ["Test.BoolSeq1Helper"], , , , , ],
-        "opBogusArrayNoCallableFactory": [, , , ["Test.BoolSeq1Helper"], , , , , ],
+        "opBoolSeq": [, , , [Test.BoolSeq1Helper], [[Test.BoolSeq1Helper]], [[Test.BoolSeq2Helper]], , , ],
+        "opByteSeq": [, , , [Test.ByteSeq1Helper], [[Test.ByteSeq1Helper]], [[Test.ByteSeq2Helper]], , , ],
+        "opShortSeq": [, , , [Test.ShortSeq1Helper], [[Test.ShortSeq1Helper]], [[Test.ShortSeq2Helper]], , , ],
+        "opIntSeq": [, , , [Test.IntSeq1Helper], [[Test.IntSeq1Helper]], [[Test.IntSeq2Helper]], , , ],
+        "opLongSeq": [, , , [Test.LongSeq1Helper], [[Test.LongSeq1Helper]], [[Test.LongSeq2Helper]], , , ],
+        "opFloatSeq": [, , , [Test.FloatSeq1Helper], [[Test.FloatSeq1Helper]], [[Test.FloatSeq2Helper]], , , ],
+        "opDoubleSeq": [, , , [Test.DoubleSeq1Helper], [[Test.DoubleSeq1Helper]], [[Test.DoubleSeq2Helper]], , , ],
+        "opBogusArrayNotExistsFactory": [, , , [Test.BoolSeq1Helper], , , , , ],
+        "opBogusArrayThrowFactory": [, , , [Test.BoolSeq1Helper], , , , , ],
+        "opBogusArrayType": [, , , [Test.BoolSeq1Helper], , , , , ],
+        "opBogusArrayNoneFactory": [, , , [Test.BoolSeq1Helper], , , , , ],
+        "opBogusArraySignatureFactory": [, , , [Test.BoolSeq1Helper], , , , , ],
+        "opBogusArrayNoCallableFactory": [, , , [Test.BoolSeq1Helper], , , , , ],
         "opD": [, , , ["Test.D", true], [["Test.D", true]], , , true, true],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

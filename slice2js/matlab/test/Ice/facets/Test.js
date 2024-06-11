@@ -16,241 +16,276 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_Empty_ids = [
+    "::Ice::Object",
+    "::Test::Empty"
+];
+
+Test.Empty = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.EmptyPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.EmptyPrx", Test.EmptyPrx);
 
-    const iceC_Test_Empty_ids = [
-        "::Ice::Object",
-        "::Test::Empty"
-    ];
+Ice.defineOperations(
+    Test.Empty,
+    Test.EmptyPrx,
+    iceC_Test_Empty_ids,
+    "::Test::Empty");
 
-    Test.Empty = class extends Ice.Object
-    {
-    };
+const iceC_Test_A_ids = [
+    "::Ice::Object",
+    "::Test::A"
+];
 
-    Test.EmptyPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.A = class extends Ice.Object
+{
+};
 
-    Slice.defineOperations(Test.Empty, Test.EmptyPrx, iceC_Test_Empty_ids, "::Test::Empty");
+Test.APrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.APrx", Test.APrx);
 
-    const iceC_Test_A_ids = [
-        "::Ice::Object",
-        "::Test::A"
-    ];
-
-    Test.A = class extends Ice.Object
-    {
-    };
-
-    Test.APrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.A, Test.APrx, iceC_Test_A_ids, "::Test::A",
+Ice.defineOperations(
+    Test.A,
+    Test.APrx,
+    iceC_Test_A_ids,
+    "::Test::A",
     {
         "callA": [, , , [7], , , , , ]
     });
 
-    const iceC_Test_B_ids = [
-        "::Ice::Object",
-        "::Test::A",
-        "::Test::B"
-    ];
+const iceC_Test_B_ids = [
+    "::Ice::Object",
+    "::Test::A",
+    "::Test::B"
+];
 
-    Test.B = class extends Ice.Object
+Test.B = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Test.A
-            ];
-        }
-    };
+        return [
+            Test.A
+        ];
+    }
+};
 
-    Test.BPrx = class extends Ice.ObjectPrx
+Test.BPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Test.APrx];
-        }
-    };
+        return [
+            Test.APrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.BPrx", Test.BPrx);
 
-    Slice.defineOperations(Test.B, Test.BPrx, iceC_Test_B_ids, "::Test::B",
+Ice.defineOperations(
+    Test.B,
+    Test.BPrx,
+    iceC_Test_B_ids,
+    "::Test::B",
     {
         "callB": [, , , [7], , , , , ]
     });
 
-    const iceC_Test_C_ids = [
-        "::Ice::Object",
-        "::Test::A",
-        "::Test::C"
-    ];
+const iceC_Test_C_ids = [
+    "::Ice::Object",
+    "::Test::A",
+    "::Test::C"
+];
 
-    Test.C = class extends Ice.Object
+Test.C = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Test.A
-            ];
-        }
-    };
+        return [
+            Test.A
+        ];
+    }
+};
 
-    Test.CPrx = class extends Ice.ObjectPrx
+Test.CPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Test.APrx];
-        }
-    };
+        return [
+            Test.APrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.CPrx", Test.CPrx);
 
-    Slice.defineOperations(Test.C, Test.CPrx, iceC_Test_C_ids, "::Test::C",
+Ice.defineOperations(
+    Test.C,
+    Test.CPrx,
+    iceC_Test_C_ids,
+    "::Test::C",
     {
         "callC": [, , , [7], , , , , ]
     });
 
-    const iceC_Test_D_ids = [
-        "::Ice::Object",
-        "::Test::A",
-        "::Test::B",
-        "::Test::C",
-        "::Test::D"
-    ];
+const iceC_Test_D_ids = [
+    "::Ice::Object",
+    "::Test::A",
+    "::Test::B",
+    "::Test::C",
+    "::Test::D"
+];
 
-    Test.D = class extends Ice.Object
+Test.D = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Test.B,
-                Test.C
-            ];
-        }
-    };
+        return [
+            Test.B,
+            Test.C
+        ];
+    }
+};
 
-    Test.DPrx = class extends Ice.ObjectPrx
+Test.DPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Test.BPrx,
-                Test.CPrx];
-        }
-    };
+        return [
+            Test.BPrx,
+            Test.CPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.DPrx", Test.DPrx);
 
-    Slice.defineOperations(Test.D, Test.DPrx, iceC_Test_D_ids, "::Test::D",
+Ice.defineOperations(
+    Test.D,
+    Test.DPrx,
+    iceC_Test_D_ids,
+    "::Test::D",
     {
         "callD": [, , , [7], , , , , ]
     });
 
-    const iceC_Test_E_ids = [
-        "::Ice::Object",
-        "::Test::E"
-    ];
+const iceC_Test_E_ids = [
+    "::Ice::Object",
+    "::Test::E"
+];
 
-    Test.E = class extends Ice.Object
-    {
-    };
+Test.E = class extends Ice.Object
+{
+};
 
-    Test.EPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.EPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.EPrx", Test.EPrx);
 
-    Slice.defineOperations(Test.E, Test.EPrx, iceC_Test_E_ids, "::Test::E",
+Ice.defineOperations(
+    Test.E,
+    Test.EPrx,
+    iceC_Test_E_ids,
+    "::Test::E",
     {
         "callE": [, , , [7], , , , , ]
     });
 
-    const iceC_Test_F_ids = [
-        "::Ice::Object",
-        "::Test::E",
-        "::Test::F"
-    ];
+const iceC_Test_F_ids = [
+    "::Ice::Object",
+    "::Test::E",
+    "::Test::F"
+];
 
-    Test.F = class extends Ice.Object
+Test.F = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Test.E
-            ];
-        }
-    };
+        return [
+            Test.E
+        ];
+    }
+};
 
-    Test.FPrx = class extends Ice.ObjectPrx
+Test.FPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Test.EPrx];
-        }
-    };
+        return [
+            Test.EPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.FPrx", Test.FPrx);
 
-    Slice.defineOperations(Test.F, Test.FPrx, iceC_Test_F_ids, "::Test::F",
+Ice.defineOperations(
+    Test.F,
+    Test.FPrx,
+    iceC_Test_F_ids,
+    "::Test::F",
     {
         "callF": [, , , [7], , , , , ]
     });
 
-    const iceC_Test_G_ids = [
-        "::Ice::Object",
-        "::Test::G"
-    ];
+const iceC_Test_G_ids = [
+    "::Ice::Object",
+    "::Test::G"
+];
 
-    Test.G = class extends Ice.Object
-    {
-    };
+Test.G = class extends Ice.Object
+{
+};
 
-    Test.GPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.GPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.GPrx", Test.GPrx);
 
-    Slice.defineOperations(Test.G, Test.GPrx, iceC_Test_G_ids, "::Test::G",
+Ice.defineOperations(
+    Test.G,
+    Test.GPrx,
+    iceC_Test_G_ids,
+    "::Test::G",
     {
         "shutdown": [, , , , , , , , ],
         "callG": [, , , [7], , , , , ]
     });
 
-    const iceC_Test_H_ids = [
-        "::Ice::Object",
-        "::Test::G",
-        "::Test::H"
-    ];
+const iceC_Test_H_ids = [
+    "::Ice::Object",
+    "::Test::G",
+    "::Test::H"
+];
 
-    Test.H = class extends Ice.Object
+Test.H = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Test.G
-            ];
-        }
-    };
+        return [
+            Test.G
+        ];
+    }
+};
 
-    Test.HPrx = class extends Ice.ObjectPrx
+Test.HPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Test.GPrx];
-        }
-    };
+        return [
+            Test.GPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.HPrx", Test.HPrx);
 
-    Slice.defineOperations(Test.H, Test.HPrx, iceC_Test_H_ids, "::Test::H",
+Ice.defineOperations(
+    Test.H,
+    Test.HPrx,
+    iceC_Test_H_ids,
+    "::Test::H",
     {
         "callH": [, , , [7], , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

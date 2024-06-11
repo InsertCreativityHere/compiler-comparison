@@ -16,18 +16,18 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Struct");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Struct from "../Ice/Struct.js";
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_Long,
+    ...Ice_ObjectPrx,
+    ...Ice_Struct,
+};
+
+
+export { Ice };
 
 /**
  *  A version structure for the protocol version.
@@ -58,7 +58,7 @@ Ice.ProtocolVersion = class
     }
 };
 
-Slice.defineStruct(Ice.ProtocolVersion, true, false);
+Ice.defineStruct(Ice.ProtocolVersion, true, false);
 
 /**
  *  A version structure for the encoding version.
@@ -89,7 +89,4 @@ Ice.EncodingVersion = class
     }
 };
 
-Slice.defineStruct(Ice.EncodingVersion, true, false);
-/* slice2js browser-bundle-skip */
-exports.Ice = Ice;
-/* slice2js browser-bundle-skip-end */
+Ice.defineStruct(Ice.EncodingVersion, true, false);

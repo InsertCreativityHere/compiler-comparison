@@ -16,23 +16,20 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Struct");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("../Ice/BuiltinSequences");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Struct from "../Ice/Struct.js";
+import { Ice as Ice_Ice_BuiltinSequences } from "../Ice/BuiltinSequences.js"
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
-/* slice2js browser-bundle-skip */
+const Ice = {
+    ...Ice_Long,
+    ...Ice_ObjectPrx,
+    ...Ice_Struct,
+    ...Ice_Ice_BuiltinSequences,
+};
 
-let Glacier2 = _ModuleRegistry.module("Glacier2");
-/* slice2js browser-bundle-skip-end */
+
+export const Glacier2 = {};
 
 /**
  *  Information taken from an SSL connection used for permissions verification.
@@ -76,7 +73,4 @@ Glacier2.SSLInfo = class
     }
 };
 
-Slice.defineStruct(Glacier2.SSLInfo, false, true);
-/* slice2js browser-bundle-skip */
-exports.Glacier2 = Glacier2;
-/* slice2js browser-bundle-skip-end */
+Ice.defineStruct(Glacier2.SSLInfo, false, true);

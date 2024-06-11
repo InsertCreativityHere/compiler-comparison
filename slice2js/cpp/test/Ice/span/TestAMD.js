@@ -16,47 +16,42 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.ByteSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.ShortSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ShortHelper, true);
+
+Test.StringSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
+
+const iceC_Test_TestIntf_ids = [
+    "::Ice::Object",
+    "::Test::TestIntf"
+];
+
+Test.TestIntf = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.TestIntfPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
 
-    Slice.defineSequence(Test, "ByteSeqHelper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "ShortSeqHelper", "Ice.ShortHelper", true);
-
-    Slice.defineSequence(Test, "StringSeqHelper", "Ice.StringHelper", false);
-
-    const iceC_Test_TestIntf_ids = [
-        "::Ice::Object",
-        "::Test::TestIntf"
-    ];
-
-    Test.TestIntf = class extends Ice.Object
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
     {
-    };
-
-    Test.TestIntfPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
-    {
-        "opByteSpan": [, , , ["Test.ByteSeqHelper"], [["Test.ByteSeqHelper"]], [["Test.ByteSeqHelper"]], , , ],
-        "opShortSpan": [, , , ["Test.ShortSeqHelper"], [["Test.ShortSeqHelper"]], [["Test.ShortSeqHelper"]], , , ],
-        "opStringSpan": [, , , ["Test.StringSeqHelper"], [["Test.StringSeqHelper"]], [["Test.StringSeqHelper"]], , , ],
-        "opOptionalByteSpan": [, , , ["Test.ByteSeqHelper", , 10], [["Test.ByteSeqHelper", , 1]], [["Test.ByteSeqHelper", , 11]], , , ],
-        "opOptionalShortSpan": [, , , ["Test.ShortSeqHelper", , 10], [["Test.ShortSeqHelper", , 1]], [["Test.ShortSeqHelper", , 11]], , , ],
-        "opOptionalStringSpan": [, , , ["Test.StringSeqHelper", , 10], [["Test.StringSeqHelper", , 1]], [["Test.StringSeqHelper", , 11]], , , ],
+        "opByteSpan": [, , , [Test.ByteSeqHelper], [[Test.ByteSeqHelper]], [[Test.ByteSeqHelper]], , , ],
+        "opShortSpan": [, , , [Test.ShortSeqHelper], [[Test.ShortSeqHelper]], [[Test.ShortSeqHelper]], , , ],
+        "opStringSpan": [, , , [Test.StringSeqHelper], [[Test.StringSeqHelper]], [[Test.StringSeqHelper]], , , ],
+        "opOptionalByteSpan": [, , , [Test.ByteSeqHelper, , 10], [[Test.ByteSeqHelper, , 1]], [[Test.ByteSeqHelper, , 11]], , , ],
+        "opOptionalShortSpan": [, , , [Test.ShortSeqHelper, , 10], [[Test.ShortSeqHelper, , 1]], [[Test.ShortSeqHelper, , 11]], , , ],
+        "opOptionalStringSpan": [, , , [Test.StringSeqHelper, , 10], [[Test.StringSeqHelper, , 1]], [[Test.StringSeqHelper, , 11]], , , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

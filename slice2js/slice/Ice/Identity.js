@@ -16,18 +16,24 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Struct");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_ArrayUtil from "../Ice/ArrayUtil.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_Struct from "../Ice/Struct.js";
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_ArrayUtil,
+    ...Ice_Long,
+    ...Ice_ObjectPrx,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_Struct,
+};
+
+
+export { Ice };
 
 /**
  *  The identity of an Ice object. In a proxy, an empty {@link Identity#name} denotes a nil proxy. An identity with
@@ -62,9 +68,6 @@ Ice.Identity = class
     }
 };
 
-Slice.defineStruct(Ice.Identity, true, true);
+Ice.defineStruct(Ice.Identity, true, true);
 
-Slice.defineSequence(Ice, "IdentitySeqHelper", "Ice.Identity", false);
-/* slice2js browser-bundle-skip */
-exports.Ice = Ice;
-/* slice2js browser-bundle-skip-end */
+Ice.IdentitySeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.Identity, false);

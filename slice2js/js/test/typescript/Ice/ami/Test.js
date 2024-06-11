@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 Test.TestIntfException = class extends Ice.UserException
 {
@@ -44,8 +43,11 @@ Test.TestIntfException = class extends Ice.UserException
         return Test.TestIntfException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.TestIntfException",
+    Test.TestIntfException);
 
-Test.CloseMode = Slice.defineEnum([
+Test.CloseMode = Ice.defineEnum([
     ['Forcefully', 0], ['Gracefully', 1], ['GracefullyWithWait', 2]]);
 
 const iceC_Test_PingReply_ids = [
@@ -60,11 +62,16 @@ Test.PingReply = class extends Ice.Object
 Test.PingReplyPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.PingReplyPrx", Test.PingReplyPrx);
 
-Slice.defineOperations(Test.PingReply, Test.PingReplyPrx, iceC_Test_PingReply_ids, "::Test::PingReply",
-{
-    "reply": [, , , , , , , , ]
-});
+Ice.defineOperations(
+    Test.PingReply,
+    Test.PingReplyPrx,
+    iceC_Test_PingReply_ids,
+    "::Test::PingReply",
+    {
+        "reply": [, , , , , , , , ]
+    });
 
 const iceC_Test_TestIntf_ids = [
     "::Ice::Object",
@@ -78,28 +85,33 @@ Test.TestIntf = class extends Ice.Object
 Test.TestIntfPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
 
-Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
-{
-    "op": [, , , , , , , , ],
-    "opWithPayload": [, , , , [["Ice.ByteSeqHelper"]], , , , ],
-    "opWithResult": [, , , [3], , , , , ],
-    "opWithUE": [, , , , , ,
-    [
-        Test.TestIntfException
-    ], , ],
-    "opBatch": [, , , , , , , , ],
-    "opBatchCount": [, , , [3], , , , , ],
-    "waitForBatch": [, , , [1], [[3]], , , , ],
-    "close": [, , , , [[Test.CloseMode._helper]], , , , ],
-    "sleep": [, , , , [[3]], , , , ],
-    "startDispatch": [, , , , , , , , ],
-    "finishDispatch": [, , , , , , , , ],
-    "shutdown": [, , , , , , , , ],
-    "supportsAMD": [, , , [1], , , , , ],
-    "supportsFunctionalTests": [, , , [1], , , , , ],
-    "pingBidDir": [, , , , [[Ice.Identity]], , , , ]
-});
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
+    {
+        "op": [, , , , , , , , ],
+        "opWithPayload": [, , , , [[Ice.ByteSeqHelper]], , , , ],
+        "opWithResult": [, , , [3], , , , , ],
+        "opWithUE": [, , , , , ,
+        [
+            Test.TestIntfException
+        ], , ],
+        "opBatch": [, , , , , , , , ],
+        "opBatchCount": [, , , [3], , , , , ],
+        "waitForBatch": [, , , [1], [[3]], , , , ],
+        "close": [, , , , [[Test.CloseMode._helper]], , , , ],
+        "sleep": [, , , , [[3]], , , , ],
+        "startDispatch": [, , , , , , , , ],
+        "finishDispatch": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ],
+        "supportsAMD": [, , , [1], , , , , ],
+        "supportsFunctionalTests": [, , , [1], , , , , ],
+        "pingBidDir": [, , , , [[Ice.Identity]], , , , ]
+    });
 
 const iceC_Test_TestIntfController_ids = [
     "::Ice::Object",
@@ -113,10 +125,14 @@ Test.TestIntfController = class extends Ice.Object
 Test.TestIntfControllerPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.TestIntfControllerPrx", Test.TestIntfControllerPrx);
 
-Slice.defineOperations(Test.TestIntfController, Test.TestIntfControllerPrx, iceC_Test_TestIntfController_ids, "::Test::TestIntfController",
-{
-    "holdAdapter": [, , , , , , , , ],
-    "resumeAdapter": [, , , , , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.TestIntfController,
+    Test.TestIntfControllerPrx,
+    iceC_Test_TestIntfController_ids,
+    "::Test::TestIntfController",
+    {
+        "holdAdapter": [, , , , , , , , ],
+        "resumeAdapter": [, , , , , , , , ]
+    });

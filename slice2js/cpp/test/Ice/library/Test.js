@@ -16,72 +16,70 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.UserError = class extends Ice.UserException
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.UserError = class extends Ice.UserException
+    constructor(message = "", _cause = "")
     {
-        constructor(message = "", _cause = "")
-        {
-            super(_cause);
-            this.message = message;
-        }
+        super(_cause);
+        this.message = message;
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::UserError";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.UserError;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.message);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.message = istr.readString();
-        }
-    };
-
-    const iceC_Test_MyInterface_ids = [
-        "::Ice::Object",
-        "::Test::MyInterface"
-    ];
-
-    Test.MyInterface = class extends Ice.Object
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Test.MyInterfacePrx = class extends Ice.ObjectPrx
+    static get _id()
     {
-    };
+        return "::Test::UserError";
+    }
 
-    Slice.defineOperations(Test.MyInterface, Test.MyInterfacePrx, iceC_Test_MyInterface_ids, "::Test::MyInterface",
+    _mostDerivedType()
+    {
+        return Test.UserError;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.message);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.message = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.UserError",
+    Test.UserError);
+
+const iceC_Test_MyInterface_ids = [
+    "::Ice::Object",
+    "::Test::MyInterface"
+];
+
+Test.MyInterface = class extends Ice.Object
+{
+};
+
+Test.MyInterfacePrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.MyInterfacePrx", Test.MyInterfacePrx);
+
+Ice.defineOperations(
+    Test.MyInterface,
+    Test.MyInterfacePrx,
+    iceC_Test_MyInterface_ids,
+    "::Test::MyInterface",
     {
         "op": [, , , , [[1]], ,
         [
             Test.UserError
         ], , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

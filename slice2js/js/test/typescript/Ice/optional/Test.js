@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 Test.OneOptional = class extends Ice.Value
 {
@@ -41,7 +40,8 @@ Test.OneOptional = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.OneOptional, "::Test::OneOptional");
+Ice.defineValue(Test.OneOptional, "::Test::OneOptional");
+Ice.TypeRegistry.declareValueType("Test.OneOptional", Test.OneOptional);
 
 const iceC_Test_MyInterface_ids = [
     "::Ice::Object",
@@ -55,13 +55,18 @@ Test.MyInterface = class extends Ice.Object
 Test.MyInterfacePrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.MyInterfacePrx", Test.MyInterfacePrx);
 
-Slice.defineOperations(Test.MyInterface, Test.MyInterfacePrx, iceC_Test_MyInterface_ids, "::Test::MyInterface",
-{
-    "op": [, , , , , , , , ]
-});
+Ice.defineOperations(
+    Test.MyInterface,
+    Test.MyInterfacePrx,
+    iceC_Test_MyInterface_ids,
+    "::Test::MyInterface",
+    {
+        "op": [, , , , , , , , ]
+    });
 
-Test.MyEnum = Slice.defineEnum([
+Test.MyEnum = Ice.defineEnum([
     ['MyEnumMember', 0]]);
 
 Test.SmallStruct = class
@@ -87,7 +92,7 @@ Test.SmallStruct = class
     }
 };
 
-Slice.defineStruct(Test.SmallStruct, true, false);
+Ice.defineStruct(Test.SmallStruct, true, false);
 
 Test.FixedStruct = class
 {
@@ -112,7 +117,7 @@ Test.FixedStruct = class
     }
 };
 
-Slice.defineStruct(Test.FixedStruct, true, false);
+Ice.defineStruct(Test.FixedStruct, true, false);
 
 Test.VarStruct = class
 {
@@ -137,51 +142,51 @@ Test.VarStruct = class
     }
 };
 
-Slice.defineStruct(Test.VarStruct, true, true);
+Ice.defineStruct(Test.VarStruct, true, true);
 
-Slice.defineSequence(Test, "ByteSeqHelper", "Ice.ByteHelper", true);
+Test.ByteSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
 
-Slice.defineSequence(Test, "BoolSeqHelper", "Ice.BoolHelper", true);
+Test.BoolSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.BoolHelper, true);
 
-Slice.defineSequence(Test, "ShortSeqHelper", "Ice.ShortHelper", true);
+Test.ShortSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ShortHelper, true);
 
-Slice.defineSequence(Test, "IntSeqHelper", "Ice.IntHelper", true);
+Test.IntSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
 
-Slice.defineSequence(Test, "LongSeqHelper", "Ice.LongHelper", true);
+Test.LongSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.LongHelper, true);
 
-Slice.defineSequence(Test, "FloatSeqHelper", "Ice.FloatHelper", true);
+Test.FloatSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.FloatHelper, true);
 
-Slice.defineSequence(Test, "DoubleSeqHelper", "Ice.DoubleHelper", true);
+Test.DoubleSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.DoubleHelper, true);
 
-Slice.defineSequence(Test, "StringSeqHelper", "Ice.StringHelper", false);
+Test.StringSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
 
-Slice.defineSequence(Test, "MyEnumSeqHelper", "Test.MyEnum._helper", false);
+Test.MyEnumSeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.MyEnum._helper, false);
 
-Slice.defineSequence(Test, "SmallStructSeqHelper", "Test.SmallStruct", true);
+Test.SmallStructSeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.SmallStruct, true);
 
-Slice.defineSequence(Test, "SmallStructListHelper", "Test.SmallStruct", true);
+Test.SmallStructListHelper = Ice.StreamHelpers.generateSeqHelper(Test.SmallStruct, true);
 
-Slice.defineSequence(Test, "FixedStructSeqHelper", "Test.FixedStruct", true);
+Test.FixedStructSeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.FixedStruct, true);
 
-Slice.defineSequence(Test, "FixedStructListHelper", "Test.FixedStruct", true);
+Test.FixedStructListHelper = Ice.StreamHelpers.generateSeqHelper(Test.FixedStruct, true);
 
-Slice.defineSequence(Test, "VarStructSeqHelper", "Test.VarStruct", false);
+Test.VarStructSeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.VarStruct, false);
 
-Slice.defineSequence(Test, "MyInterfacePrxSeqHelper", "Test.MyInterfacePrx", false);
+Test.MyInterfacePrxSeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.MyInterfacePrx, false);
 
-Slice.defineSequence(Test, "SerializableHelper", "Ice.ByteHelper", true);
+Test.SerializableHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
 
-Slice.defineDictionary(Test, "IntIntDict", "IntIntDictHelper", "Ice.IntHelper", "Ice.IntHelper", true, undefined, undefined);
+[Test.IntIntDict, Test.IntIntDictHelper] = Ice.defineDictionary(Ice.IntHelper, Ice.IntHelper, true, undefined);
 
-Slice.defineDictionary(Test, "StringIntDict", "StringIntDictHelper", "Ice.StringHelper", "Ice.IntHelper", false, undefined, undefined);
+[Test.StringIntDict, Test.StringIntDictHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.IntHelper, false, undefined);
 
-Slice.defineDictionary(Test, "IntEnumDict", "IntEnumDictHelper", "Ice.IntHelper", "Test.MyEnum._helper", false, undefined, undefined);
+[Test.IntEnumDict, Test.IntEnumDictHelper] = Ice.defineDictionary(Ice.IntHelper, Test.MyEnum._helper, false, undefined);
 
-Slice.defineDictionary(Test, "IntFixedStructDict", "IntFixedStructDictHelper", "Ice.IntHelper", "Test.FixedStruct", true, undefined, undefined);
+[Test.IntFixedStructDict, Test.IntFixedStructDictHelper] = Ice.defineDictionary(Ice.IntHelper, Test.FixedStruct, true, undefined);
 
-Slice.defineDictionary(Test, "IntVarStructDict", "IntVarStructDictHelper", "Ice.IntHelper", "Test.VarStruct", false, undefined, undefined);
+[Test.IntVarStructDict, Test.IntVarStructDictHelper] = Ice.defineDictionary(Ice.IntHelper, Test.VarStruct, false, undefined);
 
-Slice.defineDictionary(Test, "IntMyInterfacePrxDict", "IntMyInterfacePrxDictHelper", "Ice.IntHelper", "Test.MyInterfacePrx", false, undefined, undefined);
+[Test.IntMyInterfacePrxDict, Test.IntMyInterfacePrxDictHelper] = Ice.defineDictionary(Ice.IntHelper, Test.MyInterfacePrx, false, undefined);
 
 Test.MultiOptional = class extends Ice.Value
 {
@@ -280,7 +285,8 @@ Test.MultiOptional = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.MultiOptional, "::Test::MultiOptional");
+Ice.defineValue(Test.MultiOptional, "::Test::MultiOptional");
+Ice.TypeRegistry.declareValueType("Test.MultiOptional", Test.MultiOptional);
 
 Test.A = class extends Ice.Value
 {
@@ -310,7 +316,8 @@ Test.A = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.A, "::Test::A");
+Ice.defineValue(Test.A, "::Test::A");
+Ice.TypeRegistry.declareValueType("Test.A", Test.A);
 
 Test.B = class extends Test.A
 {
@@ -334,7 +341,8 @@ Test.B = class extends Test.A
     }
 };
 
-Slice.defineValue(Test.B, "::Test::B");
+Ice.defineValue(Test.B, "::Test::B");
+Ice.TypeRegistry.declareValueType("Test.B", Test.B);
 
 Test.C = class extends Test.B
 {
@@ -358,7 +366,8 @@ Test.C = class extends Test.B
     }
 };
 
-Slice.defineValue(Test.C, "::Test::C");
+Ice.defineValue(Test.C, "::Test::C");
+Ice.TypeRegistry.declareValueType("Test.C", Test.C);
 
 Test.WD = class extends Ice.Value
 {
@@ -382,7 +391,8 @@ Test.WD = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.WD, "::Test::WD");
+Ice.defineValue(Test.WD, "::Test::WD");
+Ice.TypeRegistry.declareValueType("Test.WD", Test.WD);
 
 Test.OptionalException = class extends Ice.UserException
 {
@@ -423,6 +433,9 @@ Test.OptionalException = class extends Ice.UserException
         this.b = Ice.StringHelper.readOptional(istr, 2);
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.OptionalException",
+    Test.OptionalException);
 
 Test.DerivedException = class extends Test.OptionalException
 {
@@ -463,6 +476,9 @@ Test.DerivedException = class extends Test.OptionalException
         this.ss = Ice.StringHelper.readOptional(istr, 600);
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.DerivedException",
+    Test.DerivedException);
 
 Test.RequiredException = class extends Test.OptionalException
 {
@@ -497,6 +513,9 @@ Test.RequiredException = class extends Test.OptionalException
         this.ss = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.RequiredException",
+    Test.RequiredException);
 
 Test.OptionalWithCustom = class extends Ice.Value
 {
@@ -520,7 +539,8 @@ Test.OptionalWithCustom = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.OptionalWithCustom, "::Test::OptionalWithCustom");
+Ice.defineValue(Test.OptionalWithCustom, "::Test::OptionalWithCustom");
+Ice.TypeRegistry.declareValueType("Test.OptionalWithCustom", Test.OptionalWithCustom);
 
 Test.E = class extends Ice.Value
 {
@@ -541,7 +561,8 @@ Test.E = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.E, "::Test::E");
+Ice.defineValue(Test.E, "::Test::E");
+Ice.TypeRegistry.declareValueType("Test.E", Test.E);
 
 Test.F = class extends Test.E
 {
@@ -562,7 +583,8 @@ Test.F = class extends Test.E
     }
 };
 
-Slice.defineValue(Test.F, "::Test::F");
+Ice.defineValue(Test.F, "::Test::F");
+Ice.TypeRegistry.declareValueType("Test.F", Test.F);
 
 Test.G1 = class
 {
@@ -587,7 +609,7 @@ Test.G1 = class
     }
 };
 
-Slice.defineStruct(Test.G1, true, true);
+Ice.defineStruct(Test.G1, true, true);
 
 Test.G2 = class
 {
@@ -612,7 +634,7 @@ Test.G2 = class
     }
 };
 
-Slice.defineStruct(Test.G2, true, false);
+Ice.defineStruct(Test.G2, true, false);
 
 Test.G = class extends Ice.Value
 {
@@ -642,7 +664,8 @@ Test.G = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.G, "::Test::G");
+Ice.defineValue(Test.G, "::Test::G");
+Ice.TypeRegistry.declareValueType("Test.G", Test.G);
 
 const iceC_Test_Initial_ids = [
     "::Ice::Object",
@@ -656,64 +679,69 @@ Test.Initial = class extends Ice.Object
 Test.InitialPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.InitialPrx", Test.InitialPrx);
 
-Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
-{
-    "shutdown": [, , , , , , , , ],
-    "pingPong": [, , , [8, true], [[8, true]], , , true, true],
-    "opOptionalException": [, , , , [[3, , 1], [7, , 2]], ,
-    [
-        Test.OptionalException
-    ], , ],
-    "opDerivedException": [, , , , [[3, , 1], [7, , 2]], ,
-    [
-        Test.OptionalException
-    ], , ],
-    "opRequiredException": [, , , , [[3, , 1], [7, , 2]], ,
-    [
-        Test.OptionalException
-    ], , ],
-    "opByte": [, , , [0, , 1], [[0, , 2]], [[0, , 3]], , , ],
-    "opBool": [, , , [1, , 1], [[1, , 2]], [[1, , 3]], , , ],
-    "opShort": [, , , [2, , 1], [[2, , 2]], [[2, , 3]], , , ],
-    "opInt": [, , , [3, , 1], [[3, , 2]], [[3, , 3]], , , ],
-    "opLong": [, , , [4, , 3], [[4, , 1]], [[4, , 2]], , , ],
-    "opFloat": [, , , [5, , 1], [[5, , 2]], [[5, , 3]], , , ],
-    "opDouble": [, , , [6, , 1], [[6, , 2]], [[6, , 3]], , , ],
-    "opString": [, , , [7, , 1], [[7, , 2]], [[7, , 3]], , , ],
-    "opMyEnum": [, , , [Test.MyEnum._helper, , 1], [[Test.MyEnum._helper, , 2]], [[Test.MyEnum._helper, , 3]], , , ],
-    "opSmallStruct": [, , , [Test.SmallStruct, , 1], [[Test.SmallStruct, , 2]], [[Test.SmallStruct, , 3]], , , ],
-    "opFixedStruct": [, , , [Test.FixedStruct, , 1], [[Test.FixedStruct, , 2]], [[Test.FixedStruct, , 3]], , , ],
-    "opVarStruct": [, , , [Test.VarStruct, , 1], [[Test.VarStruct, , 2]], [[Test.VarStruct, , 3]], , , ],
-    "opMyInterfaceProxy": [, , , ["Test.MyInterfacePrx", , 1], [["Test.MyInterfacePrx", , 2]], [["Test.MyInterfacePrx", , 3]], , , ],
-    "opOneOptional": [, , , ["Test.OneOptional", true], [["Test.OneOptional", true]], [["Test.OneOptional", true]], , true, true],
-    "opByteSeq": [, , , ["Test.ByteSeqHelper", , 1], [["Test.ByteSeqHelper", , 2]], [["Test.ByteSeqHelper", , 3]], , , ],
-    "opBoolSeq": [, , , ["Test.BoolSeqHelper", , 1], [["Test.BoolSeqHelper", , 2]], [["Test.BoolSeqHelper", , 3]], , , ],
-    "opShortSeq": [, , , ["Test.ShortSeqHelper", , 1], [["Test.ShortSeqHelper", , 2]], [["Test.ShortSeqHelper", , 3]], , , ],
-    "opIntSeq": [, , , ["Test.IntSeqHelper", , 1], [["Test.IntSeqHelper", , 2]], [["Test.IntSeqHelper", , 3]], , , ],
-    "opLongSeq": [, , , ["Test.LongSeqHelper", , 1], [["Test.LongSeqHelper", , 2]], [["Test.LongSeqHelper", , 3]], , , ],
-    "opFloatSeq": [, , , ["Test.FloatSeqHelper", , 1], [["Test.FloatSeqHelper", , 2]], [["Test.FloatSeqHelper", , 3]], , , ],
-    "opDoubleSeq": [, , , ["Test.DoubleSeqHelper", , 1], [["Test.DoubleSeqHelper", , 2]], [["Test.DoubleSeqHelper", , 3]], , , ],
-    "opStringSeq": [, , , ["Test.StringSeqHelper", , 1], [["Test.StringSeqHelper", , 2]], [["Test.StringSeqHelper", , 3]], , , ],
-    "opSmallStructSeq": [, , , ["Test.SmallStructSeqHelper", , 1], [["Test.SmallStructSeqHelper", , 2]], [["Test.SmallStructSeqHelper", , 3]], , , ],
-    "opSmallStructList": [, , , ["Test.SmallStructListHelper", , 1], [["Test.SmallStructListHelper", , 2]], [["Test.SmallStructListHelper", , 3]], , , ],
-    "opFixedStructSeq": [, , , ["Test.FixedStructSeqHelper", , 1], [["Test.FixedStructSeqHelper", , 2]], [["Test.FixedStructSeqHelper", , 3]], , , ],
-    "opFixedStructList": [, , , ["Test.FixedStructListHelper", , 1], [["Test.FixedStructListHelper", , 2]], [["Test.FixedStructListHelper", , 3]], , , ],
-    "opVarStructSeq": [, , , ["Test.VarStructSeqHelper", , 1], [["Test.VarStructSeqHelper", , 2]], [["Test.VarStructSeqHelper", , 3]], , , ],
-    "opSerializable": [, , , ["Test.SerializableHelper", , 1], [["Test.SerializableHelper", , 2]], [["Test.SerializableHelper", , 3]], , , ],
-    "opIntIntDict": [, , , ["Test.IntIntDictHelper", , 1], [["Test.IntIntDictHelper", , 2]], [["Test.IntIntDictHelper", , 3]], , , ],
-    "opStringIntDict": [, , , ["Test.StringIntDictHelper", , 1], [["Test.StringIntDictHelper", , 2]], [["Test.StringIntDictHelper", , 3]], , , ],
-    "opClassAndUnknownOptional": [, , , , [["Test.A", true]], , , true, ],
-    "opG": [, , , ["Test.G", true], [["Test.G", true]], , , true, true],
-    "opVoid": [, , , , , , , , ],
-    "opMStruct1": [, , , [Test.SmallStruct, , 1], , , , , ],
-    "opMStruct2": [, , , [Test.SmallStruct, , 1], [[Test.SmallStruct, , 2]], [[Test.SmallStruct, , 3]], , , ],
-    "opMSeq1": [, , , ["Test.StringSeqHelper", , 1], , , , , ],
-    "opMSeq2": [, , , ["Test.StringSeqHelper", , 1], [["Test.StringSeqHelper", , 2]], [["Test.StringSeqHelper", , 3]], , , ],
-    "opMDict1": [, , , ["Test.StringIntDictHelper", , 1], , , , , ],
-    "opMDict2": [, , , ["Test.StringIntDictHelper", , 1], [["Test.StringIntDictHelper", , 2]], [["Test.StringIntDictHelper", , 3]], , , ],
-    "supportsJavaSerializable": [, , , [1], , , , , ]
-});
+Ice.defineOperations(
+    Test.Initial,
+    Test.InitialPrx,
+    iceC_Test_Initial_ids,
+    "::Test::Initial",
+    {
+        "shutdown": [, , , , , , , , ],
+        "pingPong": [, , , [8, true], [[8, true]], , , true, true],
+        "opOptionalException": [, , , , [[3, , 1], [7, , 2]], ,
+        [
+            Test.OptionalException
+        ], , ],
+        "opDerivedException": [, , , , [[3, , 1], [7, , 2]], ,
+        [
+            Test.OptionalException
+        ], , ],
+        "opRequiredException": [, , , , [[3, , 1], [7, , 2]], ,
+        [
+            Test.OptionalException
+        ], , ],
+        "opByte": [, , , [0, , 1], [[0, , 2]], [[0, , 3]], , , ],
+        "opBool": [, , , [1, , 1], [[1, , 2]], [[1, , 3]], , , ],
+        "opShort": [, , , [2, , 1], [[2, , 2]], [[2, , 3]], , , ],
+        "opInt": [, , , [3, , 1], [[3, , 2]], [[3, , 3]], , , ],
+        "opLong": [, , , [4, , 3], [[4, , 1]], [[4, , 2]], , , ],
+        "opFloat": [, , , [5, , 1], [[5, , 2]], [[5, , 3]], , , ],
+        "opDouble": [, , , [6, , 1], [[6, , 2]], [[6, , 3]], , , ],
+        "opString": [, , , [7, , 1], [[7, , 2]], [[7, , 3]], , , ],
+        "opMyEnum": [, , , [Test.MyEnum._helper, , 1], [[Test.MyEnum._helper, , 2]], [[Test.MyEnum._helper, , 3]], , , ],
+        "opSmallStruct": [, , , [Test.SmallStruct, , 1], [[Test.SmallStruct, , 2]], [[Test.SmallStruct, , 3]], , , ],
+        "opFixedStruct": [, , , [Test.FixedStruct, , 1], [[Test.FixedStruct, , 2]], [[Test.FixedStruct, , 3]], , , ],
+        "opVarStruct": [, , , [Test.VarStruct, , 1], [[Test.VarStruct, , 2]], [[Test.VarStruct, , 3]], , , ],
+        "opMyInterfaceProxy": [, , , ["Test.MyInterfacePrx", , 1], [["Test.MyInterfacePrx", , 2]], [["Test.MyInterfacePrx", , 3]], , , ],
+        "opOneOptional": [, , , ["Test.OneOptional", true], [["Test.OneOptional", true]], [["Test.OneOptional", true]], , true, true],
+        "opByteSeq": [, , , [Test.ByteSeqHelper, , 1], [[Test.ByteSeqHelper, , 2]], [[Test.ByteSeqHelper, , 3]], , , ],
+        "opBoolSeq": [, , , [Test.BoolSeqHelper, , 1], [[Test.BoolSeqHelper, , 2]], [[Test.BoolSeqHelper, , 3]], , , ],
+        "opShortSeq": [, , , [Test.ShortSeqHelper, , 1], [[Test.ShortSeqHelper, , 2]], [[Test.ShortSeqHelper, , 3]], , , ],
+        "opIntSeq": [, , , [Test.IntSeqHelper, , 1], [[Test.IntSeqHelper, , 2]], [[Test.IntSeqHelper, , 3]], , , ],
+        "opLongSeq": [, , , [Test.LongSeqHelper, , 1], [[Test.LongSeqHelper, , 2]], [[Test.LongSeqHelper, , 3]], , , ],
+        "opFloatSeq": [, , , [Test.FloatSeqHelper, , 1], [[Test.FloatSeqHelper, , 2]], [[Test.FloatSeqHelper, , 3]], , , ],
+        "opDoubleSeq": [, , , [Test.DoubleSeqHelper, , 1], [[Test.DoubleSeqHelper, , 2]], [[Test.DoubleSeqHelper, , 3]], , , ],
+        "opStringSeq": [, , , [Test.StringSeqHelper, , 1], [[Test.StringSeqHelper, , 2]], [[Test.StringSeqHelper, , 3]], , , ],
+        "opSmallStructSeq": [, , , [Test.SmallStructSeqHelper, , 1], [[Test.SmallStructSeqHelper, , 2]], [[Test.SmallStructSeqHelper, , 3]], , , ],
+        "opSmallStructList": [, , , [Test.SmallStructListHelper, , 1], [[Test.SmallStructListHelper, , 2]], [[Test.SmallStructListHelper, , 3]], , , ],
+        "opFixedStructSeq": [, , , [Test.FixedStructSeqHelper, , 1], [[Test.FixedStructSeqHelper, , 2]], [[Test.FixedStructSeqHelper, , 3]], , , ],
+        "opFixedStructList": [, , , [Test.FixedStructListHelper, , 1], [[Test.FixedStructListHelper, , 2]], [[Test.FixedStructListHelper, , 3]], , , ],
+        "opVarStructSeq": [, , , [Test.VarStructSeqHelper, , 1], [[Test.VarStructSeqHelper, , 2]], [[Test.VarStructSeqHelper, , 3]], , , ],
+        "opSerializable": [, , , [Test.SerializableHelper, , 1], [[Test.SerializableHelper, , 2]], [[Test.SerializableHelper, , 3]], , , ],
+        "opIntIntDict": [, , , [Test.IntIntDictHelper, , 1], [[Test.IntIntDictHelper, , 2]], [[Test.IntIntDictHelper, , 3]], , , ],
+        "opStringIntDict": [, , , [Test.StringIntDictHelper, , 1], [[Test.StringIntDictHelper, , 2]], [[Test.StringIntDictHelper, , 3]], , , ],
+        "opClassAndUnknownOptional": [, , , , [["Test.A", true]], , , true, ],
+        "opG": [, , , ["Test.G", true], [["Test.G", true]], , , true, true],
+        "opVoid": [, , , , , , , , ],
+        "opMStruct1": [, , , [Test.SmallStruct, , 1], , , , , ],
+        "opMStruct2": [, , , [Test.SmallStruct, , 1], [[Test.SmallStruct, , 2]], [[Test.SmallStruct, , 3]], , , ],
+        "opMSeq1": [, , , [Test.StringSeqHelper, , 1], , , , , ],
+        "opMSeq2": [, , , [Test.StringSeqHelper, , 1], [[Test.StringSeqHelper, , 2]], [[Test.StringSeqHelper, , 3]], , , ],
+        "opMDict1": [, , , [Test.StringIntDictHelper, , 1], , , , , ],
+        "opMDict2": [, , , [Test.StringIntDictHelper, , 1], [[Test.StringIntDictHelper, , 2]], [[Test.StringIntDictHelper, , 3]], , , ],
+        "supportsJavaSerializable": [, , , [1], , , , , ]
+    });
 
 const iceC_Test_Echo_ids = [
     "::Ice::Object",
@@ -727,12 +755,16 @@ Test.Echo = class extends Ice.Object
 Test.EchoPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.EchoPrx", Test.EchoPrx);
 
-Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
-{
-    "setConnection": [, , , , , , , , ],
-    "startBatch": [, , , , , , , , ],
-    "flushBatch": [, , , , , , , , ],
-    "shutdown": [, , , , , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.Echo,
+    Test.EchoPrx,
+    iceC_Test_Echo_ids,
+    "::Test::Echo",
+    {
+        "setConnection": [, , , , , , , , ],
+        "startBatch": [, , , , , , , , ],
+        "flushBatch": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ]
+    });

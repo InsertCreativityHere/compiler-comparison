@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 const iceC_Test_Empty_ids = [
     "::Ice::Object",
@@ -34,8 +33,13 @@ Test.Empty = class extends Ice.Object
 Test.EmptyPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.EmptyPrx", Test.EmptyPrx);
 
-Slice.defineOperations(Test.Empty, Test.EmptyPrx, iceC_Test_Empty_ids, "::Test::Empty");
+Ice.defineOperations(
+    Test.Empty,
+    Test.EmptyPrx,
+    iceC_Test_Empty_ids,
+    "::Test::Empty");
 
 const iceC_Test_A_ids = [
     "::Ice::Object",
@@ -49,11 +53,16 @@ Test.A = class extends Ice.Object
 Test.APrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.APrx", Test.APrx);
 
-Slice.defineOperations(Test.A, Test.APrx, iceC_Test_A_ids, "::Test::A",
-{
-    "callA": [, , , [7], , , , , ]
-});
+Ice.defineOperations(
+    Test.A,
+    Test.APrx,
+    iceC_Test_A_ids,
+    "::Test::A",
+    {
+        "callA": [, , , [7], , , , , ]
+    });
 
 const iceC_Test_B_ids = [
     "::Ice::Object",
@@ -79,11 +88,16 @@ Test.BPrx = class extends Ice.ObjectPrx
             Test.APrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("Test.BPrx", Test.BPrx);
 
-Slice.defineOperations(Test.B, Test.BPrx, iceC_Test_B_ids, "::Test::B",
-{
-    "callB": [, , , [7], , , , , ]
-});
+Ice.defineOperations(
+    Test.B,
+    Test.BPrx,
+    iceC_Test_B_ids,
+    "::Test::B",
+    {
+        "callB": [, , , [7], , , , , ]
+    });
 
 const iceC_Test_C_ids = [
     "::Ice::Object",
@@ -109,11 +123,16 @@ Test.CPrx = class extends Ice.ObjectPrx
             Test.APrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("Test.CPrx", Test.CPrx);
 
-Slice.defineOperations(Test.C, Test.CPrx, iceC_Test_C_ids, "::Test::C",
-{
-    "callC": [, , , [7], , , , , ]
-});
+Ice.defineOperations(
+    Test.C,
+    Test.CPrx,
+    iceC_Test_C_ids,
+    "::Test::C",
+    {
+        "callC": [, , , [7], , , , , ]
+    });
 
 const iceC_Test_D_ids = [
     "::Ice::Object",
@@ -143,11 +162,16 @@ Test.DPrx = class extends Ice.ObjectPrx
             Test.CPrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("Test.DPrx", Test.DPrx);
 
-Slice.defineOperations(Test.D, Test.DPrx, iceC_Test_D_ids, "::Test::D",
-{
-    "callD": [, , , [7], , , , , ]
-});
+Ice.defineOperations(
+    Test.D,
+    Test.DPrx,
+    iceC_Test_D_ids,
+    "::Test::D",
+    {
+        "callD": [, , , [7], , , , , ]
+    });
 
 const iceC_Test_E_ids = [
     "::Ice::Object",
@@ -161,11 +185,16 @@ Test.E = class extends Ice.Object
 Test.EPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.EPrx", Test.EPrx);
 
-Slice.defineOperations(Test.E, Test.EPrx, iceC_Test_E_ids, "::Test::E",
-{
-    "callE": [, , , [7], , , , , ]
-});
+Ice.defineOperations(
+    Test.E,
+    Test.EPrx,
+    iceC_Test_E_ids,
+    "::Test::E",
+    {
+        "callE": [, , , [7], , , , , ]
+    });
 
 const iceC_Test_F_ids = [
     "::Ice::Object",
@@ -191,11 +220,16 @@ Test.FPrx = class extends Ice.ObjectPrx
             Test.EPrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("Test.FPrx", Test.FPrx);
 
-Slice.defineOperations(Test.F, Test.FPrx, iceC_Test_F_ids, "::Test::F",
-{
-    "callF": [, , , [7], , , , , ]
-});
+Ice.defineOperations(
+    Test.F,
+    Test.FPrx,
+    iceC_Test_F_ids,
+    "::Test::F",
+    {
+        "callF": [, , , [7], , , , , ]
+    });
 
 const iceC_Test_G_ids = [
     "::Ice::Object",
@@ -209,12 +243,17 @@ Test.G = class extends Ice.Object
 Test.GPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.GPrx", Test.GPrx);
 
-Slice.defineOperations(Test.G, Test.GPrx, iceC_Test_G_ids, "::Test::G",
-{
-    "shutdown": [, , , , , , , , ],
-    "callG": [, , , [7], , , , , ]
-});
+Ice.defineOperations(
+    Test.G,
+    Test.GPrx,
+    iceC_Test_G_ids,
+    "::Test::G",
+    {
+        "shutdown": [, , , , , , , , ],
+        "callG": [, , , [7], , , , , ]
+    });
 
 const iceC_Test_H_ids = [
     "::Ice::Object",
@@ -240,11 +279,16 @@ Test.HPrx = class extends Ice.ObjectPrx
             Test.GPrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("Test.HPrx", Test.HPrx);
 
-Slice.defineOperations(Test.H, Test.HPrx, iceC_Test_H_ids, "::Test::H",
-{
-    "callH": [, , , [7], , , , , ]
-});
+Ice.defineOperations(
+    Test.H,
+    Test.HPrx,
+    iceC_Test_H_ids,
+    "::Test::H",
+    {
+        "callH": [, , , [7], , , , , ]
+    });
 
 const iceC_Test_Echo_ids = [
     "::Ice::Object",
@@ -258,12 +302,16 @@ Test.Echo = class extends Ice.Object
 Test.EchoPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.EchoPrx", Test.EchoPrx);
 
-Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
-{
-    "setConnection": [, , , , , , , , ],
-    "startBatch": [, , , , , , , , ],
-    "flushBatch": [, , , , , , , , ],
-    "shutdown": [, , , , , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.Echo,
+    Test.EchoPrx,
+    iceC_Test_Echo_ids,
+    "::Test::Echo",
+    {
+        "setConnection": [, , , , , , , , ],
+        "startBatch": [, , , , , , , , ],
+        "flushBatch": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ]
+    });

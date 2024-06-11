@@ -16,91 +16,98 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test1 = {};
+
+export const Test2 = {};
+
+Test1.WstringSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
+
+[Test1.WstringWStringDict, Test1.WstringWStringDictHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);
+
+Test1.WstringStruct = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test1 = _ModuleRegistry.module("Test1");
-
-    Slice.defineSequence(Test1, "WstringSeqHelper", "Ice.StringHelper", false);
-
-    Slice.defineDictionary(Test1, "WstringWStringDict", "WstringWStringDictHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
-
-    Test1.WstringStruct = class
+    constructor(s = "")
     {
-        constructor(s = "")
-        {
-            this.s = s;
-        }
+        this.s = s;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeString(this.s);
-        }
-
-        _read(istr)
-        {
-            this.s = istr.readString();
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(Test1.WstringStruct, true, true);
-
-    Test1.WstringException = class extends Ice.UserException
+    _write(ostr)
     {
-        constructor(reason = "", _cause = "")
-        {
-            super(_cause);
-            this.reason = reason;
-        }
+        ostr.writeString(this.s);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test1::WstringException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test1.WstringException;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.reason);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.reason = istr.readString();
-        }
-    };
-
-    const iceC_Test1_WstringClass_ids = [
-        "::Ice::Object",
-        "::Test1::WstringClass"
-    ];
-
-    Test1.WstringClass = class extends Ice.Object
+    _read(istr)
     {
-    };
+        this.s = istr.readString();
+    }
 
-    Test1.WstringClassPrx = class extends Ice.ObjectPrx
+    static get minWireSize()
     {
-    };
+        return  1;
+    }
+};
 
-    Slice.defineOperations(Test1.WstringClass, Test1.WstringClassPrx, iceC_Test1_WstringClass_ids, "::Test1::WstringClass",
+Ice.defineStruct(Test1.WstringStruct, true, true);
+
+Test1.WstringException = class extends Ice.UserException
+{
+    constructor(reason = "", _cause = "")
+    {
+        super(_cause);
+        this.reason = reason;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test1::WstringException";
+    }
+
+    _mostDerivedType()
+    {
+        return Test1.WstringException;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.reason);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.reason = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test1.WstringException",
+    Test1.WstringException);
+
+const iceC_Test1_WstringClass_ids = [
+    "::Ice::Object",
+    "::Test1::WstringClass"
+];
+
+Test1.WstringClass = class extends Ice.Object
+{
+};
+
+Test1.WstringClassPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test1.WstringClassPrx", Test1.WstringClassPrx);
+
+Ice.defineOperations(
+    Test1.WstringClass,
+    Test1.WstringClassPrx,
+    iceC_Test1_WstringClass_ids,
+    "::Test1::WstringClass",
     {
         "opString": [, , , [7], [[7]], [[7]], , , ],
         "opStruct": [, , , [Test1.WstringStruct], [[Test1.WstringStruct]], [[Test1.WstringStruct]], , , ],
@@ -110,85 +117,91 @@
         ], , ]
     });
 
-    let Test2 = _ModuleRegistry.module("Test2");
+Test2.WstringSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
 
-    Slice.defineSequence(Test2, "WstringSeqHelper", "Ice.StringHelper", false);
+[Test2.WstringWStringDict, Test2.WstringWStringDictHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);
 
-    Slice.defineDictionary(Test2, "WstringWStringDict", "WstringWStringDictHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
-
-    Test2.WstringStruct = class
+Test2.WstringStruct = class
+{
+    constructor(s = "")
     {
-        constructor(s = "")
-        {
-            this.s = s;
-        }
+        this.s = s;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeString(this.s);
-        }
-
-        _read(istr)
-        {
-            this.s = istr.readString();
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(Test2.WstringStruct, true, true);
-
-    Test2.WstringException = class extends Ice.UserException
+    _write(ostr)
     {
-        constructor(reason = "", _cause = "")
-        {
-            super(_cause);
-            this.reason = reason;
-        }
+        ostr.writeString(this.s);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test2::WstringException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test2.WstringException;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.reason);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.reason = istr.readString();
-        }
-    };
-
-    const iceC_Test2_WstringClass_ids = [
-        "::Ice::Object",
-        "::Test2::WstringClass"
-    ];
-
-    Test2.WstringClass = class extends Ice.Object
+    _read(istr)
     {
-    };
+        this.s = istr.readString();
+    }
 
-    Test2.WstringClassPrx = class extends Ice.ObjectPrx
+    static get minWireSize()
     {
-    };
+        return  1;
+    }
+};
 
-    Slice.defineOperations(Test2.WstringClass, Test2.WstringClassPrx, iceC_Test2_WstringClass_ids, "::Test2::WstringClass",
+Ice.defineStruct(Test2.WstringStruct, true, true);
+
+Test2.WstringException = class extends Ice.UserException
+{
+    constructor(reason = "", _cause = "")
+    {
+        super(_cause);
+        this.reason = reason;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test2::WstringException";
+    }
+
+    _mostDerivedType()
+    {
+        return Test2.WstringException;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.reason);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.reason = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test2.WstringException",
+    Test2.WstringException);
+
+const iceC_Test2_WstringClass_ids = [
+    "::Ice::Object",
+    "::Test2::WstringClass"
+];
+
+Test2.WstringClass = class extends Ice.Object
+{
+};
+
+Test2.WstringClassPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test2.WstringClassPrx", Test2.WstringClassPrx);
+
+Ice.defineOperations(
+    Test2.WstringClass,
+    Test2.WstringClassPrx,
+    iceC_Test2_WstringClass_ids,
+    "::Test2::WstringClass",
     {
         "opString": [, , , [7], [[7]], [[7]], , , ],
         "opStruct": [, , , [Test2.WstringStruct], [[Test2.WstringStruct]], [[Test2.WstringStruct]], , , ],
@@ -197,11 +210,3 @@
             Test2.WstringException
         ], , ]
     });
-    exports.Test1 = Test1;
-    exports.Test2 = Test2;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

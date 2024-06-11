@@ -16,37 +16,35 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+import { 
+    Test as Test_Test, } from "./Test.js"
+
+const Test = {
+    ...Test_Test,
+};
+
+export { Test };
+
+Test.Derived = class extends Test.Base
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Test = require("Test").Test;
-    const Slice = Ice.Slice;
-
-    Test.Derived = class extends Test.Base
+    constructor(theS, str, b = "")
     {
-        constructor(theS, str, b = "")
-        {
-            super(theS, str);
-            this.b = b;
-        }
+        super(theS, str);
+        this.b = b;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.b);
-        }
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeString(this.b);
+    }
 
-        _iceReadMemberImpl(istr)
-        {
-            this.b = istr.readString();
-        }
-    };
+    _iceReadMemberImpl(istr)
+    {
+        this.b = istr.readString();
+    }
+};
 
-    Slice.defineValue(Test.Derived, "::Test::Derived");
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Ice.defineValue(Test.Derived, "::Test::Derived");
+Ice.TypeRegistry.declareValueType("Test.Derived", Test.Derived);

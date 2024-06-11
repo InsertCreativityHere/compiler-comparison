@@ -17,12 +17,11 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
 
-Test.MyEnum = Slice.defineEnum([
+export const Test = {};
+
+Test.MyEnum = Ice.defineEnum([
     ['enum1', 0], ['enum2', 1], ['enum3', 2]]);
 
 Test.LargeStruct = class
@@ -52,7 +51,7 @@ Test.LargeStruct = class
         ostr.writeDouble(this.d);
         ostr.writeString(this.str);
         Test.MyEnum._write(ostr, this.e);
-        Test.MyInterfacePrx.write(ostr, this.p);
+        ostr.writeProxy(this.p);
     }
 
     _read(istr)
@@ -66,7 +65,7 @@ Test.LargeStruct = class
         this.d = istr.readDouble();
         this.str = istr.readString();
         this.e = Test.MyEnum._read(istr);
-        this.p = Test.MyInterfacePrx.read(istr, this.p);
+        this.p = istr.readProxy();
     }
 
     static get minWireSize()
@@ -75,7 +74,7 @@ Test.LargeStruct = class
     }
 };
 
-Slice.defineStruct(Test.LargeStruct, false, true);
+Ice.defineStruct(Test.LargeStruct, false, true);
 
 Test.OptionalClass = class extends Ice.Value
 {
@@ -105,41 +104,42 @@ Test.OptionalClass = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.OptionalClass, "::Test::OptionalClass");
+Ice.defineValue(Test.OptionalClass, "::Test::OptionalClass");
+Ice.TypeRegistry.declareValueType("Test.OptionalClass", Test.OptionalClass);
 
-Slice.defineSequence(Test, "MyEnumSHelper", "Test.MyEnum._helper", false);
+Test.MyEnumSHelper = Ice.StreamHelpers.generateSeqHelper(Test.MyEnum._helper, false);
 
-Slice.defineSequence(Test, "MyClassSHelper", "Ice.ObjectHelper", false, "Test.MyClass");
+Test.MyClassSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "Test.MyClass");
 
-Slice.defineSequence(Test, "BoolSSHelper", "Ice.BoolSeqHelper", false);
+Test.BoolSSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.BoolSeqHelper, false);
 
-Slice.defineSequence(Test, "ByteSSHelper", "Ice.ByteSeqHelper", false);
+Test.ByteSSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteSeqHelper, false);
 
-Slice.defineSequence(Test, "ShortSSHelper", "Ice.ShortSeqHelper", false);
+Test.ShortSSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ShortSeqHelper, false);
 
-Slice.defineSequence(Test, "IntSSHelper", "Ice.IntSeqHelper", false);
+Test.IntSSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.IntSeqHelper, false);
 
-Slice.defineSequence(Test, "LongSSHelper", "Ice.LongSeqHelper", false);
+Test.LongSSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.LongSeqHelper, false);
 
-Slice.defineSequence(Test, "FloatSSHelper", "Ice.FloatSeqHelper", false);
+Test.FloatSSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.FloatSeqHelper, false);
 
-Slice.defineSequence(Test, "DoubleSSHelper", "Ice.DoubleSeqHelper", false);
+Test.DoubleSSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.DoubleSeqHelper, false);
 
-Slice.defineSequence(Test, "StringSSHelper", "Ice.StringSeqHelper", false);
+Test.StringSSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringSeqHelper, false);
 
-Slice.defineSequence(Test, "MyEnumSSHelper", "Test.MyEnumSHelper", false);
+Test.MyEnumSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.MyEnumSHelper, false);
 
-Slice.defineSequence(Test, "MyClassSSHelper", "Test.MyClassSHelper", false);
+Test.MyClassSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.MyClassSHelper, false);
 
-Slice.defineDictionary(Test, "ByteBoolD", "ByteBoolDHelper", "Ice.ByteHelper", "Ice.BoolHelper", true, undefined, undefined);
+[Test.ByteBoolD, Test.ByteBoolDHelper] = Ice.defineDictionary(Ice.ByteHelper, Ice.BoolHelper, true, undefined);
 
-Slice.defineDictionary(Test, "ShortIntD", "ShortIntDHelper", "Ice.ShortHelper", "Ice.IntHelper", true, undefined, undefined);
+[Test.ShortIntD, Test.ShortIntDHelper] = Ice.defineDictionary(Ice.ShortHelper, Ice.IntHelper, true, undefined);
 
-Slice.defineDictionary(Test, "LongFloatD", "LongFloatDHelper", "Ice.LongHelper", "Ice.FloatHelper", true, Ice.HashMap.compareEquals, undefined);
+[Test.LongFloatD, Test.LongFloatDHelper] = Ice.defineDictionary(Ice.LongHelper, Ice.FloatHelper, true, Ice.HashMap.compareEquals);
 
-Slice.defineDictionary(Test, "StringStringD", "StringStringDHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
+[Test.StringStringD, Test.StringStringDHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);
 
-Slice.defineDictionary(Test, "StringMyClassD", "StringMyClassDHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Test.MyClass");
+[Test.StringMyClassD, Test.StringMyClassDHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.ObjectHelper, false, undefined, "Test.MyClass");
 
 Test.MyClass = class extends Ice.Value
 {
@@ -182,8 +182,8 @@ Test.MyClass = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.c = obj, Test.MyClass);
-        istr.readValue(obj => this.o = obj, Ice.Value);
+        istr.readValue(obj => this.c = obj, Ice.TypeRegistry.getValueType("Test.MyClass"));
+        istr.readValue(obj => this.o = obj, Ice.TypeRegistry.getValueType("Ice.Value"));
         this.s = Test.LargeStruct.read(istr, this.s);
         this.seq1 = Ice.BoolSeqHelper.read(istr);
         this.seq2 = Ice.ByteSeqHelper.read(istr);
@@ -199,7 +199,8 @@ Test.MyClass = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.MyClass, "::Test::MyClass");
+Ice.defineValue(Test.MyClass, "::Test::MyClass");
+Ice.TypeRegistry.declareValueType("Test.MyClass", Test.MyClass);
 
 Test.MyException = class extends Ice.UserException
 {
@@ -231,7 +232,7 @@ Test.MyException = class extends Ice.UserException
 
     _readMemberImpl(istr)
     {
-        istr.readValue(obj => this.c = obj, Test.MyClass);
+        istr.readValue(obj => this.c = obj, Ice.TypeRegistry.getValueType("Test.MyClass"));
     }
 
     _usesClasses()
@@ -239,6 +240,9 @@ Test.MyException = class extends Ice.UserException
         return true;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.MyException",
+    Test.MyException);
 
 const iceC_Test_MyInterface_ids = [
     "::Ice::Object",
@@ -252,6 +256,10 @@ Test.MyInterface = class extends Ice.Object
 Test.MyInterfacePrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.MyInterfacePrx", Test.MyInterfacePrx);
 
-Slice.defineOperations(Test.MyInterface, Test.MyInterfacePrx, iceC_Test_MyInterface_ids, "::Test::MyInterface");
-export { Test };
+Ice.defineOperations(
+    Test.MyInterface,
+    Test.MyInterfacePrx,
+    iceC_Test_MyInterface_ids,
+    "::Test::MyInterface");

@@ -16,164 +16,165 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test1 = {};
+
+Test1.C1 = class extends Ice.Value
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test1 = _ModuleRegistry.module("Test1");
-
-    Test1.C1 = class extends Ice.Value
+    constructor(i = 0)
     {
-        constructor(i = 0)
-        {
-            super();
-            this.i = i;
-        }
+        super();
+        this.i = i;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.i = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test1.C1, "::Test1::C1");
-
-    Test1.C2 = class extends Test1.C1
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(i, l = new Ice.Long(0, 0))
-        {
-            super(i);
-            this.l = l;
-        }
+        ostr.writeInt(this.i);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeLong(this.l);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.l = istr.readLong();
-        }
-    };
-
-    Slice.defineValue(Test1.C2, "::Test1::C2");
-
-    Test1.E1 = class extends Ice.UserException
+    _iceReadMemberImpl(istr)
     {
-        constructor(i = 0, _cause = "")
-        {
-            super(_cause);
-            this.i = i;
-        }
+        this.i = istr.readInt();
+    }
+};
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
+Ice.defineValue(Test1.C1, "::Test1::C1");
+Ice.TypeRegistry.declareValueType("Test1.C1", Test1.C1);
 
-        static get _id()
-        {
-            return "::Test1::E1";
-        }
-
-        _mostDerivedType()
-        {
-            return Test1.E1;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.i = istr.readInt();
-        }
-    };
-
-    Test1.E2 = class extends Test1.E1
+Test1.C2 = class extends Test1.C1
+{
+    constructor(i, l = new Ice.Long(0, 0))
     {
-        constructor(i, l = new Ice.Long(0, 0), _cause = "")
-        {
-            super(i, _cause);
-            this.l = l;
-        }
+        super(i);
+        this.l = l;
+    }
 
-        static get _parent()
-        {
-            return Test1.E1;
-        }
-
-        static get _id()
-        {
-            return "::Test1::E2";
-        }
-
-        _mostDerivedType()
-        {
-            return Test1.E2;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeLong(this.l);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.l = istr.readLong();
-        }
-    };
-
-    /**
-     * Test keyword escape.
-     **/
-    Test1.notify = class extends Ice.UserException
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(i = 0, _cause = "")
-        {
-            super(_cause);
-            this.i = i;
-        }
+        ostr.writeLong(this.l);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
+    _iceReadMemberImpl(istr)
+    {
+        this.l = istr.readLong();
+    }
+};
 
-        static get _id()
-        {
-            return "::Test1::notify";
-        }
+Ice.defineValue(Test1.C2, "::Test1::C2");
+Ice.TypeRegistry.declareValueType("Test1.C2", Test1.C2);
 
-        _mostDerivedType()
-        {
-            return Test1.notify;
-        }
+Test1.E1 = class extends Ice.UserException
+{
+    constructor(i = 0, _cause = "")
+    {
+        super(_cause);
+        this.i = i;
+    }
 
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
 
-        _readMemberImpl(istr)
-        {
-            this.i = istr.readInt();
-        }
-    };
-    exports.Test1 = Test1;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+    static get _id()
+    {
+        return "::Test1::E1";
+    }
+
+    _mostDerivedType()
+    {
+        return Test1.E1;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.i);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.i = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test1.E1",
+    Test1.E1);
+
+Test1.E2 = class extends Test1.E1
+{
+    constructor(i, l = new Ice.Long(0, 0), _cause = "")
+    {
+        super(i, _cause);
+        this.l = l;
+    }
+
+    static get _parent()
+    {
+        return Test1.E1;
+    }
+
+    static get _id()
+    {
+        return "::Test1::E2";
+    }
+
+    _mostDerivedType()
+    {
+        return Test1.E2;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeLong(this.l);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.l = istr.readLong();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test1.E2",
+    Test1.E2);
+
+/**
+ * Test keyword escape.
+ **/
+Test1.notify = class extends Ice.UserException
+{
+    constructor(i = 0, _cause = "")
+    {
+        super(_cause);
+        this.i = i;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test1::notify";
+    }
+
+    _mostDerivedType()
+    {
+        return Test1.notify;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.i);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.i = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test1.notify",
+    Test1.notify);

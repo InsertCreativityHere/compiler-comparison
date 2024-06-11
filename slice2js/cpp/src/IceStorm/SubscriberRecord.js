@@ -16,97 +16,89 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice, 
+import { IceStorm } from "ice";
+
+
+export const IceStorm = {};
+
+/**
+ *  The key for persistent subscribers, or topics.
+ *  If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
+ *  otherwise the record holds a subscription record.
+ **/
+IceStorm.SubscriberRecordKey = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const IceStorm = require("ice").IceStorm;
-    const Slice = Ice.Slice;
-
-    /**
-     *  The key for persistent subscribers, or topics.
-     *  If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
-     *  otherwise the record holds a subscription record.
-     **/
-    IceStorm.SubscriberRecordKey = class
+    constructor(topic = new Ice.Identity(), id = new Ice.Identity())
     {
-        constructor(topic = new Ice.Identity(), id = new Ice.Identity())
-        {
-            this.topic = topic;
-            this.id = id;
-        }
+        this.topic = topic;
+        this.id = id;
+    }
 
-        _write(ostr)
-        {
-            Ice.Identity.write(ostr, this.topic);
-            Ice.Identity.write(ostr, this.id);
-        }
-
-        _read(istr)
-        {
-            this.topic = Ice.Identity.read(istr, this.topic);
-            this.id = Ice.Identity.read(istr, this.id);
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(IceStorm.SubscriberRecordKey, true, true);
-
-    /**
-     *  Used to store persistent information for persistent subscribers.
-     **/
-    IceStorm.SubscriberRecord = class
+    _write(ostr)
     {
-        constructor(topicName = "", id = new Ice.Identity(), link = false, obj = null, theQoS = null, cost = 0, theTopic = null)
-        {
-            this.topicName = topicName;
-            this.id = id;
-            this.link = link;
-            this.obj = obj;
-            this.theQoS = theQoS;
-            this.cost = cost;
-            this.theTopic = theTopic;
-        }
+        Ice.Identity.write(ostr, this.topic);
+        Ice.Identity.write(ostr, this.id);
+    }
 
-        _write(ostr)
-        {
-            ostr.writeString(this.topicName);
-            Ice.Identity.write(ostr, this.id);
-            ostr.writeBool(this.link);
-            ostr.writeProxy(this.obj);
-            IceStorm.QoSHelper.write(ostr, this.theQoS);
-            ostr.writeInt(this.cost);
-            IceStorm.TopicPrx.write(ostr, this.theTopic);
-        }
+    _read(istr)
+    {
+        this.topic = Ice.Identity.read(istr, this.topic);
+        this.id = Ice.Identity.read(istr, this.id);
+    }
 
-        _read(istr)
-        {
-            this.topicName = istr.readString();
-            this.id = Ice.Identity.read(istr, this.id);
-            this.link = istr.readBool();
-            this.obj = istr.readProxy();
-            this.theQoS = IceStorm.QoSHelper.read(istr);
-            this.cost = istr.readInt();
-            this.theTopic = IceStorm.TopicPrx.read(istr, this.theTopic);
-        }
+    static get minWireSize()
+    {
+        return  4;
+    }
+};
 
-        static get minWireSize()
-        {
-            return  13;
-        }
-    };
+Ice.defineStruct(IceStorm.SubscriberRecordKey, true, true);
 
-    Slice.defineStruct(IceStorm.SubscriberRecord, false, true);
+/**
+ *  Used to store persistent information for persistent subscribers.
+ **/
+IceStorm.SubscriberRecord = class
+{
+    constructor(topicName = "", id = new Ice.Identity(), link = false, obj = null, theQoS = null, cost = 0, theTopic = null)
+    {
+        this.topicName = topicName;
+        this.id = id;
+        this.link = link;
+        this.obj = obj;
+        this.theQoS = theQoS;
+        this.cost = cost;
+        this.theTopic = theTopic;
+    }
 
-    Slice.defineSequence(IceStorm, "SubscriberRecordSeqHelper", "IceStorm.SubscriberRecord", false);
-    exports.IceStorm = IceStorm;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+    _write(ostr)
+    {
+        ostr.writeString(this.topicName);
+        Ice.Identity.write(ostr, this.id);
+        ostr.writeBool(this.link);
+        ostr.writeProxy(this.obj);
+        IceStorm.QoSHelper.write(ostr, this.theQoS);
+        ostr.writeInt(this.cost);
+        ostr.writeProxy(this.theTopic);
+    }
+
+    _read(istr)
+    {
+        this.topicName = istr.readString();
+        this.id = Ice.Identity.read(istr, this.id);
+        this.link = istr.readBool();
+        this.obj = istr.readProxy();
+        this.theQoS = IceStorm.QoSHelper.read(istr);
+        this.cost = istr.readInt();
+        this.theTopic = istr.readProxy();
+    }
+
+    static get minWireSize()
+    {
+        return  13;
+    }
+};
+
+Ice.defineStruct(IceStorm.SubscriberRecord, false, true);
+
+IceStorm.SubscriberRecordSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceStorm.SubscriberRecord, false);

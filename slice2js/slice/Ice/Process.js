@@ -16,21 +16,28 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+};
+
+
+export { Ice };
 
 const iceC_Ice_Process_ids = [
     "::Ice::Object",
@@ -50,12 +57,14 @@ Ice.Process = class extends Ice.Object
 Ice.ProcessPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Ice.ProcessPrx", Ice.ProcessPrx);
 
-Slice.defineOperations(Ice.Process, Ice.ProcessPrx, iceC_Ice_Process_ids, "::Ice::Process",
-{
-    "shutdown": [, , , , , , , , ],
-    "writeMessage": [, , , , [[7], [3]], , , , ]
-});
-/* slice2js browser-bundle-skip */
-exports.Ice = Ice;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    Ice.Process,
+    Ice.ProcessPrx,
+    iceC_Ice_Process_ids,
+    "::Ice::Process",
+    {
+        "shutdown": [, , , , , , , , ],
+        "writeMessage": [, , , , [[7], [3]], , , , ]
+    });

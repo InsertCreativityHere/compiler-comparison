@@ -16,725 +16,751 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.Nested = Test.Nested || {};
+
+Test.Color = Ice.defineEnum([
+    ['red', 0], ['green', 1], ['blue', 2]]);
+
+Test.Nested.Color = Ice.defineEnum([
+    ['red', 0], ['green', 1], ['blue', 2]]);
+
+Test.Struct1 = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.Color = Slice.defineEnum([
-        ['red', 0], ['green', 1], ['blue', 2]]);
-
-    Test.Nested = _ModuleRegistry.module("Test.Nested");
-
-    Test.Nested.Color = Slice.defineEnum([
-        ['red', 0], ['green', 1], ['blue', 2]]);
-
-    Test.Struct1 = class
+    constructor(boolFalse = false, boolTrue = true, b = 254, s = 16000, i = 3, l = new Ice.Long(0, 4), f = 5.1, d = 6.2, str = "foo \\ \"bar\n \r\n\t\v\f\u0007\b? \u0007 \u0007", c1 = Test.Color.red, c2 = Test.Color.green, c3 = Test.Color.blue, nc1 = Test.Nested.Color.red, nc2 = Test.Nested.Color.green, nc3 = Test.Nested.Color.blue, noDefault = "", zeroI = 0, zeroL = new Ice.Long(0, 0), zeroF = 0, zeroDotF = 0, zeroD = 0, zeroDotD = 0)
     {
-        constructor(boolFalse = false, boolTrue = true, b = 254, s = 16000, i = 3, l = new Ice.Long(0, 4), f = 5.1, d = 6.2, str = "foo \\ \"bar\n \r\n\t\v\f\u0007\b? \u0007 \u0007", c1 = Test.Color.red, c2 = Test.Color.green, c3 = Test.Color.blue, nc1 = Test.Nested.Color.red, nc2 = Test.Nested.Color.green, nc3 = Test.Nested.Color.blue, noDefault = "", zeroI = 0, zeroL = new Ice.Long(0, 0), zeroF = 0, zeroDotF = 0, zeroD = 0, zeroDotD = 0)
-        {
-            this.boolFalse = boolFalse;
-            this.boolTrue = boolTrue;
-            this.b = b;
-            this.s = s;
-            this.i = i;
-            this.l = l;
-            this.f = f;
-            this.d = d;
-            this.str = str;
-            this.c1 = c1;
-            this.c2 = c2;
-            this.c3 = c3;
-            this.nc1 = nc1;
-            this.nc2 = nc2;
-            this.nc3 = nc3;
-            this.noDefault = noDefault;
-            this.zeroI = zeroI;
-            this.zeroL = zeroL;
-            this.zeroF = zeroF;
-            this.zeroDotF = zeroDotF;
-            this.zeroD = zeroD;
-            this.zeroDotD = zeroDotD;
-        }
+        this.boolFalse = boolFalse;
+        this.boolTrue = boolTrue;
+        this.b = b;
+        this.s = s;
+        this.i = i;
+        this.l = l;
+        this.f = f;
+        this.d = d;
+        this.str = str;
+        this.c1 = c1;
+        this.c2 = c2;
+        this.c3 = c3;
+        this.nc1 = nc1;
+        this.nc2 = nc2;
+        this.nc3 = nc3;
+        this.noDefault = noDefault;
+        this.zeroI = zeroI;
+        this.zeroL = zeroL;
+        this.zeroF = zeroF;
+        this.zeroDotF = zeroDotF;
+        this.zeroD = zeroD;
+        this.zeroDotD = zeroDotD;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeBool(this.boolFalse);
-            ostr.writeBool(this.boolTrue);
-            ostr.writeByte(this.b);
-            ostr.writeShort(this.s);
-            ostr.writeInt(this.i);
-            ostr.writeLong(this.l);
-            ostr.writeFloat(this.f);
-            ostr.writeDouble(this.d);
-            ostr.writeString(this.str);
-            Test.Color._write(ostr, this.c1);
-            Test.Color._write(ostr, this.c2);
-            Test.Color._write(ostr, this.c3);
-            Test.Nested.Color._write(ostr, this.nc1);
-            Test.Nested.Color._write(ostr, this.nc2);
-            Test.Nested.Color._write(ostr, this.nc3);
-            ostr.writeString(this.noDefault);
-            ostr.writeInt(this.zeroI);
-            ostr.writeLong(this.zeroL);
-            ostr.writeFloat(this.zeroF);
-            ostr.writeFloat(this.zeroDotF);
-            ostr.writeDouble(this.zeroD);
-            ostr.writeDouble(this.zeroDotD);
-        }
-
-        _read(istr)
-        {
-            this.boolFalse = istr.readBool();
-            this.boolTrue = istr.readBool();
-            this.b = istr.readByte();
-            this.s = istr.readShort();
-            this.i = istr.readInt();
-            this.l = istr.readLong();
-            this.f = istr.readFloat();
-            this.d = istr.readDouble();
-            this.str = istr.readString();
-            this.c1 = Test.Color._read(istr);
-            this.c2 = Test.Color._read(istr);
-            this.c3 = Test.Color._read(istr);
-            this.nc1 = Test.Nested.Color._read(istr);
-            this.nc2 = Test.Nested.Color._read(istr);
-            this.nc3 = Test.Nested.Color._read(istr);
-            this.noDefault = istr.readString();
-            this.zeroI = istr.readInt();
-            this.zeroL = istr.readLong();
-            this.zeroF = istr.readFloat();
-            this.zeroDotF = istr.readFloat();
-            this.zeroD = istr.readDouble();
-            this.zeroDotD = istr.readDouble();
-        }
-
-        static get minWireSize()
-        {
-            return  73;
-        }
-    };
-
-    Slice.defineStruct(Test.Struct1, false, true);
-
-    Object.defineProperty(Test, 'ConstBool', {
-        value: true
-    });
-
-    Object.defineProperty(Test, 'ConstByte', {
-        value: 254
-    });
-
-    Object.defineProperty(Test, 'ConstShort', {
-        value: 16000
-    });
-
-    Object.defineProperty(Test, 'ConstInt', {
-        value: 3
-    });
-
-    Object.defineProperty(Test, 'ConstLong', {
-        value: new Ice.Long(0, 4)
-    });
-
-    Object.defineProperty(Test, 'ConstFloat', {
-        value: 5.1
-    });
-
-    Object.defineProperty(Test, 'ConstDouble', {
-        value: 6.2
-    });
-
-    Object.defineProperty(Test, 'ConstString', {
-        value: "foo \\ \"bar\n \r\n\t\v\f\u0007\b? \u0007 \u0007"
-    });
-
-    Object.defineProperty(Test, 'ConstColor1', {
-        value: Test.Color.red
-    });
-
-    Object.defineProperty(Test, 'ConstColor2', {
-        value: Test.Color.green
-    });
-
-    Object.defineProperty(Test, 'ConstColor3', {
-        value: Test.Color.blue
-    });
-
-    Object.defineProperty(Test, 'ConstNestedColor1', {
-        value: Test.Nested.Color.red
-    });
-
-    Object.defineProperty(Test, 'ConstNestedColor2', {
-        value: Test.Nested.Color.green
-    });
-
-    Object.defineProperty(Test, 'ConstNestedColor3', {
-        value: Test.Nested.Color.blue
-    });
-
-    Object.defineProperty(Test, 'ConstZeroI', {
-        value: 0
-    });
-
-    Object.defineProperty(Test, 'ConstZeroL', {
-        value: new Ice.Long(0, 0)
-    });
-
-    Object.defineProperty(Test, 'ConstZeroF', {
-        value: 0
-    });
-
-    Object.defineProperty(Test, 'ConstZeroDotF', {
-        value: 0
-    });
-
-    Object.defineProperty(Test, 'ConstZeroD', {
-        value: 0
-    });
-
-    Object.defineProperty(Test, 'ConstZeroDotD', {
-        value: 0
-    });
-
-    Test.Struct2 = class
+    _write(ostr)
     {
-        constructor(boolTrue = Test.ConstBool, b = Test.ConstByte, s = Test.ConstShort, i = Test.ConstInt, l = Test.ConstLong, f = Test.ConstFloat, d = Test.ConstDouble, str = Test.ConstString, c1 = Test.ConstColor1, c2 = Test.ConstColor2, c3 = Test.ConstColor3, nc1 = Test.ConstNestedColor1, nc2 = Test.ConstNestedColor2, nc3 = Test.ConstNestedColor3, zeroI = Test.ConstZeroI, zeroL = Test.ConstZeroL, zeroF = Test.ConstZeroF, zeroDotF = Test.ConstZeroDotF, zeroD = Test.ConstZeroD, zeroDotD = Test.ConstZeroDotD)
-        {
-            this.boolTrue = boolTrue;
-            this.b = b;
-            this.s = s;
-            this.i = i;
-            this.l = l;
-            this.f = f;
-            this.d = d;
-            this.str = str;
-            this.c1 = c1;
-            this.c2 = c2;
-            this.c3 = c3;
-            this.nc1 = nc1;
-            this.nc2 = nc2;
-            this.nc3 = nc3;
-            this.zeroI = zeroI;
-            this.zeroL = zeroL;
-            this.zeroF = zeroF;
-            this.zeroDotF = zeroDotF;
-            this.zeroD = zeroD;
-            this.zeroDotD = zeroDotD;
-        }
+        ostr.writeBool(this.boolFalse);
+        ostr.writeBool(this.boolTrue);
+        ostr.writeByte(this.b);
+        ostr.writeShort(this.s);
+        ostr.writeInt(this.i);
+        ostr.writeLong(this.l);
+        ostr.writeFloat(this.f);
+        ostr.writeDouble(this.d);
+        ostr.writeString(this.str);
+        Test.Color._write(ostr, this.c1);
+        Test.Color._write(ostr, this.c2);
+        Test.Color._write(ostr, this.c3);
+        Test.Nested.Color._write(ostr, this.nc1);
+        Test.Nested.Color._write(ostr, this.nc2);
+        Test.Nested.Color._write(ostr, this.nc3);
+        ostr.writeString(this.noDefault);
+        ostr.writeInt(this.zeroI);
+        ostr.writeLong(this.zeroL);
+        ostr.writeFloat(this.zeroF);
+        ostr.writeFloat(this.zeroDotF);
+        ostr.writeDouble(this.zeroD);
+        ostr.writeDouble(this.zeroDotD);
+    }
 
-        _write(ostr)
-        {
-            ostr.writeBool(this.boolTrue);
-            ostr.writeByte(this.b);
-            ostr.writeShort(this.s);
-            ostr.writeInt(this.i);
-            ostr.writeLong(this.l);
-            ostr.writeFloat(this.f);
-            ostr.writeDouble(this.d);
-            ostr.writeString(this.str);
-            Test.Color._write(ostr, this.c1);
-            Test.Color._write(ostr, this.c2);
-            Test.Color._write(ostr, this.c3);
-            Test.Nested.Color._write(ostr, this.nc1);
-            Test.Nested.Color._write(ostr, this.nc2);
-            Test.Nested.Color._write(ostr, this.nc3);
-            ostr.writeInt(this.zeroI);
-            ostr.writeLong(this.zeroL);
-            ostr.writeFloat(this.zeroF);
-            ostr.writeFloat(this.zeroDotF);
-            ostr.writeDouble(this.zeroD);
-            ostr.writeDouble(this.zeroDotD);
-        }
-
-        _read(istr)
-        {
-            this.boolTrue = istr.readBool();
-            this.b = istr.readByte();
-            this.s = istr.readShort();
-            this.i = istr.readInt();
-            this.l = istr.readLong();
-            this.f = istr.readFloat();
-            this.d = istr.readDouble();
-            this.str = istr.readString();
-            this.c1 = Test.Color._read(istr);
-            this.c2 = Test.Color._read(istr);
-            this.c3 = Test.Color._read(istr);
-            this.nc1 = Test.Nested.Color._read(istr);
-            this.nc2 = Test.Nested.Color._read(istr);
-            this.nc3 = Test.Nested.Color._read(istr);
-            this.zeroI = istr.readInt();
-            this.zeroL = istr.readLong();
-            this.zeroF = istr.readFloat();
-            this.zeroDotF = istr.readFloat();
-            this.zeroD = istr.readDouble();
-            this.zeroDotD = istr.readDouble();
-        }
-
-        static get minWireSize()
-        {
-            return  71;
-        }
-    };
-
-    Slice.defineStruct(Test.Struct2, false, true);
-
-    Test.Base = class extends Ice.Value
+    _read(istr)
     {
-        constructor(boolFalse = false, boolTrue = true, b = 1, s = 2, i = 3, l = new Ice.Long(0, 4), f = 5.1, d = 6.2, str = "foo \\ \"bar\n \r\n\t\v\f\u0007\b? \u0007 \u0007", noDefault = "", zeroI = 0, zeroL = new Ice.Long(0, 0), zeroF = 0, zeroDotF = 0, zeroD = 0, zeroDotD = 0)
-        {
-            super();
-            this.boolFalse = boolFalse;
-            this.boolTrue = boolTrue;
-            this.b = b;
-            this.s = s;
-            this.i = i;
-            this.l = l;
-            this.f = f;
-            this.d = d;
-            this.str = str;
-            this.noDefault = noDefault;
-            this.zeroI = zeroI;
-            this.zeroL = zeroL;
-            this.zeroF = zeroF;
-            this.zeroDotF = zeroDotF;
-            this.zeroD = zeroD;
-            this.zeroDotD = zeroDotD;
-        }
+        this.boolFalse = istr.readBool();
+        this.boolTrue = istr.readBool();
+        this.b = istr.readByte();
+        this.s = istr.readShort();
+        this.i = istr.readInt();
+        this.l = istr.readLong();
+        this.f = istr.readFloat();
+        this.d = istr.readDouble();
+        this.str = istr.readString();
+        this.c1 = Test.Color._read(istr);
+        this.c2 = Test.Color._read(istr);
+        this.c3 = Test.Color._read(istr);
+        this.nc1 = Test.Nested.Color._read(istr);
+        this.nc2 = Test.Nested.Color._read(istr);
+        this.nc3 = Test.Nested.Color._read(istr);
+        this.noDefault = istr.readString();
+        this.zeroI = istr.readInt();
+        this.zeroL = istr.readLong();
+        this.zeroF = istr.readFloat();
+        this.zeroDotF = istr.readFloat();
+        this.zeroD = istr.readDouble();
+        this.zeroDotD = istr.readDouble();
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeBool(this.boolFalse);
-            ostr.writeBool(this.boolTrue);
-            ostr.writeByte(this.b);
-            ostr.writeShort(this.s);
-            ostr.writeInt(this.i);
-            ostr.writeLong(this.l);
-            ostr.writeFloat(this.f);
-            ostr.writeDouble(this.d);
-            ostr.writeString(this.str);
-            ostr.writeString(this.noDefault);
-            ostr.writeInt(this.zeroI);
-            ostr.writeLong(this.zeroL);
-            ostr.writeFloat(this.zeroF);
-            ostr.writeFloat(this.zeroDotF);
-            ostr.writeDouble(this.zeroD);
-            ostr.writeDouble(this.zeroDotD);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.boolFalse = istr.readBool();
-            this.boolTrue = istr.readBool();
-            this.b = istr.readByte();
-            this.s = istr.readShort();
-            this.i = istr.readInt();
-            this.l = istr.readLong();
-            this.f = istr.readFloat();
-            this.d = istr.readDouble();
-            this.str = istr.readString();
-            this.noDefault = istr.readString();
-            this.zeroI = istr.readInt();
-            this.zeroL = istr.readLong();
-            this.zeroF = istr.readFloat();
-            this.zeroDotF = istr.readFloat();
-            this.zeroD = istr.readDouble();
-            this.zeroDotD = istr.readDouble();
-        }
-    };
-
-    Slice.defineValue(Test.Base, "::Test::Base");
-
-    Test.Derived = class extends Test.Base
+    static get minWireSize()
     {
-        constructor(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1 = Test.Color.red, c2 = Test.Color.green, c3 = Test.Color.blue, nc1 = Test.Nested.Color.red, nc2 = Test.Nested.Color.green, nc3 = Test.Nested.Color.blue)
-        {
-            super(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
-            this.c1 = c1;
-            this.c2 = c2;
-            this.c3 = c3;
-            this.nc1 = nc1;
-            this.nc2 = nc2;
-            this.nc3 = nc3;
-        }
+        return  73;
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.Color._write(ostr, this.c1);
-            Test.Color._write(ostr, this.c2);
-            Test.Color._write(ostr, this.c3);
-            Test.Nested.Color._write(ostr, this.nc1);
-            Test.Nested.Color._write(ostr, this.nc2);
-            Test.Nested.Color._write(ostr, this.nc3);
-        }
+Ice.defineStruct(Test.Struct1, false, true);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.c1 = Test.Color._read(istr);
-            this.c2 = Test.Color._read(istr);
-            this.c3 = Test.Color._read(istr);
-            this.nc1 = Test.Nested.Color._read(istr);
-            this.nc2 = Test.Nested.Color._read(istr);
-            this.nc3 = Test.Nested.Color._read(istr);
-        }
-    };
+Object.defineProperty(Test, 'ConstBool', {
+    enumerable: true,
+    value: true
+});
 
-    Slice.defineValue(Test.Derived, "::Test::Derived");
+Object.defineProperty(Test, 'ConstByte', {
+    enumerable: true,
+    value: 254
+});
 
-    Test.BaseEx = class extends Ice.UserException
+Object.defineProperty(Test, 'ConstShort', {
+    enumerable: true,
+    value: 16000
+});
+
+Object.defineProperty(Test, 'ConstInt', {
+    enumerable: true,
+    value: 3
+});
+
+Object.defineProperty(Test, 'ConstLong', {
+    enumerable: true,
+    value: new Ice.Long(0, 4)
+});
+
+Object.defineProperty(Test, 'ConstFloat', {
+    enumerable: true,
+    value: 5.1
+});
+
+Object.defineProperty(Test, 'ConstDouble', {
+    enumerable: true,
+    value: 6.2
+});
+
+Object.defineProperty(Test, 'ConstString', {
+    enumerable: true,
+    value: "foo \\ \"bar\n \r\n\t\v\f\u0007\b? \u0007 \u0007"
+});
+
+Object.defineProperty(Test, 'ConstColor1', {
+    enumerable: true,
+    value: Test.Color.red
+});
+
+Object.defineProperty(Test, 'ConstColor2', {
+    enumerable: true,
+    value: Test.Color.green
+});
+
+Object.defineProperty(Test, 'ConstColor3', {
+    enumerable: true,
+    value: Test.Color.blue
+});
+
+Object.defineProperty(Test, 'ConstNestedColor1', {
+    enumerable: true,
+    value: Test.Nested.Color.red
+});
+
+Object.defineProperty(Test, 'ConstNestedColor2', {
+    enumerable: true,
+    value: Test.Nested.Color.green
+});
+
+Object.defineProperty(Test, 'ConstNestedColor3', {
+    enumerable: true,
+    value: Test.Nested.Color.blue
+});
+
+Object.defineProperty(Test, 'ConstZeroI', {
+    enumerable: true,
+    value: 0
+});
+
+Object.defineProperty(Test, 'ConstZeroL', {
+    enumerable: true,
+    value: new Ice.Long(0, 0)
+});
+
+Object.defineProperty(Test, 'ConstZeroF', {
+    enumerable: true,
+    value: 0
+});
+
+Object.defineProperty(Test, 'ConstZeroDotF', {
+    enumerable: true,
+    value: 0
+});
+
+Object.defineProperty(Test, 'ConstZeroD', {
+    enumerable: true,
+    value: 0
+});
+
+Object.defineProperty(Test, 'ConstZeroDotD', {
+    enumerable: true,
+    value: 0
+});
+
+Test.Struct2 = class
+{
+    constructor(boolTrue = Test.ConstBool, b = Test.ConstByte, s = Test.ConstShort, i = Test.ConstInt, l = Test.ConstLong, f = Test.ConstFloat, d = Test.ConstDouble, str = Test.ConstString, c1 = Test.ConstColor1, c2 = Test.ConstColor2, c3 = Test.ConstColor3, nc1 = Test.ConstNestedColor1, nc2 = Test.ConstNestedColor2, nc3 = Test.ConstNestedColor3, zeroI = Test.ConstZeroI, zeroL = Test.ConstZeroL, zeroF = Test.ConstZeroF, zeroDotF = Test.ConstZeroDotF, zeroD = Test.ConstZeroD, zeroDotD = Test.ConstZeroDotD)
     {
-        constructor(boolFalse = false, boolTrue = true, b = 1, s = 2, i = 3, l = new Ice.Long(0, 4), f = 5.1, d = 6.2, str = "foo \\ \"bar\n \r\n\t\v\f\u0007\b? \u0007 \u0007", noDefault = "", zeroI = 0, zeroL = new Ice.Long(0, 0), zeroF = 0, zeroDotF = 0, zeroD = 0, zeroDotD = 0, _cause = "")
-        {
-            super(_cause);
-            this.boolFalse = boolFalse;
-            this.boolTrue = boolTrue;
-            this.b = b;
-            this.s = s;
-            this.i = i;
-            this.l = l;
-            this.f = f;
-            this.d = d;
-            this.str = str;
-            this.noDefault = noDefault;
-            this.zeroI = zeroI;
-            this.zeroL = zeroL;
-            this.zeroF = zeroF;
-            this.zeroDotF = zeroDotF;
-            this.zeroD = zeroD;
-            this.zeroDotD = zeroDotD;
-        }
+        this.boolTrue = boolTrue;
+        this.b = b;
+        this.s = s;
+        this.i = i;
+        this.l = l;
+        this.f = f;
+        this.d = d;
+        this.str = str;
+        this.c1 = c1;
+        this.c2 = c2;
+        this.c3 = c3;
+        this.nc1 = nc1;
+        this.nc2 = nc2;
+        this.nc3 = nc3;
+        this.zeroI = zeroI;
+        this.zeroL = zeroL;
+        this.zeroF = zeroF;
+        this.zeroDotF = zeroDotF;
+        this.zeroD = zeroD;
+        this.zeroDotD = zeroDotD;
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::BaseEx";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.BaseEx;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeBool(this.boolFalse);
-            ostr.writeBool(this.boolTrue);
-            ostr.writeByte(this.b);
-            ostr.writeShort(this.s);
-            ostr.writeInt(this.i);
-            ostr.writeLong(this.l);
-            ostr.writeFloat(this.f);
-            ostr.writeDouble(this.d);
-            ostr.writeString(this.str);
-            ostr.writeString(this.noDefault);
-            ostr.writeInt(this.zeroI);
-            ostr.writeLong(this.zeroL);
-            ostr.writeFloat(this.zeroF);
-            ostr.writeFloat(this.zeroDotF);
-            ostr.writeDouble(this.zeroD);
-            ostr.writeDouble(this.zeroDotD);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.boolFalse = istr.readBool();
-            this.boolTrue = istr.readBool();
-            this.b = istr.readByte();
-            this.s = istr.readShort();
-            this.i = istr.readInt();
-            this.l = istr.readLong();
-            this.f = istr.readFloat();
-            this.d = istr.readDouble();
-            this.str = istr.readString();
-            this.noDefault = istr.readString();
-            this.zeroI = istr.readInt();
-            this.zeroL = istr.readLong();
-            this.zeroF = istr.readFloat();
-            this.zeroDotF = istr.readFloat();
-            this.zeroD = istr.readDouble();
-            this.zeroDotD = istr.readDouble();
-        }
-    };
-
-    Test.DerivedEx = class extends Test.BaseEx
+    _write(ostr)
     {
-        constructor(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1 = Test.ConstColor1, c2 = Test.ConstColor2, c3 = Test.ConstColor3, nc1 = Test.ConstNestedColor1, nc2 = Test.ConstNestedColor2, nc3 = Test.ConstNestedColor3, _cause = "")
-        {
-            super(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, _cause);
-            this.c1 = c1;
-            this.c2 = c2;
-            this.c3 = c3;
-            this.nc1 = nc1;
-            this.nc2 = nc2;
-            this.nc3 = nc3;
-        }
+        ostr.writeBool(this.boolTrue);
+        ostr.writeByte(this.b);
+        ostr.writeShort(this.s);
+        ostr.writeInt(this.i);
+        ostr.writeLong(this.l);
+        ostr.writeFloat(this.f);
+        ostr.writeDouble(this.d);
+        ostr.writeString(this.str);
+        Test.Color._write(ostr, this.c1);
+        Test.Color._write(ostr, this.c2);
+        Test.Color._write(ostr, this.c3);
+        Test.Nested.Color._write(ostr, this.nc1);
+        Test.Nested.Color._write(ostr, this.nc2);
+        Test.Nested.Color._write(ostr, this.nc3);
+        ostr.writeInt(this.zeroI);
+        ostr.writeLong(this.zeroL);
+        ostr.writeFloat(this.zeroF);
+        ostr.writeFloat(this.zeroDotF);
+        ostr.writeDouble(this.zeroD);
+        ostr.writeDouble(this.zeroDotD);
+    }
 
-        static get _parent()
-        {
-            return Test.BaseEx;
-        }
-
-        static get _id()
-        {
-            return "::Test::DerivedEx";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.DerivedEx;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            Test.Color._write(ostr, this.c1);
-            Test.Color._write(ostr, this.c2);
-            Test.Color._write(ostr, this.c3);
-            Test.Nested.Color._write(ostr, this.nc1);
-            Test.Nested.Color._write(ostr, this.nc2);
-            Test.Nested.Color._write(ostr, this.nc3);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.c1 = Test.Color._read(istr);
-            this.c2 = Test.Color._read(istr);
-            this.c3 = Test.Color._read(istr);
-            this.nc1 = Test.Nested.Color._read(istr);
-            this.nc2 = Test.Nested.Color._read(istr);
-            this.nc3 = Test.Nested.Color._read(istr);
-        }
-    };
-
-    Slice.defineSequence(Test, "ByteSeqHelper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "IntSeqHelper", "Ice.IntHelper", true);
-
-    Slice.defineDictionary(Test, "IntStringDict", "IntStringDictHelper", "Ice.IntHelper", "Ice.StringHelper", false, undefined, undefined);
-
-    Test.InnerStruct = class
+    _read(istr)
     {
-        constructor(a = 0)
-        {
-            this.a = a;
-        }
+        this.boolTrue = istr.readBool();
+        this.b = istr.readByte();
+        this.s = istr.readShort();
+        this.i = istr.readInt();
+        this.l = istr.readLong();
+        this.f = istr.readFloat();
+        this.d = istr.readDouble();
+        this.str = istr.readString();
+        this.c1 = Test.Color._read(istr);
+        this.c2 = Test.Color._read(istr);
+        this.c3 = Test.Color._read(istr);
+        this.nc1 = Test.Nested.Color._read(istr);
+        this.nc2 = Test.Nested.Color._read(istr);
+        this.nc3 = Test.Nested.Color._read(istr);
+        this.zeroI = istr.readInt();
+        this.zeroL = istr.readLong();
+        this.zeroF = istr.readFloat();
+        this.zeroDotF = istr.readFloat();
+        this.zeroD = istr.readDouble();
+        this.zeroDotD = istr.readDouble();
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this.a);
-        }
-
-        _read(istr)
-        {
-            this.a = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(Test.InnerStruct, true, false);
-
-    Test.StructNoDefaults = class
+    static get minWireSize()
     {
-        constructor(bo = false, b = 0, s = 0, i = 0, l = new Ice.Long(0, 0), f = 0.0, d = 0.0, str = "", c1 = Test.Color.red, bs = null, is = null, dict = null, st = new Test.InnerStruct())
-        {
-            this.bo = bo;
-            this.b = b;
-            this.s = s;
-            this.i = i;
-            this.l = l;
-            this.f = f;
-            this.d = d;
-            this.str = str;
-            this.c1 = c1;
-            this.bs = bs;
-            this.is = is;
-            this.dict = dict;
-            this.st = st;
-        }
+        return  71;
+    }
+};
 
-        _write(ostr)
-        {
-            ostr.writeBool(this.bo);
-            ostr.writeByte(this.b);
-            ostr.writeShort(this.s);
-            ostr.writeInt(this.i);
-            ostr.writeLong(this.l);
-            ostr.writeFloat(this.f);
-            ostr.writeDouble(this.d);
-            ostr.writeString(this.str);
-            Test.Color._write(ostr, this.c1);
-            Test.ByteSeqHelper.write(ostr, this.bs);
-            Test.IntSeqHelper.write(ostr, this.is);
-            Test.IntStringDictHelper.write(ostr, this.dict);
-            Test.InnerStruct.write(ostr, this.st);
-        }
+Ice.defineStruct(Test.Struct2, false, true);
 
-        _read(istr)
-        {
-            this.bo = istr.readBool();
-            this.b = istr.readByte();
-            this.s = istr.readShort();
-            this.i = istr.readInt();
-            this.l = istr.readLong();
-            this.f = istr.readFloat();
-            this.d = istr.readDouble();
-            this.str = istr.readString();
-            this.c1 = Test.Color._read(istr);
-            this.bs = Test.ByteSeqHelper.read(istr);
-            this.is = Test.IntSeqHelper.read(istr);
-            this.dict = Test.IntStringDictHelper.read(istr);
-            this.st = Test.InnerStruct.read(istr, this.st);
-        }
-
-        static get minWireSize()
-        {
-            return  37;
-        }
-    };
-
-    Slice.defineStruct(Test.StructNoDefaults, false, true);
-
-    Test.ExceptionNoDefaultsBase = class extends Ice.UserException
+Test.Base = class extends Ice.Value
+{
+    constructor(boolFalse = false, boolTrue = true, b = 1, s = 2, i = 3, l = new Ice.Long(0, 4), f = 5.1, d = 6.2, str = "foo \\ \"bar\n \r\n\t\v\f\u0007\b? \u0007 \u0007", noDefault = "", zeroI = 0, zeroL = new Ice.Long(0, 0), zeroF = 0, zeroDotF = 0, zeroD = 0, zeroDotD = 0)
     {
-        constructor(str = "", c1 = Test.Color.red, bs = null, _cause = "")
-        {
-            super(_cause);
-            this.str = str;
-            this.c1 = c1;
-            this.bs = bs;
-        }
+        super();
+        this.boolFalse = boolFalse;
+        this.boolTrue = boolTrue;
+        this.b = b;
+        this.s = s;
+        this.i = i;
+        this.l = l;
+        this.f = f;
+        this.d = d;
+        this.str = str;
+        this.noDefault = noDefault;
+        this.zeroI = zeroI;
+        this.zeroL = zeroL;
+        this.zeroF = zeroF;
+        this.zeroDotF = zeroDotF;
+        this.zeroD = zeroD;
+        this.zeroDotD = zeroDotD;
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::ExceptionNoDefaultsBase";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.ExceptionNoDefaultsBase;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.str);
-            Test.Color._write(ostr, this.c1);
-            Test.ByteSeqHelper.write(ostr, this.bs);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.str = istr.readString();
-            this.c1 = Test.Color._read(istr);
-            this.bs = Test.ByteSeqHelper.read(istr);
-        }
-    };
-
-    Test.ExceptionNoDefaults = class extends Test.ExceptionNoDefaultsBase
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(str, c1, bs, st = new Test.InnerStruct(), dict = null, _cause = "")
-        {
-            super(str, c1, bs, _cause);
-            this.st = st;
-            this.dict = dict;
-        }
+        ostr.writeBool(this.boolFalse);
+        ostr.writeBool(this.boolTrue);
+        ostr.writeByte(this.b);
+        ostr.writeShort(this.s);
+        ostr.writeInt(this.i);
+        ostr.writeLong(this.l);
+        ostr.writeFloat(this.f);
+        ostr.writeDouble(this.d);
+        ostr.writeString(this.str);
+        ostr.writeString(this.noDefault);
+        ostr.writeInt(this.zeroI);
+        ostr.writeLong(this.zeroL);
+        ostr.writeFloat(this.zeroF);
+        ostr.writeFloat(this.zeroDotF);
+        ostr.writeDouble(this.zeroD);
+        ostr.writeDouble(this.zeroDotD);
+    }
 
-        static get _parent()
-        {
-            return Test.ExceptionNoDefaultsBase;
-        }
-
-        static get _id()
-        {
-            return "::Test::ExceptionNoDefaults";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.ExceptionNoDefaults;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            Test.InnerStruct.write(ostr, this.st);
-            Test.IntStringDictHelper.write(ostr, this.dict);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.st = Test.InnerStruct.read(istr, this.st);
-            this.dict = Test.IntStringDictHelper.read(istr);
-        }
-    };
-
-    Test.ClassNoDefaultsBase = class extends Ice.Value
+    _iceReadMemberImpl(istr)
     {
-        constructor(str = "", c1 = Test.Color.red, bs = null)
-        {
-            super();
-            this.str = str;
-            this.c1 = c1;
-            this.bs = bs;
-        }
+        this.boolFalse = istr.readBool();
+        this.boolTrue = istr.readBool();
+        this.b = istr.readByte();
+        this.s = istr.readShort();
+        this.i = istr.readInt();
+        this.l = istr.readLong();
+        this.f = istr.readFloat();
+        this.d = istr.readDouble();
+        this.str = istr.readString();
+        this.noDefault = istr.readString();
+        this.zeroI = istr.readInt();
+        this.zeroL = istr.readLong();
+        this.zeroF = istr.readFloat();
+        this.zeroDotF = istr.readFloat();
+        this.zeroD = istr.readDouble();
+        this.zeroDotD = istr.readDouble();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.str);
-            Test.Color._write(ostr, this.c1);
-            Test.ByteSeqHelper.write(ostr, this.bs);
-        }
+Ice.defineValue(Test.Base, "::Test::Base");
+Ice.TypeRegistry.declareValueType("Test.Base", Test.Base);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.str = istr.readString();
-            this.c1 = Test.Color._read(istr);
-            this.bs = Test.ByteSeqHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(Test.ClassNoDefaultsBase, "::Test::ClassNoDefaultsBase");
-
-    Test.ClassNoDefaults = class extends Test.ClassNoDefaultsBase
+Test.Derived = class extends Test.Base
+{
+    constructor(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1 = Test.Color.red, c2 = Test.Color.green, c3 = Test.Color.blue, nc1 = Test.Nested.Color.red, nc2 = Test.Nested.Color.green, nc3 = Test.Nested.Color.blue)
     {
-        constructor(str, c1, bs, st = new Test.InnerStruct(), dict = null)
-        {
-            super(str, c1, bs);
-            this.st = st;
-            this.dict = dict;
-        }
+        super(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
+        this.c1 = c1;
+        this.c2 = c2;
+        this.c3 = c3;
+        this.nc1 = nc1;
+        this.nc2 = nc2;
+        this.nc3 = nc3;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.InnerStruct.write(ostr, this.st);
-            Test.IntStringDictHelper.write(ostr, this.dict);
-        }
+    _iceWriteMemberImpl(ostr)
+    {
+        Test.Color._write(ostr, this.c1);
+        Test.Color._write(ostr, this.c2);
+        Test.Color._write(ostr, this.c3);
+        Test.Nested.Color._write(ostr, this.nc1);
+        Test.Nested.Color._write(ostr, this.nc2);
+        Test.Nested.Color._write(ostr, this.nc3);
+    }
 
-        _iceReadMemberImpl(istr)
-        {
-            this.st = Test.InnerStruct.read(istr, this.st);
-            this.dict = Test.IntStringDictHelper.read(istr);
-        }
-    };
+    _iceReadMemberImpl(istr)
+    {
+        this.c1 = Test.Color._read(istr);
+        this.c2 = Test.Color._read(istr);
+        this.c3 = Test.Color._read(istr);
+        this.nc1 = Test.Nested.Color._read(istr);
+        this.nc2 = Test.Nested.Color._read(istr);
+        this.nc3 = Test.Nested.Color._read(istr);
+    }
+};
 
-    Slice.defineValue(Test.ClassNoDefaults, "::Test::ClassNoDefaults");
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Ice.defineValue(Test.Derived, "::Test::Derived");
+Ice.TypeRegistry.declareValueType("Test.Derived", Test.Derived);
+
+Test.BaseEx = class extends Ice.UserException
+{
+    constructor(boolFalse = false, boolTrue = true, b = 1, s = 2, i = 3, l = new Ice.Long(0, 4), f = 5.1, d = 6.2, str = "foo \\ \"bar\n \r\n\t\v\f\u0007\b? \u0007 \u0007", noDefault = "", zeroI = 0, zeroL = new Ice.Long(0, 0), zeroF = 0, zeroDotF = 0, zeroD = 0, zeroDotD = 0, _cause = "")
+    {
+        super(_cause);
+        this.boolFalse = boolFalse;
+        this.boolTrue = boolTrue;
+        this.b = b;
+        this.s = s;
+        this.i = i;
+        this.l = l;
+        this.f = f;
+        this.d = d;
+        this.str = str;
+        this.noDefault = noDefault;
+        this.zeroI = zeroI;
+        this.zeroL = zeroL;
+        this.zeroF = zeroF;
+        this.zeroDotF = zeroDotF;
+        this.zeroD = zeroD;
+        this.zeroDotD = zeroDotD;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test::BaseEx";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.BaseEx;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeBool(this.boolFalse);
+        ostr.writeBool(this.boolTrue);
+        ostr.writeByte(this.b);
+        ostr.writeShort(this.s);
+        ostr.writeInt(this.i);
+        ostr.writeLong(this.l);
+        ostr.writeFloat(this.f);
+        ostr.writeDouble(this.d);
+        ostr.writeString(this.str);
+        ostr.writeString(this.noDefault);
+        ostr.writeInt(this.zeroI);
+        ostr.writeLong(this.zeroL);
+        ostr.writeFloat(this.zeroF);
+        ostr.writeFloat(this.zeroDotF);
+        ostr.writeDouble(this.zeroD);
+        ostr.writeDouble(this.zeroDotD);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.boolFalse = istr.readBool();
+        this.boolTrue = istr.readBool();
+        this.b = istr.readByte();
+        this.s = istr.readShort();
+        this.i = istr.readInt();
+        this.l = istr.readLong();
+        this.f = istr.readFloat();
+        this.d = istr.readDouble();
+        this.str = istr.readString();
+        this.noDefault = istr.readString();
+        this.zeroI = istr.readInt();
+        this.zeroL = istr.readLong();
+        this.zeroF = istr.readFloat();
+        this.zeroDotF = istr.readFloat();
+        this.zeroD = istr.readDouble();
+        this.zeroDotD = istr.readDouble();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.BaseEx",
+    Test.BaseEx);
+
+Test.DerivedEx = class extends Test.BaseEx
+{
+    constructor(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1 = Test.ConstColor1, c2 = Test.ConstColor2, c3 = Test.ConstColor3, nc1 = Test.ConstNestedColor1, nc2 = Test.ConstNestedColor2, nc3 = Test.ConstNestedColor3, _cause = "")
+    {
+        super(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, _cause);
+        this.c1 = c1;
+        this.c2 = c2;
+        this.c3 = c3;
+        this.nc1 = nc1;
+        this.nc2 = nc2;
+        this.nc3 = nc3;
+    }
+
+    static get _parent()
+    {
+        return Test.BaseEx;
+    }
+
+    static get _id()
+    {
+        return "::Test::DerivedEx";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.DerivedEx;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        Test.Color._write(ostr, this.c1);
+        Test.Color._write(ostr, this.c2);
+        Test.Color._write(ostr, this.c3);
+        Test.Nested.Color._write(ostr, this.nc1);
+        Test.Nested.Color._write(ostr, this.nc2);
+        Test.Nested.Color._write(ostr, this.nc3);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.c1 = Test.Color._read(istr);
+        this.c2 = Test.Color._read(istr);
+        this.c3 = Test.Color._read(istr);
+        this.nc1 = Test.Nested.Color._read(istr);
+        this.nc2 = Test.Nested.Color._read(istr);
+        this.nc3 = Test.Nested.Color._read(istr);
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.DerivedEx",
+    Test.DerivedEx);
+
+Test.ByteSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.IntSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
+
+[Test.IntStringDict, Test.IntStringDictHelper] = Ice.defineDictionary(Ice.IntHelper, Ice.StringHelper, false, undefined);
+
+Test.InnerStruct = class
+{
+    constructor(a = 0)
+    {
+        this.a = a;
+    }
+
+    _write(ostr)
+    {
+        ostr.writeInt(this.a);
+    }
+
+    _read(istr)
+    {
+        this.a = istr.readInt();
+    }
+
+    static get minWireSize()
+    {
+        return  4;
+    }
+};
+
+Ice.defineStruct(Test.InnerStruct, true, false);
+
+Test.StructNoDefaults = class
+{
+    constructor(bo = false, b = 0, s = 0, i = 0, l = new Ice.Long(0, 0), f = 0.0, d = 0.0, str = "", c1 = Test.Color.red, bs = null, is = null, dict = null, st = new Test.InnerStruct())
+    {
+        this.bo = bo;
+        this.b = b;
+        this.s = s;
+        this.i = i;
+        this.l = l;
+        this.f = f;
+        this.d = d;
+        this.str = str;
+        this.c1 = c1;
+        this.bs = bs;
+        this.is = is;
+        this.dict = dict;
+        this.st = st;
+    }
+
+    _write(ostr)
+    {
+        ostr.writeBool(this.bo);
+        ostr.writeByte(this.b);
+        ostr.writeShort(this.s);
+        ostr.writeInt(this.i);
+        ostr.writeLong(this.l);
+        ostr.writeFloat(this.f);
+        ostr.writeDouble(this.d);
+        ostr.writeString(this.str);
+        Test.Color._write(ostr, this.c1);
+        Test.ByteSeqHelper.write(ostr, this.bs);
+        Test.IntSeqHelper.write(ostr, this.is);
+        Test.IntStringDictHelper.write(ostr, this.dict);
+        Test.InnerStruct.write(ostr, this.st);
+    }
+
+    _read(istr)
+    {
+        this.bo = istr.readBool();
+        this.b = istr.readByte();
+        this.s = istr.readShort();
+        this.i = istr.readInt();
+        this.l = istr.readLong();
+        this.f = istr.readFloat();
+        this.d = istr.readDouble();
+        this.str = istr.readString();
+        this.c1 = Test.Color._read(istr);
+        this.bs = Test.ByteSeqHelper.read(istr);
+        this.is = Test.IntSeqHelper.read(istr);
+        this.dict = Test.IntStringDictHelper.read(istr);
+        this.st = Test.InnerStruct.read(istr, this.st);
+    }
+
+    static get minWireSize()
+    {
+        return  37;
+    }
+};
+
+Ice.defineStruct(Test.StructNoDefaults, false, true);
+
+Test.ExceptionNoDefaultsBase = class extends Ice.UserException
+{
+    constructor(str = "", c1 = Test.Color.red, bs = null, _cause = "")
+    {
+        super(_cause);
+        this.str = str;
+        this.c1 = c1;
+        this.bs = bs;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test::ExceptionNoDefaultsBase";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.ExceptionNoDefaultsBase;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.str);
+        Test.Color._write(ostr, this.c1);
+        Test.ByteSeqHelper.write(ostr, this.bs);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.str = istr.readString();
+        this.c1 = Test.Color._read(istr);
+        this.bs = Test.ByteSeqHelper.read(istr);
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.ExceptionNoDefaultsBase",
+    Test.ExceptionNoDefaultsBase);
+
+Test.ExceptionNoDefaults = class extends Test.ExceptionNoDefaultsBase
+{
+    constructor(str, c1, bs, st = new Test.InnerStruct(), dict = null, _cause = "")
+    {
+        super(str, c1, bs, _cause);
+        this.st = st;
+        this.dict = dict;
+    }
+
+    static get _parent()
+    {
+        return Test.ExceptionNoDefaultsBase;
+    }
+
+    static get _id()
+    {
+        return "::Test::ExceptionNoDefaults";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.ExceptionNoDefaults;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        Test.InnerStruct.write(ostr, this.st);
+        Test.IntStringDictHelper.write(ostr, this.dict);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.st = Test.InnerStruct.read(istr, this.st);
+        this.dict = Test.IntStringDictHelper.read(istr);
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.ExceptionNoDefaults",
+    Test.ExceptionNoDefaults);
+
+Test.ClassNoDefaultsBase = class extends Ice.Value
+{
+    constructor(str = "", c1 = Test.Color.red, bs = null)
+    {
+        super();
+        this.str = str;
+        this.c1 = c1;
+        this.bs = bs;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeString(this.str);
+        Test.Color._write(ostr, this.c1);
+        Test.ByteSeqHelper.write(ostr, this.bs);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.str = istr.readString();
+        this.c1 = Test.Color._read(istr);
+        this.bs = Test.ByteSeqHelper.read(istr);
+    }
+};
+
+Ice.defineValue(Test.ClassNoDefaultsBase, "::Test::ClassNoDefaultsBase");
+Ice.TypeRegistry.declareValueType("Test.ClassNoDefaultsBase", Test.ClassNoDefaultsBase);
+
+Test.ClassNoDefaults = class extends Test.ClassNoDefaultsBase
+{
+    constructor(str, c1, bs, st = new Test.InnerStruct(), dict = null)
+    {
+        super(str, c1, bs);
+        this.st = st;
+        this.dict = dict;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        Test.InnerStruct.write(ostr, this.st);
+        Test.IntStringDictHelper.write(ostr, this.dict);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.st = Test.InnerStruct.read(istr, this.st);
+        this.dict = Test.IntStringDictHelper.read(istr);
+    }
+};
+
+Ice.defineValue(Test.ClassNoDefaults, "::Test::ClassNoDefaults");
+Ice.TypeRegistry.declareValueType("Test.ClassNoDefaults", Test.ClassNoDefaults);

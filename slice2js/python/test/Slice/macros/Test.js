@@ -16,65 +16,57 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test._Default = class extends Ice.Value
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test._Default = class extends Ice.Value
+    constructor(x = 0, y = 0)
     {
-        constructor(x = 0, y = 0)
-        {
-            super();
-            this.x = x;
-            this.y = y;
-        }
+        super();
+        this.x = x;
+        this.y = y;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.x);
-            ostr.writeInt(this.y);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.x = istr.readInt();
-            this.y = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test._Default, "::Test::Default");
-
-    Test.NoDefault = class extends Ice.Value
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(x = 10, y = 10)
-        {
-            super();
-            this.x = x;
-            this.y = y;
-        }
+        ostr.writeInt(this.x);
+        ostr.writeInt(this.y);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.x);
-            ostr.writeInt(this.y);
-        }
+    _iceReadMemberImpl(istr)
+    {
+        this.x = istr.readInt();
+        this.y = istr.readInt();
+    }
+};
 
-        _iceReadMemberImpl(istr)
-        {
-            this.x = istr.readInt();
-            this.y = istr.readInt();
-        }
-    };
+Ice.defineValue(Test._Default, "::Test::Default");
+Ice.TypeRegistry.declareValueType("Test._Default", Test._Default);
 
-    Slice.defineValue(Test.NoDefault, "::Test::NoDefault");
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Test.NoDefault = class extends Ice.Value
+{
+    constructor(x = 10, y = 10)
+    {
+        super();
+        this.x = x;
+        this.y = y;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.x);
+        ostr.writeInt(this.y);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.x = istr.readInt();
+        this.y = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.NoDefault, "::Test::NoDefault");
+Ice.TypeRegistry.declareValueType("Test.NoDefault", Test.NoDefault);

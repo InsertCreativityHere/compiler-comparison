@@ -16,123 +16,119 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.NumPy = Test.NumPy || {};
+
+Test.NumPy.BoolSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.BoolHelper, true);
+
+Test.NumPy.BoolSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.BoolHelper, true);
+
+Test.NumPy.ByteSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.NumPy.ByteSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.NumPy.ShortSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.ShortHelper, true);
+
+Test.NumPy.ShortSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.ShortHelper, true);
+
+Test.NumPy.IntSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
+
+Test.NumPy.IntSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
+
+Test.NumPy.LongSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.LongHelper, true);
+
+Test.NumPy.LongSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.LongHelper, true);
+
+Test.NumPy.FloatSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.FloatHelper, true);
+
+Test.NumPy.FloatSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.FloatHelper, true);
+
+Test.NumPy.DoubleSeq1Helper = Ice.StreamHelpers.generateSeqHelper(Ice.DoubleHelper, true);
+
+Test.NumPy.DoubleSeq2Helper = Ice.StreamHelpers.generateSeqHelper(Ice.DoubleHelper, true);
+
+Test.NumPy.Complex128SeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.NumPy.D = class extends Ice.Value
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.NumPy = _ModuleRegistry.module("Test.NumPy");
-
-    Slice.defineSequence(Test.NumPy, "BoolSeq1Helper", "Ice.BoolHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "BoolSeq2Helper", "Ice.BoolHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "ByteSeq1Helper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "ByteSeq2Helper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "ShortSeq1Helper", "Ice.ShortHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "ShortSeq2Helper", "Ice.ShortHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "IntSeq1Helper", "Ice.IntHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "IntSeq2Helper", "Ice.IntHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "LongSeq1Helper", "Ice.LongHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "LongSeq2Helper", "Ice.LongHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "FloatSeq1Helper", "Ice.FloatHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "FloatSeq2Helper", "Ice.FloatHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "DoubleSeq1Helper", "Ice.DoubleHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "DoubleSeq2Helper", "Ice.DoubleHelper", true);
-
-    Slice.defineSequence(Test.NumPy, "Complex128SeqHelper", "Ice.ByteHelper", true);
-
-    Test.NumPy.D = class extends Ice.Value
+    constructor(boolSeq = undefined, byteSeq = undefined, shortSeq = undefined, intSeq = undefined, longSeq = undefined, floatSeq = undefined, doubleSeq = undefined)
     {
-        constructor(boolSeq = undefined, byteSeq = undefined, shortSeq = undefined, intSeq = undefined, longSeq = undefined, floatSeq = undefined, doubleSeq = undefined)
-        {
-            super();
-            this.boolSeq = boolSeq;
-            this.byteSeq = byteSeq;
-            this.shortSeq = shortSeq;
-            this.intSeq = intSeq;
-            this.longSeq = longSeq;
-            this.floatSeq = floatSeq;
-            this.doubleSeq = doubleSeq;
-        }
+        super();
+        this.boolSeq = boolSeq;
+        this.byteSeq = byteSeq;
+        this.shortSeq = shortSeq;
+        this.intSeq = intSeq;
+        this.longSeq = longSeq;
+        this.floatSeq = floatSeq;
+        this.doubleSeq = doubleSeq;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.NumPy.BoolSeq1Helper.writeOptional(ostr, 1, this.boolSeq);
-            Test.NumPy.ByteSeq1Helper.writeOptional(ostr, 2, this.byteSeq);
-            Test.NumPy.ShortSeq1Helper.writeOptional(ostr, 3, this.shortSeq);
-            Test.NumPy.IntSeq1Helper.writeOptional(ostr, 4, this.intSeq);
-            Test.NumPy.LongSeq1Helper.writeOptional(ostr, 5, this.longSeq);
-            Test.NumPy.FloatSeq1Helper.writeOptional(ostr, 6, this.floatSeq);
-            Test.NumPy.DoubleSeq1Helper.writeOptional(ostr, 7, this.doubleSeq);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.boolSeq = Test.NumPy.BoolSeq1Helper.readOptional(istr, 1);
-            this.byteSeq = Test.NumPy.ByteSeq1Helper.readOptional(istr, 2);
-            this.shortSeq = Test.NumPy.ShortSeq1Helper.readOptional(istr, 3);
-            this.intSeq = Test.NumPy.IntSeq1Helper.readOptional(istr, 4);
-            this.longSeq = Test.NumPy.LongSeq1Helper.readOptional(istr, 5);
-            this.floatSeq = Test.NumPy.FloatSeq1Helper.readOptional(istr, 6);
-            this.doubleSeq = Test.NumPy.DoubleSeq1Helper.readOptional(istr, 7);
-        }
-    };
-
-    Slice.defineValue(Test.NumPy.D, "::Test::NumPy::D");
-
-    const iceC_Test_NumPy_Custom_ids = [
-        "::Ice::Object",
-        "::Test::NumPy::Custom"
-    ];
-
-    Test.NumPy.Custom = class extends Ice.Object
+    _iceWriteMemberImpl(ostr)
     {
-    };
+        Test.NumPy.BoolSeq1Helper.writeOptional(ostr, 1, this.boolSeq);
+        Test.NumPy.ByteSeq1Helper.writeOptional(ostr, 2, this.byteSeq);
+        Test.NumPy.ShortSeq1Helper.writeOptional(ostr, 3, this.shortSeq);
+        Test.NumPy.IntSeq1Helper.writeOptional(ostr, 4, this.intSeq);
+        Test.NumPy.LongSeq1Helper.writeOptional(ostr, 5, this.longSeq);
+        Test.NumPy.FloatSeq1Helper.writeOptional(ostr, 6, this.floatSeq);
+        Test.NumPy.DoubleSeq1Helper.writeOptional(ostr, 7, this.doubleSeq);
+    }
 
-    Test.NumPy.CustomPrx = class extends Ice.ObjectPrx
+    _iceReadMemberImpl(istr)
     {
-    };
+        this.boolSeq = Test.NumPy.BoolSeq1Helper.readOptional(istr, 1);
+        this.byteSeq = Test.NumPy.ByteSeq1Helper.readOptional(istr, 2);
+        this.shortSeq = Test.NumPy.ShortSeq1Helper.readOptional(istr, 3);
+        this.intSeq = Test.NumPy.IntSeq1Helper.readOptional(istr, 4);
+        this.longSeq = Test.NumPy.LongSeq1Helper.readOptional(istr, 5);
+        this.floatSeq = Test.NumPy.FloatSeq1Helper.readOptional(istr, 6);
+        this.doubleSeq = Test.NumPy.DoubleSeq1Helper.readOptional(istr, 7);
+    }
+};
 
-    Slice.defineOperations(Test.NumPy.Custom, Test.NumPy.CustomPrx, iceC_Test_NumPy_Custom_ids, "::Test::NumPy::Custom",
+Ice.defineValue(Test.NumPy.D, "::Test::NumPy::D");
+Ice.TypeRegistry.declareValueType("Test.NumPy.D", Test.NumPy.D);
+
+const iceC_Test_NumPy_Custom_ids = [
+    "::Ice::Object",
+    "::Test::NumPy::Custom"
+];
+
+Test.NumPy.Custom = class extends Ice.Object
+{
+};
+
+Test.NumPy.CustomPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.NumPy.CustomPrx", Test.NumPy.CustomPrx);
+
+Ice.defineOperations(
+    Test.NumPy.Custom,
+    Test.NumPy.CustomPrx,
+    iceC_Test_NumPy_Custom_ids,
+    "::Test::NumPy::Custom",
     {
-        "opBoolSeq": [, , , ["Test.NumPy.BoolSeq1Helper"], [["Test.NumPy.BoolSeq1Helper"]], [["Test.NumPy.BoolSeq2Helper"]], , , ],
-        "opByteSeq": [, , , ["Test.NumPy.ByteSeq1Helper"], [["Test.NumPy.ByteSeq1Helper"]], [["Test.NumPy.ByteSeq2Helper"]], , , ],
-        "opShortSeq": [, , , ["Test.NumPy.ShortSeq1Helper"], [["Test.NumPy.ShortSeq1Helper"]], [["Test.NumPy.ShortSeq2Helper"]], , , ],
-        "opIntSeq": [, , , ["Test.NumPy.IntSeq1Helper"], [["Test.NumPy.IntSeq1Helper"]], [["Test.NumPy.IntSeq2Helper"]], , , ],
-        "opLongSeq": [, , , ["Test.NumPy.LongSeq1Helper"], [["Test.NumPy.LongSeq1Helper"]], [["Test.NumPy.LongSeq2Helper"]], , , ],
-        "opFloatSeq": [, , , ["Test.NumPy.FloatSeq1Helper"], [["Test.NumPy.FloatSeq1Helper"]], [["Test.NumPy.FloatSeq2Helper"]], , , ],
-        "opDoubleSeq": [, , , ["Test.NumPy.DoubleSeq1Helper"], [["Test.NumPy.DoubleSeq1Helper"]], [["Test.NumPy.DoubleSeq2Helper"]], , , ],
-        "opComplex128Seq": [, , , ["Test.NumPy.Complex128SeqHelper"], [["Test.NumPy.Complex128SeqHelper"]], , , , ],
-        "opBoolMatrix": [, , , ["Test.NumPy.BoolSeq1Helper"], , , , , ],
-        "opByteMatrix": [, , , ["Test.NumPy.ByteSeq1Helper"], , , , , ],
-        "opShortMatrix": [, , , ["Test.NumPy.ShortSeq1Helper"], , , , , ],
-        "opIntMatrix": [, , , ["Test.NumPy.IntSeq1Helper"], , , , , ],
-        "opLongMatrix": [, , , ["Test.NumPy.LongSeq1Helper"], , , , , ],
-        "opFloatMatrix": [, , , ["Test.NumPy.FloatSeq1Helper"], , , , , ],
-        "opDoubleMatrix": [, , , ["Test.NumPy.DoubleSeq1Helper"], , , , , ],
-        "opBogusNumpyArrayType": [, , , ["Test.NumPy.BoolSeq1Helper"], , , , , ],
+        "opBoolSeq": [, , , [Test.NumPy.BoolSeq1Helper], [[Test.NumPy.BoolSeq1Helper]], [[Test.NumPy.BoolSeq2Helper]], , , ],
+        "opByteSeq": [, , , [Test.NumPy.ByteSeq1Helper], [[Test.NumPy.ByteSeq1Helper]], [[Test.NumPy.ByteSeq2Helper]], , , ],
+        "opShortSeq": [, , , [Test.NumPy.ShortSeq1Helper], [[Test.NumPy.ShortSeq1Helper]], [[Test.NumPy.ShortSeq2Helper]], , , ],
+        "opIntSeq": [, , , [Test.NumPy.IntSeq1Helper], [[Test.NumPy.IntSeq1Helper]], [[Test.NumPy.IntSeq2Helper]], , , ],
+        "opLongSeq": [, , , [Test.NumPy.LongSeq1Helper], [[Test.NumPy.LongSeq1Helper]], [[Test.NumPy.LongSeq2Helper]], , , ],
+        "opFloatSeq": [, , , [Test.NumPy.FloatSeq1Helper], [[Test.NumPy.FloatSeq1Helper]], [[Test.NumPy.FloatSeq2Helper]], , , ],
+        "opDoubleSeq": [, , , [Test.NumPy.DoubleSeq1Helper], [[Test.NumPy.DoubleSeq1Helper]], [[Test.NumPy.DoubleSeq2Helper]], , , ],
+        "opComplex128Seq": [, , , [Test.NumPy.Complex128SeqHelper], [[Test.NumPy.Complex128SeqHelper]], , , , ],
+        "opBoolMatrix": [, , , [Test.NumPy.BoolSeq1Helper], , , , , ],
+        "opByteMatrix": [, , , [Test.NumPy.ByteSeq1Helper], , , , , ],
+        "opShortMatrix": [, , , [Test.NumPy.ShortSeq1Helper], , , , , ],
+        "opIntMatrix": [, , , [Test.NumPy.IntSeq1Helper], , , , , ],
+        "opLongMatrix": [, , , [Test.NumPy.LongSeq1Helper], , , , , ],
+        "opFloatMatrix": [, , , [Test.NumPy.FloatSeq1Helper], , , , , ],
+        "opDoubleMatrix": [, , , [Test.NumPy.DoubleSeq1Helper], , , , , ],
+        "opBogusNumpyArrayType": [, , , [Test.NumPy.BoolSeq1Helper], , , , , ],
         "opD": [, , , ["Test.NumPy.D", true], [["Test.NumPy.D", true]], , , true, true],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

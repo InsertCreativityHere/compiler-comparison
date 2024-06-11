@@ -16,51 +16,56 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.TestException = class extends Ice.UserException
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.TestException = class extends Ice.UserException
+    constructor(_cause = "")
     {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
+        super(_cause);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::TestException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.TestException;
-        }
-    };
-
-    const iceC_Test_TestIntf_ids = [
-        "::Ice::Object",
-        "::Test::TestIntf"
-    ];
-
-    Test.TestIntf = class extends Ice.Object
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Test.TestIntfPrx = class extends Ice.ObjectPrx
+    static get _id()
     {
-    };
+        return "::Test::TestException";
+    }
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
+    _mostDerivedType()
+    {
+        return Test.TestException;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.TestException",
+    Test.TestException);
+
+const iceC_Test_TestIntf_ids = [
+    "::Ice::Object",
+    "::Test::TestIntf"
+];
+
+Test.TestIntf = class extends Ice.Object
+{
+};
+
+Test.TestIntfPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
+
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
     {
         "op": [, , , [3], , , , , ],
         "callOpOn": [, , , [3], [["Test.TestIntfPrx"]], , , , ],
@@ -77,10 +82,3 @@
         "sleep": [, , , , [[3]], , , , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

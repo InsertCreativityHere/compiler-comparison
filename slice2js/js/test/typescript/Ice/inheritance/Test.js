@@ -16,144 +16,178 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.MA = Test.MA || {};
+
+Test.MB = Test.MB || {};
+
+Test.MC = Test.MC || {};
+
+Test.MD = Test.MD || {};
+
+Test.ME = Test.ME || {};
+
+Test.MF = Test.MF || {};
+
+Test.MG = Test.MG || {};
+
+Test.MH = Test.MH || {};
+
+const iceC_Test_MA_IA_ids = [
+    "::Ice::Object",
+    "::Test::MA::IA"
+];
+
+Test.MA.IA = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.MA.IAPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.MA.IAPrx", Test.MA.IAPrx);
 
-    Test.MA = _ModuleRegistry.module("Test.MA");
-
-    const iceC_Test_MA_IA_ids = [
-        "::Ice::Object",
-        "::Test::MA::IA"
-    ];
-
-    Test.MA.IA = class extends Ice.Object
-    {
-    };
-
-    Test.MA.IAPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.MA.IA, Test.MA.IAPrx, iceC_Test_MA_IA_ids, "::Test::MA::IA",
+Ice.defineOperations(
+    Test.MA.IA,
+    Test.MA.IAPrx,
+    iceC_Test_MA_IA_ids,
+    "::Test::MA::IA",
     {
         "iaop": [, , , ["Test.MA.IAPrx"], [["Test.MA.IAPrx"]], , , , ]
     });
 
-    Test.MB = _ModuleRegistry.module("Test.MB");
+const iceC_Test_MB_IB1_ids = [
+    "::Ice::Object",
+    "::Test::MA::IA",
+    "::Test::MB::IB1"
+];
 
-    const iceC_Test_MB_IB1_ids = [
-        "::Ice::Object",
-        "::Test::MA::IA",
-        "::Test::MB::IB1"
-    ];
-
-    Test.MB.IB1 = class extends Ice.Object
+Test.MB.IB1 = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Test.MA.IA
-            ];
-        }
-    };
+        return [
+            Test.MA.IA
+        ];
+    }
+};
 
-    Test.MB.IB1Prx = class extends Ice.ObjectPrx
+Test.MB.IB1Prx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Test.MA.IAPrx];
-        }
-    };
+        return [
+            Test.MA.IAPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.MB.IB1Prx", Test.MB.IB1Prx);
 
-    Slice.defineOperations(Test.MB.IB1, Test.MB.IB1Prx, iceC_Test_MB_IB1_ids, "::Test::MB::IB1",
+Ice.defineOperations(
+    Test.MB.IB1,
+    Test.MB.IB1Prx,
+    iceC_Test_MB_IB1_ids,
+    "::Test::MB::IB1",
     {
         "ib1op": [, , , ["Test.MB.IB1Prx"], [["Test.MB.IB1Prx"]], , , , ]
     });
 
-    const iceC_Test_MB_IB2_ids = [
-        "::Ice::Object",
-        "::Test::MA::IA",
-        "::Test::MB::IB2"
-    ];
+const iceC_Test_MB_IB2_ids = [
+    "::Ice::Object",
+    "::Test::MA::IA",
+    "::Test::MB::IB2"
+];
 
-    Test.MB.IB2 = class extends Ice.Object
+Test.MB.IB2 = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Test.MA.IA
-            ];
-        }
-    };
+        return [
+            Test.MA.IA
+        ];
+    }
+};
 
-    Test.MB.IB2Prx = class extends Ice.ObjectPrx
+Test.MB.IB2Prx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Test.MA.IAPrx];
-        }
-    };
+        return [
+            Test.MA.IAPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.MB.IB2Prx", Test.MB.IB2Prx);
 
-    Slice.defineOperations(Test.MB.IB2, Test.MB.IB2Prx, iceC_Test_MB_IB2_ids, "::Test::MB::IB2",
+Ice.defineOperations(
+    Test.MB.IB2,
+    Test.MB.IB2Prx,
+    iceC_Test_MB_IB2_ids,
+    "::Test::MB::IB2",
     {
         "ib2op": [, , , ["Test.MB.IB2Prx"], [["Test.MB.IB2Prx"]], , , , ]
     });
 
-    const iceC_Test_MA_IC_ids = [
-        "::Ice::Object",
-        "::Test::MA::IA",
-        "::Test::MA::IC",
-        "::Test::MB::IB1",
-        "::Test::MB::IB2"
-    ];
+const iceC_Test_MA_IC_ids = [
+    "::Ice::Object",
+    "::Test::MA::IA",
+    "::Test::MA::IC",
+    "::Test::MB::IB1",
+    "::Test::MB::IB2"
+];
 
-    Test.MA.IC = class extends Ice.Object
+Test.MA.IC = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Test.MB.IB1,
-                Test.MB.IB2
-            ];
-        }
-    };
+        return [
+            Test.MB.IB1,
+            Test.MB.IB2
+        ];
+    }
+};
 
-    Test.MA.ICPrx = class extends Ice.ObjectPrx
+Test.MA.ICPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Test.MB.IB1Prx,
-                Test.MB.IB2Prx];
-        }
-    };
+        return [
+            Test.MB.IB1Prx,
+            Test.MB.IB2Prx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.MA.ICPrx", Test.MA.ICPrx);
 
-    Slice.defineOperations(Test.MA.IC, Test.MA.ICPrx, iceC_Test_MA_IC_ids, "::Test::MA::IC",
+Ice.defineOperations(
+    Test.MA.IC,
+    Test.MA.ICPrx,
+    iceC_Test_MA_IC_ids,
+    "::Test::MA::IC",
     {
         "icop": [, , , ["Test.MA.ICPrx"], [["Test.MA.ICPrx"]], , , , ]
     });
 
-    const iceC_Test_Initial_ids = [
-        "::Ice::Object",
-        "::Test::Initial"
-    ];
+const iceC_Test_Initial_ids = [
+    "::Ice::Object",
+    "::Test::Initial"
+];
 
-    Test.Initial = class extends Ice.Object
-    {
-    };
+Test.Initial = class extends Ice.Object
+{
+};
 
-    Test.InitialPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.InitialPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.InitialPrx", Test.InitialPrx);
 
-    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
+Ice.defineOperations(
+    Test.Initial,
+    Test.InitialPrx,
+    iceC_Test_Initial_ids,
+    "::Test::Initial",
     {
         "shutdown": [, , , , , , , , ],
         "iaop": [, , , ["Test.MA.IAPrx"], , , , , ],
@@ -162,546 +196,556 @@
         "icop": [, , , ["Test.MA.ICPrx"], , , , , ]
     });
 
-    Test.MC = _ModuleRegistry.module("Test.MC");
-
-    Test.MC.A = class extends Ice.Value
+Test.MC.A = class extends Ice.Value
+{
+    constructor(aA = 0)
     {
-        constructor(aA = 0)
-        {
-            super();
-            this.aA = aA;
-        }
+        super();
+        this.aA = aA;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.aA);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.aA = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MC.A, "::Test::MC::A");
-
-    Test.MC.B = class extends Test.MC.A
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(aA, bB = 0)
-        {
-            super(aA);
-            this.bB = bB;
-        }
+        ostr.writeInt(this.aA);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.bB);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.bB = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MC.B, "::Test::MC::B");
-
-    Test.MC.C = class extends Test.MC.B
+    _iceReadMemberImpl(istr)
     {
-        constructor(aA, bB, cC = 0)
-        {
-            super(aA, bB);
-            this.cC = cC;
-        }
+        this.aA = istr.readInt();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.cC);
-        }
+Ice.defineValue(Test.MC.A, "::Test::MC::A");
+Ice.TypeRegistry.declareValueType("Test.MC.A", Test.MC.A);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.cC = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MC.C, "::Test::MC::C");
-
-    Test.MC.D = class extends Test.MC.C
+Test.MC.B = class extends Test.MC.A
+{
+    constructor(aA, bB = 0)
     {
-        constructor(aA, bB, cC, dD = 0)
-        {
-            super(aA, bB, cC);
-            this.dD = dD;
-        }
+        super(aA);
+        this.bB = bB;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.dD);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.dD = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MC.D, "::Test::MC::D");
-
-    Test.MD = _ModuleRegistry.module("Test.MD");
-
-    Test.MD.A = class extends Ice.Value
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(aA = 0)
-        {
-            super();
-            this.aA = aA;
-        }
+        ostr.writeInt(this.bB);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.aA);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.aA = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MD.A, "::Test::MD::A");
-
-    Test.MD.B = class extends Test.MD.A
+    _iceReadMemberImpl(istr)
     {
-        constructor(aA, bB = 0)
-        {
-            super(aA);
-            this.bB = bB;
-        }
+        this.bB = istr.readInt();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.bB);
-        }
+Ice.defineValue(Test.MC.B, "::Test::MC::B");
+Ice.TypeRegistry.declareValueType("Test.MC.B", Test.MC.B);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.bB = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MD.B, "::Test::MD::B");
-
-    Test.MD.C = class extends Test.MD.B
+Test.MC.C = class extends Test.MC.B
+{
+    constructor(aA, bB, cC = 0)
     {
-        constructor(aA, bB, cC = 0)
-        {
-            super(aA, bB);
-            this.cC = cC;
-        }
+        super(aA, bB);
+        this.cC = cC;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.cC);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.cC = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MD.C, "::Test::MD::C");
-
-    Test.MD.D = class extends Test.MD.C
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(aA, bB, cC, dD = 0)
-        {
-            super(aA, bB, cC);
-            this.dD = dD;
-        }
+        ostr.writeInt(this.cC);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.dD);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.dD = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MD.D, "::Test::MD::D");
-
-    Test.ME = _ModuleRegistry.module("Test.ME");
-
-    Test.ME.A = class extends Ice.Value
+    _iceReadMemberImpl(istr)
     {
-        constructor(aA = 0)
-        {
-            super();
-            this.aA = aA;
-        }
+        this.cC = istr.readInt();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.aA);
-        }
+Ice.defineValue(Test.MC.C, "::Test::MC::C");
+Ice.TypeRegistry.declareValueType("Test.MC.C", Test.MC.C);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.aA = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.ME.A, "::Test::ME::A");
-
-    Test.ME.B = class extends Test.ME.A
+Test.MC.D = class extends Test.MC.C
+{
+    constructor(aA, bB, cC, dD = 0)
     {
-        constructor(aA, bB = 0)
-        {
-            super(aA);
-            this.bB = bB;
-        }
+        super(aA, bB, cC);
+        this.dD = dD;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.bB);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.bB = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.ME.B, "::Test::ME::B");
-
-    Test.ME.C = class extends Test.ME.B
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(aA, bB, cC = 0)
-        {
-            super(aA, bB);
-            this.cC = cC;
-        }
+        ostr.writeInt(this.dD);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.cC);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.cC = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.ME.C, "::Test::ME::C");
-
-    Test.ME.D = class extends Test.ME.C
+    _iceReadMemberImpl(istr)
     {
-        constructor(aA, bB, cC, dD = 0)
-        {
-            super(aA, bB, cC);
-            this.dD = dD;
-        }
+        this.dD = istr.readInt();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.dD);
-        }
+Ice.defineValue(Test.MC.D, "::Test::MC::D");
+Ice.TypeRegistry.declareValueType("Test.MC.D", Test.MC.D);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.dD = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.ME.D, "::Test::ME::D");
-
-    Test.MF = _ModuleRegistry.module("Test.MF");
-
-    Test.MF.A = class extends Ice.Value
+Test.MD.A = class extends Ice.Value
+{
+    constructor(aA = 0)
     {
-        constructor(aA = 0)
-        {
-            super();
-            this.aA = aA;
-        }
+        super();
+        this.aA = aA;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.aA);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.aA = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MF.A, "::Test::MF::A");
-
-    Test.MF.B = class extends Test.MF.A
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(aA, bB = 0)
-        {
-            super(aA);
-            this.bB = bB;
-        }
+        ostr.writeInt(this.aA);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.bB);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.bB = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MF.B, "::Test::MF::B");
-
-    Test.MF.C = class extends Test.MF.B
+    _iceReadMemberImpl(istr)
     {
-        constructor(aA, bB, cC = 0)
-        {
-            super(aA, bB);
-            this.cC = cC;
-        }
+        this.aA = istr.readInt();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.cC);
-        }
+Ice.defineValue(Test.MD.A, "::Test::MD::A");
+Ice.TypeRegistry.declareValueType("Test.MD.A", Test.MD.A);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.cC = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MF.C, "::Test::MF::C");
-
-    Test.MF.D = class extends Test.MF.C
+Test.MD.B = class extends Test.MD.A
+{
+    constructor(aA, bB = 0)
     {
-        constructor(aA, bB, cC, dD = 0)
-        {
-            super(aA, bB, cC);
-            this.dD = dD;
-        }
+        super(aA);
+        this.bB = bB;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.dD);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.dD = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MF.D, "::Test::MF::D");
-
-    Test.MG = _ModuleRegistry.module("Test.MG");
-
-    Test.MG.A = class extends Ice.Value
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(aA = 0)
-        {
-            super();
-            this.aA = aA;
-        }
+        ostr.writeInt(this.bB);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.aA);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.aA = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MG.A, "::Test::MG::A");
-
-    Test.MG.B = class extends Test.MG.A
+    _iceReadMemberImpl(istr)
     {
-        constructor(aA, bB = 0)
-        {
-            super(aA);
-            this.bB = bB;
-        }
+        this.bB = istr.readInt();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.bB);
-        }
+Ice.defineValue(Test.MD.B, "::Test::MD::B");
+Ice.TypeRegistry.declareValueType("Test.MD.B", Test.MD.B);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.bB = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MG.B, "::Test::MG::B");
-
-    Test.MG.C = class extends Test.MG.B
+Test.MD.C = class extends Test.MD.B
+{
+    constructor(aA, bB, cC = 0)
     {
-        constructor(aA, bB, cC = 0)
-        {
-            super(aA, bB);
-            this.cC = cC;
-        }
+        super(aA, bB);
+        this.cC = cC;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.cC);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.cC = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MG.C, "::Test::MG::C");
-
-    Test.MG.D = class extends Test.MG.C
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(aA, bB, cC, dD = 0)
-        {
-            super(aA, bB, cC);
-            this.dD = dD;
-        }
+        ostr.writeInt(this.cC);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.dD);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.dD = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MG.D, "::Test::MG::D");
-
-    Test.MH = _ModuleRegistry.module("Test.MH");
-
-    Test.MH.A = class extends Ice.Value
+    _iceReadMemberImpl(istr)
     {
-        constructor(aA = 0)
-        {
-            super();
-            this.aA = aA;
-        }
+        this.cC = istr.readInt();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.aA);
-        }
+Ice.defineValue(Test.MD.C, "::Test::MD::C");
+Ice.TypeRegistry.declareValueType("Test.MD.C", Test.MD.C);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.aA = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MH.A, "::Test::MH::A");
-
-    Test.MH.B = class extends Test.MH.A
+Test.MD.D = class extends Test.MD.C
+{
+    constructor(aA, bB, cC, dD = 0)
     {
-        constructor(aA, bB = 0)
-        {
-            super(aA);
-            this.bB = bB;
-        }
+        super(aA, bB, cC);
+        this.dD = dD;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.bB);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.bB = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MH.B, "::Test::MH::B");
-
-    Test.MH.C = class extends Test.MH.B
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(aA, bB, cC = 0)
-        {
-            super(aA, bB);
-            this.cC = cC;
-        }
+        ostr.writeInt(this.dD);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.cC);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.cC = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MH.C, "::Test::MH::C");
-
-    Test.MH.D = class extends Test.MH.C
+    _iceReadMemberImpl(istr)
     {
-        constructor(aA, bB, cC, dD = 0)
-        {
-            super(aA, bB, cC);
-            this.dD = dD;
-        }
+        this.dD = istr.readInt();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.dD);
-        }
+Ice.defineValue(Test.MD.D, "::Test::MD::D");
+Ice.TypeRegistry.declareValueType("Test.MD.D", Test.MD.D);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.dD = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MH.D, "::Test::MH::D");
-
-    const iceC_Test_Echo_ids = [
-        "::Ice::Object",
-        "::Test::Echo"
-    ];
-
-    Test.Echo = class extends Ice.Object
+Test.ME.A = class extends Ice.Value
+{
+    constructor(aA = 0)
     {
-    };
+        super();
+        this.aA = aA;
+    }
 
-    Test.EchoPrx = class extends Ice.ObjectPrx
+    _iceWriteMemberImpl(ostr)
     {
-    };
+        ostr.writeInt(this.aA);
+    }
 
-    Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
+    _iceReadMemberImpl(istr)
+    {
+        this.aA = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.ME.A, "::Test::ME::A");
+Ice.TypeRegistry.declareValueType("Test.ME.A", Test.ME.A);
+
+Test.ME.B = class extends Test.ME.A
+{
+    constructor(aA, bB = 0)
+    {
+        super(aA);
+        this.bB = bB;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.bB);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.bB = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.ME.B, "::Test::ME::B");
+Ice.TypeRegistry.declareValueType("Test.ME.B", Test.ME.B);
+
+Test.ME.C = class extends Test.ME.B
+{
+    constructor(aA, bB, cC = 0)
+    {
+        super(aA, bB);
+        this.cC = cC;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.cC);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.cC = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.ME.C, "::Test::ME::C");
+Ice.TypeRegistry.declareValueType("Test.ME.C", Test.ME.C);
+
+Test.ME.D = class extends Test.ME.C
+{
+    constructor(aA, bB, cC, dD = 0)
+    {
+        super(aA, bB, cC);
+        this.dD = dD;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.dD);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.dD = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.ME.D, "::Test::ME::D");
+Ice.TypeRegistry.declareValueType("Test.ME.D", Test.ME.D);
+
+Test.MF.A = class extends Ice.Value
+{
+    constructor(aA = 0)
+    {
+        super();
+        this.aA = aA;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.aA);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.aA = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MF.A, "::Test::MF::A");
+Ice.TypeRegistry.declareValueType("Test.MF.A", Test.MF.A);
+
+Test.MF.B = class extends Test.MF.A
+{
+    constructor(aA, bB = 0)
+    {
+        super(aA);
+        this.bB = bB;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.bB);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.bB = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MF.B, "::Test::MF::B");
+Ice.TypeRegistry.declareValueType("Test.MF.B", Test.MF.B);
+
+Test.MF.C = class extends Test.MF.B
+{
+    constructor(aA, bB, cC = 0)
+    {
+        super(aA, bB);
+        this.cC = cC;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.cC);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.cC = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MF.C, "::Test::MF::C");
+Ice.TypeRegistry.declareValueType("Test.MF.C", Test.MF.C);
+
+Test.MF.D = class extends Test.MF.C
+{
+    constructor(aA, bB, cC, dD = 0)
+    {
+        super(aA, bB, cC);
+        this.dD = dD;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.dD);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.dD = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MF.D, "::Test::MF::D");
+Ice.TypeRegistry.declareValueType("Test.MF.D", Test.MF.D);
+
+Test.MG.A = class extends Ice.Value
+{
+    constructor(aA = 0)
+    {
+        super();
+        this.aA = aA;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.aA);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.aA = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MG.A, "::Test::MG::A");
+Ice.TypeRegistry.declareValueType("Test.MG.A", Test.MG.A);
+
+Test.MG.B = class extends Test.MG.A
+{
+    constructor(aA, bB = 0)
+    {
+        super(aA);
+        this.bB = bB;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.bB);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.bB = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MG.B, "::Test::MG::B");
+Ice.TypeRegistry.declareValueType("Test.MG.B", Test.MG.B);
+
+Test.MG.C = class extends Test.MG.B
+{
+    constructor(aA, bB, cC = 0)
+    {
+        super(aA, bB);
+        this.cC = cC;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.cC);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.cC = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MG.C, "::Test::MG::C");
+Ice.TypeRegistry.declareValueType("Test.MG.C", Test.MG.C);
+
+Test.MG.D = class extends Test.MG.C
+{
+    constructor(aA, bB, cC, dD = 0)
+    {
+        super(aA, bB, cC);
+        this.dD = dD;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.dD);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.dD = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MG.D, "::Test::MG::D");
+Ice.TypeRegistry.declareValueType("Test.MG.D", Test.MG.D);
+
+Test.MH.A = class extends Ice.Value
+{
+    constructor(aA = 0)
+    {
+        super();
+        this.aA = aA;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.aA);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.aA = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MH.A, "::Test::MH::A");
+Ice.TypeRegistry.declareValueType("Test.MH.A", Test.MH.A);
+
+Test.MH.B = class extends Test.MH.A
+{
+    constructor(aA, bB = 0)
+    {
+        super(aA);
+        this.bB = bB;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.bB);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.bB = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MH.B, "::Test::MH::B");
+Ice.TypeRegistry.declareValueType("Test.MH.B", Test.MH.B);
+
+Test.MH.C = class extends Test.MH.B
+{
+    constructor(aA, bB, cC = 0)
+    {
+        super(aA, bB);
+        this.cC = cC;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.cC);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.cC = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MH.C, "::Test::MH::C");
+Ice.TypeRegistry.declareValueType("Test.MH.C", Test.MH.C);
+
+Test.MH.D = class extends Test.MH.C
+{
+    constructor(aA, bB, cC, dD = 0)
+    {
+        super(aA, bB, cC);
+        this.dD = dD;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.dD);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.dD = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MH.D, "::Test::MH::D");
+Ice.TypeRegistry.declareValueType("Test.MH.D", Test.MH.D);
+
+const iceC_Test_Echo_ids = [
+    "::Ice::Object",
+    "::Test::Echo"
+];
+
+Test.Echo = class extends Ice.Object
+{
+};
+
+Test.EchoPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.EchoPrx", Test.EchoPrx);
+
+Ice.defineOperations(
+    Test.Echo,
+    Test.EchoPrx,
+    iceC_Test_Echo_ids,
+    "::Test::Echo",
     {
         "setConnection": [, , , , , , , , ],
         "startBatch": [, , , , , , , , ],
         "flushBatch": [, , , , , , , , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

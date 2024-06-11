@@ -16,174 +16,169 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.A = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.A = class
+    constructor(i = 0)
     {
-        constructor(i = 0)
-        {
-            this.i = i;
-        }
+        this.i = i;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _read(istr)
-        {
-            this.i = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(Test.A, true, false);
-
-    Slice.defineSequence(Test, "ASeqHelper", "Test.A", true);
-
-    Slice.defineSequence(Test, "AArrayHelper", "Test.A", true);
-
-    Slice.defineSequence(Test, "AListHelper", "Test.A", true);
-
-    Slice.defineSequence(Test, "BoolSeqHelper", "Ice.BoolHelper", true);
-
-    Slice.defineSequence(Test, "ByteSeqHelper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "ShortSeqHelper", "Ice.ShortHelper", true);
-
-    Slice.defineSequence(Test, "IntSeqHelper", "Ice.IntHelper", true);
-
-    Slice.defineSequence(Test, "LongSeqHelper", "Ice.LongHelper", true);
-
-    Slice.defineSequence(Test, "FloatSeqHelper", "Ice.FloatHelper", true);
-
-    Slice.defineSequence(Test, "DoubleSeqHelper", "Ice.DoubleHelper", true);
-
-    Slice.defineSequence(Test, "StringSeqHelper", "Ice.StringHelper", false);
-
-    Slice.defineSequence(Test, "ByteBufferHelper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "ShortBufferHelper", "Ice.ShortHelper", true);
-
-    Slice.defineSequence(Test, "IntBufferHelper", "Ice.IntHelper", true);
-
-    Slice.defineSequence(Test, "LongBufferHelper", "Ice.LongHelper", true);
-
-    Slice.defineSequence(Test, "FloatBufferHelper", "Ice.FloatHelper", true);
-
-    Slice.defineSequence(Test, "DoubleBufferHelper", "Ice.DoubleHelper", true);
-
-    Test.E = Slice.defineEnum([
-        ['E1', 0], ['E2', 1], ['E3', 2]]);
-
-    Slice.defineSequence(Test, "ESeqHelper", "Test.E._helper", false);
-
-    Test.S = class
+    _write(ostr)
     {
-        constructor(en = Test.E.E1)
-        {
-            this.en = en;
-        }
+        ostr.writeInt(this.i);
+    }
 
-        _write(ostr)
-        {
-            Test.E._write(ostr, this.en);
-        }
-
-        _read(istr)
-        {
-            this.en = Test.E._read(istr);
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(Test.S, true, true);
-
-    Slice.defineSequence(Test, "SSeqHelper", "Test.S", false);
-
-    Slice.defineDictionary(Test, "D", "DHelper", "Ice.IntHelper", "Ice.StringHelper", false, undefined, undefined);
-
-    Slice.defineSequence(Test, "DSeqHelper", "Test.DHelper", false);
-
-    Slice.defineSequence(Test, "StringSeqSeqHelper", "Test.StringSeqHelper", false);
-
-    const iceC_Test_TestIntf_ids = [
-        "::Ice::Object",
-        "::Test::TestIntf"
-    ];
-
-    Test.TestIntf = class extends Ice.Object
+    _read(istr)
     {
-    };
+        this.i = istr.readInt();
+    }
 
-    Test.TestIntfPrx = class extends Ice.ObjectPrx
+    static get minWireSize()
     {
-    };
+        return  4;
+    }
+};
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
+Ice.defineStruct(Test.A, true, false);
+
+Test.ASeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.A, true);
+
+Test.AArrayHelper = Ice.StreamHelpers.generateSeqHelper(Test.A, true);
+
+Test.AListHelper = Ice.StreamHelpers.generateSeqHelper(Test.A, true);
+
+Test.BoolSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.BoolHelper, true);
+
+Test.ByteSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.ShortSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ShortHelper, true);
+
+Test.IntSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
+
+Test.LongSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.LongHelper, true);
+
+Test.FloatSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.FloatHelper, true);
+
+Test.DoubleSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.DoubleHelper, true);
+
+Test.StringSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
+
+Test.ByteBufferHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.ShortBufferHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ShortHelper, true);
+
+Test.IntBufferHelper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
+
+Test.LongBufferHelper = Ice.StreamHelpers.generateSeqHelper(Ice.LongHelper, true);
+
+Test.FloatBufferHelper = Ice.StreamHelpers.generateSeqHelper(Ice.FloatHelper, true);
+
+Test.DoubleBufferHelper = Ice.StreamHelpers.generateSeqHelper(Ice.DoubleHelper, true);
+
+Test.E = Ice.defineEnum([
+    ['E1', 0], ['E2', 1], ['E3', 2]]);
+
+Test.ESeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.E._helper, false);
+
+Test.S = class
+{
+    constructor(en = Test.E.E1)
     {
-        "opASeq": [, , , ["Test.ASeqHelper"], [["Test.ASeqHelper"]], [["Test.ASeqHelper"]], , , ],
-        "opAArray": [, , , ["Test.AArrayHelper"], [["Test.AArrayHelper"]], [["Test.AArrayHelper"]], , , ],
-        "opAList": [, , , ["Test.AListHelper"], [["Test.AListHelper"]], [["Test.AListHelper"]], , , ],
-        "opBoolSeq": [, , , ["Test.BoolSeqHelper"], [["Test.BoolSeqHelper"]], [["Test.BoolSeqHelper"]], , , ],
-        "opByteSeq": [, , , ["Test.ByteSeqHelper"], [["Test.ByteSeqHelper"]], [["Test.ByteSeqHelper"]], , , ],
-        "opShortSeq": [, , , ["Test.ShortSeqHelper"], [["Test.ShortSeqHelper"]], [["Test.ShortSeqHelper"]], , , ],
-        "opIntSeq": [, , , ["Test.IntSeqHelper"], [["Test.IntSeqHelper"]], [["Test.IntSeqHelper"]], , , ],
-        "opLongSeq": [, , , ["Test.LongSeqHelper"], [["Test.LongSeqHelper"]], [["Test.LongSeqHelper"]], , , ],
-        "opFloatSeq": [, , , ["Test.FloatSeqHelper"], [["Test.FloatSeqHelper"]], [["Test.FloatSeqHelper"]], , , ],
-        "opDoubleSeq": [, , , ["Test.DoubleSeqHelper"], [["Test.DoubleSeqHelper"]], [["Test.DoubleSeqHelper"]], , , ],
-        "opStringSeq": [, , , ["Test.StringSeqHelper"], [["Test.StringSeqHelper"]], [["Test.StringSeqHelper"]], , , ],
-        "opESeq": [, , , ["Test.ESeqHelper"], [["Test.ESeqHelper"]], [["Test.ESeqHelper"]], , , ],
-        "opSSeq": [, , , ["Test.SSeqHelper"], [["Test.SSeqHelper"]], [["Test.SSeqHelper"]], , , ],
-        "opDSeq": [, , , ["Test.DSeqHelper"], [["Test.DSeqHelper"]], [["Test.DSeqHelper"]], , , ],
-        "opStringSeqSeq": [, , , ["Test.StringSeqSeqHelper"], [["Test.StringSeqSeqHelper"]], [["Test.StringSeqSeqHelper"]], , , ],
-        "opByteBufferSeq": [, , , ["Test.ByteBufferHelper"], [["Test.ByteBufferHelper"]], [["Test.ByteBufferHelper"]], , , ],
-        "opShortBufferSeq": [, , , ["Test.ShortBufferHelper"], [["Test.ShortBufferHelper"]], [["Test.ShortBufferHelper"]], , , ],
-        "opIntBufferSeq": [, , , ["Test.IntBufferHelper"], [["Test.IntBufferHelper"]], [["Test.IntBufferHelper"]], , , ],
-        "opLongBufferSeq": [, , , ["Test.LongBufferHelper"], [["Test.LongBufferHelper"]], [["Test.LongBufferHelper"]], , , ],
-        "opFloatBufferSeq": [, , , ["Test.FloatBufferHelper"], [["Test.FloatBufferHelper"]], [["Test.FloatBufferHelper"]], , , ],
-        "opDoubleBufferSeq": [, , , ["Test.DoubleBufferHelper"], [["Test.DoubleBufferHelper"]], [["Test.DoubleBufferHelper"]], , , ],
-        "opOptASeq": [, , , ["Test.ASeqHelper", , 1], [["Test.ASeqHelper", , 2]], [["Test.ASeqHelper", , 3]], , , ],
-        "opOptAArray": [, , , ["Test.AArrayHelper", , 1], [["Test.AArrayHelper", , 2]], [["Test.AArrayHelper", , 3]], , , ],
-        "opOptAList": [, , , ["Test.AListHelper", , 1], [["Test.AListHelper", , 2]], [["Test.AListHelper", , 3]], , , ],
-        "opOptBoolSeq": [, , , ["Test.BoolSeqHelper", , 1], [["Test.BoolSeqHelper", , 2]], [["Test.BoolSeqHelper", , 3]], , , ],
-        "opOptByteSeq": [, , , ["Test.ByteSeqHelper", , 1], [["Test.ByteSeqHelper", , 2]], [["Test.ByteSeqHelper", , 3]], , , ],
-        "opOptShortSeq": [, , , ["Test.ShortSeqHelper", , 1], [["Test.ShortSeqHelper", , 2]], [["Test.ShortSeqHelper", , 3]], , , ],
-        "opOptIntSeq": [, , , ["Test.IntSeqHelper", , 1], [["Test.IntSeqHelper", , 2]], [["Test.IntSeqHelper", , 3]], , , ],
-        "opOptLongSeq": [, , , ["Test.LongSeqHelper", , 1], [["Test.LongSeqHelper", , 2]], [["Test.LongSeqHelper", , 3]], , , ],
-        "opOptFloatSeq": [, , , ["Test.FloatSeqHelper", , 1], [["Test.FloatSeqHelper", , 2]], [["Test.FloatSeqHelper", , 3]], , , ],
-        "opOptDoubleSeq": [, , , ["Test.DoubleSeqHelper", , 1], [["Test.DoubleSeqHelper", , 2]], [["Test.DoubleSeqHelper", , 3]], , , ],
-        "opOptStringSeq": [, , , ["Test.StringSeqHelper", , 1], [["Test.StringSeqHelper", , 2]], [["Test.StringSeqHelper", , 3]], , , ],
-        "opOptESeq": [, , , ["Test.ESeqHelper", , 1], [["Test.ESeqHelper", , 2]], [["Test.ESeqHelper", , 3]], , , ],
-        "opOptSSeq": [, , , ["Test.SSeqHelper", , 1], [["Test.SSeqHelper", , 2]], [["Test.SSeqHelper", , 3]], , , ],
-        "opOptDSeq": [, , , ["Test.DSeqHelper", , 1], [["Test.DSeqHelper", , 2]], [["Test.DSeqHelper", , 3]], , , ],
-        "opOptStringSeqSeq": [, , , ["Test.StringSeqSeqHelper", , 1], [["Test.StringSeqSeqHelper", , 2]], [["Test.StringSeqSeqHelper", , 3]], , , ],
-        "opOptByteBufferSeq": [, , , ["Test.ByteBufferHelper", , 1], [["Test.ByteBufferHelper", , 2]], [["Test.ByteBufferHelper", , 3]], , , ],
-        "opOptShortBufferSeq": [, , , ["Test.ShortBufferHelper", , 1], [["Test.ShortBufferHelper", , 2]], [["Test.ShortBufferHelper", , 3]], , , ],
-        "opOptIntBufferSeq": [, , , ["Test.IntBufferHelper", , 1], [["Test.IntBufferHelper", , 2]], [["Test.IntBufferHelper", , 3]], , , ],
-        "opOptLongBufferSeq": [, , , ["Test.LongBufferHelper", , 1], [["Test.LongBufferHelper", , 2]], [["Test.LongBufferHelper", , 3]], , , ],
-        "opOptFloatBufferSeq": [, , , ["Test.FloatBufferHelper", , 1], [["Test.FloatBufferHelper", , 2]], [["Test.FloatBufferHelper", , 3]], , , ],
-        "opOptDoubleBufferSeq": [, , , ["Test.DoubleBufferHelper", , 1], [["Test.DoubleBufferHelper", , 2]], [["Test.DoubleBufferHelper", , 3]], , , ],
+        this.en = en;
+    }
+
+    _write(ostr)
+    {
+        Test.E._write(ostr, this.en);
+    }
+
+    _read(istr)
+    {
+        this.en = Test.E._read(istr);
+    }
+
+    static get minWireSize()
+    {
+        return  1;
+    }
+};
+
+Ice.defineStruct(Test.S, true, true);
+
+Test.SSeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.S, false);
+
+[Test.D, Test.DHelper] = Ice.defineDictionary(Ice.IntHelper, Ice.StringHelper, false, undefined);
+
+Test.DSeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.DHelper, false);
+
+Test.StringSeqSeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.StringSeqHelper, false);
+
+const iceC_Test_TestIntf_ids = [
+    "::Ice::Object",
+    "::Test::TestIntf"
+];
+
+Test.TestIntf = class extends Ice.Object
+{
+};
+
+Test.TestIntfPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
+
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
+    {
+        "opASeq": [, , , [Test.ASeqHelper], [[Test.ASeqHelper]], [[Test.ASeqHelper]], , , ],
+        "opAArray": [, , , [Test.AArrayHelper], [[Test.AArrayHelper]], [[Test.AArrayHelper]], , , ],
+        "opAList": [, , , [Test.AListHelper], [[Test.AListHelper]], [[Test.AListHelper]], , , ],
+        "opBoolSeq": [, , , [Test.BoolSeqHelper], [[Test.BoolSeqHelper]], [[Test.BoolSeqHelper]], , , ],
+        "opByteSeq": [, , , [Test.ByteSeqHelper], [[Test.ByteSeqHelper]], [[Test.ByteSeqHelper]], , , ],
+        "opShortSeq": [, , , [Test.ShortSeqHelper], [[Test.ShortSeqHelper]], [[Test.ShortSeqHelper]], , , ],
+        "opIntSeq": [, , , [Test.IntSeqHelper], [[Test.IntSeqHelper]], [[Test.IntSeqHelper]], , , ],
+        "opLongSeq": [, , , [Test.LongSeqHelper], [[Test.LongSeqHelper]], [[Test.LongSeqHelper]], , , ],
+        "opFloatSeq": [, , , [Test.FloatSeqHelper], [[Test.FloatSeqHelper]], [[Test.FloatSeqHelper]], , , ],
+        "opDoubleSeq": [, , , [Test.DoubleSeqHelper], [[Test.DoubleSeqHelper]], [[Test.DoubleSeqHelper]], , , ],
+        "opStringSeq": [, , , [Test.StringSeqHelper], [[Test.StringSeqHelper]], [[Test.StringSeqHelper]], , , ],
+        "opESeq": [, , , [Test.ESeqHelper], [[Test.ESeqHelper]], [[Test.ESeqHelper]], , , ],
+        "opSSeq": [, , , [Test.SSeqHelper], [[Test.SSeqHelper]], [[Test.SSeqHelper]], , , ],
+        "opDSeq": [, , , [Test.DSeqHelper], [[Test.DSeqHelper]], [[Test.DSeqHelper]], , , ],
+        "opStringSeqSeq": [, , , [Test.StringSeqSeqHelper], [[Test.StringSeqSeqHelper]], [[Test.StringSeqSeqHelper]], , , ],
+        "opByteBufferSeq": [, , , [Test.ByteBufferHelper], [[Test.ByteBufferHelper]], [[Test.ByteBufferHelper]], , , ],
+        "opShortBufferSeq": [, , , [Test.ShortBufferHelper], [[Test.ShortBufferHelper]], [[Test.ShortBufferHelper]], , , ],
+        "opIntBufferSeq": [, , , [Test.IntBufferHelper], [[Test.IntBufferHelper]], [[Test.IntBufferHelper]], , , ],
+        "opLongBufferSeq": [, , , [Test.LongBufferHelper], [[Test.LongBufferHelper]], [[Test.LongBufferHelper]], , , ],
+        "opFloatBufferSeq": [, , , [Test.FloatBufferHelper], [[Test.FloatBufferHelper]], [[Test.FloatBufferHelper]], , , ],
+        "opDoubleBufferSeq": [, , , [Test.DoubleBufferHelper], [[Test.DoubleBufferHelper]], [[Test.DoubleBufferHelper]], , , ],
+        "opOptASeq": [, , , [Test.ASeqHelper, , 1], [[Test.ASeqHelper, , 2]], [[Test.ASeqHelper, , 3]], , , ],
+        "opOptAArray": [, , , [Test.AArrayHelper, , 1], [[Test.AArrayHelper, , 2]], [[Test.AArrayHelper, , 3]], , , ],
+        "opOptAList": [, , , [Test.AListHelper, , 1], [[Test.AListHelper, , 2]], [[Test.AListHelper, , 3]], , , ],
+        "opOptBoolSeq": [, , , [Test.BoolSeqHelper, , 1], [[Test.BoolSeqHelper, , 2]], [[Test.BoolSeqHelper, , 3]], , , ],
+        "opOptByteSeq": [, , , [Test.ByteSeqHelper, , 1], [[Test.ByteSeqHelper, , 2]], [[Test.ByteSeqHelper, , 3]], , , ],
+        "opOptShortSeq": [, , , [Test.ShortSeqHelper, , 1], [[Test.ShortSeqHelper, , 2]], [[Test.ShortSeqHelper, , 3]], , , ],
+        "opOptIntSeq": [, , , [Test.IntSeqHelper, , 1], [[Test.IntSeqHelper, , 2]], [[Test.IntSeqHelper, , 3]], , , ],
+        "opOptLongSeq": [, , , [Test.LongSeqHelper, , 1], [[Test.LongSeqHelper, , 2]], [[Test.LongSeqHelper, , 3]], , , ],
+        "opOptFloatSeq": [, , , [Test.FloatSeqHelper, , 1], [[Test.FloatSeqHelper, , 2]], [[Test.FloatSeqHelper, , 3]], , , ],
+        "opOptDoubleSeq": [, , , [Test.DoubleSeqHelper, , 1], [[Test.DoubleSeqHelper, , 2]], [[Test.DoubleSeqHelper, , 3]], , , ],
+        "opOptStringSeq": [, , , [Test.StringSeqHelper, , 1], [[Test.StringSeqHelper, , 2]], [[Test.StringSeqHelper, , 3]], , , ],
+        "opOptESeq": [, , , [Test.ESeqHelper, , 1], [[Test.ESeqHelper, , 2]], [[Test.ESeqHelper, , 3]], , , ],
+        "opOptSSeq": [, , , [Test.SSeqHelper, , 1], [[Test.SSeqHelper, , 2]], [[Test.SSeqHelper, , 3]], , , ],
+        "opOptDSeq": [, , , [Test.DSeqHelper, , 1], [[Test.DSeqHelper, , 2]], [[Test.DSeqHelper, , 3]], , , ],
+        "opOptStringSeqSeq": [, , , [Test.StringSeqSeqHelper, , 1], [[Test.StringSeqSeqHelper, , 2]], [[Test.StringSeqSeqHelper, , 3]], , , ],
+        "opOptByteBufferSeq": [, , , [Test.ByteBufferHelper, , 1], [[Test.ByteBufferHelper, , 2]], [[Test.ByteBufferHelper, , 3]], , , ],
+        "opOptShortBufferSeq": [, , , [Test.ShortBufferHelper, , 1], [[Test.ShortBufferHelper, , 2]], [[Test.ShortBufferHelper, , 3]], , , ],
+        "opOptIntBufferSeq": [, , , [Test.IntBufferHelper, , 1], [[Test.IntBufferHelper, , 2]], [[Test.IntBufferHelper, , 3]], , , ],
+        "opOptLongBufferSeq": [, , , [Test.LongBufferHelper, , 1], [[Test.LongBufferHelper, , 2]], [[Test.LongBufferHelper, , 3]], , , ],
+        "opOptFloatBufferSeq": [, , , [Test.FloatBufferHelper, , 1], [[Test.FloatBufferHelper, , 2]], [[Test.FloatBufferHelper, , 3]], , , ],
+        "opOptDoubleBufferSeq": [, , , [Test.DoubleBufferHelper, , 1], [[Test.DoubleBufferHelper, , 2]], [[Test.DoubleBufferHelper, , 3]], , , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

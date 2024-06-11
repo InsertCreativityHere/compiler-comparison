@@ -16,28 +16,30 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Clash = {};
+
+const iceC_Clash_Intf_ids = [
+    "::Clash::Intf",
+    "::Ice::Object"
+];
+
+Clash.Intf = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Clash = _ModuleRegistry.module("Clash");
+Clash.IntfPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Clash.IntfPrx", Clash.IntfPrx);
 
-    const iceC_Clash_Intf_ids = [
-        "::Clash::Intf",
-        "::Ice::Object"
-    ];
-
-    Clash.Intf = class extends Ice.Object
-    {
-    };
-
-    Clash.IntfPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Clash.Intf, Clash.IntfPrx, iceC_Clash_Intf_ids, "::Clash::Intf",
+Ice.defineOperations(
+    Clash.Intf,
+    Clash.IntfPrx,
+    iceC_Clash_Intf_ids,
+    "::Clash::Intf",
     {
         "context": [, , , , , , , , ],
         "current": [, , , , , , , , ],
@@ -53,158 +55,155 @@
         "opOut": [, , , , , [[7], [7], [7], [7], [7], [7], [7], [7], [7], [7], [7, , 1], [3, , 2]], , , ]
     });
 
-    Clash.Cls = class extends Ice.Value
+Clash.Cls = class extends Ice.Value
+{
+    constructor(s = null, context = "", current = 0, response = 0, typeId = 0, del = 0, cookie = undefined, ex = "", result = 0, istr = "", ostr = "", inS = "", _in = "", proxy = "", obj = 0, getCookie = 0, clone = "")
     {
-        constructor(s = null, context = "", current = 0, response = 0, typeId = 0, del = 0, cookie = undefined, ex = "", result = 0, istr = "", ostr = "", inS = "", _in = "", proxy = "", obj = 0, getCookie = 0, clone = "")
-        {
-            super();
-            this.s = s;
-            this.context = context;
-            this.current = current;
-            this.response = response;
-            this.typeId = typeId;
-            this.del = del;
-            this.cookie = cookie;
-            this.ex = ex;
-            this.result = result;
-            this.istr = istr;
-            this.ostr = ostr;
-            this.inS = inS;
-            this._in = _in;
-            this.proxy = proxy;
-            this.obj = obj;
-            this.getCookie = getCookie;
-            this.clone = clone;
-        }
+        super();
+        this.s = s;
+        this.context = context;
+        this.current = current;
+        this.response = response;
+        this.typeId = typeId;
+        this.del = del;
+        this.cookie = cookie;
+        this.ex = ex;
+        this.result = result;
+        this.istr = istr;
+        this.ostr = ostr;
+        this.inS = inS;
+        this._in = _in;
+        this.proxy = proxy;
+        this.obj = obj;
+        this.getCookie = getCookie;
+        this.clone = clone;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Clash.IntfPrx.write(ostr, this.s);
-            ostr.writeString(this.context);
-            ostr.writeInt(this.current);
-            ostr.writeShort(this.response);
-            ostr.writeInt(this.typeId);
-            ostr.writeShort(this.del);
-            ostr.writeString(this.ex);
-            ostr.writeInt(this.result);
-            ostr.writeString(this.istr);
-            ostr.writeString(this.ostr);
-            ostr.writeString(this.inS);
-            ostr.writeString(this._in);
-            ostr.writeString(this.proxy);
-            ostr.writeInt(this.obj);
-            ostr.writeInt(this.getCookie);
-            ostr.writeString(this.clone);
-            Ice.ShortHelper.writeOptional(ostr, 1, this.cookie);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.s = Clash.IntfPrx.read(istr, this.s);
-            this.context = istr.readString();
-            this.current = istr.readInt();
-            this.response = istr.readShort();
-            this.typeId = istr.readInt();
-            this.del = istr.readShort();
-            this.ex = istr.readString();
-            this.result = istr.readInt();
-            this.istr = istr.readString();
-            this.ostr = istr.readString();
-            this.inS = istr.readString();
-            this._in = istr.readString();
-            this.proxy = istr.readString();
-            this.obj = istr.readInt();
-            this.getCookie = istr.readInt();
-            this.clone = istr.readString();
-            this.cookie = Ice.ShortHelper.readOptional(istr, 1);
-        }
-    };
-
-    Slice.defineValue(Clash.Cls, "::Clash::Cls");
-
-    Clash.St = class
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(v = "", istr = 0, ostr = 0, rhs = 0, hashCode = "", clone = 0)
-        {
-            this.v = v;
-            this.istr = istr;
-            this.ostr = ostr;
-            this.rhs = rhs;
-            this.hashCode = hashCode;
-            this.clone = clone;
-        }
+        ostr.writeProxy(this.s);
+        ostr.writeString(this.context);
+        ostr.writeInt(this.current);
+        ostr.writeShort(this.response);
+        ostr.writeInt(this.typeId);
+        ostr.writeShort(this.del);
+        ostr.writeString(this.ex);
+        ostr.writeInt(this.result);
+        ostr.writeString(this.istr);
+        ostr.writeString(this.ostr);
+        ostr.writeString(this.inS);
+        ostr.writeString(this._in);
+        ostr.writeString(this.proxy);
+        ostr.writeInt(this.obj);
+        ostr.writeInt(this.getCookie);
+        ostr.writeString(this.clone);
+        Ice.ShortHelper.writeOptional(ostr, 1, this.cookie);
+    }
 
-        _write(ostr)
-        {
-            ostr.writeString(this.v);
-            ostr.writeShort(this.istr);
-            ostr.writeInt(this.ostr);
-            ostr.writeInt(this.rhs);
-            ostr.writeString(this.hashCode);
-            ostr.writeInt(this.clone);
-        }
-
-        _read(istr)
-        {
-            this.v = istr.readString();
-            this.istr = istr.readShort();
-            this.ostr = istr.readInt();
-            this.rhs = istr.readInt();
-            this.hashCode = istr.readString();
-            this.clone = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  16;
-        }
-    };
-
-    Slice.defineStruct(Clash.St, true, true);
-
-    Clash.Ex = class extends Ice.UserException
+    _iceReadMemberImpl(istr)
     {
-        constructor(istr = 0, ostr = 0, cause = "", _cause = "")
-        {
-            super(_cause);
-            this.istr = istr;
-            this.ostr = ostr;
-            this.cause = cause;
-        }
+        this.s = istr.readProxy();
+        this.context = istr.readString();
+        this.current = istr.readInt();
+        this.response = istr.readShort();
+        this.typeId = istr.readInt();
+        this.del = istr.readShort();
+        this.ex = istr.readString();
+        this.result = istr.readInt();
+        this.istr = istr.readString();
+        this.ostr = istr.readString();
+        this.inS = istr.readString();
+        this._in = istr.readString();
+        this.proxy = istr.readString();
+        this.obj = istr.readInt();
+        this.getCookie = istr.readInt();
+        this.clone = istr.readString();
+        this.cookie = Ice.ShortHelper.readOptional(istr, 1);
+    }
+};
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
+Ice.defineValue(Clash.Cls, "::Clash::Cls");
+Ice.TypeRegistry.declareValueType("Clash.Cls", Clash.Cls);
 
-        static get _id()
-        {
-            return "::Clash::Ex";
-        }
+Clash.St = class
+{
+    constructor(v = "", istr = 0, ostr = 0, rhs = 0, hashCode = "", clone = 0)
+    {
+        this.v = v;
+        this.istr = istr;
+        this.ostr = ostr;
+        this.rhs = rhs;
+        this.hashCode = hashCode;
+        this.clone = clone;
+    }
 
-        _mostDerivedType()
-        {
-            return Clash.Ex;
-        }
+    _write(ostr)
+    {
+        ostr.writeString(this.v);
+        ostr.writeShort(this.istr);
+        ostr.writeInt(this.ostr);
+        ostr.writeInt(this.rhs);
+        ostr.writeString(this.hashCode);
+        ostr.writeInt(this.clone);
+    }
 
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeShort(this.istr);
-            ostr.writeInt(this.ostr);
-            ostr.writeString(this.cause);
-        }
+    _read(istr)
+    {
+        this.v = istr.readString();
+        this.istr = istr.readShort();
+        this.ostr = istr.readInt();
+        this.rhs = istr.readInt();
+        this.hashCode = istr.readString();
+        this.clone = istr.readInt();
+    }
 
-        _readMemberImpl(istr)
-        {
-            this.istr = istr.readShort();
-            this.ostr = istr.readInt();
-            this.cause = istr.readString();
-        }
-    };
-    exports.Clash = Clash;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+    static get minWireSize()
+    {
+        return  16;
+    }
+};
+
+Ice.defineStruct(Clash.St, true, true);
+
+Clash.Ex = class extends Ice.UserException
+{
+    constructor(istr = 0, ostr = 0, cause = "", _cause = "")
+    {
+        super(_cause);
+        this.istr = istr;
+        this.ostr = ostr;
+        this.cause = cause;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Clash::Ex";
+    }
+
+    _mostDerivedType()
+    {
+        return Clash.Ex;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeShort(this.istr);
+        ostr.writeInt(this.ostr);
+        ostr.writeString(this.cause);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.istr = istr.readShort();
+        this.ostr = istr.readInt();
+        this.cause = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Clash.Ex",
+    Clash.Ex);

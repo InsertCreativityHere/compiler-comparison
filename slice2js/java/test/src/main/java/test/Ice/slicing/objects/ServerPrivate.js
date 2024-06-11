@@ -16,406 +16,428 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.SBase = class extends Ice.Value
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.SBase = class extends Ice.Value
+    constructor(sb = "")
     {
-        constructor(sb = "")
-        {
-            super();
-            this.sb = sb;
-        }
+        super();
+        this.sb = sb;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.sb);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.sb = istr.readString();
-        }
-    };
-
-    Slice.defineValue(Test.SBase, "::Test::SBase");
-
-    Test.SBSKnownDerived = class extends Test.SBase
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(sb, sbskd = "")
-        {
-            super(sb);
-            this.sbskd = sbskd;
-        }
+        ostr.writeString(this.sb);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.sbskd);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.sbskd = istr.readString();
-        }
-    };
-
-    Slice.defineValue(Test.SBSKnownDerived, "::Test::SBSKnownDerived");
-
-    Test.B = class extends Ice.Value
+    _iceReadMemberImpl(istr)
     {
-        constructor(sb = "", pb = null)
-        {
-            super();
-            this.sb = sb;
-            this.pb = pb;
-        }
+        this.sb = istr.readString();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.sb);
-            ostr.writeValue(this.pb);
-        }
+Ice.defineValue(Test.SBase, "::Test::SBase");
+Ice.TypeRegistry.declareValueType("Test.SBase", Test.SBase);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.sb = istr.readString();
-            istr.readValue(obj => this.pb = obj, Test.B);
-        }
-    };
-
-    Slice.defineValue(Test.B, "::Test::B");
-
-    Test.D1 = class extends Test.B
+Test.SBSKnownDerived = class extends Test.SBase
+{
+    constructor(sb, sbskd = "")
     {
-        constructor(sb, pb, sd1 = "", pd1 = null)
-        {
-            super(sb, pb);
-            this.sd1 = sd1;
-            this.pd1 = pd1;
-        }
+        super(sb);
+        this.sbskd = sbskd;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.sd1);
-            ostr.writeValue(this.pd1);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.sd1 = istr.readString();
-            istr.readValue(obj => this.pd1 = obj, Test.B);
-        }
-    };
-
-    Slice.defineValue(Test.D1, "::Test::D1");
-
-    Slice.defineSequence(Test, "BSeqHelper", "Ice.ObjectHelper", false, "Test.B");
-
-    Test.SS1 = class extends Ice.Value
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(s = null)
-        {
-            super();
-            this.s = s;
-        }
+        ostr.writeString(this.sbskd);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.BSeqHelper.write(ostr, this.s);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.s = Test.BSeqHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(Test.SS1, "::Test::SS1");
-
-    Test.SS2 = class extends Ice.Value
+    _iceReadMemberImpl(istr)
     {
-        constructor(s = null)
-        {
-            super();
-            this.s = s;
-        }
+        this.sbskd = istr.readString();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.BSeqHelper.write(ostr, this.s);
-        }
+Ice.defineValue(Test.SBSKnownDerived, "::Test::SBSKnownDerived");
+Ice.TypeRegistry.declareValueType("Test.SBSKnownDerived", Test.SBSKnownDerived);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.s = Test.BSeqHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(Test.SS2, "::Test::SS2");
-
-    Test.SS3 = class
+Test.B = class extends Ice.Value
+{
+    constructor(sb = "", pb = null)
     {
-        constructor(c1 = null, c2 = null)
-        {
-            this.c1 = c1;
-            this.c2 = c2;
-        }
+        super();
+        this.sb = sb;
+        this.pb = pb;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeValue(this.c1);
-            ostr.writeValue(this.c2);
-        }
-
-        _read(istr)
-        {
-            istr.readValue(obj => this.c1 = obj, Test.SS1);
-            istr.readValue(obj => this.c2 = obj, Test.SS2);
-        }
-
-        static get minWireSize()
-        {
-            return  2;
-        }
-    };
-
-    Slice.defineStruct(Test.SS3, false, true);
-
-    Slice.defineDictionary(Test, "BDict", "BDictHelper", "Ice.IntHelper", "Ice.ObjectHelper", false, undefined, "Test.B");
-
-    Test.BaseException = class extends Ice.UserException
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(sbe = "", pb = null, _cause = "")
-        {
-            super(_cause);
-            this.sbe = sbe;
-            this.pb = pb;
-        }
+        ostr.writeString(this.sb);
+        ostr.writeValue(this.pb);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::BaseException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.BaseException;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.sbe);
-            ostr.writeValue(this.pb);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.sbe = istr.readString();
-            istr.readValue(obj => this.pb = obj, Test.B);
-        }
-
-        _usesClasses()
-        {
-            return true;
-        }
-    };
-
-    Test.DerivedException = class extends Test.BaseException
+    _iceReadMemberImpl(istr)
     {
-        constructor(sbe, pb, sde = "", pd1 = null, _cause = "")
-        {
-            super(sbe, pb, _cause);
-            this.sde = sde;
-            this.pd1 = pd1;
-        }
+        this.sb = istr.readString();
+        istr.readValue(obj => this.pb = obj, Ice.TypeRegistry.getValueType("Test.B"));
+    }
+};
 
-        static get _parent()
-        {
-            return Test.BaseException;
-        }
+Ice.defineValue(Test.B, "::Test::B");
+Ice.TypeRegistry.declareValueType("Test.B", Test.B);
 
-        static get _id()
-        {
-            return "::Test::DerivedException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.DerivedException;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.sde);
-            ostr.writeValue(this.pd1);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.sde = istr.readString();
-            istr.readValue(obj => this.pd1 = obj, Test.D1);
-        }
-    };
-
-    Test.PBase = class extends Ice.Value
+Test.D1 = class extends Test.B
+{
+    constructor(sb, pb, sd1 = "", pd1 = null)
     {
-        constructor(pi = 0)
-        {
-            super();
-            this.pi = pi;
-        }
+        super(sb, pb);
+        this.sd1 = sd1;
+        this.pd1 = pd1;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.pi);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.pi = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.PBase, "::Test::PBase");
-
-    Slice.defineSequence(Test, "PBaseSeqHelper", "Ice.ObjectHelper", false, "Test.PBase");
-
-    Test.Preserved = class extends Test.PBase
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(pi, ps = "")
-        {
-            super(pi);
-            this.ps = ps;
-        }
+        ostr.writeString(this.sd1);
+        ostr.writeValue(this.pd1);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.ps);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.ps = istr.readString();
-        }
-    };
-
-    Slice.defineValue(Test.Preserved, "::Test::Preserved");
-
-    Test.PDerived = class extends Test.Preserved
+    _iceReadMemberImpl(istr)
     {
-        constructor(pi, ps, pb = null)
-        {
-            super(pi, ps);
-            this.pb = pb;
-        }
+        this.sd1 = istr.readString();
+        istr.readValue(obj => this.pd1 = obj, Ice.TypeRegistry.getValueType("Test.B"));
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeValue(this.pb);
-        }
+Ice.defineValue(Test.D1, "::Test::D1");
+Ice.TypeRegistry.declareValueType("Test.D1", Test.D1);
 
-        _iceReadMemberImpl(istr)
-        {
-            istr.readValue(obj => this.pb = obj, Test.PBase);
-        }
-    };
+Test.BSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "Test.B");
 
-    Slice.defineValue(Test.PDerived, "::Test::PDerived");
-
-    Test.CompactPDerived = class extends Test.Preserved
+Test.SS1 = class extends Ice.Value
+{
+    constructor(s = null)
     {
-        constructor(pi, ps, pb = null)
-        {
-            super(pi, ps);
-            this.pb = pb;
-        }
+        super();
+        this.s = s;
+    }
 
-        static get _iceCompactId()
-        {
-            return 56;
-        }
-
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeValue(this.pb);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            istr.readValue(obj => this.pb = obj, Test.PBase);
-        }
-    };
-
-    Slice.defineValue(Test.CompactPDerived, "::Test::CompactPDerived", 56);
-
-    Test.PNode = class extends Ice.Value
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(next = null)
-        {
-            super();
-            this.next = next;
-        }
+        Test.BSeqHelper.write(ostr, this.s);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeValue(this.next);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            istr.readValue(obj => this.next = obj, Test.PNode);
-        }
-    };
-
-    Slice.defineValue(Test.PNode, "::Test::PNode");
-
-    Test.PreservedException = class extends Ice.UserException
+    _iceReadMemberImpl(istr)
     {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
+        this.s = Test.BSeqHelper.read(istr);
+    }
+};
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
+Ice.defineValue(Test.SS1, "::Test::SS1");
+Ice.TypeRegistry.declareValueType("Test.SS1", Test.SS1);
 
-        static get _id()
-        {
-            return "::Test::PreservedException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.PreservedException;
-        }
-    };
-
-    const iceC_Test_TestIntf_ids = [
-        "::Ice::Object",
-        "::Test::TestIntf"
-    ];
-
-    Test.TestIntf = class extends Ice.Object
+Test.SS2 = class extends Ice.Value
+{
+    constructor(s = null)
     {
-    };
+        super();
+        this.s = s;
+    }
 
-    Test.TestIntfPrx = class extends Ice.ObjectPrx
+    _iceWriteMemberImpl(ostr)
     {
-    };
+        Test.BSeqHelper.write(ostr, this.s);
+    }
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
+    _iceReadMemberImpl(istr)
+    {
+        this.s = Test.BSeqHelper.read(istr);
+    }
+};
+
+Ice.defineValue(Test.SS2, "::Test::SS2");
+Ice.TypeRegistry.declareValueType("Test.SS2", Test.SS2);
+
+Test.SS3 = class
+{
+    constructor(c1 = null, c2 = null)
+    {
+        this.c1 = c1;
+        this.c2 = c2;
+    }
+
+    _write(ostr)
+    {
+        ostr.writeValue(this.c1);
+        ostr.writeValue(this.c2);
+    }
+
+    _read(istr)
+    {
+        istr.readValue(obj => this.c1 = obj, Ice.TypeRegistry.getValueType("Test.SS1"));
+        istr.readValue(obj => this.c2 = obj, Ice.TypeRegistry.getValueType("Test.SS2"));
+    }
+
+    static get minWireSize()
+    {
+        return  2;
+    }
+};
+
+Ice.defineStruct(Test.SS3, false, true);
+
+[Test.BDict, Test.BDictHelper] = Ice.defineDictionary(Ice.IntHelper, Ice.ObjectHelper, false, undefined, "Test.B");
+
+Test.BaseException = class extends Ice.UserException
+{
+    constructor(sbe = "", pb = null, _cause = "")
+    {
+        super(_cause);
+        this.sbe = sbe;
+        this.pb = pb;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test::BaseException";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.BaseException;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.sbe);
+        ostr.writeValue(this.pb);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.sbe = istr.readString();
+        istr.readValue(obj => this.pb = obj, Ice.TypeRegistry.getValueType("Test.B"));
+    }
+
+    _usesClasses()
+    {
+        return true;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.BaseException",
+    Test.BaseException);
+
+Test.DerivedException = class extends Test.BaseException
+{
+    constructor(sbe, pb, sde = "", pd1 = null, _cause = "")
+    {
+        super(sbe, pb, _cause);
+        this.sde = sde;
+        this.pd1 = pd1;
+    }
+
+    static get _parent()
+    {
+        return Test.BaseException;
+    }
+
+    static get _id()
+    {
+        return "::Test::DerivedException";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.DerivedException;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.sde);
+        ostr.writeValue(this.pd1);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.sde = istr.readString();
+        istr.readValue(obj => this.pd1 = obj, Ice.TypeRegistry.getValueType("Test.D1"));
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.DerivedException",
+    Test.DerivedException);
+
+Test.PBase = class extends Ice.Value
+{
+    constructor(pi = 0)
+    {
+        super();
+        this.pi = pi;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.pi);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.pi = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.PBase, "::Test::PBase");
+Ice.TypeRegistry.declareValueType("Test.PBase", Test.PBase);
+
+Test.PBaseSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "Test.PBase");
+
+Test.Preserved = class extends Test.PBase
+{
+    constructor(pi, ps = "")
+    {
+        super(pi);
+        this.ps = ps;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeString(this.ps);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.ps = istr.readString();
+    }
+};
+
+Ice.defineValue(Test.Preserved, "::Test::Preserved");
+Ice.TypeRegistry.declareValueType("Test.Preserved", Test.Preserved);
+
+Test.PDerived = class extends Test.Preserved
+{
+    constructor(pi, ps, pb = null)
+    {
+        super(pi, ps);
+        this.pb = pb;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeValue(this.pb);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        istr.readValue(obj => this.pb = obj, Ice.TypeRegistry.getValueType("Test.PBase"));
+    }
+};
+
+Ice.defineValue(Test.PDerived, "::Test::PDerived");
+Ice.TypeRegistry.declareValueType("Test.PDerived", Test.PDerived);
+
+Test.CompactPDerived = class extends Test.Preserved
+{
+    constructor(pi, ps, pb = null)
+    {
+        super(pi, ps);
+        this.pb = pb;
+    }
+
+    static get _iceCompactId()
+    {
+        return 56;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeValue(this.pb);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        istr.readValue(obj => this.pb = obj, Ice.TypeRegistry.getValueType("Test.PBase"));
+    }
+};
+
+Ice.defineValue(Test.CompactPDerived, "::Test::CompactPDerived", 56);
+Ice.TypeRegistry.declareValueType("Test.CompactPDerived", Test.CompactPDerived);
+
+Test.PNode = class extends Ice.Value
+{
+    constructor(next = null)
+    {
+        super();
+        this.next = next;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeValue(this.next);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        istr.readValue(obj => this.next = obj, Ice.TypeRegistry.getValueType("Test.PNode"));
+    }
+};
+
+Ice.defineValue(Test.PNode, "::Test::PNode");
+Ice.TypeRegistry.declareValueType("Test.PNode", Test.PNode);
+
+Test.PreservedException = class extends Ice.UserException
+{
+    constructor(_cause = "")
+    {
+        super(_cause);
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test::PreservedException";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.PreservedException;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.PreservedException",
+    Test.PreservedException);
+
+const iceC_Test_TestIntf_ids = [
+    "::Ice::Object",
+    "::Test::TestIntf"
+];
+
+Test.TestIntf = class extends Ice.Object
+{
+};
+
+Test.TestIntfPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
+
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
     {
         "SBaseAsObject": [, , 2, [8, true], , , , , true],
         "SBaseAsSBase": [, , 2, ["Test.SBase", true], , , , , true],
@@ -438,7 +460,7 @@
         "returnTest2": [, , 2, ["Test.B", true], , [["Test.B", true], ["Test.B", true]], , , true],
         "returnTest3": [, , 2, ["Test.B", true], [["Test.B", true], ["Test.B", true]], , , true, true],
         "sequenceTest": [, , 2, [Test.SS3], [["Test.SS1", true], ["Test.SS2", true]], , , true, true],
-        "dictionaryTest": [, , 2, ["Test.BDictHelper"], [["Test.BDictHelper"]], [["Test.BDictHelper"]], , true, true],
+        "dictionaryTest": [, , 2, [Test.BDictHelper], [[Test.BDictHelper]], [[Test.BDictHelper]], , true, true],
         "exchangePBase": [, , 2, ["Test.PBase", true], [["Test.PBase", true]], , , true, true],
         "PBSUnknownAsPreserved": [, , 2, ["Test.Preserved", true], , , , , true],
         "checkPBSUnknown": [, , 2, , [["Test.Preserved", true]], , , true, ],
@@ -471,289 +493,297 @@
         "shutdown": [, , 2, , , , , , ]
     });
 
-    Test.SBSUnknownDerived = class extends Test.SBase
+Test.SBSUnknownDerived = class extends Test.SBase
+{
+    constructor(sb, sbsud = "")
     {
-        constructor(sb, sbsud = "")
-        {
-            super(sb);
-            this.sbsud = sbsud;
-        }
+        super(sb);
+        this.sbsud = sbsud;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.sbsud);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.sbsud = istr.readString();
-        }
-    };
-
-    Slice.defineValue(Test.SBSUnknownDerived, "::Test::SBSUnknownDerived");
-
-    Test.SUnknown = class extends Ice.Value
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(su = "", cycle = null)
-        {
-            super();
-            this.su = su;
-            this.cycle = cycle;
-        }
+        ostr.writeString(this.sbsud);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.su);
-            ostr.writeValue(this.cycle);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.su = istr.readString();
-            istr.readValue(obj => this.cycle = obj, Test.SUnknown);
-        }
-    };
-
-    Slice.defineValue(Test.SUnknown, "::Test::SUnknown");
-
-    Test.D2 = class extends Test.B
+    _iceReadMemberImpl(istr)
     {
-        constructor(sb, pb, sd2 = "", pd2 = null)
-        {
-            super(sb, pb);
-            this.sd2 = sd2;
-            this.pd2 = pd2;
-        }
+        this.sbsud = istr.readString();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.sd2);
-            ostr.writeValue(this.pd2);
-        }
+Ice.defineValue(Test.SBSUnknownDerived, "::Test::SBSUnknownDerived");
+Ice.TypeRegistry.declareValueType("Test.SBSUnknownDerived", Test.SBSUnknownDerived);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.sd2 = istr.readString();
-            istr.readValue(obj => this.pd2 = obj, Test.B);
-        }
-    };
-
-    Slice.defineValue(Test.D2, "::Test::D2");
-
-    Test.D4 = class extends Test.B
+Test.SUnknown = class extends Ice.Value
+{
+    constructor(su = "", cycle = null)
     {
-        constructor(sb, pb, p1 = null, p2 = null)
-        {
-            super(sb, pb);
-            this.p1 = p1;
-            this.p2 = p2;
-        }
+        super();
+        this.su = su;
+        this.cycle = cycle;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeValue(this.p1);
-            ostr.writeValue(this.p2);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            istr.readValue(obj => this.p1 = obj, Test.B);
-            istr.readValue(obj => this.p2 = obj, Test.B);
-        }
-    };
-
-    Slice.defineValue(Test.D4, "::Test::D4");
-
-    Test.UnknownDerivedException = class extends Test.BaseException
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(sbe, pb, sude = "", pd2 = null, _cause = "")
-        {
-            super(sbe, pb, _cause);
-            this.sude = sude;
-            this.pd2 = pd2;
-        }
+        ostr.writeString(this.su);
+        ostr.writeValue(this.cycle);
+    }
 
-        static get _parent()
-        {
-            return Test.BaseException;
-        }
-
-        static get _id()
-        {
-            return "::Test::UnknownDerivedException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.UnknownDerivedException;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.sude);
-            ostr.writeValue(this.pd2);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.sude = istr.readString();
-            istr.readValue(obj => this.pd2 = obj, Test.D2);
-        }
-    };
-
-    Test.MyClass = class extends Ice.Value
+    _iceReadMemberImpl(istr)
     {
-        constructor(i = 0)
-        {
-            super();
-            this.i = i;
-        }
+        this.su = istr.readString();
+        istr.readValue(obj => this.cycle = obj, Ice.TypeRegistry.getValueType("Test.SUnknown"));
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
+Ice.defineValue(Test.SUnknown, "::Test::SUnknown");
+Ice.TypeRegistry.declareValueType("Test.SUnknown", Test.SUnknown);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.i = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.MyClass, "::Test::MyClass");
-
-    Test.PSUnknown = class extends Test.Preserved
+Test.D2 = class extends Test.B
+{
+    constructor(sb, pb, sd2 = "", pd2 = null)
     {
-        constructor(pi, ps, psu = "", graph = null, cl = null)
-        {
-            super(pi, ps);
-            this.psu = psu;
-            this.graph = graph;
-            this.cl = cl;
-        }
+        super(sb, pb);
+        this.sd2 = sd2;
+        this.pd2 = pd2;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.psu);
-            ostr.writeValue(this.graph);
-            ostr.writeValue(this.cl);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.psu = istr.readString();
-            istr.readValue(obj => this.graph = obj, Test.PNode);
-            istr.readValue(obj => this.cl = obj, Test.MyClass);
-        }
-    };
-
-    Slice.defineValue(Test.PSUnknown, "::Test::PSUnknown");
-
-    Test.PSUnknown2 = class extends Test.Preserved
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(pi, ps, pb = null)
-        {
-            super(pi, ps);
-            this.pb = pb;
-        }
+        ostr.writeString(this.sd2);
+        ostr.writeValue(this.pd2);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeValue(this.pb);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            istr.readValue(obj => this.pb = obj, Test.PBase);
-        }
-    };
-
-    Slice.defineValue(Test.PSUnknown2, "::Test::PSUnknown2");
-
-    Test.PSUnknownException = class extends Test.PreservedException
+    _iceReadMemberImpl(istr)
     {
-        constructor(p = null, _cause = "")
-        {
-            super(_cause);
-            this.p = p;
-        }
+        this.sd2 = istr.readString();
+        istr.readValue(obj => this.pd2 = obj, Ice.TypeRegistry.getValueType("Test.B"));
+    }
+};
 
-        static get _parent()
-        {
-            return Test.PreservedException;
-        }
+Ice.defineValue(Test.D2, "::Test::D2");
+Ice.TypeRegistry.declareValueType("Test.D2", Test.D2);
 
-        static get _id()
-        {
-            return "::Test::PSUnknownException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.PSUnknownException;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeValue(this.p);
-        }
-
-        _readMemberImpl(istr)
-        {
-            istr.readValue(obj => this.p = obj, Test.PSUnknown2);
-        }
-
-        _usesClasses()
-        {
-            return true;
-        }
-    };
-
-    Test.Hidden = class extends Ice.Value
+Test.D4 = class extends Test.B
+{
+    constructor(sb, pb, p1 = null, p2 = null)
     {
-        constructor(f = null)
-        {
-            super();
-            this.f = f;
-        }
+        super(sb, pb);
+        this.p1 = p1;
+        this.p2 = p2;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeValue(this.f);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            istr.readValue(obj => this.f = obj, Test.Forward);
-        }
-    };
-
-    Slice.defineValue(Test.Hidden, "::Test::Hidden");
-
-    Test.Forward = class extends Ice.Value
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(h = null)
-        {
-            super();
-            this.h = h;
-        }
+        ostr.writeValue(this.p1);
+        ostr.writeValue(this.p2);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeValue(this.h);
-        }
+    _iceReadMemberImpl(istr)
+    {
+        istr.readValue(obj => this.p1 = obj, Ice.TypeRegistry.getValueType("Test.B"));
+        istr.readValue(obj => this.p2 = obj, Ice.TypeRegistry.getValueType("Test.B"));
+    }
+};
 
-        _iceReadMemberImpl(istr)
-        {
-            istr.readValue(obj => this.h = obj, Test.Hidden);
-        }
-    };
+Ice.defineValue(Test.D4, "::Test::D4");
+Ice.TypeRegistry.declareValueType("Test.D4", Test.D4);
 
-    Slice.defineValue(Test.Forward, "::Test::Forward");
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Test.UnknownDerivedException = class extends Test.BaseException
+{
+    constructor(sbe, pb, sude = "", pd2 = null, _cause = "")
+    {
+        super(sbe, pb, _cause);
+        this.sude = sude;
+        this.pd2 = pd2;
+    }
+
+    static get _parent()
+    {
+        return Test.BaseException;
+    }
+
+    static get _id()
+    {
+        return "::Test::UnknownDerivedException";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.UnknownDerivedException;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.sude);
+        ostr.writeValue(this.pd2);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.sude = istr.readString();
+        istr.readValue(obj => this.pd2 = obj, Ice.TypeRegistry.getValueType("Test.D2"));
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.UnknownDerivedException",
+    Test.UnknownDerivedException);
+
+Test.MyClass = class extends Ice.Value
+{
+    constructor(i = 0)
+    {
+        super();
+        this.i = i;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.i);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.i = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.MyClass, "::Test::MyClass");
+Ice.TypeRegistry.declareValueType("Test.MyClass", Test.MyClass);
+
+Test.PSUnknown = class extends Test.Preserved
+{
+    constructor(pi, ps, psu = "", graph = null, cl = null)
+    {
+        super(pi, ps);
+        this.psu = psu;
+        this.graph = graph;
+        this.cl = cl;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeString(this.psu);
+        ostr.writeValue(this.graph);
+        ostr.writeValue(this.cl);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.psu = istr.readString();
+        istr.readValue(obj => this.graph = obj, Ice.TypeRegistry.getValueType("Test.PNode"));
+        istr.readValue(obj => this.cl = obj, Ice.TypeRegistry.getValueType("Test.MyClass"));
+    }
+};
+
+Ice.defineValue(Test.PSUnknown, "::Test::PSUnknown");
+Ice.TypeRegistry.declareValueType("Test.PSUnknown", Test.PSUnknown);
+
+Test.PSUnknown2 = class extends Test.Preserved
+{
+    constructor(pi, ps, pb = null)
+    {
+        super(pi, ps);
+        this.pb = pb;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeValue(this.pb);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        istr.readValue(obj => this.pb = obj, Ice.TypeRegistry.getValueType("Test.PBase"));
+    }
+};
+
+Ice.defineValue(Test.PSUnknown2, "::Test::PSUnknown2");
+Ice.TypeRegistry.declareValueType("Test.PSUnknown2", Test.PSUnknown2);
+
+Test.PSUnknownException = class extends Test.PreservedException
+{
+    constructor(p = null, _cause = "")
+    {
+        super(_cause);
+        this.p = p;
+    }
+
+    static get _parent()
+    {
+        return Test.PreservedException;
+    }
+
+    static get _id()
+    {
+        return "::Test::PSUnknownException";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.PSUnknownException;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeValue(this.p);
+    }
+
+    _readMemberImpl(istr)
+    {
+        istr.readValue(obj => this.p = obj, Ice.TypeRegistry.getValueType("Test.PSUnknown2"));
+    }
+
+    _usesClasses()
+    {
+        return true;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.PSUnknownException",
+    Test.PSUnknownException);
+
+Test.Hidden = class extends Ice.Value
+{
+    constructor(f = null)
+    {
+        super();
+        this.f = f;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeValue(this.f);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        istr.readValue(obj => this.f = obj, Ice.TypeRegistry.getValueType("Test.Forward"));
+    }
+};
+
+Ice.defineValue(Test.Hidden, "::Test::Hidden");
+Ice.TypeRegistry.declareValueType("Test.Hidden", Test.Hidden);
+
+Test.Forward = class extends Ice.Value
+{
+    constructor(h = null)
+    {
+        super();
+        this.h = h;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeValue(this.h);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        istr.readValue(obj => this.h = obj, Ice.TypeRegistry.getValueType("Test.Hidden"));
+    }
+};
+
+Ice.defineValue(Test.Forward, "::Test::Forward");
+Ice.TypeRegistry.declareValueType("Test.Forward", Test.Forward);

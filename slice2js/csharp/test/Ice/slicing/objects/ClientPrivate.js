@@ -16,150 +16,153 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+import { 
+    Test as Test_Test, } from "./Test.js"
+
+const Test = {
+    ...Test_Test,
+};
+
+export { Test };
+
+Test.D3 = class extends Test.B
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Test = require("Test").Test;
-    const Slice = Ice.Slice;
-
-    Test.D3 = class extends Test.B
+    constructor(sb, pb, sd3 = "", pd3 = null)
     {
-        constructor(sb, pb, sd3 = "", pd3 = null)
-        {
-            super(sb, pb);
-            this.sd3 = sd3;
-            this.pd3 = pd3;
-        }
+        super(sb, pb);
+        this.sd3 = sd3;
+        this.pd3 = pd3;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.sd3);
-            ostr.writeValue(this.pd3);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.sd3 = istr.readString();
-            istr.readValue(obj => this.pd3 = obj, Test.B);
-        }
-    };
-
-    Slice.defineValue(Test.D3, "::Test::D3");
-
-    Test.PCUnknown = class extends Test.PBase
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(pi, pu = "")
-        {
-            super(pi);
-            this.pu = pu;
-        }
+        ostr.writeString(this.sd3);
+        ostr.writeValue(this.pd3);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.pu);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.pu = istr.readString();
-        }
-    };
-
-    Slice.defineValue(Test.PCUnknown, "::Test::PCUnknown");
-
-    Test.PCDerived = class extends Test.PDerived
+    _iceReadMemberImpl(istr)
     {
-        constructor(pi, ps, pb, pbs = null)
-        {
-            super(pi, ps, pb);
-            this.pbs = pbs;
-        }
+        this.sd3 = istr.readString();
+        istr.readValue(obj => this.pd3 = obj, Ice.TypeRegistry.getValueType("Test.B"));
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.PBaseSeqHelper.write(ostr, this.pbs);
-        }
+Ice.defineValue(Test.D3, "::Test::D3");
+Ice.TypeRegistry.declareValueType("Test.D3", Test.D3);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.pbs = Test.PBaseSeqHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(Test.PCDerived, "::Test::PCDerived");
-
-    Test.PCDerived2 = class extends Test.PCDerived
+Test.PCUnknown = class extends Test.PBase
+{
+    constructor(pi, pu = "")
     {
-        constructor(pi, ps, pb, pbs, pcd2 = 0)
-        {
-            super(pi, ps, pb, pbs);
-            this.pcd2 = pcd2;
-        }
+        super(pi);
+        this.pu = pu;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.pcd2);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.pcd2 = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.PCDerived2, "::Test::PCDerived2");
-
-    Test.PCDerived3 = class extends Test.PCDerived2
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(pi, ps, pb, pbs, pcd2, pcd3 = null)
-        {
-            super(pi, ps, pb, pbs, pcd2);
-            this.pcd3 = pcd3;
-        }
+        ostr.writeString(this.pu);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeValue(this.pcd3);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            istr.readValue(obj => this.pcd3 = obj, Ice.Value);
-        }
-    };
-
-    Slice.defineValue(Test.PCDerived3, "::Test::PCDerived3");
-
-    Test.CompactPCDerived = class extends Test.CompactPDerived
+    _iceReadMemberImpl(istr)
     {
-        constructor(pi, ps, pb, pbs = null)
-        {
-            super(pi, ps, pb);
-            this.pbs = pbs;
-        }
+        this.pu = istr.readString();
+    }
+};
 
-        static get _iceCompactId()
-        {
-            return 57;
-        }
+Ice.defineValue(Test.PCUnknown, "::Test::PCUnknown");
+Ice.TypeRegistry.declareValueType("Test.PCUnknown", Test.PCUnknown);
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.PBaseSeqHelper.write(ostr, this.pbs);
-        }
+Test.PCDerived = class extends Test.PDerived
+{
+    constructor(pi, ps, pb, pbs = null)
+    {
+        super(pi, ps, pb);
+        this.pbs = pbs;
+    }
 
-        _iceReadMemberImpl(istr)
-        {
-            this.pbs = Test.PBaseSeqHelper.read(istr);
-        }
-    };
+    _iceWriteMemberImpl(ostr)
+    {
+        Test.PBaseSeqHelper.write(ostr, this.pbs);
+    }
 
-    Slice.defineValue(Test.CompactPCDerived, "::Test::CompactPCDerived", 57);
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+    _iceReadMemberImpl(istr)
+    {
+        this.pbs = Test.PBaseSeqHelper.read(istr);
+    }
+};
+
+Ice.defineValue(Test.PCDerived, "::Test::PCDerived");
+Ice.TypeRegistry.declareValueType("Test.PCDerived", Test.PCDerived);
+
+Test.PCDerived2 = class extends Test.PCDerived
+{
+    constructor(pi, ps, pb, pbs, pcd2 = 0)
+    {
+        super(pi, ps, pb, pbs);
+        this.pcd2 = pcd2;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.pcd2);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.pcd2 = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test.PCDerived2, "::Test::PCDerived2");
+Ice.TypeRegistry.declareValueType("Test.PCDerived2", Test.PCDerived2);
+
+Test.PCDerived3 = class extends Test.PCDerived2
+{
+    constructor(pi, ps, pb, pbs, pcd2, pcd3 = null)
+    {
+        super(pi, ps, pb, pbs, pcd2);
+        this.pcd3 = pcd3;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeValue(this.pcd3);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        istr.readValue(obj => this.pcd3 = obj, Ice.TypeRegistry.getValueType("Ice.Value"));
+    }
+};
+
+Ice.defineValue(Test.PCDerived3, "::Test::PCDerived3");
+Ice.TypeRegistry.declareValueType("Test.PCDerived3", Test.PCDerived3);
+
+Test.CompactPCDerived = class extends Test.CompactPDerived
+{
+    constructor(pi, ps, pb, pbs = null)
+    {
+        super(pi, ps, pb);
+        this.pbs = pbs;
+    }
+
+    static get _iceCompactId()
+    {
+        return 57;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        Test.PBaseSeqHelper.write(ostr, this.pbs);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.pbs = Test.PBaseSeqHelper.read(istr);
+    }
+};
+
+Ice.defineValue(Test.CompactPCDerived, "::Test::CompactPCDerived", 57);
+Ice.TypeRegistry.declareValueType("Test.CompactPCDerived", Test.CompactPCDerived);

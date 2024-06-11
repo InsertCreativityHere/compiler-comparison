@@ -16,266 +16,285 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const and = {};
+
+and._continue = Ice.defineEnum([
+    ['_let', 0], ['_var', 1]]);
+
+and.guard = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let and = _ModuleRegistry.module("and");
-
-    and._continue = Slice.defineEnum([
-        ['_let', 0], ['_var', 1]]);
-
-    and.guard = class
+    constructor(_default = 0)
     {
-        constructor(_default = 0)
-        {
-            this._default = _default;
-        }
+        this._default = _default;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this._default);
-        }
-
-        _read(istr)
-        {
-            this._default = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(and.guard, true, false);
-
-    and.defer = class
+    _write(ostr)
     {
-        constructor(_else = "")
-        {
-            this._else = _else;
-        }
+        ostr.writeInt(this._default);
+    }
 
-        _write(ostr)
-        {
-            ostr.writeString(this._else);
-        }
-
-        _read(istr)
-        {
-            this._else = istr.readString();
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(and.defer, true, true);
-
-    const iceC_and__break_ids = [
-        "::Ice::Object",
-        "::and::break"
-    ];
-
-    and.break = class extends Ice.Object
+    _read(istr)
     {
-    };
+        this._default = istr.readInt();
+    }
 
-    and.breakPrx = class extends Ice.ObjectPrx
+    static get minWireSize()
     {
-    };
+        return  4;
+    }
+};
 
-    Slice.defineOperations(and.break, and.breakPrx, iceC_and__break_ids, "::and::break",
+Ice.defineStruct(and.guard, true, false);
+
+and.defer = class
+{
+    constructor(_else = "")
+    {
+        this._else = _else;
+    }
+
+    _write(ostr)
+    {
+        ostr.writeString(this._else);
+    }
+
+    _read(istr)
+    {
+        this._else = istr.readString();
+    }
+
+    static get minWireSize()
+    {
+        return  1;
+    }
+};
+
+Ice.defineStruct(and.defer, true, true);
+
+const iceC_and__break_ids = [
+    "::Ice::Object",
+    "::and::break"
+];
+
+and._break = class extends Ice.Object
+{
+};
+
+and.breakPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("and.breakPrx", and.breakPrx);
+
+Ice.defineOperations(
+    and._break,
+    and.breakPrx,
+    iceC_and__break_ids,
+    "::and::break",
     {
         "case": ["_case", , , , [[3]], [[3]], , , ]
     });
 
-    const iceC_and_func_ids = [
-        "::Ice::Object",
-        "::and::func"
-    ];
+const iceC_and_func_ids = [
+    "::Ice::Object",
+    "::and::func"
+];
 
-    and.func = class extends Ice.Object
-    {
-    };
+and.func = class extends Ice.Object
+{
+};
 
-    and.funcPrx = class extends Ice.ObjectPrx
-    {
-    };
+and.funcPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("and.funcPrx", and.funcPrx);
 
-    Slice.defineOperations(and.func, and.funcPrx, iceC_and_func_ids, "::and::func",
+Ice.defineOperations(
+    and.func,
+    and.funcPrx,
+    iceC_and_func_ids,
+    "::and::func",
     {
         "public": ["_public", , , , , , , , ]
     });
 
-    and._switch = class extends Ice.Value
+and._switch = class extends Ice.Value
+{
+    constructor(_if = 0, _export = null, volatile = 0)
     {
-        constructor(_if = 0, _export = null, volatile = 0)
-        {
-            super();
-            this._if = _if;
-            this._export = _export;
-            this.volatile = volatile;
-        }
+        super();
+        this._if = _if;
+        this._export = _export;
+        this.volatile = volatile;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this._if);
-            and.funcPrx.write(ostr, this._export);
-            ostr.writeInt(this.volatile);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this._if = istr.readInt();
-            this._export = and.funcPrx.read(istr, this._export);
-            this.volatile = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(and._switch, "::and::switch");
-
-    const iceC_and__do_ids = [
-        "::Ice::Object",
-        "::and::break",
-        "::and::do",
-        "::and::func"
-    ];
-
-    and.do = class extends Ice.Object
+    _iceWriteMemberImpl(ostr)
     {
-        static get _iceImplements()
-        {
-            return [
-                and.func,
-                and.break
-            ];
-        }
-    };
+        ostr.writeInt(this._if);
+        ostr.writeProxy(this._export);
+        ostr.writeInt(this.volatile);
+    }
 
-    and.doPrx = class extends Ice.ObjectPrx
+    _iceReadMemberImpl(istr)
     {
-        static get _implements()
-        {
-            return [
-                and.funcPrx,
-                and.breakPrx];
-        }
-    };
+        this._if = istr.readInt();
+        this._export = istr.readProxy();
+        this.volatile = istr.readInt();
+    }
+};
 
-    Slice.defineOperations(and.do, and.doPrx, iceC_and__do_ids, "::and::do");
+Ice.defineValue(and._switch, "::and::switch");
+Ice.TypeRegistry.declareValueType("and._switch", and._switch);
 
-    Slice.defineSequence(and, "fileprivateHelper", "and.guard", true);
+const iceC_and__do_ids = [
+    "::Ice::Object",
+    "::and::break",
+    "::and::do",
+    "::and::func"
+];
 
-    Slice.defineDictionary(and, "_for", "_forHelper", "Ice.StringHelper", "and.guard", false, undefined, undefined);
-
-    and._return = class extends Ice.UserException
+and._do = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        constructor(Int32 = 0, _cause = "")
-        {
-            super(_cause);
-            this.Int32 = Int32;
-        }
+        return [
+            and.func,
+            and.break
+        ];
+    }
+};
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::and::return";
-        }
-
-        _mostDerivedType()
-        {
-            return and._return;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.Int32);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.Int32 = istr.readInt();
-        }
-    };
-
-    and.as = class extends and._return
+and.doPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        constructor(Int32, _static = 0, _switch = 0, _cause = "")
-        {
-            super(Int32, _cause);
-            this._static = _static;
-            this._switch = _switch;
-        }
+        return [
+            and.funcPrx,
+            and.breakPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("and.doPrx", and.doPrx);
 
-        static get _parent()
-        {
-            return and._return;
-        }
+Ice.defineOperations(
+    and._do,
+    and.doPrx,
+    iceC_and__do_ids,
+    "::and::do");
 
-        static get _id()
-        {
-            return "::and::as";
-        }
+and.fileprivateHelper = Ice.StreamHelpers.generateSeqHelper(and.guard, true);
 
-        _mostDerivedType()
-        {
-            return and.as;
-        }
+[and._for, and._forHelper] = Ice.defineDictionary(Ice.StringHelper, and.guard, false, undefined);
 
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this._static);
-            ostr.writeInt(this._switch);
-        }
+and._return = class extends Ice.UserException
+{
+    constructor(Int32 = 0, _cause = "")
+    {
+        super(_cause);
+        this.Int32 = Int32;
+    }
 
-        _readMemberImpl(istr)
-        {
-            this._static = istr.readInt();
-            this._switch = istr.readInt();
-        }
-    };
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
 
-    Object.defineProperty(and, 'is', {
-        value: 0
-    });
+    static get _id()
+    {
+        return "::and::return";
+    }
 
-    Object.defineProperty(and, 'self', {
-        value: 0
-    });
+    _mostDerivedType()
+    {
+        return and._return;
+    }
 
-    Object.defineProperty(and, '_throw', {
-        value: 0
-    });
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.Int32);
+    }
 
-    Object.defineProperty(and, 'typealias', {
-        value: 0
-    });
+    _readMemberImpl(istr)
+    {
+        this.Int32 = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "and._return",
+    and._return);
 
-    Object.defineProperty(and, 'internal', {
-        value: 0
-    });
+and.as = class extends and._return
+{
+    constructor(Int32, _static = 0, _switch = 0, _cause = "")
+    {
+        super(Int32, _cause);
+        this._static = _static;
+        this._switch = _switch;
+    }
 
-    Object.defineProperty(and, '_while', {
-        value: 0
-    });
+    static get _parent()
+    {
+        return and._return;
+    }
 
-    Object.defineProperty(and, '_import', {
-        value: 0
-    });
-    exports.and = and;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+    static get _id()
+    {
+        return "::and::as";
+    }
+
+    _mostDerivedType()
+    {
+        return and.as;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this._static);
+        ostr.writeInt(this._switch);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this._static = istr.readInt();
+        this._switch = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "and.as",
+    and.as);
+
+Object.defineProperty(and, 'is', {
+    enumerable: true,
+    value: 0
+});
+
+Object.defineProperty(and, 'self', {
+    enumerable: true,
+    value: 0
+});
+
+Object.defineProperty(and, '_throw', {
+    enumerable: true,
+    value: 0
+});
+
+Object.defineProperty(and, 'typealias', {
+    enumerable: true,
+    value: 0
+});
+
+Object.defineProperty(and, 'internal', {
+    enumerable: true,
+    value: 0
+});
+
+Object.defineProperty(and, '_while', {
+    enumerable: true,
+    value: 0
+});
+
+Object.defineProperty(and, '_import', {
+    enumerable: true,
+    value: 0
+});

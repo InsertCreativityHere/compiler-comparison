@@ -16,59 +16,59 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_Server_ids = [
+    "::Ice::Object",
+    "::Test::Server"
+];
+
+Test.Server = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.ServerPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.ServerPrx", Test.ServerPrx);
 
-    const iceC_Test_Server_ids = [
-        "::Ice::Object",
-        "::Test::Server"
-    ];
-
-    Test.Server = class extends Ice.Object
-    {
-    };
-
-    Test.ServerPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.Server, Test.ServerPrx, iceC_Test_Server_ids, "::Test::Server",
+Ice.defineOperations(
+    Test.Server,
+    Test.ServerPrx,
+    iceC_Test_Server_ids,
+    "::Test::Server",
     {
         "noCert": [, , , , , , , , ],
         "checkCert": [, , , , [[7], [7]], , , , ],
         "checkCipher": [, , , , [[7]], , , , ]
     });
 
-    Slice.defineDictionary(Test, "Properties", "PropertiesHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
+[Test.Properties, Test.PropertiesHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);
 
-    const iceC_Test_ServerFactory_ids = [
-        "::Ice::Object",
-        "::Test::ServerFactory"
-    ];
+const iceC_Test_ServerFactory_ids = [
+    "::Ice::Object",
+    "::Test::ServerFactory"
+];
 
-    Test.ServerFactory = class extends Ice.Object
+Test.ServerFactory = class extends Ice.Object
+{
+};
+
+Test.ServerFactoryPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.ServerFactoryPrx", Test.ServerFactoryPrx);
+
+Ice.defineOperations(
+    Test.ServerFactory,
+    Test.ServerFactoryPrx,
+    iceC_Test_ServerFactory_ids,
+    "::Test::ServerFactory",
     {
-    };
-
-    Test.ServerFactoryPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.ServerFactory, Test.ServerFactoryPrx, iceC_Test_ServerFactory_ids, "::Test::ServerFactory",
-    {
-        "createServer": [, , , ["Test.ServerPrx"], [["Test.PropertiesHelper"]], , , , ],
+        "createServer": [, , , ["Test.ServerPrx"], [[Test.PropertiesHelper]], , , , ],
         "destroyServer": [, , , , [["Test.ServerPrx"]], , , , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

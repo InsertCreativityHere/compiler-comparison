@@ -16,19 +16,23 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_HashMap from "../Ice/HashMap.js";
+import * as Ice_HashUtil from "../Ice/HashUtil.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_HashMap,
+    ...Ice_HashUtil,
+    ...Ice_Long,
+    ...Ice_ObjectPrx,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+};
 
-Slice.defineDictionary(Ice, "PropertyDict", "PropertyDictHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
-/* slice2js browser-bundle-skip */
-exports.Ice = Ice;
-/* slice2js browser-bundle-skip-end */
+
+export { Ice };
+
+[Ice.PropertyDict, Ice.PropertyDictHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);

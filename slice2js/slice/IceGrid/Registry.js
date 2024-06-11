@@ -16,33 +16,49 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/EnumBase");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("../Ice/Locator");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_EnumBase from "../Ice/EnumBase.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
+import { Ice as Ice_Ice_Locator } from "../Ice/Locator.js"
 
-require("./Exception");
-require("./Session");
-require("./Admin");
-const IceGrid = _ModuleRegistry.module("IceGrid");
+const Ice = {
+    ...Ice_EnumBase,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+    ...Ice_Ice_Locator,
+};
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+import { 
+    IceGrid as IceGrid_Admin, } from "./Admin.js"
+import { 
+    IceGrid as IceGrid_Exception, } from "./Exception.js"
+import { 
+    IceGrid as IceGrid_Session, } from "./Session.js"
+
+const IceGrid = {
+    ...IceGrid_Admin,
+    ...IceGrid_Exception,
+    ...IceGrid_Session,
+};
+
+export { IceGrid };
 
 /**
  *  Determines which load sampling interval to use.
  **/
-IceGrid.LoadSample = Slice.defineEnum([
+IceGrid.LoadSample = Ice.defineEnum([
     ['LoadSample1', 0], ['LoadSample5', 1], ['LoadSample15', 2]]);
 
 const iceC_IceGrid_Query_ids = [
@@ -61,15 +77,20 @@ IceGrid.Query = class extends Ice.Object
 IceGrid.QueryPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("IceGrid.QueryPrx", IceGrid.QueryPrx);
 
-Slice.defineOperations(IceGrid.Query, IceGrid.QueryPrx, iceC_IceGrid_Query_ids, "::IceGrid::Query",
-{
-    "findObjectById": [, 2, , [9], [[Ice.Identity]], , , , ],
-    "findObjectByType": [, 2, , [9], [[7]], , , , ],
-    "findObjectByTypeOnLeastLoadedNode": [, 2, , [9], [[7], [IceGrid.LoadSample._helper]], , , , ],
-    "findAllObjectsByType": [, 2, , ["Ice.ObjectProxySeqHelper"], [[7]], , , , ],
-    "findAllReplicas": [, 2, , ["Ice.ObjectProxySeqHelper"], [[9]], , , , ]
-});
+Ice.defineOperations(
+    IceGrid.Query,
+    IceGrid.QueryPrx,
+    iceC_IceGrid_Query_ids,
+    "::IceGrid::Query",
+    {
+        "findObjectById": [, 2, , [9], [[Ice.Identity]], , , , ],
+        "findObjectByType": [, 2, , [9], [[7]], , , , ],
+        "findObjectByTypeOnLeastLoadedNode": [, 2, , [9], [[7], [IceGrid.LoadSample._helper]], , , , ],
+        "findAllObjectsByType": [, 2, , [Ice.ObjectProxySeqHelper], [[7]], , , , ],
+        "findAllReplicas": [, 2, , [Ice.ObjectProxySeqHelper], [[9]], , , , ]
+    });
 
 const iceC_IceGrid_Registry_ids = [
     "::Ice::Object",
@@ -88,28 +109,33 @@ IceGrid.Registry = class extends Ice.Object
 IceGrid.RegistryPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("IceGrid.RegistryPrx", IceGrid.RegistryPrx);
 
-Slice.defineOperations(IceGrid.Registry, IceGrid.RegistryPrx, iceC_IceGrid_Registry_ids, "::IceGrid::Registry",
-{
-    "createSession": [, , , ["IceGrid.SessionPrx"], [[7], [7]], ,
-    [
-        IceGrid.PermissionDeniedException
-    ], , ],
-    "createAdminSession": [, , , ["IceGrid.AdminSessionPrx"], [[7], [7]], ,
-    [
-        IceGrid.PermissionDeniedException
-    ], , ],
-    "createSessionFromSecureConnection": [, , , ["IceGrid.SessionPrx"], , ,
-    [
-        IceGrid.PermissionDeniedException
-    ], , ],
-    "createAdminSessionFromSecureConnection": [, , , ["IceGrid.AdminSessionPrx"], , ,
-    [
-        IceGrid.PermissionDeniedException
-    ], , ],
-    "getSessionTimeout": [, 2, , [3], , , , , ],
-    "getACMTimeout": [, 2, , [3], , , , , ]
-});
+Ice.defineOperations(
+    IceGrid.Registry,
+    IceGrid.RegistryPrx,
+    iceC_IceGrid_Registry_ids,
+    "::IceGrid::Registry",
+    {
+        "createSession": [, , , ["IceGrid.SessionPrx"], [[7], [7]], ,
+        [
+            IceGrid.PermissionDeniedException
+        ], , ],
+        "createAdminSession": [, , , ["IceGrid.AdminSessionPrx"], [[7], [7]], ,
+        [
+            IceGrid.PermissionDeniedException
+        ], , ],
+        "createSessionFromSecureConnection": [, , , ["IceGrid.SessionPrx"], , ,
+        [
+            IceGrid.PermissionDeniedException
+        ], , ],
+        "createAdminSessionFromSecureConnection": [, , , ["IceGrid.AdminSessionPrx"], , ,
+        [
+            IceGrid.PermissionDeniedException
+        ], , ],
+        "getSessionTimeout": [, 2, , [3], , , , , ],
+        "getACMTimeout": [, 2, , [3], , , , , ]
+    });
 
 const iceC_IceGrid_Locator_ids = [
     "::Ice::Locator",
@@ -141,12 +167,14 @@ IceGrid.LocatorPrx = class extends Ice.ObjectPrx
             Ice.LocatorPrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("IceGrid.LocatorPrx", IceGrid.LocatorPrx);
 
-Slice.defineOperations(IceGrid.Locator, IceGrid.LocatorPrx, iceC_IceGrid_Locator_ids, "::IceGrid::Locator",
-{
-    "getLocalRegistry": [, 2, , ["IceGrid.RegistryPrx"], , , , , ],
-    "getLocalQuery": [, 2, , ["IceGrid.QueryPrx"], , , , , ]
-});
-/* slice2js browser-bundle-skip */
-exports.IceGrid = IceGrid;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    IceGrid.Locator,
+    IceGrid.LocatorPrx,
+    iceC_IceGrid_Locator_ids,
+    "::IceGrid::Locator",
+    {
+        "getLocalRegistry": [, 2, , ["IceGrid.RegistryPrx"], , , , , ],
+        "getLocalQuery": [, 2, , ["IceGrid.QueryPrx"], , , , , ]
+    });

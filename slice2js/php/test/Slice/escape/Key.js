@@ -16,269 +16,298 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const and = {};
+
+and.array = Ice.defineEnum([
+    ['as', 0]]);
+
+and.xor = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let and = _ModuleRegistry.module("and");
-
-    and.array = Slice.defineEnum([
-        ['as', 0]]);
-
-    and.xor = class
+    constructor(abstract = 0, clone = 0, _private = 0, _protected = 0, _public = 0, _this = 0, _throw = 0, use = 0, _var = 0)
     {
-        constructor(abstract = 0, clone = 0, _private = 0, _protected = 0, _public = 0, _this = 0, _throw = 0, use = 0, _var = 0)
-        {
-            this.abstract = abstract;
-            this.clone = clone;
-            this._private = _private;
-            this._protected = _protected;
-            this._public = _public;
-            this._this = _this;
-            this._throw = _throw;
-            this.use = use;
-            this._var = _var;
-        }
+        this.abstract = abstract;
+        this.clone = clone;
+        this._private = _private;
+        this._protected = _protected;
+        this._public = _public;
+        this._this = _this;
+        this._throw = _throw;
+        this.use = use;
+        this._var = _var;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this.abstract);
-            ostr.writeInt(this.clone);
-            ostr.writeInt(this._private);
-            ostr.writeInt(this._protected);
-            ostr.writeInt(this._public);
-            ostr.writeInt(this._this);
-            ostr.writeInt(this._throw);
-            ostr.writeInt(this.use);
-            ostr.writeInt(this._var);
-        }
-
-        _read(istr)
-        {
-            this.abstract = istr.readInt();
-            this.clone = istr.readInt();
-            this._private = istr.readInt();
-            this._protected = istr.readInt();
-            this._public = istr.readInt();
-            this._this = istr.readInt();
-            this._throw = istr.readInt();
-            this.use = istr.readInt();
-            this._var = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  36;
-        }
-    };
-
-    Slice.defineStruct(and.xor, true, false);
-
-    const iceC_and__break_ids = [
-        "::Ice::Object",
-        "::and::break"
-    ];
-
-    and.break = class extends Ice.Object
+    _write(ostr)
     {
-    };
+        ostr.writeInt(this.abstract);
+        ostr.writeInt(this.clone);
+        ostr.writeInt(this._private);
+        ostr.writeInt(this._protected);
+        ostr.writeInt(this._public);
+        ostr.writeInt(this._this);
+        ostr.writeInt(this._throw);
+        ostr.writeInt(this.use);
+        ostr.writeInt(this._var);
+    }
 
-    and.breakPrx = class extends Ice.ObjectPrx
+    _read(istr)
     {
-    };
+        this.abstract = istr.readInt();
+        this.clone = istr.readInt();
+        this._private = istr.readInt();
+        this._protected = istr.readInt();
+        this._public = istr.readInt();
+        this._this = istr.readInt();
+        this._throw = istr.readInt();
+        this.use = istr.readInt();
+        this._var = istr.readInt();
+    }
 
-    Slice.defineOperations(and.break, and.breakPrx, iceC_and__break_ids, "::and::break",
+    static get minWireSize()
+    {
+        return  36;
+    }
+};
+
+Ice.defineStruct(and.xor, true, false);
+
+const iceC_and__break_ids = [
+    "::Ice::Object",
+    "::and::break"
+];
+
+and._break = class extends Ice.Object
+{
+};
+
+and.breakPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("and.breakPrx", and.breakPrx);
+
+Ice.defineOperations(
+    and._break,
+    and.breakPrx,
+    iceC_and__break_ids,
+    "::and::break",
     {
         "case": ["_case", , , , [[3]], [[3]], , , ]
     });
 
-    const iceC_and__function_ids = [
-        "::Ice::Object",
-        "::and::function"
-    ];
+const iceC_and__function_ids = [
+    "::Ice::Object",
+    "::and::function"
+];
 
-    and.function = class extends Ice.Object
-    {
-    };
+and._function = class extends Ice.Object
+{
+};
 
-    and.functionPrx = class extends Ice.ObjectPrx
-    {
-    };
+and.functionPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("and.functionPrx", and.functionPrx);
 
-    Slice.defineOperations(and.function, and.functionPrx, iceC_and__function_ids, "::and::function",
+Ice.defineOperations(
+    and._function,
+    and.functionPrx,
+    iceC_and__function_ids,
+    "::and::function",
     {
         "continue": ["_continue", , , , [[3], [3]], , , , ]
     });
 
-    const iceC_and_die_ids = [
-        "::Ice::Object",
-        "::and::die"
-    ];
+const iceC_and_die_ids = [
+    "::Ice::Object",
+    "::and::die"
+];
 
-    and.die = class extends Ice.Object
-    {
-    };
+and.die = class extends Ice.Object
+{
+};
 
-    and.diePrx = class extends Ice.ObjectPrx
-    {
-    };
+and.diePrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("and.diePrx", and.diePrx);
 
-    Slice.defineOperations(and.die, and.diePrx, iceC_and_die_ids, "::and::die",
+Ice.defineOperations(
+    and.die,
+    and.diePrx,
+    iceC_and_die_ids,
+    "::and::die",
     {
         "do": ["_do", , , , , , , , ]
     });
 
-    and.echo = class extends Ice.Value
+and.echo = class extends Ice.Value
+{
+    constructor(_if = 0, _else = 0, elseif = null, empty = 0)
     {
-        constructor(_if = 0, _else = 0, elseif = null, empty = 0)
-        {
-            super();
-            this._if = _if;
-            this._else = _else;
-            this.elseif = elseif;
-            this.empty = empty;
-        }
+        super();
+        this._if = _if;
+        this._else = _else;
+        this.elseif = elseif;
+        this.empty = empty;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this._if);
-            ostr.writeInt(this._else);
-            and.diePrx.write(ostr, this.elseif);
-            ostr.writeInt(this.empty);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this._if = istr.readInt();
-            this._else = istr.readInt();
-            this.elseif = and.diePrx.read(istr, this.elseif);
-            this.empty = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(and.echo, "::and::echo");
-
-    const iceC_and_enddeclare_ids = [
-        "::Ice::Object",
-        "::and::die",
-        "::and::enddeclare",
-        "::and::function"
-    ];
-
-    and.enddeclare = class extends Ice.Object
+    _iceWriteMemberImpl(ostr)
     {
-        static get _iceImplements()
-        {
-            return [
-                and.die,
-                and.function
-            ];
-        }
-    };
+        ostr.writeInt(this._if);
+        ostr.writeInt(this._else);
+        ostr.writeProxy(this.elseif);
+        ostr.writeInt(this.empty);
+    }
 
-    and.enddeclarePrx = class extends Ice.ObjectPrx
+    _iceReadMemberImpl(istr)
     {
-        static get _implements()
-        {
-            return [
-                and.diePrx,
-                and.functionPrx];
-        }
-    };
+        this._if = istr.readInt();
+        this._else = istr.readInt();
+        this.elseif = istr.readProxy();
+        this.empty = istr.readInt();
+    }
+};
 
-    Slice.defineOperations(and.enddeclare, and.enddeclarePrx, iceC_and_enddeclare_ids, "::and::enddeclare");
+Ice.defineValue(and.echo, "::and::echo");
+Ice.TypeRegistry.declareValueType("and.echo", and.echo);
 
-    Slice.defineSequence(and, "endforHelper", "and.array._helper", false);
+const iceC_and_enddeclare_ids = [
+    "::Ice::Object",
+    "::and::die",
+    "::and::enddeclare",
+    "::and::function"
+];
 
-    Slice.defineDictionary(and, "endforeach", "endforeachHelper", "Ice.StringHelper", "and.array._helper", false, undefined, undefined);
-
-    and.endif = class extends Ice.UserException
+and.enddeclare = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        constructor(endswitch = 0, _cause = "")
-        {
-            super(_cause);
-            this.endswitch = endswitch;
-        }
+        return [
+            and.die,
+            and.function
+        ];
+    }
+};
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::and::endif";
-        }
-
-        _mostDerivedType()
-        {
-            return and.endif;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.endswitch);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.endswitch = istr.readInt();
-        }
-    };
-
-    and.endwhile = class extends and.endif
+and.enddeclarePrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        constructor(endswitch, eval = 0, exit = 0, _cause = "")
-        {
-            super(endswitch, _cause);
-            this.eval = eval;
-            this.exit = exit;
-        }
+        return [
+            and.diePrx,
+            and.functionPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("and.enddeclarePrx", and.enddeclarePrx);
 
-        static get _parent()
-        {
-            return and.endif;
-        }
+Ice.defineOperations(
+    and.enddeclare,
+    and.enddeclarePrx,
+    iceC_and_enddeclare_ids,
+    "::and::enddeclare");
 
-        static get _id()
-        {
-            return "::and::endwhile";
-        }
+and.endforHelper = Ice.StreamHelpers.generateSeqHelper(and.array._helper, false);
 
-        _mostDerivedType()
-        {
-            return and.endwhile;
-        }
+[and.endforeach, and.endforeachHelper] = Ice.defineDictionary(Ice.StringHelper, and.array._helper, false, undefined);
 
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.eval);
-            ostr.writeInt(this.exit);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.eval = istr.readInt();
-            this.exit = istr.readInt();
-        }
-    };
-
-    const iceC_and__for_ids = [
-        "::Ice::Object",
-        "::and::for"
-    ];
-
-    and.for = class extends Ice.Object
+and.endif = class extends Ice.UserException
+{
+    constructor(endswitch = 0, _cause = "")
     {
-    };
+        super(_cause);
+        this.endswitch = endswitch;
+    }
 
-    and.forPrx = class extends Ice.ObjectPrx
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Slice.defineOperations(and.for, and.forPrx, iceC_and__for_ids, "::and::for",
+    static get _id()
+    {
+        return "::and::endif";
+    }
+
+    _mostDerivedType()
+    {
+        return and.endif;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.endswitch);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.endswitch = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "and.endif",
+    and.endif);
+
+and.endwhile = class extends and.endif
+{
+    constructor(endswitch, eval = 0, exit = 0, _cause = "")
+    {
+        super(endswitch, _cause);
+        this.eval = eval;
+        this.exit = exit;
+    }
+
+    static get _parent()
+    {
+        return and.endif;
+    }
+
+    static get _id()
+    {
+        return "::and::endwhile";
+    }
+
+    _mostDerivedType()
+    {
+        return and.endwhile;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.eval);
+        ostr.writeInt(this.exit);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.eval = istr.readInt();
+        this.exit = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "and.endwhile",
+    and.endwhile);
+
+const iceC_and__for_ids = [
+    "::Ice::Object",
+    "::and::for"
+];
+
+and._for = class extends Ice.Object
+{
+};
+
+and.forPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("and.forPrx", and.forPrx);
+
+Ice.defineOperations(
+    and._for,
+    and.forPrx,
+    iceC_and__for_ids,
+    "::and::for",
     {
         "foreach": [, , , [and.array._helper], [["and.breakPrx"], ["and.echo", true], ["and.functionPrx"], ["and.diePrx"], ["and.enddeclarePrx"], [3], [3]], ,
         [
@@ -287,21 +316,17 @@
         ], true, ]
     });
 
-    Object.defineProperty(and, 'or', {
-        value: 0
-    });
+Object.defineProperty(and, 'or', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(and, 'print', {
-        value: 0
-    });
+Object.defineProperty(and, 'print', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(and, 'require_once', {
-        value: 0
-    });
-    exports.and = and;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Object.defineProperty(and, 'require_once', {
+    enumerable: true,
+    value: 0
+});

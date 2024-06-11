@@ -17,10 +17,13 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
+
+Test.Inner = Test.Inner || {};
+
+Test.Inner.Sub = Test.Inner.Sub || {};
 
 Test.S = class
 {
@@ -45,7 +48,7 @@ Test.S = class
     }
 };
 
-Slice.defineStruct(Test.S, true, true);
+Ice.defineStruct(Test.S, true, true);
 
 Test.Base = class extends Ice.Value
 {
@@ -69,7 +72,8 @@ Test.Base = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.Base, "::Test::Base");
+Ice.defineValue(Test.Base, "::Test::Base");
+Ice.TypeRegistry.declareValueType("Test.Base", Test.Base);
 
 Test.A = class extends Ice.Value
 {
@@ -92,14 +96,15 @@ Test.A = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.theB = obj, Test.B);
-        istr.readValue(obj => this.theC = obj, Test.C);
+        istr.readValue(obj => this.theB = obj, Ice.TypeRegistry.getValueType("Test.B"));
+        istr.readValue(obj => this.theC = obj, Ice.TypeRegistry.getValueType("Test.C"));
         this.preMarshalInvoked = istr.readBool();
         this.postUnmarshalInvoked = istr.readBool();
     }
 };
 
-Slice.defineValue(Test.A, "::Test::A");
+Ice.defineValue(Test.A, "::Test::A");
+Ice.TypeRegistry.declareValueType("Test.A", Test.A);
 
 Test.B = class extends Test.A
 {
@@ -116,11 +121,12 @@ Test.B = class extends Test.A
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.theA = obj, Test.A);
+        istr.readValue(obj => this.theA = obj, Ice.TypeRegistry.getValueType("Test.A"));
     }
 };
 
-Slice.defineValue(Test.B, "::Test::B");
+Ice.defineValue(Test.B, "::Test::B");
+Ice.TypeRegistry.declareValueType("Test.B", Test.B);
 
 Test.C = class extends Ice.Value
 {
@@ -141,13 +147,14 @@ Test.C = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.theB = obj, Test.B);
+        istr.readValue(obj => this.theB = obj, Ice.TypeRegistry.getValueType("Test.B"));
         this.preMarshalInvoked = istr.readBool();
         this.postUnmarshalInvoked = istr.readBool();
     }
 };
 
-Slice.defineValue(Test.C, "::Test::C");
+Ice.defineValue(Test.C, "::Test::C");
+Ice.TypeRegistry.declareValueType("Test.C", Test.C);
 
 Test.D = class extends Ice.Value
 {
@@ -172,15 +179,16 @@ Test.D = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.theA = obj, Test.A);
-        istr.readValue(obj => this.theB = obj, Test.B);
-        istr.readValue(obj => this.theC = obj, Test.C);
+        istr.readValue(obj => this.theA = obj, Ice.TypeRegistry.getValueType("Test.A"));
+        istr.readValue(obj => this.theB = obj, Ice.TypeRegistry.getValueType("Test.B"));
+        istr.readValue(obj => this.theC = obj, Ice.TypeRegistry.getValueType("Test.C"));
         this.preMarshalInvoked = istr.readBool();
         this.postUnmarshalInvoked = istr.readBool();
     }
 };
 
-Slice.defineValue(Test.D, "::Test::D");
+Ice.defineValue(Test.D, "::Test::D");
+Ice.TypeRegistry.declareValueType("Test.D", Test.D);
 
 Test.E = class extends Ice.Value
 {
@@ -204,7 +212,8 @@ Test.E = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.E, "::Test::E");
+Ice.defineValue(Test.E, "::Test::E");
+Ice.TypeRegistry.declareValueType("Test.E", Test.E);
 
 Test.F = class extends Ice.Value
 {
@@ -223,12 +232,13 @@ Test.F = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.e1 = obj, Test.E);
-        istr.readValue(obj => this.e2 = obj, Test.E);
+        istr.readValue(obj => this.e1 = obj, Ice.TypeRegistry.getValueType("Test.E"));
+        istr.readValue(obj => this.e2 = obj, Ice.TypeRegistry.getValueType("Test.E"));
     }
 };
 
-Slice.defineValue(Test.F, "::Test::F");
+Ice.defineValue(Test.F, "::Test::F");
+Ice.TypeRegistry.declareValueType("Test.F", Test.F);
 
 Test.G = class extends Test.Base
 {
@@ -238,7 +248,8 @@ Test.G = class extends Test.Base
     }
 };
 
-Slice.defineValue(Test.G, "::Test::G");
+Ice.defineValue(Test.G, "::Test::G");
+Ice.TypeRegistry.declareValueType("Test.G", Test.G);
 
 const iceC_Test_I_ids = [
     "::Ice::Object",
@@ -252,11 +263,16 @@ Test.I = class extends Ice.Object
 Test.IPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.IPrx", Test.IPrx);
 
-Slice.defineOperations(Test.I, Test.IPrx, iceC_Test_I_ids, "::Test::I",
-{
-    "doI": [, , , , , , , , ]
-});
+Ice.defineOperations(
+    Test.I,
+    Test.IPrx,
+    iceC_Test_I_ids,
+    "::Test::I",
+    {
+        "doI": [, , , , , , , , ]
+    });
 
 const iceC_Test_J_ids = [
     "::Ice::Object",
@@ -282,21 +298,28 @@ Test.JPrx = class extends Ice.ObjectPrx
             Test.IPrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("Test.JPrx", Test.JPrx);
 
-Slice.defineOperations(Test.J, Test.JPrx, iceC_Test_J_ids, "::Test::J",
-{
-    "doJ": [, , , , , , , , ]
-});
+Ice.defineOperations(
+    Test.J,
+    Test.JPrx,
+    iceC_Test_J_ids,
+    "::Test::J",
+    {
+        "doJ": [, , , , , , , , ]
+    });
 
-Slice.defineSequence(Test, "BaseSeqHelper", "Ice.ObjectHelper", false, "Test.Base");
+Test.BaseSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "Test.Base");
 
 Test.Compact = class extends Ice.Value
 {
 };
 
-Slice.defineValue(Test.Compact, "::Test::Compact", 1);
+Ice.defineValue(Test.Compact, "::Test::Compact", 1);
+Ice.TypeRegistry.declareValueType("Test.Compact", Test.Compact);
 
 Object.defineProperty(Test, 'CompactExtId', {
+    enumerable: true,
     value: 789
 });
 
@@ -304,7 +327,8 @@ Test.CompactExt = class extends Test.Compact
 {
 };
 
-Slice.defineValue(Test.CompactExt, "::Test::CompactExt", 789);
+Ice.defineValue(Test.CompactExt, "::Test::CompactExt", 789);
+Ice.TypeRegistry.declareValueType("Test.CompactExt", Test.CompactExt);
 
 Test.A1 = class extends Ice.Value
 {
@@ -325,7 +349,8 @@ Test.A1 = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.A1, "::Test::A1");
+Ice.defineValue(Test.A1, "::Test::A1");
+Ice.TypeRegistry.declareValueType("Test.A1", Test.A1);
 
 Test.B1 = class extends Ice.Value
 {
@@ -344,12 +369,13 @@ Test.B1 = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.a1 = obj, Test.A1);
-        istr.readValue(obj => this.a2 = obj, Test.A1);
+        istr.readValue(obj => this.a1 = obj, Ice.TypeRegistry.getValueType("Test.A1"));
+        istr.readValue(obj => this.a2 = obj, Ice.TypeRegistry.getValueType("Test.A1"));
     }
 };
 
-Slice.defineValue(Test.B1, "::Test::B1");
+Ice.defineValue(Test.B1, "::Test::B1");
+Ice.TypeRegistry.declareValueType("Test.B1", Test.B1);
 
 Test.D1 = class extends Test.B1
 {
@@ -368,12 +394,13 @@ Test.D1 = class extends Test.B1
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.a3 = obj, Test.A1);
-        istr.readValue(obj => this.a4 = obj, Test.A1);
+        istr.readValue(obj => this.a3 = obj, Ice.TypeRegistry.getValueType("Test.A1"));
+        istr.readValue(obj => this.a4 = obj, Ice.TypeRegistry.getValueType("Test.A1"));
     }
 };
 
-Slice.defineValue(Test.D1, "::Test::D1");
+Ice.defineValue(Test.D1, "::Test::D1");
+Ice.TypeRegistry.declareValueType("Test.D1", Test.D1);
 
 Test.EBase = class extends Ice.UserException
 {
@@ -407,8 +434,8 @@ Test.EBase = class extends Ice.UserException
 
     _readMemberImpl(istr)
     {
-        istr.readValue(obj => this.a1 = obj, Test.A1);
-        istr.readValue(obj => this.a2 = obj, Test.A1);
+        istr.readValue(obj => this.a1 = obj, Ice.TypeRegistry.getValueType("Test.A1"));
+        istr.readValue(obj => this.a2 = obj, Ice.TypeRegistry.getValueType("Test.A1"));
     }
 
     _usesClasses()
@@ -416,6 +443,9 @@ Test.EBase = class extends Ice.UserException
         return true;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.EBase",
+    Test.EBase);
 
 Test.EDerived = class extends Test.EBase
 {
@@ -449,12 +479,13 @@ Test.EDerived = class extends Test.EBase
 
     _readMemberImpl(istr)
     {
-        istr.readValue(obj => this.a3 = obj, Test.A1);
-        istr.readValue(obj => this.a4 = obj, Test.A1);
+        istr.readValue(obj => this.a3 = obj, Ice.TypeRegistry.getValueType("Test.A1"));
+        istr.readValue(obj => this.a4 = obj, Ice.TypeRegistry.getValueType("Test.A1"));
     }
 };
-
-Test.Inner = _ModuleRegistry.module("Test.Inner");
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.EDerived",
+    Test.EDerived);
 
 Test.Inner.A = class extends Ice.Value
 {
@@ -471,11 +502,12 @@ Test.Inner.A = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.theA = obj, Test.A);
+        istr.readValue(obj => this.theA = obj, Ice.TypeRegistry.getValueType("Test.A"));
     }
 };
 
-Slice.defineValue(Test.Inner.A, "::Test::Inner::A");
+Ice.defineValue(Test.Inner.A, "::Test::Inner::A");
+Ice.TypeRegistry.declareValueType("Test.Inner.A", Test.Inner.A);
 
 Test.Inner.Ex = class extends Ice.UserException
 {
@@ -510,8 +542,9 @@ Test.Inner.Ex = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
-
-Test.Inner.Sub = _ModuleRegistry.module("Test.Inner.Sub");
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.Inner.Ex",
+    Test.Inner.Ex);
 
 Test.Inner.Sub.A = class extends Ice.Value
 {
@@ -528,11 +561,12 @@ Test.Inner.Sub.A = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.theA = obj, Test.Inner.A);
+        istr.readValue(obj => this.theA = obj, Ice.TypeRegistry.getValueType("Test.Inner.A"));
     }
 };
 
-Slice.defineValue(Test.Inner.Sub.A, "::Test::Inner::Sub::A");
+Ice.defineValue(Test.Inner.Sub.A, "::Test::Inner::Sub::A");
+Ice.TypeRegistry.declareValueType("Test.Inner.Sub.A", Test.Inner.Sub.A);
 
 Test.Inner.Sub.Ex = class extends Ice.UserException
 {
@@ -567,6 +601,9 @@ Test.Inner.Sub.Ex = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.Inner.Sub.Ex",
+    Test.Inner.Sub.Ex);
 
 Test.Recursive = class extends Ice.Value
 {
@@ -583,11 +620,12 @@ Test.Recursive = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.v = obj, Test.Recursive);
+        istr.readValue(obj => this.v = obj, Ice.TypeRegistry.getValueType("Test.Recursive"));
     }
 };
 
-Slice.defineValue(Test.Recursive, "::Test::Recursive");
+Ice.defineValue(Test.Recursive, "::Test::Recursive");
+Ice.TypeRegistry.declareValueType("Test.Recursive", Test.Recursive);
 
 Test.K = class extends Ice.Value
 {
@@ -604,11 +642,12 @@ Test.K = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.value = obj, Ice.Value);
+        istr.readValue(obj => this.value = obj, Ice.TypeRegistry.getValueType("Ice.Value"));
     }
 };
 
-Slice.defineValue(Test.K, "::Test::K");
+Ice.defineValue(Test.K, "::Test::K");
+Ice.TypeRegistry.declareValueType("Test.K", Test.K);
 
 Test.L = class extends Ice.Value
 {
@@ -629,11 +668,12 @@ Test.L = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.L, "::Test::L");
+Ice.defineValue(Test.L, "::Test::L");
+Ice.TypeRegistry.declareValueType("Test.L", Test.L);
 
-Slice.defineSequence(Test, "ValueSeqHelper", "Ice.ObjectHelper", false, "Ice.Value");
+Test.ValueSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "Ice.Value");
 
-Slice.defineDictionary(Test, "ValueMap", "ValueMapHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Ice.Value");
+[Test.ValueMap, Test.ValueMapHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.ObjectHelper, false, undefined, "Ice.Value");
 
 Test.StructKey = class
 {
@@ -661,9 +701,9 @@ Test.StructKey = class
     }
 };
 
-Slice.defineStruct(Test.StructKey, true, true);
+Ice.defineStruct(Test.StructKey, true, true);
 
-Slice.defineDictionary(Test, "LMap", "LMapHelper", "Test.StructKey", "Ice.ObjectHelper", false, Ice.HashMap.compareEquals, "Test.L");
+[Test.LMap, Test.LMapHelper] = Ice.defineDictionary(Test.StructKey, Ice.ObjectHelper, false, Ice.HashMap.compareEquals, "Test.L");
 
 Test.M = class extends Ice.Value
 {
@@ -684,7 +724,8 @@ Test.M = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.M, "::Test::M");
+Ice.defineValue(Test.M, "::Test::M");
+Ice.TypeRegistry.declareValueType("Test.M", Test.M);
 
 Test.F3 = class extends Ice.Value
 {
@@ -698,17 +739,18 @@ Test.F3 = class extends Ice.Value
     _iceWriteMemberImpl(ostr)
     {
         ostr.writeValue(this.f1);
-        Test.F2Prx.write(ostr, this.f2);
+        ostr.writeProxy(this.f2);
     }
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.f1 = obj, Test.F1);
-        this.f2 = Test.F2Prx.read(istr, this.f2);
+        istr.readValue(obj => this.f1 = obj, Ice.TypeRegistry.getValueType("Test.F1"));
+        this.f2 = istr.readProxy();
     }
 };
 
-Slice.defineValue(Test.F3, "::Test::F3");
+Ice.defineValue(Test.F3, "::Test::F3");
+Ice.TypeRegistry.declareValueType("Test.F3", Test.F3);
 
 const iceC_Test_Initial_ids = [
     "::Ice::Object",
@@ -722,61 +764,68 @@ Test.Initial = class extends Ice.Object
 Test.InitialPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.InitialPrx", Test.InitialPrx);
 
-Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
-{
-    "shutdown": [, , , , , , , , ],
-    "getB1": [, , , ["Test.B", true], , , , , true],
-    "getB2": [, , , ["Test.B", true], , , , , true],
-    "getC": [, , , ["Test.C", true], , , , , true],
-    "getD": [, , , ["Test.D", true], , , , , true],
-    "getE": [, , , ["Test.E", true], , , , , true],
-    "getF": [, , , ["Test.F", true], , , , , true],
-    "setRecursive": [, , , , [["Test.Recursive", true]], , , true, ],
-    "supportsClassGraphDepthMax": [, , , [1], , , , , ],
-    "getMB": [, , , ["Test.B", true], , , , , true],
-    "getAMDMB": [, , , ["Test.B", true], , , , , true],
-    "getAll": [, , , , , [["Test.B", true], ["Test.B", true], ["Test.C", true], ["Test.D", true]], , , true],
-    "getK": [, , , ["Test.K", true], , , , , true],
-    "opValue": [, , , [10, true], [[10, true]], [[10, true]], , true, true],
-    "opValueSeq": [, , , ["Test.ValueSeqHelper"], [["Test.ValueSeqHelper"]], [["Test.ValueSeqHelper"]], , true, true],
-    "opValueMap": [, , , ["Test.ValueMapHelper"], [["Test.ValueMapHelper"]], [["Test.ValueMapHelper"]], , true, true],
-    "getD1": [, , , ["Test.D1", true], [["Test.D1", true]], , , true, true],
-    "throwEDerived": [, , , , , ,
-    [
-        Test.EDerived
-    ], , ],
-    "setG": [, , , , [["Test.G", true]], , , true, ],
-    "opBaseSeq": [, , , ["Test.BaseSeqHelper"], [["Test.BaseSeqHelper"]], [["Test.BaseSeqHelper"]], , true, true],
-    "getCompact": [, , , ["Test.Compact", true], , , , , true],
-    "getInnerA": [, , , ["Test.Inner.A", true], , , , , true],
-    "getInnerSubA": [, , , ["Test.Inner.Sub.A", true], , , , , true],
-    "throwInnerEx": [, , , , , ,
-    [
-        Test.Inner.Ex
-    ], , ],
-    "throwInnerSubEx": [, , , , , ,
-    [
-        Test.Inner.Sub.Ex
-    ], , ],
-    "opM": [, , , ["Test.M", true], [["Test.M", true]], [["Test.M", true]], , true, true],
-    "opF1": [, , , ["Test.F1", true], [["Test.F1", true]], [["Test.F1", true]], , true, true],
-    "opF2": [, , , ["Test.F2Prx"], [["Test.F2Prx"]], [["Test.F2Prx"]], , , ],
-    "opF3": [, , , ["Test.F3", true], [["Test.F3", true]], [["Test.F3", true]], , true, true],
-    "hasF3": [, , , [1], , , , , ]
-});
+Ice.defineOperations(
+    Test.Initial,
+    Test.InitialPrx,
+    iceC_Test_Initial_ids,
+    "::Test::Initial",
+    {
+        "shutdown": [, , , , , , , , ],
+        "getB1": [, , , ["Test.B", true], , , , , true],
+        "getB2": [, , , ["Test.B", true], , , , , true],
+        "getC": [, , , ["Test.C", true], , , , , true],
+        "getD": [, , , ["Test.D", true], , , , , true],
+        "getE": [, , , ["Test.E", true], , , , , true],
+        "getF": [, , , ["Test.F", true], , , , , true],
+        "setRecursive": [, , , , [["Test.Recursive", true]], , , true, ],
+        "supportsClassGraphDepthMax": [, , , [1], , , , , ],
+        "getMB": [, , , ["Test.B", true], , , , , true],
+        "getAMDMB": [, , , ["Test.B", true], , , , , true],
+        "getAll": [, , , , , [["Test.B", true], ["Test.B", true], ["Test.C", true], ["Test.D", true]], , , true],
+        "getK": [, , , ["Test.K", true], , , , , true],
+        "opValue": [, , , [10, true], [[10, true]], [[10, true]], , true, true],
+        "opValueSeq": [, , , [Test.ValueSeqHelper], [[Test.ValueSeqHelper]], [[Test.ValueSeqHelper]], , true, true],
+        "opValueMap": [, , , [Test.ValueMapHelper], [[Test.ValueMapHelper]], [[Test.ValueMapHelper]], , true, true],
+        "getD1": [, , , ["Test.D1", true], [["Test.D1", true]], , , true, true],
+        "throwEDerived": [, , , , , ,
+        [
+            Test.EDerived
+        ], , ],
+        "setG": [, , , , [["Test.G", true]], , , true, ],
+        "opBaseSeq": [, , , [Test.BaseSeqHelper], [[Test.BaseSeqHelper]], [[Test.BaseSeqHelper]], , true, true],
+        "getCompact": [, , , ["Test.Compact", true], , , , , true],
+        "getInnerA": [, , , ["Test.Inner.A", true], , , , , true],
+        "getInnerSubA": [, , , ["Test.Inner.Sub.A", true], , , , , true],
+        "throwInnerEx": [, , , , , ,
+        [
+            Test.Inner.Ex
+        ], , ],
+        "throwInnerSubEx": [, , , , , ,
+        [
+            Test.Inner.Sub.Ex
+        ], , ],
+        "opM": [, , , ["Test.M", true], [["Test.M", true]], [["Test.M", true]], , true, true],
+        "opF1": [, , , ["Test.F1", true], [["Test.F1", true]], [["Test.F1", true]], , true, true],
+        "opF2": [, , , ["Test.F2Prx"], [["Test.F2Prx"]], [["Test.F2Prx"]], , , ],
+        "opF3": [, , , ["Test.F3", true], [["Test.F3", true]], [["Test.F3", true]], , true, true],
+        "hasF3": [, , , [1], , , , , ]
+    });
 
 Test.Empty = class extends Ice.Value
 {
 };
 
-Slice.defineValue(Test.Empty, "::Test::Empty");
+Ice.defineValue(Test.Empty, "::Test::Empty");
+Ice.TypeRegistry.declareValueType("Test.Empty", Test.Empty);
 
 Test.AlsoEmpty = class extends Ice.Value
 {
 };
 
-Slice.defineValue(Test.AlsoEmpty, "::Test::AlsoEmpty");
+Ice.defineValue(Test.AlsoEmpty, "::Test::AlsoEmpty");
+Ice.TypeRegistry.declareValueType("Test.AlsoEmpty", Test.AlsoEmpty);
 
 const iceC_Test_UnexpectedObjectExceptionTest_ids = [
     "::Ice::Object",
@@ -790,11 +839,16 @@ Test.UnexpectedObjectExceptionTest = class extends Ice.Object
 Test.UnexpectedObjectExceptionTestPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.UnexpectedObjectExceptionTestPrx", Test.UnexpectedObjectExceptionTestPrx);
 
-Slice.defineOperations(Test.UnexpectedObjectExceptionTest, Test.UnexpectedObjectExceptionTestPrx, iceC_Test_UnexpectedObjectExceptionTest_ids, "::Test::UnexpectedObjectExceptionTest",
-{
-    "op": [, , , ["Test.Empty", true], , , , , true]
-});
+Ice.defineOperations(
+    Test.UnexpectedObjectExceptionTest,
+    Test.UnexpectedObjectExceptionTestPrx,
+    iceC_Test_UnexpectedObjectExceptionTest_ids,
+    "::Test::UnexpectedObjectExceptionTest",
+    {
+        "op": [, , , ["Test.Empty", true], , , , , true]
+    });
 
 Test.COneMember = class extends Ice.Value
 {
@@ -811,11 +865,12 @@ Test.COneMember = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.e = obj, Test.Empty);
+        istr.readValue(obj => this.e = obj, Ice.TypeRegistry.getValueType("Test.Empty"));
     }
 };
 
-Slice.defineValue(Test.COneMember, "::Test::COneMember");
+Ice.defineValue(Test.COneMember, "::Test::COneMember");
+Ice.TypeRegistry.declareValueType("Test.COneMember", Test.COneMember);
 
 Test.CTwoMembers = class extends Ice.Value
 {
@@ -834,12 +889,13 @@ Test.CTwoMembers = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.e1 = obj, Test.Empty);
-        istr.readValue(obj => this.e2 = obj, Test.Empty);
+        istr.readValue(obj => this.e1 = obj, Ice.TypeRegistry.getValueType("Test.Empty"));
+        istr.readValue(obj => this.e2 = obj, Ice.TypeRegistry.getValueType("Test.Empty"));
     }
 };
 
-Slice.defineValue(Test.CTwoMembers, "::Test::CTwoMembers");
+Ice.defineValue(Test.CTwoMembers, "::Test::CTwoMembers");
+Ice.TypeRegistry.declareValueType("Test.CTwoMembers", Test.CTwoMembers);
 
 Test.EOneMember = class extends Ice.UserException
 {
@@ -871,7 +927,7 @@ Test.EOneMember = class extends Ice.UserException
 
     _readMemberImpl(istr)
     {
-        istr.readValue(obj => this.e = obj, Test.Empty);
+        istr.readValue(obj => this.e = obj, Ice.TypeRegistry.getValueType("Test.Empty"));
     }
 
     _usesClasses()
@@ -879,6 +935,9 @@ Test.EOneMember = class extends Ice.UserException
         return true;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.EOneMember",
+    Test.EOneMember);
 
 Test.ETwoMembers = class extends Ice.UserException
 {
@@ -912,8 +971,8 @@ Test.ETwoMembers = class extends Ice.UserException
 
     _readMemberImpl(istr)
     {
-        istr.readValue(obj => this.e1 = obj, Test.Empty);
-        istr.readValue(obj => this.e2 = obj, Test.Empty);
+        istr.readValue(obj => this.e1 = obj, Ice.TypeRegistry.getValueType("Test.Empty"));
+        istr.readValue(obj => this.e2 = obj, Ice.TypeRegistry.getValueType("Test.Empty"));
     }
 
     _usesClasses()
@@ -921,6 +980,9 @@ Test.ETwoMembers = class extends Ice.UserException
         return true;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.ETwoMembers",
+    Test.ETwoMembers);
 
 Test.SOneMember = class
 {
@@ -936,7 +998,7 @@ Test.SOneMember = class
 
     _read(istr)
     {
-        istr.readValue(obj => this.e = obj, Test.Empty);
+        istr.readValue(obj => this.e = obj, Ice.TypeRegistry.getValueType("Test.Empty"));
     }
 
     static get minWireSize()
@@ -945,7 +1007,7 @@ Test.SOneMember = class
     }
 };
 
-Slice.defineStruct(Test.SOneMember, false, true);
+Ice.defineStruct(Test.SOneMember, false, true);
 
 Test.STwoMembers = class
 {
@@ -963,8 +1025,8 @@ Test.STwoMembers = class
 
     _read(istr)
     {
-        istr.readValue(obj => this.e1 = obj, Test.Empty);
-        istr.readValue(obj => this.e2 = obj, Test.Empty);
+        istr.readValue(obj => this.e1 = obj, Ice.TypeRegistry.getValueType("Test.Empty"));
+        istr.readValue(obj => this.e2 = obj, Ice.TypeRegistry.getValueType("Test.Empty"));
     }
 
     static get minWireSize()
@@ -973,11 +1035,11 @@ Test.STwoMembers = class
     }
 };
 
-Slice.defineStruct(Test.STwoMembers, false, true);
+Ice.defineStruct(Test.STwoMembers, false, true);
 
-Slice.defineDictionary(Test, "DOneMember", "DOneMemberHelper", "Ice.IntHelper", "Ice.ObjectHelper", false, undefined, "Test.COneMember");
+[Test.DOneMember, Test.DOneMemberHelper] = Ice.defineDictionary(Ice.IntHelper, Ice.ObjectHelper, false, undefined, "Test.COneMember");
 
-Slice.defineDictionary(Test, "DTwoMembers", "DTwoMembersHelper", "Ice.IntHelper", "Ice.ObjectHelper", false, undefined, "Test.CTwoMembers");
+[Test.DTwoMembers, Test.DTwoMembersHelper] = Ice.defineDictionary(Ice.IntHelper, Ice.ObjectHelper, false, undefined, "Test.CTwoMembers");
 
 const iceC_Test_Echo_ids = [
     "::Ice::Object",
@@ -991,10 +1053,14 @@ Test.Echo = class extends Ice.Object
 Test.EchoPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.EchoPrx", Test.EchoPrx);
 
-Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
-{
-    "setConnection": [, , , , , , , , ],
-    "shutdown": [, , , , , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.Echo,
+    Test.EchoPrx,
+    iceC_Test_Echo_ids,
+    "::Test::Echo",
+    {
+        "setConnection": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ]
+    });

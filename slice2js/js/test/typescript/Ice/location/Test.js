@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 const iceC_Test_TestLocatorRegistry_ids = [
     "::Ice::LocatorRegistry",
@@ -46,11 +45,16 @@ Test.TestLocatorRegistryPrx = class extends Ice.ObjectPrx
             Ice.LocatorRegistryPrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("Test.TestLocatorRegistryPrx", Test.TestLocatorRegistryPrx);
 
-Slice.defineOperations(Test.TestLocatorRegistry, Test.TestLocatorRegistryPrx, iceC_Test_TestLocatorRegistry_ids, "::Test::TestLocatorRegistry",
-{
-    "addObject": [, , , , [[9]], , , , ]
-});
+Ice.defineOperations(
+    Test.TestLocatorRegistry,
+    Test.TestLocatorRegistryPrx,
+    iceC_Test_TestLocatorRegistry_ids,
+    "::Test::TestLocatorRegistry",
+    {
+        "addObject": [, , , , [[9]], , , , ]
+    });
 
 const iceC_Test_TestLocator_ids = [
     "::Ice::Locator",
@@ -76,11 +80,16 @@ Test.TestLocatorPrx = class extends Ice.ObjectPrx
             Ice.LocatorPrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("Test.TestLocatorPrx", Test.TestLocatorPrx);
 
-Slice.defineOperations(Test.TestLocator, Test.TestLocatorPrx, iceC_Test_TestLocator_ids, "::Test::TestLocator",
-{
-    "getRequestCount": [, 2, , [3], , , , , ]
-});
+Ice.defineOperations(
+    Test.TestLocator,
+    Test.TestLocatorPrx,
+    iceC_Test_TestLocator_ids,
+    "::Test::TestLocator",
+    {
+        "getRequestCount": [, 2, , [3], , , , , ]
+    });
 
 const iceC_Test_ServerManager_ids = [
     "::Ice::Object",
@@ -94,12 +103,17 @@ Test.ServerManager = class extends Ice.Object
 Test.ServerManagerPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.ServerManagerPrx", Test.ServerManagerPrx);
 
-Slice.defineOperations(Test.ServerManager, Test.ServerManagerPrx, iceC_Test_ServerManager_ids, "::Test::ServerManager",
-{
-    "startServer": [, , , , , , , , ],
-    "shutdown": [, , , , , , , , ]
-});
+Ice.defineOperations(
+    Test.ServerManager,
+    Test.ServerManagerPrx,
+    iceC_Test_ServerManager_ids,
+    "::Test::ServerManager",
+    {
+        "startServer": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ]
+    });
 
 const iceC_Test_Hello_ids = [
     "::Ice::Object",
@@ -113,11 +127,16 @@ Test.Hello = class extends Ice.Object
 Test.HelloPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.HelloPrx", Test.HelloPrx);
 
-Slice.defineOperations(Test.Hello, Test.HelloPrx, iceC_Test_Hello_ids, "::Test::Hello",
-{
-    "sayHello": [, , , , , , , , ]
-});
+Ice.defineOperations(
+    Test.Hello,
+    Test.HelloPrx,
+    iceC_Test_Hello_ids,
+    "::Test::Hello",
+    {
+        "sayHello": [, , , , , , , , ]
+    });
 
 const iceC_Test_TestIntf_ids = [
     "::Ice::Object",
@@ -131,12 +150,16 @@ Test.TestIntf = class extends Ice.Object
 Test.TestIntfPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
 
-Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
-{
-    "shutdown": [, , , , , , , , ],
-    "getHello": [, , , ["Test.HelloPrx"], , , , , ],
-    "getReplicatedHello": [, , , ["Test.HelloPrx"], , , , , ],
-    "migrateHello": [, , , , , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
+    {
+        "shutdown": [, , , , , , , , ],
+        "getHello": [, , , ["Test.HelloPrx"], , , , , ],
+        "getReplicatedHello": [, , , ["Test.HelloPrx"], , , , , ],
+        "migrateHello": [, , , , , , , , ]
+    });

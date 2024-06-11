@@ -16,48 +16,55 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_Background_ids = [
+    "::Ice::Object",
+    "::Test::Background"
+];
+
+Test.Background = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.BackgroundPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.BackgroundPrx", Test.BackgroundPrx);
 
-    const iceC_Test_Background_ids = [
-        "::Ice::Object",
-        "::Test::Background"
-    ];
-
-    Test.Background = class extends Ice.Object
-    {
-    };
-
-    Test.BackgroundPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.Background, Test.BackgroundPrx, iceC_Test_Background_ids, "::Test::Background",
+Ice.defineOperations(
+    Test.Background,
+    Test.BackgroundPrx,
+    iceC_Test_Background_ids,
+    "::Test::Background",
     {
         "op": [, , , , , , , , ],
-        "opWithPayload": [, , , , [["Ice.ByteSeqHelper"]], , , , ],
+        "opWithPayload": [, , , , [[Ice.ByteSeqHelper]], , , , ],
         "shutdown": [, , , , , , , , ]
     });
 
-    const iceC_Test_BackgroundController_ids = [
-        "::Ice::Object",
-        "::Test::BackgroundController"
-    ];
+const iceC_Test_BackgroundController_ids = [
+    "::Ice::Object",
+    "::Test::BackgroundController"
+];
 
-    Test.BackgroundController = class extends Ice.Object
-    {
-    };
+Test.BackgroundController = class extends Ice.Object
+{
+};
 
-    Test.BackgroundControllerPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.BackgroundControllerPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.BackgroundControllerPrx", Test.BackgroundControllerPrx);
 
-    Slice.defineOperations(Test.BackgroundController, Test.BackgroundControllerPrx, iceC_Test_BackgroundController_ids, "::Test::BackgroundController",
+Ice.defineOperations(
+    Test.BackgroundController,
+    Test.BackgroundControllerPrx,
+    iceC_Test_BackgroundController_ids,
+    "::Test::BackgroundController",
     {
         "pauseCall": [, , , , [[7]], , , , ],
         "resumeCall": [, , , , [[7]], , , , ],
@@ -70,10 +77,3 @@
         "writeException": [, , , , [[1]], , , , ],
         "buffered": [, , , , [[1]], , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

@@ -16,35 +16,30 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_Interface2_ids = [
+    "::Ice::Object",
+    "::Test::Interface2"
+];
+
+Test.Interface2 = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.Interface2Prx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.Interface2Prx", Test.Interface2Prx);
 
-    const iceC_Test_Interface2_ids = [
-        "::Ice::Object",
-        "::Test::Interface2"
-    ];
-
-    Test.Interface2 = class extends Ice.Object
-    {
-    };
-
-    Test.Interface2Prx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.Interface2, Test.Interface2Prx, iceC_Test_Interface2_ids, "::Test::Interface2",
+Ice.defineOperations(
+    Test.Interface2,
+    Test.Interface2Prx,
+    iceC_Test_Interface2_ids,
+    "::Test::Interface2",
     {
         "method": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

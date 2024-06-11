@@ -16,224 +16,248 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const abstract = {};
+
+abstract.assert = Ice.defineEnum([
+    ['boolean', 0]]);
+
+abstract._break = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let abstract = _ModuleRegistry.module("abstract");
-
-    abstract.assert = Slice.defineEnum([
-        ['boolean', 0]]);
-
-    abstract._break = class
+    constructor(_case = 0)
     {
-        constructor(_case = 0)
-        {
-            this._case = _case;
-        }
+        this._case = _case;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this._case);
-        }
-
-        _read(istr)
-        {
-            this._case = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(abstract._break, true, false);
-
-    const iceC_abstract__catch_ids = [
-        "::Ice::Object",
-        "::abstract::catch"
-    ];
-
-    abstract.catch = class extends Ice.Object
+    _write(ostr)
     {
-    };
+        ostr.writeInt(this._case);
+    }
 
-    abstract.catchPrx = class extends Ice.ObjectPrx
+    _read(istr)
     {
-    };
+        this._case = istr.readInt();
+    }
 
-    Slice.defineOperations(abstract.catch, abstract.catchPrx, iceC_abstract__catch_ids, "::abstract::catch",
+    static get minWireSize()
+    {
+        return  4;
+    }
+};
+
+Ice.defineStruct(abstract._break, true, false);
+
+const iceC_abstract__catch_ids = [
+    "::Ice::Object",
+    "::abstract::catch"
+];
+
+abstract._catch = class extends Ice.Object
+{
+};
+
+abstract.catchPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("abstract.catchPrx", abstract.catchPrx);
+
+Ice.defineOperations(
+    abstract._catch,
+    abstract.catchPrx,
+    iceC_abstract__catch_ids,
+    "::abstract::catch",
     {
         "checkedCast": [, , , , [[3]], [[3]], , , ]
     });
 
-    const iceC_abstract__default_ids = [
-        "::Ice::Object",
-        "::abstract::default"
-    ];
+const iceC_abstract__default_ids = [
+    "::Ice::Object",
+    "::abstract::default"
+];
 
-    abstract.default = class extends Ice.Object
-    {
-    };
+abstract._default = class extends Ice.Object
+{
+};
 
-    abstract.defaultPrx = class extends Ice.ObjectPrx
-    {
-    };
+abstract.defaultPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("abstract.defaultPrx", abstract.defaultPrx);
 
-    Slice.defineOperations(abstract.default, abstract.defaultPrx, iceC_abstract__default_ids, "::abstract::default",
+Ice.defineOperations(
+    abstract._default,
+    abstract.defaultPrx,
+    iceC_abstract__default_ids,
+    "::abstract::default",
     {
         "do": ["_do", , , , , , , , ]
     });
 
-    abstract._else = class extends Ice.Value
+abstract._else = class extends Ice.Value
+{
+    constructor(_if = 0, equals = null, final = 0)
     {
-        constructor(_if = 0, equals = null, final = 0)
-        {
-            super();
-            this._if = _if;
-            this.equals = equals;
-            this.final = final;
-        }
+        super();
+        this._if = _if;
+        this.equals = equals;
+        this.final = final;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this._if);
-            abstract.defaultPrx.write(ostr, this.equals);
-            ostr.writeInt(this.final);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this._if = istr.readInt();
-            this.equals = abstract.defaultPrx.read(istr, this.equals);
-            this.final = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(abstract._else, "::abstract::else");
-
-    const iceC_abstract_finalize_ids = [
-        "::Ice::Object",
-        "::abstract::catch",
-        "::abstract::default",
-        "::abstract::finalize"
-    ];
-
-    abstract.finalize = class extends Ice.Object
+    _iceWriteMemberImpl(ostr)
     {
-        static get _iceImplements()
-        {
-            return [
-                abstract.default,
-                abstract.catch
-            ];
-        }
-    };
+        ostr.writeInt(this._if);
+        ostr.writeProxy(this.equals);
+        ostr.writeInt(this.final);
+    }
 
-    abstract.finalizePrx = class extends Ice.ObjectPrx
+    _iceReadMemberImpl(istr)
     {
-        static get _implements()
-        {
-            return [
-                abstract.defaultPrx,
-                abstract.catchPrx];
-        }
-    };
+        this._if = istr.readInt();
+        this.equals = istr.readProxy();
+        this.final = istr.readInt();
+    }
+};
 
-    Slice.defineOperations(abstract.finalize, abstract.finalizePrx, iceC_abstract_finalize_ids, "::abstract::finalize");
+Ice.defineValue(abstract._else, "::abstract::else");
+Ice.TypeRegistry.declareValueType("abstract._else", abstract._else);
 
-    Slice.defineSequence(abstract, "_forHelper", "abstract.assert._helper", false);
+const iceC_abstract_finalize_ids = [
+    "::Ice::Object",
+    "::abstract::catch",
+    "::abstract::default",
+    "::abstract::finalize"
+];
 
-    Slice.defineDictionary(abstract, "goto", "gotoHelper", "Ice.StringHelper", "abstract.assert._helper", false, undefined, undefined);
-
-    abstract.hashCode = class extends Ice.UserException
+abstract.finalize = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        constructor(_if = 0, _cause = "")
-        {
-            super(_cause);
-            this._if = _if;
-        }
+        return [
+            abstract.default,
+            abstract.catch
+        ];
+    }
+};
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::abstract::hashCode";
-        }
-
-        _mostDerivedType()
-        {
-            return abstract.hashCode;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this._if);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this._if = istr.readInt();
-        }
-    };
-
-    abstract._import = class extends abstract.hashCode
+abstract.finalizePrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        constructor(_if, _instanceof = 0, native = 0, _cause = "")
-        {
-            super(_if, _cause);
-            this._instanceof = _instanceof;
-            this.native = native;
-        }
+        return [
+            abstract.defaultPrx,
+            abstract.catchPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("abstract.finalizePrx", abstract.finalizePrx);
 
-        static get _parent()
-        {
-            return abstract.hashCode;
-        }
+Ice.defineOperations(
+    abstract.finalize,
+    abstract.finalizePrx,
+    iceC_abstract_finalize_ids,
+    "::abstract::finalize");
 
-        static get _id()
-        {
-            return "::abstract::import";
-        }
+abstract._forHelper = Ice.StreamHelpers.generateSeqHelper(abstract.assert._helper, false);
 
-        _mostDerivedType()
-        {
-            return abstract._import;
-        }
+[abstract.goto, abstract.gotoHelper] = Ice.defineDictionary(Ice.StringHelper, abstract.assert._helper, false, undefined);
 
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this._instanceof);
-            ostr.writeInt(this.native);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this._instanceof = istr.readInt();
-            this.native = istr.readInt();
-        }
-    };
-
-    const iceC_abstract__new_ids = [
-        "::Ice::Object",
-        "::abstract::new"
-    ];
-
-    abstract.new = class extends Ice.Object
+abstract.hashCode = class extends Ice.UserException
+{
+    constructor(_if = 0, _cause = "")
     {
-    };
+        super(_cause);
+        this._if = _if;
+    }
 
-    abstract.newPrx = class extends Ice.ObjectPrx
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Slice.defineOperations(abstract.new, abstract.newPrx, iceC_abstract__new_ids, "::abstract::new",
+    static get _id()
+    {
+        return "::abstract::hashCode";
+    }
+
+    _mostDerivedType()
+    {
+        return abstract.hashCode;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this._if);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this._if = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "abstract.hashCode",
+    abstract.hashCode);
+
+abstract._import = class extends abstract.hashCode
+{
+    constructor(_if, _instanceof = 0, native = 0, _cause = "")
+    {
+        super(_if, _cause);
+        this._instanceof = _instanceof;
+        this.native = native;
+    }
+
+    static get _parent()
+    {
+        return abstract.hashCode;
+    }
+
+    static get _id()
+    {
+        return "::abstract::import";
+    }
+
+    _mostDerivedType()
+    {
+        return abstract._import;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this._instanceof);
+        ostr.writeInt(this.native);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this._instanceof = istr.readInt();
+        this.native = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "abstract._import",
+    abstract._import);
+
+const iceC_abstract__new_ids = [
+    "::Ice::Object",
+    "::abstract::new"
+];
+
+abstract._new = class extends Ice.Object
+{
+};
+
+abstract.newPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("abstract.newPrx", abstract.newPrx);
+
+Ice.defineOperations(
+    abstract._new,
+    abstract.newPrx,
+    iceC_abstract__new_ids,
+    "::abstract::new",
     {
         "notify": [, , , [abstract.assert._helper], [[abstract._break], ["abstract._else", true], ["abstract.finalizePrx"], ["abstract.catchPrx"], ["abstract.defaultPrx"], [3], [3], [3]], ,
         [
@@ -242,57 +266,62 @@
         ], true, ]
     });
 
-    Object.defineProperty(abstract, '_switch', {
-        value: 0
-    });
+Object.defineProperty(abstract, '_switch', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(abstract, 'synchronized', {
-        value: 0
-    });
+Object.defineProperty(abstract, 'synchronized', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(abstract, '_this', {
-        value: 0
-    });
+Object.defineProperty(abstract, '_this', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(abstract, '_throw', {
-        value: 0
-    });
+Object.defineProperty(abstract, '_throw', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(abstract, 'toString', {
-        value: 0
-    });
+Object.defineProperty(abstract, 'toString', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(abstract, '_try', {
-        value: 0
-    });
+Object.defineProperty(abstract, '_try', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(abstract, 'uncheckedCast', {
-        value: 0
-    });
+Object.defineProperty(abstract, 'uncheckedCast', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(abstract, 'volatile', {
-        value: 0
-    });
+Object.defineProperty(abstract, 'volatile', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(abstract, 'wait', {
-        value: 0
-    });
+Object.defineProperty(abstract, 'wait', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(abstract, '_while', {
-        value: 0
-    });
+Object.defineProperty(abstract, '_while', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(abstract, '_finally', {
-        value: 0
-    });
+Object.defineProperty(abstract, '_finally', {
+    enumerable: true,
+    value: 0
+});
 
-    Object.defineProperty(abstract, 'getClass', {
-        value: 0
-    });
-    exports.abstract = abstract;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Object.defineProperty(abstract, 'getClass', {
+    enumerable: true,
+    value: 0
+});

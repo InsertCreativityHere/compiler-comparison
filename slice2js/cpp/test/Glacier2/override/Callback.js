@@ -16,56 +16,56 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_CallbackReceiver_ids = [
+    "::Ice::Object",
+    "::Test::CallbackReceiver"
+];
+
+Test.CallbackReceiver = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.CallbackReceiverPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.CallbackReceiverPrx", Test.CallbackReceiverPrx);
 
-    const iceC_Test_CallbackReceiver_ids = [
-        "::Ice::Object",
-        "::Test::CallbackReceiver"
-    ];
-
-    Test.CallbackReceiver = class extends Ice.Object
-    {
-    };
-
-    Test.CallbackReceiverPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.CallbackReceiver, Test.CallbackReceiverPrx, iceC_Test_CallbackReceiver_ids, "::Test::CallbackReceiver",
+Ice.defineOperations(
+    Test.CallbackReceiver,
+    Test.CallbackReceiverPrx,
+    iceC_Test_CallbackReceiver_ids,
+    "::Test::CallbackReceiver",
     {
         "callback": [, , , , [[3]], , , , ],
-        "callbackWithPayload": [, , , , [["Ice.ByteSeqHelper"]], , , , ]
+        "callbackWithPayload": [, , , , [[Ice.ByteSeqHelper]], , , , ]
     });
 
-    const iceC_Test_Callback_ids = [
-        "::Ice::Object",
-        "::Test::Callback"
-    ];
+const iceC_Test_Callback_ids = [
+    "::Ice::Object",
+    "::Test::Callback"
+];
 
-    Test.Callback = class extends Ice.Object
-    {
-    };
+Test.Callback = class extends Ice.Object
+{
+};
 
-    Test.CallbackPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.CallbackPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.CallbackPrx", Test.CallbackPrx);
 
-    Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, "::Test::Callback",
+Ice.defineOperations(
+    Test.Callback,
+    Test.CallbackPrx,
+    iceC_Test_Callback_ids,
+    "::Test::Callback",
     {
         "initiateCallback": [, , , , [["Test.CallbackReceiverPrx"], [3]], , , , ],
         "initiateCallbackWithPayload": [, , , , [["Test.CallbackReceiverPrx"]], , , , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

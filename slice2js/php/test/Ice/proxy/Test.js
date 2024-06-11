@@ -16,68 +16,68 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+[Test.Context, Test.ContextHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);
+
+const iceC_Test_MyClass_ids = [
+    "::Ice::Object",
+    "::Test::MyClass"
+];
+
+Test.MyClass = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.MyClassPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.MyClassPrx", Test.MyClassPrx);
 
-    Slice.defineDictionary(Test, "Context", "ContextHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
-
-    const iceC_Test_MyClass_ids = [
-        "::Ice::Object",
-        "::Test::MyClass"
-    ];
-
-    Test.MyClass = class extends Ice.Object
-    {
-    };
-
-    Test.MyClassPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
+Ice.defineOperations(
+    Test.MyClass,
+    Test.MyClassPrx,
+    iceC_Test_MyClass_ids,
+    "::Test::MyClass",
     {
         "shutdown": [, , , , , , , , ],
-        "getContext": [, , , ["Test.ContextHelper"], , , , , ]
+        "getContext": [, , , [Test.ContextHelper], , , , , ]
     });
 
-    const iceC_Test_MyDerivedClass_ids = [
-        "::Ice::Object",
-        "::Test::MyClass",
-        "::Test::MyDerivedClass"
-    ];
+const iceC_Test_MyDerivedClass_ids = [
+    "::Ice::Object",
+    "::Test::MyClass",
+    "::Test::MyDerivedClass"
+];
 
-    Test.MyDerivedClass = class extends Ice.Object
+Test.MyDerivedClass = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Test.MyClass
-            ];
-        }
-    };
+        return [
+            Test.MyClass
+        ];
+    }
+};
 
-    Test.MyDerivedClassPrx = class extends Ice.ObjectPrx
+Test.MyDerivedClassPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Test.MyClassPrx];
-        }
-    };
+        return [
+            Test.MyClassPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.MyDerivedClassPrx", Test.MyDerivedClassPrx);
 
-    Slice.defineOperations(Test.MyDerivedClass, Test.MyDerivedClassPrx, iceC_Test_MyDerivedClass_ids, "::Test::MyDerivedClass",
+Ice.defineOperations(
+    Test.MyDerivedClass,
+    Test.MyDerivedClassPrx,
+    iceC_Test_MyDerivedClass_ids,
+    "::Test::MyDerivedClass",
     {
         "echo": [, , , [9], [[9]], , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

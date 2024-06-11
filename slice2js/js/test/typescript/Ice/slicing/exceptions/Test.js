@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 Test.Base = class extends Ice.UserException
 {
@@ -55,6 +54,9 @@ Test.Base = class extends Ice.UserException
         this.b = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.Base",
+    Test.Base);
 
 Test.KnownDerived = class extends Test.Base
 {
@@ -89,6 +91,9 @@ Test.KnownDerived = class extends Test.Base
         this.kd = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.KnownDerived",
+    Test.KnownDerived);
 
 Test.KnownIntermediate = class extends Test.Base
 {
@@ -123,6 +128,9 @@ Test.KnownIntermediate = class extends Test.Base
         this.ki = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.KnownIntermediate",
+    Test.KnownIntermediate);
 
 Test.KnownMostDerived = class extends Test.KnownIntermediate
 {
@@ -157,6 +165,9 @@ Test.KnownMostDerived = class extends Test.KnownIntermediate
         this.kmd = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.KnownMostDerived",
+    Test.KnownMostDerived);
 
 const iceC_Test_TestIntf_ids = [
     "::Ice::Object",
@@ -170,61 +181,65 @@ Test.TestIntf = class extends Ice.Object
 Test.TestIntfPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
 
-Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
-{
-    "baseAsBase": [, , 2, , , ,
-    [
-        Test.Base
-    ], , ],
-    "unknownDerivedAsBase": [, , 1, , , ,
-    [
-        Test.Base
-    ], , ],
-    "knownDerivedAsBase": [, , 2, , , ,
-    [
-        Test.Base
-    ], , ],
-    "knownDerivedAsKnownDerived": [, , 2, , , ,
-    [
-        Test.KnownDerived
-    ], , ],
-    "unknownIntermediateAsBase": [, , 2, , , ,
-    [
-        Test.Base
-    ], , ],
-    "knownIntermediateAsBase": [, , 2, , , ,
-    [
-        Test.Base
-    ], , ],
-    "knownMostDerivedAsBase": [, , 2, , , ,
-    [
-        Test.Base
-    ], , ],
-    "knownIntermediateAsKnownIntermediate": [, , 2, , , ,
-    [
-        Test.KnownIntermediate
-    ], , ],
-    "knownMostDerivedAsKnownIntermediate": [, , 2, , , ,
-    [
-        Test.KnownIntermediate
-    ], , ],
-    "knownMostDerivedAsKnownMostDerived": [, , 2, , , ,
-    [
-        Test.KnownMostDerived
-    ], , ],
-    "unknownMostDerived1AsBase": [, , 2, , , ,
-    [
-        Test.Base
-    ], , ],
-    "unknownMostDerived1AsKnownIntermediate": [, , 2, , , ,
-    [
-        Test.KnownIntermediate
-    ], , ],
-    "unknownMostDerived2AsBase": [, , 2, , , ,
-    [
-        Test.Base
-    ], , ],
-    "shutdown": [, , 2, , , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
+    {
+        "baseAsBase": [, , 2, , , ,
+        [
+            Test.Base
+        ], , ],
+        "unknownDerivedAsBase": [, , 1, , , ,
+        [
+            Test.Base
+        ], , ],
+        "knownDerivedAsBase": [, , 2, , , ,
+        [
+            Test.Base
+        ], , ],
+        "knownDerivedAsKnownDerived": [, , 2, , , ,
+        [
+            Test.KnownDerived
+        ], , ],
+        "unknownIntermediateAsBase": [, , 2, , , ,
+        [
+            Test.Base
+        ], , ],
+        "knownIntermediateAsBase": [, , 2, , , ,
+        [
+            Test.Base
+        ], , ],
+        "knownMostDerivedAsBase": [, , 2, , , ,
+        [
+            Test.Base
+        ], , ],
+        "knownIntermediateAsKnownIntermediate": [, , 2, , , ,
+        [
+            Test.KnownIntermediate
+        ], , ],
+        "knownMostDerivedAsKnownIntermediate": [, , 2, , , ,
+        [
+            Test.KnownIntermediate
+        ], , ],
+        "knownMostDerivedAsKnownMostDerived": [, , 2, , , ,
+        [
+            Test.KnownMostDerived
+        ], , ],
+        "unknownMostDerived1AsBase": [, , 2, , , ,
+        [
+            Test.Base
+        ], , ],
+        "unknownMostDerived1AsKnownIntermediate": [, , 2, , , ,
+        [
+            Test.KnownIntermediate
+        ], , ],
+        "unknownMostDerived2AsBase": [, , 2, , , ,
+        [
+            Test.Base
+        ], , ],
+        "shutdown": [, , 2, , , , , , ]
+    });

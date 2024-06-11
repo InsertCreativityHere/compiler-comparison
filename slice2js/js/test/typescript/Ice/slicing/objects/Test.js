@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 Test.SBase = class extends Ice.Value
 {
@@ -41,7 +40,8 @@ Test.SBase = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.SBase, "::Test::SBase");
+Ice.defineValue(Test.SBase, "::Test::SBase");
+Ice.TypeRegistry.declareValueType("Test.SBase", Test.SBase);
 
 Test.SBSKnownDerived = class extends Test.SBase
 {
@@ -62,7 +62,8 @@ Test.SBSKnownDerived = class extends Test.SBase
     }
 };
 
-Slice.defineValue(Test.SBSKnownDerived, "::Test::SBSKnownDerived");
+Ice.defineValue(Test.SBSKnownDerived, "::Test::SBSKnownDerived");
+Ice.TypeRegistry.declareValueType("Test.SBSKnownDerived", Test.SBSKnownDerived);
 
 Test.B = class extends Ice.Value
 {
@@ -82,11 +83,12 @@ Test.B = class extends Ice.Value
     _iceReadMemberImpl(istr)
     {
         this.sb = istr.readString();
-        istr.readValue(obj => this.pb = obj, Test.B);
+        istr.readValue(obj => this.pb = obj, Ice.TypeRegistry.getValueType("Test.B"));
     }
 };
 
-Slice.defineValue(Test.B, "::Test::B");
+Ice.defineValue(Test.B, "::Test::B");
+Ice.TypeRegistry.declareValueType("Test.B", Test.B);
 
 Test.D1 = class extends Test.B
 {
@@ -106,13 +108,14 @@ Test.D1 = class extends Test.B
     _iceReadMemberImpl(istr)
     {
         this.sd1 = istr.readString();
-        istr.readValue(obj => this.pd1 = obj, Test.B);
+        istr.readValue(obj => this.pd1 = obj, Ice.TypeRegistry.getValueType("Test.B"));
     }
 };
 
-Slice.defineValue(Test.D1, "::Test::D1");
+Ice.defineValue(Test.D1, "::Test::D1");
+Ice.TypeRegistry.declareValueType("Test.D1", Test.D1);
 
-Slice.defineSequence(Test, "BSeqHelper", "Ice.ObjectHelper", false, "Test.B");
+Test.BSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "Test.B");
 
 Test.SS1 = class extends Ice.Value
 {
@@ -133,7 +136,8 @@ Test.SS1 = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.SS1, "::Test::SS1");
+Ice.defineValue(Test.SS1, "::Test::SS1");
+Ice.TypeRegistry.declareValueType("Test.SS1", Test.SS1);
 
 Test.SS2 = class extends Ice.Value
 {
@@ -154,7 +158,8 @@ Test.SS2 = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.SS2, "::Test::SS2");
+Ice.defineValue(Test.SS2, "::Test::SS2");
+Ice.TypeRegistry.declareValueType("Test.SS2", Test.SS2);
 
 Test.SS3 = class
 {
@@ -172,8 +177,8 @@ Test.SS3 = class
 
     _read(istr)
     {
-        istr.readValue(obj => this.c1 = obj, Test.SS1);
-        istr.readValue(obj => this.c2 = obj, Test.SS2);
+        istr.readValue(obj => this.c1 = obj, Ice.TypeRegistry.getValueType("Test.SS1"));
+        istr.readValue(obj => this.c2 = obj, Ice.TypeRegistry.getValueType("Test.SS2"));
     }
 
     static get minWireSize()
@@ -182,9 +187,9 @@ Test.SS3 = class
     }
 };
 
-Slice.defineStruct(Test.SS3, false, true);
+Ice.defineStruct(Test.SS3, false, true);
 
-Slice.defineDictionary(Test, "BDict", "BDictHelper", "Ice.IntHelper", "Ice.ObjectHelper", false, undefined, "Test.B");
+[Test.BDict, Test.BDictHelper] = Ice.defineDictionary(Ice.IntHelper, Ice.ObjectHelper, false, undefined, "Test.B");
 
 Test.BaseException = class extends Ice.UserException
 {
@@ -219,7 +224,7 @@ Test.BaseException = class extends Ice.UserException
     _readMemberImpl(istr)
     {
         this.sbe = istr.readString();
-        istr.readValue(obj => this.pb = obj, Test.B);
+        istr.readValue(obj => this.pb = obj, Ice.TypeRegistry.getValueType("Test.B"));
     }
 
     _usesClasses()
@@ -227,6 +232,9 @@ Test.BaseException = class extends Ice.UserException
         return true;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.BaseException",
+    Test.BaseException);
 
 Test.DerivedException = class extends Test.BaseException
 {
@@ -261,9 +269,12 @@ Test.DerivedException = class extends Test.BaseException
     _readMemberImpl(istr)
     {
         this.sde = istr.readString();
-        istr.readValue(obj => this.pd1 = obj, Test.D1);
+        istr.readValue(obj => this.pd1 = obj, Ice.TypeRegistry.getValueType("Test.D1"));
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.DerivedException",
+    Test.DerivedException);
 
 Test.PBase = class extends Ice.Value
 {
@@ -284,9 +295,10 @@ Test.PBase = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.PBase, "::Test::PBase");
+Ice.defineValue(Test.PBase, "::Test::PBase");
+Ice.TypeRegistry.declareValueType("Test.PBase", Test.PBase);
 
-Slice.defineSequence(Test, "PBaseSeqHelper", "Ice.ObjectHelper", false, "Test.PBase");
+Test.PBaseSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "Test.PBase");
 
 Test.Preserved = class extends Test.PBase
 {
@@ -307,7 +319,8 @@ Test.Preserved = class extends Test.PBase
     }
 };
 
-Slice.defineValue(Test.Preserved, "::Test::Preserved");
+Ice.defineValue(Test.Preserved, "::Test::Preserved");
+Ice.TypeRegistry.declareValueType("Test.Preserved", Test.Preserved);
 
 Test.PDerived = class extends Test.Preserved
 {
@@ -324,11 +337,12 @@ Test.PDerived = class extends Test.Preserved
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.pb = obj, Test.PBase);
+        istr.readValue(obj => this.pb = obj, Ice.TypeRegistry.getValueType("Test.PBase"));
     }
 };
 
-Slice.defineValue(Test.PDerived, "::Test::PDerived");
+Ice.defineValue(Test.PDerived, "::Test::PDerived");
+Ice.TypeRegistry.declareValueType("Test.PDerived", Test.PDerived);
 
 Test.CompactPDerived = class extends Test.Preserved
 {
@@ -350,11 +364,12 @@ Test.CompactPDerived = class extends Test.Preserved
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.pb = obj, Test.PBase);
+        istr.readValue(obj => this.pb = obj, Ice.TypeRegistry.getValueType("Test.PBase"));
     }
 };
 
-Slice.defineValue(Test.CompactPDerived, "::Test::CompactPDerived", 56);
+Ice.defineValue(Test.CompactPDerived, "::Test::CompactPDerived", 56);
+Ice.TypeRegistry.declareValueType("Test.CompactPDerived", Test.CompactPDerived);
 
 Test.PNode = class extends Ice.Value
 {
@@ -371,11 +386,12 @@ Test.PNode = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.next = obj, Test.PNode);
+        istr.readValue(obj => this.next = obj, Ice.TypeRegistry.getValueType("Test.PNode"));
     }
 };
 
-Slice.defineValue(Test.PNode, "::Test::PNode");
+Ice.defineValue(Test.PNode, "::Test::PNode");
+Ice.TypeRegistry.declareValueType("Test.PNode", Test.PNode);
 
 Test.PreservedException = class extends Ice.UserException
 {
@@ -399,6 +415,9 @@ Test.PreservedException = class extends Ice.UserException
         return Test.PreservedException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.PreservedException",
+    Test.PreservedException);
 
 const iceC_Test_TestIntf_ids = [
     "::Ice::Object",
@@ -412,62 +431,67 @@ Test.TestIntf = class extends Ice.Object
 Test.TestIntfPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
 
-Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
-{
-    "SBaseAsObject": [, , 2, [8, true], , , , , true],
-    "SBaseAsSBase": [, , 2, ["Test.SBase", true], , , , , true],
-    "SBSKnownDerivedAsSBase": [, , 2, ["Test.SBase", true], , , , , true],
-    "SBSKnownDerivedAsSBSKnownDerived": [, , 2, ["Test.SBSKnownDerived", true], , , , , true],
-    "SBSUnknownDerivedAsSBase": [, , 2, ["Test.SBase", true], , , , , true],
-    "SBSUnknownDerivedAsSBaseCompact": [, , 1, ["Test.SBase", true], , , , , true],
-    "SUnknownAsObject": [, , 2, [8, true], , , , , true],
-    "checkSUnknown": [, , 2, , [[8, true]], , , true, ],
-    "oneElementCycle": [, , 2, ["Test.B", true], , , , , true],
-    "twoElementCycle": [, , 2, ["Test.B", true], , , , , true],
-    "D1AsB": [, , 2, ["Test.B", true], , , , , true],
-    "D1AsD1": [, , 2, ["Test.D1", true], , , , , true],
-    "D2AsB": [, , 2, ["Test.B", true], , , , , true],
-    "paramTest1": [, , 2, , , [["Test.B", true], ["Test.B", true]], , , true],
-    "paramTest2": [, , 2, , , [["Test.B", true], ["Test.B", true]], , , true],
-    "paramTest3": [, , 2, ["Test.B", true], , [["Test.B", true], ["Test.B", true]], , , true],
-    "paramTest4": [, , 2, ["Test.B", true], , [["Test.B", true]], , , true],
-    "returnTest1": [, , 2, ["Test.B", true], , [["Test.B", true], ["Test.B", true]], , , true],
-    "returnTest2": [, , 2, ["Test.B", true], , [["Test.B", true], ["Test.B", true]], , , true],
-    "returnTest3": [, , 2, ["Test.B", true], [["Test.B", true], ["Test.B", true]], , , true, true],
-    "sequenceTest": [, , 2, [Test.SS3], [["Test.SS1", true], ["Test.SS2", true]], , , true, true],
-    "dictionaryTest": [, , 2, ["Test.BDictHelper"], [["Test.BDictHelper"]], [["Test.BDictHelper"]], , true, true],
-    "exchangePBase": [, , 2, ["Test.PBase", true], [["Test.PBase", true]], , , true, true],
-    "PBSUnknownAsPreserved": [, , 2, ["Test.Preserved", true], , , , , true],
-    "checkPBSUnknown": [, , 2, , [["Test.Preserved", true]], , , true, ],
-    "PBSUnknownAsPreservedWithGraph": [, , 2, ["Test.Preserved", true], , , , , true],
-    "checkPBSUnknownWithGraph": [, , 2, , [["Test.Preserved", true]], , , true, ],
-    "PBSUnknown2AsPreservedWithGraph": [, , 2, ["Test.Preserved", true], , , , , true],
-    "checkPBSUnknown2WithGraph": [, , 2, , [["Test.Preserved", true]], , , true, ],
-    "exchangePNode": [, , 2, ["Test.PNode", true], [["Test.PNode", true]], , , true, true],
-    "throwBaseAsBase": [, , 2, , , ,
-    [
-        Test.BaseException
-    ], , ],
-    "throwDerivedAsBase": [, , 2, , , ,
-    [
-        Test.BaseException
-    ], , ],
-    "throwDerivedAsDerived": [, , 2, , , ,
-    [
-        Test.DerivedException
-    ], , ],
-    "throwUnknownDerivedAsBase": [, , 2, , , ,
-    [
-        Test.BaseException
-    ], , ],
-    "throwPreservedException": [, , 2, , , ,
-    [
-        Test.PreservedException
-    ], , ],
-    "useForward": [, , 2, , , [["Test.Forward", true]], , , true],
-    "shutdown": [, , 2, , , , , , ]
-});
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
+    {
+        "SBaseAsObject": [, , 2, [8, true], , , , , true],
+        "SBaseAsSBase": [, , 2, ["Test.SBase", true], , , , , true],
+        "SBSKnownDerivedAsSBase": [, , 2, ["Test.SBase", true], , , , , true],
+        "SBSKnownDerivedAsSBSKnownDerived": [, , 2, ["Test.SBSKnownDerived", true], , , , , true],
+        "SBSUnknownDerivedAsSBase": [, , 2, ["Test.SBase", true], , , , , true],
+        "SBSUnknownDerivedAsSBaseCompact": [, , 1, ["Test.SBase", true], , , , , true],
+        "SUnknownAsObject": [, , 2, [8, true], , , , , true],
+        "checkSUnknown": [, , 2, , [[8, true]], , , true, ],
+        "oneElementCycle": [, , 2, ["Test.B", true], , , , , true],
+        "twoElementCycle": [, , 2, ["Test.B", true], , , , , true],
+        "D1AsB": [, , 2, ["Test.B", true], , , , , true],
+        "D1AsD1": [, , 2, ["Test.D1", true], , , , , true],
+        "D2AsB": [, , 2, ["Test.B", true], , , , , true],
+        "paramTest1": [, , 2, , , [["Test.B", true], ["Test.B", true]], , , true],
+        "paramTest2": [, , 2, , , [["Test.B", true], ["Test.B", true]], , , true],
+        "paramTest3": [, , 2, ["Test.B", true], , [["Test.B", true], ["Test.B", true]], , , true],
+        "paramTest4": [, , 2, ["Test.B", true], , [["Test.B", true]], , , true],
+        "returnTest1": [, , 2, ["Test.B", true], , [["Test.B", true], ["Test.B", true]], , , true],
+        "returnTest2": [, , 2, ["Test.B", true], , [["Test.B", true], ["Test.B", true]], , , true],
+        "returnTest3": [, , 2, ["Test.B", true], [["Test.B", true], ["Test.B", true]], , , true, true],
+        "sequenceTest": [, , 2, [Test.SS3], [["Test.SS1", true], ["Test.SS2", true]], , , true, true],
+        "dictionaryTest": [, , 2, [Test.BDictHelper], [[Test.BDictHelper]], [[Test.BDictHelper]], , true, true],
+        "exchangePBase": [, , 2, ["Test.PBase", true], [["Test.PBase", true]], , , true, true],
+        "PBSUnknownAsPreserved": [, , 2, ["Test.Preserved", true], , , , , true],
+        "checkPBSUnknown": [, , 2, , [["Test.Preserved", true]], , , true, ],
+        "PBSUnknownAsPreservedWithGraph": [, , 2, ["Test.Preserved", true], , , , , true],
+        "checkPBSUnknownWithGraph": [, , 2, , [["Test.Preserved", true]], , , true, ],
+        "PBSUnknown2AsPreservedWithGraph": [, , 2, ["Test.Preserved", true], , , , , true],
+        "checkPBSUnknown2WithGraph": [, , 2, , [["Test.Preserved", true]], , , true, ],
+        "exchangePNode": [, , 2, ["Test.PNode", true], [["Test.PNode", true]], , , true, true],
+        "throwBaseAsBase": [, , 2, , , ,
+        [
+            Test.BaseException
+        ], , ],
+        "throwDerivedAsBase": [, , 2, , , ,
+        [
+            Test.BaseException
+        ], , ],
+        "throwDerivedAsDerived": [, , 2, , , ,
+        [
+            Test.DerivedException
+        ], , ],
+        "throwUnknownDerivedAsBase": [, , 2, , , ,
+        [
+            Test.BaseException
+        ], , ],
+        "throwPreservedException": [, , 2, , , ,
+        [
+            Test.PreservedException
+        ], , ],
+        "useForward": [, , 2, , , [["Test.Forward", true]], , , true],
+        "shutdown": [, , 2, , , , , , ]
+    });
 
 Test.D3 = class extends Test.B
 {
@@ -487,11 +511,12 @@ Test.D3 = class extends Test.B
     _iceReadMemberImpl(istr)
     {
         this.sd3 = istr.readString();
-        istr.readValue(obj => this.pd3 = obj, Test.B);
+        istr.readValue(obj => this.pd3 = obj, Ice.TypeRegistry.getValueType("Test.B"));
     }
 };
 
-Slice.defineValue(Test.D3, "::Test::D3");
+Ice.defineValue(Test.D3, "::Test::D3");
+Ice.TypeRegistry.declareValueType("Test.D3", Test.D3);
 
 Test.PCUnknown = class extends Test.PBase
 {
@@ -512,7 +537,8 @@ Test.PCUnknown = class extends Test.PBase
     }
 };
 
-Slice.defineValue(Test.PCUnknown, "::Test::PCUnknown");
+Ice.defineValue(Test.PCUnknown, "::Test::PCUnknown");
+Ice.TypeRegistry.declareValueType("Test.PCUnknown", Test.PCUnknown);
 
 Test.PCDerived = class extends Test.PDerived
 {
@@ -533,7 +559,8 @@ Test.PCDerived = class extends Test.PDerived
     }
 };
 
-Slice.defineValue(Test.PCDerived, "::Test::PCDerived");
+Ice.defineValue(Test.PCDerived, "::Test::PCDerived");
+Ice.TypeRegistry.declareValueType("Test.PCDerived", Test.PCDerived);
 
 Test.PCDerived2 = class extends Test.PCDerived
 {
@@ -554,7 +581,8 @@ Test.PCDerived2 = class extends Test.PCDerived
     }
 };
 
-Slice.defineValue(Test.PCDerived2, "::Test::PCDerived2");
+Ice.defineValue(Test.PCDerived2, "::Test::PCDerived2");
+Ice.TypeRegistry.declareValueType("Test.PCDerived2", Test.PCDerived2);
 
 Test.PCDerived3 = class extends Test.PCDerived2
 {
@@ -571,11 +599,12 @@ Test.PCDerived3 = class extends Test.PCDerived2
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.pcd3 = obj, Ice.Value);
+        istr.readValue(obj => this.pcd3 = obj, Ice.TypeRegistry.getValueType("Ice.Value"));
     }
 };
 
-Slice.defineValue(Test.PCDerived3, "::Test::PCDerived3");
+Ice.defineValue(Test.PCDerived3, "::Test::PCDerived3");
+Ice.TypeRegistry.declareValueType("Test.PCDerived3", Test.PCDerived3);
 
 Test.CompactPCDerived = class extends Test.CompactPDerived
 {
@@ -601,7 +630,8 @@ Test.CompactPCDerived = class extends Test.CompactPDerived
     }
 };
 
-Slice.defineValue(Test.CompactPCDerived, "::Test::CompactPCDerived", 57);
+Ice.defineValue(Test.CompactPCDerived, "::Test::CompactPCDerived", 57);
+Ice.TypeRegistry.declareValueType("Test.CompactPCDerived", Test.CompactPCDerived);
 
 Test.Hidden = class extends Ice.Value
 {
@@ -618,11 +648,12 @@ Test.Hidden = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.f = obj, Test.Forward);
+        istr.readValue(obj => this.f = obj, Ice.TypeRegistry.getValueType("Test.Forward"));
     }
 };
 
-Slice.defineValue(Test.Hidden, "::Test::Hidden");
+Ice.defineValue(Test.Hidden, "::Test::Hidden");
+Ice.TypeRegistry.declareValueType("Test.Hidden", Test.Hidden);
 
 Test.Forward = class extends Ice.Value
 {
@@ -639,9 +670,9 @@ Test.Forward = class extends Ice.Value
 
     _iceReadMemberImpl(istr)
     {
-        istr.readValue(obj => this.h = obj, Test.Hidden);
+        istr.readValue(obj => this.h = obj, Ice.TypeRegistry.getValueType("Test.Hidden"));
     }
 };
 
-Slice.defineValue(Test.Forward, "::Test::Forward");
-export { Test };
+Ice.defineValue(Test.Forward, "::Test::Forward");
+Ice.TypeRegistry.declareValueType("Test.Forward", Test.Forward);

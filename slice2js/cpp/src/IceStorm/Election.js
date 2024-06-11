@@ -16,103 +16,120 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+import { 
+    IceStormElection as IceStormElection_LLURecord, } from "./LLURecord.js"
+import { 
+    IceStorm as IceStorm_SubscriberRecord, } from "./SubscriberRecord.js"
+
+const IceStorm = {
+    ...IceStorm_SubscriberRecord,
+};
+
+const IceStormElection = {
+    ...IceStormElection_LLURecord,
+};
+
+export { IceStormElection };
+
+/**
+ *  The contents of topic.
+ **/
+IceStormElection.TopicContent = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const IceStorm = require("ice").IceStorm;
-    const IceStormElection = require("LLURecord").IceStormElection;
-    const Slice = Ice.Slice;
-
-    /**
-     *  The contents of topic.
-     **/
-    IceStormElection.TopicContent = class
+    constructor(id = new Ice.Identity(), records = null)
     {
-        constructor(id = new Ice.Identity(), records = null)
-        {
-            this.id = id;
-            this.records = records;
-        }
+        this.id = id;
+        this.records = records;
+    }
 
-        _write(ostr)
-        {
-            Ice.Identity.write(ostr, this.id);
-            IceStorm.SubscriberRecordSeqHelper.write(ostr, this.records);
-        }
-
-        _read(istr)
-        {
-            this.id = Ice.Identity.read(istr, this.id);
-            this.records = IceStorm.SubscriberRecordSeqHelper.read(istr);
-        }
-
-        static get minWireSize()
-        {
-            return  3;
-        }
-    };
-
-    Slice.defineStruct(IceStormElection.TopicContent, false, true);
-
-    Slice.defineSequence(IceStormElection, "TopicContentSeqHelper", "IceStormElection.TopicContent", false);
-
-    /**
-     *  Thrown if an observer detects an inconsistency.
-     **/
-    IceStormElection.ObserverInconsistencyException = class extends Ice.UserException
+    _write(ostr)
     {
-        constructor(reason = "", _cause = "")
-        {
-            super(_cause);
-            this.reason = reason;
-        }
+        Ice.Identity.write(ostr, this.id);
+        IceStorm.SubscriberRecordSeqHelper.write(ostr, this.records);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::IceStormElection::ObserverInconsistencyException";
-        }
-
-        _mostDerivedType()
-        {
-            return IceStormElection.ObserverInconsistencyException;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.reason);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.reason = istr.readString();
-        }
-    };
-
-    const iceC_IceStormElection_ReplicaObserver_ids = [
-        "::Ice::Object",
-        "::IceStormElection::ReplicaObserver"
-    ];
-
-    /**
-     *  The replica observer.
-     **/
-    IceStormElection.ReplicaObserver = class extends Ice.Object
+    _read(istr)
     {
-    };
+        this.id = Ice.Identity.read(istr, this.id);
+        this.records = IceStorm.SubscriberRecordSeqHelper.read(istr);
+    }
 
-    IceStormElection.ReplicaObserverPrx = class extends Ice.ObjectPrx
+    static get minWireSize()
     {
-    };
+        return  3;
+    }
+};
 
-    Slice.defineOperations(IceStormElection.ReplicaObserver, IceStormElection.ReplicaObserverPrx, iceC_IceStormElection_ReplicaObserver_ids, "::IceStormElection::ReplicaObserver",
+Ice.defineStruct(IceStormElection.TopicContent, false, true);
+
+IceStormElection.TopicContentSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceStormElection.TopicContent, false);
+
+/**
+ *  Thrown if an observer detects an inconsistency.
+ **/
+IceStormElection.ObserverInconsistencyException = class extends Ice.UserException
+{
+    constructor(reason = "", _cause = "")
     {
-        "init": [, , , , [[IceStormElection.LogUpdate], ["IceStormElection.TopicContentSeqHelper"]], ,
+        super(_cause);
+        this.reason = reason;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::IceStormElection::ObserverInconsistencyException";
+    }
+
+    _mostDerivedType()
+    {
+        return IceStormElection.ObserverInconsistencyException;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.reason);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.reason = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceStormElection.ObserverInconsistencyException",
+    IceStormElection.ObserverInconsistencyException);
+
+const iceC_IceStormElection_ReplicaObserver_ids = [
+    "::Ice::Object",
+    "::IceStormElection::ReplicaObserver"
+];
+
+/**
+ *  The replica observer.
+ **/
+IceStormElection.ReplicaObserver = class extends Ice.Object
+{
+};
+
+IceStormElection.ReplicaObserverPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("IceStormElection.ReplicaObserverPrx", IceStormElection.ReplicaObserverPrx);
+
+Ice.defineOperations(
+    IceStormElection.ReplicaObserver,
+    IceStormElection.ReplicaObserverPrx,
+    iceC_IceStormElection_ReplicaObserver_ids,
+    "::IceStormElection::ReplicaObserver",
+    {
+        "init": [, , , , [[IceStormElection.LogUpdate], [IceStormElection.TopicContentSeqHelper]], ,
         [
             IceStormElection.ObserverInconsistencyException
         ], , ],
@@ -128,179 +145,182 @@
         [
             IceStormElection.ObserverInconsistencyException
         ], , ],
-        "removeSubscriber": [, , , , [[IceStormElection.LogUpdate], [7], ["Ice.IdentitySeqHelper"]], ,
+        "removeSubscriber": [, , , , [[IceStormElection.LogUpdate], [7], [Ice.IdentitySeqHelper]], ,
         [
             IceStormElection.ObserverInconsistencyException
         ], , ]
     });
 
-    const iceC_IceStormElection_TopicManagerSync_ids = [
-        "::Ice::Object",
-        "::IceStormElection::TopicManagerSync"
-    ];
+const iceC_IceStormElection_TopicManagerSync_ids = [
+    "::Ice::Object",
+    "::IceStormElection::TopicManagerSync"
+];
 
-    /**
-     *  Interface used to sync topics.
-     **/
-    IceStormElection.TopicManagerSync = class extends Ice.Object
-    {
-    };
+/**
+ *  Interface used to sync topics.
+ **/
+IceStormElection.TopicManagerSync = class extends Ice.Object
+{
+};
 
-    IceStormElection.TopicManagerSyncPrx = class extends Ice.ObjectPrx
-    {
-    };
+IceStormElection.TopicManagerSyncPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("IceStormElection.TopicManagerSyncPrx", IceStormElection.TopicManagerSyncPrx);
 
-    Slice.defineOperations(IceStormElection.TopicManagerSync, IceStormElection.TopicManagerSyncPrx, iceC_IceStormElection_TopicManagerSync_ids, "::IceStormElection::TopicManagerSync",
+Ice.defineOperations(
+    IceStormElection.TopicManagerSync,
+    IceStormElection.TopicManagerSyncPrx,
+    iceC_IceStormElection_TopicManagerSync_ids,
+    "::IceStormElection::TopicManagerSync",
     {
-        "getContent": [, , , , , [[IceStormElection.LogUpdate], ["IceStormElection.TopicContentSeqHelper"]], , , ]
+        "getContent": [, , , , , [[IceStormElection.LogUpdate], [IceStormElection.TopicContentSeqHelper]], , , ]
     });
 
-    /**
-     *  The node state.
-     **/
-    IceStormElection.NodeState = Slice.defineEnum([
-        ['NodeStateInactive', 0], ['NodeStateElection', 1], ['NodeStateReorganization', 2], ['NodeStateNormal', 3]]);
+/**
+ *  The node state.
+ **/
+IceStormElection.NodeState = Ice.defineEnum([
+    ['NodeStateInactive', 0], ['NodeStateElection', 1], ['NodeStateReorganization', 2], ['NodeStateNormal', 3]]);
 
-    /**
-     *  All nodes in the replication group.
-     **/
-    IceStormElection.NodeInfo = class
+/**
+ *  All nodes in the replication group.
+ **/
+IceStormElection.NodeInfo = class
+{
+    constructor(id = 0, n = null)
     {
-        constructor(id = 0, n = null)
-        {
-            this.id = id;
-            this.n = n;
-        }
+        this.id = id;
+        this.n = n;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this.id);
-            IceStormElection.NodePrx.write(ostr, this.n);
-        }
-
-        _read(istr)
-        {
-            this.id = istr.readInt();
-            this.n = IceStormElection.NodePrx.read(istr, this.n);
-        }
-
-        static get minWireSize()
-        {
-            return  6;
-        }
-    };
-
-    Slice.defineStruct(IceStormElection.NodeInfo, false, true);
-
-    Slice.defineSequence(IceStormElection, "NodeInfoSeqHelper", "IceStormElection.NodeInfo", false);
-
-    /**
-     *  The group info.
-     **/
-    IceStormElection.GroupInfo = class
+    _write(ostr)
     {
-        constructor(id = 0, llu = new IceStormElection.LogUpdate())
-        {
-            this.id = id;
-            this.llu = llu;
-        }
+        ostr.writeInt(this.id);
+        ostr.writeProxy(this.n);
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this.id);
-            IceStormElection.LogUpdate.write(ostr, this.llu);
-        }
-
-        _read(istr)
-        {
-            this.id = istr.readInt();
-            this.llu = IceStormElection.LogUpdate.read(istr, this.llu);
-        }
-
-        static get minWireSize()
-        {
-            return  20;
-        }
-    };
-
-    Slice.defineStruct(IceStormElection.GroupInfo, true, false);
-
-    Slice.defineSequence(IceStormElection, "GroupInfoSeqHelper", "IceStormElection.GroupInfo", true);
-
-    IceStormElection.QueryInfo = class
+    _read(istr)
     {
-        constructor(id = 0, coord = 0, group = "", replica = null, state = IceStormElection.NodeState.NodeStateInactive, up = null, max = 0)
-        {
-            this.id = id;
-            this.coord = coord;
-            this.group = group;
-            this.replica = replica;
-            this.state = state;
-            this.up = up;
-            this.max = max;
-        }
+        this.id = istr.readInt();
+        this.n = istr.readProxy();
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this.id);
-            ostr.writeInt(this.coord);
-            ostr.writeString(this.group);
-            ostr.writeProxy(this.replica);
-            IceStormElection.NodeState._write(ostr, this.state);
-            IceStormElection.GroupInfoSeqHelper.write(ostr, this.up);
-            ostr.writeInt(this.max);
-        }
-
-        _read(istr)
-        {
-            this.id = istr.readInt();
-            this.coord = istr.readInt();
-            this.group = istr.readString();
-            this.replica = istr.readProxy();
-            this.state = IceStormElection.NodeState._read(istr);
-            this.up = IceStormElection.GroupInfoSeqHelper.read(istr);
-            this.max = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  17;
-        }
-    };
-
-    Slice.defineStruct(IceStormElection.QueryInfo, false, true);
-
-    const iceC_IceStormElection_Node_ids = [
-        "::Ice::Object",
-        "::IceStormElection::Node"
-    ];
-
-    /**
-     *  A replica node.
-     **/
-    IceStormElection.Node = class extends Ice.Object
+    static get minWireSize()
     {
-    };
+        return  6;
+    }
+};
 
-    IceStormElection.NodePrx = class extends Ice.ObjectPrx
+Ice.defineStruct(IceStormElection.NodeInfo, false, true);
+
+IceStormElection.NodeInfoSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceStormElection.NodeInfo, false);
+
+/**
+ *  The group info.
+ **/
+IceStormElection.GroupInfo = class
+{
+    constructor(id = 0, llu = new IceStormElection.LogUpdate())
     {
-    };
+        this.id = id;
+        this.llu = llu;
+    }
 
-    Slice.defineOperations(IceStormElection.Node, IceStormElection.NodePrx, iceC_IceStormElection_Node_ids, "::IceStormElection::Node",
+    _write(ostr)
+    {
+        ostr.writeInt(this.id);
+        IceStormElection.LogUpdate.write(ostr, this.llu);
+    }
+
+    _read(istr)
+    {
+        this.id = istr.readInt();
+        this.llu = IceStormElection.LogUpdate.read(istr, this.llu);
+    }
+
+    static get minWireSize()
+    {
+        return  20;
+    }
+};
+
+Ice.defineStruct(IceStormElection.GroupInfo, true, false);
+
+IceStormElection.GroupInfoSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceStormElection.GroupInfo, true);
+
+IceStormElection.QueryInfo = class
+{
+    constructor(id = 0, coord = 0, group = "", replica = null, state = IceStormElection.NodeState.NodeStateInactive, up = null, max = 0)
+    {
+        this.id = id;
+        this.coord = coord;
+        this.group = group;
+        this.replica = replica;
+        this.state = state;
+        this.up = up;
+        this.max = max;
+    }
+
+    _write(ostr)
+    {
+        ostr.writeInt(this.id);
+        ostr.writeInt(this.coord);
+        ostr.writeString(this.group);
+        ostr.writeProxy(this.replica);
+        IceStormElection.NodeState._write(ostr, this.state);
+        IceStormElection.GroupInfoSeqHelper.write(ostr, this.up);
+        ostr.writeInt(this.max);
+    }
+
+    _read(istr)
+    {
+        this.id = istr.readInt();
+        this.coord = istr.readInt();
+        this.group = istr.readString();
+        this.replica = istr.readProxy();
+        this.state = IceStormElection.NodeState._read(istr);
+        this.up = IceStormElection.GroupInfoSeqHelper.read(istr);
+        this.max = istr.readInt();
+    }
+
+    static get minWireSize()
+    {
+        return  17;
+    }
+};
+
+Ice.defineStruct(IceStormElection.QueryInfo, false, true);
+
+const iceC_IceStormElection_Node_ids = [
+    "::Ice::Object",
+    "::IceStormElection::Node"
+];
+
+/**
+ *  A replica node.
+ **/
+IceStormElection.Node = class extends Ice.Object
+{
+};
+
+IceStormElection.NodePrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("IceStormElection.NodePrx", IceStormElection.NodePrx);
+
+Ice.defineOperations(
+    IceStormElection.Node,
+    IceStormElection.NodePrx,
+    iceC_IceStormElection_Node_ids,
+    "::IceStormElection::Node",
     {
         "invitation": [, , , , [[3], [7]], , , , ],
         "ready": [, , , , [[3], [7], [9], [3], [4]], , , , ],
-        "accept": [, , , , [[3], [7], ["Ice.IntSeqHelper"], [9], [IceStormElection.LogUpdate], [3]], , , , ],
+        "accept": [, , , , [[3], [7], [Ice.IntSeqHelper], [9], [IceStormElection.LogUpdate], [3]], , , , ],
         "areYouCoordinator": [, 2, , [1], , , , , ],
         "areYouThere": [, 2, , [1], [[7], [3]], , , , ],
         "sync": [, 2, , [9], , , , , ],
-        "nodes": [, 2, , ["IceStormElection.NodeInfoSeqHelper"], , , , , ],
+        "nodes": [, 2, , [IceStormElection.NodeInfoSeqHelper], , , , , ],
         "query": [, 2, , [IceStormElection.QueryInfo], , , , , ]
     });
-    exports.IceStormElection = IceStormElection;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

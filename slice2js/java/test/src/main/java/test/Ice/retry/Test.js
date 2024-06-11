@@ -16,28 +16,30 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_Retry_ids = [
+    "::Ice::Object",
+    "::Test::Retry"
+];
+
+Test.Retry = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.RetryPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.RetryPrx", Test.RetryPrx);
 
-    const iceC_Test_Retry_ids = [
-        "::Ice::Object",
-        "::Test::Retry"
-    ];
-
-    Test.Retry = class extends Ice.Object
-    {
-    };
-
-    Test.RetryPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.Retry, Test.RetryPrx, iceC_Test_Retry_ids, "::Test::Retry",
+Ice.defineOperations(
+    Test.Retry,
+    Test.RetryPrx,
+    iceC_Test_Retry_ids,
+    "::Test::Retry",
     {
         "op": [, , , , [[1]], , , , ],
         "opIdempotent": [, 2, , [3], [[3]], , , , ],
@@ -45,10 +47,3 @@
         "sleep": [, 2, , , [[3]], , , , ],
         "shutdown": [, 2, , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

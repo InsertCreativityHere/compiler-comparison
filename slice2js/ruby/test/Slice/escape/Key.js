@@ -16,56 +16,58 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const BEGIN = {};
+
+BEGIN.END = Ice.defineEnum([
+    ['alias', 0]]);
+
+BEGIN.and = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let BEGIN = _ModuleRegistry.module("BEGIN");
-
-    BEGIN.END = Slice.defineEnum([
-        ['alias', 0]]);
-
-    BEGIN.and = class
+    constructor(begin = 0)
     {
-        constructor(begin = 0)
-        {
-            this.begin = begin;
-        }
+        this.begin = begin;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this.begin);
-        }
-
-        _read(istr)
-        {
-            this.begin = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(BEGIN.and, true, false);
-
-    const iceC_BEGIN__break_ids = [
-        "::BEGIN::break",
-        "::Ice::Object"
-    ];
-
-    BEGIN.break = class extends Ice.Object
+    _write(ostr)
     {
-    };
+        ostr.writeInt(this.begin);
+    }
 
-    BEGIN.breakPrx = class extends Ice.ObjectPrx
+    _read(istr)
     {
-    };
+        this.begin = istr.readInt();
+    }
 
-    Slice.defineOperations(BEGIN.break, BEGIN.breakPrx, iceC_BEGIN__break_ids, "::BEGIN::break",
+    static get minWireSize()
+    {
+        return  4;
+    }
+};
+
+Ice.defineStruct(BEGIN.and, true, false);
+
+const iceC_BEGIN__break_ids = [
+    "::BEGIN::break",
+    "::Ice::Object"
+];
+
+BEGIN._break = class extends Ice.Object
+{
+};
+
+BEGIN.breakPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("BEGIN.breakPrx", BEGIN.breakPrx);
+
+Ice.defineOperations(
+    BEGIN._break,
+    BEGIN.breakPrx,
+    iceC_BEGIN__break_ids,
+    "::BEGIN::break",
     {
         "case": ["_case", , , , [[3], [3]], , , , ],
         "to_a": [, , , , , , , , ],
@@ -73,152 +75,169 @@
         "instance_variables": [, , , , , , , , ]
     });
 
-    BEGIN.display = class extends Ice.Value
+BEGIN.display = class extends Ice.Value
+{
+    constructor(when = 0, _do = 0, dup = null, _else = 0)
     {
-        constructor(when = 0, _do = 0, dup = null, _else = 0)
-        {
-            super();
-            this.when = when;
-            this._do = _do;
-            this.dup = dup;
-            this._else = _else;
-        }
+        super();
+        this.when = when;
+        this._do = _do;
+        this.dup = dup;
+        this._else = _else;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.when);
-            ostr.writeInt(this._do);
-            BEGIN.breakPrx.write(ostr, this.dup);
-            ostr.writeInt(this._else);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.when = istr.readInt();
-            this._do = istr.readInt();
-            this.dup = BEGIN.breakPrx.read(istr, this.dup);
-            this._else = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(BEGIN.display, "::BEGIN::display");
-
-    const iceC_BEGIN_elsif_ids = [
-        "::BEGIN::break",
-        "::BEGIN::elsif",
-        "::Ice::Object"
-    ];
-
-    BEGIN.elsif = class extends Ice.Object
+    _iceWriteMemberImpl(ostr)
     {
-        static get _iceImplements()
-        {
-            return [
-                BEGIN.break
-            ];
-        }
-    };
+        ostr.writeInt(this.when);
+        ostr.writeInt(this._do);
+        ostr.writeProxy(this.dup);
+        ostr.writeInt(this._else);
+    }
 
-    BEGIN.elsifPrx = class extends Ice.ObjectPrx
+    _iceReadMemberImpl(istr)
     {
-        static get _implements()
-        {
-            return [
-                BEGIN.breakPrx];
-        }
-    };
+        this.when = istr.readInt();
+        this._do = istr.readInt();
+        this.dup = istr.readProxy();
+        this._else = istr.readInt();
+    }
+};
 
-    Slice.defineOperations(BEGIN.elsif, BEGIN.elsifPrx, iceC_BEGIN_elsif_ids, "::BEGIN::elsif");
+Ice.defineValue(BEGIN.display, "::BEGIN::display");
+Ice.TypeRegistry.declareValueType("BEGIN.display", BEGIN.display);
 
-    Slice.defineSequence(BEGIN, "rescueHelper", "BEGIN.END._helper", false);
+const iceC_BEGIN_elsif_ids = [
+    "::BEGIN::break",
+    "::BEGIN::elsif",
+    "::Ice::Object"
+];
 
-    Slice.defineDictionary(BEGIN, "ensure", "ensureHelper", "Ice.StringHelper", "BEGIN.END._helper", false, undefined, undefined);
-
-    BEGIN.next = class extends Ice.UserException
+BEGIN.elsif = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        constructor(_new = 0, _cause = "")
-        {
-            super(_cause);
-            this._new = _new;
-        }
+        return [
+            BEGIN.break
+        ];
+    }
+};
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::BEGIN::next";
-        }
-
-        _mostDerivedType()
-        {
-            return BEGIN.next;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this._new);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this._new = istr.readInt();
-        }
-    };
-
-    BEGIN.nil = class extends BEGIN.next
+BEGIN.elsifPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        constructor(_new, not = 0, or = 0, _cause = "")
-        {
-            super(_new, _cause);
-            this.not = not;
-            this.or = or;
-        }
+        return [
+            BEGIN.breakPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("BEGIN.elsifPrx", BEGIN.elsifPrx);
 
-        static get _parent()
-        {
-            return BEGIN.next;
-        }
+Ice.defineOperations(
+    BEGIN.elsif,
+    BEGIN.elsifPrx,
+    iceC_BEGIN_elsif_ids,
+    "::BEGIN::elsif");
 
-        static get _id()
-        {
-            return "::BEGIN::nil";
-        }
+BEGIN.rescueHelper = Ice.StreamHelpers.generateSeqHelper(BEGIN.END._helper, false);
 
-        _mostDerivedType()
-        {
-            return BEGIN.nil;
-        }
+[BEGIN.ensure, BEGIN.ensureHelper] = Ice.defineDictionary(Ice.StringHelper, BEGIN.END._helper, false, undefined);
 
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.not);
-            ostr.writeInt(this.or);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.not = istr.readInt();
-            this.or = istr.readInt();
-        }
-    };
-
-    const iceC_BEGIN_extend_ids = [
-        "::BEGIN::extend",
-        "::Ice::Object"
-    ];
-
-    BEGIN.extend = class extends Ice.Object
+BEGIN.next = class extends Ice.UserException
+{
+    constructor(_new = 0, _cause = "")
     {
-    };
+        super(_cause);
+        this._new = _new;
+    }
 
-    BEGIN.extendPrx = class extends Ice.ObjectPrx
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Slice.defineOperations(BEGIN.extend, BEGIN.extendPrx, iceC_BEGIN_extend_ids, "::BEGIN::extend",
+    static get _id()
+    {
+        return "::BEGIN::next";
+    }
+
+    _mostDerivedType()
+    {
+        return BEGIN.next;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this._new);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this._new = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "BEGIN.next",
+    BEGIN.next);
+
+BEGIN.nil = class extends BEGIN.next
+{
+    constructor(_new, not = 0, or = 0, _cause = "")
+    {
+        super(_new, _cause);
+        this.not = not;
+        this.or = or;
+    }
+
+    static get _parent()
+    {
+        return BEGIN.next;
+    }
+
+    static get _id()
+    {
+        return "::BEGIN::nil";
+    }
+
+    _mostDerivedType()
+    {
+        return BEGIN.nil;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.not);
+        ostr.writeInt(this.or);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.not = istr.readInt();
+        this.or = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "BEGIN.nil",
+    BEGIN.nil);
+
+const iceC_BEGIN_extend_ids = [
+    "::BEGIN::extend",
+    "::Ice::Object"
+];
+
+BEGIN.extend = class extends Ice.Object
+{
+};
+
+BEGIN.extendPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("BEGIN.extendPrx", BEGIN.extendPrx);
+
+Ice.defineOperations(
+    BEGIN.extend,
+    BEGIN.extendPrx,
+    iceC_BEGIN_extend_ids,
+    "::BEGIN::extend",
     {
         "for": ["_for", , , [BEGIN.END._helper], [["BEGIN.display", true], ["BEGIN.elsifPrx"], ["BEGIN.breakPrx"], ["BEGIN.display", true], ["BEGIN.elsifPrx"], [3]], ,
         [
@@ -226,13 +245,7 @@
         ], true, ]
     });
 
-    Object.defineProperty(BEGIN, 'redo', {
-        value: 1
-    });
-    exports.BEGIN = BEGIN;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Object.defineProperty(BEGIN, 'redo', {
+    enumerable: true,
+    value: 1
+});

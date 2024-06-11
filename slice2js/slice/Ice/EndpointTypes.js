@@ -16,53 +16,58 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_Long,
+    ...Ice_ObjectPrx,
+};
+
+
+export { Ice };
 
 Object.defineProperty(Ice, 'TCPEndpointType', {
+    enumerable: true,
     value: 1
 });
 
 Object.defineProperty(Ice, 'SSLEndpointType', {
+    enumerable: true,
     value: 2
 });
 
 Object.defineProperty(Ice, 'UDPEndpointType', {
+    enumerable: true,
     value: 3
 });
 
 Object.defineProperty(Ice, 'WSEndpointType', {
+    enumerable: true,
     value: 4
 });
 
 Object.defineProperty(Ice, 'WSSEndpointType', {
+    enumerable: true,
     value: 5
 });
 
 Object.defineProperty(Ice, 'BTEndpointType', {
+    enumerable: true,
     value: 6
 });
 
 Object.defineProperty(Ice, 'BTSEndpointType', {
+    enumerable: true,
     value: 7
 });
 
 Object.defineProperty(Ice, 'iAPEndpointType', {
+    enumerable: true,
     value: 8
 });
 
 Object.defineProperty(Ice, 'iAPSEndpointType', {
+    enumerable: true,
     value: 9
 });
-/* slice2js browser-bundle-skip */
-exports.Ice = Ice;
-/* slice2js browser-bundle-skip-end */

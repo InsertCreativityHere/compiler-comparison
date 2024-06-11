@@ -16,408 +16,422 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.Inner = Test.Inner || {};
+
+Test.Inner.Inner2 = Test.Inner.Inner2 || {};
+
+export const Inner = {};
+
+Inner.Test = Inner.Test || {};
+
+Inner.Test.Inner2 = Inner.Test.Inner2 || {};
+
+Test.S = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.S = class
+    constructor(v = 0)
     {
-        constructor(v = 0)
-        {
-            this.v = v;
-        }
+        this.v = v;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this.v);
-        }
-
-        _read(istr)
-        {
-            this.v = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(Test.S, true, false);
-
-    Slice.defineDictionary(Test, "SMap", "SMapHelper", "Ice.StringHelper", "Test.S", false, undefined, undefined);
-
-    Slice.defineSequence(Test, "SSeqHelper", "Test.S", true);
-
-    Test.C = class extends Ice.Value
+    _write(ostr)
     {
-        constructor(s = new Test.S())
-        {
-            super();
-            this.s = s;
-        }
+        ostr.writeInt(this.v);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.S.write(ostr, this.s);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.s = Test.S.read(istr, this.s);
-        }
-    };
-
-    Slice.defineValue(Test.C, "::Test::C");
-
-    Slice.defineDictionary(Test, "CMap", "CMapHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Test.C");
-
-    Slice.defineSequence(Test, "CSeqHelper", "Ice.ObjectHelper", false, "Test.C");
-
-    Test.E1 = Slice.defineEnum([
-        ['v1', 0], ['v2', 1], ['v3', 2]]);
-
-    Test.S1 = class
+    _read(istr)
     {
-        constructor(s = "")
-        {
-            this.s = s;
-        }
+        this.v = istr.readInt();
+    }
 
-        _write(ostr)
-        {
-            ostr.writeString(this.s);
-        }
-
-        _read(istr)
-        {
-            this.s = istr.readString();
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(Test.S1, true, true);
-
-    Test.C1 = class extends Ice.Value
+    static get minWireSize()
     {
-        constructor(s = "")
-        {
-            super();
-            this.s = s;
-        }
+        return  4;
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.s);
-        }
+Ice.defineStruct(Test.S, true, false);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.s = istr.readString();
-        }
-    };
+[Test.SMap, Test.SMapHelper] = Ice.defineDictionary(Ice.StringHelper, Test.S, false, undefined);
 
-    Slice.defineValue(Test.C1, "::Test::C1");
+Test.SSeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.S, true);
 
-    Test.S2 = class
+Test.C = class extends Ice.Value
+{
+    constructor(s = new Test.S())
     {
-        constructor(E1 = Test.E1.v1, S1 = new Test.S1(), C1 = null)
-        {
-            this.E1 = E1;
-            this.S1 = S1;
-            this.C1 = C1;
-        }
+        super();
+        this.s = s;
+    }
 
-        _write(ostr)
-        {
-            Test.E1._write(ostr, this.E1);
-            Test.S1.write(ostr, this.S1);
-            ostr.writeValue(this.C1);
-        }
-
-        _read(istr)
-        {
-            this.E1 = Test.E1._read(istr);
-            this.S1 = Test.S1.read(istr, this.S1);
-            istr.readValue(obj => this.C1 = obj, Test.C1);
-        }
-
-        static get minWireSize()
-        {
-            return  3;
-        }
-    };
-
-    Slice.defineStruct(Test.S2, false, true);
-
-    Test.C2 = class extends Ice.Value
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(E1 = Test.E1.v1, S1 = new Test.S1(), C1 = null)
-        {
-            super();
-            this.E1 = E1;
-            this.S1 = S1;
-            this.C1 = C1;
-        }
+        Test.S.write(ostr, this.s);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.E1._write(ostr, this.E1);
-            Test.S1.write(ostr, this.S1);
-            ostr.writeValue(this.C1);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.E1 = Test.E1._read(istr);
-            this.S1 = Test.S1.read(istr, this.S1);
-            istr.readValue(obj => this.C1 = obj, Test.C1);
-        }
-    };
-
-    Slice.defineValue(Test.C2, "::Test::C2");
-
-    const iceC_Test_I_ids = [
-        "::Ice::Object",
-        "::Test::I"
-    ];
-
-    Test.I = class extends Ice.Object
+    _iceReadMemberImpl(istr)
     {
-    };
+        this.s = Test.S.read(istr, this.s);
+    }
+};
 
-    Test.IPrx = class extends Ice.ObjectPrx
+Ice.defineValue(Test.C, "::Test::C");
+Ice.TypeRegistry.declareValueType("Test.C", Test.C);
+
+[Test.CMap, Test.CMapHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.ObjectHelper, false, undefined, "Test.C");
+
+Test.CSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "Test.C");
+
+Test.E1 = Ice.defineEnum([
+    ['v1', 0], ['v2', 1], ['v3', 2]]);
+
+Test.S1 = class
+{
+    constructor(s = "")
     {
-    };
+        this.s = s;
+    }
 
-    Slice.defineOperations(Test.I, Test.IPrx, iceC_Test_I_ids, "::Test::I",
+    _write(ostr)
+    {
+        ostr.writeString(this.s);
+    }
+
+    _read(istr)
+    {
+        this.s = istr.readString();
+    }
+
+    static get minWireSize()
+    {
+        return  1;
+    }
+};
+
+Ice.defineStruct(Test.S1, true, true);
+
+Test.C1 = class extends Ice.Value
+{
+    constructor(s = "")
+    {
+        super();
+        this.s = s;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeString(this.s);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.s = istr.readString();
+    }
+};
+
+Ice.defineValue(Test.C1, "::Test::C1");
+Ice.TypeRegistry.declareValueType("Test.C1", Test.C1);
+
+Test.S2 = class
+{
+    constructor(E1 = Test.E1.v1, S1 = new Test.S1(), C1 = null)
+    {
+        this.E1 = E1;
+        this.S1 = S1;
+        this.C1 = C1;
+    }
+
+    _write(ostr)
+    {
+        Test.E1._write(ostr, this.E1);
+        Test.S1.write(ostr, this.S1);
+        ostr.writeValue(this.C1);
+    }
+
+    _read(istr)
+    {
+        this.E1 = Test.E1._read(istr);
+        this.S1 = Test.S1.read(istr, this.S1);
+        istr.readValue(obj => this.C1 = obj, Ice.TypeRegistry.getValueType("Test.C1"));
+    }
+
+    static get minWireSize()
+    {
+        return  3;
+    }
+};
+
+Ice.defineStruct(Test.S2, false, true);
+
+Test.C2 = class extends Ice.Value
+{
+    constructor(E1 = Test.E1.v1, S1 = new Test.S1(), C1 = null)
+    {
+        super();
+        this.E1 = E1;
+        this.S1 = S1;
+        this.C1 = C1;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        Test.E1._write(ostr, this.E1);
+        Test.S1.write(ostr, this.S1);
+        ostr.writeValue(this.C1);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.E1 = Test.E1._read(istr);
+        this.S1 = Test.S1.read(istr, this.S1);
+        istr.readValue(obj => this.C1 = obj, Ice.TypeRegistry.getValueType("Test.C1"));
+    }
+};
+
+Ice.defineValue(Test.C2, "::Test::C2");
+Ice.TypeRegistry.declareValueType("Test.C2", Test.C2);
+
+const iceC_Test_I_ids = [
+    "::Ice::Object",
+    "::Test::I"
+];
+
+Test.I = class extends Ice.Object
+{
+};
+
+Test.IPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.IPrx", Test.IPrx);
+
+Ice.defineOperations(
+    Test.I,
+    Test.IPrx,
+    iceC_Test_I_ids,
+    "::Test::I",
     {
         "opS": [, , , [Test.S], [[Test.S]], [[Test.S]], , , ],
-        "opSSeq": [, , , ["Test.SSeqHelper"], [["Test.SSeqHelper"]], [["Test.SSeqHelper"]], , , ],
-        "opSMap": [, , , ["Test.SMapHelper"], [["Test.SMapHelper"]], [["Test.SMapHelper"]], , , ],
+        "opSSeq": [, , , [Test.SSeqHelper], [[Test.SSeqHelper]], [[Test.SSeqHelper]], , , ],
+        "opSMap": [, , , [Test.SMapHelper], [[Test.SMapHelper]], [[Test.SMapHelper]], , , ],
         "opC": [, , , ["Test.C", true], [["Test.C", true]], [["Test.C", true]], , true, true],
-        "opCSeq": [, , , ["Test.CSeqHelper"], [["Test.CSeqHelper"]], [["Test.CSeqHelper"]], , true, true],
-        "opCMap": [, , , ["Test.CMapHelper"], [["Test.CMapHelper"]], [["Test.CMapHelper"]], , true, true],
+        "opCSeq": [, , , [Test.CSeqHelper], [[Test.CSeqHelper]], [[Test.CSeqHelper]], , true, true],
+        "opCMap": [, , , [Test.CMapHelper], [[Test.CMapHelper]], [[Test.CMapHelper]], , true, true],
         "opE1": [, , , [Test.E1._helper], [[Test.E1._helper]], , , , ],
         "opS1": [, , , [Test.S1], [[Test.S1]], , , , ],
         "opC1": [, , , ["Test.C1", true], [["Test.C1", true]], , , true, true],
         "shutdown": [, , , , , , , , ]
     });
 
-    Slice.defineDictionary(Test, "IMap", "IMapHelper", "Ice.StringHelper", "Test.IPrx", false, undefined, undefined);
+[Test.IMap, Test.IMapHelper] = Ice.defineDictionary(Ice.StringHelper, Test.IPrx, false, undefined);
 
-    Slice.defineSequence(Test, "ISeqHelper", "Test.IPrx", false);
+Test.ISeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.IPrx, false);
 
-    Test.Inner = _ModuleRegistry.module("Test.Inner");
-
-    Test.Inner.S = class
+Test.Inner.S = class
+{
+    constructor(v = 0)
     {
-        constructor(v = 0)
-        {
-            this.v = v;
-        }
+        this.v = v;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this.v);
-        }
-
-        _read(istr)
-        {
-            this.v = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(Test.Inner.S, true, false);
-
-    Test.Inner.Inner2 = _ModuleRegistry.module("Test.Inner.Inner2");
-
-    Test.Inner.Inner2.S = class
+    _write(ostr)
     {
-        constructor(v = 0)
-        {
-            this.v = v;
-        }
+        ostr.writeInt(this.v);
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this.v);
-        }
-
-        _read(istr)
-        {
-            this.v = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(Test.Inner.Inner2.S, true, false);
-
-    Slice.defineDictionary(Test.Inner.Inner2, "SMap", "SMapHelper", "Ice.StringHelper", "Test.Inner.Inner2.S", false, undefined, undefined);
-
-    Slice.defineSequence(Test.Inner.Inner2, "SSeqHelper", "Test.Inner.Inner2.S", true);
-
-    Test.Inner.Inner2.C = class extends Ice.Value
+    _read(istr)
     {
-        constructor(s = new Test.Inner.Inner2.S())
-        {
-            super();
-            this.s = s;
-        }
+        this.v = istr.readInt();
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.Inner.Inner2.S.write(ostr, this.s);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.s = Test.Inner.Inner2.S.read(istr, this.s);
-        }
-    };
-
-    Slice.defineValue(Test.Inner.Inner2.C, "::Test::Inner::Inner2::C");
-
-    Slice.defineDictionary(Test.Inner.Inner2, "CMap", "CMapHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Test.Inner.Inner2.C");
-
-    Slice.defineSequence(Test.Inner.Inner2, "CSeqHelper", "Ice.ObjectHelper", false, "Test.Inner.Inner2.C");
-
-    const iceC_Test_Inner_Inner2_I_ids = [
-        "::Ice::Object",
-        "::Test::Inner::Inner2::I"
-    ];
-
-    Test.Inner.Inner2.I = class extends Ice.Object
+    static get minWireSize()
     {
-    };
+        return  4;
+    }
+};
 
-    Test.Inner.Inner2.IPrx = class extends Ice.ObjectPrx
+Ice.defineStruct(Test.Inner.S, true, false);
+
+Test.Inner.Inner2.S = class
+{
+    constructor(v = 0)
     {
-    };
+        this.v = v;
+    }
 
-    Slice.defineOperations(Test.Inner.Inner2.I, Test.Inner.Inner2.IPrx, iceC_Test_Inner_Inner2_I_ids, "::Test::Inner::Inner2::I",
+    _write(ostr)
+    {
+        ostr.writeInt(this.v);
+    }
+
+    _read(istr)
+    {
+        this.v = istr.readInt();
+    }
+
+    static get minWireSize()
+    {
+        return  4;
+    }
+};
+
+Ice.defineStruct(Test.Inner.Inner2.S, true, false);
+
+[Test.Inner.Inner2.SMap, Test.Inner.Inner2.SMapHelper] = Ice.defineDictionary(Ice.StringHelper, Test.Inner.Inner2.S, false, undefined);
+
+Test.Inner.Inner2.SSeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.Inner.Inner2.S, true);
+
+Test.Inner.Inner2.C = class extends Ice.Value
+{
+    constructor(s = new Test.Inner.Inner2.S())
+    {
+        super();
+        this.s = s;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        Test.Inner.Inner2.S.write(ostr, this.s);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.s = Test.Inner.Inner2.S.read(istr, this.s);
+    }
+};
+
+Ice.defineValue(Test.Inner.Inner2.C, "::Test::Inner::Inner2::C");
+Ice.TypeRegistry.declareValueType("Test.Inner.Inner2.C", Test.Inner.Inner2.C);
+
+[Test.Inner.Inner2.CMap, Test.Inner.Inner2.CMapHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.ObjectHelper, false, undefined, "Test.Inner.Inner2.C");
+
+Test.Inner.Inner2.CSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "Test.Inner.Inner2.C");
+
+const iceC_Test_Inner_Inner2_I_ids = [
+    "::Ice::Object",
+    "::Test::Inner::Inner2::I"
+];
+
+Test.Inner.Inner2.I = class extends Ice.Object
+{
+};
+
+Test.Inner.Inner2.IPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.Inner.Inner2.IPrx", Test.Inner.Inner2.IPrx);
+
+Ice.defineOperations(
+    Test.Inner.Inner2.I,
+    Test.Inner.Inner2.IPrx,
+    iceC_Test_Inner_Inner2_I_ids,
+    "::Test::Inner::Inner2::I",
     {
         "opS": [, , , [Test.Inner.Inner2.S], [[Test.Inner.Inner2.S]], [[Test.Inner.Inner2.S]], , , ],
-        "opSSeq": [, , , ["Test.Inner.Inner2.SSeqHelper"], [["Test.Inner.Inner2.SSeqHelper"]], [["Test.Inner.Inner2.SSeqHelper"]], , , ],
-        "opSMap": [, , , ["Test.Inner.Inner2.SMapHelper"], [["Test.Inner.Inner2.SMapHelper"]], [["Test.Inner.Inner2.SMapHelper"]], , , ],
+        "opSSeq": [, , , [Test.Inner.Inner2.SSeqHelper], [[Test.Inner.Inner2.SSeqHelper]], [[Test.Inner.Inner2.SSeqHelper]], , , ],
+        "opSMap": [, , , [Test.Inner.Inner2.SMapHelper], [[Test.Inner.Inner2.SMapHelper]], [[Test.Inner.Inner2.SMapHelper]], , , ],
         "opC": [, , , ["Test.Inner.Inner2.C", true], [["Test.Inner.Inner2.C", true]], [["Test.Inner.Inner2.C", true]], , true, true],
-        "opCSeq": [, , , ["Test.Inner.Inner2.CSeqHelper"], [["Test.Inner.Inner2.CSeqHelper"]], [["Test.Inner.Inner2.CSeqHelper"]], , true, true],
-        "opCMap": [, , , ["Test.Inner.Inner2.CMapHelper"], [["Test.Inner.Inner2.CMapHelper"]], [["Test.Inner.Inner2.CMapHelper"]], , true, true],
+        "opCSeq": [, , , [Test.Inner.Inner2.CSeqHelper], [[Test.Inner.Inner2.CSeqHelper]], [[Test.Inner.Inner2.CSeqHelper]], , true, true],
+        "opCMap": [, , , [Test.Inner.Inner2.CMapHelper], [[Test.Inner.Inner2.CMapHelper]], [[Test.Inner.Inner2.CMapHelper]], , true, true],
         "shutdown": [, , , , , , , , ]
     });
 
-    Slice.defineDictionary(Test.Inner.Inner2, "IMap", "IMapHelper", "Ice.StringHelper", "Test.Inner.Inner2.IPrx", false, undefined, undefined);
+[Test.Inner.Inner2.IMap, Test.Inner.Inner2.IMapHelper] = Ice.defineDictionary(Ice.StringHelper, Test.Inner.Inner2.IPrx, false, undefined);
 
-    Slice.defineSequence(Test.Inner.Inner2, "ISeqHelper", "Test.Inner.Inner2.IPrx", false);
+Test.Inner.Inner2.ISeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.Inner.Inner2.IPrx, false);
 
-    Test.Inner.C = class extends Ice.Value
+Test.Inner.C = class extends Ice.Value
+{
+    constructor(s = new Test.Inner.S())
     {
-        constructor(s = new Test.Inner.S())
-        {
-            super();
-            this.s = s;
-        }
+        super();
+        this.s = s;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.Inner.S.write(ostr, this.s);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.s = Test.Inner.S.read(istr, this.s);
-        }
-    };
-
-    Slice.defineValue(Test.Inner.C, "::Test::Inner::C");
-
-    Slice.defineSequence(Test.Inner, "SSeqHelper", "Test.Inner.Inner2.S", true);
-
-    Slice.defineDictionary(Test.Inner, "SMap", "SMapHelper", "Ice.StringHelper", "Test.Inner.Inner2.S", false, undefined, undefined);
-
-    Slice.defineDictionary(Test.Inner, "CMap", "CMapHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Test.Inner.Inner2.C");
-
-    Slice.defineSequence(Test.Inner, "CSeqHelper", "Ice.ObjectHelper", false, "Test.Inner.Inner2.C");
-
-    const iceC_Test_Inner_I_ids = [
-        "::Ice::Object",
-        "::Test::Inner::I"
-    ];
-
-    Test.Inner.I = class extends Ice.Object
+    _iceWriteMemberImpl(ostr)
     {
-    };
+        Test.Inner.S.write(ostr, this.s);
+    }
 
-    Test.Inner.IPrx = class extends Ice.ObjectPrx
+    _iceReadMemberImpl(istr)
     {
-    };
+        this.s = Test.Inner.S.read(istr, this.s);
+    }
+};
 
-    Slice.defineOperations(Test.Inner.I, Test.Inner.IPrx, iceC_Test_Inner_I_ids, "::Test::Inner::I",
+Ice.defineValue(Test.Inner.C, "::Test::Inner::C");
+Ice.TypeRegistry.declareValueType("Test.Inner.C", Test.Inner.C);
+
+Test.Inner.SSeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.Inner.Inner2.S, true);
+
+[Test.Inner.SMap, Test.Inner.SMapHelper] = Ice.defineDictionary(Ice.StringHelper, Test.Inner.Inner2.S, false, undefined);
+
+[Test.Inner.CMap, Test.Inner.CMapHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.ObjectHelper, false, undefined, "Test.Inner.Inner2.C");
+
+Test.Inner.CSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "Test.Inner.Inner2.C");
+
+const iceC_Test_Inner_I_ids = [
+    "::Ice::Object",
+    "::Test::Inner::I"
+];
+
+Test.Inner.I = class extends Ice.Object
+{
+};
+
+Test.Inner.IPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.Inner.IPrx", Test.Inner.IPrx);
+
+Ice.defineOperations(
+    Test.Inner.I,
+    Test.Inner.IPrx,
+    iceC_Test_Inner_I_ids,
+    "::Test::Inner::I",
     {
         "opS": [, , , [Test.Inner.Inner2.S], [[Test.Inner.Inner2.S]], [[Test.Inner.Inner2.S]], , , ],
-        "opSSeq": [, , , ["Test.Inner.Inner2.SSeqHelper"], [["Test.Inner.Inner2.SSeqHelper"]], [["Test.Inner.Inner2.SSeqHelper"]], , , ],
-        "opSMap": [, , , ["Test.Inner.Inner2.SMapHelper"], [["Test.Inner.Inner2.SMapHelper"]], [["Test.Inner.Inner2.SMapHelper"]], , , ],
+        "opSSeq": [, , , [Test.Inner.Inner2.SSeqHelper], [[Test.Inner.Inner2.SSeqHelper]], [[Test.Inner.Inner2.SSeqHelper]], , , ],
+        "opSMap": [, , , [Test.Inner.Inner2.SMapHelper], [[Test.Inner.Inner2.SMapHelper]], [[Test.Inner.Inner2.SMapHelper]], , , ],
         "opC": [, , , ["Test.Inner.Inner2.C", true], [["Test.Inner.Inner2.C", true]], [["Test.Inner.Inner2.C", true]], , true, true],
-        "opCSeq": [, , , ["Test.Inner.Inner2.CSeqHelper"], [["Test.Inner.Inner2.CSeqHelper"]], [["Test.Inner.Inner2.CSeqHelper"]], , true, true],
-        "opCMap": [, , , ["Test.Inner.Inner2.CMapHelper"], [["Test.Inner.Inner2.CMapHelper"]], [["Test.Inner.Inner2.CMapHelper"]], , true, true],
+        "opCSeq": [, , , [Test.Inner.Inner2.CSeqHelper], [[Test.Inner.Inner2.CSeqHelper]], [[Test.Inner.Inner2.CSeqHelper]], , true, true],
+        "opCMap": [, , , [Test.Inner.Inner2.CMapHelper], [[Test.Inner.Inner2.CMapHelper]], [[Test.Inner.Inner2.CMapHelper]], , true, true],
         "shutdown": [, , , , , , , , ]
     });
 
-    Slice.defineDictionary(Test.Inner, "IMap", "IMapHelper", "Ice.StringHelper", "Test.Inner.IPrx", false, undefined, undefined);
+[Test.Inner.IMap, Test.Inner.IMapHelper] = Ice.defineDictionary(Ice.StringHelper, Test.Inner.IPrx, false, undefined);
 
-    Slice.defineSequence(Test.Inner, "ISeqHelper", "Test.Inner.IPrx", false);
+Test.Inner.ISeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.Inner.IPrx, false);
 
-    let Inner = _ModuleRegistry.module("Inner");
+const iceC_Inner_Test_Inner2_I_ids = [
+    "::Ice::Object",
+    "::Inner::Test::Inner2::I"
+];
 
-    Inner.Test = _ModuleRegistry.module("Inner.Test");
+Inner.Test.Inner2.I = class extends Ice.Object
+{
+};
 
-    Inner.Test.Inner2 = _ModuleRegistry.module("Inner.Test.Inner2");
+Inner.Test.Inner2.IPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Inner.Test.Inner2.IPrx", Inner.Test.Inner2.IPrx);
 
-    const iceC_Inner_Test_Inner2_I_ids = [
-        "::Ice::Object",
-        "::Inner::Test::Inner2::I"
-    ];
-
-    Inner.Test.Inner2.I = class extends Ice.Object
-    {
-    };
-
-    Inner.Test.Inner2.IPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Inner.Test.Inner2.I, Inner.Test.Inner2.IPrx, iceC_Inner_Test_Inner2_I_ids, "::Inner::Test::Inner2::I",
+Ice.defineOperations(
+    Inner.Test.Inner2.I,
+    Inner.Test.Inner2.IPrx,
+    iceC_Inner_Test_Inner2_I_ids,
+    "::Inner::Test::Inner2::I",
     {
         "opS": [, , , [Test.S], [[Test.S]], [[Test.S]], , , ],
-        "opSSeq": [, , , ["Test.SSeqHelper"], [["Test.SSeqHelper"]], [["Test.SSeqHelper"]], , , ],
-        "opSMap": [, , , ["Test.SMapHelper"], [["Test.SMapHelper"]], [["Test.SMapHelper"]], , , ],
+        "opSSeq": [, , , [Test.SSeqHelper], [[Test.SSeqHelper]], [[Test.SSeqHelper]], , , ],
+        "opSMap": [, , , [Test.SMapHelper], [[Test.SMapHelper]], [[Test.SMapHelper]], , , ],
         "opC": [, , , ["Test.C", true], [["Test.C", true]], [["Test.C", true]], , true, true],
-        "opCSeq": [, , , ["Test.CSeqHelper"], [["Test.CSeqHelper"]], [["Test.CSeqHelper"]], , true, true],
-        "opCMap": [, , , ["Test.CMapHelper"], [["Test.CMapHelper"]], [["Test.CMapHelper"]], , true, true],
+        "opCSeq": [, , , [Test.CSeqHelper], [[Test.CSeqHelper]], [[Test.CSeqHelper]], , true, true],
+        "opCMap": [, , , [Test.CMapHelper], [[Test.CMapHelper]], [[Test.CMapHelper]], , true, true],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-    exports.Inner = Inner;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

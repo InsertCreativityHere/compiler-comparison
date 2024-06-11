@@ -16,67 +16,62 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+[Test.NV, Test.NVHelper] = Ice.defineDictionary(Ice.IntHelper, Ice.IntHelper, true, undefined);
+
+[Test.NR, Test.NRHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);
+
+[Test.NDV, Test.NDVHelper] = Ice.defineDictionary(Ice.StringHelper, Test.NVHelper, false, undefined);
+
+[Test.NDR, Test.NDRHelper] = Ice.defineDictionary(Ice.StringHelper, Test.NRHelper, false, undefined);
+
+Test.AISHelper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
+
+Test.GISHelper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
+
+Test.ASSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
+
+Test.GSSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
+
+[Test.NDAIS, Test.NDAISHelper] = Ice.defineDictionary(Ice.StringHelper, Test.AISHelper, false, undefined);
+
+[Test.NDGIS, Test.NDGISHelper] = Ice.defineDictionary(Ice.StringHelper, Test.GISHelper, false, undefined);
+
+[Test.NDASS, Test.NDASSHelper] = Ice.defineDictionary(Ice.StringHelper, Test.ASSHelper, false, undefined);
+
+[Test.NDGSS, Test.NDGSSHelper] = Ice.defineDictionary(Ice.StringHelper, Test.GSSHelper, false, undefined);
+
+const iceC_Test_MyClass_ids = [
+    "::Ice::Object",
+    "::Test::MyClass"
+];
+
+Test.MyClass = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.MyClassPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.MyClassPrx", Test.MyClassPrx);
 
-    Slice.defineDictionary(Test, "NV", "NVHelper", "Ice.IntHelper", "Ice.IntHelper", true, undefined, undefined);
-
-    Slice.defineDictionary(Test, "NR", "NRHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
-
-    Slice.defineDictionary(Test, "NDV", "NDVHelper", "Ice.StringHelper", "Test.NVHelper", false, undefined, undefined);
-
-    Slice.defineDictionary(Test, "NDR", "NDRHelper", "Ice.StringHelper", "Test.NRHelper", false, undefined, undefined);
-
-    Slice.defineSequence(Test, "AISHelper", "Ice.IntHelper", true);
-
-    Slice.defineSequence(Test, "GISHelper", "Ice.IntHelper", true);
-
-    Slice.defineSequence(Test, "ASSHelper", "Ice.StringHelper", false);
-
-    Slice.defineSequence(Test, "GSSHelper", "Ice.StringHelper", false);
-
-    Slice.defineDictionary(Test, "NDAIS", "NDAISHelper", "Ice.StringHelper", "Test.AISHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
-
-    Slice.defineDictionary(Test, "NDGIS", "NDGISHelper", "Ice.StringHelper", "Test.GISHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
-
-    Slice.defineDictionary(Test, "NDASS", "NDASSHelper", "Ice.StringHelper", "Test.ASSHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
-
-    Slice.defineDictionary(Test, "NDGSS", "NDGSSHelper", "Ice.StringHelper", "Test.GSSHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
-
-    const iceC_Test_MyClass_ids = [
-        "::Ice::Object",
-        "::Test::MyClass"
-    ];
-
-    Test.MyClass = class extends Ice.Object
-    {
-    };
-
-    Test.MyClassPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
+Ice.defineOperations(
+    Test.MyClass,
+    Test.MyClassPrx,
+    iceC_Test_MyClass_ids,
+    "::Test::MyClass",
     {
         "shutdown": [, , , , , , , , ],
-        "opNV": [, , , ["Test.NVHelper"], [["Test.NVHelper"]], [["Test.NVHelper"]], , , ],
-        "opNR": [, , , ["Test.NRHelper"], [["Test.NRHelper"]], [["Test.NRHelper"]], , , ],
-        "opNDV": [, , , ["Test.NDVHelper"], [["Test.NDVHelper"]], [["Test.NDVHelper"]], , , ],
-        "opNDR": [, , , ["Test.NDRHelper"], [["Test.NDRHelper"]], [["Test.NDRHelper"]], , , ],
-        "opNDAIS": [, , , ["Test.NDAISHelper"], [["Test.NDAISHelper"]], [["Test.NDAISHelper"]], , , ],
-        "opNDGIS": [, , , ["Test.NDGISHelper"], [["Test.NDGISHelper"]], [["Test.NDGISHelper"]], , , ],
-        "opNDASS": [, , , ["Test.NDASSHelper"], [["Test.NDASSHelper"]], [["Test.NDASSHelper"]], , , ],
-        "opNDGSS": [, , , ["Test.NDGSSHelper"], [["Test.NDGSSHelper"]], [["Test.NDGSSHelper"]], , , ]
+        "opNV": [, , , [Test.NVHelper], [[Test.NVHelper]], [[Test.NVHelper]], , , ],
+        "opNR": [, , , [Test.NRHelper], [[Test.NRHelper]], [[Test.NRHelper]], , , ],
+        "opNDV": [, , , [Test.NDVHelper], [[Test.NDVHelper]], [[Test.NDVHelper]], , , ],
+        "opNDR": [, , , [Test.NDRHelper], [[Test.NDRHelper]], [[Test.NDRHelper]], , , ],
+        "opNDAIS": [, , , [Test.NDAISHelper], [[Test.NDAISHelper]], [[Test.NDAISHelper]], , , ],
+        "opNDGIS": [, , , [Test.NDGISHelper], [[Test.NDGISHelper]], [[Test.NDGISHelper]], , , ],
+        "opNDASS": [, , , [Test.NDASSHelper], [[Test.NDASSHelper]], [[Test.NDASSHelper]], , , ],
+        "opNDGSS": [, , , [Test.NDGSSHelper], [[Test.NDGSSHelper]], [[Test.NDGSSHelper]], , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

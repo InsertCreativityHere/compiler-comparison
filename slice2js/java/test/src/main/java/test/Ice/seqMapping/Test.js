@@ -16,141 +16,140 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.SerialSmallHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.SerialLargeHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+Test.SerialStructHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+const iceC_Test_MyClass_ids = [
+    "::Ice::Object",
+    "::Test::MyClass"
+];
+
+Test.MyClass = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.MyClassPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.MyClassPrx", Test.MyClassPrx);
 
-    Slice.defineSequence(Test, "SerialSmallHelper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "SerialLargeHelper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "SerialStructHelper", "Ice.ByteHelper", true);
-
-    const iceC_Test_MyClass_ids = [
-        "::Ice::Object",
-        "::Test::MyClass"
-    ];
-
-    Test.MyClass = class extends Ice.Object
-    {
-    };
-
-    Test.MyClassPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
+Ice.defineOperations(
+    Test.MyClass,
+    Test.MyClassPrx,
+    iceC_Test_MyClass_ids,
+    "::Test::MyClass",
     {
         "shutdown": [, , , , , , , , ],
-        "opSerialSmallJava": [, , , ["Test.SerialSmallHelper"], [["Test.SerialSmallHelper"]], [["Test.SerialSmallHelper"]], , , ],
-        "opSerialLargeJava": [, , , ["Test.SerialLargeHelper"], [["Test.SerialLargeHelper"]], [["Test.SerialLargeHelper"]], , , ],
-        "opSerialStructJava": [, , , ["Test.SerialStructHelper"], [["Test.SerialStructHelper"]], [["Test.SerialStructHelper"]], , , ]
+        "opSerialSmallJava": [, , , [Test.SerialSmallHelper], [[Test.SerialSmallHelper]], [[Test.SerialSmallHelper]], , , ],
+        "opSerialLargeJava": [, , , [Test.SerialLargeHelper], [[Test.SerialLargeHelper]], [[Test.SerialLargeHelper]], , , ],
+        "opSerialStructJava": [, , , [Test.SerialStructHelper], [[Test.SerialStructHelper]], [[Test.SerialStructHelper]], , , ]
     });
 
-    Slice.defineSequence(Test, "SLSHelper", "Test.SerialLargeHelper", false);
+Test.SLSHelper = Ice.StreamHelpers.generateSeqHelper(Test.SerialLargeHelper, false);
 
-    Slice.defineSequence(Test, "SLSSHelper", "Test.SLSHelper", false);
+Test.SLSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.SLSHelper, false);
 
-    Slice.defineDictionary(Test, "SLD", "SLDHelper", "Ice.IntHelper", "Test.SerialLargeHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
+[Test.SLD, Test.SLDHelper] = Ice.defineDictionary(Ice.IntHelper, Test.SerialLargeHelper, false, undefined);
 
-    Slice.defineDictionary(Test, "SLSD", "SLSDHelper", "Ice.IntHelper", "Test.SLSHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
+[Test.SLSD, Test.SLSDHelper] = Ice.defineDictionary(Ice.IntHelper, Test.SLSHelper, false, undefined);
 
-    Test.Foo = class
+Test.Foo = class
+{
+    constructor(SLmem = null, SLSmem = null)
     {
-        constructor(SLmem = null, SLSmem = null)
-        {
-            this.SLmem = SLmem;
-            this.SLSmem = SLSmem;
-        }
+        this.SLmem = SLmem;
+        this.SLSmem = SLSmem;
+    }
 
-        _write(ostr)
-        {
-            Test.SerialLargeHelper.write(ostr, this.SLmem);
-            Test.SLSHelper.write(ostr, this.SLSmem);
-        }
-
-        _read(istr)
-        {
-            this.SLmem = Test.SerialLargeHelper.read(istr);
-            this.SLSmem = Test.SLSHelper.read(istr);
-        }
-
-        static get minWireSize()
-        {
-            return  2;
-        }
-    };
-
-    Slice.defineStruct(Test.Foo, false, true);
-
-    Test.Bar = class extends Ice.UserException
+    _write(ostr)
     {
-        constructor(SLmem = null, SLSmem = null, _cause = "")
-        {
-            super(_cause);
-            this.SLmem = SLmem;
-            this.SLSmem = SLSmem;
-        }
+        Test.SerialLargeHelper.write(ostr, this.SLmem);
+        Test.SLSHelper.write(ostr, this.SLSmem);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::Bar";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.Bar;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            Test.SerialLargeHelper.write(ostr, this.SLmem);
-            Test.SLSHelper.write(ostr, this.SLSmem);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.SLmem = Test.SerialLargeHelper.read(istr);
-            this.SLSmem = Test.SLSHelper.read(istr);
-        }
-    };
-
-    Test.Baz = class extends Ice.Value
+    _read(istr)
     {
-        constructor(SLmem = null, SLSmem = null)
-        {
-            super();
-            this.SLmem = SLmem;
-            this.SLSmem = SLSmem;
-        }
+        this.SLmem = Test.SerialLargeHelper.read(istr);
+        this.SLSmem = Test.SLSHelper.read(istr);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.SerialLargeHelper.write(ostr, this.SLmem);
-            Test.SLSHelper.write(ostr, this.SLSmem);
-        }
+    static get minWireSize()
+    {
+        return  2;
+    }
+};
 
-        _iceReadMemberImpl(istr)
-        {
-            this.SLmem = Test.SerialLargeHelper.read(istr);
-            this.SLSmem = Test.SLSHelper.read(istr);
-        }
-    };
+Ice.defineStruct(Test.Foo, false, true);
 
-    Slice.defineValue(Test.Baz, "::Test::Baz");
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Test.Bar = class extends Ice.UserException
+{
+    constructor(SLmem = null, SLSmem = null, _cause = "")
+    {
+        super(_cause);
+        this.SLmem = SLmem;
+        this.SLSmem = SLSmem;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test::Bar";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.Bar;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        Test.SerialLargeHelper.write(ostr, this.SLmem);
+        Test.SLSHelper.write(ostr, this.SLSmem);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.SLmem = Test.SerialLargeHelper.read(istr);
+        this.SLSmem = Test.SLSHelper.read(istr);
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.Bar",
+    Test.Bar);
+
+Test.Baz = class extends Ice.Value
+{
+    constructor(SLmem = null, SLSmem = null)
+    {
+        super();
+        this.SLmem = SLmem;
+        this.SLSmem = SLSmem;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        Test.SerialLargeHelper.write(ostr, this.SLmem);
+        Test.SLSHelper.write(ostr, this.SLSmem);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.SLmem = Test.SerialLargeHelper.read(istr);
+        this.SLSmem = Test.SLSHelper.read(istr);
+    }
+};
+
+Ice.defineValue(Test.Baz, "::Test::Baz");
+Ice.TypeRegistry.declareValueType("Test.Baz", Test.Baz);

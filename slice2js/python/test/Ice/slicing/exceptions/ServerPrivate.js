@@ -16,152 +16,161 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+import { 
+    Test as Test_Test, } from "./Test.js"
+
+const Test = {
+    ...Test_Test,
+};
+
+export { Test };
+
+Test.UnknownDerived = class extends Test.Base
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Test = require("Test").Test;
-    const Slice = Ice.Slice;
-
-    Test.UnknownDerived = class extends Test.Base
+    constructor(b, ud = "", _cause = "")
     {
-        constructor(b, ud = "", _cause = "")
-        {
-            super(b, _cause);
-            this.ud = ud;
-        }
+        super(b, _cause);
+        this.ud = ud;
+    }
 
-        static get _parent()
-        {
-            return Test.Base;
-        }
-
-        static get _id()
-        {
-            return "::Test::UnknownDerived";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.UnknownDerived;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.ud);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.ud = istr.readString();
-        }
-    };
-
-    Test.UnknownIntermediate = class extends Test.Base
+    static get _parent()
     {
-        constructor(b, ui = "", _cause = "")
-        {
-            super(b, _cause);
-            this.ui = ui;
-        }
+        return Test.Base;
+    }
 
-        static get _parent()
-        {
-            return Test.Base;
-        }
-
-        static get _id()
-        {
-            return "::Test::UnknownIntermediate";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.UnknownIntermediate;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.ui);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.ui = istr.readString();
-        }
-    };
-
-    Test.UnknownMostDerived1 = class extends Test.KnownIntermediate
+    static get _id()
     {
-        constructor(b, ki, umd1 = "", _cause = "")
-        {
-            super(b, ki, _cause);
-            this.umd1 = umd1;
-        }
+        return "::Test::UnknownDerived";
+    }
 
-        static get _parent()
-        {
-            return Test.KnownIntermediate;
-        }
-
-        static get _id()
-        {
-            return "::Test::UnknownMostDerived1";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.UnknownMostDerived1;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.umd1);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.umd1 = istr.readString();
-        }
-    };
-
-    Test.UnknownMostDerived2 = class extends Test.UnknownIntermediate
+    _mostDerivedType()
     {
-        constructor(b, ui, umd2 = "", _cause = "")
-        {
-            super(b, ui, _cause);
-            this.umd2 = umd2;
-        }
+        return Test.UnknownDerived;
+    }
 
-        static get _parent()
-        {
-            return Test.UnknownIntermediate;
-        }
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.ud);
+    }
 
-        static get _id()
-        {
-            return "::Test::UnknownMostDerived2";
-        }
+    _readMemberImpl(istr)
+    {
+        this.ud = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.UnknownDerived",
+    Test.UnknownDerived);
 
-        _mostDerivedType()
-        {
-            return Test.UnknownMostDerived2;
-        }
+Test.UnknownIntermediate = class extends Test.Base
+{
+    constructor(b, ui = "", _cause = "")
+    {
+        super(b, _cause);
+        this.ui = ui;
+    }
 
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.umd2);
-        }
+    static get _parent()
+    {
+        return Test.Base;
+    }
 
-        _readMemberImpl(istr)
-        {
-            this.umd2 = istr.readString();
-        }
-    };
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+    static get _id()
+    {
+        return "::Test::UnknownIntermediate";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.UnknownIntermediate;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.ui);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.ui = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.UnknownIntermediate",
+    Test.UnknownIntermediate);
+
+Test.UnknownMostDerived1 = class extends Test.KnownIntermediate
+{
+    constructor(b, ki, umd1 = "", _cause = "")
+    {
+        super(b, ki, _cause);
+        this.umd1 = umd1;
+    }
+
+    static get _parent()
+    {
+        return Test.KnownIntermediate;
+    }
+
+    static get _id()
+    {
+        return "::Test::UnknownMostDerived1";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.UnknownMostDerived1;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.umd1);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.umd1 = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.UnknownMostDerived1",
+    Test.UnknownMostDerived1);
+
+Test.UnknownMostDerived2 = class extends Test.UnknownIntermediate
+{
+    constructor(b, ui, umd2 = "", _cause = "")
+    {
+        super(b, ui, _cause);
+        this.umd2 = umd2;
+    }
+
+    static get _parent()
+    {
+        return Test.UnknownIntermediate;
+    }
+
+    static get _id()
+    {
+        return "::Test::UnknownMostDerived2";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.UnknownMostDerived2;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.umd2);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.umd2 = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.UnknownMostDerived2",
+    Test.UnknownMostDerived2);

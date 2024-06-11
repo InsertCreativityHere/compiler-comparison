@@ -16,53 +16,58 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.UserEx = class extends Ice.UserException
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.UserEx = class extends Ice.UserException
+    constructor(_cause = "")
     {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
+        super(_cause);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::UserEx";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.UserEx;
-        }
-    };
-
-    Slice.defineSequence(Test, "ByteSeqHelper", "Ice.ByteHelper", true);
-
-    const iceC_Test_Metrics_ids = [
-        "::Ice::Object",
-        "::Test::Metrics"
-    ];
-
-    Test.Metrics = class extends Ice.Object
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Test.MetricsPrx = class extends Ice.ObjectPrx
+    static get _id()
     {
-    };
+        return "::Test::UserEx";
+    }
 
-    Slice.defineOperations(Test.Metrics, Test.MetricsPrx, iceC_Test_Metrics_ids, "::Test::Metrics",
+    _mostDerivedType()
+    {
+        return Test.UserEx;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.UserEx",
+    Test.UserEx);
+
+Test.ByteSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
+
+const iceC_Test_Metrics_ids = [
+    "::Ice::Object",
+    "::Test::Metrics"
+];
+
+Test.Metrics = class extends Ice.Object
+{
+};
+
+Test.MetricsPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.MetricsPrx", Test.MetricsPrx);
+
+Ice.defineOperations(
+    Test.Metrics,
+    Test.MetricsPrx,
+    iceC_Test_Metrics_ids,
+    "::Test::Metrics",
     {
         "op": [, , , , , , , , ],
         "fail": [, 2, , , , , , , ],
@@ -73,33 +78,31 @@
         "opWithRequestFailedException": [, , , , , , , , ],
         "opWithLocalException": [, , , , , , , , ],
         "opWithUnknownException": [, , , , , , , , ],
-        "opByteS": [, , , , [["Test.ByteSeqHelper"]], , , , ],
+        "opByteS": [, , , , [[Test.ByteSeqHelper]], , , , ],
         "getAdmin": [, , , [9], , , , , ],
         "shutdown": [, , , , , , , , ]
     });
 
-    const iceC_Test_Controller_ids = [
-        "::Ice::Object",
-        "::Test::Controller"
-    ];
+const iceC_Test_Controller_ids = [
+    "::Ice::Object",
+    "::Test::Controller"
+];
 
-    Test.Controller = class extends Ice.Object
-    {
-    };
+Test.Controller = class extends Ice.Object
+{
+};
 
-    Test.ControllerPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.ControllerPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.ControllerPrx", Test.ControllerPrx);
 
-    Slice.defineOperations(Test.Controller, Test.ControllerPrx, iceC_Test_Controller_ids, "::Test::Controller",
+Ice.defineOperations(
+    Test.Controller,
+    Test.ControllerPrx,
+    iceC_Test_Controller_ids,
+    "::Test::Controller",
     {
         "hold": [, , , , , , , , ],
         "resume": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

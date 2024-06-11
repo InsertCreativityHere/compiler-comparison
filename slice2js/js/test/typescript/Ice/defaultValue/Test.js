@@ -17,17 +17,16 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
 
-Test.Color = Slice.defineEnum([
+export const Test = {};
+
+Test.Nested = Test.Nested || {};
+
+Test.Color = Ice.defineEnum([
     ['red', 0], ['green', 1], ['blue', 2]]);
 
-Test.Nested = _ModuleRegistry.module("Test.Nested");
-
-Test.Nested.Color = Slice.defineEnum([
+Test.Nested.Color = Ice.defineEnum([
     ['red', 0], ['green', 1], ['blue', 2]]);
 
 Test.Struct1 = class
@@ -116,85 +115,105 @@ Test.Struct1 = class
     }
 };
 
-Slice.defineStruct(Test.Struct1, false, true);
+Ice.defineStruct(Test.Struct1, false, true);
 
 Object.defineProperty(Test, 'ConstBool', {
+    enumerable: true,
     value: true
 });
 
 Object.defineProperty(Test, 'ConstByte', {
+    enumerable: true,
     value: 254
 });
 
 Object.defineProperty(Test, 'ConstShort', {
+    enumerable: true,
     value: 16000
 });
 
 Object.defineProperty(Test, 'ConstInt', {
+    enumerable: true,
     value: 3
 });
 
 Object.defineProperty(Test, 'ConstLong', {
+    enumerable: true,
     value: new Ice.Long(0, 4)
 });
 
 Object.defineProperty(Test, 'ConstFloat', {
+    enumerable: true,
     value: 5.1
 });
 
 Object.defineProperty(Test, 'ConstDouble', {
+    enumerable: true,
     value: 6.2
 });
 
 Object.defineProperty(Test, 'ConstString', {
+    enumerable: true,
     value: "foo \\ \"bar\n \r\n\t\v\f\u0007\b?"
 });
 
 Object.defineProperty(Test, 'ConstColor1', {
+    enumerable: true,
     value: Test.Color.red
 });
 
 Object.defineProperty(Test, 'ConstColor2', {
+    enumerable: true,
     value: Test.Color.green
 });
 
 Object.defineProperty(Test, 'ConstColor3', {
+    enumerable: true,
     value: Test.Color.blue
 });
 
 Object.defineProperty(Test, 'ConstNestedColor1', {
+    enumerable: true,
     value: Test.Nested.Color.red
 });
 
 Object.defineProperty(Test, 'ConstNestedColor2', {
+    enumerable: true,
     value: Test.Nested.Color.green
 });
 
 Object.defineProperty(Test, 'ConstNestedColor3', {
+    enumerable: true,
     value: Test.Nested.Color.blue
 });
 
 Object.defineProperty(Test, 'ConstZeroI', {
+    enumerable: true,
     value: 0
 });
 
 Object.defineProperty(Test, 'ConstZeroL', {
+    enumerable: true,
     value: new Ice.Long(0, 0)
 });
 
 Object.defineProperty(Test, 'ConstZeroF', {
+    enumerable: true,
     value: 0
 });
 
 Object.defineProperty(Test, 'ConstZeroDotF', {
+    enumerable: true,
     value: 0
 });
 
 Object.defineProperty(Test, 'ConstZeroD', {
+    enumerable: true,
     value: 0
 });
 
 Object.defineProperty(Test, 'ConstZeroDotD', {
+    enumerable: true,
     value: 0
 });
 
@@ -278,7 +297,7 @@ Test.Struct2 = class
     }
 };
 
-Slice.defineStruct(Test.Struct2, false, true);
+Ice.defineStruct(Test.Struct2, false, true);
 
 Test.Struct3 = class
 {
@@ -366,7 +385,7 @@ Test.Struct3 = class
     }
 };
 
-Slice.defineStruct(Test.Struct3, false, true);
+Ice.defineStruct(Test.Struct3, false, true);
 
 Test.Base = class extends Ice.Value
 {
@@ -432,7 +451,8 @@ Test.Base = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.Base, "::Test::Base");
+Ice.defineValue(Test.Base, "::Test::Base");
+Ice.TypeRegistry.declareValueType("Test.Base", Test.Base);
 
 Test.Derived = class extends Test.Base
 {
@@ -468,7 +488,8 @@ Test.Derived = class extends Test.Base
     }
 };
 
-Slice.defineValue(Test.Derived, "::Test::Derived");
+Ice.defineValue(Test.Derived, "::Test::Derived");
+Ice.TypeRegistry.declareValueType("Test.Derived", Test.Derived);
 
 Test.BaseEx = class extends Ice.UserException
 {
@@ -548,6 +569,9 @@ Test.BaseEx = class extends Ice.UserException
         this.zeroDotD = istr.readDouble();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.BaseEx",
+    Test.BaseEx);
 
 Test.DerivedEx = class extends Test.BaseEx
 {
@@ -597,12 +621,15 @@ Test.DerivedEx = class extends Test.BaseEx
         this.nc3 = Test.Nested.Color._read(istr);
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.DerivedEx",
+    Test.DerivedEx);
 
-Slice.defineSequence(Test, "ByteSeqHelper", "Ice.ByteHelper", true);
+Test.ByteSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
 
-Slice.defineSequence(Test, "IntSeqHelper", "Ice.IntHelper", true);
+Test.IntSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
 
-Slice.defineDictionary(Test, "IntStringDict", "IntStringDictHelper", "Ice.IntHelper", "Ice.StringHelper", false, undefined, undefined);
+[Test.IntStringDict, Test.IntStringDictHelper] = Ice.defineDictionary(Ice.IntHelper, Ice.StringHelper, false, undefined);
 
 Test.InnerStruct = class
 {
@@ -627,7 +654,7 @@ Test.InnerStruct = class
     }
 };
 
-Slice.defineStruct(Test.InnerStruct, true, false);
+Ice.defineStruct(Test.InnerStruct, true, false);
 
 Test.StructNoDefaults = class
 {
@@ -688,7 +715,7 @@ Test.StructNoDefaults = class
     }
 };
 
-Slice.defineStruct(Test.StructNoDefaults, false, true);
+Ice.defineStruct(Test.StructNoDefaults, false, true);
 
 Test.ExceptionNoDefaultsBase = class extends Ice.UserException
 {
@@ -729,6 +756,9 @@ Test.ExceptionNoDefaultsBase = class extends Ice.UserException
         this.bs = Test.ByteSeqHelper.read(istr);
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.ExceptionNoDefaultsBase",
+    Test.ExceptionNoDefaultsBase);
 
 Test.ExceptionNoDefaults = class extends Test.ExceptionNoDefaultsBase
 {
@@ -766,6 +796,9 @@ Test.ExceptionNoDefaults = class extends Test.ExceptionNoDefaultsBase
         this.dict = Test.IntStringDictHelper.read(istr);
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.ExceptionNoDefaults",
+    Test.ExceptionNoDefaults);
 
 Test.ClassNoDefaultsBase = class extends Ice.Value
 {
@@ -792,7 +825,8 @@ Test.ClassNoDefaultsBase = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.ClassNoDefaultsBase, "::Test::ClassNoDefaultsBase");
+Ice.defineValue(Test.ClassNoDefaultsBase, "::Test::ClassNoDefaultsBase");
+Ice.TypeRegistry.declareValueType("Test.ClassNoDefaultsBase", Test.ClassNoDefaultsBase);
 
 Test.ClassNoDefaults = class extends Test.ClassNoDefaultsBase
 {
@@ -816,5 +850,5 @@ Test.ClassNoDefaults = class extends Test.ClassNoDefaultsBase
     }
 };
 
-Slice.defineValue(Test.ClassNoDefaults, "::Test::ClassNoDefaults");
-export { Test };
+Ice.defineValue(Test.ClassNoDefaults, "::Test::ClassNoDefaults");
+Ice.TypeRegistry.declareValueType("Test.ClassNoDefaults", Test.ClassNoDefaults);

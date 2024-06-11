@@ -2,7 +2,7 @@
 /Users/austin/Code/zeroc/ice/python/test/Ice/operations/Test.ice:68: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/js/test/typescript/Ice/objects/Test.ice:182: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/js/test/typescript/Ice/operations/Test.ice:72: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/js/test/Ice/objects/Test.ice:180: warning: dictionary key type not supported in PHP
+/Users/austin/Code/zeroc/ice/js/test/Ice/objects/Test.ice:170: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/js/test/Ice/operations/Test.ice:70: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/objects/Test.ice:180: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/operations/TestAMD.ice:70: warning: dictionary key type not supported in PHP

@@ -16,267 +16,279 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const classdef = {};
+
+classdef._break = classdef._break || {};
+
+classdef._break.bitand = Ice.defineEnum([
+    ['_break', 0], ['_case', 1], ['_catch', 2], ['classdef', 3], ['_continue', 4],
+    ['_else', 5], ['elseif', 6], ['end', 7], ['enumeration', 8], ['events', 9],
+    ['_for', 10], ['_function', 11], ['global', 12], ['_if', 13], ['methods', 14],
+    ['otherwise', 15], ['parfor', 16], ['persistent', 17], ['properties', 18], ['_return', 19],
+    ['spmd', 20], ['_switch', 21], ['_try', 22], ['_while', 23], ['abs', 24],
+    ['and', 25], ['char', 26], ['eq', 27], ['length', 28], ['size', 29],
+    ['xor', 30], ['LAST', 31]]);
+
+classdef._break.bitor = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let classdef = _ModuleRegistry.module("classdef");
-
-    classdef._break = _ModuleRegistry.module("classdef._break");
-
-    classdef._break.bitand = Slice.defineEnum([
-        ['_break', 0], ['_case', 1], ['_catch', 2], ['classdef', 3], ['_continue', 4],
-        ['_else', 5], ['elseif', 6], ['end', 7], ['enumeration', 8], ['events', 9],
-        ['_for', 10], ['_function', 11], ['global', 12], ['_if', 13], ['methods', 14],
-        ['otherwise', 15], ['parfor', 16], ['persistent', 17], ['properties', 18], ['_return', 19],
-        ['spmd', 20], ['_switch', 21], ['_try', 22], ['_while', 23], ['abs', 24],
-        ['and', 25], ['char', 26], ['eq', 27], ['length', 28], ['size', 29],
-        ['xor', 30], ['LAST', 31]]);
-
-    classdef._break.bitor = class
+    constructor(_case = classdef._break.bitand._catch, _continue = 1, eq = 2, ne = 3)
     {
-        constructor(_case = classdef._break.bitand._catch, _continue = 1, eq = 2, ne = 3)
-        {
-            this._case = _case;
-            this._continue = _continue;
-            this.eq = eq;
-            this.ne = ne;
-        }
+        this._case = _case;
+        this._continue = _continue;
+        this.eq = eq;
+        this.ne = ne;
+    }
 
-        _write(ostr)
-        {
-            classdef._break.bitand._write(ostr, this._case);
-            ostr.writeInt(this._continue);
-            ostr.writeInt(this.eq);
-            ostr.writeInt(this.ne);
-        }
-
-        _read(istr)
-        {
-            this._case = classdef._break.bitand._read(istr);
-            this._continue = istr.readInt();
-            this.eq = istr.readInt();
-            this.ne = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  13;
-        }
-    };
-
-    Slice.defineStruct(classdef._break.bitor, true, true);
-
-    classdef._break.logical = class extends Ice.Value
+    _write(ostr)
     {
-        constructor(_else = classdef._break.bitand.enumeration, _for = new classdef._break.bitor(), int64 = true)
-        {
-            super();
-            this._else = _else;
-            this._for = _for;
-            this.int64 = int64;
-        }
+        classdef._break.bitand._write(ostr, this._case);
+        ostr.writeInt(this._continue);
+        ostr.writeInt(this.eq);
+        ostr.writeInt(this.ne);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            classdef._break.bitand._write(ostr, this._else);
-            classdef._break.bitor.write(ostr, this._for);
-            ostr.writeBool(this.int64);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this._else = classdef._break.bitand._read(istr);
-            this._for = classdef._break.bitor.read(istr, this._for);
-            this.int64 = istr.readBool();
-        }
-    };
-
-    Slice.defineValue(classdef._break.logical, "::classdef::break::logical");
-
-    classdef._break.xor = class extends classdef._break.logical
+    _read(istr)
     {
-        constructor(_else, _for, int64, _return = 1)
-        {
-            super(_else, _for, int64);
-            this._return = _return;
-        }
+        this._case = classdef._break.bitand._read(istr);
+        this._continue = istr.readInt();
+        this.eq = istr.readInt();
+        this.ne = istr.readInt();
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this._return);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this._return = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(classdef._break.xor, "::classdef::break::xor");
-
-    Slice.defineSequence(classdef._break, "parforHelper", "classdef._break.bitor", false);
-
-    Slice.defineDictionary(classdef._break, "_switch", "_switchHelper", "Ice.IntHelper", "classdef._break.bitor", false, undefined, undefined);
-
-    classdef._break._try = class extends Ice.Value
+    static get minWireSize()
     {
-        constructor(_while = 1, _delete = 2)
-        {
-            super();
-            this._while = _while;
-            this._delete = _delete;
-        }
+        return  13;
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this._while);
-            ostr.writeInt(this._delete);
-        }
+Ice.defineStruct(classdef._break.bitor, true, true);
 
-        _iceReadMemberImpl(istr)
-        {
-            this._while = istr.readInt();
-            this._delete = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(classdef._break._try, "::classdef::break::try");
-
-    classdef._break.properties = class extends classdef._break._try
+classdef._break.logical = class extends Ice.Value
+{
+    constructor(_else = classdef._break.bitand.enumeration, _for = new classdef._break.bitor(), int64 = true)
     {
-        constructor(_while, _delete, _if = 2, _catch = null, spmd = null, otherwise = null)
-        {
-            super(_while, _delete);
-            this._if = _if;
-            this._catch = _catch;
-            this.spmd = spmd;
-            this.otherwise = otherwise;
-        }
+        super();
+        this._else = _else;
+        this._for = _for;
+        this.int64 = int64;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this._if);
-            ostr.writeValue(this._catch);
-            classdef._break.parforHelper.write(ostr, this.spmd);
-            classdef._break._switchHelper.write(ostr, this.otherwise);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this._if = istr.readInt();
-            istr.readValue(obj => this._catch = obj, classdef._break.xor);
-            this.spmd = classdef._break.parforHelper.read(istr);
-            this.otherwise = classdef._break._switchHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(classdef._break.properties, "::classdef::break::properties");
-
-    classdef._break.persistent = class extends Ice.UserException
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(identifier = "1", message = "2", stack = "3", cause = "4", type = "5", end = null, _cause = "")
-        {
-            super(_cause);
-            this.identifier = identifier;
-            this.message = message;
-            this.stack = stack;
-            this.cause = cause;
-            this.type = type;
-            this.end = end;
-        }
+        classdef._break.bitand._write(ostr, this._else);
+        classdef._break.bitor.write(ostr, this._for);
+        ostr.writeBool(this.int64);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::classdef::break::persistent";
-        }
-
-        _mostDerivedType()
-        {
-            return classdef._break.persistent;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.identifier);
-            ostr.writeString(this.message);
-            ostr.writeString(this.stack);
-            ostr.writeString(this.cause);
-            ostr.writeString(this.type);
-            ostr.writeValue(this.end);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.identifier = istr.readString();
-            this.message = istr.readString();
-            this.stack = istr.readString();
-            this.cause = istr.readString();
-            this.type = istr.readString();
-            istr.readValue(obj => this.end = obj, classdef._break.logical);
-        }
-
-        _usesClasses()
-        {
-            return true;
-        }
-    };
-
-    classdef._break.global = class extends classdef._break.persistent
+    _iceReadMemberImpl(istr)
     {
-        constructor(identifier, message, stack, cause, type, end, enumeration = 1, _cause = "")
-        {
-            super(identifier, message, stack, cause, type, end, _cause);
-            this.enumeration = enumeration;
-        }
+        this._else = classdef._break.bitand._read(istr);
+        this._for = classdef._break.bitor.read(istr, this._for);
+        this.int64 = istr.readBool();
+    }
+};
 
-        static get _parent()
-        {
-            return classdef._break.persistent;
-        }
+Ice.defineValue(classdef._break.logical, "::classdef::break::logical");
+Ice.TypeRegistry.declareValueType("classdef._break.logical", classdef._break.logical);
 
-        static get _id()
-        {
-            return "::classdef::break::global";
-        }
-
-        _mostDerivedType()
-        {
-            return classdef._break.global;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.enumeration);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.enumeration = istr.readInt();
-        }
-    };
-
-    const iceC_classdef__break_elseif_ids = [
-        "::Ice::Object",
-        "::classdef::break::elseif"
-    ];
-
-    classdef._break.elseif = class extends Ice.Object
+classdef._break.xor = class extends classdef._break.logical
+{
+    constructor(_else, _for, int64, _return = 1)
     {
-    };
+        super(_else, _for, int64);
+        this._return = _return;
+    }
 
-    classdef._break.elseifPrx = class extends Ice.ObjectPrx
+    _iceWriteMemberImpl(ostr)
     {
-    };
+        ostr.writeInt(this._return);
+    }
 
-    Slice.defineOperations(classdef._break.elseif, classdef._break.elseifPrx, iceC_classdef__break_elseif_ids, "::classdef::break::elseif",
+    _iceReadMemberImpl(istr)
+    {
+        this._return = istr.readInt();
+    }
+};
+
+Ice.defineValue(classdef._break.xor, "::classdef::break::xor");
+Ice.TypeRegistry.declareValueType("classdef._break.xor", classdef._break.xor);
+
+classdef._break.parforHelper = Ice.StreamHelpers.generateSeqHelper(classdef._break.bitor, false);
+
+[classdef._break._switch, classdef._break._switchHelper] = Ice.defineDictionary(Ice.IntHelper, classdef._break.bitor, false, undefined);
+
+classdef._break._try = class extends Ice.Value
+{
+    constructor(_while = 1, _delete = 2)
+    {
+        super();
+        this._while = _while;
+        this._delete = _delete;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this._while);
+        ostr.writeInt(this._delete);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this._while = istr.readInt();
+        this._delete = istr.readInt();
+    }
+};
+
+Ice.defineValue(classdef._break._try, "::classdef::break::try");
+Ice.TypeRegistry.declareValueType("classdef._break._try", classdef._break._try);
+
+classdef._break.properties = class extends classdef._break._try
+{
+    constructor(_while, _delete, _if = 2, _catch = null, spmd = null, otherwise = null)
+    {
+        super(_while, _delete);
+        this._if = _if;
+        this._catch = _catch;
+        this.spmd = spmd;
+        this.otherwise = otherwise;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this._if);
+        ostr.writeValue(this._catch);
+        classdef._break.parforHelper.write(ostr, this.spmd);
+        classdef._break._switchHelper.write(ostr, this.otherwise);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this._if = istr.readInt();
+        istr.readValue(obj => this._catch = obj, Ice.TypeRegistry.getValueType("classdef._break.xor"));
+        this.spmd = classdef._break.parforHelper.read(istr);
+        this.otherwise = classdef._break._switchHelper.read(istr);
+    }
+};
+
+Ice.defineValue(classdef._break.properties, "::classdef::break::properties");
+Ice.TypeRegistry.declareValueType("classdef._break.properties", classdef._break.properties);
+
+classdef._break.persistent = class extends Ice.UserException
+{
+    constructor(identifier = "1", message = "2", stack = "3", cause = "4", type = "5", end = null, _cause = "")
+    {
+        super(_cause);
+        this.identifier = identifier;
+        this.message = message;
+        this.stack = stack;
+        this.cause = cause;
+        this.type = type;
+        this.end = end;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::classdef::break::persistent";
+    }
+
+    _mostDerivedType()
+    {
+        return classdef._break.persistent;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.identifier);
+        ostr.writeString(this.message);
+        ostr.writeString(this.stack);
+        ostr.writeString(this.cause);
+        ostr.writeString(this.type);
+        ostr.writeValue(this.end);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.identifier = istr.readString();
+        this.message = istr.readString();
+        this.stack = istr.readString();
+        this.cause = istr.readString();
+        this.type = istr.readString();
+        istr.readValue(obj => this.end = obj, Ice.TypeRegistry.getValueType("classdef._break.logical"));
+    }
+
+    _usesClasses()
+    {
+        return true;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "classdef._break.persistent",
+    classdef._break.persistent);
+
+classdef._break.global = class extends classdef._break.persistent
+{
+    constructor(identifier, message, stack, cause, type, end, enumeration = 1, _cause = "")
+    {
+        super(identifier, message, stack, cause, type, end, _cause);
+        this.enumeration = enumeration;
+    }
+
+    static get _parent()
+    {
+        return classdef._break.persistent;
+    }
+
+    static get _id()
+    {
+        return "::classdef::break::global";
+    }
+
+    _mostDerivedType()
+    {
+        return classdef._break.global;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.enumeration);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.enumeration = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "classdef._break.global",
+    classdef._break.global);
+
+const iceC_classdef__break_elseif_ids = [
+    "::Ice::Object",
+    "::classdef::break::elseif"
+];
+
+classdef._break.elseif = class extends Ice.Object
+{
+};
+
+classdef._break.elseifPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("classdef._break.elseifPrx", classdef._break.elseifPrx);
+
+Ice.defineOperations(
+    classdef._break.elseif,
+    classdef._break.elseifPrx,
+    iceC_classdef__break_elseif_ids,
+    "::classdef::break::elseif",
     {
         "events": [, , , , , , , , ],
         "function": ["_function", , , , , , , , ],
@@ -284,13 +296,7 @@
         "checkedCast": [, , , , , , , , ]
     });
 
-    Object.defineProperty(classdef._break, 'methods', {
-        value: 1
-    });
-    exports.classdef = classdef;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Object.defineProperty(classdef._break, 'methods', {
+    enumerable: true,
+    value: 1
+});

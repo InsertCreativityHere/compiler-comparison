@@ -16,57 +16,57 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_TestIntf_ids = [
+    "::Ice::Object",
+    "::Test::TestIntf"
+];
+
+Test.TestIntf = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.TestIntfPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
 
-    const iceC_Test_TestIntf_ids = [
-        "::Ice::Object",
-        "::Test::TestIntf"
-    ];
-
-    Test.TestIntf = class extends Ice.Object
-    {
-    };
-
-    Test.TestIntfPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
     {
         "op": [, , , , , , , , ],
         "sleep": [, , , , [[3]], , , , ],
-        "opWithPayload": [, , , , [["Ice.ByteSeqHelper"]], , , , ],
+        "opWithPayload": [, , , , [[Ice.ByteSeqHelper]], , , , ],
         "shutdown": [, , , , , , , , ]
     });
 
-    const iceC_Test_TestIntfController_ids = [
-        "::Ice::Object",
-        "::Test::TestIntfController"
-    ];
+const iceC_Test_TestIntfController_ids = [
+    "::Ice::Object",
+    "::Test::TestIntfController"
+];
 
-    Test.TestIntfController = class extends Ice.Object
-    {
-    };
+Test.TestIntfController = class extends Ice.Object
+{
+};
 
-    Test.TestIntfControllerPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.TestIntfControllerPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestIntfControllerPrx", Test.TestIntfControllerPrx);
 
-    Slice.defineOperations(Test.TestIntfController, Test.TestIntfControllerPrx, iceC_Test_TestIntfController_ids, "::Test::TestIntfController",
+Ice.defineOperations(
+    Test.TestIntfController,
+    Test.TestIntfControllerPrx,
+    iceC_Test_TestIntfController_ids,
+    "::Test::TestIntfController",
     {
         "holdAdapter": [, , , , , , , , ],
         "resumeAdapter": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

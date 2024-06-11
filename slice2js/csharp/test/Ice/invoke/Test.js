@@ -16,51 +16,56 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.MyException = class extends Ice.UserException
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.MyException = class extends Ice.UserException
+    constructor(_cause = "")
     {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
+        super(_cause);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::MyException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.MyException;
-        }
-    };
-
-    const iceC_Test_MyClass_ids = [
-        "::Ice::Object",
-        "::Test::MyClass"
-    ];
-
-    Test.MyClass = class extends Ice.Object
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Test.MyClassPrx = class extends Ice.ObjectPrx
+    static get _id()
     {
-    };
+        return "::Test::MyException";
+    }
 
-    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
+    _mostDerivedType()
+    {
+        return Test.MyException;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.MyException",
+    Test.MyException);
+
+const iceC_Test_MyClass_ids = [
+    "::Ice::Object",
+    "::Test::MyClass"
+];
+
+Test.MyClass = class extends Ice.Object
+{
+};
+
+Test.MyClassPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.MyClassPrx", Test.MyClassPrx);
+
+Ice.defineOperations(
+    Test.MyClass,
+    Test.MyClassPrx,
+    iceC_Test_MyClass_ids,
+    "::Test::MyClass",
     {
         "opOneway": [, , , , , , , , ],
         "opString": [, , , [7], [[7]], [[7]], , , ],
@@ -70,10 +75,3 @@
         ], , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

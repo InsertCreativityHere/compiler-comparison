@@ -16,27 +16,41 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("./Session");
-require("./PermissionsVerifier");
-const Glacier2 = _ModuleRegistry.module("Glacier2");
+import * as Ice_Exception from "../Ice/Exception.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
+import { Ice as Ice_Ice_Router } from "../Ice/Router.js"
 
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Exception");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("../Ice/Router");
-const Ice = _ModuleRegistry.module("Ice");
+const Ice = {
+    ...Ice_Exception,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+    ...Ice_Ice_Router,
+};
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+import { 
+    Glacier2 as Glacier2_PermissionsVerifier, } from "./PermissionsVerifier.js"
+import { 
+    Glacier2 as Glacier2_Session, } from "./Session.js"
+
+const Glacier2 = {
+    ...Glacier2_PermissionsVerifier,
+    ...Glacier2_Session,
+};
+
+export { Glacier2 };
 
 /**
  *  This exception is raised if a client tries to destroy a session with a router, but no session exists for the
@@ -65,6 +79,9 @@ Glacier2.SessionNotExistException = class extends Ice.UserException
         return Glacier2.SessionNotExistException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Glacier2.SessionNotExistException",
+    Glacier2.SessionNotExistException);
 
 const iceC_Glacier2_Router_ids = [
     "::Glacier2::Router",
@@ -93,31 +110,33 @@ Glacier2.RouterPrx = class extends Ice.ObjectPrx
             Ice.RouterPrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("Glacier2.RouterPrx", Glacier2.RouterPrx);
 
-Slice.defineOperations(Glacier2.Router, Glacier2.RouterPrx, iceC_Glacier2_Router_ids, "::Glacier2::Router",
-{
-    "getCategoryForClient": [, 2, , [7], , , , , ],
-    "createSession": [, , 2, ["Glacier2.SessionPrx"], [[7], [7]], ,
-    [
-        Glacier2.PermissionDeniedException,
-        Glacier2.CannotCreateSessionException
-    ], , ],
-    "createSessionFromSecureConnection": [, , 2, ["Glacier2.SessionPrx"], , ,
-    [
-        Glacier2.PermissionDeniedException,
-        Glacier2.CannotCreateSessionException
-    ], , ],
-    "refreshSession": [, , , , , ,
-    [
-        Glacier2.SessionNotExistException
-    ], , ],
-    "destroySession": [, , , , , ,
-    [
-        Glacier2.SessionNotExistException
-    ], , ],
-    "getSessionTimeout": [, 2, , [4], , , , , ],
-    "getACMTimeout": [, 2, , [3], , , , , ]
-});
-/* slice2js browser-bundle-skip */
-exports.Glacier2 = Glacier2;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    Glacier2.Router,
+    Glacier2.RouterPrx,
+    iceC_Glacier2_Router_ids,
+    "::Glacier2::Router",
+    {
+        "getCategoryForClient": [, 2, , [7], , , , , ],
+        "createSession": [, , 2, ["Glacier2.SessionPrx"], [[7], [7]], ,
+        [
+            Glacier2.CannotCreateSessionException,
+            Glacier2.PermissionDeniedException
+        ], , ],
+        "createSessionFromSecureConnection": [, , 2, ["Glacier2.SessionPrx"], , ,
+        [
+            Glacier2.CannotCreateSessionException,
+            Glacier2.PermissionDeniedException
+        ], , ],
+        "refreshSession": [, , , , , ,
+        [
+            Glacier2.SessionNotExistException
+        ], , ],
+        "destroySession": [, , , , , ,
+        [
+            Glacier2.SessionNotExistException
+        ], , ],
+        "getSessionTimeout": [, 2, , [4], , , , , ],
+        "getACMTimeout": [, 2, , [3], , , , , ]
+    });

@@ -16,33 +16,46 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Struct");
-require("../Ice/Exception");
-require("../Ice/EnumBase");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("./BuiltinSequences");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_ArrayUtil from "../Ice/ArrayUtil.js";
+import * as Ice_EnumBase from "../Ice/EnumBase.js";
+import * as Ice_Exception from "../Ice/Exception.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_Struct from "../Ice/Struct.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
+import { Ice as Ice_BuiltinSequences } from "./BuiltinSequences.js"
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_ArrayUtil,
+    ...Ice_EnumBase,
+    ...Ice_Exception,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_Struct,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+    ...Ice_BuiltinSequences,
+};
+
+
+export { Ice };
 
 /**
  *  An enumeration representing the different types of log messages.
  **/
-Ice.LogMessageType = Slice.defineEnum([
+Ice.LogMessageType = Ice.defineEnum([
     ['PrintMessage', 0], ['TraceMessage', 1], ['WarningMessage', 2], ['ErrorMessage', 3]]);
 
-Slice.defineSequence(Ice, "LogMessageTypeSeqHelper", "Ice.LogMessageType._helper", false);
+Ice.LogMessageTypeSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.LogMessageType._helper, false);
 
 /**
  *  A complete log message.
@@ -79,9 +92,9 @@ Ice.LogMessage = class
     }
 };
 
-Slice.defineStruct(Ice.LogMessage, true, true);
+Ice.defineStruct(Ice.LogMessage, true, true);
 
-Slice.defineSequence(Ice, "LogMessageSeqHelper", "Ice.LogMessage", false);
+Ice.LogMessageSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.LogMessage, false);
 
 const iceC_Ice_RemoteLogger_ids = [
     "::Ice::Object",
@@ -99,12 +112,17 @@ Ice.RemoteLogger = class extends Ice.Object
 Ice.RemoteLoggerPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Ice.RemoteLoggerPrx", Ice.RemoteLoggerPrx);
 
-Slice.defineOperations(Ice.RemoteLogger, Ice.RemoteLoggerPrx, iceC_Ice_RemoteLogger_ids, "::Ice::RemoteLogger",
-{
-    "init": [, , , , [[7], ["Ice.LogMessageSeqHelper"]], , , , ],
-    "log": [, , , , [[Ice.LogMessage]], , , , ]
-});
+Ice.defineOperations(
+    Ice.RemoteLogger,
+    Ice.RemoteLoggerPrx,
+    iceC_Ice_RemoteLogger_ids,
+    "::Ice::RemoteLogger",
+    {
+        "init": [, , , , [[7], [Ice.LogMessageSeqHelper]], , , , ],
+        "log": [, , , , [[Ice.LogMessage]], , , , ]
+    });
 
 /**
  *  Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
@@ -131,6 +149,9 @@ Ice.RemoteLoggerAlreadyAttachedException = class extends Ice.UserException
         return Ice.RemoteLoggerAlreadyAttachedException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Ice.RemoteLoggerAlreadyAttachedException",
+    Ice.RemoteLoggerAlreadyAttachedException);
 
 const iceC_Ice_LoggerAdmin_ids = [
     "::Ice::LoggerAdmin",
@@ -148,16 +169,18 @@ Ice.LoggerAdmin = class extends Ice.Object
 Ice.LoggerAdminPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Ice.LoggerAdminPrx", Ice.LoggerAdminPrx);
 
-Slice.defineOperations(Ice.LoggerAdmin, Ice.LoggerAdminPrx, iceC_Ice_LoggerAdmin_ids, "::Ice::LoggerAdmin",
-{
-    "attachRemoteLogger": [, , , , [["Ice.RemoteLoggerPrx"], ["Ice.LogMessageTypeSeqHelper"], ["Ice.StringSeqHelper"], [3]], ,
-    [
-        Ice.RemoteLoggerAlreadyAttachedException
-    ], , ],
-    "detachRemoteLogger": [, , , [1], [["Ice.RemoteLoggerPrx"]], , , , ],
-    "getLog": [, , , ["Ice.LogMessageSeqHelper"], [["Ice.LogMessageTypeSeqHelper"], ["Ice.StringSeqHelper"], [3]], [[7]], , , ]
-});
-/* slice2js browser-bundle-skip */
-exports.Ice = Ice;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    Ice.LoggerAdmin,
+    Ice.LoggerAdminPrx,
+    iceC_Ice_LoggerAdmin_ids,
+    "::Ice::LoggerAdmin",
+    {
+        "attachRemoteLogger": [, , , , [["Ice.RemoteLoggerPrx"], [Ice.LogMessageTypeSeqHelper], [Ice.StringSeqHelper], [3]], ,
+        [
+            Ice.RemoteLoggerAlreadyAttachedException
+        ], , ],
+        "detachRemoteLogger": [, , , [1], [["Ice.RemoteLoggerPrx"]], , , , ],
+        "getLog": [, , , [Ice.LogMessageSeqHelper], [[Ice.LogMessageTypeSeqHelper], [Ice.StringSeqHelper], [3]], [[7]], , , ]
+    });

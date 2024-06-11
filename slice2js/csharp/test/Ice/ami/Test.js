@@ -16,75 +16,89 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.Outer = Test.Outer || {};
+
+Test.Outer.Inner = Test.Outer.Inner || {};
+
+Test.TestIntfException = class extends Ice.UserException
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.TestIntfException = class extends Ice.UserException
+    constructor(_cause = "")
     {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
+        super(_cause);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::TestIntfException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.TestIntfException;
-        }
-    };
-
-    Test.CloseMode = Slice.defineEnum([
-        ['Forcefully', 0], ['Gracefully', 1], ['GracefullyWithWait', 2]]);
-
-    const iceC_Test_PingReply_ids = [
-        "::Ice::Object",
-        "::Test::PingReply"
-    ];
-
-    Test.PingReply = class extends Ice.Object
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Test.PingReplyPrx = class extends Ice.ObjectPrx
+    static get _id()
     {
-    };
+        return "::Test::TestIntfException";
+    }
 
-    Slice.defineOperations(Test.PingReply, Test.PingReplyPrx, iceC_Test_PingReply_ids, "::Test::PingReply",
+    _mostDerivedType()
+    {
+        return Test.TestIntfException;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.TestIntfException",
+    Test.TestIntfException);
+
+Test.CloseMode = Ice.defineEnum([
+    ['Forcefully', 0], ['Gracefully', 1], ['GracefullyWithWait', 2]]);
+
+const iceC_Test_PingReply_ids = [
+    "::Ice::Object",
+    "::Test::PingReply"
+];
+
+Test.PingReply = class extends Ice.Object
+{
+};
+
+Test.PingReplyPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.PingReplyPrx", Test.PingReplyPrx);
+
+Ice.defineOperations(
+    Test.PingReply,
+    Test.PingReplyPrx,
+    iceC_Test_PingReply_ids,
+    "::Test::PingReply",
     {
         "reply": [, , , , , , , , ]
     });
 
-    const iceC_Test_TestIntf_ids = [
-        "::Ice::Object",
-        "::Test::TestIntf"
-    ];
+const iceC_Test_TestIntf_ids = [
+    "::Ice::Object",
+    "::Test::TestIntf"
+];
 
-    Test.TestIntf = class extends Ice.Object
-    {
-    };
+Test.TestIntf = class extends Ice.Object
+{
+};
 
-    Test.TestIntfPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.TestIntfPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
     {
         "op": [, , , , , , , , ],
-        "opWithPayload": [, , , , [["Ice.ByteSeqHelper"]], , , , ],
+        "opWithPayload": [, , , , [[Ice.ByteSeqHelper]], , , , ],
         "opWithResult": [, , , [3], , , , , ],
         "opWithUE": [, , , , , ,
         [
@@ -109,50 +123,49 @@
         "pingBiDir": [, , , , [["Test.PingReplyPrx"]], , , , ]
     });
 
-    const iceC_Test_TestIntfController_ids = [
-        "::Ice::Object",
-        "::Test::TestIntfController"
-    ];
+const iceC_Test_TestIntfController_ids = [
+    "::Ice::Object",
+    "::Test::TestIntfController"
+];
 
-    Test.TestIntfController = class extends Ice.Object
-    {
-    };
+Test.TestIntfController = class extends Ice.Object
+{
+};
 
-    Test.TestIntfControllerPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.TestIntfControllerPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestIntfControllerPrx", Test.TestIntfControllerPrx);
 
-    Slice.defineOperations(Test.TestIntfController, Test.TestIntfControllerPrx, iceC_Test_TestIntfController_ids, "::Test::TestIntfController",
+Ice.defineOperations(
+    Test.TestIntfController,
+    Test.TestIntfControllerPrx,
+    iceC_Test_TestIntfController_ids,
+    "::Test::TestIntfController",
     {
         "holdAdapter": [, , , , , , , , ],
         "resumeAdapter": [, , , , , , , , ]
     });
 
-    Test.Outer = _ModuleRegistry.module("Test.Outer");
+const iceC_Test_Outer_Inner_TestIntf_ids = [
+    "::Ice::Object",
+    "::Test::Outer::Inner::TestIntf"
+];
 
-    Test.Outer.Inner = _ModuleRegistry.module("Test.Outer.Inner");
+Test.Outer.Inner.TestIntf = class extends Ice.Object
+{
+};
 
-    const iceC_Test_Outer_Inner_TestIntf_ids = [
-        "::Ice::Object",
-        "::Test::Outer::Inner::TestIntf"
-    ];
+Test.Outer.Inner.TestIntfPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.Outer.Inner.TestIntfPrx", Test.Outer.Inner.TestIntfPrx);
 
-    Test.Outer.Inner.TestIntf = class extends Ice.Object
-    {
-    };
-
-    Test.Outer.Inner.TestIntfPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.Outer.Inner.TestIntf, Test.Outer.Inner.TestIntfPrx, iceC_Test_Outer_Inner_TestIntf_ids, "::Test::Outer::Inner::TestIntf",
+Ice.defineOperations(
+    Test.Outer.Inner.TestIntf,
+    Test.Outer.Inner.TestIntfPrx,
+    iceC_Test_Outer_Inner_TestIntf_ids,
+    "::Test::Outer::Inner::TestIntf",
     {
         "op": [, , , [3], [[3]], [[3]], , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

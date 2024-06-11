@@ -16,50 +16,53 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+import { 
+    IceStormElection as IceStormElection_LLURecord, } from "./LLURecord.js"
+import { 
+    IceStorm as IceStorm_SubscriberRecord, } from "./SubscriberRecord.js"
+
+const IceStorm = {
+    ...IceStorm_SubscriberRecord,
+};
+
+const IceStormElection = {
+    ...IceStormElection_LLURecord,
+};
+
+export { IceStormElection };
+
+export { IceStorm };
+
+[IceStormElection.StringLogUpdateDict, IceStormElection.StringLogUpdateDictHelper] = Ice.defineDictionary(Ice.StringHelper, IceStormElection.LogUpdate, false, undefined);
+
+[IceStorm.SubscriberRecordDict, IceStorm.SubscriberRecordDictHelper] = Ice.defineDictionary(IceStorm.SubscriberRecordKey, IceStorm.SubscriberRecord, false, Ice.HashMap.compareEquals);
+
+IceStorm.AllData = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const IceStorm = require("ice").IceStorm;
-    const IceStormElection = require("LLURecord").IceStormElection;
-    const Slice = Ice.Slice;
-
-    Slice.defineDictionary(IceStormElection, "StringLogUpdateDict", "StringLogUpdateDictHelper", "Ice.StringHelper", "IceStormElection.LogUpdate", false, undefined, undefined);
-
-    Slice.defineDictionary(IceStorm, "SubscriberRecordDict", "SubscriberRecordDictHelper", "IceStorm.SubscriberRecordKey", "IceStorm.SubscriberRecord", false, Ice.HashMap.compareEquals, undefined);
-
-    IceStorm.AllData = class
+    constructor(llus = null, subscribers = null)
     {
-        constructor(llus = null, subscribers = null)
-        {
-            this.llus = llus;
-            this.subscribers = subscribers;
-        }
+        this.llus = llus;
+        this.subscribers = subscribers;
+    }
 
-        _write(ostr)
-        {
-            IceStormElection.StringLogUpdateDictHelper.write(ostr, this.llus);
-            IceStorm.SubscriberRecordDictHelper.write(ostr, this.subscribers);
-        }
+    _write(ostr)
+    {
+        IceStormElection.StringLogUpdateDictHelper.write(ostr, this.llus);
+        IceStorm.SubscriberRecordDictHelper.write(ostr, this.subscribers);
+    }
 
-        _read(istr)
-        {
-            this.llus = IceStormElection.StringLogUpdateDictHelper.read(istr);
-            this.subscribers = IceStorm.SubscriberRecordDictHelper.read(istr);
-        }
+    _read(istr)
+    {
+        this.llus = IceStormElection.StringLogUpdateDictHelper.read(istr);
+        this.subscribers = IceStorm.SubscriberRecordDictHelper.read(istr);
+    }
 
-        static get minWireSize()
-        {
-            return  2;
-        }
-    };
+    static get minWireSize()
+    {
+        return  2;
+    }
+};
 
-    Slice.defineStruct(IceStorm.AllData, false, true);
-    exports.IceStormElection = IceStormElection;
-    exports.IceStorm = IceStorm;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Ice.defineStruct(IceStorm.AllData, false, true);

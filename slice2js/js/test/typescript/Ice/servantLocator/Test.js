@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 Test.TestIntfUserException = class extends Ice.UserException
 {
@@ -44,6 +43,9 @@ Test.TestIntfUserException = class extends Ice.UserException
         return Test.TestIntfUserException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.TestIntfUserException",
+    Test.TestIntfUserException);
 
 Test.TestImpossibleException = class extends Ice.UserException
 {
@@ -67,6 +69,9 @@ Test.TestImpossibleException = class extends Ice.UserException
         return Test.TestImpossibleException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.TestImpossibleException",
+    Test.TestImpossibleException);
 
 const iceC_Test_TestIntf_ids = [
     "::Ice::Object",
@@ -80,38 +85,43 @@ Test.TestIntf = class extends Ice.Object
 Test.TestIntfPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
 
-Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
-{
-    "requestFailedException": [, , , , , , , , ],
-    "unknownUserException": [, , , , , , , , ],
-    "unknownLocalException": [, , , , , , , , ],
-    "unknownException": [, , , , , , , , ],
-    "localException": [, , , , , , , , ],
-    "userException": [, , , , , , , , ],
-    "jsException": [, , , , , , , , ],
-    "unknownExceptionWithServantException": [, , , , , , , , ],
-    "impossibleException": [, , , [7], [[1]], ,
-    [
-        Test.TestImpossibleException
-    ], , ],
-    "intfUserException": [, , , [7], [[1]], ,
-    [
-        Test.TestIntfUserException,
-        Test.TestImpossibleException
-    ], , ],
-    "asyncResponse": [, , , , , ,
-    [
-        Test.TestIntfUserException,
-        Test.TestImpossibleException
-    ], , ],
-    "asyncException": [, , , , , ,
-    [
-        Test.TestIntfUserException,
-        Test.TestImpossibleException
-    ], , ],
-    "shutdown": [, , , , , , , , ]
-});
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
+    {
+        "requestFailedException": [, , , , , , , , ],
+        "unknownUserException": [, , , , , , , , ],
+        "unknownLocalException": [, , , , , , , , ],
+        "unknownException": [, , , , , , , , ],
+        "localException": [, , , , , , , , ],
+        "userException": [, , , , , , , , ],
+        "jsException": [, , , , , , , , ],
+        "unknownExceptionWithServantException": [, , , , , , , , ],
+        "impossibleException": [, , , [7], [[1]], ,
+        [
+            Test.TestImpossibleException
+        ], , ],
+        "intfUserException": [, , , [7], [[1]], ,
+        [
+            Test.TestIntfUserException,
+            Test.TestImpossibleException
+        ], , ],
+        "asyncResponse": [, , , , , ,
+        [
+            Test.TestIntfUserException,
+            Test.TestImpossibleException
+        ], , ],
+        "asyncException": [, , , , , ,
+        [
+            Test.TestIntfUserException,
+            Test.TestImpossibleException
+        ], , ],
+        "shutdown": [, , , , , , , , ]
+    });
 
 const iceC_Test_TestActivation_ids = [
     "::Ice::Object",
@@ -125,11 +135,16 @@ Test.TestActivation = class extends Ice.Object
 Test.TestActivationPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.TestActivationPrx", Test.TestActivationPrx);
 
-Slice.defineOperations(Test.TestActivation, Test.TestActivationPrx, iceC_Test_TestActivation_ids, "::Test::TestActivation",
-{
-    "activateServantLocator": [, , , , [[1]], , , , ]
-});
+Ice.defineOperations(
+    Test.TestActivation,
+    Test.TestActivationPrx,
+    iceC_Test_TestActivation_ids,
+    "::Test::TestActivation",
+    {
+        "activateServantLocator": [, , , , [[1]], , , , ]
+    });
 
 const iceC_Test_Echo_ids = [
     "::Ice::Object",
@@ -143,12 +158,16 @@ Test.Echo = class extends Ice.Object
 Test.EchoPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.EchoPrx", Test.EchoPrx);
 
-Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
-{
-    "setConnection": [, , , , , , , , ],
-    "startBatch": [, , , , , , , , ],
-    "flushBatch": [, , , , , , , , ],
-    "shutdown": [, , , , , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.Echo,
+    Test.EchoPrx,
+    iceC_Test_Echo_ids,
+    "::Test::Echo",
+    {
+        "setConnection": [, , , , , , , , ],
+        "startBatch": [, , , , , , , , ],
+        "flushBatch": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ]
+    });

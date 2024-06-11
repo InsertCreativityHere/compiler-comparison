@@ -16,240 +16,245 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test2 = {};
+
+export const Test3 = {};
+
+Test2.C1 = class extends Ice.Value
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test2 = _ModuleRegistry.module("Test2");
-
-    Test2.C1 = class extends Ice.Value
+    constructor(i = 0)
     {
-        constructor(i = 0)
-        {
-            super();
-            this.i = i;
-        }
+        super();
+        this.i = i;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.i = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test2.C1, "::Test2::C1");
-
-    Test2.C2 = class extends Test2.C1
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(i, l = new Ice.Long(0, 0))
-        {
-            super(i);
-            this.l = l;
-        }
+        ostr.writeInt(this.i);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeLong(this.l);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.l = istr.readLong();
-        }
-    };
-
-    Slice.defineValue(Test2.C2, "::Test2::C2");
-
-    Test2.E1 = class extends Ice.UserException
+    _iceReadMemberImpl(istr)
     {
-        constructor(i = 0, _cause = "")
-        {
-            super(_cause);
-            this.i = i;
-        }
+        this.i = istr.readInt();
+    }
+};
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
+Ice.defineValue(Test2.C1, "::Test2::C1");
+Ice.TypeRegistry.declareValueType("Test2.C1", Test2.C1);
 
-        static get _id()
-        {
-            return "::Test2::E1";
-        }
-
-        _mostDerivedType()
-        {
-            return Test2.E1;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.i = istr.readInt();
-        }
-    };
-
-    Test2.E2 = class extends Test2.E1
+Test2.C2 = class extends Test2.C1
+{
+    constructor(i, l = new Ice.Long(0, 0))
     {
-        constructor(i, l = new Ice.Long(0, 0), _cause = "")
-        {
-            super(i, _cause);
-            this.l = l;
-        }
+        super(i);
+        this.l = l;
+    }
 
-        static get _parent()
-        {
-            return Test2.E1;
-        }
-
-        static get _id()
-        {
-            return "::Test2::E2";
-        }
-
-        _mostDerivedType()
-        {
-            return Test2.E2;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeLong(this.l);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.l = istr.readLong();
-        }
-    };
-
-    let Test3 = _ModuleRegistry.module("Test3");
-
-    Test3.C1 = class extends Ice.Value
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(i = 0)
-        {
-            super();
-            this.i = i;
-        }
+        ostr.writeLong(this.l);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.i = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test3.C1, "::Test3::C1");
-
-    Test3.C2 = class extends Test3.C1
+    _iceReadMemberImpl(istr)
     {
-        constructor(i, l = new Ice.Long(0, 0))
-        {
-            super(i);
-            this.l = l;
-        }
+        this.l = istr.readLong();
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeLong(this.l);
-        }
+Ice.defineValue(Test2.C2, "::Test2::C2");
+Ice.TypeRegistry.declareValueType("Test2.C2", Test2.C2);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.l = istr.readLong();
-        }
-    };
-
-    Slice.defineValue(Test3.C2, "::Test3::C2");
-
-    Test3.E1 = class extends Ice.UserException
+Test2.E1 = class extends Ice.UserException
+{
+    constructor(i = 0, _cause = "")
     {
-        constructor(i = 0, _cause = "")
-        {
-            super(_cause);
-            this.i = i;
-        }
+        super(_cause);
+        this.i = i;
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test3::E1";
-        }
-
-        _mostDerivedType()
-        {
-            return Test3.E1;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.i = istr.readInt();
-        }
-    };
-
-    Test3.E2 = class extends Test3.E1
+    static get _parent()
     {
-        constructor(i, l = new Ice.Long(0, 0), _cause = "")
-        {
-            super(i, _cause);
-            this.l = l;
-        }
+        return Ice.UserException;
+    }
 
-        static get _parent()
-        {
-            return Test3.E1;
-        }
+    static get _id()
+    {
+        return "::Test2::E1";
+    }
 
-        static get _id()
-        {
-            return "::Test3::E2";
-        }
+    _mostDerivedType()
+    {
+        return Test2.E1;
+    }
 
-        _mostDerivedType()
-        {
-            return Test3.E2;
-        }
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.i);
+    }
 
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeLong(this.l);
-        }
+    _readMemberImpl(istr)
+    {
+        this.i = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test2.E1",
+    Test2.E1);
 
-        _readMemberImpl(istr)
-        {
-            this.l = istr.readLong();
-        }
-    };
-    exports.Test2 = Test2;
-    exports.Test3 = Test3;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Test2.E2 = class extends Test2.E1
+{
+    constructor(i, l = new Ice.Long(0, 0), _cause = "")
+    {
+        super(i, _cause);
+        this.l = l;
+    }
+
+    static get _parent()
+    {
+        return Test2.E1;
+    }
+
+    static get _id()
+    {
+        return "::Test2::E2";
+    }
+
+    _mostDerivedType()
+    {
+        return Test2.E2;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeLong(this.l);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.l = istr.readLong();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test2.E2",
+    Test2.E2);
+
+Test3.C1 = class extends Ice.Value
+{
+    constructor(i = 0)
+    {
+        super();
+        this.i = i;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this.i);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.i = istr.readInt();
+    }
+};
+
+Ice.defineValue(Test3.C1, "::Test3::C1");
+Ice.TypeRegistry.declareValueType("Test3.C1", Test3.C1);
+
+Test3.C2 = class extends Test3.C1
+{
+    constructor(i, l = new Ice.Long(0, 0))
+    {
+        super(i);
+        this.l = l;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeLong(this.l);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.l = istr.readLong();
+    }
+};
+
+Ice.defineValue(Test3.C2, "::Test3::C2");
+Ice.TypeRegistry.declareValueType("Test3.C2", Test3.C2);
+
+Test3.E1 = class extends Ice.UserException
+{
+    constructor(i = 0, _cause = "")
+    {
+        super(_cause);
+        this.i = i;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test3::E1";
+    }
+
+    _mostDerivedType()
+    {
+        return Test3.E1;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.i);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.i = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test3.E1",
+    Test3.E1);
+
+Test3.E2 = class extends Test3.E1
+{
+    constructor(i, l = new Ice.Long(0, 0), _cause = "")
+    {
+        super(i, _cause);
+        this.l = l;
+    }
+
+    static get _parent()
+    {
+        return Test3.E1;
+    }
+
+    static get _id()
+    {
+        return "::Test3::E2";
+    }
+
+    _mostDerivedType()
+    {
+        return Test3.E2;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeLong(this.l);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.l = istr.readLong();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test3.E2",
+    Test3.E2);

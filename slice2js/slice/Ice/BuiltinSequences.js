@@ -16,39 +16,45 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_ArrayUtil from "../Ice/ArrayUtil.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_ArrayUtil,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+};
 
-Slice.defineSequence(Ice, "BoolSeqHelper", "Ice.BoolHelper", true);
 
-Slice.defineSequence(Ice, "ByteSeqHelper", "Ice.ByteHelper", true);
+export { Ice };
 
-Slice.defineSequence(Ice, "ShortSeqHelper", "Ice.ShortHelper", true);
+Ice.BoolSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.BoolHelper, true);
 
-Slice.defineSequence(Ice, "IntSeqHelper", "Ice.IntHelper", true);
+Ice.ByteSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
 
-Slice.defineSequence(Ice, "LongSeqHelper", "Ice.LongHelper", true);
+Ice.ShortSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ShortHelper, true);
 
-Slice.defineSequence(Ice, "FloatSeqHelper", "Ice.FloatHelper", true);
+Ice.IntSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
 
-Slice.defineSequence(Ice, "DoubleSeqHelper", "Ice.DoubleHelper", true);
+Ice.LongSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.LongHelper, true);
 
-Slice.defineSequence(Ice, "StringSeqHelper", "Ice.StringHelper", false);
+Ice.FloatSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.FloatHelper, true);
 
-Slice.defineSequence(Ice, "ObjectSeqHelper", "Ice.ObjectHelper", false, "Ice.Value");
+Ice.DoubleSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.DoubleHelper, true);
 
-Slice.defineSequence(Ice, "ObjectProxySeqHelper", "Ice.ObjectPrx", false);
-/* slice2js browser-bundle-skip */
-exports.Ice = Ice;
-/* slice2js browser-bundle-skip-end */
+Ice.StringSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
+
+Ice.ObjectSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "Ice.Value");
+
+Ice.ObjectProxySeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectPrx, false);

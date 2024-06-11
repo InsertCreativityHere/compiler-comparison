@@ -16,137 +16,142 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Glacier2, 
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_Backend_ids = [
+    "::Ice::Object",
+    "::Test::Backend"
+];
+
+Test.Backend = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Glacier2 = require("ice").Glacier2;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.BackendPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.BackendPrx", Test.BackendPrx);
 
-    const iceC_Test_Backend_ids = [
-        "::Ice::Object",
-        "::Test::Backend"
-    ];
-
-    Test.Backend = class extends Ice.Object
-    {
-    };
-
-    Test.BackendPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.Backend, Test.BackendPrx, iceC_Test_Backend_ids, "::Test::Backend",
+Ice.defineOperations(
+    Test.Backend,
+    Test.BackendPrx,
+    iceC_Test_Backend_ids,
+    "::Test::Backend",
     {
         "check": [, , , , , , , , ],
         "shutdown": [, , , , , , , , ]
     });
 
-    Test.StateCode = Slice.defineEnum([
-        ['Initial', 0], ['Running', 1], ['Finished', 2]]);
+Test.StateCode = Ice.defineEnum([
+    ['Initial', 0], ['Running', 1], ['Finished', 2]]);
 
-    Test.TestToken = class
+Test.TestToken = class
+{
+    constructor(expectedResult = false, description = "", code = Test.StateCode.Initial, config = 0, caseIndex = 0, testReference = "")
     {
-        constructor(expectedResult = false, description = "", code = Test.StateCode.Initial, config = 0, caseIndex = 0, testReference = "")
-        {
-            this.expectedResult = expectedResult;
-            this.description = description;
-            this.code = code;
-            this.config = config;
-            this.caseIndex = caseIndex;
-            this.testReference = testReference;
-        }
+        this.expectedResult = expectedResult;
+        this.description = description;
+        this.code = code;
+        this.config = config;
+        this.caseIndex = caseIndex;
+        this.testReference = testReference;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeBool(this.expectedResult);
-            ostr.writeString(this.description);
-            Test.StateCode._write(ostr, this.code);
-            ostr.writeShort(this.config);
-            ostr.writeShort(this.caseIndex);
-            ostr.writeString(this.testReference);
-        }
-
-        _read(istr)
-        {
-            this.expectedResult = istr.readBool();
-            this.description = istr.readString();
-            this.code = Test.StateCode._read(istr);
-            this.config = istr.readShort();
-            this.caseIndex = istr.readShort();
-            this.testReference = istr.readString();
-        }
-
-        static get minWireSize()
-        {
-            return  8;
-        }
-    };
-
-    Slice.defineStruct(Test.TestToken, true, true);
-
-    const iceC_Test_TestController_ids = [
-        "::Ice::Object",
-        "::Test::TestController"
-    ];
-
-    /**
-     * The test controller interface permits coordination between the test
-     * server and the test client. Prior to each call the client makes on
-     * various backend references, it calls step on the controller. The
-     * controller will manage the configuration of the system and return a
-     * flag indicating whether the next call is meant to succeed or not.
-     *
-     **/
-    Test.TestController = class extends Ice.Object
+    _write(ostr)
     {
-    };
+        ostr.writeBool(this.expectedResult);
+        ostr.writeString(this.description);
+        Test.StateCode._write(ostr, this.code);
+        ostr.writeShort(this.config);
+        ostr.writeShort(this.caseIndex);
+        ostr.writeString(this.testReference);
+    }
 
-    Test.TestControllerPrx = class extends Ice.ObjectPrx
+    _read(istr)
     {
-    };
+        this.expectedResult = istr.readBool();
+        this.description = istr.readString();
+        this.code = Test.StateCode._read(istr);
+        this.config = istr.readShort();
+        this.caseIndex = istr.readShort();
+        this.testReference = istr.readString();
+    }
 
-    Slice.defineOperations(Test.TestController, Test.TestControllerPrx, iceC_Test_TestController_ids, "::Test::TestController",
+    static get minWireSize()
+    {
+        return  8;
+    }
+};
+
+Ice.defineStruct(Test.TestToken, true, true);
+
+const iceC_Test_TestController_ids = [
+    "::Ice::Object",
+    "::Test::TestController"
+];
+
+/**
+ * The test controller interface permits coordination between the test
+ * server and the test client. Prior to each call the client makes on
+ * various backend references, it calls step on the controller. The
+ * controller will manage the configuration of the system and return a
+ * flag indicating whether the next call is meant to succeed or not.
+ *
+ **/
+Test.TestController = class extends Ice.Object
+{
+};
+
+Test.TestControllerPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestControllerPrx", Test.TestControllerPrx);
+
+Ice.defineOperations(
+    Test.TestController,
+    Test.TestControllerPrx,
+    iceC_Test_TestController_ids,
+    "::Test::TestController",
     {
         "step": [, , , , [["Glacier2.SessionPrx"], [Test.TestToken]], [[Test.TestToken]], , , ],
         "shutdown": [, , , , , , , , ]
     });
 
-    const iceC_Test_TestSession_ids = [
-        "::Glacier2::Session",
-        "::Ice::Object",
-        "::Test::TestSession"
-    ];
+const iceC_Test_TestSession_ids = [
+    "::Glacier2::Session",
+    "::Ice::Object",
+    "::Test::TestSession"
+];
 
-    Test.TestSession = class extends Ice.Object
+Test.TestSession = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Glacier2.Session
-            ];
-        }
-    };
+        return [
+            Glacier2.Session
+        ];
+    }
+};
 
-    Test.TestSessionPrx = class extends Ice.ObjectPrx
+Test.TestSessionPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Glacier2.SessionPrx];
-        }
-    };
+        return [
+            Glacier2.SessionPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.TestSessionPrx", Test.TestSessionPrx);
 
-    Slice.defineOperations(Test.TestSession, Test.TestSessionPrx, iceC_Test_TestSession_ids, "::Test::TestSession",
+Ice.defineOperations(
+    Test.TestSession,
+    Test.TestSessionPrx,
+    iceC_Test_TestSession_ids,
+    "::Test::TestSession",
     {
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

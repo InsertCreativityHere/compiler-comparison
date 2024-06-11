@@ -16,28 +16,40 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/Struct");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("../Ice/Identity");
-require("../Ice/BuiltinSequences");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_ArrayUtil from "../Ice/ArrayUtil.js";
+import * as Ice_HashMap from "../Ice/HashMap.js";
+import * as Ice_HashUtil from "../Ice/HashUtil.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_Struct from "../Ice/Struct.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
+import { Ice as Ice_Ice_BuiltinSequences } from "../Ice/BuiltinSequences.js"
+import { Ice as Ice_Ice_Identity } from "../Ice/Identity.js"
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
-/* slice2js browser-bundle-skip */
+const Ice = {
+    ...Ice_ArrayUtil,
+    ...Ice_HashMap,
+    ...Ice_HashUtil,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_Struct,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+    ...Ice_Ice_BuiltinSequences,
+    ...Ice_Ice_Identity,
+};
 
-let IceGrid = _ModuleRegistry.module("IceGrid");
-/* slice2js browser-bundle-skip-end */
 
-Slice.defineDictionary(IceGrid, "StringStringDict", "StringStringDictHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
+export const IceGrid = {};
+
+[IceGrid.StringStringDict, IceGrid.StringStringDictHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);
 
 /**
  *  Property descriptor.
@@ -68,9 +80,9 @@ IceGrid.PropertyDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.PropertyDescriptor, true, true);
+Ice.defineStruct(IceGrid.PropertyDescriptor, true, true);
 
-Slice.defineSequence(IceGrid, "PropertyDescriptorSeqHelper", "IceGrid.PropertyDescriptor", false);
+IceGrid.PropertyDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.PropertyDescriptor, false);
 
 /**
  *  A property set descriptor.
@@ -101,9 +113,9 @@ IceGrid.PropertySetDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.PropertySetDescriptor, false, true);
+Ice.defineStruct(IceGrid.PropertySetDescriptor, false, true);
 
-Slice.defineDictionary(IceGrid, "PropertySetDescriptorDict", "PropertySetDescriptorDictHelper", "Ice.StringHelper", "IceGrid.PropertySetDescriptor", false, undefined, undefined);
+[IceGrid.PropertySetDescriptorDict, IceGrid.PropertySetDescriptorDictHelper] = Ice.defineDictionary(Ice.StringHelper, IceGrid.PropertySetDescriptor, false, undefined);
 
 /**
  *  An Ice object descriptor.
@@ -137,9 +149,9 @@ IceGrid.ObjectDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.ObjectDescriptor, true, true);
+Ice.defineStruct(IceGrid.ObjectDescriptor, true, true);
 
-Slice.defineSequence(IceGrid, "ObjectDescriptorSeqHelper", "IceGrid.ObjectDescriptor", false);
+IceGrid.ObjectDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.ObjectDescriptor, false);
 
 /**
  *  An Ice object adapter descriptor.
@@ -191,9 +203,9 @@ IceGrid.AdapterDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.AdapterDescriptor, false, true);
+Ice.defineStruct(IceGrid.AdapterDescriptor, false, true);
 
-Slice.defineSequence(IceGrid, "AdapterDescriptorSeqHelper", "IceGrid.AdapterDescriptor", false);
+IceGrid.AdapterDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.AdapterDescriptor, false);
 
 /**
  *  A communicator descriptor.
@@ -226,7 +238,8 @@ IceGrid.CommunicatorDescriptor = class extends Ice.Value
     }
 };
 
-Slice.defineValue(IceGrid.CommunicatorDescriptor, "::IceGrid::CommunicatorDescriptor");
+Ice.defineValue(IceGrid.CommunicatorDescriptor, "::IceGrid::CommunicatorDescriptor");
+Ice.TypeRegistry.declareValueType("IceGrid.CommunicatorDescriptor", IceGrid.CommunicatorDescriptor);
 
 /**
  *  A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
@@ -259,7 +272,7 @@ IceGrid.DistributionDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.DistributionDescriptor, false, true);
+Ice.defineStruct(IceGrid.DistributionDescriptor, false, true);
 
 /**
  *  An Ice server descriptor.
@@ -319,9 +332,10 @@ IceGrid.ServerDescriptor = class extends IceGrid.CommunicatorDescriptor
     }
 };
 
-Slice.defineValue(IceGrid.ServerDescriptor, "::IceGrid::ServerDescriptor");
+Ice.defineValue(IceGrid.ServerDescriptor, "::IceGrid::ServerDescriptor");
+Ice.TypeRegistry.declareValueType("IceGrid.ServerDescriptor", IceGrid.ServerDescriptor);
 
-Slice.defineSequence(IceGrid, "ServerDescriptorSeqHelper", "Ice.ObjectHelper", false, "IceGrid.ServerDescriptor");
+IceGrid.ServerDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "IceGrid.ServerDescriptor");
 
 /**
  *  An IceBox service descriptor.
@@ -348,9 +362,10 @@ IceGrid.ServiceDescriptor = class extends IceGrid.CommunicatorDescriptor
     }
 };
 
-Slice.defineValue(IceGrid.ServiceDescriptor, "::IceGrid::ServiceDescriptor");
+Ice.defineValue(IceGrid.ServiceDescriptor, "::IceGrid::ServiceDescriptor");
+Ice.TypeRegistry.declareValueType("IceGrid.ServiceDescriptor", IceGrid.ServiceDescriptor);
 
-Slice.defineSequence(IceGrid, "ServiceDescriptorSeqHelper", "Ice.ObjectHelper", false, "IceGrid.ServiceDescriptor");
+IceGrid.ServiceDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "IceGrid.ServiceDescriptor");
 
 /**
  *  A server template instance descriptor.
@@ -387,9 +402,9 @@ IceGrid.ServerInstanceDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.ServerInstanceDescriptor, false, true);
+Ice.defineStruct(IceGrid.ServerInstanceDescriptor, false, true);
 
-Slice.defineSequence(IceGrid, "ServerInstanceDescriptorSeqHelper", "IceGrid.ServerInstanceDescriptor", false);
+IceGrid.ServerInstanceDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.ServerInstanceDescriptor, false);
 
 /**
  *  A template descriptor for server or service templates.
@@ -412,7 +427,7 @@ IceGrid.TemplateDescriptor = class
 
     _read(istr)
     {
-        istr.readValue(obj => this.descriptor = obj, IceGrid.CommunicatorDescriptor);
+        istr.readValue(obj => this.descriptor = obj, Ice.TypeRegistry.getValueType("IceGrid.CommunicatorDescriptor"));
         this.parameters = Ice.StringSeqHelper.read(istr);
         this.parameterDefaults = IceGrid.StringStringDictHelper.read(istr);
     }
@@ -423,9 +438,9 @@ IceGrid.TemplateDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.TemplateDescriptor, false, true);
+Ice.defineStruct(IceGrid.TemplateDescriptor, false, true);
 
-Slice.defineDictionary(IceGrid, "TemplateDescriptorDict", "TemplateDescriptorDictHelper", "Ice.StringHelper", "IceGrid.TemplateDescriptor", false, undefined, undefined);
+[IceGrid.TemplateDescriptorDict, IceGrid.TemplateDescriptorDictHelper] = Ice.defineDictionary(Ice.StringHelper, IceGrid.TemplateDescriptor, false, undefined);
 
 /**
  *  A service template instance descriptor.
@@ -452,7 +467,7 @@ IceGrid.ServiceInstanceDescriptor = class
     {
         this.template = istr.readString();
         this.parameterValues = IceGrid.StringStringDictHelper.read(istr);
-        istr.readValue(obj => this.descriptor = obj, IceGrid.ServiceDescriptor);
+        istr.readValue(obj => this.descriptor = obj, Ice.TypeRegistry.getValueType("IceGrid.ServiceDescriptor"));
         this.propertySet = IceGrid.PropertySetDescriptor.read(istr, this.propertySet);
     }
 
@@ -462,9 +477,9 @@ IceGrid.ServiceInstanceDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.ServiceInstanceDescriptor, false, true);
+Ice.defineStruct(IceGrid.ServiceInstanceDescriptor, false, true);
 
-Slice.defineSequence(IceGrid, "ServiceInstanceDescriptorSeqHelper", "IceGrid.ServiceInstanceDescriptor", false);
+IceGrid.ServiceInstanceDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.ServiceInstanceDescriptor, false);
 
 /**
  *  An IceBox server descriptor.
@@ -488,7 +503,8 @@ IceGrid.IceBoxDescriptor = class extends IceGrid.ServerDescriptor
     }
 };
 
-Slice.defineValue(IceGrid.IceBoxDescriptor, "::IceGrid::IceBoxDescriptor");
+Ice.defineValue(IceGrid.IceBoxDescriptor, "::IceGrid::IceBoxDescriptor");
+Ice.TypeRegistry.declareValueType("IceGrid.IceBoxDescriptor", IceGrid.IceBoxDescriptor);
 
 /**
  *  A node descriptor.
@@ -531,9 +547,9 @@ IceGrid.NodeDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.NodeDescriptor, false, true);
+Ice.defineStruct(IceGrid.NodeDescriptor, false, true);
 
-Slice.defineDictionary(IceGrid, "NodeDescriptorDict", "NodeDescriptorDictHelper", "Ice.StringHelper", "IceGrid.NodeDescriptor", false, undefined, undefined);
+[IceGrid.NodeDescriptorDict, IceGrid.NodeDescriptorDictHelper] = Ice.defineDictionary(Ice.StringHelper, IceGrid.NodeDescriptor, false, undefined);
 
 /**
  *  A base class for load balancing policies.
@@ -557,7 +573,8 @@ IceGrid.LoadBalancingPolicy = class extends Ice.Value
     }
 };
 
-Slice.defineValue(IceGrid.LoadBalancingPolicy, "::IceGrid::LoadBalancingPolicy");
+Ice.defineValue(IceGrid.LoadBalancingPolicy, "::IceGrid::LoadBalancingPolicy");
+Ice.TypeRegistry.declareValueType("IceGrid.LoadBalancingPolicy", IceGrid.LoadBalancingPolicy);
 
 /**
  *  Random load balancing policy.
@@ -570,7 +587,8 @@ IceGrid.RandomLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
     }
 };
 
-Slice.defineValue(IceGrid.RandomLoadBalancingPolicy, "::IceGrid::RandomLoadBalancingPolicy");
+Ice.defineValue(IceGrid.RandomLoadBalancingPolicy, "::IceGrid::RandomLoadBalancingPolicy");
+Ice.TypeRegistry.declareValueType("IceGrid.RandomLoadBalancingPolicy", IceGrid.RandomLoadBalancingPolicy);
 
 /**
  *  Ordered load balancing policy.
@@ -583,7 +601,8 @@ IceGrid.OrderedLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
     }
 };
 
-Slice.defineValue(IceGrid.OrderedLoadBalancingPolicy, "::IceGrid::OrderedLoadBalancingPolicy");
+Ice.defineValue(IceGrid.OrderedLoadBalancingPolicy, "::IceGrid::OrderedLoadBalancingPolicy");
+Ice.TypeRegistry.declareValueType("IceGrid.OrderedLoadBalancingPolicy", IceGrid.OrderedLoadBalancingPolicy);
 
 /**
  *  Round robin load balancing policy.
@@ -596,7 +615,8 @@ IceGrid.RoundRobinLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolic
     }
 };
 
-Slice.defineValue(IceGrid.RoundRobinLoadBalancingPolicy, "::IceGrid::RoundRobinLoadBalancingPolicy");
+Ice.defineValue(IceGrid.RoundRobinLoadBalancingPolicy, "::IceGrid::RoundRobinLoadBalancingPolicy");
+Ice.TypeRegistry.declareValueType("IceGrid.RoundRobinLoadBalancingPolicy", IceGrid.RoundRobinLoadBalancingPolicy);
 
 /**
  *  Adaptive load balancing policy.
@@ -620,7 +640,8 @@ IceGrid.AdaptiveLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
     }
 };
 
-Slice.defineValue(IceGrid.AdaptiveLoadBalancingPolicy, "::IceGrid::AdaptiveLoadBalancingPolicy");
+Ice.defineValue(IceGrid.AdaptiveLoadBalancingPolicy, "::IceGrid::AdaptiveLoadBalancingPolicy");
+Ice.TypeRegistry.declareValueType("IceGrid.AdaptiveLoadBalancingPolicy", IceGrid.AdaptiveLoadBalancingPolicy);
 
 /**
  *  A replica group descriptor.
@@ -650,7 +671,7 @@ IceGrid.ReplicaGroupDescriptor = class
     _read(istr)
     {
         this.id = istr.readString();
-        istr.readValue(obj => this.loadBalancing = obj, IceGrid.LoadBalancingPolicy);
+        istr.readValue(obj => this.loadBalancing = obj, Ice.TypeRegistry.getValueType("IceGrid.LoadBalancingPolicy"));
         this.proxyOptions = istr.readString();
         this.objects = IceGrid.ObjectDescriptorSeqHelper.read(istr);
         this.description = istr.readString();
@@ -663,9 +684,9 @@ IceGrid.ReplicaGroupDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.ReplicaGroupDescriptor, false, true);
+Ice.defineStruct(IceGrid.ReplicaGroupDescriptor, false, true);
 
-Slice.defineSequence(IceGrid, "ReplicaGroupDescriptorSeqHelper", "IceGrid.ReplicaGroupDescriptor", false);
+IceGrid.ReplicaGroupDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.ReplicaGroupDescriptor, false);
 
 /**
  *  An application descriptor.
@@ -717,9 +738,9 @@ IceGrid.ApplicationDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.ApplicationDescriptor, false, true);
+Ice.defineStruct(IceGrid.ApplicationDescriptor, false, true);
 
-Slice.defineSequence(IceGrid, "ApplicationDescriptorSeqHelper", "IceGrid.ApplicationDescriptor", false);
+IceGrid.ApplicationDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.ApplicationDescriptor, false);
 
 /**
  *  A "boxed" string.
@@ -743,7 +764,8 @@ IceGrid.BoxedString = class extends Ice.Value
     }
 };
 
-Slice.defineValue(IceGrid.BoxedString, "::IceGrid::BoxedString");
+Ice.defineValue(IceGrid.BoxedString, "::IceGrid::BoxedString");
+Ice.TypeRegistry.declareValueType("IceGrid.BoxedString", IceGrid.BoxedString);
 
 /**
  *  A node update descriptor to describe the updates to apply to a node of a deployed application.
@@ -781,7 +803,7 @@ IceGrid.NodeUpdateDescriptor = class
     _read(istr)
     {
         this.name = istr.readString();
-        istr.readValue(obj => this.description = obj, IceGrid.BoxedString);
+        istr.readValue(obj => this.description = obj, Ice.TypeRegistry.getValueType("IceGrid.BoxedString"));
         this.variables = IceGrid.StringStringDictHelper.read(istr);
         this.removeVariables = Ice.StringSeqHelper.read(istr);
         this.propertySets = IceGrid.PropertySetDescriptorDictHelper.read(istr);
@@ -789,7 +811,7 @@ IceGrid.NodeUpdateDescriptor = class
         this.serverInstances = IceGrid.ServerInstanceDescriptorSeqHelper.read(istr);
         this.servers = IceGrid.ServerDescriptorSeqHelper.read(istr);
         this.removeServers = Ice.StringSeqHelper.read(istr);
-        istr.readValue(obj => this.loadFactor = obj, IceGrid.BoxedString);
+        istr.readValue(obj => this.loadFactor = obj, Ice.TypeRegistry.getValueType("IceGrid.BoxedString"));
     }
 
     static get minWireSize()
@@ -798,9 +820,9 @@ IceGrid.NodeUpdateDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.NodeUpdateDescriptor, false, true);
+Ice.defineStruct(IceGrid.NodeUpdateDescriptor, false, true);
 
-Slice.defineSequence(IceGrid, "NodeUpdateDescriptorSeqHelper", "IceGrid.NodeUpdateDescriptor", false);
+IceGrid.NodeUpdateDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.NodeUpdateDescriptor, false);
 
 /**
  *  A "boxed" distribution descriptor.
@@ -824,7 +846,8 @@ IceGrid.BoxedDistributionDescriptor = class extends Ice.Value
     }
 };
 
-Slice.defineValue(IceGrid.BoxedDistributionDescriptor, "::IceGrid::BoxedDistributionDescriptor");
+Ice.defineValue(IceGrid.BoxedDistributionDescriptor, "::IceGrid::BoxedDistributionDescriptor");
+Ice.TypeRegistry.declareValueType("IceGrid.BoxedDistributionDescriptor", IceGrid.BoxedDistributionDescriptor);
 
 /**
  *  An application update descriptor to describe the updates to apply to a deployed application.
@@ -872,8 +895,8 @@ IceGrid.ApplicationUpdateDescriptor = class
     _read(istr)
     {
         this.name = istr.readString();
-        istr.readValue(obj => this.description = obj, IceGrid.BoxedString);
-        istr.readValue(obj => this.distrib = obj, IceGrid.BoxedDistributionDescriptor);
+        istr.readValue(obj => this.description = obj, Ice.TypeRegistry.getValueType("IceGrid.BoxedString"));
+        istr.readValue(obj => this.distrib = obj, Ice.TypeRegistry.getValueType("IceGrid.BoxedDistributionDescriptor"));
         this.variables = IceGrid.StringStringDictHelper.read(istr);
         this.removeVariables = Ice.StringSeqHelper.read(istr);
         this.propertySets = IceGrid.PropertySetDescriptorDictHelper.read(istr);
@@ -894,7 +917,4 @@ IceGrid.ApplicationUpdateDescriptor = class
     }
 };
 
-Slice.defineStruct(IceGrid.ApplicationUpdateDescriptor, false, true);
-/* slice2js browser-bundle-skip */
-exports.IceGrid = IceGrid;
-/* slice2js browser-bundle-skip-end */
+Ice.defineStruct(IceGrid.ApplicationUpdateDescriptor, false, true);

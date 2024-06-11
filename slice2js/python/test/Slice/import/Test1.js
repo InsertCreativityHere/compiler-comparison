@@ -16,33 +16,25 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
-{
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+import { Ice } from "ice";
 
-    let Test = _ModuleRegistry.module("Test");
 
-    Test.SubA = _ModuleRegistry.module("Test.SubA");
+export const Test = {};
 
-    Test.SubA.SubSubA1 = _ModuleRegistry.module("Test.SubA.SubSubA1");
+Test.SubA = Test.SubA || {};
 
-    Object.defineProperty(Test.SubA.SubSubA1, 'Value1', {
-        value: 10
-    });
+Test.SubA.SubSubA1 = Test.SubA.SubSubA1 || {};
 
-    Test.SubB = _ModuleRegistry.module("Test.SubB");
+Test.SubB = Test.SubB || {};
 
-    Test.SubB.SubSubB1 = _ModuleRegistry.module("Test.SubB.SubSubB1");
+Test.SubB.SubSubB1 = Test.SubB.SubSubB1 || {};
 
-    Object.defineProperty(Test.SubB.SubSubB1, 'Value1', {
-        value: 20
-    });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Object.defineProperty(Test.SubA.SubSubA1, 'Value1', {
+    enumerable: true,
+    value: 10
+});
+
+Object.defineProperty(Test.SubB.SubSubB1, 'Value1', {
+    enumerable: true,
+    value: 20
+});

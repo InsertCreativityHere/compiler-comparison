@@ -16,29 +16,46 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Struct");
-require("../Ice/Exception");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("../Ice/Identity");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_ArrayUtil from "../Ice/ArrayUtil.js";
+import * as Ice_Exception from "../Ice/Exception.js";
+import * as Ice_HashMap from "../Ice/HashMap.js";
+import * as Ice_HashUtil from "../Ice/HashUtil.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_Struct from "../Ice/Struct.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
+import { Ice as Ice_Ice_Identity } from "../Ice/Identity.js"
 
-const IceMX = require("./Metrics").IceMX;
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
-/* slice2js browser-bundle-skip */
+const Ice = {
+    ...Ice_ArrayUtil,
+    ...Ice_Exception,
+    ...Ice_HashMap,
+    ...Ice_HashUtil,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_Struct,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+    ...Ice_Ice_Identity,
+};
 
-let IceStorm = _ModuleRegistry.module("IceStorm");
-/* slice2js browser-bundle-skip-end */
+import { 
+    IceMX as IceMX_Metrics, } from "./Metrics.js"
+
+const IceMX = {
+    ...IceMX_Metrics,
+};
+
+export const IceStorm = {};
 
 /**
  *   Information on the topic links.
@@ -54,14 +71,14 @@ IceStorm.LinkInfo = class
 
     _write(ostr)
     {
-        IceStorm.TopicPrx.write(ostr, this.theTopic);
+        ostr.writeProxy(this.theTopic);
         ostr.writeString(this.name);
         ostr.writeInt(this.cost);
     }
 
     _read(istr)
     {
-        this.theTopic = IceStorm.TopicPrx.read(istr, this.theTopic);
+        this.theTopic = istr.readProxy();
         this.name = istr.readString();
         this.cost = istr.readInt();
     }
@@ -72,11 +89,11 @@ IceStorm.LinkInfo = class
     }
 };
 
-Slice.defineStruct(IceStorm.LinkInfo, false, true);
+Ice.defineStruct(IceStorm.LinkInfo, false, true);
 
-Slice.defineSequence(IceStorm, "LinkInfoSeqHelper", "IceStorm.LinkInfo", false);
+IceStorm.LinkInfoSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceStorm.LinkInfo, false);
 
-Slice.defineDictionary(IceStorm, "QoS", "QoSHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
+[IceStorm.QoS, IceStorm.QoSHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);
 
 /**
  *  This exception indicates that an attempt was made to create a link that already exists.
@@ -114,6 +131,9 @@ IceStorm.LinkExists = class extends Ice.UserException
         this.name = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceStorm.LinkExists",
+    IceStorm.LinkExists);
 
 /**
  *  This exception indicates that an attempt was made to remove a link that does not exist.
@@ -151,6 +171,9 @@ IceStorm.NoSuchLink = class extends Ice.UserException
         this.name = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceStorm.NoSuchLink",
+    IceStorm.NoSuchLink);
 
 /**
  *   This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
@@ -177,6 +200,9 @@ IceStorm.AlreadySubscribed = class extends Ice.UserException
         return IceStorm.AlreadySubscribed;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceStorm.AlreadySubscribed",
+    IceStorm.AlreadySubscribed);
 
 /**
  *  This exception indicates that an attempt was made to subscribe a proxy that is null.
@@ -214,6 +240,9 @@ IceStorm.InvalidSubscriber = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceStorm.InvalidSubscriber",
+    IceStorm.InvalidSubscriber);
 
 /**
  *  This exception indicates that a subscription failed due to an invalid QoS.
@@ -251,6 +280,9 @@ IceStorm.BadQoS = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceStorm.BadQoS",
+    IceStorm.BadQoS);
 
 const iceC_IceStorm_Topic_ids = [
     "::Ice::Object",
@@ -268,33 +300,38 @@ IceStorm.Topic = class extends Ice.Object
 IceStorm.TopicPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("IceStorm.TopicPrx", IceStorm.TopicPrx);
 
-Slice.defineOperations(IceStorm.Topic, IceStorm.TopicPrx, iceC_IceStorm_Topic_ids, "::IceStorm::Topic",
-{
-    "getName": [, 2, , [7], , , , , ],
-    "getPublisher": [, 2, , [9], , , , , ],
-    "getNonReplicatedPublisher": [, 2, , [9], , , , , ],
-    "subscribeAndGetPublisher": [, , , [9], [["IceStorm.QoSHelper"], [9]], ,
-    [
-        IceStorm.AlreadySubscribed,
-        IceStorm.InvalidSubscriber,
-        IceStorm.BadQoS
-    ], , ],
-    "unsubscribe": [, 2, , , [[9]], , , , ],
-    "link": [, , , , [["IceStorm.TopicPrx"], [3]], ,
-    [
-        IceStorm.LinkExists
-    ], , ],
-    "unlink": [, , , , [["IceStorm.TopicPrx"]], ,
-    [
-        IceStorm.NoSuchLink
-    ], , ],
-    "getLinkInfoSeq": [, 2, , ["IceStorm.LinkInfoSeqHelper"], , , , , ],
-    "getSubscribers": [, , , ["Ice.IdentitySeqHelper"], , , , , ],
-    "destroy": [, , , , , , , , ]
-});
+Ice.defineOperations(
+    IceStorm.Topic,
+    IceStorm.TopicPrx,
+    iceC_IceStorm_Topic_ids,
+    "::IceStorm::Topic",
+    {
+        "getName": [, 2, , [7], , , , , ],
+        "getPublisher": [, 2, , [9], , , , , ],
+        "getNonReplicatedPublisher": [, 2, , [9], , , , , ],
+        "subscribeAndGetPublisher": [, , , [9], [[IceStorm.QoSHelper], [9]], ,
+        [
+            IceStorm.AlreadySubscribed,
+            IceStorm.InvalidSubscriber,
+            IceStorm.BadQoS
+        ], , ],
+        "unsubscribe": [, 2, , , [[9]], , , , ],
+        "link": [, , , , [["IceStorm.TopicPrx"], [3]], ,
+        [
+            IceStorm.LinkExists
+        ], , ],
+        "unlink": [, , , , [["IceStorm.TopicPrx"]], ,
+        [
+            IceStorm.NoSuchLink
+        ], , ],
+        "getLinkInfoSeq": [, 2, , [IceStorm.LinkInfoSeqHelper], , , , , ],
+        "getSubscribers": [, , , [Ice.IdentitySeqHelper], , , , , ],
+        "destroy": [, , , , , , , , ]
+    });
 
-Slice.defineDictionary(IceStorm, "TopicDict", "TopicDictHelper", "Ice.StringHelper", "IceStorm.TopicPrx", false, undefined, undefined);
+[IceStorm.TopicDict, IceStorm.TopicDictHelper] = Ice.defineDictionary(Ice.StringHelper, IceStorm.TopicPrx, false, undefined);
 
 /**
  *  This exception indicates that an attempt was made to create a topic that already exists.
@@ -332,6 +369,9 @@ IceStorm.TopicExists = class extends Ice.UserException
         this.name = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceStorm.TopicExists",
+    IceStorm.TopicExists);
 
 /**
  *  This exception indicates that an attempt was made to retrieve a topic that does not exist.
@@ -369,6 +409,9 @@ IceStorm.NoSuchTopic = class extends Ice.UserException
         this.name = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceStorm.NoSuchTopic",
+    IceStorm.NoSuchTopic);
 
 const iceC_IceStorm_TopicManager_ids = [
     "::Ice::Object",
@@ -386,19 +429,24 @@ IceStorm.TopicManager = class extends Ice.Object
 IceStorm.TopicManagerPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("IceStorm.TopicManagerPrx", IceStorm.TopicManagerPrx);
 
-Slice.defineOperations(IceStorm.TopicManager, IceStorm.TopicManagerPrx, iceC_IceStorm_TopicManager_ids, "::IceStorm::TopicManager",
-{
-    "create": [, , , ["IceStorm.TopicPrx"], [[7]], ,
-    [
-        IceStorm.TopicExists
-    ], , ],
-    "retrieve": [, 2, , ["IceStorm.TopicPrx"], [[7]], ,
-    [
-        IceStorm.NoSuchTopic
-    ], , ],
-    "retrieveAll": [, 2, , ["IceStorm.TopicDictHelper"], , , , , ]
-});
+Ice.defineOperations(
+    IceStorm.TopicManager,
+    IceStorm.TopicManagerPrx,
+    iceC_IceStorm_TopicManager_ids,
+    "::IceStorm::TopicManager",
+    {
+        "create": [, , , ["IceStorm.TopicPrx"], [[7]], ,
+        [
+            IceStorm.TopicExists
+        ], , ],
+        "retrieve": [, 2, , ["IceStorm.TopicPrx"], [[7]], ,
+        [
+            IceStorm.NoSuchTopic
+        ], , ],
+        "retrieveAll": [, 2, , [IceStorm.TopicDictHelper], , , , , ]
+    });
 
 const iceC_IceStorm_Finder_ids = [
     "::Ice::Object",
@@ -416,11 +464,13 @@ IceStorm.Finder = class extends Ice.Object
 IceStorm.FinderPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("IceStorm.FinderPrx", IceStorm.FinderPrx);
 
-Slice.defineOperations(IceStorm.Finder, IceStorm.FinderPrx, iceC_IceStorm_Finder_ids, "::IceStorm::Finder",
-{
-    "getTopicManager": [, , , ["IceStorm.TopicManagerPrx"], , , , , ]
-});
-/* slice2js browser-bundle-skip */
-exports.IceStorm = IceStorm;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    IceStorm.Finder,
+    IceStorm.FinderPrx,
+    iceC_IceStorm_Finder_ids,
+    "::IceStorm::Finder",
+    {
+        "getTopicManager": [, , , ["IceStorm.TopicManagerPrx"], , , , , ]
+    });

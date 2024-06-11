@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 const iceC_Test_Retry_ids = [
     "::Ice::Object",
@@ -34,12 +33,16 @@ Test.Retry = class extends Ice.Object
 Test.RetryPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.RetryPrx", Test.RetryPrx);
 
-Slice.defineOperations(Test.Retry, Test.RetryPrx, iceC_Test_Retry_ids, "::Test::Retry",
-{
-    "op": [, , , , [[1]], , , , ],
-    "opIdempotent": [, 2, , [3], [[3]], , , , ],
-    "opNotIdempotent": [, , , , , , , , ],
-    "shutdown": [, 2, , , , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.Retry,
+    Test.RetryPrx,
+    iceC_Test_Retry_ids,
+    "::Test::Retry",
+    {
+        "op": [, , , , [[1]], , , , ],
+        "opIdempotent": [, 2, , [3], [[3]], , , , ],
+        "opNotIdempotent": [, , , , , , , , ],
+        "shutdown": [, 2, , , , , , , ]
+    });

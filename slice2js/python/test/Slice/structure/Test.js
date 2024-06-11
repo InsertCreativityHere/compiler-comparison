@@ -16,144 +16,135 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.IntSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
+
+[Test.StringDict, Test.StringDictHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);
+
+Test.S1 = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Slice.defineSequence(Test, "IntSeqHelper", "Ice.IntHelper", true);
-
-    Slice.defineDictionary(Test, "StringDict", "StringDictHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
-
-    Test.S1 = class
+    constructor(name = "")
     {
-        constructor(name = "")
-        {
-            this.name = name;
-        }
+        this.name = name;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeString(this.name);
-        }
-
-        _read(istr)
-        {
-            this.name = istr.readString();
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(Test.S1, true, true);
-
-    Test.S2 = class
+    _write(ostr)
     {
-        constructor(bo = false, by = 0, sh = 0, i = 0, l = new Ice.Long(0, 0), str = "", seq = null, s = new Test.S1())
-        {
-            this.bo = bo;
-            this.by = by;
-            this.sh = sh;
-            this.i = i;
-            this.l = l;
-            this.str = str;
-            this.seq = seq;
-            this.s = s;
-        }
+        ostr.writeString(this.name);
+    }
 
-        _write(ostr)
-        {
-            ostr.writeBool(this.bo);
-            ostr.writeByte(this.by);
-            ostr.writeShort(this.sh);
-            ostr.writeInt(this.i);
-            ostr.writeLong(this.l);
-            ostr.writeString(this.str);
-            Test.IntSeqHelper.write(ostr, this.seq);
-            Test.S1.write(ostr, this.s);
-        }
-
-        _read(istr)
-        {
-            this.bo = istr.readBool();
-            this.by = istr.readByte();
-            this.sh = istr.readShort();
-            this.i = istr.readInt();
-            this.l = istr.readLong();
-            this.str = istr.readString();
-            this.seq = Test.IntSeqHelper.read(istr);
-            this.s = Test.S1.read(istr, this.s);
-        }
-
-        static get minWireSize()
-        {
-            return  19;
-        }
-    };
-
-    Slice.defineStruct(Test.S2, false, true);
-
-    Test.C = class extends Ice.Value
+    _read(istr)
     {
-        constructor(name = "")
-        {
-            super();
-            this.name = name;
-        }
+        this.name = istr.readString();
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.name);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.name = istr.readString();
-        }
-    };
-
-    Slice.defineValue(Test.C, "::Test::C");
-
-    Test.S3 = class
+    static get minWireSize()
     {
-        constructor(obj = null, sd = null, prx = null)
-        {
-            this.obj = obj;
-            this.sd = sd;
-            this.prx = prx;
-        }
+        return  1;
+    }
+};
 
-        _write(ostr)
-        {
-            ostr.writeValue(this.obj);
-            Test.StringDictHelper.write(ostr, this.sd);
-            ostr.writeProxy(this.prx);
-        }
+Ice.defineStruct(Test.S1, true, true);
 
-        _read(istr)
-        {
-            istr.readValue(obj => this.obj = obj, Test.C);
-            this.sd = Test.StringDictHelper.read(istr);
-            this.prx = istr.readProxy();
-        }
+Test.S2 = class
+{
+    constructor(bo = false, by = 0, sh = 0, i = 0, l = new Ice.Long(0, 0), str = "", seq = null, s = new Test.S1())
+    {
+        this.bo = bo;
+        this.by = by;
+        this.sh = sh;
+        this.i = i;
+        this.l = l;
+        this.str = str;
+        this.seq = seq;
+        this.s = s;
+    }
 
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
+    _write(ostr)
+    {
+        ostr.writeBool(this.bo);
+        ostr.writeByte(this.by);
+        ostr.writeShort(this.sh);
+        ostr.writeInt(this.i);
+        ostr.writeLong(this.l);
+        ostr.writeString(this.str);
+        Test.IntSeqHelper.write(ostr, this.seq);
+        Test.S1.write(ostr, this.s);
+    }
 
-    Slice.defineStruct(Test.S3, false, true);
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+    _read(istr)
+    {
+        this.bo = istr.readBool();
+        this.by = istr.readByte();
+        this.sh = istr.readShort();
+        this.i = istr.readInt();
+        this.l = istr.readLong();
+        this.str = istr.readString();
+        this.seq = Test.IntSeqHelper.read(istr);
+        this.s = Test.S1.read(istr, this.s);
+    }
+
+    static get minWireSize()
+    {
+        return  19;
+    }
+};
+
+Ice.defineStruct(Test.S2, false, true);
+
+Test.C = class extends Ice.Value
+{
+    constructor(name = "")
+    {
+        super();
+        this.name = name;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeString(this.name);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.name = istr.readString();
+    }
+};
+
+Ice.defineValue(Test.C, "::Test::C");
+Ice.TypeRegistry.declareValueType("Test.C", Test.C);
+
+Test.S3 = class
+{
+    constructor(obj = null, sd = null, prx = null)
+    {
+        this.obj = obj;
+        this.sd = sd;
+        this.prx = prx;
+    }
+
+    _write(ostr)
+    {
+        ostr.writeValue(this.obj);
+        Test.StringDictHelper.write(ostr, this.sd);
+        ostr.writeProxy(this.prx);
+    }
+
+    _read(istr)
+    {
+        istr.readValue(obj => this.obj = obj, Ice.TypeRegistry.getValueType("Test.C"));
+        this.sd = Test.StringDictHelper.read(istr);
+        this.prx = istr.readProxy();
+    }
+
+    static get minWireSize()
+    {
+        return  4;
+    }
+};
+
+Ice.defineStruct(Test.S3, false, true);

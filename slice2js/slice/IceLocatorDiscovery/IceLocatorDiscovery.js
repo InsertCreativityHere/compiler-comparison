@@ -16,26 +16,30 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("../Ice/Locator");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
+import { Ice as Ice_Ice_Locator } from "../Ice/Locator.js"
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
-/* slice2js browser-bundle-skip */
+const Ice = {
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+    ...Ice_Ice_Locator,
+};
 
-let IceLocatorDiscovery = _ModuleRegistry.module("IceLocatorDiscovery");
-/* slice2js browser-bundle-skip-end */
+
+export const IceLocatorDiscovery = {};
 
 const iceC_IceLocatorDiscovery_LookupReply_ids = [
     "::Ice::Object",
@@ -54,11 +58,16 @@ IceLocatorDiscovery.LookupReply = class extends Ice.Object
 IceLocatorDiscovery.LookupReplyPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("IceLocatorDiscovery.LookupReplyPrx", IceLocatorDiscovery.LookupReplyPrx);
 
-Slice.defineOperations(IceLocatorDiscovery.LookupReply, IceLocatorDiscovery.LookupReplyPrx, iceC_IceLocatorDiscovery_LookupReply_ids, "::IceLocatorDiscovery::LookupReply",
-{
-    "foundLocator": [, , , , [["Ice.LocatorPrx"]], , , , ]
-});
+Ice.defineOperations(
+    IceLocatorDiscovery.LookupReply,
+    IceLocatorDiscovery.LookupReplyPrx,
+    iceC_IceLocatorDiscovery_LookupReply_ids,
+    "::IceLocatorDiscovery::LookupReply",
+    {
+        "foundLocator": [, , , , [["Ice.LocatorPrx"]], , , , ]
+    });
 
 const iceC_IceLocatorDiscovery_Lookup_ids = [
     "::Ice::Object",
@@ -79,11 +88,13 @@ IceLocatorDiscovery.Lookup = class extends Ice.Object
 IceLocatorDiscovery.LookupPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("IceLocatorDiscovery.LookupPrx", IceLocatorDiscovery.LookupPrx);
 
-Slice.defineOperations(IceLocatorDiscovery.Lookup, IceLocatorDiscovery.LookupPrx, iceC_IceLocatorDiscovery_Lookup_ids, "::IceLocatorDiscovery::Lookup",
-{
-    "findLocator": [, 2, , , [[7], ["IceLocatorDiscovery.LookupReplyPrx"]], , , , ]
-});
-/* slice2js browser-bundle-skip */
-exports.IceLocatorDiscovery = IceLocatorDiscovery;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    IceLocatorDiscovery.Lookup,
+    IceLocatorDiscovery.LookupPrx,
+    iceC_IceLocatorDiscovery_Lookup_ids,
+    "::IceLocatorDiscovery::Lookup",
+    {
+        "findLocator": [, 2, , , [[7], ["IceLocatorDiscovery.LookupReplyPrx"]], , , , ]
+    });

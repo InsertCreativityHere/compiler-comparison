@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 Test.CallbackException = class extends Ice.UserException
 {
@@ -58,6 +57,9 @@ Test.CallbackException = class extends Ice.UserException
         this.someString = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.CallbackException",
+    Test.CallbackException);
 
 const iceC_Test_CallbackReceiver_ids = [
     "::Ice::Object",
@@ -71,15 +73,20 @@ Test.CallbackReceiver = class extends Ice.Object
 Test.CallbackReceiverPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.CallbackReceiverPrx", Test.CallbackReceiverPrx);
 
-Slice.defineOperations(Test.CallbackReceiver, Test.CallbackReceiverPrx, iceC_Test_CallbackReceiver_ids, "::Test::CallbackReceiver",
-{
-    "callback": [, , , , , , , , ],
-    "callbackEx": [, , , , , ,
-    [
-        Test.CallbackException
-    ], , ]
-});
+Ice.defineOperations(
+    Test.CallbackReceiver,
+    Test.CallbackReceiverPrx,
+    iceC_Test_CallbackReceiver_ids,
+    "::Test::CallbackReceiver",
+    {
+        "callback": [, , , , , , , , ],
+        "callbackEx": [, , , , , ,
+        [
+            Test.CallbackException
+        ], , ]
+    });
 
 const iceC_Test_Callback_ids = [
     "::Ice::Object",
@@ -93,14 +100,18 @@ Test.Callback = class extends Ice.Object
 Test.CallbackPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.CallbackPrx", Test.CallbackPrx);
 
-Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, "::Test::Callback",
-{
-    "initiateCallback": [, , , , [["Test.CallbackReceiverPrx"]], , , , ],
-    "initiateCallbackEx": [, , , , [["Test.CallbackReceiverPrx"]], ,
-    [
-        Test.CallbackException
-    ], , ],
-    "shutdown": [, , , , , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.Callback,
+    Test.CallbackPrx,
+    iceC_Test_Callback_ids,
+    "::Test::Callback",
+    {
+        "initiateCallback": [, , , , [["Test.CallbackReceiverPrx"]], , , , ],
+        "initiateCallbackEx": [, , , , [["Test.CallbackReceiverPrx"]], ,
+        [
+            Test.CallbackException
+        ], , ],
+        "shutdown": [, , , , , , , , ]
+    });

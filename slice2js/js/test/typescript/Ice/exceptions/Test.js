@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 const iceC_Test_Empty_ids = [
     "::Ice::Object",
@@ -34,8 +33,13 @@ Test.Empty = class extends Ice.Object
 Test.EmptyPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.EmptyPrx", Test.EmptyPrx);
 
-Slice.defineOperations(Test.Empty, Test.EmptyPrx, iceC_Test_Empty_ids, "::Test::Empty");
+Ice.defineOperations(
+    Test.Empty,
+    Test.EmptyPrx,
+    iceC_Test_Empty_ids,
+    "::Test::Empty");
 
 Test.A = class extends Ice.UserException
 {
@@ -70,6 +74,9 @@ Test.A = class extends Ice.UserException
         this.aMem = istr.readInt();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.A",
+    Test.A);
 
 Test.B = class extends Test.A
 {
@@ -104,6 +111,9 @@ Test.B = class extends Test.A
         this.bMem = istr.readInt();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.B",
+    Test.B);
 
 Test.C = class extends Test.B
 {
@@ -138,6 +148,9 @@ Test.C = class extends Test.B
         this.cMem = istr.readInt();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.C",
+    Test.C);
 
 Test.D = class extends Ice.UserException
 {
@@ -172,6 +185,9 @@ Test.D = class extends Ice.UserException
         this.dMem = istr.readInt();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.D",
+    Test.D);
 
 const iceC_Test_Thrower_ids = [
     "::Ice::Object",
@@ -185,55 +201,60 @@ Test.Thrower = class extends Ice.Object
 Test.ThrowerPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.ThrowerPrx", Test.ThrowerPrx);
 
-Slice.defineOperations(Test.Thrower, Test.ThrowerPrx, iceC_Test_Thrower_ids, "::Test::Thrower",
-{
-    "shutdown": [, , , , , , , , ],
-    "supportsUndeclaredExceptions": [, , , [1], , , , , ],
-    "supportsAssertException": [, , , [1], , , , , ],
-    "throwAasA": [, , , , [[3]], ,
-    [
-        Test.A
-    ], , ],
-    "throwAorDasAorD": [, , , , [[3]], ,
-    [
-        Test.A,
-        Test.D
-    ], , ],
-    "throwBasA": [, , , , [[3], [3]], ,
-    [
-        Test.A
-    ], , ],
-    "throwCasA": [, , , , [[3], [3], [3]], ,
-    [
-        Test.A
-    ], , ],
-    "throwBasB": [, , , , [[3], [3]], ,
-    [
-        Test.B
-    ], , ],
-    "throwCasB": [, , , , [[3], [3], [3]], ,
-    [
-        Test.B
-    ], , ],
-    "throwCasC": [, , , , [[3], [3], [3]], ,
-    [
-        Test.C
-    ], , ],
-    "throwUndeclaredA": [, , , , [[3]], , , , ],
-    "throwUndeclaredB": [, , , , [[3], [3]], , , , ],
-    "throwUndeclaredC": [, , , , [[3], [3], [3]], , , , ],
-    "throwLocalException": [, , , , , , , , ],
-    "throwNonIceException": [, , , , , , , , ],
-    "throwAssertException": [, , , , , , , , ],
-    "throwMemoryLimitException": [, , , ["Ice.ByteSeqHelper"], [["Ice.ByteSeqHelper"]], , , , ],
-    "throwLocalExceptionIdempotent": [, 2, , , , , , , ],
-    "throwAfterResponse": [, , , , , , , , ],
-    "throwAfterException": [, , , , , ,
-    [
-        Test.A
-    ], , ]
-});
+Ice.defineOperations(
+    Test.Thrower,
+    Test.ThrowerPrx,
+    iceC_Test_Thrower_ids,
+    "::Test::Thrower",
+    {
+        "shutdown": [, , , , , , , , ],
+        "supportsUndeclaredExceptions": [, , , [1], , , , , ],
+        "supportsAssertException": [, , , [1], , , , , ],
+        "throwAasA": [, , , , [[3]], ,
+        [
+            Test.A
+        ], , ],
+        "throwAorDasAorD": [, , , , [[3]], ,
+        [
+            Test.A,
+            Test.D
+        ], , ],
+        "throwBasA": [, , , , [[3], [3]], ,
+        [
+            Test.A
+        ], , ],
+        "throwCasA": [, , , , [[3], [3], [3]], ,
+        [
+            Test.A
+        ], , ],
+        "throwBasB": [, , , , [[3], [3]], ,
+        [
+            Test.B
+        ], , ],
+        "throwCasB": [, , , , [[3], [3], [3]], ,
+        [
+            Test.B
+        ], , ],
+        "throwCasC": [, , , , [[3], [3], [3]], ,
+        [
+            Test.C
+        ], , ],
+        "throwUndeclaredA": [, , , , [[3]], , , , ],
+        "throwUndeclaredB": [, , , , [[3], [3]], , , , ],
+        "throwUndeclaredC": [, , , , [[3], [3], [3]], , , , ],
+        "throwLocalException": [, , , , , , , , ],
+        "throwNonIceException": [, , , , , , , , ],
+        "throwAssertException": [, , , , , , , , ],
+        "throwMemoryLimitException": [, , , [Ice.ByteSeqHelper], [[Ice.ByteSeqHelper]], , , , ],
+        "throwLocalExceptionIdempotent": [, 2, , , , , , , ],
+        "throwAfterResponse": [, , , , , , , , ],
+        "throwAfterException": [, , , , , ,
+        [
+            Test.A
+        ], , ]
+    });
 
 const iceC_Test_WrongOperation_ids = [
     "::Ice::Object",
@@ -247,11 +268,16 @@ Test.WrongOperation = class extends Ice.Object
 Test.WrongOperationPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.WrongOperationPrx", Test.WrongOperationPrx);
 
-Slice.defineOperations(Test.WrongOperation, Test.WrongOperationPrx, iceC_Test_WrongOperation_ids, "::Test::WrongOperation",
-{
-    "noSuchOperation": [, , , , , , , , ]
-});
+Ice.defineOperations(
+    Test.WrongOperation,
+    Test.WrongOperationPrx,
+    iceC_Test_WrongOperation_ids,
+    "::Test::WrongOperation",
+    {
+        "noSuchOperation": [, , , , , , , , ]
+    });
 
 const iceC_Test_Echo_ids = [
     "::Ice::Object",
@@ -265,12 +291,16 @@ Test.Echo = class extends Ice.Object
 Test.EchoPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.EchoPrx", Test.EchoPrx);
 
-Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
-{
-    "setConnection": [, , , , , , , , ],
-    "startBatch": [, , , , , , , , ],
-    "flushBatch": [, , , , , , , , ],
-    "shutdown": [, , , , , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.Echo,
+    Test.EchoPrx,
+    iceC_Test_Echo_ids,
+    "::Test::Echo",
+    {
+        "setConnection": [, , , , , , , , ],
+        "startBatch": [, , , , , , , , ],
+        "flushBatch": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ]
+    });

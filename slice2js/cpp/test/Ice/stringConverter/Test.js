@@ -16,51 +16,56 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.BadEncodingException = class extends Ice.UserException
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.BadEncodingException = class extends Ice.UserException
+    constructor(_cause = "")
     {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
+        super(_cause);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::BadEncodingException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.BadEncodingException;
-        }
-    };
-
-    const iceC_Test_MyObject_ids = [
-        "::Ice::Object",
-        "::Test::MyObject"
-    ];
-
-    Test.MyObject = class extends Ice.Object
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Test.MyObjectPrx = class extends Ice.ObjectPrx
+    static get _id()
     {
-    };
+        return "::Test::BadEncodingException";
+    }
 
-    Slice.defineOperations(Test.MyObject, Test.MyObjectPrx, iceC_Test_MyObject_ids, "::Test::MyObject",
+    _mostDerivedType()
+    {
+        return Test.BadEncodingException;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.BadEncodingException",
+    Test.BadEncodingException);
+
+const iceC_Test_MyObject_ids = [
+    "::Ice::Object",
+    "::Test::MyObject"
+];
+
+Test.MyObject = class extends Ice.Object
+{
+};
+
+Test.MyObjectPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.MyObjectPrx", Test.MyObjectPrx);
+
+Ice.defineOperations(
+    Test.MyObject,
+    Test.MyObjectPrx,
+    iceC_Test_MyObject_ids,
+    "::Test::MyObject",
     {
         "widen": [, , , [7], [[7]], ,
         [
@@ -69,10 +74,3 @@
         "narrow": [, , , [7], [[7]], , , , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

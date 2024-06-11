@@ -16,127 +16,125 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const WithNamespace = {};
+
+WithNamespace.C1 = class extends Ice.Value
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let WithNamespace = _ModuleRegistry.module("WithNamespace");
-
-    WithNamespace.C1 = class extends Ice.Value
+    constructor(i = 0)
     {
-        constructor(i = 0)
-        {
-            super();
-            this.i = i;
-        }
+        super();
+        this.i = i;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.i = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(WithNamespace.C1, "::WithNamespace::C1");
-
-    WithNamespace.C2 = class extends WithNamespace.C1
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(i, l = new Ice.Long(0, 0))
-        {
-            super(i);
-            this.l = l;
-        }
+        ostr.writeInt(this.i);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeLong(this.l);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.l = istr.readLong();
-        }
-    };
-
-    Slice.defineValue(WithNamespace.C2, "::WithNamespace::C2");
-
-    WithNamespace.E1 = class extends Ice.UserException
+    _iceReadMemberImpl(istr)
     {
-        constructor(i = 0, _cause = "")
-        {
-            super(_cause);
-            this.i = i;
-        }
+        this.i = istr.readInt();
+    }
+};
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
+Ice.defineValue(WithNamespace.C1, "::WithNamespace::C1");
+Ice.TypeRegistry.declareValueType("WithNamespace.C1", WithNamespace.C1);
 
-        static get _id()
-        {
-            return "::WithNamespace::E1";
-        }
-
-        _mostDerivedType()
-        {
-            return WithNamespace.E1;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.i = istr.readInt();
-        }
-    };
-
-    WithNamespace.E2 = class extends WithNamespace.E1
+WithNamespace.C2 = class extends WithNamespace.C1
+{
+    constructor(i, l = new Ice.Long(0, 0))
     {
-        constructor(i, l = new Ice.Long(0, 0), _cause = "")
-        {
-            super(i, _cause);
-            this.l = l;
-        }
+        super(i);
+        this.l = l;
+    }
 
-        static get _parent()
-        {
-            return WithNamespace.E1;
-        }
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeLong(this.l);
+    }
 
-        static get _id()
-        {
-            return "::WithNamespace::E2";
-        }
+    _iceReadMemberImpl(istr)
+    {
+        this.l = istr.readLong();
+    }
+};
 
-        _mostDerivedType()
-        {
-            return WithNamespace.E2;
-        }
+Ice.defineValue(WithNamespace.C2, "::WithNamespace::C2");
+Ice.TypeRegistry.declareValueType("WithNamespace.C2", WithNamespace.C2);
 
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeLong(this.l);
-        }
+WithNamespace.E1 = class extends Ice.UserException
+{
+    constructor(i = 0, _cause = "")
+    {
+        super(_cause);
+        this.i = i;
+    }
 
-        _readMemberImpl(istr)
-        {
-            this.l = istr.readLong();
-        }
-    };
-    exports.WithNamespace = WithNamespace;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::WithNamespace::E1";
+    }
+
+    _mostDerivedType()
+    {
+        return WithNamespace.E1;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeInt(this.i);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.i = istr.readInt();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "WithNamespace.E1",
+    WithNamespace.E1);
+
+WithNamespace.E2 = class extends WithNamespace.E1
+{
+    constructor(i, l = new Ice.Long(0, 0), _cause = "")
+    {
+        super(i, _cause);
+        this.l = l;
+    }
+
+    static get _parent()
+    {
+        return WithNamespace.E1;
+    }
+
+    static get _id()
+    {
+        return "::WithNamespace::E2";
+    }
+
+    _mostDerivedType()
+    {
+        return WithNamespace.E2;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeLong(this.l);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.l = istr.readLong();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "WithNamespace.E2",
+    WithNamespace.E2);

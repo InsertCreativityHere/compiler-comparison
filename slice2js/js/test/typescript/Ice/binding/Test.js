@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 const iceC_Test_TestIntf_ids = [
     "::Ice::Object",
@@ -34,11 +33,16 @@ Test.TestIntf = class extends Ice.Object
 Test.TestIntfPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
 
-Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
-{
-    "getAdapterName": [, , , [7], , , , , ]
-});
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
+    {
+        "getAdapterName": [, , , [7], , , , , ]
+    });
 
 const iceC_Test_RemoteObjectAdapter_ids = [
     "::Ice::Object",
@@ -52,12 +56,17 @@ Test.RemoteObjectAdapter = class extends Ice.Object
 Test.RemoteObjectAdapterPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.RemoteObjectAdapterPrx", Test.RemoteObjectAdapterPrx);
 
-Slice.defineOperations(Test.RemoteObjectAdapter, Test.RemoteObjectAdapterPrx, iceC_Test_RemoteObjectAdapter_ids, "::Test::RemoteObjectAdapter",
-{
-    "getTestIntf": [, , , ["Test.TestIntfPrx"], , , , , ],
-    "deactivate": [, , , , , , , , ]
-});
+Ice.defineOperations(
+    Test.RemoteObjectAdapter,
+    Test.RemoteObjectAdapterPrx,
+    iceC_Test_RemoteObjectAdapter_ids,
+    "::Test::RemoteObjectAdapter",
+    {
+        "getTestIntf": [, , , ["Test.TestIntfPrx"], , , , , ],
+        "deactivate": [, , , , , , , , ]
+    });
 
 const iceC_Test_RemoteCommunicator_ids = [
     "::Ice::Object",
@@ -71,11 +80,15 @@ Test.RemoteCommunicator = class extends Ice.Object
 Test.RemoteCommunicatorPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.RemoteCommunicatorPrx", Test.RemoteCommunicatorPrx);
 
-Slice.defineOperations(Test.RemoteCommunicator, Test.RemoteCommunicatorPrx, iceC_Test_RemoteCommunicator_ids, "::Test::RemoteCommunicator",
-{
-    "createObjectAdapter": [, , , ["Test.RemoteObjectAdapterPrx"], [[7], [7]], , , , ],
-    "deactivateObjectAdapter": [, , , , [["Test.RemoteObjectAdapterPrx"]], , , , ],
-    "shutdown": [, , , , , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.RemoteCommunicator,
+    Test.RemoteCommunicatorPrx,
+    iceC_Test_RemoteCommunicator_ids,
+    "::Test::RemoteCommunicator",
+    {
+        "createObjectAdapter": [, , , ["Test.RemoteObjectAdapterPrx"], [[7], [7]], , , , ],
+        "deactivateObjectAdapter": [, , , , [["Test.RemoteObjectAdapterPrx"]], , , , ],
+        "shutdown": [, , , , , , , , ]
+    });

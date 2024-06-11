@@ -385,64 +385,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_I;
-    global $Test__t_IPrx;
-
-    class IPrxHelper
-    {
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
-        {
-            return $proxy->ice_checkedCast('::Test::I', $facetOrContext, $context);
-        }
-
-        public static function uncheckedCast($proxy, $facet=null)
-        {
-            return $proxy->ice_uncheckedCast('::Test::I', $facet);
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::I';
-        }
-    }
-
-    global $Ice__t_ObjectPrx;
-    $Test__t_IPrx = IcePHP_defineProxy('::Test::I', $Ice__t_ObjectPrx, null);
-
-    IcePHP_defineOperation($Test__t_IPrx, 'doI', 0, 0, null, null, null, null);
-}
-
-namespace Test
-{
-    global $Test__t_J;
-    global $Test__t_JPrx;
-
-    class JPrxHelper
-    {
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
-        {
-            return $proxy->ice_checkedCast('::Test::J', $facetOrContext, $context);
-        }
-
-        public static function uncheckedCast($proxy, $facet=null)
-        {
-            return $proxy->ice_uncheckedCast('::Test::J', $facet);
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::J';
-        }
-    }
-
-    global $Ice__t_ObjectPrx;
-    $Test__t_JPrx = IcePHP_defineProxy('::Test::J', $Ice__t_ObjectPrx, array($Test__t_IPrx));
-
-    IcePHP_defineOperation($Test__t_JPrx, 'doJ', 0, 0, null, null, null, null);
-}
-
-namespace Test
-{
     global $Test__t_BaseSeq;
 
     if(!isset($Test__t_BaseSeq))

@@ -16,164 +16,178 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.Base = class extends Ice.UserException
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.Base = class extends Ice.UserException
+    constructor(b = "", _cause = "")
     {
-        constructor(b = "", _cause = "")
-        {
-            super(_cause);
-            this.b = b;
-        }
+        super(_cause);
+        this.b = b;
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::Base";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.Base;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.b);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.b = istr.readString();
-        }
-    };
-
-    Test.KnownDerived = class extends Test.Base
+    static get _parent()
     {
-        constructor(b, kd = "", _cause = "")
-        {
-            super(b, _cause);
-            this.kd = kd;
-        }
+        return Ice.UserException;
+    }
 
-        static get _parent()
-        {
-            return Test.Base;
-        }
-
-        static get _id()
-        {
-            return "::Test::KnownDerived";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.KnownDerived;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.kd);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.kd = istr.readString();
-        }
-    };
-
-    Test.KnownIntermediate = class extends Test.Base
+    static get _id()
     {
-        constructor(b, ki = "", _cause = "")
-        {
-            super(b, _cause);
-            this.ki = ki;
-        }
+        return "::Test::Base";
+    }
 
-        static get _parent()
-        {
-            return Test.Base;
-        }
-
-        static get _id()
-        {
-            return "::Test::KnownIntermediate";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.KnownIntermediate;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.ki);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.ki = istr.readString();
-        }
-    };
-
-    Test.KnownMostDerived = class extends Test.KnownIntermediate
+    _mostDerivedType()
     {
-        constructor(b, ki, kmd = "", _cause = "")
-        {
-            super(b, ki, _cause);
-            this.kmd = kmd;
-        }
+        return Test.Base;
+    }
 
-        static get _parent()
-        {
-            return Test.KnownIntermediate;
-        }
-
-        static get _id()
-        {
-            return "::Test::KnownMostDerived";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.KnownMostDerived;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.kmd);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.kmd = istr.readString();
-        }
-    };
-
-    const iceC_Test_TestIntf_ids = [
-        "::Ice::Object",
-        "::Test::TestIntf"
-    ];
-
-    Test.TestIntf = class extends Ice.Object
+    _writeMemberImpl(ostr)
     {
-    };
+        ostr.writeString(this.b);
+    }
 
-    Test.TestIntfPrx = class extends Ice.ObjectPrx
+    _readMemberImpl(istr)
     {
-    };
+        this.b = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.Base",
+    Test.Base);
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
+Test.KnownDerived = class extends Test.Base
+{
+    constructor(b, kd = "", _cause = "")
+    {
+        super(b, _cause);
+        this.kd = kd;
+    }
+
+    static get _parent()
+    {
+        return Test.Base;
+    }
+
+    static get _id()
+    {
+        return "::Test::KnownDerived";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.KnownDerived;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.kd);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.kd = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.KnownDerived",
+    Test.KnownDerived);
+
+Test.KnownIntermediate = class extends Test.Base
+{
+    constructor(b, ki = "", _cause = "")
+    {
+        super(b, _cause);
+        this.ki = ki;
+    }
+
+    static get _parent()
+    {
+        return Test.Base;
+    }
+
+    static get _id()
+    {
+        return "::Test::KnownIntermediate";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.KnownIntermediate;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.ki);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.ki = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.KnownIntermediate",
+    Test.KnownIntermediate);
+
+Test.KnownMostDerived = class extends Test.KnownIntermediate
+{
+    constructor(b, ki, kmd = "", _cause = "")
+    {
+        super(b, ki, _cause);
+        this.kmd = kmd;
+    }
+
+    static get _parent()
+    {
+        return Test.KnownIntermediate;
+    }
+
+    static get _id()
+    {
+        return "::Test::KnownMostDerived";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.KnownMostDerived;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeString(this.kmd);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.kmd = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.KnownMostDerived",
+    Test.KnownMostDerived);
+
+const iceC_Test_TestIntf_ids = [
+    "::Ice::Object",
+    "::Test::TestIntf"
+];
+
+Test.TestIntf = class extends Ice.Object
+{
+};
+
+Test.TestIntfPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
+
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
     {
         "baseAsBase": [, , 2, , , ,
         [
@@ -229,10 +243,3 @@
         ], , ],
         "shutdown": [, , 2, , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

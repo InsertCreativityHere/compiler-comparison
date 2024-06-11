@@ -16,48 +16,38 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const IceStormElection = {};
+
+/**
+ *  A struct used for marking the last log update.
+ **/
+IceStormElection.LogUpdate = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let IceStormElection = _ModuleRegistry.module("IceStormElection");
-
-    /**
-     *  A struct used for marking the last log update.
-     **/
-    IceStormElection.LogUpdate = class
+    constructor(generation = new Ice.Long(0, 0), iteration = new Ice.Long(0, 0))
     {
-        constructor(generation = new Ice.Long(0, 0), iteration = new Ice.Long(0, 0))
-        {
-            this.generation = generation;
-            this.iteration = iteration;
-        }
+        this.generation = generation;
+        this.iteration = iteration;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeLong(this.generation);
-            ostr.writeLong(this.iteration);
-        }
+    _write(ostr)
+    {
+        ostr.writeLong(this.generation);
+        ostr.writeLong(this.iteration);
+    }
 
-        _read(istr)
-        {
-            this.generation = istr.readLong();
-            this.iteration = istr.readLong();
-        }
+    _read(istr)
+    {
+        this.generation = istr.readLong();
+        this.iteration = istr.readLong();
+    }
 
-        static get minWireSize()
-        {
-            return  16;
-        }
-    };
+    static get minWireSize()
+    {
+        return  16;
+    }
+};
 
-    Slice.defineStruct(IceStormElection.LogUpdate, true, false);
-    exports.IceStormElection = IceStormElection;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Ice.defineStruct(IceStormElection.LogUpdate, true, false);

@@ -17,9 +17,15 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-import { Test } from "Test";
-const Slice = Ice.Slice;
+
+import { 
+    Test as Test_Test, } from "./Test.js"
+
+const Test = {
+    ...Test_Test,
+};
+
+export { Test };
 
 const iceC_Test_Initial2_ids = [
     "::Ice::Object",
@@ -33,10 +39,14 @@ Test.Initial2 = class extends Ice.Object
 Test.Initial2Prx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.Initial2Prx", Test.Initial2Prx);
 
-Slice.defineOperations(Test.Initial2, Test.Initial2Prx, iceC_Test_Initial2_ids, "::Test::Initial2",
-{
-    "opClassAndUnknownOptional": [, , , , [["Test.A", true], [Test.VarStruct, , 1]], , , true, ],
-    "opVoid": [, , , , [[3, , 1], [7, , 2]], , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.Initial2,
+    Test.Initial2Prx,
+    iceC_Test_Initial2_ids,
+    "::Test::Initial2",
+    {
+        "opClassAndUnknownOptional": [, , , , [["Test.A", true], [Test.VarStruct, , 1]], , , true, ],
+        "opVoid": [, , , , [[3, , 1], [7, , 2]], , , , ]
+    });

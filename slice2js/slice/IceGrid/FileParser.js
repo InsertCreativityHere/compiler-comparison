@@ -16,23 +16,36 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Exception");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Exception from "../Ice/Exception.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
 
-const IceGrid = require("./Admin").IceGrid;
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_Exception,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+};
+
+import { 
+    IceGrid as IceGrid_Admin, } from "./Admin.js"
+
+const IceGrid = {
+    ...IceGrid_Admin,
+};
+
+export { IceGrid };
 
 /**
  *  This exception is raised if an error occurs during parsing.
@@ -70,6 +83,9 @@ IceGrid.ParseException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.ParseException",
+    IceGrid.ParseException);
 
 const iceC_IceGrid_FileParser_ids = [
     "::Ice::Object",
@@ -87,14 +103,16 @@ IceGrid.FileParser = class extends Ice.Object
 IceGrid.FileParserPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("IceGrid.FileParserPrx", IceGrid.FileParserPrx);
 
-Slice.defineOperations(IceGrid.FileParser, IceGrid.FileParserPrx, iceC_IceGrid_FileParser_ids, "::IceGrid::FileParser",
-{
-    "parse": [, 2, , [IceGrid.ApplicationDescriptor], [[7], ["IceGrid.AdminPrx"]], ,
-    [
-        IceGrid.ParseException
-    ], , true]
-});
-/* slice2js browser-bundle-skip */
-exports.IceGrid = IceGrid;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    IceGrid.FileParser,
+    IceGrid.FileParserPrx,
+    iceC_IceGrid_FileParser_ids,
+    "::IceGrid::FileParser",
+    {
+        "parse": [, 2, , [IceGrid.ApplicationDescriptor], [[7], ["IceGrid.AdminPrx"]], ,
+        [
+            IceGrid.ParseException
+        ], , true]
+    });

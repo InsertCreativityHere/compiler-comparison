@@ -16,49 +16,44 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Glacier2, 
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_Session_ids = [
+    "::Glacier2::Session",
+    "::Ice::Object",
+    "::Test::Session"
+];
+
+Test.Session = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Glacier2 = require("ice").Glacier2;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    const iceC_Test_Session_ids = [
-        "::Glacier2::Session",
-        "::Ice::Object",
-        "::Test::Session"
-    ];
-
-    Test.Session = class extends Ice.Object
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Glacier2.Session
-            ];
-        }
-    };
+        return [
+            Glacier2.Session
+        ];
+    }
+};
 
-    Test.SessionPrx = class extends Ice.ObjectPrx
+Test.SessionPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Glacier2.SessionPrx];
-        }
-    };
+        return [
+            Glacier2.SessionPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.SessionPrx", Test.SessionPrx);
 
-    Slice.defineOperations(Test.Session, Test.SessionPrx, iceC_Test_Session_ids, "::Test::Session",
+Ice.defineOperations(
+    Test.Session,
+    Test.SessionPrx,
+    iceC_Test_Session_ids,
+    "::Test::Session",
     {
         "destroyFromClient": [, , , , , , , , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

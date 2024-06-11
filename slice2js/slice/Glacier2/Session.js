@@ -16,25 +16,40 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-const Glacier2 = require("./SSLInfo").Glacier2;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Exception");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("../Ice/BuiltinSequences");
-require("../Ice/Identity");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Exception from "../Ice/Exception.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
+import { Ice as Ice_Ice_BuiltinSequences } from "../Ice/BuiltinSequences.js"
+import { Ice as Ice_Ice_Identity } from "../Ice/Identity.js"
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_Exception,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+    ...Ice_Ice_BuiltinSequences,
+    ...Ice_Ice_Identity,
+};
+
+import { 
+    Glacier2 as Glacier2_SSLInfo, } from "./SSLInfo.js"
+
+const Glacier2 = {
+    ...Glacier2_SSLInfo,
+};
+
+export { Glacier2 };
 
 /**
  *  This exception is raised if an attempt to create a new session failed.
@@ -72,6 +87,9 @@ Glacier2.CannotCreateSessionException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Glacier2.CannotCreateSessionException",
+    Glacier2.CannotCreateSessionException);
 
 const iceC_Glacier2_Session_ids = [
     "::Glacier2::Session",
@@ -90,11 +108,16 @@ Glacier2.Session = class extends Ice.Object
 Glacier2.SessionPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Glacier2.SessionPrx", Glacier2.SessionPrx);
 
-Slice.defineOperations(Glacier2.Session, Glacier2.SessionPrx, iceC_Glacier2_Session_ids, "::Glacier2::Session",
-{
-    "destroy": [, , , , , , , , ]
-});
+Ice.defineOperations(
+    Glacier2.Session,
+    Glacier2.SessionPrx,
+    iceC_Glacier2_Session_ids,
+    "::Glacier2::Session",
+    {
+        "destroy": [, , , , , , , , ]
+    });
 
 const iceC_Glacier2_StringSet_ids = [
     "::Glacier2::StringSet",
@@ -114,13 +137,18 @@ Glacier2.StringSet = class extends Ice.Object
 Glacier2.StringSetPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Glacier2.StringSetPrx", Glacier2.StringSetPrx);
 
-Slice.defineOperations(Glacier2.StringSet, Glacier2.StringSetPrx, iceC_Glacier2_StringSet_ids, "::Glacier2::StringSet",
-{
-    "add": [, 2, , , [["Ice.StringSeqHelper"]], , , , ],
-    "remove": [, 2, , , [["Ice.StringSeqHelper"]], , , , ],
-    "get": [, 2, , ["Ice.StringSeqHelper"], , , , , ]
-});
+Ice.defineOperations(
+    Glacier2.StringSet,
+    Glacier2.StringSetPrx,
+    iceC_Glacier2_StringSet_ids,
+    "::Glacier2::StringSet",
+    {
+        "add": [, 2, , , [[Ice.StringSeqHelper]], , , , ],
+        "remove": [, 2, , , [[Ice.StringSeqHelper]], , , , ],
+        "get": [, 2, , [Ice.StringSeqHelper], , , , , ]
+    });
 
 const iceC_Glacier2_IdentitySet_ids = [
     "::Glacier2::IdentitySet",
@@ -139,13 +167,18 @@ Glacier2.IdentitySet = class extends Ice.Object
 Glacier2.IdentitySetPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Glacier2.IdentitySetPrx", Glacier2.IdentitySetPrx);
 
-Slice.defineOperations(Glacier2.IdentitySet, Glacier2.IdentitySetPrx, iceC_Glacier2_IdentitySet_ids, "::Glacier2::IdentitySet",
-{
-    "add": [, 2, , , [["Ice.IdentitySeqHelper"]], , , , ],
-    "remove": [, 2, , , [["Ice.IdentitySeqHelper"]], , , , ],
-    "get": [, 2, , ["Ice.IdentitySeqHelper"], , , , , ]
-});
+Ice.defineOperations(
+    Glacier2.IdentitySet,
+    Glacier2.IdentitySetPrx,
+    iceC_Glacier2_IdentitySet_ids,
+    "::Glacier2::IdentitySet",
+    {
+        "add": [, 2, , , [[Ice.IdentitySeqHelper]], , , , ],
+        "remove": [, 2, , , [[Ice.IdentitySeqHelper]], , , , ],
+        "get": [, 2, , [Ice.IdentitySeqHelper], , , , , ]
+    });
 
 const iceC_Glacier2_SessionControl_ids = [
     "::Glacier2::SessionControl",
@@ -163,15 +196,20 @@ Glacier2.SessionControl = class extends Ice.Object
 Glacier2.SessionControlPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Glacier2.SessionControlPrx", Glacier2.SessionControlPrx);
 
-Slice.defineOperations(Glacier2.SessionControl, Glacier2.SessionControlPrx, iceC_Glacier2_SessionControl_ids, "::Glacier2::SessionControl",
-{
-    "categories": [, , , ["Glacier2.StringSetPrx"], , , , , ],
-    "adapterIds": [, , , ["Glacier2.StringSetPrx"], , , , , ],
-    "identities": [, , , ["Glacier2.IdentitySetPrx"], , , , , ],
-    "getSessionTimeout": [, 2, , [3], , , , , ],
-    "destroy": [, , , , , , , , ]
-});
+Ice.defineOperations(
+    Glacier2.SessionControl,
+    Glacier2.SessionControlPrx,
+    iceC_Glacier2_SessionControl_ids,
+    "::Glacier2::SessionControl",
+    {
+        "categories": [, , , ["Glacier2.StringSetPrx"], , , , , ],
+        "adapterIds": [, , , ["Glacier2.StringSetPrx"], , , , , ],
+        "identities": [, , , ["Glacier2.IdentitySetPrx"], , , , , ],
+        "getSessionTimeout": [, 2, , [3], , , , , ],
+        "destroy": [, , , , , , , , ]
+    });
 
 const iceC_Glacier2_SessionManager_ids = [
     "::Glacier2::SessionManager",
@@ -193,14 +231,19 @@ Glacier2.SessionManager = class extends Ice.Object
 Glacier2.SessionManagerPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Glacier2.SessionManagerPrx", Glacier2.SessionManagerPrx);
 
-Slice.defineOperations(Glacier2.SessionManager, Glacier2.SessionManagerPrx, iceC_Glacier2_SessionManager_ids, "::Glacier2::SessionManager",
-{
-    "create": [, , 2, ["Glacier2.SessionPrx"], [[7], ["Glacier2.SessionControlPrx"]], ,
-    [
-        Glacier2.CannotCreateSessionException
-    ], , ]
-});
+Ice.defineOperations(
+    Glacier2.SessionManager,
+    Glacier2.SessionManagerPrx,
+    iceC_Glacier2_SessionManager_ids,
+    "::Glacier2::SessionManager",
+    {
+        "create": [, , 2, ["Glacier2.SessionPrx"], [[7], ["Glacier2.SessionControlPrx"]], ,
+        [
+            Glacier2.CannotCreateSessionException
+        ], , ]
+    });
 
 const iceC_Glacier2_SSLSessionManager_ids = [
     "::Glacier2::SSLSessionManager",
@@ -221,14 +264,16 @@ Glacier2.SSLSessionManager = class extends Ice.Object
 Glacier2.SSLSessionManagerPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Glacier2.SSLSessionManagerPrx", Glacier2.SSLSessionManagerPrx);
 
-Slice.defineOperations(Glacier2.SSLSessionManager, Glacier2.SSLSessionManagerPrx, iceC_Glacier2_SSLSessionManager_ids, "::Glacier2::SSLSessionManager",
-{
-    "create": [, , 2, ["Glacier2.SessionPrx"], [[Glacier2.SSLInfo], ["Glacier2.SessionControlPrx"]], ,
-    [
-        Glacier2.CannotCreateSessionException
-    ], , ]
-});
-/* slice2js browser-bundle-skip */
-exports.Glacier2 = Glacier2;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    Glacier2.SSLSessionManager,
+    Glacier2.SSLSessionManagerPrx,
+    iceC_Glacier2_SSLSessionManager_ids,
+    "::Glacier2::SSLSessionManager",
+    {
+        "create": [, , 2, ["Glacier2.SessionPrx"], [[Glacier2.SSLInfo], ["Glacier2.SessionControlPrx"]], ,
+        [
+            Glacier2.CannotCreateSessionException
+        ], , ]
+    });

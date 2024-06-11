@@ -16,460 +16,459 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const LocalTest = {};
+
+LocalTest.C1 = class extends Ice.Value
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let LocalTest = _ModuleRegistry.module("LocalTest");
-
-    LocalTest.C1 = class extends Ice.Value
+    constructor(i = 0)
     {
-        constructor(i = 0)
-        {
-            super();
-            this.i = i;
-        }
+        super();
+        this.i = i;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.i = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(LocalTest.C1, "::LocalTest::C1");
-
-    LocalTest.S1 = class
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(c1 = null)
-        {
-            this.c1 = c1;
-        }
+        ostr.writeInt(this.i);
+    }
 
-        _write(ostr)
-        {
-            ostr.writeValue(this.c1);
-        }
-
-        _read(istr)
-        {
-            istr.readValue(obj => this.c1 = obj, LocalTest.C1);
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(LocalTest.S1, false, true);
-
-    Slice.defineSequence(LocalTest, "C1SeqHelper", "Ice.ObjectHelper", false, "LocalTest.C1");
-
-    Slice.defineSequence(LocalTest, "S1SeqHelper", "LocalTest.S1", false);
-
-    Slice.defineDictionary(LocalTest, "C1Dict", "C1DictHelper", "Ice.IntHelper", "Ice.ObjectHelper", false, undefined, "LocalTest.C1");
-
-    Slice.defineDictionary(LocalTest, "S1Dict", "S1DictHelper", "Ice.IntHelper", "LocalTest.S1", false, undefined, undefined);
-
-    Slice.defineSequence(LocalTest, "C1SeqSeqHelper", "LocalTest.C1SeqHelper", false);
-
-    Slice.defineSequence(LocalTest, "S1SeqSeqHelper", "LocalTest.S1SeqHelper", false);
-
-    LocalTest.S2 = class
+    _iceReadMemberImpl(istr)
     {
-        constructor(s1 = new LocalTest.S1())
-        {
-            this.s1 = s1;
-        }
+        this.i = istr.readInt();
+    }
+};
 
-        _write(ostr)
-        {
-            LocalTest.S1.write(ostr, this.s1);
-        }
+Ice.defineValue(LocalTest.C1, "::LocalTest::C1");
+Ice.TypeRegistry.declareValueType("LocalTest.C1", LocalTest.C1);
 
-        _read(istr)
-        {
-            this.s1 = LocalTest.S1.read(istr, this.s1);
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(LocalTest.S2, false, true);
-
-    LocalTest.S3 = class
+LocalTest.S1 = class
+{
+    constructor(c1 = null)
     {
-        constructor(c1seq = null)
-        {
-            this.c1seq = c1seq;
-        }
+        this.c1 = c1;
+    }
 
-        _write(ostr)
-        {
-            LocalTest.C1SeqHelper.write(ostr, this.c1seq);
-        }
-
-        _read(istr)
-        {
-            this.c1seq = LocalTest.C1SeqHelper.read(istr);
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(LocalTest.S3, false, true);
-
-    LocalTest.S4 = class
+    _write(ostr)
     {
-        constructor(s1seq = null)
-        {
-            this.s1seq = s1seq;
-        }
+        ostr.writeValue(this.c1);
+    }
 
-        _write(ostr)
-        {
-            LocalTest.S1SeqHelper.write(ostr, this.s1seq);
-        }
-
-        _read(istr)
-        {
-            this.s1seq = LocalTest.S1SeqHelper.read(istr);
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(LocalTest.S4, false, true);
-
-    LocalTest.S5 = class
+    _read(istr)
     {
-        constructor(c1dict = null)
-        {
-            this.c1dict = c1dict;
-        }
+        istr.readValue(obj => this.c1 = obj, Ice.TypeRegistry.getValueType("LocalTest.C1"));
+    }
 
-        _write(ostr)
-        {
-            LocalTest.C1DictHelper.write(ostr, this.c1dict);
-        }
-
-        _read(istr)
-        {
-            this.c1dict = LocalTest.C1DictHelper.read(istr);
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(LocalTest.S5, false, true);
-
-    LocalTest.S6 = class
+    static get minWireSize()
     {
-        constructor(s1dict = null)
-        {
-            this.s1dict = s1dict;
-        }
+        return  1;
+    }
+};
 
-        _write(ostr)
-        {
-            LocalTest.S1DictHelper.write(ostr, this.s1dict);
-        }
+Ice.defineStruct(LocalTest.S1, false, true);
 
-        _read(istr)
-        {
-            this.s1dict = LocalTest.S1DictHelper.read(istr);
-        }
+LocalTest.C1SeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "LocalTest.C1");
 
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
+LocalTest.S1SeqHelper = Ice.StreamHelpers.generateSeqHelper(LocalTest.S1, false);
 
-    Slice.defineStruct(LocalTest.S6, false, true);
+[LocalTest.C1Dict, LocalTest.C1DictHelper] = Ice.defineDictionary(Ice.IntHelper, Ice.ObjectHelper, false, undefined, "LocalTest.C1");
 
-    LocalTest.S7 = class
+[LocalTest.S1Dict, LocalTest.S1DictHelper] = Ice.defineDictionary(Ice.IntHelper, LocalTest.S1, false, undefined);
+
+LocalTest.C1SeqSeqHelper = Ice.StreamHelpers.generateSeqHelper(LocalTest.C1SeqHelper, false);
+
+LocalTest.S1SeqSeqHelper = Ice.StreamHelpers.generateSeqHelper(LocalTest.S1SeqHelper, false);
+
+LocalTest.S2 = class
+{
+    constructor(s1 = new LocalTest.S1())
     {
-        constructor(c1seqseq = null)
-        {
-            this.c1seqseq = c1seqseq;
-        }
+        this.s1 = s1;
+    }
 
-        _write(ostr)
-        {
-            LocalTest.C1SeqSeqHelper.write(ostr, this.c1seqseq);
-        }
-
-        _read(istr)
-        {
-            this.c1seqseq = LocalTest.C1SeqSeqHelper.read(istr);
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(LocalTest.S7, false, true);
-
-    LocalTest.S8 = class
+    _write(ostr)
     {
-        constructor(s1seqseq = null)
-        {
-            this.s1seqseq = s1seqseq;
-        }
+        LocalTest.S1.write(ostr, this.s1);
+    }
 
-        _write(ostr)
-        {
-            LocalTest.S1SeqSeqHelper.write(ostr, this.s1seqseq);
-        }
-
-        _read(istr)
-        {
-            this.s1seqseq = LocalTest.S1SeqSeqHelper.read(istr);
-        }
-
-        static get minWireSize()
-        {
-            return  1;
-        }
-    };
-
-    Slice.defineStruct(LocalTest.S8, false, true);
-
-    LocalTest.CB1 = class extends Ice.Value
+    _read(istr)
     {
-        constructor(s1 = new LocalTest.S1())
-        {
-            super();
-            this.s1 = s1;
-        }
+        this.s1 = LocalTest.S1.read(istr, this.s1);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            LocalTest.S1.write(ostr, this.s1);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.s1 = LocalTest.S1.read(istr, this.s1);
-        }
-    };
-
-    Slice.defineValue(LocalTest.CB1, "::LocalTest::CB1");
-
-    LocalTest.CB2 = class extends Ice.Value
+    static get minWireSize()
     {
-        constructor(c1seq = null)
-        {
-            super();
-            this.c1seq = c1seq;
-        }
+        return  1;
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            LocalTest.C1SeqHelper.write(ostr, this.c1seq);
-        }
+Ice.defineStruct(LocalTest.S2, false, true);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.c1seq = LocalTest.C1SeqHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(LocalTest.CB2, "::LocalTest::CB2");
-
-    LocalTest.CB3 = class extends Ice.Value
+LocalTest.S3 = class
+{
+    constructor(c1seq = null)
     {
-        constructor(s1seq = null)
-        {
-            super();
-            this.s1seq = s1seq;
-        }
+        this.c1seq = c1seq;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            LocalTest.S1SeqHelper.write(ostr, this.s1seq);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.s1seq = LocalTest.S1SeqHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(LocalTest.CB3, "::LocalTest::CB3");
-
-    LocalTest.CB4 = class extends Ice.Value
+    _write(ostr)
     {
-        constructor(c1dict = null)
-        {
-            super();
-            this.c1dict = c1dict;
-        }
+        LocalTest.C1SeqHelper.write(ostr, this.c1seq);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            LocalTest.C1DictHelper.write(ostr, this.c1dict);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.c1dict = LocalTest.C1DictHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(LocalTest.CB4, "::LocalTest::CB4");
-
-    LocalTest.CB5 = class extends Ice.Value
+    _read(istr)
     {
-        constructor(s1dict = null)
-        {
-            super();
-            this.s1dict = s1dict;
-        }
+        this.c1seq = LocalTest.C1SeqHelper.read(istr);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            LocalTest.S1DictHelper.write(ostr, this.s1dict);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.s1dict = LocalTest.S1DictHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(LocalTest.CB5, "::LocalTest::CB5");
-
-    LocalTest.CB6 = class extends Ice.Value
+    static get minWireSize()
     {
-        constructor(c1seqseq = null)
-        {
-            super();
-            this.c1seqseq = c1seqseq;
-        }
+        return  1;
+    }
+};
 
-        _iceWriteMemberImpl(ostr)
-        {
-            LocalTest.C1SeqSeqHelper.write(ostr, this.c1seqseq);
-        }
+Ice.defineStruct(LocalTest.S3, false, true);
 
-        _iceReadMemberImpl(istr)
-        {
-            this.c1seqseq = LocalTest.C1SeqSeqHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(LocalTest.CB6, "::LocalTest::CB6");
-
-    LocalTest.CB7 = class extends Ice.Value
+LocalTest.S4 = class
+{
+    constructor(s1seq = null)
     {
-        constructor(s1seqseq = null)
-        {
-            super();
-            this.s1seqseq = s1seqseq;
-        }
+        this.s1seq = s1seq;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            LocalTest.S1SeqSeqHelper.write(ostr, this.s1seqseq);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.s1seqseq = LocalTest.S1SeqSeqHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(LocalTest.CB7, "::LocalTest::CB7");
-
-    LocalTest.CB8 = class extends Ice.Value
+    _write(ostr)
     {
-        constructor(s1 = new LocalTest.S1(), c1seq = null, s1dict = null)
-        {
-            super();
-            this.s1 = s1;
-            this.c1seq = c1seq;
-            this.s1dict = s1dict;
-        }
+        LocalTest.S1SeqHelper.write(ostr, this.s1seq);
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            LocalTest.S1.write(ostr, this.s1);
-            LocalTest.C1SeqHelper.write(ostr, this.c1seq);
-            LocalTest.S1DictHelper.write(ostr, this.s1dict);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.s1 = LocalTest.S1.read(istr, this.s1);
-            this.c1seq = LocalTest.C1SeqHelper.read(istr);
-            this.s1dict = LocalTest.S1DictHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(LocalTest.CB8, "::LocalTest::CB8");
-
-    LocalTest.StructKey = class
+    _read(istr)
     {
-        constructor(i = 0, j = 0)
-        {
-            this.i = i;
-            this.j = j;
-        }
+        this.s1seq = LocalTest.S1SeqHelper.read(istr);
+    }
 
-        _write(ostr)
-        {
-            ostr.writeInt(this.i);
-            ostr.writeInt(this.j);
-        }
+    static get minWireSize()
+    {
+        return  1;
+    }
+};
 
-        _read(istr)
-        {
-            this.i = istr.readInt();
-            this.j = istr.readInt();
-        }
+Ice.defineStruct(LocalTest.S4, false, true);
 
-        static get minWireSize()
-        {
-            return  8;
-        }
-    };
+LocalTest.S5 = class
+{
+    constructor(c1dict = null)
+    {
+        this.c1dict = c1dict;
+    }
 
-    Slice.defineStruct(LocalTest.StructKey, true, false);
+    _write(ostr)
+    {
+        LocalTest.C1DictHelper.write(ostr, this.c1dict);
+    }
 
-    Slice.defineDictionary(LocalTest, "StructDict1", "StructDict1Helper", "LocalTest.StructKey", "Ice.ObjectHelper", false, Ice.HashMap.compareEquals, "LocalTest.C1");
+    _read(istr)
+    {
+        this.c1dict = LocalTest.C1DictHelper.read(istr);
+    }
 
-    Slice.defineDictionary(LocalTest, "StructDict2", "StructDict2Helper", "LocalTest.StructKey", "LocalTest.S1", false, Ice.HashMap.compareEquals, undefined);
+    static get minWireSize()
+    {
+        return  1;
+    }
+};
 
-    Slice.defineDictionary(LocalTest, "C1DictDict", "C1DictDictHelper", "Ice.IntHelper", "LocalTest.C1DictHelper", false, undefined, undefined);
+Ice.defineStruct(LocalTest.S5, false, true);
 
-    Slice.defineDictionary(LocalTest, "S1DictDict", "S1DictDictHelper", "Ice.IntHelper", "LocalTest.S1DictHelper", false, undefined, undefined);
-    exports.LocalTest = LocalTest;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+LocalTest.S6 = class
+{
+    constructor(s1dict = null)
+    {
+        this.s1dict = s1dict;
+    }
+
+    _write(ostr)
+    {
+        LocalTest.S1DictHelper.write(ostr, this.s1dict);
+    }
+
+    _read(istr)
+    {
+        this.s1dict = LocalTest.S1DictHelper.read(istr);
+    }
+
+    static get minWireSize()
+    {
+        return  1;
+    }
+};
+
+Ice.defineStruct(LocalTest.S6, false, true);
+
+LocalTest.S7 = class
+{
+    constructor(c1seqseq = null)
+    {
+        this.c1seqseq = c1seqseq;
+    }
+
+    _write(ostr)
+    {
+        LocalTest.C1SeqSeqHelper.write(ostr, this.c1seqseq);
+    }
+
+    _read(istr)
+    {
+        this.c1seqseq = LocalTest.C1SeqSeqHelper.read(istr);
+    }
+
+    static get minWireSize()
+    {
+        return  1;
+    }
+};
+
+Ice.defineStruct(LocalTest.S7, false, true);
+
+LocalTest.S8 = class
+{
+    constructor(s1seqseq = null)
+    {
+        this.s1seqseq = s1seqseq;
+    }
+
+    _write(ostr)
+    {
+        LocalTest.S1SeqSeqHelper.write(ostr, this.s1seqseq);
+    }
+
+    _read(istr)
+    {
+        this.s1seqseq = LocalTest.S1SeqSeqHelper.read(istr);
+    }
+
+    static get minWireSize()
+    {
+        return  1;
+    }
+};
+
+Ice.defineStruct(LocalTest.S8, false, true);
+
+LocalTest.CB1 = class extends Ice.Value
+{
+    constructor(s1 = new LocalTest.S1())
+    {
+        super();
+        this.s1 = s1;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        LocalTest.S1.write(ostr, this.s1);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.s1 = LocalTest.S1.read(istr, this.s1);
+    }
+};
+
+Ice.defineValue(LocalTest.CB1, "::LocalTest::CB1");
+Ice.TypeRegistry.declareValueType("LocalTest.CB1", LocalTest.CB1);
+
+LocalTest.CB2 = class extends Ice.Value
+{
+    constructor(c1seq = null)
+    {
+        super();
+        this.c1seq = c1seq;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        LocalTest.C1SeqHelper.write(ostr, this.c1seq);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.c1seq = LocalTest.C1SeqHelper.read(istr);
+    }
+};
+
+Ice.defineValue(LocalTest.CB2, "::LocalTest::CB2");
+Ice.TypeRegistry.declareValueType("LocalTest.CB2", LocalTest.CB2);
+
+LocalTest.CB3 = class extends Ice.Value
+{
+    constructor(s1seq = null)
+    {
+        super();
+        this.s1seq = s1seq;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        LocalTest.S1SeqHelper.write(ostr, this.s1seq);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.s1seq = LocalTest.S1SeqHelper.read(istr);
+    }
+};
+
+Ice.defineValue(LocalTest.CB3, "::LocalTest::CB3");
+Ice.TypeRegistry.declareValueType("LocalTest.CB3", LocalTest.CB3);
+
+LocalTest.CB4 = class extends Ice.Value
+{
+    constructor(c1dict = null)
+    {
+        super();
+        this.c1dict = c1dict;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        LocalTest.C1DictHelper.write(ostr, this.c1dict);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.c1dict = LocalTest.C1DictHelper.read(istr);
+    }
+};
+
+Ice.defineValue(LocalTest.CB4, "::LocalTest::CB4");
+Ice.TypeRegistry.declareValueType("LocalTest.CB4", LocalTest.CB4);
+
+LocalTest.CB5 = class extends Ice.Value
+{
+    constructor(s1dict = null)
+    {
+        super();
+        this.s1dict = s1dict;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        LocalTest.S1DictHelper.write(ostr, this.s1dict);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.s1dict = LocalTest.S1DictHelper.read(istr);
+    }
+};
+
+Ice.defineValue(LocalTest.CB5, "::LocalTest::CB5");
+Ice.TypeRegistry.declareValueType("LocalTest.CB5", LocalTest.CB5);
+
+LocalTest.CB6 = class extends Ice.Value
+{
+    constructor(c1seqseq = null)
+    {
+        super();
+        this.c1seqseq = c1seqseq;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        LocalTest.C1SeqSeqHelper.write(ostr, this.c1seqseq);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.c1seqseq = LocalTest.C1SeqSeqHelper.read(istr);
+    }
+};
+
+Ice.defineValue(LocalTest.CB6, "::LocalTest::CB6");
+Ice.TypeRegistry.declareValueType("LocalTest.CB6", LocalTest.CB6);
+
+LocalTest.CB7 = class extends Ice.Value
+{
+    constructor(s1seqseq = null)
+    {
+        super();
+        this.s1seqseq = s1seqseq;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        LocalTest.S1SeqSeqHelper.write(ostr, this.s1seqseq);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.s1seqseq = LocalTest.S1SeqSeqHelper.read(istr);
+    }
+};
+
+Ice.defineValue(LocalTest.CB7, "::LocalTest::CB7");
+Ice.TypeRegistry.declareValueType("LocalTest.CB7", LocalTest.CB7);
+
+LocalTest.CB8 = class extends Ice.Value
+{
+    constructor(s1 = new LocalTest.S1(), c1seq = null, s1dict = null)
+    {
+        super();
+        this.s1 = s1;
+        this.c1seq = c1seq;
+        this.s1dict = s1dict;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        LocalTest.S1.write(ostr, this.s1);
+        LocalTest.C1SeqHelper.write(ostr, this.c1seq);
+        LocalTest.S1DictHelper.write(ostr, this.s1dict);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this.s1 = LocalTest.S1.read(istr, this.s1);
+        this.c1seq = LocalTest.C1SeqHelper.read(istr);
+        this.s1dict = LocalTest.S1DictHelper.read(istr);
+    }
+};
+
+Ice.defineValue(LocalTest.CB8, "::LocalTest::CB8");
+Ice.TypeRegistry.declareValueType("LocalTest.CB8", LocalTest.CB8);
+
+LocalTest.StructKey = class
+{
+    constructor(i = 0, j = 0)
+    {
+        this.i = i;
+        this.j = j;
+    }
+
+    _write(ostr)
+    {
+        ostr.writeInt(this.i);
+        ostr.writeInt(this.j);
+    }
+
+    _read(istr)
+    {
+        this.i = istr.readInt();
+        this.j = istr.readInt();
+    }
+
+    static get minWireSize()
+    {
+        return  8;
+    }
+};
+
+Ice.defineStruct(LocalTest.StructKey, true, false);
+
+[LocalTest.StructDict1, LocalTest.StructDict1Helper] = Ice.defineDictionary(LocalTest.StructKey, Ice.ObjectHelper, false, Ice.HashMap.compareEquals, "LocalTest.C1");
+
+[LocalTest.StructDict2, LocalTest.StructDict2Helper] = Ice.defineDictionary(LocalTest.StructKey, LocalTest.S1, false, Ice.HashMap.compareEquals);
+
+[LocalTest.C1DictDict, LocalTest.C1DictDictHelper] = Ice.defineDictionary(Ice.IntHelper, LocalTest.C1DictHelper, false, undefined);
+
+[LocalTest.S1DictDict, LocalTest.S1DictDictHelper] = Ice.defineDictionary(Ice.IntHelper, LocalTest.S1DictHelper, false, undefined);

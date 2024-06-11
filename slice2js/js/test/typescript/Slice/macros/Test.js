@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 Test._Default = class extends Ice.Value
 {
@@ -44,7 +43,8 @@ Test._Default = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test._Default, "::Test::Default");
+Ice.defineValue(Test._Default, "::Test::Default");
+Ice.TypeRegistry.declareValueType("Test._Default", Test._Default);
 
 Test.NoDefault = class extends Ice.Value
 {
@@ -68,7 +68,8 @@ Test.NoDefault = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.NoDefault, "::Test::NoDefault");
+Ice.defineValue(Test.NoDefault, "::Test::NoDefault");
+Ice.TypeRegistry.declareValueType("Test.NoDefault", Test.NoDefault);
 
 Test.JsOnly = class extends Ice.Value
 {
@@ -92,5 +93,5 @@ Test.JsOnly = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.JsOnly, "::Test::JsOnly");
-export { Test };
+Ice.defineValue(Test.JsOnly, "::Test::JsOnly");
+Ice.TypeRegistry.declareValueType("Test.JsOnly", Test.JsOnly);

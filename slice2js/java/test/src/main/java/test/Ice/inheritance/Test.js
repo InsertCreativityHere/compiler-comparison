@@ -16,144 +16,166 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.MA = Test.MA || {};
+
+Test.MB = Test.MB || {};
+
+const iceC_Test_MA_IA_ids = [
+    "::Ice::Object",
+    "::Test::MA::IA"
+];
+
+Test.MA.IA = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.MA.IAPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.MA.IAPrx", Test.MA.IAPrx);
 
-    Test.MA = _ModuleRegistry.module("Test.MA");
-
-    const iceC_Test_MA_IA_ids = [
-        "::Ice::Object",
-        "::Test::MA::IA"
-    ];
-
-    Test.MA.IA = class extends Ice.Object
-    {
-    };
-
-    Test.MA.IAPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.MA.IA, Test.MA.IAPrx, iceC_Test_MA_IA_ids, "::Test::MA::IA",
+Ice.defineOperations(
+    Test.MA.IA,
+    Test.MA.IAPrx,
+    iceC_Test_MA_IA_ids,
+    "::Test::MA::IA",
     {
         "iaop": [, , , ["Test.MA.IAPrx"], [["Test.MA.IAPrx"]], , , , ]
     });
 
-    Test.MB = _ModuleRegistry.module("Test.MB");
+const iceC_Test_MB_IB1_ids = [
+    "::Ice::Object",
+    "::Test::MA::IA",
+    "::Test::MB::IB1"
+];
 
-    const iceC_Test_MB_IB1_ids = [
-        "::Ice::Object",
-        "::Test::MA::IA",
-        "::Test::MB::IB1"
-    ];
-
-    Test.MB.IB1 = class extends Ice.Object
+Test.MB.IB1 = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Test.MA.IA
-            ];
-        }
-    };
+        return [
+            Test.MA.IA
+        ];
+    }
+};
 
-    Test.MB.IB1Prx = class extends Ice.ObjectPrx
+Test.MB.IB1Prx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Test.MA.IAPrx];
-        }
-    };
+        return [
+            Test.MA.IAPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.MB.IB1Prx", Test.MB.IB1Prx);
 
-    Slice.defineOperations(Test.MB.IB1, Test.MB.IB1Prx, iceC_Test_MB_IB1_ids, "::Test::MB::IB1",
+Ice.defineOperations(
+    Test.MB.IB1,
+    Test.MB.IB1Prx,
+    iceC_Test_MB_IB1_ids,
+    "::Test::MB::IB1",
     {
         "ib1op": [, , , ["Test.MB.IB1Prx"], [["Test.MB.IB1Prx"]], , , , ]
     });
 
-    const iceC_Test_MB_IB2_ids = [
-        "::Ice::Object",
-        "::Test::MA::IA",
-        "::Test::MB::IB2"
-    ];
+const iceC_Test_MB_IB2_ids = [
+    "::Ice::Object",
+    "::Test::MA::IA",
+    "::Test::MB::IB2"
+];
 
-    Test.MB.IB2 = class extends Ice.Object
+Test.MB.IB2 = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Test.MA.IA
-            ];
-        }
-    };
+        return [
+            Test.MA.IA
+        ];
+    }
+};
 
-    Test.MB.IB2Prx = class extends Ice.ObjectPrx
+Test.MB.IB2Prx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Test.MA.IAPrx];
-        }
-    };
+        return [
+            Test.MA.IAPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.MB.IB2Prx", Test.MB.IB2Prx);
 
-    Slice.defineOperations(Test.MB.IB2, Test.MB.IB2Prx, iceC_Test_MB_IB2_ids, "::Test::MB::IB2",
+Ice.defineOperations(
+    Test.MB.IB2,
+    Test.MB.IB2Prx,
+    iceC_Test_MB_IB2_ids,
+    "::Test::MB::IB2",
     {
         "ib2op": [, , , ["Test.MB.IB2Prx"], [["Test.MB.IB2Prx"]], , , , ]
     });
 
-    const iceC_Test_MA_IC_ids = [
-        "::Ice::Object",
-        "::Test::MA::IA",
-        "::Test::MA::IC",
-        "::Test::MB::IB1",
-        "::Test::MB::IB2"
-    ];
+const iceC_Test_MA_IC_ids = [
+    "::Ice::Object",
+    "::Test::MA::IA",
+    "::Test::MA::IC",
+    "::Test::MB::IB1",
+    "::Test::MB::IB2"
+];
 
-    Test.MA.IC = class extends Ice.Object
+Test.MA.IC = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Test.MB.IB1,
-                Test.MB.IB2
-            ];
-        }
-    };
+        return [
+            Test.MB.IB1,
+            Test.MB.IB2
+        ];
+    }
+};
 
-    Test.MA.ICPrx = class extends Ice.ObjectPrx
+Test.MA.ICPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Test.MB.IB1Prx,
-                Test.MB.IB2Prx];
-        }
-    };
+        return [
+            Test.MB.IB1Prx,
+            Test.MB.IB2Prx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.MA.ICPrx", Test.MA.ICPrx);
 
-    Slice.defineOperations(Test.MA.IC, Test.MA.ICPrx, iceC_Test_MA_IC_ids, "::Test::MA::IC",
+Ice.defineOperations(
+    Test.MA.IC,
+    Test.MA.ICPrx,
+    iceC_Test_MA_IC_ids,
+    "::Test::MA::IC",
     {
         "icop": [, , , ["Test.MA.ICPrx"], [["Test.MA.ICPrx"]], , , , ]
     });
 
-    const iceC_Test_Initial_ids = [
-        "::Ice::Object",
-        "::Test::Initial"
-    ];
+const iceC_Test_Initial_ids = [
+    "::Ice::Object",
+    "::Test::Initial"
+];
 
-    Test.Initial = class extends Ice.Object
-    {
-    };
+Test.Initial = class extends Ice.Object
+{
+};
 
-    Test.InitialPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.InitialPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.InitialPrx", Test.InitialPrx);
 
-    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
+Ice.defineOperations(
+    Test.Initial,
+    Test.InitialPrx,
+    iceC_Test_Initial_ids,
+    "::Test::Initial",
     {
         "shutdown": [, , , , , , , , ],
         "iaop": [, , , ["Test.MA.IAPrx"], , , , , ],
@@ -161,10 +183,3 @@
         "ib2op": [, , , ["Test.MB.IB2Prx"], , , , , ],
         "icop": [, , , ["Test.MA.ICPrx"], , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

@@ -16,45 +16,46 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+import { 
+    Core as Core_Core, } from "./Core.js"
+
+const Core = {
+    ...Core_Core,
+};
+
+export const User = {};
+
+User.UserInfo = class extends Ice.Value
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Core = require("Core").Core;
-    const Slice = Ice.Slice;
+};
 
-    let User = _ModuleRegistry.module("User");
+Ice.defineValue(User.UserInfo, "::User::UserInfo");
+Ice.TypeRegistry.declareValueType("User.UserInfo", User.UserInfo);
 
-    User.UserInfo = class extends Ice.Value
-    {
-    };
+const iceC_User_Registry_ids = [
+    "::Ice::Object",
+    "::User::Registry"
+];
 
-    Slice.defineValue(User.UserInfo, "::User::UserInfo");
+User.Registry = class extends Ice.Object
+{
+};
 
-    const iceC_User_Registry_ids = [
-        "::Ice::Object",
-        "::User::Registry"
-    ];
+User.RegistryPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("User.RegistryPrx", User.RegistryPrx);
 
-    User.Registry = class extends Ice.Object
-    {
-    };
-
-    User.RegistryPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(User.Registry, User.RegistryPrx, iceC_User_Registry_ids, "::User::Registry",
+Ice.defineOperations(
+    User.Registry,
+    User.RegistryPrx,
+    iceC_User_Registry_ids,
+    "::User::Registry",
     {
         "getUserInfo": [, , , ["User.UserInfo", true], [[7]], ,
         [
             Core.ArgumentException
         ], , true]
     });
-    exports.User = User;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

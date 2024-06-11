@@ -16,26 +16,30 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Exception");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Exception from "../Ice/Exception.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
-/* slice2js browser-bundle-skip */
+const Ice = {
+    ...Ice_Exception,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+};
 
-let IceGrid = _ModuleRegistry.module("IceGrid");
-/* slice2js browser-bundle-skip-end */
+
+export const IceGrid = {};
 
 /**
  *  This exception is raised if a user account for a given session identifier can't be found.
@@ -62,6 +66,9 @@ IceGrid.UserAccountNotFoundException = class extends Ice.UserException
         return IceGrid.UserAccountNotFoundException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.UserAccountNotFoundException",
+    IceGrid.UserAccountNotFoundException);
 
 const iceC_IceGrid_UserAccountMapper_ids = [
     "::Ice::Object",
@@ -78,14 +85,16 @@ IceGrid.UserAccountMapper = class extends Ice.Object
 IceGrid.UserAccountMapperPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("IceGrid.UserAccountMapperPrx", IceGrid.UserAccountMapperPrx);
 
-Slice.defineOperations(IceGrid.UserAccountMapper, IceGrid.UserAccountMapperPrx, iceC_IceGrid_UserAccountMapper_ids, "::IceGrid::UserAccountMapper",
-{
-    "getUserAccount": [, , , [7], [[7]], ,
-    [
-        IceGrid.UserAccountNotFoundException
-    ], , ]
-});
-/* slice2js browser-bundle-skip */
-exports.IceGrid = IceGrid;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    IceGrid.UserAccountMapper,
+    IceGrid.UserAccountMapperPrx,
+    iceC_IceGrid_UserAccountMapper_ids,
+    "::IceGrid::UserAccountMapper",
+    {
+        "getUserAccount": [, , , [7], [[7]], ,
+        [
+            IceGrid.UserAccountNotFoundException
+        ], , ]
+    });

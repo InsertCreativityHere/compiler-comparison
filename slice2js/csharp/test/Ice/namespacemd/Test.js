@@ -16,30 +16,42 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+import { 
+    WithNamespace as WithNamespace_Namespace, } from "./Namespace.js"
+import { 
+    NoNamespace as NoNamespace_NoNamespace, } from "./NoNamespace.js"
+
+const NoNamespace = {
+    ...NoNamespace_NoNamespace,
+};
+
+const WithNamespace = {
+    ...WithNamespace_Namespace,
+};
+
+export const Test = {};
+
+const iceC_Test_Initial_ids = [
+    "::Ice::Object",
+    "::Test::Initial"
+];
+
+Test.Initial = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const NoNamespace = require("NoNamespace").NoNamespace;
-    const WithNamespace = require("Namespace").WithNamespace;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.InitialPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.InitialPrx", Test.InitialPrx);
 
-    const iceC_Test_Initial_ids = [
-        "::Ice::Object",
-        "::Test::Initial"
-    ];
-
-    Test.Initial = class extends Ice.Object
-    {
-    };
-
-    Test.InitialPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
+Ice.defineOperations(
+    Test.Initial,
+    Test.InitialPrx,
+    iceC_Test_Initial_ids,
+    "::Test::Initial",
     {
         "getNoNamespaceC2AsC1": [, , , ["NoNamespace.C1", true], , , , , true],
         "getNoNamespaceC2AsC2": [, , , ["NoNamespace.C2", true], , , , , true],
@@ -67,10 +79,3 @@
         ], , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

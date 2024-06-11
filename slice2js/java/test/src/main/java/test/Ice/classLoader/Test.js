@@ -16,72 +16,78 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.ConcreteClass = class extends Ice.Value
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.ConcreteClass = class extends Ice.Value
+    constructor(i = 0)
     {
-        constructor(i = 0)
-        {
-            super();
-            this.i = i;
-        }
+        super();
+        this.i = i;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.i = istr.readInt();
-        }
-    };
-
-    Slice.defineValue(Test.ConcreteClass, "::Test::ConcreteClass");
-
-    Test.E = class extends Ice.UserException
+    _iceWriteMemberImpl(ostr)
     {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
+        ostr.writeInt(this.i);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::E";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.E;
-        }
-    };
-
-    const iceC_Test_Initial_ids = [
-        "::Ice::Object",
-        "::Test::Initial"
-    ];
-
-    Test.Initial = class extends Ice.Object
+    _iceReadMemberImpl(istr)
     {
-    };
+        this.i = istr.readInt();
+    }
+};
 
-    Test.InitialPrx = class extends Ice.ObjectPrx
+Ice.defineValue(Test.ConcreteClass, "::Test::ConcreteClass");
+Ice.TypeRegistry.declareValueType("Test.ConcreteClass", Test.ConcreteClass);
+
+Test.E = class extends Ice.UserException
+{
+    constructor(_cause = "")
     {
-    };
+        super(_cause);
+    }
 
-    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test::E";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.E;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.E",
+    Test.E);
+
+const iceC_Test_Initial_ids = [
+    "::Ice::Object",
+    "::Test::Initial"
+];
+
+Test.Initial = class extends Ice.Object
+{
+};
+
+Test.InitialPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.InitialPrx", Test.InitialPrx);
+
+Ice.defineOperations(
+    Test.Initial,
+    Test.InitialPrx,
+    iceC_Test_Initial_ids,
+    "::Test::Initial",
     {
         "getConcreteClass": [, , , ["Test.ConcreteClass", true], , , , , true],
         "throwException": [, , , , , ,
@@ -90,10 +96,3 @@
         ], , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

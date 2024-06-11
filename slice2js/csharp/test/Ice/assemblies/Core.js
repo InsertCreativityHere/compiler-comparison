@@ -16,40 +16,33 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Core = {};
+
+Core.ArgumentException = class extends Ice.UserException
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Core = _ModuleRegistry.module("Core");
-
-    Core.ArgumentException = class extends Ice.UserException
+    constructor(_cause = "")
     {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
+        super(_cause);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
 
-        static get _id()
-        {
-            return "::Core::ArgumentException";
-        }
+    static get _id()
+    {
+        return "::Core::ArgumentException";
+    }
 
-        _mostDerivedType()
-        {
-            return Core.ArgumentException;
-        }
-    };
-    exports.Core = Core;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+    _mostDerivedType()
+    {
+        return Core.ArgumentException;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Core.ArgumentException",
+    Core.ArgumentException);

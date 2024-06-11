@@ -16,24 +16,21 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/EnumBase");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_EnumBase from "../Ice/EnumBase.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_EnumBase,
+    ...Ice_Long,
+    ...Ice_ObjectPrx,
+};
+
+
+export { Ice };
 
 /**
  *  Determines the retry behavior an invocation in case of a (potentially) recoverable error.
  **/
-Ice.OperationMode = Slice.defineEnum([
+Ice.OperationMode = Ice.defineEnum([
     ['Normal', 0], ['Nonmutating', 1], ['Idempotent', 2]]);
-/* slice2js browser-bundle-skip */
-exports.Ice = Ice;
-/* slice2js browser-bundle-skip-end */

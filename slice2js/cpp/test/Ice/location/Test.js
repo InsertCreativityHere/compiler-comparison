@@ -16,135 +16,150 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_TestLocatorRegistry_ids = [
+    "::Ice::LocatorRegistry",
+    "::Ice::Object",
+    "::Test::TestLocatorRegistry"
+];
+
+Test.TestLocatorRegistry = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    const iceC_Test_TestLocatorRegistry_ids = [
-        "::Ice::LocatorRegistry",
-        "::Ice::Object",
-        "::Test::TestLocatorRegistry"
-    ];
-
-    Test.TestLocatorRegistry = class extends Ice.Object
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Ice.LocatorRegistry
-            ];
-        }
-    };
+        return [
+            Ice.LocatorRegistry
+        ];
+    }
+};
 
-    Test.TestLocatorRegistryPrx = class extends Ice.ObjectPrx
+Test.TestLocatorRegistryPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Ice.LocatorRegistryPrx];
-        }
-    };
+        return [
+            Ice.LocatorRegistryPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.TestLocatorRegistryPrx", Test.TestLocatorRegistryPrx);
 
-    Slice.defineOperations(Test.TestLocatorRegistry, Test.TestLocatorRegistryPrx, iceC_Test_TestLocatorRegistry_ids, "::Test::TestLocatorRegistry",
+Ice.defineOperations(
+    Test.TestLocatorRegistry,
+    Test.TestLocatorRegistryPrx,
+    iceC_Test_TestLocatorRegistry_ids,
+    "::Test::TestLocatorRegistry",
     {
         "addObject": [, , , , [[9]], , , , ]
     });
 
-    const iceC_Test_TestLocator_ids = [
-        "::Ice::Locator",
-        "::Ice::Object",
-        "::Test::TestLocator"
-    ];
+const iceC_Test_TestLocator_ids = [
+    "::Ice::Locator",
+    "::Ice::Object",
+    "::Test::TestLocator"
+];
 
-    Test.TestLocator = class extends Ice.Object
+Test.TestLocator = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                Ice.Locator
-            ];
-        }
-    };
+        return [
+            Ice.Locator
+        ];
+    }
+};
 
-    Test.TestLocatorPrx = class extends Ice.ObjectPrx
+Test.TestLocatorPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                Ice.LocatorPrx];
-        }
-    };
+        return [
+            Ice.LocatorPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.TestLocatorPrx", Test.TestLocatorPrx);
 
-    Slice.defineOperations(Test.TestLocator, Test.TestLocatorPrx, iceC_Test_TestLocator_ids, "::Test::TestLocator",
+Ice.defineOperations(
+    Test.TestLocator,
+    Test.TestLocatorPrx,
+    iceC_Test_TestLocator_ids,
+    "::Test::TestLocator",
     {
         "getRequestCount": [, 2, , [3], , , , , ]
     });
 
-    const iceC_Test_ServerManager_ids = [
-        "::Ice::Object",
-        "::Test::ServerManager"
-    ];
+const iceC_Test_ServerManager_ids = [
+    "::Ice::Object",
+    "::Test::ServerManager"
+];
 
-    Test.ServerManager = class extends Ice.Object
-    {
-    };
+Test.ServerManager = class extends Ice.Object
+{
+};
 
-    Test.ServerManagerPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.ServerManagerPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.ServerManagerPrx", Test.ServerManagerPrx);
 
-    Slice.defineOperations(Test.ServerManager, Test.ServerManagerPrx, iceC_Test_ServerManager_ids, "::Test::ServerManager",
+Ice.defineOperations(
+    Test.ServerManager,
+    Test.ServerManagerPrx,
+    iceC_Test_ServerManager_ids,
+    "::Test::ServerManager",
     {
         "startServer": [, , , , , , , , ],
         "shutdown": [, , , , , , , , ]
     });
 
-    const iceC_Test_Hello_ids = [
-        "::Ice::Object",
-        "::Test::Hello"
-    ];
+const iceC_Test_Hello_ids = [
+    "::Ice::Object",
+    "::Test::Hello"
+];
 
-    Test.Hello = class extends Ice.Object
-    {
-    };
+Test.Hello = class extends Ice.Object
+{
+};
 
-    Test.HelloPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.HelloPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.HelloPrx", Test.HelloPrx);
 
-    Slice.defineOperations(Test.Hello, Test.HelloPrx, iceC_Test_Hello_ids, "::Test::Hello",
+Ice.defineOperations(
+    Test.Hello,
+    Test.HelloPrx,
+    iceC_Test_Hello_ids,
+    "::Test::Hello",
     {
         "sayHello": [, , , , , , , , ]
     });
 
-    const iceC_Test_TestIntf_ids = [
-        "::Ice::Object",
-        "::Test::TestIntf"
-    ];
+const iceC_Test_TestIntf_ids = [
+    "::Ice::Object",
+    "::Test::TestIntf"
+];
 
-    Test.TestIntf = class extends Ice.Object
-    {
-    };
+Test.TestIntf = class extends Ice.Object
+{
+};
 
-    Test.TestIntfPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.TestIntfPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
     {
         "shutdown": [, , , , , , , , ],
         "getHello": [, , , ["Test.HelloPrx"], , , , , ],
         "getReplicatedHello": [, , , ["Test.HelloPrx"], , , , , ],
         "migrateHello": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

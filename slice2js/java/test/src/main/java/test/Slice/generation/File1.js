@@ -16,44 +16,39 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+export const Test2 = {};
+
+const iceC_Test_Interface1_ids = [
+    "::Ice::Object",
+    "::Test::Interface1"
+];
+
+Test.Interface1 = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.Interface1Prx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.Interface1Prx", Test.Interface1Prx);
 
-    const iceC_Test_Interface1_ids = [
-        "::Ice::Object",
-        "::Test::Interface1"
-    ];
-
-    Test.Interface1 = class extends Ice.Object
-    {
-    };
-
-    Test.Interface1Prx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.Interface1, Test.Interface1Prx, iceC_Test_Interface1_ids, "::Test::Interface1",
+Ice.defineOperations(
+    Test.Interface1,
+    Test.Interface1Prx,
+    iceC_Test_Interface1_ids,
+    "::Test::Interface1",
     {
         "method": [, , , , , , , , ]
     });
 
-    let Test2 = _ModuleRegistry.module("Test2");
+Test2.Class1 = class extends Ice.Value
+{
+};
 
-    Test2.Class1 = class extends Ice.Value
-    {
-    };
-
-    Slice.defineValue(Test2.Class1, "::Test2::Class1");
-    exports.Test = Test;
-    exports.Test2 = Test2;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Ice.defineValue(Test2.Class1, "::Test2::Class1");
+Ice.TypeRegistry.declareValueType("Test2.Class1", Test2.Class1);

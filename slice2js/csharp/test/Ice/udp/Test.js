@@ -16,58 +16,58 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_PingReply_ids = [
+    "::Ice::Object",
+    "::Test::PingReply"
+];
+
+Test.PingReply = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.PingReplyPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.PingReplyPrx", Test.PingReplyPrx);
 
-    const iceC_Test_PingReply_ids = [
-        "::Ice::Object",
-        "::Test::PingReply"
-    ];
-
-    Test.PingReply = class extends Ice.Object
-    {
-    };
-
-    Test.PingReplyPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.PingReply, Test.PingReplyPrx, iceC_Test_PingReply_ids, "::Test::PingReply",
+Ice.defineOperations(
+    Test.PingReply,
+    Test.PingReplyPrx,
+    iceC_Test_PingReply_ids,
+    "::Test::PingReply",
     {
         "reply": [, , , , , , , , ]
     });
 
-    Slice.defineSequence(Test, "ByteSeqHelper", "Ice.ByteHelper", true);
+Test.ByteSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
 
-    const iceC_Test_TestIntf_ids = [
-        "::Ice::Object",
-        "::Test::TestIntf"
-    ];
+const iceC_Test_TestIntf_ids = [
+    "::Ice::Object",
+    "::Test::TestIntf"
+];
 
-    Test.TestIntf = class extends Ice.Object
-    {
-    };
+Test.TestIntf = class extends Ice.Object
+{
+};
 
-    Test.TestIntfPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.TestIntfPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
     {
         "ping": [, , , , [["Test.PingReplyPrx"]], , , , ],
-        "sendByteSeq": [, , , , [["Test.ByteSeqHelper"], ["Test.PingReplyPrx"]], , , , ],
+        "sendByteSeq": [, , , , [[Test.ByteSeqHelper], ["Test.PingReplyPrx"]], , , , ],
         "pingBiDir": [, , , , [[Ice.Identity]], , , , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

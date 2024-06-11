@@ -16,65 +16,70 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.CallbackException = class extends Ice.UserException
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.CallbackException = class extends Ice.UserException
+    constructor(someValue = 0.0, someString = "", _cause = "")
     {
-        constructor(someValue = 0.0, someString = "", _cause = "")
-        {
-            super(_cause);
-            this.someValue = someValue;
-            this.someString = someString;
-        }
+        super(_cause);
+        this.someValue = someValue;
+        this.someString = someString;
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::CallbackException";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.CallbackException;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeDouble(this.someValue);
-            ostr.writeString(this.someString);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.someValue = istr.readDouble();
-            this.someString = istr.readString();
-        }
-    };
-
-    const iceC_Test_CallbackReceiver_ids = [
-        "::Ice::Object",
-        "::Test::CallbackReceiver"
-    ];
-
-    Test.CallbackReceiver = class extends Ice.Object
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Test.CallbackReceiverPrx = class extends Ice.ObjectPrx
+    static get _id()
     {
-    };
+        return "::Test::CallbackException";
+    }
 
-    Slice.defineOperations(Test.CallbackReceiver, Test.CallbackReceiverPrx, iceC_Test_CallbackReceiver_ids, "::Test::CallbackReceiver",
+    _mostDerivedType()
+    {
+        return Test.CallbackException;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeDouble(this.someValue);
+        ostr.writeString(this.someString);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.someValue = istr.readDouble();
+        this.someString = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.CallbackException",
+    Test.CallbackException);
+
+const iceC_Test_CallbackReceiver_ids = [
+    "::Ice::Object",
+    "::Test::CallbackReceiver"
+];
+
+Test.CallbackReceiver = class extends Ice.Object
+{
+};
+
+Test.CallbackReceiverPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.CallbackReceiverPrx", Test.CallbackReceiverPrx);
+
+Ice.defineOperations(
+    Test.CallbackReceiver,
+    Test.CallbackReceiverPrx,
+    iceC_Test_CallbackReceiver_ids,
+    "::Test::CallbackReceiver",
     {
         "callback": [, , , , , , , , ],
         "callbackEx": [, , , , , ,
@@ -83,20 +88,25 @@
         ], , ]
     });
 
-    const iceC_Test_Callback_ids = [
-        "::Ice::Object",
-        "::Test::Callback"
-    ];
+const iceC_Test_Callback_ids = [
+    "::Ice::Object",
+    "::Test::Callback"
+];
 
-    Test.Callback = class extends Ice.Object
-    {
-    };
+Test.Callback = class extends Ice.Object
+{
+};
 
-    Test.CallbackPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.CallbackPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.CallbackPrx", Test.CallbackPrx);
 
-    Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, "::Test::Callback",
+Ice.defineOperations(
+    Test.Callback,
+    Test.CallbackPrx,
+    iceC_Test_Callback_ids,
+    "::Test::Callback",
     {
         "initiateCallback": [, , , , [["Test.CallbackReceiverPrx"]], , , , ],
         "initiateCallbackEx": [, , , , [["Test.CallbackReceiverPrx"]], ,
@@ -105,10 +115,3 @@
         ], , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

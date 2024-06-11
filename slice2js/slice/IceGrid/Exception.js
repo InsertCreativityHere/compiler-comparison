@@ -16,24 +16,24 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Exception");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("../Ice/Identity");
-require("../Ice/BuiltinSequences");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Exception from "../Ice/Exception.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import { Ice as Ice_Ice_BuiltinSequences } from "../Ice/BuiltinSequences.js"
+import { Ice as Ice_Ice_Identity } from "../Ice/Identity.js"
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
-/* slice2js browser-bundle-skip */
+const Ice = {
+    ...Ice_Exception,
+    ...Ice_Long,
+    ...Ice_ObjectPrx,
+    ...Ice_TypeRegistry,
+    ...Ice_Ice_BuiltinSequences,
+    ...Ice_Ice_Identity,
+};
 
-let IceGrid = _ModuleRegistry.module("IceGrid");
-/* slice2js browser-bundle-skip-end */
+
+export const IceGrid = {};
 
 /**
  *  This exception is raised if an application does not exist.
@@ -71,6 +71,9 @@ IceGrid.ApplicationNotExistException = class extends Ice.UserException
         this.name = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.ApplicationNotExistException",
+    IceGrid.ApplicationNotExistException);
 
 /**
  *  This exception is raised if a server does not exist.
@@ -108,6 +111,9 @@ IceGrid.ServerNotExistException = class extends Ice.UserException
         this.id = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.ServerNotExistException",
+    IceGrid.ServerNotExistException);
 
 /**
  *  This exception is raised if a server failed to start.
@@ -148,6 +154,9 @@ IceGrid.ServerStartException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.ServerStartException",
+    IceGrid.ServerStartException);
 
 /**
  *  This exception is raised if a server failed to stop.
@@ -188,6 +197,9 @@ IceGrid.ServerStopException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.ServerStopException",
+    IceGrid.ServerStopException);
 
 /**
  *  This exception is raised if an adapter does not exist.
@@ -225,6 +237,9 @@ IceGrid.AdapterNotExistException = class extends Ice.UserException
         this.id = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.AdapterNotExistException",
+    IceGrid.AdapterNotExistException);
 
 /**
  *  This exception is raised if an object already exists.
@@ -262,6 +277,9 @@ IceGrid.ObjectExistsException = class extends Ice.UserException
         this.id = Ice.Identity.read(istr, this.id);
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.ObjectExistsException",
+    IceGrid.ObjectExistsException);
 
 /**
  *  This exception is raised if an object is not registered.
@@ -299,6 +317,9 @@ IceGrid.ObjectNotRegisteredException = class extends Ice.UserException
         this.id = Ice.Identity.read(istr, this.id);
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.ObjectNotRegisteredException",
+    IceGrid.ObjectNotRegisteredException);
 
 /**
  *  This exception is raised if a node does not exist.
@@ -336,6 +357,9 @@ IceGrid.NodeNotExistException = class extends Ice.UserException
         this.name = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.NodeNotExistException",
+    IceGrid.NodeNotExistException);
 
 /**
  *  This exception is raised if a registry does not exist.
@@ -373,6 +397,9 @@ IceGrid.RegistryNotExistException = class extends Ice.UserException
         this.name = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.RegistryNotExistException",
+    IceGrid.RegistryNotExistException);
 
 /**
  *  An exception for deployment errors.
@@ -410,6 +437,9 @@ IceGrid.DeploymentException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.DeploymentException",
+    IceGrid.DeploymentException);
 
 /**
  *  This exception is raised if a node could not be reached.
@@ -450,6 +480,9 @@ IceGrid.NodeUnreachableException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.NodeUnreachableException",
+    IceGrid.NodeUnreachableException);
 
 /**
  *  This exception is raised if a server could not be reached.
@@ -490,6 +523,9 @@ IceGrid.ServerUnreachableException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.ServerUnreachableException",
+    IceGrid.ServerUnreachableException);
 
 /**
  *  This exception is raised if a registry could not be reached.
@@ -530,6 +566,9 @@ IceGrid.RegistryUnreachableException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.RegistryUnreachableException",
+    IceGrid.RegistryUnreachableException);
 
 /**
  *  This exception is raised if an unknown signal was sent to to a server.
@@ -567,6 +606,9 @@ IceGrid.BadSignalException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.BadSignalException",
+    IceGrid.BadSignalException);
 
 /**
  *  his exception is raised if a registry lock wasn't acquired or is already held by a session.
@@ -604,6 +646,9 @@ IceGrid.AccessDeniedException = class extends Ice.UserException
         this.lockUserId = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.AccessDeniedException",
+    IceGrid.AccessDeniedException);
 
 /**
  *  This exception is raised if the allocation of an object failed.
@@ -641,6 +686,9 @@ IceGrid.AllocationException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.AllocationException",
+    IceGrid.AllocationException);
 
 /**
  *  This exception is raised if the request to allocate an object times out.
@@ -667,6 +715,9 @@ IceGrid.AllocationTimeoutException = class extends IceGrid.AllocationException
         return IceGrid.AllocationTimeoutException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.AllocationTimeoutException",
+    IceGrid.AllocationTimeoutException);
 
 /**
  *  This exception is raised if a client is denied the ability to create a session with IceGrid.
@@ -704,6 +755,9 @@ IceGrid.PermissionDeniedException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.PermissionDeniedException",
+    IceGrid.PermissionDeniedException);
 
 /**
  *  This exception is raised if an observer is already registered with the registry.
@@ -743,6 +797,9 @@ IceGrid.ObserverAlreadyRegisteredException = class extends Ice.UserException
         this.id = Ice.Identity.read(istr, this.id);
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.ObserverAlreadyRegisteredException",
+    IceGrid.ObserverAlreadyRegisteredException);
 
 /**
  *  This exception is raised if a file is not available.
@@ -786,6 +843,6 @@ IceGrid.FileNotAvailableException = class extends Ice.UserException
         this.reason = istr.readString();
     }
 };
-/* slice2js browser-bundle-skip */
-exports.IceGrid = IceGrid;
-/* slice2js browser-bundle-skip-end */
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceGrid.FileNotAvailableException",
+    IceGrid.FileNotAvailableException);

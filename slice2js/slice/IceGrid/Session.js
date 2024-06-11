@@ -16,23 +16,40 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-const Glacier2 = require("../Glacier2/Session").Glacier2;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
 
-const IceGrid = require("./Exception").IceGrid;
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+};
+
+import { 
+    Glacier2 as Glacier2_Glacier2_Session, } from "../Glacier2/Session.js"
+import { 
+    IceGrid as IceGrid_Exception, } from "./Exception.js"
+
+const Glacier2 = {
+    ...Glacier2_Glacier2_Session,
+};
+
+const IceGrid = {
+    ...IceGrid_Exception,
+};
+
+export { IceGrid };
 
 const iceC_IceGrid_Session_ids = [
     "::Glacier2::Session",
@@ -63,26 +80,28 @@ IceGrid.SessionPrx = class extends Ice.ObjectPrx
             Glacier2.SessionPrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("IceGrid.SessionPrx", IceGrid.SessionPrx);
 
-Slice.defineOperations(IceGrid.Session, IceGrid.SessionPrx, iceC_IceGrid_Session_ids, "::IceGrid::Session",
-{
-    "keepAlive": [, 2, , , , , , , ],
-    "allocateObjectById": [, , , [9], [[Ice.Identity]], ,
-    [
-        IceGrid.ObjectNotRegisteredException,
-        IceGrid.AllocationException
-    ], , ],
-    "allocateObjectByType": [, , , [9], [[7]], ,
-    [
-        IceGrid.AllocationException
-    ], , ],
-    "releaseObject": [, , , , [[Ice.Identity]], ,
-    [
-        IceGrid.ObjectNotRegisteredException,
-        IceGrid.AllocationException
-    ], , ],
-    "setAllocationTimeout": [, 2, , , [[3]], , , , ]
-});
-/* slice2js browser-bundle-skip */
-exports.IceGrid = IceGrid;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    IceGrid.Session,
+    IceGrid.SessionPrx,
+    iceC_IceGrid_Session_ids,
+    "::IceGrid::Session",
+    {
+        "keepAlive": [, 2, , , , , , , ],
+        "allocateObjectById": [, , , [9], [[Ice.Identity]], ,
+        [
+            IceGrid.ObjectNotRegisteredException,
+            IceGrid.AllocationException
+        ], , ],
+        "allocateObjectByType": [, , , [9], [[7]], ,
+        [
+            IceGrid.AllocationException
+        ], , ],
+        "releaseObject": [, , , , [[Ice.Identity]], ,
+        [
+            IceGrid.ObjectNotRegisteredException,
+            IceGrid.AllocationException
+        ], , ],
+        "setAllocationTimeout": [, 2, , , [[3]], , , , ]
+    });

@@ -16,51 +16,56 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.UE = class extends Ice.UserException
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.UE = class extends Ice.UserException
+    constructor(_cause = "")
     {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
+        super(_cause);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::UE";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.UE;
-        }
-    };
-
-    const iceC_Test_Hello_ids = [
-        "::Ice::Object",
-        "::Test::Hello"
-    ];
-
-    Test.Hello = class extends Ice.Object
+    static get _parent()
     {
-    };
+        return Ice.UserException;
+    }
 
-    Test.HelloPrx = class extends Ice.ObjectPrx
+    static get _id()
     {
-    };
+        return "::Test::UE";
+    }
 
-    Slice.defineOperations(Test.Hello, Test.HelloPrx, iceC_Test_Hello_ids, "::Test::Hello",
+    _mostDerivedType()
+    {
+        return Test.UE;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.UE",
+    Test.UE);
+
+const iceC_Test_Hello_ids = [
+    "::Ice::Object",
+    "::Test::Hello"
+];
+
+Test.Hello = class extends Ice.Object
+{
+};
+
+Test.HelloPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.HelloPrx", Test.HelloPrx);
+
+Ice.defineOperations(
+    Test.Hello,
+    Test.HelloPrx,
+    iceC_Test_Hello_ids,
+    "::Test::Hello",
     {
         "sayHello": [, , , , [[3]], , , , ],
         "add": [, , , [3], [[3], [3]], , , , ],
@@ -70,10 +75,3 @@
         ], , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

@@ -16,30 +16,42 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Struct");
-require("../Ice/Exception");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("./BuiltinSequences");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_ArrayUtil from "../Ice/ArrayUtil.js";
+import * as Ice_Exception from "../Ice/Exception.js";
+import * as Ice_HashMap from "../Ice/HashMap.js";
+import * as Ice_HashUtil from "../Ice/HashUtil.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_Struct from "../Ice/Struct.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
+import { Ice as Ice_BuiltinSequences } from "./BuiltinSequences.js"
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
-/* slice2js browser-bundle-skip */
+const Ice = {
+    ...Ice_ArrayUtil,
+    ...Ice_Exception,
+    ...Ice_HashMap,
+    ...Ice_HashUtil,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_Struct,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+    ...Ice_BuiltinSequences,
+};
 
-let IceMX = _ModuleRegistry.module("IceMX");
-/* slice2js browser-bundle-skip-end */
 
-Slice.defineDictionary(IceMX, "StringIntDict", "StringIntDictHelper", "Ice.StringHelper", "Ice.IntHelper", false, undefined, undefined);
+export const IceMX = {};
+
+[IceMX.StringIntDict, IceMX.StringIntDictHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.IntHelper, false, undefined);
 
 /**
  *  The base class for metrics. A metrics object represents a collection of measurements associated to a given a
@@ -76,7 +88,8 @@ IceMX.Metrics = class extends Ice.Value
     }
 };
 
-Slice.defineValue(IceMX.Metrics, "::IceMX::Metrics");
+Ice.defineValue(IceMX.Metrics, "::IceMX::Metrics");
+Ice.TypeRegistry.declareValueType("IceMX.Metrics", IceMX.Metrics);
 
 /**
  *  A structure to keep track of failures associated with a given metrics.
@@ -107,13 +120,13 @@ IceMX.MetricsFailures = class
     }
 };
 
-Slice.defineStruct(IceMX.MetricsFailures, false, true);
+Ice.defineStruct(IceMX.MetricsFailures, false, true);
 
-Slice.defineSequence(IceMX, "MetricsFailuresSeqHelper", "IceMX.MetricsFailures", false);
+IceMX.MetricsFailuresSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceMX.MetricsFailures, false);
 
-Slice.defineSequence(IceMX, "MetricsMapHelper", "Ice.ObjectHelper", false, "IceMX.Metrics");
+IceMX.MetricsMapHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "IceMX.Metrics");
 
-Slice.defineDictionary(IceMX, "MetricsView", "MetricsViewHelper", "Ice.StringHelper", "IceMX.MetricsMapHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
+[IceMX.MetricsView, IceMX.MetricsViewHelper] = Ice.defineDictionary(Ice.StringHelper, IceMX.MetricsMapHelper, false, undefined);
 
 /**
  *  Raised if a metrics view cannot be found.
@@ -140,6 +153,9 @@ IceMX.UnknownMetricsView = class extends Ice.UserException
         return IceMX.UnknownMetricsView;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceMX.UnknownMetricsView",
+    IceMX.UnknownMetricsView);
 
 const iceC_IceMX_MetricsAdmin_ids = [
     "::Ice::Object",
@@ -157,31 +173,36 @@ IceMX.MetricsAdmin = class extends Ice.Object
 IceMX.MetricsAdminPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("IceMX.MetricsAdminPrx", IceMX.MetricsAdminPrx);
 
-Slice.defineOperations(IceMX.MetricsAdmin, IceMX.MetricsAdminPrx, iceC_IceMX_MetricsAdmin_ids, "::IceMX::MetricsAdmin",
-{
-    "getMetricsViewNames": [, , 2, ["Ice.StringSeqHelper"], , [["Ice.StringSeqHelper"]], , , ],
-    "enableMetricsView": [, , 2, , [[7]], ,
-    [
-        IceMX.UnknownMetricsView
-    ], , ],
-    "disableMetricsView": [, , 2, , [[7]], ,
-    [
-        IceMX.UnknownMetricsView
-    ], , ],
-    "getMetricsView": [, , 2, ["IceMX.MetricsViewHelper"], [[7]], [[4]],
-    [
-        IceMX.UnknownMetricsView
-    ], , true],
-    "getMapMetricsFailures": [, , 2, ["IceMX.MetricsFailuresSeqHelper"], [[7], [7]], ,
-    [
-        IceMX.UnknownMetricsView
-    ], , ],
-    "getMetricsFailures": [, , 2, [IceMX.MetricsFailures], [[7], [7], [7]], ,
-    [
-        IceMX.UnknownMetricsView
-    ], , ]
-});
+Ice.defineOperations(
+    IceMX.MetricsAdmin,
+    IceMX.MetricsAdminPrx,
+    iceC_IceMX_MetricsAdmin_ids,
+    "::IceMX::MetricsAdmin",
+    {
+        "getMetricsViewNames": [, , 2, [Ice.StringSeqHelper], , [[Ice.StringSeqHelper]], , , ],
+        "enableMetricsView": [, , 2, , [[7]], ,
+        [
+            IceMX.UnknownMetricsView
+        ], , ],
+        "disableMetricsView": [, , 2, , [[7]], ,
+        [
+            IceMX.UnknownMetricsView
+        ], , ],
+        "getMetricsView": [, , 2, [IceMX.MetricsViewHelper], [[7]], [[4]],
+        [
+            IceMX.UnknownMetricsView
+        ], , true],
+        "getMapMetricsFailures": [, , 2, [IceMX.MetricsFailuresSeqHelper], [[7], [7]], ,
+        [
+            IceMX.UnknownMetricsView
+        ], , ],
+        "getMetricsFailures": [, , 2, [IceMX.MetricsFailures], [[7], [7], [7]], ,
+        [
+            IceMX.UnknownMetricsView
+        ], , ]
+    });
 
 /**
  *  Provides information on the number of threads currently in use and their activity.
@@ -211,7 +232,8 @@ IceMX.ThreadMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.ThreadMetrics, "::IceMX::ThreadMetrics");
+Ice.defineValue(IceMX.ThreadMetrics, "::IceMX::ThreadMetrics");
+Ice.TypeRegistry.declareValueType("IceMX.ThreadMetrics", IceMX.ThreadMetrics);
 
 /**
  *  Provides information on servant dispatch.
@@ -241,7 +263,8 @@ IceMX.DispatchMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.DispatchMetrics, "::IceMX::DispatchMetrics");
+Ice.defineValue(IceMX.DispatchMetrics, "::IceMX::DispatchMetrics");
+Ice.TypeRegistry.declareValueType("IceMX.DispatchMetrics", IceMX.DispatchMetrics);
 
 /**
  *  Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
@@ -270,7 +293,8 @@ IceMX.ChildInvocationMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.ChildInvocationMetrics, "::IceMX::ChildInvocationMetrics");
+Ice.defineValue(IceMX.ChildInvocationMetrics, "::IceMX::ChildInvocationMetrics");
+Ice.TypeRegistry.declareValueType("IceMX.ChildInvocationMetrics", IceMX.ChildInvocationMetrics);
 
 /**
  *  Provides information on invocations that are collocated. Collocated metrics are embedded within
@@ -284,7 +308,8 @@ IceMX.CollocatedMetrics = class extends IceMX.ChildInvocationMetrics
     }
 };
 
-Slice.defineValue(IceMX.CollocatedMetrics, "::IceMX::CollocatedMetrics");
+Ice.defineValue(IceMX.CollocatedMetrics, "::IceMX::CollocatedMetrics");
+Ice.TypeRegistry.declareValueType("IceMX.CollocatedMetrics", IceMX.CollocatedMetrics);
 
 /**
  *  Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
@@ -298,7 +323,8 @@ IceMX.RemoteMetrics = class extends IceMX.ChildInvocationMetrics
     }
 };
 
-Slice.defineValue(IceMX.RemoteMetrics, "::IceMX::RemoteMetrics");
+Ice.defineValue(IceMX.RemoteMetrics, "::IceMX::RemoteMetrics");
+Ice.TypeRegistry.declareValueType("IceMX.RemoteMetrics", IceMX.RemoteMetrics);
 
 /**
  *  Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
@@ -331,7 +357,8 @@ IceMX.InvocationMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.InvocationMetrics, "::IceMX::InvocationMetrics");
+Ice.defineValue(IceMX.InvocationMetrics, "::IceMX::InvocationMetrics");
+Ice.TypeRegistry.declareValueType("IceMX.InvocationMetrics", IceMX.InvocationMetrics);
 
 /**
  *  Provides information on the data sent and received over Ice connections.
@@ -358,7 +385,5 @@ IceMX.ConnectionMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.ConnectionMetrics, "::IceMX::ConnectionMetrics");
-/* slice2js browser-bundle-skip */
-exports.IceMX = IceMX;
-/* slice2js browser-bundle-skip-end */
+Ice.defineValue(IceMX.ConnectionMetrics, "::IceMX::ConnectionMetrics");
+Ice.TypeRegistry.declareValueType("IceMX.ConnectionMetrics", IceMX.ConnectionMetrics);

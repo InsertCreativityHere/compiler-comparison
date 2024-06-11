@@ -17,12 +17,13 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
 
-Test.MyEnum = Slice.defineEnum([
+export const Test = {};
+
+export const Test2 = {};
+
+Test.MyEnum = Ice.defineEnum([
     ['enum1', 0], ['enum2', 1], ['enum3', 2]]);
 
 Test.AnotherStruct = class
@@ -48,7 +49,7 @@ Test.AnotherStruct = class
     }
 };
 
-Slice.defineStruct(Test.AnotherStruct, true, true);
+Ice.defineStruct(Test.AnotherStruct, true, true);
 
 Test.Structure = class
 {
@@ -61,14 +62,14 @@ Test.Structure = class
 
     _write(ostr)
     {
-        Test.MyClassPrx.write(ostr, this.p);
+        ostr.writeProxy(this.p);
         Test.MyEnum._write(ostr, this.e);
         Test.AnotherStruct.write(ostr, this.s);
     }
 
     _read(istr)
     {
-        this.p = Test.MyClassPrx.read(istr, this.p);
+        this.p = istr.readProxy();
         this.e = Test.MyEnum._read(istr);
         this.s = Test.AnotherStruct.read(istr, this.s);
     }
@@ -79,51 +80,51 @@ Test.Structure = class
     }
 };
 
-Slice.defineStruct(Test.Structure, false, true);
+Ice.defineStruct(Test.Structure, false, true);
 
-Slice.defineSequence(Test, "ByteSHelper", "Ice.ByteHelper", true);
+Test.ByteSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
 
-Slice.defineSequence(Test, "BoolSHelper", "Ice.BoolHelper", true);
+Test.BoolSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.BoolHelper, true);
 
-Slice.defineSequence(Test, "ShortSHelper", "Ice.ShortHelper", true);
+Test.ShortSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ShortHelper, true);
 
-Slice.defineSequence(Test, "IntSHelper", "Ice.IntHelper", true);
+Test.IntSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.IntHelper, true);
 
-Slice.defineSequence(Test, "LongSHelper", "Ice.LongHelper", true);
+Test.LongSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.LongHelper, true);
 
-Slice.defineSequence(Test, "FloatSHelper", "Ice.FloatHelper", true);
+Test.FloatSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.FloatHelper, true);
 
-Slice.defineSequence(Test, "DoubleSHelper", "Ice.DoubleHelper", true);
+Test.DoubleSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.DoubleHelper, true);
 
-Slice.defineSequence(Test, "StringSHelper", "Ice.StringHelper", false);
+Test.StringSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
 
-Slice.defineSequence(Test, "WStringSHelper", "Ice.StringHelper", false);
+Test.WStringSHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
 
-Slice.defineSequence(Test, "MyEnumSHelper", "Test.MyEnum._helper", false);
+Test.MyEnumSHelper = Ice.StreamHelpers.generateSeqHelper(Test.MyEnum._helper, false);
 
-Slice.defineSequence(Test, "MyClassSHelper", "Test.MyClassPrx", false);
+Test.MyClassSHelper = Ice.StreamHelpers.generateSeqHelper(Test.MyClassPrx, false);
 
-Slice.defineSequence(Test, "ByteSSHelper", "Test.ByteSHelper", false);
+Test.ByteSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.ByteSHelper, false);
 
-Slice.defineSequence(Test, "BoolSSHelper", "Test.BoolSHelper", false);
+Test.BoolSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.BoolSHelper, false);
 
-Slice.defineSequence(Test, "ShortSSHelper", "Test.ShortSHelper", false);
+Test.ShortSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.ShortSHelper, false);
 
-Slice.defineSequence(Test, "IntSSHelper", "Test.IntSHelper", false);
+Test.IntSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.IntSHelper, false);
 
-Slice.defineSequence(Test, "LongSSHelper", "Test.LongSHelper", false);
+Test.LongSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.LongSHelper, false);
 
-Slice.defineSequence(Test, "FloatSSHelper", "Test.FloatSHelper", false);
+Test.FloatSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.FloatSHelper, false);
 
-Slice.defineSequence(Test, "DoubleSSHelper", "Test.DoubleSHelper", false);
+Test.DoubleSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.DoubleSHelper, false);
 
-Slice.defineSequence(Test, "StringSSHelper", "Test.StringSHelper", false);
+Test.StringSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.StringSHelper, false);
 
-Slice.defineSequence(Test, "MyEnumSSHelper", "Test.MyEnumSHelper", false);
+Test.MyEnumSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.MyEnumSHelper, false);
 
-Slice.defineSequence(Test, "MyClassSSHelper", "Test.MyClassSHelper", false);
+Test.MyClassSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.MyClassSHelper, false);
 
-Slice.defineSequence(Test, "StringSSSHelper", "Test.StringSSHelper", false);
+Test.StringSSSHelper = Ice.StreamHelpers.generateSeqHelper(Test.StringSSHelper, false);
 
 Test.MyStruct = class
 {
@@ -151,53 +152,53 @@ Test.MyStruct = class
     }
 };
 
-Slice.defineStruct(Test.MyStruct, true, false);
+Ice.defineStruct(Test.MyStruct, true, false);
 
-Slice.defineDictionary(Test, "ByteBoolD", "ByteBoolDHelper", "Ice.ByteHelper", "Ice.BoolHelper", true, undefined, undefined);
+[Test.ByteBoolD, Test.ByteBoolDHelper] = Ice.defineDictionary(Ice.ByteHelper, Ice.BoolHelper, true, undefined);
 
-Slice.defineDictionary(Test, "ShortIntD", "ShortIntDHelper", "Ice.ShortHelper", "Ice.IntHelper", true, undefined, undefined);
+[Test.ShortIntD, Test.ShortIntDHelper] = Ice.defineDictionary(Ice.ShortHelper, Ice.IntHelper, true, undefined);
 
-Slice.defineDictionary(Test, "LongFloatD", "LongFloatDHelper", "Ice.LongHelper", "Ice.FloatHelper", true, Ice.HashMap.compareEquals, undefined);
+[Test.LongFloatD, Test.LongFloatDHelper] = Ice.defineDictionary(Ice.LongHelper, Ice.FloatHelper, true, Ice.HashMap.compareEquals);
 
-Slice.defineDictionary(Test, "StringStringD", "StringStringDHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
+[Test.StringStringD, Test.StringStringDHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);
 
-Slice.defineDictionary(Test, "StringMyEnumD", "StringMyEnumDHelper", "Ice.StringHelper", "Test.MyEnum._helper", false, undefined, undefined);
+[Test.StringMyEnumD, Test.StringMyEnumDHelper] = Ice.defineDictionary(Ice.StringHelper, Test.MyEnum._helper, false, undefined);
 
-Slice.defineDictionary(Test, "MyEnumStringD", "MyEnumStringDHelper", "Test.MyEnum._helper", "Ice.StringHelper", false, undefined, undefined);
+[Test.MyEnumStringD, Test.MyEnumStringDHelper] = Ice.defineDictionary(Test.MyEnum._helper, Ice.StringHelper, false, undefined);
 
-Slice.defineDictionary(Test, "MyStructMyEnumD", "MyStructMyEnumDHelper", "Test.MyStruct", "Test.MyEnum._helper", false, Ice.HashMap.compareEquals, undefined);
+[Test.MyStructMyEnumD, Test.MyStructMyEnumDHelper] = Ice.defineDictionary(Test.MyStruct, Test.MyEnum._helper, false, Ice.HashMap.compareEquals);
 
-Slice.defineSequence(Test, "ByteBoolDSHelper", "Test.ByteBoolDHelper", false);
+Test.ByteBoolDSHelper = Ice.StreamHelpers.generateSeqHelper(Test.ByteBoolDHelper, false);
 
-Slice.defineSequence(Test, "ShortIntDSHelper", "Test.ShortIntDHelper", false);
+Test.ShortIntDSHelper = Ice.StreamHelpers.generateSeqHelper(Test.ShortIntDHelper, false);
 
-Slice.defineSequence(Test, "LongFloatDSHelper", "Test.LongFloatDHelper", false);
+Test.LongFloatDSHelper = Ice.StreamHelpers.generateSeqHelper(Test.LongFloatDHelper, false);
 
-Slice.defineSequence(Test, "StringStringDSHelper", "Test.StringStringDHelper", false);
+Test.StringStringDSHelper = Ice.StreamHelpers.generateSeqHelper(Test.StringStringDHelper, false);
 
-Slice.defineSequence(Test, "StringMyEnumDSHelper", "Test.StringMyEnumDHelper", false);
+Test.StringMyEnumDSHelper = Ice.StreamHelpers.generateSeqHelper(Test.StringMyEnumDHelper, false);
 
-Slice.defineSequence(Test, "MyEnumStringDSHelper", "Test.MyEnumStringDHelper", false);
+Test.MyEnumStringDSHelper = Ice.StreamHelpers.generateSeqHelper(Test.MyEnumStringDHelper, false);
 
-Slice.defineSequence(Test, "MyStructMyEnumDSHelper", "Test.MyStructMyEnumDHelper", false);
+Test.MyStructMyEnumDSHelper = Ice.StreamHelpers.generateSeqHelper(Test.MyStructMyEnumDHelper, false);
 
-Slice.defineDictionary(Test, "ByteByteSD", "ByteByteSDHelper", "Ice.ByteHelper", "Test.ByteSHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
+[Test.ByteByteSD, Test.ByteByteSDHelper] = Ice.defineDictionary(Ice.ByteHelper, Test.ByteSHelper, false, undefined);
 
-Slice.defineDictionary(Test, "BoolBoolSD", "BoolBoolSDHelper", "Ice.BoolHelper", "Test.BoolSHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
+[Test.BoolBoolSD, Test.BoolBoolSDHelper] = Ice.defineDictionary(Ice.BoolHelper, Test.BoolSHelper, false, undefined);
 
-Slice.defineDictionary(Test, "ShortShortSD", "ShortShortSDHelper", "Ice.ShortHelper", "Test.ShortSHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
+[Test.ShortShortSD, Test.ShortShortSDHelper] = Ice.defineDictionary(Ice.ShortHelper, Test.ShortSHelper, false, undefined);
 
-Slice.defineDictionary(Test, "IntIntSD", "IntIntSDHelper", "Ice.IntHelper", "Test.IntSHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
+[Test.IntIntSD, Test.IntIntSDHelper] = Ice.defineDictionary(Ice.IntHelper, Test.IntSHelper, false, undefined);
 
-Slice.defineDictionary(Test, "LongLongSD", "LongLongSDHelper", "Ice.LongHelper", "Test.LongSHelper", false, Ice.HashMap.compareEquals, undefined, Ice.ArrayUtil.equals);
+[Test.LongLongSD, Test.LongLongSDHelper] = Ice.defineDictionary(Ice.LongHelper, Test.LongSHelper, false, Ice.HashMap.compareEquals);
 
-Slice.defineDictionary(Test, "StringFloatSD", "StringFloatSDHelper", "Ice.StringHelper", "Test.FloatSHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
+[Test.StringFloatSD, Test.StringFloatSDHelper] = Ice.defineDictionary(Ice.StringHelper, Test.FloatSHelper, false, undefined);
 
-Slice.defineDictionary(Test, "StringDoubleSD", "StringDoubleSDHelper", "Ice.StringHelper", "Test.DoubleSHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
+[Test.StringDoubleSD, Test.StringDoubleSDHelper] = Ice.defineDictionary(Ice.StringHelper, Test.DoubleSHelper, false, undefined);
 
-Slice.defineDictionary(Test, "StringStringSD", "StringStringSDHelper", "Ice.StringHelper", "Test.StringSHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
+[Test.StringStringSD, Test.StringStringSDHelper] = Ice.defineDictionary(Ice.StringHelper, Test.StringSHelper, false, undefined);
 
-Slice.defineDictionary(Test, "MyEnumMyEnumSD", "MyEnumMyEnumSDHelper", "Test.MyEnum._helper", "Test.MyEnumSHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
+[Test.MyEnumMyEnumSD, Test.MyEnumMyEnumSDHelper] = Ice.defineDictionary(Test.MyEnum._helper, Test.MyEnumSHelper, false, undefined);
 
 const iceC_Test_MyClass_ids = [
     "::Ice::Object",
@@ -211,80 +212,85 @@ Test.MyClass = class extends Ice.Object
 Test.MyClassPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.MyClassPrx", Test.MyClassPrx);
 
-Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
-{
-    "shutdown": [, , , , , , , , ],
-    "supportsCompress": [, , , [1], , , , , ],
-    "opVoid": [, , , , , , , , ],
-    "opByte": [, , , [0], [[0], [0]], [[0]], , , ],
-    "opBool": [, , , [1], [[1], [1]], [[1]], , , ],
-    "opShortIntLong": [, , , [4], [[2], [3], [4]], [[2], [3], [4]], , , ],
-    "opFloatDouble": [, , , [6], [[5], [6]], [[5], [6]], , , ],
-    "opString": [, , , [7], [[7], [7]], [[7]], , , ],
-    "opMyEnum": [, , , [Test.MyEnum._helper], [[Test.MyEnum._helper]], [[Test.MyEnum._helper]], , , ],
-    "opMyClass": [, , , ["Test.MyClassPrx"], [["Test.MyClassPrx"]], [["Test.MyClassPrx"], ["Test.MyClassPrx"]], , , ],
-    "opStruct": [, , , [Test.Structure], [[Test.Structure], [Test.Structure]], [[Test.Structure]], , , ],
-    "opByteS": [, , , ["Test.ByteSHelper"], [["Test.ByteSHelper"], ["Test.ByteSHelper"]], [["Test.ByteSHelper"]], , , ],
-    "opBoolS": [, , , ["Test.BoolSHelper"], [["Test.BoolSHelper"], ["Test.BoolSHelper"]], [["Test.BoolSHelper"]], , , ],
-    "opShortIntLongS": [, , , ["Test.LongSHelper"], [["Test.ShortSHelper"], ["Test.IntSHelper"], ["Test.LongSHelper"]], [["Test.ShortSHelper"], ["Test.IntSHelper"], ["Test.LongSHelper"]], , , ],
-    "opFloatDoubleS": [, , , ["Test.DoubleSHelper"], [["Test.FloatSHelper"], ["Test.DoubleSHelper"]], [["Test.FloatSHelper"], ["Test.DoubleSHelper"]], , , ],
-    "opStringS": [, , , ["Test.StringSHelper"], [["Test.StringSHelper"], ["Test.StringSHelper"]], [["Test.StringSHelper"]], , , ],
-    "opByteSS": [, , , ["Test.ByteSSHelper"], [["Test.ByteSSHelper"], ["Test.ByteSSHelper"]], [["Test.ByteSSHelper"]], , , ],
-    "opBoolSS": [, , , ["Test.BoolSSHelper"], [["Test.BoolSSHelper"], ["Test.BoolSSHelper"]], [["Test.BoolSSHelper"]], , , ],
-    "opShortIntLongSS": [, , , ["Test.LongSSHelper"], [["Test.ShortSSHelper"], ["Test.IntSSHelper"], ["Test.LongSSHelper"]], [["Test.ShortSSHelper"], ["Test.IntSSHelper"], ["Test.LongSSHelper"]], , , ],
-    "opFloatDoubleSS": [, , , ["Test.DoubleSSHelper"], [["Test.FloatSSHelper"], ["Test.DoubleSSHelper"]], [["Test.FloatSSHelper"], ["Test.DoubleSSHelper"]], , , ],
-    "opStringSS": [, , , ["Test.StringSSHelper"], [["Test.StringSSHelper"], ["Test.StringSSHelper"]], [["Test.StringSSHelper"]], , , ],
-    "opStringSSS": [, , , ["Test.StringSSSHelper"], [["Test.StringSSSHelper"], ["Test.StringSSSHelper"]], [["Test.StringSSSHelper"]], , , ],
-    "opByteBoolD": [, , , ["Test.ByteBoolDHelper"], [["Test.ByteBoolDHelper"], ["Test.ByteBoolDHelper"]], [["Test.ByteBoolDHelper"]], , , ],
-    "opShortIntD": [, , , ["Test.ShortIntDHelper"], [["Test.ShortIntDHelper"], ["Test.ShortIntDHelper"]], [["Test.ShortIntDHelper"]], , , ],
-    "opLongFloatD": [, , , ["Test.LongFloatDHelper"], [["Test.LongFloatDHelper"], ["Test.LongFloatDHelper"]], [["Test.LongFloatDHelper"]], , , ],
-    "opStringStringD": [, , , ["Test.StringStringDHelper"], [["Test.StringStringDHelper"], ["Test.StringStringDHelper"]], [["Test.StringStringDHelper"]], , , ],
-    "opStringMyEnumD": [, , , ["Test.StringMyEnumDHelper"], [["Test.StringMyEnumDHelper"], ["Test.StringMyEnumDHelper"]], [["Test.StringMyEnumDHelper"]], , , ],
-    "opMyEnumStringD": [, , , ["Test.MyEnumStringDHelper"], [["Test.MyEnumStringDHelper"], ["Test.MyEnumStringDHelper"]], [["Test.MyEnumStringDHelper"]], , , ],
-    "opMyStructMyEnumD": [, , , ["Test.MyStructMyEnumDHelper"], [["Test.MyStructMyEnumDHelper"], ["Test.MyStructMyEnumDHelper"]], [["Test.MyStructMyEnumDHelper"]], , , ],
-    "opByteBoolDS": [, , , ["Test.ByteBoolDSHelper"], [["Test.ByteBoolDSHelper"], ["Test.ByteBoolDSHelper"]], [["Test.ByteBoolDSHelper"]], , , ],
-    "opShortIntDS": [, , , ["Test.ShortIntDSHelper"], [["Test.ShortIntDSHelper"], ["Test.ShortIntDSHelper"]], [["Test.ShortIntDSHelper"]], , , ],
-    "opLongFloatDS": [, , , ["Test.LongFloatDSHelper"], [["Test.LongFloatDSHelper"], ["Test.LongFloatDSHelper"]], [["Test.LongFloatDSHelper"]], , , ],
-    "opStringStringDS": [, , , ["Test.StringStringDSHelper"], [["Test.StringStringDSHelper"], ["Test.StringStringDSHelper"]], [["Test.StringStringDSHelper"]], , , ],
-    "opStringMyEnumDS": [, , , ["Test.StringMyEnumDSHelper"], [["Test.StringMyEnumDSHelper"], ["Test.StringMyEnumDSHelper"]], [["Test.StringMyEnumDSHelper"]], , , ],
-    "opMyEnumStringDS": [, , , ["Test.MyEnumStringDSHelper"], [["Test.MyEnumStringDSHelper"], ["Test.MyEnumStringDSHelper"]], [["Test.MyEnumStringDSHelper"]], , , ],
-    "opMyStructMyEnumDS": [, , , ["Test.MyStructMyEnumDSHelper"], [["Test.MyStructMyEnumDSHelper"], ["Test.MyStructMyEnumDSHelper"]], [["Test.MyStructMyEnumDSHelper"]], , , ],
-    "opByteByteSD": [, , , ["Test.ByteByteSDHelper"], [["Test.ByteByteSDHelper"], ["Test.ByteByteSDHelper"]], [["Test.ByteByteSDHelper"]], , , ],
-    "opBoolBoolSD": [, , , ["Test.BoolBoolSDHelper"], [["Test.BoolBoolSDHelper"], ["Test.BoolBoolSDHelper"]], [["Test.BoolBoolSDHelper"]], , , ],
-    "opShortShortSD": [, , , ["Test.ShortShortSDHelper"], [["Test.ShortShortSDHelper"], ["Test.ShortShortSDHelper"]], [["Test.ShortShortSDHelper"]], , , ],
-    "opIntIntSD": [, , , ["Test.IntIntSDHelper"], [["Test.IntIntSDHelper"], ["Test.IntIntSDHelper"]], [["Test.IntIntSDHelper"]], , , ],
-    "opLongLongSD": [, , , ["Test.LongLongSDHelper"], [["Test.LongLongSDHelper"], ["Test.LongLongSDHelper"]], [["Test.LongLongSDHelper"]], , , ],
-    "opStringFloatSD": [, , , ["Test.StringFloatSDHelper"], [["Test.StringFloatSDHelper"], ["Test.StringFloatSDHelper"]], [["Test.StringFloatSDHelper"]], , , ],
-    "opStringDoubleSD": [, , , ["Test.StringDoubleSDHelper"], [["Test.StringDoubleSDHelper"], ["Test.StringDoubleSDHelper"]], [["Test.StringDoubleSDHelper"]], , , ],
-    "opStringStringSD": [, , , ["Test.StringStringSDHelper"], [["Test.StringStringSDHelper"], ["Test.StringStringSDHelper"]], [["Test.StringStringSDHelper"]], , , ],
-    "opMyEnumMyEnumSD": [, , , ["Test.MyEnumMyEnumSDHelper"], [["Test.MyEnumMyEnumSDHelper"], ["Test.MyEnumMyEnumSDHelper"]], [["Test.MyEnumMyEnumSDHelper"]], , , ],
-    "opIntS": [, , , ["Test.IntSHelper"], [["Test.IntSHelper"]], , , , ],
-    "opByteSOneway": [, , , , [["Test.ByteSHelper"]], , , , ],
-    "opByteSOnewayCallCount": [, , , [3], , , , , ],
-    "opContext": [, , , ["Ice.ContextHelper"], , , , , ],
-    "opDoubleMarshaling": [, , , , [[6], ["Test.DoubleSHelper"]], , , , ],
-    "opIdempotent": [, 2, , , , , , , ],
-    "opByte1": [, , , [0], [[0]], , , , ],
-    "opShort1": [, , , [2], [[2]], , , , ],
-    "opInt1": [, , , [3], [[3]], , , , ],
-    "opLong1": [, , , [4], [[4]], , , , ],
-    "opFloat1": [, , , [5], [[5]], , , , ],
-    "opDouble1": [, , , [6], [[6]], , , , ],
-    "opString1": [, , , [7], [[7]], , , , ],
-    "opStringS1": [, , , ["Test.StringSHelper"], [["Test.StringSHelper"]], , , , ],
-    "opByteBoolD1": [, , , ["Test.ByteBoolDHelper"], [["Test.ByteBoolDHelper"]], , , , ],
-    "opStringS2": [, , , ["Test.StringSHelper"], [["Test.StringSHelper"]], , , , ],
-    "opByteBoolD2": [, , , ["Test.ByteBoolDHelper"], [["Test.ByteBoolDHelper"]], , , , ],
-    "opStringLiterals": [, , , ["Test.StringSHelper"], , , , , ],
-    "opWStringLiterals": [, , , ["Test.WStringSHelper"], , , , , ],
-    "opMStruct1": [, , , [Test.Structure], , , , , ],
-    "opMStruct2": [, , , [Test.Structure], [[Test.Structure]], [[Test.Structure]], , , ],
-    "opMSeq1": [, , , ["Test.StringSHelper"], , , , , ],
-    "opMSeq2": [, , , ["Test.StringSHelper"], [["Test.StringSHelper"]], [["Test.StringSHelper"]], , , ],
-    "opMDict1": [, , , ["Test.StringStringDHelper"], , , , , ],
-    "opMDict2": [, , , ["Test.StringStringDHelper"], [["Test.StringStringDHelper"]], [["Test.StringStringDHelper"]], , , ]
-});
+Ice.defineOperations(
+    Test.MyClass,
+    Test.MyClassPrx,
+    iceC_Test_MyClass_ids,
+    "::Test::MyClass",
+    {
+        "shutdown": [, , , , , , , , ],
+        "supportsCompress": [, , , [1], , , , , ],
+        "opVoid": [, , , , , , , , ],
+        "opByte": [, , , [0], [[0], [0]], [[0]], , , ],
+        "opBool": [, , , [1], [[1], [1]], [[1]], , , ],
+        "opShortIntLong": [, , , [4], [[2], [3], [4]], [[2], [3], [4]], , , ],
+        "opFloatDouble": [, , , [6], [[5], [6]], [[5], [6]], , , ],
+        "opString": [, , , [7], [[7], [7]], [[7]], , , ],
+        "opMyEnum": [, , , [Test.MyEnum._helper], [[Test.MyEnum._helper]], [[Test.MyEnum._helper]], , , ],
+        "opMyClass": [, , , ["Test.MyClassPrx"], [["Test.MyClassPrx"]], [["Test.MyClassPrx"], ["Test.MyClassPrx"]], , , ],
+        "opStruct": [, , , [Test.Structure], [[Test.Structure], [Test.Structure]], [[Test.Structure]], , , ],
+        "opByteS": [, , , [Test.ByteSHelper], [[Test.ByteSHelper], [Test.ByteSHelper]], [[Test.ByteSHelper]], , , ],
+        "opBoolS": [, , , [Test.BoolSHelper], [[Test.BoolSHelper], [Test.BoolSHelper]], [[Test.BoolSHelper]], , , ],
+        "opShortIntLongS": [, , , [Test.LongSHelper], [[Test.ShortSHelper], [Test.IntSHelper], [Test.LongSHelper]], [[Test.ShortSHelper], [Test.IntSHelper], [Test.LongSHelper]], , , ],
+        "opFloatDoubleS": [, , , [Test.DoubleSHelper], [[Test.FloatSHelper], [Test.DoubleSHelper]], [[Test.FloatSHelper], [Test.DoubleSHelper]], , , ],
+        "opStringS": [, , , [Test.StringSHelper], [[Test.StringSHelper], [Test.StringSHelper]], [[Test.StringSHelper]], , , ],
+        "opByteSS": [, , , [Test.ByteSSHelper], [[Test.ByteSSHelper], [Test.ByteSSHelper]], [[Test.ByteSSHelper]], , , ],
+        "opBoolSS": [, , , [Test.BoolSSHelper], [[Test.BoolSSHelper], [Test.BoolSSHelper]], [[Test.BoolSSHelper]], , , ],
+        "opShortIntLongSS": [, , , [Test.LongSSHelper], [[Test.ShortSSHelper], [Test.IntSSHelper], [Test.LongSSHelper]], [[Test.ShortSSHelper], [Test.IntSSHelper], [Test.LongSSHelper]], , , ],
+        "opFloatDoubleSS": [, , , [Test.DoubleSSHelper], [[Test.FloatSSHelper], [Test.DoubleSSHelper]], [[Test.FloatSSHelper], [Test.DoubleSSHelper]], , , ],
+        "opStringSS": [, , , [Test.StringSSHelper], [[Test.StringSSHelper], [Test.StringSSHelper]], [[Test.StringSSHelper]], , , ],
+        "opStringSSS": [, , , [Test.StringSSSHelper], [[Test.StringSSSHelper], [Test.StringSSSHelper]], [[Test.StringSSSHelper]], , , ],
+        "opByteBoolD": [, , , [Test.ByteBoolDHelper], [[Test.ByteBoolDHelper], [Test.ByteBoolDHelper]], [[Test.ByteBoolDHelper]], , , ],
+        "opShortIntD": [, , , [Test.ShortIntDHelper], [[Test.ShortIntDHelper], [Test.ShortIntDHelper]], [[Test.ShortIntDHelper]], , , ],
+        "opLongFloatD": [, , , [Test.LongFloatDHelper], [[Test.LongFloatDHelper], [Test.LongFloatDHelper]], [[Test.LongFloatDHelper]], , , ],
+        "opStringStringD": [, , , [Test.StringStringDHelper], [[Test.StringStringDHelper], [Test.StringStringDHelper]], [[Test.StringStringDHelper]], , , ],
+        "opStringMyEnumD": [, , , [Test.StringMyEnumDHelper], [[Test.StringMyEnumDHelper], [Test.StringMyEnumDHelper]], [[Test.StringMyEnumDHelper]], , , ],
+        "opMyEnumStringD": [, , , [Test.MyEnumStringDHelper], [[Test.MyEnumStringDHelper], [Test.MyEnumStringDHelper]], [[Test.MyEnumStringDHelper]], , , ],
+        "opMyStructMyEnumD": [, , , [Test.MyStructMyEnumDHelper], [[Test.MyStructMyEnumDHelper], [Test.MyStructMyEnumDHelper]], [[Test.MyStructMyEnumDHelper]], , , ],
+        "opByteBoolDS": [, , , [Test.ByteBoolDSHelper], [[Test.ByteBoolDSHelper], [Test.ByteBoolDSHelper]], [[Test.ByteBoolDSHelper]], , , ],
+        "opShortIntDS": [, , , [Test.ShortIntDSHelper], [[Test.ShortIntDSHelper], [Test.ShortIntDSHelper]], [[Test.ShortIntDSHelper]], , , ],
+        "opLongFloatDS": [, , , [Test.LongFloatDSHelper], [[Test.LongFloatDSHelper], [Test.LongFloatDSHelper]], [[Test.LongFloatDSHelper]], , , ],
+        "opStringStringDS": [, , , [Test.StringStringDSHelper], [[Test.StringStringDSHelper], [Test.StringStringDSHelper]], [[Test.StringStringDSHelper]], , , ],
+        "opStringMyEnumDS": [, , , [Test.StringMyEnumDSHelper], [[Test.StringMyEnumDSHelper], [Test.StringMyEnumDSHelper]], [[Test.StringMyEnumDSHelper]], , , ],
+        "opMyEnumStringDS": [, , , [Test.MyEnumStringDSHelper], [[Test.MyEnumStringDSHelper], [Test.MyEnumStringDSHelper]], [[Test.MyEnumStringDSHelper]], , , ],
+        "opMyStructMyEnumDS": [, , , [Test.MyStructMyEnumDSHelper], [[Test.MyStructMyEnumDSHelper], [Test.MyStructMyEnumDSHelper]], [[Test.MyStructMyEnumDSHelper]], , , ],
+        "opByteByteSD": [, , , [Test.ByteByteSDHelper], [[Test.ByteByteSDHelper], [Test.ByteByteSDHelper]], [[Test.ByteByteSDHelper]], , , ],
+        "opBoolBoolSD": [, , , [Test.BoolBoolSDHelper], [[Test.BoolBoolSDHelper], [Test.BoolBoolSDHelper]], [[Test.BoolBoolSDHelper]], , , ],
+        "opShortShortSD": [, , , [Test.ShortShortSDHelper], [[Test.ShortShortSDHelper], [Test.ShortShortSDHelper]], [[Test.ShortShortSDHelper]], , , ],
+        "opIntIntSD": [, , , [Test.IntIntSDHelper], [[Test.IntIntSDHelper], [Test.IntIntSDHelper]], [[Test.IntIntSDHelper]], , , ],
+        "opLongLongSD": [, , , [Test.LongLongSDHelper], [[Test.LongLongSDHelper], [Test.LongLongSDHelper]], [[Test.LongLongSDHelper]], , , ],
+        "opStringFloatSD": [, , , [Test.StringFloatSDHelper], [[Test.StringFloatSDHelper], [Test.StringFloatSDHelper]], [[Test.StringFloatSDHelper]], , , ],
+        "opStringDoubleSD": [, , , [Test.StringDoubleSDHelper], [[Test.StringDoubleSDHelper], [Test.StringDoubleSDHelper]], [[Test.StringDoubleSDHelper]], , , ],
+        "opStringStringSD": [, , , [Test.StringStringSDHelper], [[Test.StringStringSDHelper], [Test.StringStringSDHelper]], [[Test.StringStringSDHelper]], , , ],
+        "opMyEnumMyEnumSD": [, , , [Test.MyEnumMyEnumSDHelper], [[Test.MyEnumMyEnumSDHelper], [Test.MyEnumMyEnumSDHelper]], [[Test.MyEnumMyEnumSDHelper]], , , ],
+        "opIntS": [, , , [Test.IntSHelper], [[Test.IntSHelper]], , , , ],
+        "opByteSOneway": [, , , , [[Test.ByteSHelper]], , , , ],
+        "opByteSOnewayCallCount": [, , , [3], , , , , ],
+        "opContext": [, , , [Ice.ContextHelper], , , , , ],
+        "opDoubleMarshaling": [, , , , [[6], [Test.DoubleSHelper]], , , , ],
+        "opIdempotent": [, 2, , , , , , , ],
+        "opByte1": [, , , [0], [[0]], , , , ],
+        "opShort1": [, , , [2], [[2]], , , , ],
+        "opInt1": [, , , [3], [[3]], , , , ],
+        "opLong1": [, , , [4], [[4]], , , , ],
+        "opFloat1": [, , , [5], [[5]], , , , ],
+        "opDouble1": [, , , [6], [[6]], , , , ],
+        "opString1": [, , , [7], [[7]], , , , ],
+        "opStringS1": [, , , [Test.StringSHelper], [[Test.StringSHelper]], , , , ],
+        "opByteBoolD1": [, , , [Test.ByteBoolDHelper], [[Test.ByteBoolDHelper]], , , , ],
+        "opStringS2": [, , , [Test.StringSHelper], [[Test.StringSHelper]], , , , ],
+        "opByteBoolD2": [, , , [Test.ByteBoolDHelper], [[Test.ByteBoolDHelper]], , , , ],
+        "opStringLiterals": [, , , [Test.StringSHelper], , , , , ],
+        "opWStringLiterals": [, , , [Test.WStringSHelper], , , , , ],
+        "opMStruct1": [, , , [Test.Structure], , , , , ],
+        "opMStruct2": [, , , [Test.Structure], [[Test.Structure]], [[Test.Structure]], , , ],
+        "opMSeq1": [, , , [Test.StringSHelper], , , , , ],
+        "opMSeq2": [, , , [Test.StringSHelper], [[Test.StringSHelper]], [[Test.StringSHelper]], , , ],
+        "opMDict1": [, , , [Test.StringStringDHelper], , , , , ],
+        "opMDict2": [, , , [Test.StringStringDHelper], [[Test.StringStringDHelper]], [[Test.StringStringDHelper]], , , ]
+    });
 
 Test.MyStruct1 = class
 {
@@ -298,14 +304,14 @@ Test.MyStruct1 = class
     _write(ostr)
     {
         ostr.writeString(this.tesT);
-        Test.MyClassPrx.write(ostr, this.myClass);
+        ostr.writeProxy(this.myClass);
         ostr.writeString(this.myStruct1);
     }
 
     _read(istr)
     {
         this.tesT = istr.readString();
-        this.myClass = Test.MyClassPrx.read(istr, this.myClass);
+        this.myClass = istr.readProxy();
         this.myStruct1 = istr.readString();
     }
 
@@ -315,7 +321,7 @@ Test.MyStruct1 = class
     }
 };
 
-Slice.defineStruct(Test.MyStruct1, false, true);
+Ice.defineStruct(Test.MyStruct1, false, true);
 
 Test.MyClass1 = class extends Ice.Value
 {
@@ -330,19 +336,20 @@ Test.MyClass1 = class extends Ice.Value
     _iceWriteMemberImpl(ostr)
     {
         ostr.writeString(this.tesT);
-        Test.MyClassPrx.write(ostr, this.myClass);
+        ostr.writeProxy(this.myClass);
         ostr.writeString(this.myClass1);
     }
 
     _iceReadMemberImpl(istr)
     {
         this.tesT = istr.readString();
-        this.myClass = Test.MyClassPrx.read(istr, this.myClass);
+        this.myClass = istr.readProxy();
         this.myClass1 = istr.readString();
     }
 };
 
-Slice.defineValue(Test.MyClass1, "::Test::MyClass1");
+Ice.defineValue(Test.MyClass1, "::Test::MyClass1");
+Ice.TypeRegistry.declareValueType("Test.MyClass1", Test.MyClass1);
 
 const iceC_Test_MyDerivedClass_ids = [
     "::Ice::Object",
@@ -368,13 +375,18 @@ Test.MyDerivedClassPrx = class extends Ice.ObjectPrx
             Test.MyClassPrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("Test.MyDerivedClassPrx", Test.MyDerivedClassPrx);
 
-Slice.defineOperations(Test.MyDerivedClass, Test.MyDerivedClassPrx, iceC_Test_MyDerivedClass_ids, "::Test::MyDerivedClass",
-{
-    "opDerived": [, , , , , , , , ],
-    "opMyClass1": [, , , ["Test.MyClass1", true], [["Test.MyClass1", true]], , , true, true],
-    "opMyStruct1": [, , , [Test.MyStruct1], [[Test.MyStruct1]], , , , ]
-});
+Ice.defineOperations(
+    Test.MyDerivedClass,
+    Test.MyDerivedClassPrx,
+    iceC_Test_MyDerivedClass_ids,
+    "::Test::MyDerivedClass",
+    {
+        "opDerived": [, , , , , , , , ],
+        "opMyClass1": [, , , ["Test.MyClass1", true], [["Test.MyClass1", true]], , , true, true],
+        "opMyStruct1": [, , , [Test.MyStruct1], [[Test.MyStruct1]], , , , ]
+    });
 
 const iceC_Test_Echo_ids = [
     "::Ice::Object",
@@ -388,141 +400,175 @@ Test.Echo = class extends Ice.Object
 Test.EchoPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.EchoPrx", Test.EchoPrx);
 
-Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
-{
-    "setConnection": [, , , , , , , , ],
-    "startBatch": [, , , , , , , , ],
-    "flushBatch": [, , , , , , , , ],
-    "shutdown": [, , , , , , , , ],
-    "supportsCompress": [, , , [1], , , , , ]
-});
+Ice.defineOperations(
+    Test.Echo,
+    Test.EchoPrx,
+    iceC_Test_Echo_ids,
+    "::Test::Echo",
+    {
+        "setConnection": [, , , , , , , , ],
+        "startBatch": [, , , , , , , , ],
+        "flushBatch": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ],
+        "supportsCompress": [, , , [1], , , , , ]
+    });
 
 Object.defineProperty(Test, 's0', {
+    enumerable: true,
     value: "\\"
 });
 
 Object.defineProperty(Test, 's1', {
+    enumerable: true,
     value: "A"
 });
 
 Object.defineProperty(Test, 's2', {
+    enumerable: true,
     value: "Ice"
 });
 
 Object.defineProperty(Test, 's3', {
+    enumerable: true,
     value: "A21"
 });
 
 Object.defineProperty(Test, 's4', {
+    enumerable: true,
     value: "\\u0041 \\U00000041"
 });
 
 Object.defineProperty(Test, 's5', {
+    enumerable: true,
     value: "\u00FF"
 });
 
 Object.defineProperty(Test, 's6', {
+    enumerable: true,
     value: "\u03FF"
 });
 
 Object.defineProperty(Test, 's7', {
+    enumerable: true,
     value: "\u05F0"
 });
 
 Object.defineProperty(Test, 's8', {
+    enumerable: true,
     value: "\ud800\udc00"
 });
 
 Object.defineProperty(Test, 's9', {
+    enumerable: true,
     value: "\ud83c\udf4c"
 });
 
 Object.defineProperty(Test, 's10', {
+    enumerable: true,
     value: "\u0DA7"
 });
 
 Object.defineProperty(Test, 'sw0', {
+    enumerable: true,
     value: "\\"
 });
 
 Object.defineProperty(Test, 'sw1', {
+    enumerable: true,
     value: "A"
 });
 
 Object.defineProperty(Test, 'sw2', {
+    enumerable: true,
     value: "Ice"
 });
 
 Object.defineProperty(Test, 'sw3', {
+    enumerable: true,
     value: "A21"
 });
 
 Object.defineProperty(Test, 'sw4', {
+    enumerable: true,
     value: "\\u0041 \\U00000041"
 });
 
 Object.defineProperty(Test, 'sw5', {
+    enumerable: true,
     value: "\u00ff"
 });
 
 Object.defineProperty(Test, 'sw6', {
+    enumerable: true,
     value: "\u03ff"
 });
 
 Object.defineProperty(Test, 'sw7', {
+    enumerable: true,
     value: "\u05f0"
 });
 
 Object.defineProperty(Test, 'sw8', {
+    enumerable: true,
     value: "\ud800\udc00"
 });
 
 Object.defineProperty(Test, 'sw9', {
+    enumerable: true,
     value: "\ud83c\udf4c"
 });
 
 Object.defineProperty(Test, 'sw10', {
+    enumerable: true,
     value: "\u0da7"
 });
 
 Object.defineProperty(Test, 'ss0', {
+    enumerable: true,
     value: "'\"?\\\u0007\b\f\n\r\t\v\u0006"
 });
 
 Object.defineProperty(Test, 'ss1', {
+    enumerable: true,
     value: "'\"?\\\u0007\b\f\n\r\t\v\u0006"
 });
 
 Object.defineProperty(Test, 'ss2', {
+    enumerable: true,
     value: "'\"?\\\u0007\b\f\n\r\t\v\u0006"
 });
 
 Object.defineProperty(Test, 'ss3', {
+    enumerable: true,
     value: "\\\\U\\u\\"
 });
 
 Object.defineProperty(Test, 'ss4', {
+    enumerable: true,
     value: "\\A\\"
 });
 
 Object.defineProperty(Test, 'ss5', {
+    enumerable: true,
     value: "\\u0041\\"
 });
 
 Object.defineProperty(Test, 'su0', {
+    enumerable: true,
     value: "\u0128\u0178\u00ff\u0100\u1f00\ud800\udd94\ud800\udd6a\ud800\udd98\ud83c\udf40\ud83c\udf41\ud83c\udf42\ud83c\udf43"
 });
 
 Object.defineProperty(Test, 'su1', {
+    enumerable: true,
     value: "\u0128\u0178\u00FF\u0100\u1F00\ud800\udd94\ud800\udd6a\ud800\udd98\ud83c\udf40\ud83c\udf41\ud83c\udf42\ud83c\udf43"
 });
 
 Object.defineProperty(Test, 'su2', {
+    enumerable: true,
     value: "\u0128\u0178\u00ff\u0100\u1f00\ud800\udd94\ud800\udd6a\ud800\udd98\ud83c\udf40\ud83c\udf41\ud83c\udf42\ud83c\udf43"
 });
-
-let Test2 = _ModuleRegistry.module("Test2");
 
 const iceC_Test2_MyDerivedClass_ids = [
     "::Ice::Object",
@@ -553,7 +599,10 @@ Test2.MyDerivedClassPrx = class extends Ice.ObjectPrx
             Test.MyClassPrx];
     }
 };
+Ice.TypeRegistry.declareProxyType("Test2.MyDerivedClassPrx", Test2.MyDerivedClassPrx);
 
-Slice.defineOperations(Test2.MyDerivedClass, Test2.MyDerivedClassPrx, iceC_Test2_MyDerivedClass_ids, "::Test2::MyDerivedClass");
-export { Test };
-export { Test2 };
+Ice.defineOperations(
+    Test2.MyDerivedClass,
+    Test2.MyDerivedClassPrx,
+    iceC_Test2_MyDerivedClass_ids,
+    "::Test2::MyDerivedClass");

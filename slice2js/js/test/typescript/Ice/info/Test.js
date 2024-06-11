@@ -17,10 +17,9 @@
 /* jshint ignore: start */
 
 import { Ice } from "ice";
-const _ModuleRegistry = Ice._ModuleRegistry;
-const Slice = Ice.Slice;
 
-let Test = _ModuleRegistry.module("Test");
+
+export const Test = {};
 
 const iceC_Test_TestIntf_ids = [
     "::Ice::Object",
@@ -34,11 +33,15 @@ Test.TestIntf = class extends Ice.Object
 Test.TestIntfPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Test.TestIntfPrx", Test.TestIntfPrx);
 
-Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
-{
-    "shutdown": [, , , , , , , , ],
-    "getEndpointInfoAsContext": [, , , ["Ice.ContextHelper"], , , , , ],
-    "getConnectionInfoAsContext": [, , , ["Ice.ContextHelper"], , , , , ]
-});
-export { Test };
+Ice.defineOperations(
+    Test.TestIntf,
+    Test.TestIntfPrx,
+    iceC_Test_TestIntf_ids,
+    "::Test::TestIntf",
+    {
+        "shutdown": [, , , , , , , , ],
+        "getEndpointInfoAsContext": [, , , [Ice.ContextHelper], , , , , ],
+        "getConnectionInfoAsContext": [, , , [Ice.ContextHelper], , , , , ]
+    });

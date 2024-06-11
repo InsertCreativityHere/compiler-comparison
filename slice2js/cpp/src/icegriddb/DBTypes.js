@@ -16,55 +16,47 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice, 
+import { IceGrid } from "ice";
+
+
+export const IceGrid = {};
+
+[IceGrid.StringLongDict, IceGrid.StringLongDictHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.LongHelper, false, undefined);
+
+IceGrid.AllData = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const IceGrid = require("ice").IceGrid;
-    const Slice = Ice.Slice;
-
-    Slice.defineDictionary(IceGrid, "StringLongDict", "StringLongDictHelper", "Ice.StringHelper", "Ice.LongHelper", false, undefined, undefined);
-
-    IceGrid.AllData = class
+    constructor(applications = null, adapters = null, objects = null, internalObjects = null, serials = null)
     {
-        constructor(applications = null, adapters = null, objects = null, internalObjects = null, serials = null)
-        {
-            this.applications = applications;
-            this.adapters = adapters;
-            this.objects = objects;
-            this.internalObjects = internalObjects;
-            this.serials = serials;
-        }
+        this.applications = applications;
+        this.adapters = adapters;
+        this.objects = objects;
+        this.internalObjects = internalObjects;
+        this.serials = serials;
+    }
 
-        _write(ostr)
-        {
-            IceGrid.ApplicationInfoSeqHelper.write(ostr, this.applications);
-            IceGrid.AdapterInfoSeqHelper.write(ostr, this.adapters);
-            IceGrid.ObjectInfoSeqHelper.write(ostr, this.objects);
-            IceGrid.ObjectInfoSeqHelper.write(ostr, this.internalObjects);
-            IceGrid.StringLongDictHelper.write(ostr, this.serials);
-        }
+    _write(ostr)
+    {
+        IceGrid.ApplicationInfoSeqHelper.write(ostr, this.applications);
+        IceGrid.AdapterInfoSeqHelper.write(ostr, this.adapters);
+        IceGrid.ObjectInfoSeqHelper.write(ostr, this.objects);
+        IceGrid.ObjectInfoSeqHelper.write(ostr, this.internalObjects);
+        IceGrid.StringLongDictHelper.write(ostr, this.serials);
+    }
 
-        _read(istr)
-        {
-            this.applications = IceGrid.ApplicationInfoSeqHelper.read(istr);
-            this.adapters = IceGrid.AdapterInfoSeqHelper.read(istr);
-            this.objects = IceGrid.ObjectInfoSeqHelper.read(istr);
-            this.internalObjects = IceGrid.ObjectInfoSeqHelper.read(istr);
-            this.serials = IceGrid.StringLongDictHelper.read(istr);
-        }
+    _read(istr)
+    {
+        this.applications = IceGrid.ApplicationInfoSeqHelper.read(istr);
+        this.adapters = IceGrid.AdapterInfoSeqHelper.read(istr);
+        this.objects = IceGrid.ObjectInfoSeqHelper.read(istr);
+        this.internalObjects = IceGrid.ObjectInfoSeqHelper.read(istr);
+        this.serials = IceGrid.StringLongDictHelper.read(istr);
+    }
 
-        static get minWireSize()
-        {
-            return  5;
-        }
-    };
+    static get minWireSize()
+    {
+        return  5;
+    }
+};
 
-    Slice.defineStruct(IceGrid.AllData, false, true);
-    exports.IceGrid = IceGrid;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Ice.defineStruct(IceGrid.AllData, false, true);

@@ -16,22 +16,30 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("./BuiltinSequences");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
+import { Ice as Ice_BuiltinSequences } from "./BuiltinSequences.js"
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+    ...Ice_BuiltinSequences,
+};
+
+
+export { Ice };
 
 const iceC_Ice_Router_ids = [
     "::Ice::Object",
@@ -49,13 +57,18 @@ Ice.Router = class extends Ice.Object
 Ice.RouterPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Ice.RouterPrx", Ice.RouterPrx);
 
-Slice.defineOperations(Ice.Router, Ice.RouterPrx, iceC_Ice_Router_ids, "::Ice::Router",
-{
-    "getClientProxy": [, 2, , [9], , [[1, , 1]], , , ],
-    "getServerProxy": [, 2, , [9], , , , , ],
-    "addProxies": [, 2, , ["Ice.ObjectProxySeqHelper"], [["Ice.ObjectProxySeqHelper"]], , , , ]
-});
+Ice.defineOperations(
+    Ice.Router,
+    Ice.RouterPrx,
+    iceC_Ice_Router_ids,
+    "::Ice::Router",
+    {
+        "getClientProxy": [, 2, , [9], , [[1, , 1]], , , ],
+        "getServerProxy": [, 2, , [9], , , , , ],
+        "addProxies": [, 2, , [Ice.ObjectProxySeqHelper], [[Ice.ObjectProxySeqHelper]], , , , ]
+    });
 
 const iceC_Ice_RouterFinder_ids = [
     "::Ice::Object",
@@ -74,11 +87,13 @@ Ice.RouterFinder = class extends Ice.Object
 Ice.RouterFinderPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Ice.RouterFinderPrx", Ice.RouterFinderPrx);
 
-Slice.defineOperations(Ice.RouterFinder, Ice.RouterFinderPrx, iceC_Ice_RouterFinder_ids, "::Ice::RouterFinder",
-{
-    "getRouter": [, , , ["Ice.RouterPrx"], , , , , ]
-});
-/* slice2js browser-bundle-skip */
-exports.Ice = Ice;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    Ice.RouterFinder,
+    Ice.RouterFinderPrx,
+    iceC_Ice_RouterFinder_ids,
+    "::Ice::RouterFinder",
+    {
+        "getRouter": [, , , ["Ice.RouterPrx"], , , , , ]
+    });

@@ -16,28 +16,30 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+const iceC_Test_Callback_ids = [
+    "::Ice::Object",
+    "::Test::Callback"
+];
+
+Test.Callback = class extends Ice.Object
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
+};
 
-    let Test = _ModuleRegistry.module("Test");
+Test.CallbackPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.CallbackPrx", Test.CallbackPrx);
 
-    const iceC_Test_Callback_ids = [
-        "::Ice::Object",
-        "::Test::Callback"
-    ];
-
-    Test.Callback = class extends Ice.Object
-    {
-    };
-
-    Test.CallbackPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, "::Test::Callback",
+Ice.defineOperations(
+    Test.Callback,
+    Test.CallbackPrx,
+    iceC_Test_Callback_ids,
+    "::Test::Callback",
     {
         "ping": [, , , , , , , , ],
         "getCount": [, , , [3], , , , , ],
@@ -45,20 +47,25 @@
         "getDatagramCount": [, , , [3], , , , , ]
     });
 
-    const iceC_Test_MyClass_ids = [
-        "::Ice::Object",
-        "::Test::MyClass"
-    ];
+const iceC_Test_MyClass_ids = [
+    "::Ice::Object",
+    "::Test::MyClass"
+];
 
-    Test.MyClass = class extends Ice.Object
-    {
-    };
+Test.MyClass = class extends Ice.Object
+{
+};
 
-    Test.MyClassPrx = class extends Ice.ObjectPrx
-    {
-    };
+Test.MyClassPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.MyClassPrx", Test.MyClassPrx);
 
-    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
+Ice.defineOperations(
+    Test.MyClass,
+    Test.MyClassPrx,
+    iceC_Test_MyClass_ids,
+    "::Test::MyClass",
     {
         "callCallback": [, , , , , , , , ],
         "getCallbackCount": [, , , [3], , , , , ],
@@ -74,10 +81,3 @@
         "getHeartbeatCount": [, , , [3], , , , , ],
         "shutdown": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

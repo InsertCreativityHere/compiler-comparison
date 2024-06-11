@@ -16,176 +16,191 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice, 
+import { IceStorm } from "ice";
+
+import { 
+    IceStormElection as IceStormElection_Election, } from "./Election.js"
+
+const IceStormElection = {
+    ...IceStormElection_Election,
+};
+
+export const IceStorm = {};
+
+/**
+ *  The event data.
+ **/
+IceStorm.EventData = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const IceStorm = require("ice").IceStorm;
-    const IceStormElection = require("Election").IceStormElection;
-    const Slice = Ice.Slice;
-
-    /**
-     *  The event data.
-     **/
-    IceStorm.EventData = class
+    constructor(op = "", mode = Ice.OperationMode.Normal, data = null, context = null)
     {
-        constructor(op = "", mode = Ice.OperationMode.Normal, data = null, context = null)
-        {
-            this.op = op;
-            this.mode = mode;
-            this.data = data;
-            this.context = context;
-        }
+        this.op = op;
+        this.mode = mode;
+        this.data = data;
+        this.context = context;
+    }
 
-        _write(ostr)
-        {
-            ostr.writeString(this.op);
-            Ice.OperationMode._write(ostr, this.mode);
-            Ice.ByteSeqHelper.write(ostr, this.data);
-            Ice.ContextHelper.write(ostr, this.context);
-        }
-
-        _read(istr)
-        {
-            this.op = istr.readString();
-            this.mode = Ice.OperationMode._read(istr);
-            this.data = Ice.ByteSeqHelper.read(istr);
-            this.context = Ice.ContextHelper.read(istr);
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(IceStorm.EventData, false, true);
-
-    Slice.defineSequence(IceStorm, "EventDataSeqHelper", "IceStorm.EventData", false);
-
-    const iceC_IceStorm_TopicLink_ids = [
-        "::Ice::Object",
-        "::IceStorm::TopicLink"
-    ];
-
-    /**
-     *  The TopicLink interface. This is used to forward events between federated Topic instances.
-     *  @see TopicInternal
-     **/
-    IceStorm.TopicLink = class extends Ice.Object
+    _write(ostr)
     {
-    };
+        ostr.writeString(this.op);
+        Ice.OperationMode._write(ostr, this.mode);
+        Ice.ByteSeqHelper.write(ostr, this.data);
+        Ice.ContextHelper.write(ostr, this.context);
+    }
 
-    IceStorm.TopicLinkPrx = class extends Ice.ObjectPrx
+    _read(istr)
     {
-    };
+        this.op = istr.readString();
+        this.mode = Ice.OperationMode._read(istr);
+        this.data = Ice.ByteSeqHelper.read(istr);
+        this.context = Ice.ContextHelper.read(istr);
+    }
 
-    Slice.defineOperations(IceStorm.TopicLink, IceStorm.TopicLinkPrx, iceC_IceStorm_TopicLink_ids, "::IceStorm::TopicLink",
+    static get minWireSize()
     {
-        "forward": [, , , , [["IceStorm.EventDataSeqHelper"]], , , , ]
+        return  4;
+    }
+};
+
+Ice.defineStruct(IceStorm.EventData, false, true);
+
+IceStorm.EventDataSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceStorm.EventData, false);
+
+const iceC_IceStorm_TopicLink_ids = [
+    "::Ice::Object",
+    "::IceStorm::TopicLink"
+];
+
+/**
+ *  The TopicLink interface. This is used to forward events between federated Topic instances.
+ *  @see TopicInternal
+ **/
+IceStorm.TopicLink = class extends Ice.Object
+{
+};
+
+IceStorm.TopicLinkPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("IceStorm.TopicLinkPrx", IceStorm.TopicLinkPrx);
+
+Ice.defineOperations(
+    IceStorm.TopicLink,
+    IceStorm.TopicLinkPrx,
+    iceC_IceStorm_TopicLink_ids,
+    "::IceStorm::TopicLink",
+    {
+        "forward": [, , , , [[IceStorm.EventDataSeqHelper]], , , , ]
     });
 
-    /**
-     *  Thrown if the reap call would block.
-     **/
-    IceStorm.ReapWouldBlock = class extends Ice.UserException
+/**
+ *  Thrown if the reap call would block.
+ **/
+IceStorm.ReapWouldBlock = class extends Ice.UserException
+{
+    constructor(_cause = "")
     {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
+        super(_cause);
+    }
 
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::IceStorm::ReapWouldBlock";
-        }
-
-        _mostDerivedType()
-        {
-            return IceStorm.ReapWouldBlock;
-        }
-    };
-
-    const iceC_IceStorm_TopicInternal_ids = [
-        "::Ice::Object",
-        "::IceStorm::Topic",
-        "::IceStorm::TopicInternal"
-    ];
-
-    /**
-     *  Internal operations for a topic.
-     *  @see Topic
-     **/
-    IceStorm.TopicInternal = class extends Ice.Object
+    static get _parent()
     {
-        static get _iceImplements()
-        {
-            return [
-                IceStorm.Topic
-            ];
-        }
-    };
+        return Ice.UserException;
+    }
 
-    IceStorm.TopicInternalPrx = class extends Ice.ObjectPrx
+    static get _id()
     {
-        static get _implements()
-        {
-            return [
-                IceStorm.TopicPrx];
-        }
-    };
+        return "::IceStorm::ReapWouldBlock";
+    }
 
-    Slice.defineOperations(IceStorm.TopicInternal, IceStorm.TopicInternalPrx, iceC_IceStorm_TopicInternal_ids, "::IceStorm::TopicInternal",
+    _mostDerivedType()
+    {
+        return IceStorm.ReapWouldBlock;
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "IceStorm.ReapWouldBlock",
+    IceStorm.ReapWouldBlock);
+
+const iceC_IceStorm_TopicInternal_ids = [
+    "::Ice::Object",
+    "::IceStorm::Topic",
+    "::IceStorm::TopicInternal"
+];
+
+/**
+ *  Internal operations for a topic.
+ *  @see Topic
+ **/
+IceStorm.TopicInternal = class extends Ice.Object
+{
+    static get _iceImplements()
+    {
+        return [
+            IceStorm.Topic
+        ];
+    }
+};
+
+IceStorm.TopicInternalPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
+    {
+        return [
+            IceStorm.TopicPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("IceStorm.TopicInternalPrx", IceStorm.TopicInternalPrx);
+
+Ice.defineOperations(
+    IceStorm.TopicInternal,
+    IceStorm.TopicInternalPrx,
+    iceC_IceStorm_TopicInternal_ids,
+    "::IceStorm::TopicInternal",
     {
         "getLinkProxy": [, 2, , ["IceStorm.TopicLinkPrx"], , , , , ],
-        "reap": [, , , , [["Ice.IdentitySeqHelper"]], ,
+        "reap": [, , , , [[Ice.IdentitySeqHelper]], ,
         [
             IceStorm.ReapWouldBlock
         ], , ]
     });
 
-    const iceC_IceStorm_TopicManagerInternal_ids = [
-        "::Ice::Object",
-        "::IceStorm::TopicManager",
-        "::IceStorm::TopicManagerInternal"
-    ];
+const iceC_IceStorm_TopicManagerInternal_ids = [
+    "::Ice::Object",
+    "::IceStorm::TopicManager",
+    "::IceStorm::TopicManagerInternal"
+];
 
-    /**
-     *  Internal operations for a topic manager.
-     *  @see TopicManager
-     **/
-    IceStorm.TopicManagerInternal = class extends Ice.Object
+/**
+ *  Internal operations for a topic manager.
+ *  @see TopicManager
+ **/
+IceStorm.TopicManagerInternal = class extends Ice.Object
+{
+    static get _iceImplements()
     {
-        static get _iceImplements()
-        {
-            return [
-                IceStorm.TopicManager
-            ];
-        }
-    };
+        return [
+            IceStorm.TopicManager
+        ];
+    }
+};
 
-    IceStorm.TopicManagerInternalPrx = class extends Ice.ObjectPrx
+IceStorm.TopicManagerInternalPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
     {
-        static get _implements()
-        {
-            return [
-                IceStorm.TopicManagerPrx];
-        }
-    };
+        return [
+            IceStorm.TopicManagerPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("IceStorm.TopicManagerInternalPrx", IceStorm.TopicManagerInternalPrx);
 
-    Slice.defineOperations(IceStorm.TopicManagerInternal, IceStorm.TopicManagerInternalPrx, iceC_IceStorm_TopicManagerInternal_ids, "::IceStorm::TopicManagerInternal",
+Ice.defineOperations(
+    IceStorm.TopicManagerInternal,
+    IceStorm.TopicManagerInternalPrx,
+    iceC_IceStorm_TopicManagerInternal_ids,
+    "::IceStorm::TopicManagerInternal",
     {
         "getReplicaNode": [, 2, , ["IceStormElection.NodePrx"], , , , , ]
     });
-    exports.IceStorm = IceStorm;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

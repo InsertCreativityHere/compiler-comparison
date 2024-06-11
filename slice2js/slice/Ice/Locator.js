@@ -16,23 +16,32 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-/* slice2js browser-bundle-skip */
-const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
-require("../Ice/Operation");
-require("../Ice/Exception");
-require("../Ice/Long");
-require("../Ice/HashMap");
-require("../Ice/HashUtil");
-require("../Ice/ArrayUtil");
-require("../Ice/StreamHelpers");
-require("./Identity");
-const Ice = _ModuleRegistry.module("Ice");
+import * as Ice_Exception from "../Ice/Exception.js";
+import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_Object from "../Ice/Object.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
+import * as Ice_Operation from "../Ice/Operation.js";
+import * as Ice_Stream from "../Ice/Stream.js";
+import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
+import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_Value from "../Ice/Value.js";
+import { Ice as Ice_Identity } from "./Identity.js"
 
-const Slice = Ice.Slice;
-/* slice2js browser-bundle-skip-end */
+const Ice = {
+    ...Ice_Exception,
+    ...Ice_Long,
+    ...Ice_Object,
+    ...Ice_ObjectPrx,
+    ...Ice_Operation,
+    ...Ice_Stream,
+    ...Ice_StreamHelpers,
+    ...Ice_TypeRegistry,
+    ...Ice_Value,
+    ...Ice_Identity,
+};
+
+
+export { Ice };
 
 /**
  *   This exception is raised if an adapter cannot be found.
@@ -59,6 +68,9 @@ Ice.AdapterNotFoundException = class extends Ice.UserException
         return Ice.AdapterNotFoundException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Ice.AdapterNotFoundException",
+    Ice.AdapterNotFoundException);
 
 /**
  *  This exception is raised if the replica group provided by the server is invalid.
@@ -85,6 +97,9 @@ Ice.InvalidReplicaGroupIdException = class extends Ice.UserException
         return Ice.InvalidReplicaGroupIdException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Ice.InvalidReplicaGroupIdException",
+    Ice.InvalidReplicaGroupIdException);
 
 /**
  *  This exception is raised if a server tries to set endpoints for an adapter that is already active.
@@ -111,6 +126,9 @@ Ice.AdapterAlreadyActiveException = class extends Ice.UserException
         return Ice.AdapterAlreadyActiveException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Ice.AdapterAlreadyActiveException",
+    Ice.AdapterAlreadyActiveException);
 
 /**
  *  This exception is raised if an object cannot be found.
@@ -137,6 +155,9 @@ Ice.ObjectNotFoundException = class extends Ice.UserException
         return Ice.ObjectNotFoundException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Ice.ObjectNotFoundException",
+    Ice.ObjectNotFoundException);
 
 /**
  *  This exception is raised if a server cannot be found.
@@ -163,6 +184,9 @@ Ice.ServerNotFoundException = class extends Ice.UserException
         return Ice.ServerNotFoundException;
     }
 };
+Ice.TypeRegistry.declareUserExceptionType(
+    "Ice.ServerNotFoundException",
+    Ice.ServerNotFoundException);
 
 const iceC_Ice_Locator_ids = [
     "::Ice::Locator",
@@ -182,19 +206,24 @@ Ice.Locator = class extends Ice.Object
 Ice.LocatorPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Ice.LocatorPrx", Ice.LocatorPrx);
 
-Slice.defineOperations(Ice.Locator, Ice.LocatorPrx, iceC_Ice_Locator_ids, "::Ice::Locator",
-{
-    "findObjectById": [, 2, , [9], [[Ice.Identity]], ,
-    [
-        Ice.ObjectNotFoundException
-    ], , ],
-    "findAdapterById": [, 2, , [9], [[7]], ,
-    [
-        Ice.AdapterNotFoundException
-    ], , ],
-    "getRegistry": [, 2, , ["Ice.LocatorRegistryPrx"], , , , , ]
-});
+Ice.defineOperations(
+    Ice.Locator,
+    Ice.LocatorPrx,
+    iceC_Ice_Locator_ids,
+    "::Ice::Locator",
+    {
+        "findObjectById": [, 2, , [9], [[Ice.Identity]], ,
+        [
+            Ice.ObjectNotFoundException
+        ], , ],
+        "findAdapterById": [, 2, , [9], [[7]], ,
+        [
+            Ice.AdapterNotFoundException
+        ], , ],
+        "getRegistry": [, 2, , ["Ice.LocatorRegistryPrx"], , , , , ]
+    });
 
 const iceC_Ice_LocatorRegistry_ids = [
     "::Ice::LocatorRegistry",
@@ -214,25 +243,30 @@ Ice.LocatorRegistry = class extends Ice.Object
 Ice.LocatorRegistryPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Ice.LocatorRegistryPrx", Ice.LocatorRegistryPrx);
 
-Slice.defineOperations(Ice.LocatorRegistry, Ice.LocatorRegistryPrx, iceC_Ice_LocatorRegistry_ids, "::Ice::LocatorRegistry",
-{
-    "setAdapterDirectProxy": [, 2, , , [[7], [9]], ,
-    [
-        Ice.AdapterNotFoundException,
-        Ice.AdapterAlreadyActiveException
-    ], , ],
-    "setReplicatedAdapterDirectProxy": [, 2, , , [[7], [7], [9]], ,
-    [
-        Ice.AdapterNotFoundException,
-        Ice.InvalidReplicaGroupIdException,
-        Ice.AdapterAlreadyActiveException
-    ], , ],
-    "setServerProcessProxy": [, 2, , , [[7], ["Ice.ProcessPrx"]], ,
-    [
-        Ice.ServerNotFoundException
-    ], , ]
-});
+Ice.defineOperations(
+    Ice.LocatorRegistry,
+    Ice.LocatorRegistryPrx,
+    iceC_Ice_LocatorRegistry_ids,
+    "::Ice::LocatorRegistry",
+    {
+        "setAdapterDirectProxy": [, 2, , , [[7], [9]], ,
+        [
+            Ice.AdapterNotFoundException,
+            Ice.AdapterAlreadyActiveException
+        ], , ],
+        "setReplicatedAdapterDirectProxy": [, 2, , , [[7], [7], [9]], ,
+        [
+            Ice.AdapterNotFoundException,
+            Ice.InvalidReplicaGroupIdException,
+            Ice.AdapterAlreadyActiveException
+        ], , ],
+        "setServerProcessProxy": [, 2, , , [[7], ["Ice.ProcessPrx"]], ,
+        [
+            Ice.ServerNotFoundException
+        ], , ]
+    });
 
 const iceC_Ice_LocatorFinder_ids = [
     "::Ice::LocatorFinder",
@@ -251,11 +285,13 @@ Ice.LocatorFinder = class extends Ice.Object
 Ice.LocatorFinderPrx = class extends Ice.ObjectPrx
 {
 };
+Ice.TypeRegistry.declareProxyType("Ice.LocatorFinderPrx", Ice.LocatorFinderPrx);
 
-Slice.defineOperations(Ice.LocatorFinder, Ice.LocatorFinderPrx, iceC_Ice_LocatorFinder_ids, "::Ice::LocatorFinder",
-{
-    "getLocator": [, , , ["Ice.LocatorPrx"], , , , , ]
-});
-/* slice2js browser-bundle-skip */
-exports.Ice = Ice;
-/* slice2js browser-bundle-skip-end */
+Ice.defineOperations(
+    Ice.LocatorFinder,
+    Ice.LocatorFinderPrx,
+    iceC_Ice_LocatorFinder_ids,
+    "::Ice::LocatorFinder",
+    {
+        "getLocator": [, , , ["Ice.LocatorPrx"], , , , , ]
+    });

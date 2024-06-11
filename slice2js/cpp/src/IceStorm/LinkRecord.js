@@ -16,50 +16,47 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+import { 
+    IceStorm as IceStorm_IceStormInternal, } from "./IceStormInternal.js"
+
+const IceStorm = {
+    ...IceStorm_IceStormInternal,
+};
+
+export { IceStorm };
+
+/**
+ *  Used to store persistent information for Topic federation.
+ **/
+IceStorm.LinkRecord = class
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const IceStorm = require("ice").IceStorm;
-    const Slice = Ice.Slice;
-
-    /**
-     *  Used to store persistent information for Topic federation.
-     **/
-    IceStorm.LinkRecord = class
+    constructor(obj = null, cost = 0, theTopic = null)
     {
-        constructor(obj = null, cost = 0, theTopic = null)
-        {
-            this.obj = obj;
-            this.cost = cost;
-            this.theTopic = theTopic;
-        }
+        this.obj = obj;
+        this.cost = cost;
+        this.theTopic = theTopic;
+    }
 
-        _write(ostr)
-        {
-            IceStorm.TopicLinkPrx.write(ostr, this.obj);
-            ostr.writeInt(this.cost);
-            IceStorm.TopicPrx.write(ostr, this.theTopic);
-        }
+    _write(ostr)
+    {
+        ostr.writeProxy(this.obj);
+        ostr.writeInt(this.cost);
+        ostr.writeProxy(this.theTopic);
+    }
 
-        _read(istr)
-        {
-            this.obj = IceStorm.TopicLinkPrx.read(istr, this.obj);
-            this.cost = istr.readInt();
-            this.theTopic = IceStorm.TopicPrx.read(istr, this.theTopic);
-        }
+    _read(istr)
+    {
+        this.obj = istr.readProxy();
+        this.cost = istr.readInt();
+        this.theTopic = istr.readProxy();
+    }
 
-        static get minWireSize()
-        {
-            return  8;
-        }
-    };
+    static get minWireSize()
+    {
+        return  8;
+    }
+};
 
-    Slice.defineStruct(IceStorm.LinkRecord, false, true);
-    exports.IceStorm = IceStorm;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
+Ice.defineStruct(IceStorm.LinkRecord, false, true);

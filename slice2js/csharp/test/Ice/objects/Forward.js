@@ -16,56 +16,52 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-(function(module, require, exports)
+import { Ice } from "ice";
+
+
+export const Test = {};
+
+Test.F1 = class extends Ice.Value
 {
-    const Ice = require("ice").Ice;
-    const _ModuleRegistry = Ice._ModuleRegistry;
-    const Slice = Ice.Slice;
-
-    let Test = _ModuleRegistry.module("Test");
-
-    Test.F1 = class extends Ice.Value
+    constructor(name = "")
     {
-        constructor(name = "")
-        {
-            super();
-            this.name = name;
-        }
+        super();
+        this.name = name;
+    }
 
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.name);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.name = istr.readString();
-        }
-    };
-
-    Slice.defineValue(Test.F1, "::Test::F1");
-
-    const iceC_Test_F2_ids = [
-        "::Ice::Object",
-        "::Test::F2"
-    ];
-
-    Test.F2 = class extends Ice.Object
+    _iceWriteMemberImpl(ostr)
     {
-    };
+        ostr.writeString(this.name);
+    }
 
-    Test.F2Prx = class extends Ice.ObjectPrx
+    _iceReadMemberImpl(istr)
     {
-    };
+        this.name = istr.readString();
+    }
+};
 
-    Slice.defineOperations(Test.F2, Test.F2Prx, iceC_Test_F2_ids, "::Test::F2",
+Ice.defineValue(Test.F1, "::Test::F1");
+Ice.TypeRegistry.declareValueType("Test.F1", Test.F1);
+
+const iceC_Test_F2_ids = [
+    "::Ice::Object",
+    "::Test::F2"
+];
+
+Test.F2 = class extends Ice.Object
+{
+};
+
+Test.F2Prx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.F2Prx", Test.F2Prx);
+
+Ice.defineOperations(
+    Test.F2,
+    Test.F2Prx,
+    iceC_Test_F2_ids,
+    "::Test::F2",
     {
         "op": [, , , , , , , , ]
     });
-    exports.Test = Test;
-}
-(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
- typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
- (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));
