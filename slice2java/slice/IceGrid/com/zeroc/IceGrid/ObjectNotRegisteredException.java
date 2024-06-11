@@ -71,5 +71,5 @@ public class ObjectNotRegisteredException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 7672382744893843681L;
+    public static final long serialVersionUID = 7672379114653871874L;
 }
