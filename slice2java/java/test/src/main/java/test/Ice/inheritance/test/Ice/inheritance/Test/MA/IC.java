@@ -69,66 +69,21 @@ public interface IC extends test.Ice.inheritance.Test.MB.IB1,
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "iaop",
-        "ib1op",
-        "ib2op",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "icop"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return IA._iceD_iaop(this, in, current);
-            }
-            case 1:
-            {
-                return test.Ice.inheritance.Test.MB.IB1._iceD_ib1op(this, in, current);
-            }
-            case 2:
-            {
-                return test.Ice.inheritance.Test.MB.IB2._iceD_ib2op(this, in, current);
-            }
-            case 3:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 4:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 5:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 6:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 7:
-            {
-                return _iceD_icop(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "iaop" -> IA._iceD_iaop(this, in, current);
+            case "ib1op" -> test.Ice.inheritance.Test.MB.IB1._iceD_ib1op(this, in, current);
+            case "ib2op" -> test.Ice.inheritance.Test.MB.IB2._iceD_ib2op(this, in, current);
+            case "icop" -> IC._iceD_icop(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

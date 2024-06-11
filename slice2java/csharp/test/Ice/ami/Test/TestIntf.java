@@ -383,136 +383,35 @@ public interface TestIntf extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "close",
-        "finishDispatch",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "op",
-        "opAsyncDispatch",
-        "opBatch",
-        "opBatchCount",
-        "opWithPayload",
-        "opWithResult",
-        "opWithResultAsyncDispatch",
-        "opWithUE",
-        "opWithUEAsyncDispatch",
-        "pingBiDir",
-        "shutdown",
-        "sleep",
-        "startDispatch",
-        "supportsAMD",
-        "supportsFunctionalTests",
-        "waitForBatch"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return _iceD_close(this, in, current);
-            }
-            case 1:
-            {
-                return _iceD_finishDispatch(this, in, current);
-            }
-            case 2:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 3:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 4:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 5:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 6:
-            {
-                return _iceD_op(this, in, current);
-            }
-            case 7:
-            {
-                return _iceD_opAsyncDispatch(this, in, current);
-            }
-            case 8:
-            {
-                return _iceD_opBatch(this, in, current);
-            }
-            case 9:
-            {
-                return _iceD_opBatchCount(this, in, current);
-            }
-            case 10:
-            {
-                return _iceD_opWithPayload(this, in, current);
-            }
-            case 11:
-            {
-                return _iceD_opWithResult(this, in, current);
-            }
-            case 12:
-            {
-                return _iceD_opWithResultAsyncDispatch(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_opWithUE(this, in, current);
-            }
-            case 14:
-            {
-                return _iceD_opWithUEAsyncDispatch(this, in, current);
-            }
-            case 15:
-            {
-                return _iceD_pingBiDir(this, in, current);
-            }
-            case 16:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-            case 17:
-            {
-                return _iceD_sleep(this, in, current);
-            }
-            case 18:
-            {
-                return _iceD_startDispatch(this, in, current);
-            }
-            case 19:
-            {
-                return _iceD_supportsAMD(this, in, current);
-            }
-            case 20:
-            {
-                return _iceD_supportsFunctionalTests(this, in, current);
-            }
-            case 21:
-            {
-                return _iceD_waitForBatch(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "op" -> TestIntf._iceD_op(this, in, current);
+            case "opWithPayload" -> TestIntf._iceD_opWithPayload(this, in, current);
+            case "opWithResult" -> TestIntf._iceD_opWithResult(this, in, current);
+            case "opWithUE" -> TestIntf._iceD_opWithUE(this, in, current);
+            case "opBatch" -> TestIntf._iceD_opBatch(this, in, current);
+            case "opBatchCount" -> TestIntf._iceD_opBatchCount(this, in, current);
+            case "waitForBatch" -> TestIntf._iceD_waitForBatch(this, in, current);
+            case "close" -> TestIntf._iceD_close(this, in, current);
+            case "sleep" -> TestIntf._iceD_sleep(this, in, current);
+            case "startDispatch" -> TestIntf._iceD_startDispatch(this, in, current);
+            case "finishDispatch" -> TestIntf._iceD_finishDispatch(this, in, current);
+            case "shutdown" -> TestIntf._iceD_shutdown(this, in, current);
+            case "supportsAMD" -> TestIntf._iceD_supportsAMD(this, in, current);
+            case "supportsFunctionalTests" -> TestIntf._iceD_supportsFunctionalTests(this, in, current);
+            case "opAsyncDispatch" -> TestIntf._iceD_opAsyncDispatch(this, in, current);
+            case "opWithResultAsyncDispatch" -> TestIntf._iceD_opWithResultAsyncDispatch(this, in, current);
+            case "opWithUEAsyncDispatch" -> TestIntf._iceD_opWithUEAsyncDispatch(this, in, current);
+            case "pingBiDir" -> TestIntf._iceD_pingBiDir(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

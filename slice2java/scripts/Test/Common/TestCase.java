@@ -143,66 +143,21 @@ public interface TestCase extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "destroy",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "runClientSide",
-        "startServerSide",
-        "stopServerSide"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return _iceD_destroy(this, in, current);
-            }
-            case 1:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 2:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 3:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 4:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 5:
-            {
-                return _iceD_runClientSide(this, in, current);
-            }
-            case 6:
-            {
-                return _iceD_startServerSide(this, in, current);
-            }
-            case 7:
-            {
-                return _iceD_stopServerSide(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "startServerSide" -> TestCase._iceD_startServerSide(this, in, current);
+            case "stopServerSide" -> TestCase._iceD_stopServerSide(this, in, current);
+            case "runClientSide" -> TestCase._iceD_runClientSide(this, in, current);
+            case "destroy" -> TestCase._iceD_destroy(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

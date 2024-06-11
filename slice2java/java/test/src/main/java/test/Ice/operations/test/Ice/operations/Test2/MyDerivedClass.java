@@ -47,396 +47,87 @@ public interface MyDerivedClass extends test.Ice.operations.Test.MyClass
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "opBool",
-        "opBoolBoolSD",
-        "opBoolS",
-        "opBoolSS",
-        "opByte",
-        "opByte1",
-        "opByteBoolD",
-        "opByteBoolD1",
-        "opByteBoolD2",
-        "opByteBoolDS",
-        "opByteByteSD",
-        "opByteS",
-        "opByteSOneway",
-        "opByteSOnewayCallCount",
-        "opByteSS",
-        "opContext",
-        "opDouble1",
-        "opDoubleMarshaling",
-        "opFloat1",
-        "opFloatDouble",
-        "opFloatDoubleS",
-        "opFloatDoubleSS",
-        "opIdempotent",
-        "opInt1",
-        "opIntIntSD",
-        "opIntS",
-        "opLong1",
-        "opLongFloatD",
-        "opLongFloatDS",
-        "opLongLongSD",
-        "opMDict1",
-        "opMDict2",
-        "opMSeq1",
-        "opMSeq2",
-        "opMStruct1",
-        "opMStruct2",
-        "opMyClass",
-        "opMyEnum",
-        "opMyEnumMyEnumSD",
-        "opMyEnumStringD",
-        "opMyEnumStringDS",
-        "opMyStructMyEnumD",
-        "opMyStructMyEnumDS",
-        "opShort1",
-        "opShortIntD",
-        "opShortIntDS",
-        "opShortIntLong",
-        "opShortIntLongS",
-        "opShortIntLongSS",
-        "opShortShortSD",
-        "opString",
-        "opString1",
-        "opStringDoubleSD",
-        "opStringFloatSD",
-        "opStringLiterals",
-        "opStringMyEnumD",
-        "opStringMyEnumDS",
-        "opStringS",
-        "opStringS1",
-        "opStringS2",
-        "opStringSS",
-        "opStringSSS",
-        "opStringStringD",
-        "opStringStringDS",
-        "opStringStringSD",
-        "opStruct",
-        "opVoid",
-        "opWStringLiterals",
-        "shutdown",
-        "supportsCompress"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 1:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 2:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 3:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 4:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opBool(this, in, current);
-            }
-            case 5:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opBoolBoolSD(this, in, current);
-            }
-            case 6:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opBoolS(this, in, current);
-            }
-            case 7:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opBoolSS(this, in, current);
-            }
-            case 8:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opByte(this, in, current);
-            }
-            case 9:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opByte1(this, in, current);
-            }
-            case 10:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opByteBoolD(this, in, current);
-            }
-            case 11:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opByteBoolD1(this, in, current);
-            }
-            case 12:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opByteBoolD2(this, in, current);
-            }
-            case 13:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opByteBoolDS(this, in, current);
-            }
-            case 14:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opByteByteSD(this, in, current);
-            }
-            case 15:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opByteS(this, in, current);
-            }
-            case 16:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opByteSOneway(this, in, current);
-            }
-            case 17:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opByteSOnewayCallCount(this, in, current);
-            }
-            case 18:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opByteSS(this, in, current);
-            }
-            case 19:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opContext(this, in, current);
-            }
-            case 20:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opDouble1(this, in, current);
-            }
-            case 21:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opDoubleMarshaling(this, in, current);
-            }
-            case 22:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opFloat1(this, in, current);
-            }
-            case 23:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opFloatDouble(this, in, current);
-            }
-            case 24:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opFloatDoubleS(this, in, current);
-            }
-            case 25:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opFloatDoubleSS(this, in, current);
-            }
-            case 26:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opIdempotent(this, in, current);
-            }
-            case 27:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opInt1(this, in, current);
-            }
-            case 28:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opIntIntSD(this, in, current);
-            }
-            case 29:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opIntS(this, in, current);
-            }
-            case 30:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opLong1(this, in, current);
-            }
-            case 31:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opLongFloatD(this, in, current);
-            }
-            case 32:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opLongFloatDS(this, in, current);
-            }
-            case 33:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opLongLongSD(this, in, current);
-            }
-            case 34:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMDict1(this, in, current);
-            }
-            case 35:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMDict2(this, in, current);
-            }
-            case 36:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMSeq1(this, in, current);
-            }
-            case 37:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMSeq2(this, in, current);
-            }
-            case 38:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMStruct1(this, in, current);
-            }
-            case 39:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMStruct2(this, in, current);
-            }
-            case 40:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMyClass(this, in, current);
-            }
-            case 41:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMyEnum(this, in, current);
-            }
-            case 42:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMyEnumMyEnumSD(this, in, current);
-            }
-            case 43:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMyEnumStringD(this, in, current);
-            }
-            case 44:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMyEnumStringDS(this, in, current);
-            }
-            case 45:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMyStructMyEnumD(this, in, current);
-            }
-            case 46:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opMyStructMyEnumDS(this, in, current);
-            }
-            case 47:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opShort1(this, in, current);
-            }
-            case 48:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opShortIntD(this, in, current);
-            }
-            case 49:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opShortIntDS(this, in, current);
-            }
-            case 50:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opShortIntLong(this, in, current);
-            }
-            case 51:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opShortIntLongS(this, in, current);
-            }
-            case 52:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opShortIntLongSS(this, in, current);
-            }
-            case 53:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opShortShortSD(this, in, current);
-            }
-            case 54:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opString(this, in, current);
-            }
-            case 55:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opString1(this, in, current);
-            }
-            case 56:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringDoubleSD(this, in, current);
-            }
-            case 57:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringFloatSD(this, in, current);
-            }
-            case 58:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringLiterals(this, in, current);
-            }
-            case 59:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringMyEnumD(this, in, current);
-            }
-            case 60:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringMyEnumDS(this, in, current);
-            }
-            case 61:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringS(this, in, current);
-            }
-            case 62:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringS1(this, in, current);
-            }
-            case 63:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringS2(this, in, current);
-            }
-            case 64:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringSS(this, in, current);
-            }
-            case 65:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringSSS(this, in, current);
-            }
-            case 66:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringStringD(this, in, current);
-            }
-            case 67:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringStringDS(this, in, current);
-            }
-            case 68:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStringStringSD(this, in, current);
-            }
-            case 69:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opStruct(this, in, current);
-            }
-            case 70:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opVoid(this, in, current);
-            }
-            case 71:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_opWStringLiterals(this, in, current);
-            }
-            case 72:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_shutdown(this, in, current);
-            }
-            case 73:
-            {
-                return test.Ice.operations.Test.MyClass._iceD_supportsCompress(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "shutdown" -> test.Ice.operations.Test.MyClass._iceD_shutdown(this, in, current);
+            case "supportsCompress" -> test.Ice.operations.Test.MyClass._iceD_supportsCompress(this, in, current);
+            case "opVoid" -> test.Ice.operations.Test.MyClass._iceD_opVoid(this, in, current);
+            case "opByte" -> test.Ice.operations.Test.MyClass._iceD_opByte(this, in, current);
+            case "opBool" -> test.Ice.operations.Test.MyClass._iceD_opBool(this, in, current);
+            case "opShortIntLong" -> test.Ice.operations.Test.MyClass._iceD_opShortIntLong(this, in, current);
+            case "opFloatDouble" -> test.Ice.operations.Test.MyClass._iceD_opFloatDouble(this, in, current);
+            case "opString" -> test.Ice.operations.Test.MyClass._iceD_opString(this, in, current);
+            case "opMyEnum" -> test.Ice.operations.Test.MyClass._iceD_opMyEnum(this, in, current);
+            case "opMyClass" -> test.Ice.operations.Test.MyClass._iceD_opMyClass(this, in, current);
+            case "opStruct" -> test.Ice.operations.Test.MyClass._iceD_opStruct(this, in, current);
+            case "opByteS" -> test.Ice.operations.Test.MyClass._iceD_opByteS(this, in, current);
+            case "opBoolS" -> test.Ice.operations.Test.MyClass._iceD_opBoolS(this, in, current);
+            case "opShortIntLongS" -> test.Ice.operations.Test.MyClass._iceD_opShortIntLongS(this, in, current);
+            case "opFloatDoubleS" -> test.Ice.operations.Test.MyClass._iceD_opFloatDoubleS(this, in, current);
+            case "opStringS" -> test.Ice.operations.Test.MyClass._iceD_opStringS(this, in, current);
+            case "opByteSS" -> test.Ice.operations.Test.MyClass._iceD_opByteSS(this, in, current);
+            case "opBoolSS" -> test.Ice.operations.Test.MyClass._iceD_opBoolSS(this, in, current);
+            case "opShortIntLongSS" -> test.Ice.operations.Test.MyClass._iceD_opShortIntLongSS(this, in, current);
+            case "opFloatDoubleSS" -> test.Ice.operations.Test.MyClass._iceD_opFloatDoubleSS(this, in, current);
+            case "opStringSS" -> test.Ice.operations.Test.MyClass._iceD_opStringSS(this, in, current);
+            case "opStringSSS" -> test.Ice.operations.Test.MyClass._iceD_opStringSSS(this, in, current);
+            case "opByteBoolD" -> test.Ice.operations.Test.MyClass._iceD_opByteBoolD(this, in, current);
+            case "opShortIntD" -> test.Ice.operations.Test.MyClass._iceD_opShortIntD(this, in, current);
+            case "opLongFloatD" -> test.Ice.operations.Test.MyClass._iceD_opLongFloatD(this, in, current);
+            case "opStringStringD" -> test.Ice.operations.Test.MyClass._iceD_opStringStringD(this, in, current);
+            case "opStringMyEnumD" -> test.Ice.operations.Test.MyClass._iceD_opStringMyEnumD(this, in, current);
+            case "opMyEnumStringD" -> test.Ice.operations.Test.MyClass._iceD_opMyEnumStringD(this, in, current);
+            case "opMyStructMyEnumD" -> test.Ice.operations.Test.MyClass._iceD_opMyStructMyEnumD(this, in, current);
+            case "opByteBoolDS" -> test.Ice.operations.Test.MyClass._iceD_opByteBoolDS(this, in, current);
+            case "opShortIntDS" -> test.Ice.operations.Test.MyClass._iceD_opShortIntDS(this, in, current);
+            case "opLongFloatDS" -> test.Ice.operations.Test.MyClass._iceD_opLongFloatDS(this, in, current);
+            case "opStringStringDS" -> test.Ice.operations.Test.MyClass._iceD_opStringStringDS(this, in, current);
+            case "opStringMyEnumDS" -> test.Ice.operations.Test.MyClass._iceD_opStringMyEnumDS(this, in, current);
+            case "opMyEnumStringDS" -> test.Ice.operations.Test.MyClass._iceD_opMyEnumStringDS(this, in, current);
+            case "opMyStructMyEnumDS" -> test.Ice.operations.Test.MyClass._iceD_opMyStructMyEnumDS(this, in, current);
+            case "opByteByteSD" -> test.Ice.operations.Test.MyClass._iceD_opByteByteSD(this, in, current);
+            case "opBoolBoolSD" -> test.Ice.operations.Test.MyClass._iceD_opBoolBoolSD(this, in, current);
+            case "opShortShortSD" -> test.Ice.operations.Test.MyClass._iceD_opShortShortSD(this, in, current);
+            case "opIntIntSD" -> test.Ice.operations.Test.MyClass._iceD_opIntIntSD(this, in, current);
+            case "opLongLongSD" -> test.Ice.operations.Test.MyClass._iceD_opLongLongSD(this, in, current);
+            case "opStringFloatSD" -> test.Ice.operations.Test.MyClass._iceD_opStringFloatSD(this, in, current);
+            case "opStringDoubleSD" -> test.Ice.operations.Test.MyClass._iceD_opStringDoubleSD(this, in, current);
+            case "opStringStringSD" -> test.Ice.operations.Test.MyClass._iceD_opStringStringSD(this, in, current);
+            case "opMyEnumMyEnumSD" -> test.Ice.operations.Test.MyClass._iceD_opMyEnumMyEnumSD(this, in, current);
+            case "opIntS" -> test.Ice.operations.Test.MyClass._iceD_opIntS(this, in, current);
+            case "opByteSOneway" -> test.Ice.operations.Test.MyClass._iceD_opByteSOneway(this, in, current);
+            case "opByteSOnewayCallCount" -> test.Ice.operations.Test.MyClass._iceD_opByteSOnewayCallCount(this, in, current);
+            case "opContext" -> test.Ice.operations.Test.MyClass._iceD_opContext(this, in, current);
+            case "opDoubleMarshaling" -> test.Ice.operations.Test.MyClass._iceD_opDoubleMarshaling(this, in, current);
+            case "opIdempotent" -> test.Ice.operations.Test.MyClass._iceD_opIdempotent(this, in, current);
+            case "opByte1" -> test.Ice.operations.Test.MyClass._iceD_opByte1(this, in, current);
+            case "opShort1" -> test.Ice.operations.Test.MyClass._iceD_opShort1(this, in, current);
+            case "opInt1" -> test.Ice.operations.Test.MyClass._iceD_opInt1(this, in, current);
+            case "opLong1" -> test.Ice.operations.Test.MyClass._iceD_opLong1(this, in, current);
+            case "opFloat1" -> test.Ice.operations.Test.MyClass._iceD_opFloat1(this, in, current);
+            case "opDouble1" -> test.Ice.operations.Test.MyClass._iceD_opDouble1(this, in, current);
+            case "opString1" -> test.Ice.operations.Test.MyClass._iceD_opString1(this, in, current);
+            case "opStringS1" -> test.Ice.operations.Test.MyClass._iceD_opStringS1(this, in, current);
+            case "opByteBoolD1" -> test.Ice.operations.Test.MyClass._iceD_opByteBoolD1(this, in, current);
+            case "opStringS2" -> test.Ice.operations.Test.MyClass._iceD_opStringS2(this, in, current);
+            case "opByteBoolD2" -> test.Ice.operations.Test.MyClass._iceD_opByteBoolD2(this, in, current);
+            case "opStringLiterals" -> test.Ice.operations.Test.MyClass._iceD_opStringLiterals(this, in, current);
+            case "opWStringLiterals" -> test.Ice.operations.Test.MyClass._iceD_opWStringLiterals(this, in, current);
+            case "opMStruct1" -> test.Ice.operations.Test.MyClass._iceD_opMStruct1(this, in, current);
+            case "opMStruct2" -> test.Ice.operations.Test.MyClass._iceD_opMStruct2(this, in, current);
+            case "opMSeq1" -> test.Ice.operations.Test.MyClass._iceD_opMSeq1(this, in, current);
+            case "opMSeq2" -> test.Ice.operations.Test.MyClass._iceD_opMSeq2(this, in, current);
+            case "opMDict1" -> test.Ice.operations.Test.MyClass._iceD_opMDict1(this, in, current);
+            case "opMDict2" -> test.Ice.operations.Test.MyClass._iceD_opMDict2(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

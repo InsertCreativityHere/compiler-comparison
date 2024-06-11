@@ -305,106 +305,29 @@ public interface Server extends FileReader
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "checkUpdate",
-        "getOffsetFromEnd",
-        "getPid",
-        "getState",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "isEnabled",
-        "read",
-        "sendSignal",
-        "setEnabled",
-        "setProcess",
-        "start",
-        "stop",
-        "writeMessage"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return _iceD_checkUpdate(this, in, current);
-            }
-            case 1:
-            {
-                return FileReader._iceD_getOffsetFromEnd(this, in, current);
-            }
-            case 2:
-            {
-                return _iceD_getPid(this, in, current);
-            }
-            case 3:
-            {
-                return _iceD_getState(this, in, current);
-            }
-            case 4:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 5:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 6:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 7:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 8:
-            {
-                return _iceD_isEnabled(this, in, current);
-            }
-            case 9:
-            {
-                return FileReader._iceD_read(this, in, current);
-            }
-            case 10:
-            {
-                return _iceD_sendSignal(this, in, current);
-            }
-            case 11:
-            {
-                return _iceD_setEnabled(this, in, current);
-            }
-            case 12:
-            {
-                return _iceD_setProcess(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_start(this, in, current);
-            }
-            case 14:
-            {
-                return _iceD_stop(this, in, current);
-            }
-            case 15:
-            {
-                return _iceD_writeMessage(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "getOffsetFromEnd" -> FileReader._iceD_getOffsetFromEnd(this, in, current);
+            case "read" -> FileReader._iceD_read(this, in, current);
+            case "start" -> Server._iceD_start(this, in, current);
+            case "stop" -> Server._iceD_stop(this, in, current);
+            case "checkUpdate" -> Server._iceD_checkUpdate(this, in, current);
+            case "setEnabled" -> Server._iceD_setEnabled(this, in, current);
+            case "isEnabled" -> Server._iceD_isEnabled(this, in, current);
+            case "sendSignal" -> Server._iceD_sendSignal(this, in, current);
+            case "writeMessage" -> Server._iceD_writeMessage(this, in, current);
+            case "getState" -> Server._iceD_getState(this, in, current);
+            case "getPid" -> Server._iceD_getPid(this, in, current);
+            case "setProcess" -> Server._iceD_setProcess(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

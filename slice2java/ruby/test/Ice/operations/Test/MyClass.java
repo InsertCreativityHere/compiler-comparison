@@ -3337,386 +3337,85 @@ public interface MyClass extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "opBool",
-        "opBoolBoolSD",
-        "opBoolS",
-        "opBoolSS",
-        "opByte",
-        "opByte1",
-        "opByteBoolD",
-        "opByteBoolD1",
-        "opByteBoolD2",
-        "opByteBoolDS",
-        "opByteByteSD",
-        "opByteS",
-        "opByteSOneway",
-        "opByteSOnewayCallCount",
-        "opByteSS",
-        "opContext",
-        "opDouble1",
-        "opFloat1",
-        "opFloatDouble",
-        "opFloatDoubleS",
-        "opFloatDoubleSS",
-        "opIdempotent",
-        "opInt1",
-        "opIntIntSD",
-        "opIntS",
-        "opLong1",
-        "opLongFloatD",
-        "opLongFloatDS",
-        "opLongLongSD",
-        "opMDict1",
-        "opMDict2",
-        "opMSeq1",
-        "opMSeq2",
-        "opMStruct1",
-        "opMStruct2",
-        "opMyClass",
-        "opMyEnum",
-        "opMyEnumMyEnumSD",
-        "opMyEnumStringD",
-        "opMyEnumStringDS",
-        "opMyStructMyEnumD",
-        "opMyStructMyEnumDS",
-        "opShort1",
-        "opShortIntD",
-        "opShortIntDS",
-        "opShortIntLong",
-        "opShortIntLongS",
-        "opShortIntLongSS",
-        "opShortShortSD",
-        "opString",
-        "opString1",
-        "opStringDoubleSD",
-        "opStringFloatSD",
-        "opStringLiterals",
-        "opStringMyEnumD",
-        "opStringMyEnumDS",
-        "opStringS",
-        "opStringS1",
-        "opStringS2",
-        "opStringSS",
-        "opStringSSS",
-        "opStringStringD",
-        "opStringStringDS",
-        "opStringStringSD",
-        "opStruct",
-        "opVoid",
-        "shutdown",
-        "supportsCompress"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 1:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 2:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 3:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 4:
-            {
-                return _iceD_opBool(this, in, current);
-            }
-            case 5:
-            {
-                return _iceD_opBoolBoolSD(this, in, current);
-            }
-            case 6:
-            {
-                return _iceD_opBoolS(this, in, current);
-            }
-            case 7:
-            {
-                return _iceD_opBoolSS(this, in, current);
-            }
-            case 8:
-            {
-                return _iceD_opByte(this, in, current);
-            }
-            case 9:
-            {
-                return _iceD_opByte1(this, in, current);
-            }
-            case 10:
-            {
-                return _iceD_opByteBoolD(this, in, current);
-            }
-            case 11:
-            {
-                return _iceD_opByteBoolD1(this, in, current);
-            }
-            case 12:
-            {
-                return _iceD_opByteBoolD2(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_opByteBoolDS(this, in, current);
-            }
-            case 14:
-            {
-                return _iceD_opByteByteSD(this, in, current);
-            }
-            case 15:
-            {
-                return _iceD_opByteS(this, in, current);
-            }
-            case 16:
-            {
-                return _iceD_opByteSOneway(this, in, current);
-            }
-            case 17:
-            {
-                return _iceD_opByteSOnewayCallCount(this, in, current);
-            }
-            case 18:
-            {
-                return _iceD_opByteSS(this, in, current);
-            }
-            case 19:
-            {
-                return _iceD_opContext(this, in, current);
-            }
-            case 20:
-            {
-                return _iceD_opDouble1(this, in, current);
-            }
-            case 21:
-            {
-                return _iceD_opFloat1(this, in, current);
-            }
-            case 22:
-            {
-                return _iceD_opFloatDouble(this, in, current);
-            }
-            case 23:
-            {
-                return _iceD_opFloatDoubleS(this, in, current);
-            }
-            case 24:
-            {
-                return _iceD_opFloatDoubleSS(this, in, current);
-            }
-            case 25:
-            {
-                return _iceD_opIdempotent(this, in, current);
-            }
-            case 26:
-            {
-                return _iceD_opInt1(this, in, current);
-            }
-            case 27:
-            {
-                return _iceD_opIntIntSD(this, in, current);
-            }
-            case 28:
-            {
-                return _iceD_opIntS(this, in, current);
-            }
-            case 29:
-            {
-                return _iceD_opLong1(this, in, current);
-            }
-            case 30:
-            {
-                return _iceD_opLongFloatD(this, in, current);
-            }
-            case 31:
-            {
-                return _iceD_opLongFloatDS(this, in, current);
-            }
-            case 32:
-            {
-                return _iceD_opLongLongSD(this, in, current);
-            }
-            case 33:
-            {
-                return _iceD_opMDict1(this, in, current);
-            }
-            case 34:
-            {
-                return _iceD_opMDict2(this, in, current);
-            }
-            case 35:
-            {
-                return _iceD_opMSeq1(this, in, current);
-            }
-            case 36:
-            {
-                return _iceD_opMSeq2(this, in, current);
-            }
-            case 37:
-            {
-                return _iceD_opMStruct1(this, in, current);
-            }
-            case 38:
-            {
-                return _iceD_opMStruct2(this, in, current);
-            }
-            case 39:
-            {
-                return _iceD_opMyClass(this, in, current);
-            }
-            case 40:
-            {
-                return _iceD_opMyEnum(this, in, current);
-            }
-            case 41:
-            {
-                return _iceD_opMyEnumMyEnumSD(this, in, current);
-            }
-            case 42:
-            {
-                return _iceD_opMyEnumStringD(this, in, current);
-            }
-            case 43:
-            {
-                return _iceD_opMyEnumStringDS(this, in, current);
-            }
-            case 44:
-            {
-                return _iceD_opMyStructMyEnumD(this, in, current);
-            }
-            case 45:
-            {
-                return _iceD_opMyStructMyEnumDS(this, in, current);
-            }
-            case 46:
-            {
-                return _iceD_opShort1(this, in, current);
-            }
-            case 47:
-            {
-                return _iceD_opShortIntD(this, in, current);
-            }
-            case 48:
-            {
-                return _iceD_opShortIntDS(this, in, current);
-            }
-            case 49:
-            {
-                return _iceD_opShortIntLong(this, in, current);
-            }
-            case 50:
-            {
-                return _iceD_opShortIntLongS(this, in, current);
-            }
-            case 51:
-            {
-                return _iceD_opShortIntLongSS(this, in, current);
-            }
-            case 52:
-            {
-                return _iceD_opShortShortSD(this, in, current);
-            }
-            case 53:
-            {
-                return _iceD_opString(this, in, current);
-            }
-            case 54:
-            {
-                return _iceD_opString1(this, in, current);
-            }
-            case 55:
-            {
-                return _iceD_opStringDoubleSD(this, in, current);
-            }
-            case 56:
-            {
-                return _iceD_opStringFloatSD(this, in, current);
-            }
-            case 57:
-            {
-                return _iceD_opStringLiterals(this, in, current);
-            }
-            case 58:
-            {
-                return _iceD_opStringMyEnumD(this, in, current);
-            }
-            case 59:
-            {
-                return _iceD_opStringMyEnumDS(this, in, current);
-            }
-            case 60:
-            {
-                return _iceD_opStringS(this, in, current);
-            }
-            case 61:
-            {
-                return _iceD_opStringS1(this, in, current);
-            }
-            case 62:
-            {
-                return _iceD_opStringS2(this, in, current);
-            }
-            case 63:
-            {
-                return _iceD_opStringSS(this, in, current);
-            }
-            case 64:
-            {
-                return _iceD_opStringSSS(this, in, current);
-            }
-            case 65:
-            {
-                return _iceD_opStringStringD(this, in, current);
-            }
-            case 66:
-            {
-                return _iceD_opStringStringDS(this, in, current);
-            }
-            case 67:
-            {
-                return _iceD_opStringStringSD(this, in, current);
-            }
-            case 68:
-            {
-                return _iceD_opStruct(this, in, current);
-            }
-            case 69:
-            {
-                return _iceD_opVoid(this, in, current);
-            }
-            case 70:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-            case 71:
-            {
-                return _iceD_supportsCompress(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "shutdown" -> MyClass._iceD_shutdown(this, in, current);
+            case "supportsCompress" -> MyClass._iceD_supportsCompress(this, in, current);
+            case "opVoid" -> MyClass._iceD_opVoid(this, in, current);
+            case "opByte" -> MyClass._iceD_opByte(this, in, current);
+            case "opBool" -> MyClass._iceD_opBool(this, in, current);
+            case "opShortIntLong" -> MyClass._iceD_opShortIntLong(this, in, current);
+            case "opFloatDouble" -> MyClass._iceD_opFloatDouble(this, in, current);
+            case "opString" -> MyClass._iceD_opString(this, in, current);
+            case "opMyEnum" -> MyClass._iceD_opMyEnum(this, in, current);
+            case "opMyClass" -> MyClass._iceD_opMyClass(this, in, current);
+            case "opStruct" -> MyClass._iceD_opStruct(this, in, current);
+            case "opByteS" -> MyClass._iceD_opByteS(this, in, current);
+            case "opBoolS" -> MyClass._iceD_opBoolS(this, in, current);
+            case "opShortIntLongS" -> MyClass._iceD_opShortIntLongS(this, in, current);
+            case "opFloatDoubleS" -> MyClass._iceD_opFloatDoubleS(this, in, current);
+            case "opStringS" -> MyClass._iceD_opStringS(this, in, current);
+            case "opByteSS" -> MyClass._iceD_opByteSS(this, in, current);
+            case "opBoolSS" -> MyClass._iceD_opBoolSS(this, in, current);
+            case "opShortIntLongSS" -> MyClass._iceD_opShortIntLongSS(this, in, current);
+            case "opFloatDoubleSS" -> MyClass._iceD_opFloatDoubleSS(this, in, current);
+            case "opStringSS" -> MyClass._iceD_opStringSS(this, in, current);
+            case "opStringSSS" -> MyClass._iceD_opStringSSS(this, in, current);
+            case "opByteBoolD" -> MyClass._iceD_opByteBoolD(this, in, current);
+            case "opShortIntD" -> MyClass._iceD_opShortIntD(this, in, current);
+            case "opLongFloatD" -> MyClass._iceD_opLongFloatD(this, in, current);
+            case "opStringStringD" -> MyClass._iceD_opStringStringD(this, in, current);
+            case "opStringMyEnumD" -> MyClass._iceD_opStringMyEnumD(this, in, current);
+            case "opMyEnumStringD" -> MyClass._iceD_opMyEnumStringD(this, in, current);
+            case "opMyStructMyEnumD" -> MyClass._iceD_opMyStructMyEnumD(this, in, current);
+            case "opByteBoolDS" -> MyClass._iceD_opByteBoolDS(this, in, current);
+            case "opShortIntDS" -> MyClass._iceD_opShortIntDS(this, in, current);
+            case "opLongFloatDS" -> MyClass._iceD_opLongFloatDS(this, in, current);
+            case "opStringStringDS" -> MyClass._iceD_opStringStringDS(this, in, current);
+            case "opStringMyEnumDS" -> MyClass._iceD_opStringMyEnumDS(this, in, current);
+            case "opMyEnumStringDS" -> MyClass._iceD_opMyEnumStringDS(this, in, current);
+            case "opMyStructMyEnumDS" -> MyClass._iceD_opMyStructMyEnumDS(this, in, current);
+            case "opByteByteSD" -> MyClass._iceD_opByteByteSD(this, in, current);
+            case "opBoolBoolSD" -> MyClass._iceD_opBoolBoolSD(this, in, current);
+            case "opShortShortSD" -> MyClass._iceD_opShortShortSD(this, in, current);
+            case "opIntIntSD" -> MyClass._iceD_opIntIntSD(this, in, current);
+            case "opLongLongSD" -> MyClass._iceD_opLongLongSD(this, in, current);
+            case "opStringFloatSD" -> MyClass._iceD_opStringFloatSD(this, in, current);
+            case "opStringDoubleSD" -> MyClass._iceD_opStringDoubleSD(this, in, current);
+            case "opStringStringSD" -> MyClass._iceD_opStringStringSD(this, in, current);
+            case "opMyEnumMyEnumSD" -> MyClass._iceD_opMyEnumMyEnumSD(this, in, current);
+            case "opIntS" -> MyClass._iceD_opIntS(this, in, current);
+            case "opByteSOneway" -> MyClass._iceD_opByteSOneway(this, in, current);
+            case "opByteSOnewayCallCount" -> MyClass._iceD_opByteSOnewayCallCount(this, in, current);
+            case "opContext" -> MyClass._iceD_opContext(this, in, current);
+            case "opIdempotent" -> MyClass._iceD_opIdempotent(this, in, current);
+            case "opByte1" -> MyClass._iceD_opByte1(this, in, current);
+            case "opShort1" -> MyClass._iceD_opShort1(this, in, current);
+            case "opInt1" -> MyClass._iceD_opInt1(this, in, current);
+            case "opLong1" -> MyClass._iceD_opLong1(this, in, current);
+            case "opFloat1" -> MyClass._iceD_opFloat1(this, in, current);
+            case "opDouble1" -> MyClass._iceD_opDouble1(this, in, current);
+            case "opString1" -> MyClass._iceD_opString1(this, in, current);
+            case "opStringS1" -> MyClass._iceD_opStringS1(this, in, current);
+            case "opByteBoolD1" -> MyClass._iceD_opByteBoolD1(this, in, current);
+            case "opStringS2" -> MyClass._iceD_opStringS2(this, in, current);
+            case "opByteBoolD2" -> MyClass._iceD_opByteBoolD2(this, in, current);
+            case "opStringLiterals" -> MyClass._iceD_opStringLiterals(this, in, current);
+            case "opMStruct1" -> MyClass._iceD_opMStruct1(this, in, current);
+            case "opMStruct2" -> MyClass._iceD_opMStruct2(this, in, current);
+            case "opMSeq1" -> MyClass._iceD_opMSeq1(this, in, current);
+            case "opMSeq2" -> MyClass._iceD_opMSeq2(this, in, current);
+            case "opMDict1" -> MyClass._iceD_opMDict1(this, in, current);
+            case "opMDict2" -> MyClass._iceD_opMDict2(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

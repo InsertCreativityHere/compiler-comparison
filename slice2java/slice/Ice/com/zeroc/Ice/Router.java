@@ -191,61 +191,20 @@ public interface Router extends Object
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "addProxies",
-        "getClientProxy",
-        "getServerProxy",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, Current current)
         throws UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return _iceD_addProxies(this, in, current);
-            }
-            case 1:
-            {
-                return _iceD_getClientProxy(this, in, current);
-            }
-            case 2:
-            {
-                return _iceD_getServerProxy(this, in, current);
-            }
-            case 3:
-            {
-                return Object._iceD_ice_id(this, in, current);
-            }
-            case 4:
-            {
-                return Object._iceD_ice_ids(this, in, current);
-            }
-            case 5:
-            {
-                return Object._iceD_ice_isA(this, in, current);
-            }
-            case 6:
-            {
-                return Object._iceD_ice_ping(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new OperationNotExistException(current.id, current.facet, current.operation);
+            case "getClientProxy" -> Router._iceD_getClientProxy(this, in, current);
+            case "getServerProxy" -> Router._iceD_getServerProxy(this, in, current);
+            case "addProxies" -> Router._iceD_addProxies(this, in, current);
+            case "ice_id" -> Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> Object._iceD_ice_ping(this, in, current);
+            default -> throw new OperationNotExistException();
+        };
     }
 }

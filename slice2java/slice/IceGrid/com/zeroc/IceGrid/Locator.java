@@ -100,71 +100,22 @@ public interface Locator extends com.zeroc.Ice.Locator
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "findAdapterById",
-        "findObjectById",
-        "getLocalQuery",
-        "getLocalRegistry",
-        "getRegistry",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return com.zeroc.Ice.Locator._iceD_findAdapterById(this, in, current);
-            }
-            case 1:
-            {
-                return com.zeroc.Ice.Locator._iceD_findObjectById(this, in, current);
-            }
-            case 2:
-            {
-                return _iceD_getLocalQuery(this, in, current);
-            }
-            case 3:
-            {
-                return _iceD_getLocalRegistry(this, in, current);
-            }
-            case 4:
-            {
-                return com.zeroc.Ice.Locator._iceD_getRegistry(this, in, current);
-            }
-            case 5:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 6:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 7:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 8:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "findObjectById" -> com.zeroc.Ice.Locator._iceD_findObjectById(this, in, current);
+            case "findAdapterById" -> com.zeroc.Ice.Locator._iceD_findAdapterById(this, in, current);
+            case "getRegistry" -> com.zeroc.Ice.Locator._iceD_getRegistry(this, in, current);
+            case "getLocalRegistry" -> Locator._iceD_getLocalRegistry(this, in, current);
+            case "getLocalQuery" -> Locator._iceD_getLocalQuery(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

@@ -102,106 +102,29 @@ public interface TopicInternal extends com.zeroc.IceStorm.Topic
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "destroy",
-        "getLinkInfoSeq",
-        "getLinkProxy",
-        "getName",
-        "getNonReplicatedPublisher",
-        "getPublisher",
-        "getSubscribers",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "link",
-        "reap",
-        "subscribeAndGetPublisher",
-        "unlink",
-        "unsubscribe"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return com.zeroc.IceStorm.Topic._iceD_destroy(this, in, current);
-            }
-            case 1:
-            {
-                return com.zeroc.IceStorm.Topic._iceD_getLinkInfoSeq(this, in, current);
-            }
-            case 2:
-            {
-                return _iceD_getLinkProxy(this, in, current);
-            }
-            case 3:
-            {
-                return com.zeroc.IceStorm.Topic._iceD_getName(this, in, current);
-            }
-            case 4:
-            {
-                return com.zeroc.IceStorm.Topic._iceD_getNonReplicatedPublisher(this, in, current);
-            }
-            case 5:
-            {
-                return com.zeroc.IceStorm.Topic._iceD_getPublisher(this, in, current);
-            }
-            case 6:
-            {
-                return com.zeroc.IceStorm.Topic._iceD_getSubscribers(this, in, current);
-            }
-            case 7:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 8:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 9:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 10:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 11:
-            {
-                return com.zeroc.IceStorm.Topic._iceD_link(this, in, current);
-            }
-            case 12:
-            {
-                return _iceD_reap(this, in, current);
-            }
-            case 13:
-            {
-                return com.zeroc.IceStorm.Topic._iceD_subscribeAndGetPublisher(this, in, current);
-            }
-            case 14:
-            {
-                return com.zeroc.IceStorm.Topic._iceD_unlink(this, in, current);
-            }
-            case 15:
-            {
-                return com.zeroc.IceStorm.Topic._iceD_unsubscribe(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "getName" -> com.zeroc.IceStorm.Topic._iceD_getName(this, in, current);
+            case "getPublisher" -> com.zeroc.IceStorm.Topic._iceD_getPublisher(this, in, current);
+            case "getNonReplicatedPublisher" -> com.zeroc.IceStorm.Topic._iceD_getNonReplicatedPublisher(this, in, current);
+            case "subscribeAndGetPublisher" -> com.zeroc.IceStorm.Topic._iceD_subscribeAndGetPublisher(this, in, current);
+            case "unsubscribe" -> com.zeroc.IceStorm.Topic._iceD_unsubscribe(this, in, current);
+            case "link" -> com.zeroc.IceStorm.Topic._iceD_link(this, in, current);
+            case "unlink" -> com.zeroc.IceStorm.Topic._iceD_unlink(this, in, current);
+            case "getLinkInfoSeq" -> com.zeroc.IceStorm.Topic._iceD_getLinkInfoSeq(this, in, current);
+            case "getSubscribers" -> com.zeroc.IceStorm.Topic._iceD_getSubscribers(this, in, current);
+            case "destroy" -> com.zeroc.IceStorm.Topic._iceD_destroy(this, in, current);
+            case "getLinkProxy" -> TopicInternal._iceD_getLinkProxy(this, in, current);
+            case "reap" -> TopicInternal._iceD_reap(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

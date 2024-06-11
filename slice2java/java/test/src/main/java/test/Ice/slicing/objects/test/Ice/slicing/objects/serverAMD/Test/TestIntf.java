@@ -1099,231 +1099,54 @@ public interface TestIntf extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "D1AsB",
-        "D1AsD1",
-        "D2AsB",
-        "PBSUnknown2AsPreservedWithGraph",
-        "PBSUnknownAsPreserved",
-        "PBSUnknownAsPreservedWithGraph",
-        "SBSKnownDerivedAsSBSKnownDerived",
-        "SBSKnownDerivedAsSBase",
-        "SBSUnknownDerivedAsSBase",
-        "SBSUnknownDerivedAsSBaseCompact",
-        "SBaseAsObject",
-        "SBaseAsSBase",
-        "SUnknownAsObject",
-        "checkPBSUnknown",
-        "checkPBSUnknown2WithGraph",
-        "checkPBSUnknownWithGraph",
-        "checkSUnknown",
-        "dictionaryTest",
-        "exchangePBase",
-        "exchangePNode",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "oneElementCycle",
-        "paramTest1",
-        "paramTest2",
-        "paramTest3",
-        "paramTest4",
-        "returnTest1",
-        "returnTest2",
-        "returnTest3",
-        "sequenceTest",
-        "shutdown",
-        "throwBaseAsBase",
-        "throwDerivedAsBase",
-        "throwDerivedAsDerived",
-        "throwPreservedException",
-        "throwUnknownDerivedAsBase",
-        "twoElementCycle",
-        "useForward"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return _iceD_D1AsB(this, in, current);
-            }
-            case 1:
-            {
-                return _iceD_D1AsD1(this, in, current);
-            }
-            case 2:
-            {
-                return _iceD_D2AsB(this, in, current);
-            }
-            case 3:
-            {
-                return _iceD_PBSUnknown2AsPreservedWithGraph(this, in, current);
-            }
-            case 4:
-            {
-                return _iceD_PBSUnknownAsPreserved(this, in, current);
-            }
-            case 5:
-            {
-                return _iceD_PBSUnknownAsPreservedWithGraph(this, in, current);
-            }
-            case 6:
-            {
-                return _iceD_SBSKnownDerivedAsSBSKnownDerived(this, in, current);
-            }
-            case 7:
-            {
-                return _iceD_SBSKnownDerivedAsSBase(this, in, current);
-            }
-            case 8:
-            {
-                return _iceD_SBSUnknownDerivedAsSBase(this, in, current);
-            }
-            case 9:
-            {
-                return _iceD_SBSUnknownDerivedAsSBaseCompact(this, in, current);
-            }
-            case 10:
-            {
-                return _iceD_SBaseAsObject(this, in, current);
-            }
-            case 11:
-            {
-                return _iceD_SBaseAsSBase(this, in, current);
-            }
-            case 12:
-            {
-                return _iceD_SUnknownAsObject(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_checkPBSUnknown(this, in, current);
-            }
-            case 14:
-            {
-                return _iceD_checkPBSUnknown2WithGraph(this, in, current);
-            }
-            case 15:
-            {
-                return _iceD_checkPBSUnknownWithGraph(this, in, current);
-            }
-            case 16:
-            {
-                return _iceD_checkSUnknown(this, in, current);
-            }
-            case 17:
-            {
-                return _iceD_dictionaryTest(this, in, current);
-            }
-            case 18:
-            {
-                return _iceD_exchangePBase(this, in, current);
-            }
-            case 19:
-            {
-                return _iceD_exchangePNode(this, in, current);
-            }
-            case 20:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 21:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 22:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 23:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 24:
-            {
-                return _iceD_oneElementCycle(this, in, current);
-            }
-            case 25:
-            {
-                return _iceD_paramTest1(this, in, current);
-            }
-            case 26:
-            {
-                return _iceD_paramTest2(this, in, current);
-            }
-            case 27:
-            {
-                return _iceD_paramTest3(this, in, current);
-            }
-            case 28:
-            {
-                return _iceD_paramTest4(this, in, current);
-            }
-            case 29:
-            {
-                return _iceD_returnTest1(this, in, current);
-            }
-            case 30:
-            {
-                return _iceD_returnTest2(this, in, current);
-            }
-            case 31:
-            {
-                return _iceD_returnTest3(this, in, current);
-            }
-            case 32:
-            {
-                return _iceD_sequenceTest(this, in, current);
-            }
-            case 33:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-            case 34:
-            {
-                return _iceD_throwBaseAsBase(this, in, current);
-            }
-            case 35:
-            {
-                return _iceD_throwDerivedAsBase(this, in, current);
-            }
-            case 36:
-            {
-                return _iceD_throwDerivedAsDerived(this, in, current);
-            }
-            case 37:
-            {
-                return _iceD_throwPreservedException(this, in, current);
-            }
-            case 38:
-            {
-                return _iceD_throwUnknownDerivedAsBase(this, in, current);
-            }
-            case 39:
-            {
-                return _iceD_twoElementCycle(this, in, current);
-            }
-            case 40:
-            {
-                return _iceD_useForward(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "SBaseAsObject" -> TestIntf._iceD_SBaseAsObject(this, in, current);
+            case "SBaseAsSBase" -> TestIntf._iceD_SBaseAsSBase(this, in, current);
+            case "SBSKnownDerivedAsSBase" -> TestIntf._iceD_SBSKnownDerivedAsSBase(this, in, current);
+            case "SBSKnownDerivedAsSBSKnownDerived" -> TestIntf._iceD_SBSKnownDerivedAsSBSKnownDerived(this, in, current);
+            case "SBSUnknownDerivedAsSBase" -> TestIntf._iceD_SBSUnknownDerivedAsSBase(this, in, current);
+            case "SBSUnknownDerivedAsSBaseCompact" -> TestIntf._iceD_SBSUnknownDerivedAsSBaseCompact(this, in, current);
+            case "SUnknownAsObject" -> TestIntf._iceD_SUnknownAsObject(this, in, current);
+            case "checkSUnknown" -> TestIntf._iceD_checkSUnknown(this, in, current);
+            case "oneElementCycle" -> TestIntf._iceD_oneElementCycle(this, in, current);
+            case "twoElementCycle" -> TestIntf._iceD_twoElementCycle(this, in, current);
+            case "D1AsB" -> TestIntf._iceD_D1AsB(this, in, current);
+            case "D1AsD1" -> TestIntf._iceD_D1AsD1(this, in, current);
+            case "D2AsB" -> TestIntf._iceD_D2AsB(this, in, current);
+            case "paramTest1" -> TestIntf._iceD_paramTest1(this, in, current);
+            case "paramTest2" -> TestIntf._iceD_paramTest2(this, in, current);
+            case "paramTest3" -> TestIntf._iceD_paramTest3(this, in, current);
+            case "paramTest4" -> TestIntf._iceD_paramTest4(this, in, current);
+            case "returnTest1" -> TestIntf._iceD_returnTest1(this, in, current);
+            case "returnTest2" -> TestIntf._iceD_returnTest2(this, in, current);
+            case "returnTest3" -> TestIntf._iceD_returnTest3(this, in, current);
+            case "sequenceTest" -> TestIntf._iceD_sequenceTest(this, in, current);
+            case "dictionaryTest" -> TestIntf._iceD_dictionaryTest(this, in, current);
+            case "exchangePBase" -> TestIntf._iceD_exchangePBase(this, in, current);
+            case "PBSUnknownAsPreserved" -> TestIntf._iceD_PBSUnknownAsPreserved(this, in, current);
+            case "checkPBSUnknown" -> TestIntf._iceD_checkPBSUnknown(this, in, current);
+            case "PBSUnknownAsPreservedWithGraph" -> TestIntf._iceD_PBSUnknownAsPreservedWithGraph(this, in, current);
+            case "checkPBSUnknownWithGraph" -> TestIntf._iceD_checkPBSUnknownWithGraph(this, in, current);
+            case "PBSUnknown2AsPreservedWithGraph" -> TestIntf._iceD_PBSUnknown2AsPreservedWithGraph(this, in, current);
+            case "checkPBSUnknown2WithGraph" -> TestIntf._iceD_checkPBSUnknown2WithGraph(this, in, current);
+            case "exchangePNode" -> TestIntf._iceD_exchangePNode(this, in, current);
+            case "throwBaseAsBase" -> TestIntf._iceD_throwBaseAsBase(this, in, current);
+            case "throwDerivedAsBase" -> TestIntf._iceD_throwDerivedAsBase(this, in, current);
+            case "throwDerivedAsDerived" -> TestIntf._iceD_throwDerivedAsDerived(this, in, current);
+            case "throwUnknownDerivedAsBase" -> TestIntf._iceD_throwUnknownDerivedAsBase(this, in, current);
+            case "throwPreservedException" -> TestIntf._iceD_throwPreservedException(this, in, current);
+            case "useForward" -> TestIntf._iceD_useForward(this, in, current);
+            case "shutdown" -> TestIntf._iceD_shutdown(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

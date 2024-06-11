@@ -2465,266 +2465,61 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "opBool",
-        "opBoolSeq",
-        "opByte",
-        "opByteSeq",
-        "opClassAndUnknownOptional",
-        "opDerivedException",
-        "opDouble",
-        "opDoubleSeq",
-        "opFixedStruct",
-        "opFixedStructList",
-        "opFixedStructSeq",
-        "opFloat",
-        "opFloatSeq",
-        "opG",
-        "opInt",
-        "opIntIntDict",
-        "opIntSeq",
-        "opLong",
-        "opLongSeq",
-        "opMDict1",
-        "opMDict2",
-        "opMSeq1",
-        "opMSeq2",
-        "opMStruct1",
-        "opMStruct2",
-        "opMyEnum",
-        "opMyInterfaceProxy",
-        "opOneOptional",
-        "opOptionalException",
-        "opRequiredException",
-        "opShort",
-        "opShortSeq",
-        "opSmallStruct",
-        "opSmallStructList",
-        "opSmallStructSeq",
-        "opString",
-        "opStringIntDict",
-        "opStringSeq",
-        "opVarStruct",
-        "opVarStructSeq",
-        "opVoid",
-        "pingPong",
-        "shutdown",
-        "supportsJavaSerializable"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 1:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 2:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 3:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 4:
-            {
-                return _iceD_opBool(this, in, current);
-            }
-            case 5:
-            {
-                return _iceD_opBoolSeq(this, in, current);
-            }
-            case 6:
-            {
-                return _iceD_opByte(this, in, current);
-            }
-            case 7:
-            {
-                return _iceD_opByteSeq(this, in, current);
-            }
-            case 8:
-            {
-                return _iceD_opClassAndUnknownOptional(this, in, current);
-            }
-            case 9:
-            {
-                return _iceD_opDerivedException(this, in, current);
-            }
-            case 10:
-            {
-                return _iceD_opDouble(this, in, current);
-            }
-            case 11:
-            {
-                return _iceD_opDoubleSeq(this, in, current);
-            }
-            case 12:
-            {
-                return _iceD_opFixedStruct(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_opFixedStructList(this, in, current);
-            }
-            case 14:
-            {
-                return _iceD_opFixedStructSeq(this, in, current);
-            }
-            case 15:
-            {
-                return _iceD_opFloat(this, in, current);
-            }
-            case 16:
-            {
-                return _iceD_opFloatSeq(this, in, current);
-            }
-            case 17:
-            {
-                return _iceD_opG(this, in, current);
-            }
-            case 18:
-            {
-                return _iceD_opInt(this, in, current);
-            }
-            case 19:
-            {
-                return _iceD_opIntIntDict(this, in, current);
-            }
-            case 20:
-            {
-                return _iceD_opIntSeq(this, in, current);
-            }
-            case 21:
-            {
-                return _iceD_opLong(this, in, current);
-            }
-            case 22:
-            {
-                return _iceD_opLongSeq(this, in, current);
-            }
-            case 23:
-            {
-                return _iceD_opMDict1(this, in, current);
-            }
-            case 24:
-            {
-                return _iceD_opMDict2(this, in, current);
-            }
-            case 25:
-            {
-                return _iceD_opMSeq1(this, in, current);
-            }
-            case 26:
-            {
-                return _iceD_opMSeq2(this, in, current);
-            }
-            case 27:
-            {
-                return _iceD_opMStruct1(this, in, current);
-            }
-            case 28:
-            {
-                return _iceD_opMStruct2(this, in, current);
-            }
-            case 29:
-            {
-                return _iceD_opMyEnum(this, in, current);
-            }
-            case 30:
-            {
-                return _iceD_opMyInterfaceProxy(this, in, current);
-            }
-            case 31:
-            {
-                return _iceD_opOneOptional(this, in, current);
-            }
-            case 32:
-            {
-                return _iceD_opOptionalException(this, in, current);
-            }
-            case 33:
-            {
-                return _iceD_opRequiredException(this, in, current);
-            }
-            case 34:
-            {
-                return _iceD_opShort(this, in, current);
-            }
-            case 35:
-            {
-                return _iceD_opShortSeq(this, in, current);
-            }
-            case 36:
-            {
-                return _iceD_opSmallStruct(this, in, current);
-            }
-            case 37:
-            {
-                return _iceD_opSmallStructList(this, in, current);
-            }
-            case 38:
-            {
-                return _iceD_opSmallStructSeq(this, in, current);
-            }
-            case 39:
-            {
-                return _iceD_opString(this, in, current);
-            }
-            case 40:
-            {
-                return _iceD_opStringIntDict(this, in, current);
-            }
-            case 41:
-            {
-                return _iceD_opStringSeq(this, in, current);
-            }
-            case 42:
-            {
-                return _iceD_opVarStruct(this, in, current);
-            }
-            case 43:
-            {
-                return _iceD_opVarStructSeq(this, in, current);
-            }
-            case 44:
-            {
-                return _iceD_opVoid(this, in, current);
-            }
-            case 45:
-            {
-                return _iceD_pingPong(this, in, current);
-            }
-            case 46:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-            case 47:
-            {
-                return _iceD_supportsJavaSerializable(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "shutdown" -> Initial._iceD_shutdown(this, in, current);
+            case "pingPong" -> Initial._iceD_pingPong(this, in, current);
+            case "opOptionalException" -> Initial._iceD_opOptionalException(this, in, current);
+            case "opDerivedException" -> Initial._iceD_opDerivedException(this, in, current);
+            case "opRequiredException" -> Initial._iceD_opRequiredException(this, in, current);
+            case "opByte" -> Initial._iceD_opByte(this, in, current);
+            case "opBool" -> Initial._iceD_opBool(this, in, current);
+            case "opShort" -> Initial._iceD_opShort(this, in, current);
+            case "opInt" -> Initial._iceD_opInt(this, in, current);
+            case "opLong" -> Initial._iceD_opLong(this, in, current);
+            case "opFloat" -> Initial._iceD_opFloat(this, in, current);
+            case "opDouble" -> Initial._iceD_opDouble(this, in, current);
+            case "opString" -> Initial._iceD_opString(this, in, current);
+            case "opMyEnum" -> Initial._iceD_opMyEnum(this, in, current);
+            case "opSmallStruct" -> Initial._iceD_opSmallStruct(this, in, current);
+            case "opFixedStruct" -> Initial._iceD_opFixedStruct(this, in, current);
+            case "opVarStruct" -> Initial._iceD_opVarStruct(this, in, current);
+            case "opMyInterfaceProxy" -> Initial._iceD_opMyInterfaceProxy(this, in, current);
+            case "opOneOptional" -> Initial._iceD_opOneOptional(this, in, current);
+            case "opByteSeq" -> Initial._iceD_opByteSeq(this, in, current);
+            case "opBoolSeq" -> Initial._iceD_opBoolSeq(this, in, current);
+            case "opShortSeq" -> Initial._iceD_opShortSeq(this, in, current);
+            case "opIntSeq" -> Initial._iceD_opIntSeq(this, in, current);
+            case "opLongSeq" -> Initial._iceD_opLongSeq(this, in, current);
+            case "opFloatSeq" -> Initial._iceD_opFloatSeq(this, in, current);
+            case "opDoubleSeq" -> Initial._iceD_opDoubleSeq(this, in, current);
+            case "opStringSeq" -> Initial._iceD_opStringSeq(this, in, current);
+            case "opSmallStructSeq" -> Initial._iceD_opSmallStructSeq(this, in, current);
+            case "opSmallStructList" -> Initial._iceD_opSmallStructList(this, in, current);
+            case "opFixedStructSeq" -> Initial._iceD_opFixedStructSeq(this, in, current);
+            case "opFixedStructList" -> Initial._iceD_opFixedStructList(this, in, current);
+            case "opVarStructSeq" -> Initial._iceD_opVarStructSeq(this, in, current);
+            case "opIntIntDict" -> Initial._iceD_opIntIntDict(this, in, current);
+            case "opStringIntDict" -> Initial._iceD_opStringIntDict(this, in, current);
+            case "opClassAndUnknownOptional" -> Initial._iceD_opClassAndUnknownOptional(this, in, current);
+            case "opG" -> Initial._iceD_opG(this, in, current);
+            case "opVoid" -> Initial._iceD_opVoid(this, in, current);
+            case "opMStruct1" -> Initial._iceD_opMStruct1(this, in, current);
+            case "opMStruct2" -> Initial._iceD_opMStruct2(this, in, current);
+            case "opMSeq1" -> Initial._iceD_opMSeq1(this, in, current);
+            case "opMSeq2" -> Initial._iceD_opMSeq2(this, in, current);
+            case "opMDict1" -> Initial._iceD_opMDict1(this, in, current);
+            case "opMDict2" -> Initial._iceD_opMDict2(this, in, current);
+            case "supportsJavaSerializable" -> Initial._iceD_supportsJavaSerializable(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

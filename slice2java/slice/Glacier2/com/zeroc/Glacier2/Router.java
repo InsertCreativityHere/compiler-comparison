@@ -264,96 +264,27 @@ public interface Router extends com.zeroc.Ice.Router
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "addProxies",
-        "createSession",
-        "createSessionFromSecureConnection",
-        "destroySession",
-        "getACMTimeout",
-        "getCategoryForClient",
-        "getClientProxy",
-        "getServerProxy",
-        "getSessionTimeout",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "refreshSession"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return com.zeroc.Ice.Router._iceD_addProxies(this, in, current);
-            }
-            case 1:
-            {
-                return _iceD_createSession(this, in, current);
-            }
-            case 2:
-            {
-                return _iceD_createSessionFromSecureConnection(this, in, current);
-            }
-            case 3:
-            {
-                return _iceD_destroySession(this, in, current);
-            }
-            case 4:
-            {
-                return _iceD_getACMTimeout(this, in, current);
-            }
-            case 5:
-            {
-                return _iceD_getCategoryForClient(this, in, current);
-            }
-            case 6:
-            {
-                return com.zeroc.Ice.Router._iceD_getClientProxy(this, in, current);
-            }
-            case 7:
-            {
-                return com.zeroc.Ice.Router._iceD_getServerProxy(this, in, current);
-            }
-            case 8:
-            {
-                return _iceD_getSessionTimeout(this, in, current);
-            }
-            case 9:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 10:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 11:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 12:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_refreshSession(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "getClientProxy" -> com.zeroc.Ice.Router._iceD_getClientProxy(this, in, current);
+            case "getServerProxy" -> com.zeroc.Ice.Router._iceD_getServerProxy(this, in, current);
+            case "addProxies" -> com.zeroc.Ice.Router._iceD_addProxies(this, in, current);
+            case "getCategoryForClient" -> Router._iceD_getCategoryForClient(this, in, current);
+            case "createSession" -> Router._iceD_createSession(this, in, current);
+            case "createSessionFromSecureConnection" -> Router._iceD_createSessionFromSecureConnection(this, in, current);
+            case "refreshSession" -> Router._iceD_refreshSession(this, in, current);
+            case "destroySession" -> Router._iceD_destroySession(this, in, current);
+            case "getSessionTimeout" -> Router._iceD_getSessionTimeout(this, in, current);
+            case "getACMTimeout" -> Router._iceD_getACMTimeout(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

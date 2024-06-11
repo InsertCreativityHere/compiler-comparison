@@ -273,106 +273,29 @@ public interface TestIntf extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "asyncException",
-        "asyncResponse",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "impossibleException",
-        "intfUserException",
-        "javaException",
-        "localException",
-        "requestFailedException",
-        "shutdown",
-        "unknownException",
-        "unknownExceptionWithServantException",
-        "unknownLocalException",
-        "unknownUserException"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return _iceD_asyncException(this, in, current);
-            }
-            case 1:
-            {
-                return _iceD_asyncResponse(this, in, current);
-            }
-            case 2:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 3:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 4:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 5:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 6:
-            {
-                return _iceD_impossibleException(this, in, current);
-            }
-            case 7:
-            {
-                return _iceD_intfUserException(this, in, current);
-            }
-            case 8:
-            {
-                return _iceD_javaException(this, in, current);
-            }
-            case 9:
-            {
-                return _iceD_localException(this, in, current);
-            }
-            case 10:
-            {
-                return _iceD_requestFailedException(this, in, current);
-            }
-            case 11:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-            case 12:
-            {
-                return _iceD_unknownException(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_unknownExceptionWithServantException(this, in, current);
-            }
-            case 14:
-            {
-                return _iceD_unknownLocalException(this, in, current);
-            }
-            case 15:
-            {
-                return _iceD_unknownUserException(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "requestFailedException" -> TestIntf._iceD_requestFailedException(this, in, current);
+            case "unknownUserException" -> TestIntf._iceD_unknownUserException(this, in, current);
+            case "unknownLocalException" -> TestIntf._iceD_unknownLocalException(this, in, current);
+            case "unknownException" -> TestIntf._iceD_unknownException(this, in, current);
+            case "localException" -> TestIntf._iceD_localException(this, in, current);
+            case "javaException" -> TestIntf._iceD_javaException(this, in, current);
+            case "unknownExceptionWithServantException" -> TestIntf._iceD_unknownExceptionWithServantException(this, in, current);
+            case "impossibleException" -> TestIntf._iceD_impossibleException(this, in, current);
+            case "intfUserException" -> TestIntf._iceD_intfUserException(this, in, current);
+            case "asyncResponse" -> TestIntf._iceD_asyncResponse(this, in, current);
+            case "asyncException" -> TestIntf._iceD_asyncException(this, in, current);
+            case "shutdown" -> TestIntf._iceD_shutdown(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

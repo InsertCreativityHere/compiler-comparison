@@ -325,116 +325,31 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "getTest1C2AsC1",
-        "getTest1C2AsC2",
-        "getTest2C2AsC1",
-        "getTest2C2AsC2",
-        "getTest3C2AsC1",
-        "getTest3C2AsC2",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "shutdown",
-        "throwTest1E2AsE1",
-        "throwTest1E2AsE2",
-        "throwTest1Notify",
-        "throwTest2E2AsE1",
-        "throwTest2E2AsE2",
-        "throwTest3E2AsE1",
-        "throwTest3E2AsE2"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return _iceD_getTest1C2AsC1(this, in, current);
-            }
-            case 1:
-            {
-                return _iceD_getTest1C2AsC2(this, in, current);
-            }
-            case 2:
-            {
-                return _iceD_getTest2C2AsC1(this, in, current);
-            }
-            case 3:
-            {
-                return _iceD_getTest2C2AsC2(this, in, current);
-            }
-            case 4:
-            {
-                return _iceD_getTest3C2AsC1(this, in, current);
-            }
-            case 5:
-            {
-                return _iceD_getTest3C2AsC2(this, in, current);
-            }
-            case 6:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 7:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 8:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 9:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 10:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-            case 11:
-            {
-                return _iceD_throwTest1E2AsE1(this, in, current);
-            }
-            case 12:
-            {
-                return _iceD_throwTest1E2AsE2(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_throwTest1Notify(this, in, current);
-            }
-            case 14:
-            {
-                return _iceD_throwTest2E2AsE1(this, in, current);
-            }
-            case 15:
-            {
-                return _iceD_throwTest2E2AsE2(this, in, current);
-            }
-            case 16:
-            {
-                return _iceD_throwTest3E2AsE1(this, in, current);
-            }
-            case 17:
-            {
-                return _iceD_throwTest3E2AsE2(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "getTest1C2AsC1" -> Initial._iceD_getTest1C2AsC1(this, in, current);
+            case "getTest1C2AsC2" -> Initial._iceD_getTest1C2AsC2(this, in, current);
+            case "throwTest1E2AsE1" -> Initial._iceD_throwTest1E2AsE1(this, in, current);
+            case "throwTest1E2AsE2" -> Initial._iceD_throwTest1E2AsE2(this, in, current);
+            case "throwTest1Notify" -> Initial._iceD_throwTest1Notify(this, in, current);
+            case "getTest2C2AsC1" -> Initial._iceD_getTest2C2AsC1(this, in, current);
+            case "getTest2C2AsC2" -> Initial._iceD_getTest2C2AsC2(this, in, current);
+            case "throwTest2E2AsE1" -> Initial._iceD_throwTest2E2AsE1(this, in, current);
+            case "throwTest2E2AsE2" -> Initial._iceD_throwTest2E2AsE2(this, in, current);
+            case "getTest3C2AsC1" -> Initial._iceD_getTest3C2AsC1(this, in, current);
+            case "getTest3C2AsC2" -> Initial._iceD_getTest3C2AsC2(this, in, current);
+            case "throwTest3E2AsE1" -> Initial._iceD_throwTest3E2AsE1(this, in, current);
+            case "throwTest3E2AsE2" -> Initial._iceD_throwTest3E2AsE2(this, in, current);
+            case "shutdown" -> Initial._iceD_shutdown(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

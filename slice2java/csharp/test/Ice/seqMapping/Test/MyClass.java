@@ -4350,426 +4350,93 @@ public interface MyClass extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "opABoolS",
-        "opAByteS",
-        "opACRS",
-        "opACVS",
-        "opADoubleS",
-        "opAEnS",
-        "opAFloatS",
-        "opAIPrxS",
-        "opAIntS",
-        "opALongS",
-        "opAObjectPrxS",
-        "opAObjectS",
-        "opAShortS",
-        "opAStringS",
-        "opAStructS",
-        "opAStructSD",
-        "opCustomCVS",
-        "opCustomCVSS",
-        "opCustomIntS",
-        "opCustomIntSS",
-        "opKBoolS",
-        "opKByteS",
-        "opKDoubleS",
-        "opKEnS",
-        "opKFloatS",
-        "opKIPrxS",
-        "opKIntS",
-        "opKLongS",
-        "opKObjectPrxS",
-        "opKShortS",
-        "opKStringS",
-        "opKStructS",
-        "opKStructSD",
-        "opLBoolS",
-        "opLByteS",
-        "opLCRS",
-        "opLCVS",
-        "opLDoubleS",
-        "opLEnS",
-        "opLFloatS",
-        "opLIPrxS",
-        "opLIntS",
-        "opLLongS",
-        "opLObjectPrxS",
-        "opLObjectS",
-        "opLShortS",
-        "opLStringS",
-        "opLStructS",
-        "opLStructSD",
-        "opQBoolS",
-        "opQByteS",
-        "opQDoubleS",
-        "opQEnS",
-        "opQFloatS",
-        "opQIPrxS",
-        "opQIntS",
-        "opQLongS",
-        "opQObjectPrxS",
-        "opQShortS",
-        "opQStringS",
-        "opQStructS",
-        "opQStructSD",
-        "opSBoolS",
-        "opSByteS",
-        "opSDoubleS",
-        "opSEnS",
-        "opSFloatS",
-        "opSIPrxS",
-        "opSIntS",
-        "opSLongS",
-        "opSObjectPrxS",
-        "opSShortS",
-        "opSStringS",
-        "opSStructS",
-        "opSStructSD",
-        "shutdown"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 1:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 2:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 3:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 4:
-            {
-                return _iceD_opABoolS(this, in, current);
-            }
-            case 5:
-            {
-                return _iceD_opAByteS(this, in, current);
-            }
-            case 6:
-            {
-                return _iceD_opACRS(this, in, current);
-            }
-            case 7:
-            {
-                return _iceD_opACVS(this, in, current);
-            }
-            case 8:
-            {
-                return _iceD_opADoubleS(this, in, current);
-            }
-            case 9:
-            {
-                return _iceD_opAEnS(this, in, current);
-            }
-            case 10:
-            {
-                return _iceD_opAFloatS(this, in, current);
-            }
-            case 11:
-            {
-                return _iceD_opAIPrxS(this, in, current);
-            }
-            case 12:
-            {
-                return _iceD_opAIntS(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_opALongS(this, in, current);
-            }
-            case 14:
-            {
-                return _iceD_opAObjectPrxS(this, in, current);
-            }
-            case 15:
-            {
-                return _iceD_opAObjectS(this, in, current);
-            }
-            case 16:
-            {
-                return _iceD_opAShortS(this, in, current);
-            }
-            case 17:
-            {
-                return _iceD_opAStringS(this, in, current);
-            }
-            case 18:
-            {
-                return _iceD_opAStructS(this, in, current);
-            }
-            case 19:
-            {
-                return _iceD_opAStructSD(this, in, current);
-            }
-            case 20:
-            {
-                return _iceD_opCustomCVS(this, in, current);
-            }
-            case 21:
-            {
-                return _iceD_opCustomCVSS(this, in, current);
-            }
-            case 22:
-            {
-                return _iceD_opCustomIntS(this, in, current);
-            }
-            case 23:
-            {
-                return _iceD_opCustomIntSS(this, in, current);
-            }
-            case 24:
-            {
-                return _iceD_opKBoolS(this, in, current);
-            }
-            case 25:
-            {
-                return _iceD_opKByteS(this, in, current);
-            }
-            case 26:
-            {
-                return _iceD_opKDoubleS(this, in, current);
-            }
-            case 27:
-            {
-                return _iceD_opKEnS(this, in, current);
-            }
-            case 28:
-            {
-                return _iceD_opKFloatS(this, in, current);
-            }
-            case 29:
-            {
-                return _iceD_opKIPrxS(this, in, current);
-            }
-            case 30:
-            {
-                return _iceD_opKIntS(this, in, current);
-            }
-            case 31:
-            {
-                return _iceD_opKLongS(this, in, current);
-            }
-            case 32:
-            {
-                return _iceD_opKObjectPrxS(this, in, current);
-            }
-            case 33:
-            {
-                return _iceD_opKShortS(this, in, current);
-            }
-            case 34:
-            {
-                return _iceD_opKStringS(this, in, current);
-            }
-            case 35:
-            {
-                return _iceD_opKStructS(this, in, current);
-            }
-            case 36:
-            {
-                return _iceD_opKStructSD(this, in, current);
-            }
-            case 37:
-            {
-                return _iceD_opLBoolS(this, in, current);
-            }
-            case 38:
-            {
-                return _iceD_opLByteS(this, in, current);
-            }
-            case 39:
-            {
-                return _iceD_opLCRS(this, in, current);
-            }
-            case 40:
-            {
-                return _iceD_opLCVS(this, in, current);
-            }
-            case 41:
-            {
-                return _iceD_opLDoubleS(this, in, current);
-            }
-            case 42:
-            {
-                return _iceD_opLEnS(this, in, current);
-            }
-            case 43:
-            {
-                return _iceD_opLFloatS(this, in, current);
-            }
-            case 44:
-            {
-                return _iceD_opLIPrxS(this, in, current);
-            }
-            case 45:
-            {
-                return _iceD_opLIntS(this, in, current);
-            }
-            case 46:
-            {
-                return _iceD_opLLongS(this, in, current);
-            }
-            case 47:
-            {
-                return _iceD_opLObjectPrxS(this, in, current);
-            }
-            case 48:
-            {
-                return _iceD_opLObjectS(this, in, current);
-            }
-            case 49:
-            {
-                return _iceD_opLShortS(this, in, current);
-            }
-            case 50:
-            {
-                return _iceD_opLStringS(this, in, current);
-            }
-            case 51:
-            {
-                return _iceD_opLStructS(this, in, current);
-            }
-            case 52:
-            {
-                return _iceD_opLStructSD(this, in, current);
-            }
-            case 53:
-            {
-                return _iceD_opQBoolS(this, in, current);
-            }
-            case 54:
-            {
-                return _iceD_opQByteS(this, in, current);
-            }
-            case 55:
-            {
-                return _iceD_opQDoubleS(this, in, current);
-            }
-            case 56:
-            {
-                return _iceD_opQEnS(this, in, current);
-            }
-            case 57:
-            {
-                return _iceD_opQFloatS(this, in, current);
-            }
-            case 58:
-            {
-                return _iceD_opQIPrxS(this, in, current);
-            }
-            case 59:
-            {
-                return _iceD_opQIntS(this, in, current);
-            }
-            case 60:
-            {
-                return _iceD_opQLongS(this, in, current);
-            }
-            case 61:
-            {
-                return _iceD_opQObjectPrxS(this, in, current);
-            }
-            case 62:
-            {
-                return _iceD_opQShortS(this, in, current);
-            }
-            case 63:
-            {
-                return _iceD_opQStringS(this, in, current);
-            }
-            case 64:
-            {
-                return _iceD_opQStructS(this, in, current);
-            }
-            case 65:
-            {
-                return _iceD_opQStructSD(this, in, current);
-            }
-            case 66:
-            {
-                return _iceD_opSBoolS(this, in, current);
-            }
-            case 67:
-            {
-                return _iceD_opSByteS(this, in, current);
-            }
-            case 68:
-            {
-                return _iceD_opSDoubleS(this, in, current);
-            }
-            case 69:
-            {
-                return _iceD_opSEnS(this, in, current);
-            }
-            case 70:
-            {
-                return _iceD_opSFloatS(this, in, current);
-            }
-            case 71:
-            {
-                return _iceD_opSIPrxS(this, in, current);
-            }
-            case 72:
-            {
-                return _iceD_opSIntS(this, in, current);
-            }
-            case 73:
-            {
-                return _iceD_opSLongS(this, in, current);
-            }
-            case 74:
-            {
-                return _iceD_opSObjectPrxS(this, in, current);
-            }
-            case 75:
-            {
-                return _iceD_opSShortS(this, in, current);
-            }
-            case 76:
-            {
-                return _iceD_opSStringS(this, in, current);
-            }
-            case 77:
-            {
-                return _iceD_opSStructS(this, in, current);
-            }
-            case 78:
-            {
-                return _iceD_opSStructSD(this, in, current);
-            }
-            case 79:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "shutdown" -> MyClass._iceD_shutdown(this, in, current);
+            case "opAByteS" -> MyClass._iceD_opAByteS(this, in, current);
+            case "opLByteS" -> MyClass._iceD_opLByteS(this, in, current);
+            case "opKByteS" -> MyClass._iceD_opKByteS(this, in, current);
+            case "opQByteS" -> MyClass._iceD_opQByteS(this, in, current);
+            case "opSByteS" -> MyClass._iceD_opSByteS(this, in, current);
+            case "opABoolS" -> MyClass._iceD_opABoolS(this, in, current);
+            case "opLBoolS" -> MyClass._iceD_opLBoolS(this, in, current);
+            case "opKBoolS" -> MyClass._iceD_opKBoolS(this, in, current);
+            case "opQBoolS" -> MyClass._iceD_opQBoolS(this, in, current);
+            case "opSBoolS" -> MyClass._iceD_opSBoolS(this, in, current);
+            case "opAShortS" -> MyClass._iceD_opAShortS(this, in, current);
+            case "opLShortS" -> MyClass._iceD_opLShortS(this, in, current);
+            case "opKShortS" -> MyClass._iceD_opKShortS(this, in, current);
+            case "opQShortS" -> MyClass._iceD_opQShortS(this, in, current);
+            case "opSShortS" -> MyClass._iceD_opSShortS(this, in, current);
+            case "opAIntS" -> MyClass._iceD_opAIntS(this, in, current);
+            case "opLIntS" -> MyClass._iceD_opLIntS(this, in, current);
+            case "opKIntS" -> MyClass._iceD_opKIntS(this, in, current);
+            case "opQIntS" -> MyClass._iceD_opQIntS(this, in, current);
+            case "opSIntS" -> MyClass._iceD_opSIntS(this, in, current);
+            case "opALongS" -> MyClass._iceD_opALongS(this, in, current);
+            case "opLLongS" -> MyClass._iceD_opLLongS(this, in, current);
+            case "opKLongS" -> MyClass._iceD_opKLongS(this, in, current);
+            case "opQLongS" -> MyClass._iceD_opQLongS(this, in, current);
+            case "opSLongS" -> MyClass._iceD_opSLongS(this, in, current);
+            case "opAFloatS" -> MyClass._iceD_opAFloatS(this, in, current);
+            case "opLFloatS" -> MyClass._iceD_opLFloatS(this, in, current);
+            case "opKFloatS" -> MyClass._iceD_opKFloatS(this, in, current);
+            case "opQFloatS" -> MyClass._iceD_opQFloatS(this, in, current);
+            case "opSFloatS" -> MyClass._iceD_opSFloatS(this, in, current);
+            case "opADoubleS" -> MyClass._iceD_opADoubleS(this, in, current);
+            case "opLDoubleS" -> MyClass._iceD_opLDoubleS(this, in, current);
+            case "opKDoubleS" -> MyClass._iceD_opKDoubleS(this, in, current);
+            case "opQDoubleS" -> MyClass._iceD_opQDoubleS(this, in, current);
+            case "opSDoubleS" -> MyClass._iceD_opSDoubleS(this, in, current);
+            case "opAStringS" -> MyClass._iceD_opAStringS(this, in, current);
+            case "opLStringS" -> MyClass._iceD_opLStringS(this, in, current);
+            case "opKStringS" -> MyClass._iceD_opKStringS(this, in, current);
+            case "opQStringS" -> MyClass._iceD_opQStringS(this, in, current);
+            case "opSStringS" -> MyClass._iceD_opSStringS(this, in, current);
+            case "opAObjectS" -> MyClass._iceD_opAObjectS(this, in, current);
+            case "opLObjectS" -> MyClass._iceD_opLObjectS(this, in, current);
+            case "opAObjectPrxS" -> MyClass._iceD_opAObjectPrxS(this, in, current);
+            case "opLObjectPrxS" -> MyClass._iceD_opLObjectPrxS(this, in, current);
+            case "opKObjectPrxS" -> MyClass._iceD_opKObjectPrxS(this, in, current);
+            case "opQObjectPrxS" -> MyClass._iceD_opQObjectPrxS(this, in, current);
+            case "opSObjectPrxS" -> MyClass._iceD_opSObjectPrxS(this, in, current);
+            case "opAStructS" -> MyClass._iceD_opAStructS(this, in, current);
+            case "opLStructS" -> MyClass._iceD_opLStructS(this, in, current);
+            case "opKStructS" -> MyClass._iceD_opKStructS(this, in, current);
+            case "opQStructS" -> MyClass._iceD_opQStructS(this, in, current);
+            case "opSStructS" -> MyClass._iceD_opSStructS(this, in, current);
+            case "opAStructSD" -> MyClass._iceD_opAStructSD(this, in, current);
+            case "opLStructSD" -> MyClass._iceD_opLStructSD(this, in, current);
+            case "opKStructSD" -> MyClass._iceD_opKStructSD(this, in, current);
+            case "opQStructSD" -> MyClass._iceD_opQStructSD(this, in, current);
+            case "opSStructSD" -> MyClass._iceD_opSStructSD(this, in, current);
+            case "opACVS" -> MyClass._iceD_opACVS(this, in, current);
+            case "opLCVS" -> MyClass._iceD_opLCVS(this, in, current);
+            case "opACRS" -> MyClass._iceD_opACRS(this, in, current);
+            case "opLCRS" -> MyClass._iceD_opLCRS(this, in, current);
+            case "opAEnS" -> MyClass._iceD_opAEnS(this, in, current);
+            case "opLEnS" -> MyClass._iceD_opLEnS(this, in, current);
+            case "opKEnS" -> MyClass._iceD_opKEnS(this, in, current);
+            case "opQEnS" -> MyClass._iceD_opQEnS(this, in, current);
+            case "opSEnS" -> MyClass._iceD_opSEnS(this, in, current);
+            case "opAIPrxS" -> MyClass._iceD_opAIPrxS(this, in, current);
+            case "opLIPrxS" -> MyClass._iceD_opLIPrxS(this, in, current);
+            case "opKIPrxS" -> MyClass._iceD_opKIPrxS(this, in, current);
+            case "opQIPrxS" -> MyClass._iceD_opQIPrxS(this, in, current);
+            case "opSIPrxS" -> MyClass._iceD_opSIPrxS(this, in, current);
+            case "opCustomIntS" -> MyClass._iceD_opCustomIntS(this, in, current);
+            case "opCustomCVS" -> MyClass._iceD_opCustomCVS(this, in, current);
+            case "opCustomIntSS" -> MyClass._iceD_opCustomIntSS(this, in, current);
+            case "opCustomCVSS" -> MyClass._iceD_opCustomCVSS(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

@@ -2812,261 +2812,60 @@ public interface TestIntf extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "opAArray",
-        "opAList",
-        "opASeq",
-        "opBoolSeq",
-        "opByteBufferSeq",
-        "opByteSeq",
-        "opDSeq",
-        "opDoubleBufferSeq",
-        "opDoubleSeq",
-        "opESeq",
-        "opFloatBufferSeq",
-        "opFloatSeq",
-        "opIntBufferSeq",
-        "opIntSeq",
-        "opLongBufferSeq",
-        "opLongSeq",
-        "opOptAArray",
-        "opOptAList",
-        "opOptASeq",
-        "opOptBoolSeq",
-        "opOptByteBufferSeq",
-        "opOptByteSeq",
-        "opOptDSeq",
-        "opOptDoubleBufferSeq",
-        "opOptDoubleSeq",
-        "opOptESeq",
-        "opOptFloatBufferSeq",
-        "opOptFloatSeq",
-        "opOptIntBufferSeq",
-        "opOptIntSeq",
-        "opOptLongBufferSeq",
-        "opOptLongSeq",
-        "opOptSSeq",
-        "opOptShortBufferSeq",
-        "opOptShortSeq",
-        "opOptStringSeq",
-        "opOptStringSeqSeq",
-        "opSSeq",
-        "opShortBufferSeq",
-        "opShortSeq",
-        "opStringSeq",
-        "opStringSeqSeq",
-        "shutdown"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 1:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 2:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 3:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 4:
-            {
-                return _iceD_opAArray(this, in, current);
-            }
-            case 5:
-            {
-                return _iceD_opAList(this, in, current);
-            }
-            case 6:
-            {
-                return _iceD_opASeq(this, in, current);
-            }
-            case 7:
-            {
-                return _iceD_opBoolSeq(this, in, current);
-            }
-            case 8:
-            {
-                return _iceD_opByteBufferSeq(this, in, current);
-            }
-            case 9:
-            {
-                return _iceD_opByteSeq(this, in, current);
-            }
-            case 10:
-            {
-                return _iceD_opDSeq(this, in, current);
-            }
-            case 11:
-            {
-                return _iceD_opDoubleBufferSeq(this, in, current);
-            }
-            case 12:
-            {
-                return _iceD_opDoubleSeq(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_opESeq(this, in, current);
-            }
-            case 14:
-            {
-                return _iceD_opFloatBufferSeq(this, in, current);
-            }
-            case 15:
-            {
-                return _iceD_opFloatSeq(this, in, current);
-            }
-            case 16:
-            {
-                return _iceD_opIntBufferSeq(this, in, current);
-            }
-            case 17:
-            {
-                return _iceD_opIntSeq(this, in, current);
-            }
-            case 18:
-            {
-                return _iceD_opLongBufferSeq(this, in, current);
-            }
-            case 19:
-            {
-                return _iceD_opLongSeq(this, in, current);
-            }
-            case 20:
-            {
-                return _iceD_opOptAArray(this, in, current);
-            }
-            case 21:
-            {
-                return _iceD_opOptAList(this, in, current);
-            }
-            case 22:
-            {
-                return _iceD_opOptASeq(this, in, current);
-            }
-            case 23:
-            {
-                return _iceD_opOptBoolSeq(this, in, current);
-            }
-            case 24:
-            {
-                return _iceD_opOptByteBufferSeq(this, in, current);
-            }
-            case 25:
-            {
-                return _iceD_opOptByteSeq(this, in, current);
-            }
-            case 26:
-            {
-                return _iceD_opOptDSeq(this, in, current);
-            }
-            case 27:
-            {
-                return _iceD_opOptDoubleBufferSeq(this, in, current);
-            }
-            case 28:
-            {
-                return _iceD_opOptDoubleSeq(this, in, current);
-            }
-            case 29:
-            {
-                return _iceD_opOptESeq(this, in, current);
-            }
-            case 30:
-            {
-                return _iceD_opOptFloatBufferSeq(this, in, current);
-            }
-            case 31:
-            {
-                return _iceD_opOptFloatSeq(this, in, current);
-            }
-            case 32:
-            {
-                return _iceD_opOptIntBufferSeq(this, in, current);
-            }
-            case 33:
-            {
-                return _iceD_opOptIntSeq(this, in, current);
-            }
-            case 34:
-            {
-                return _iceD_opOptLongBufferSeq(this, in, current);
-            }
-            case 35:
-            {
-                return _iceD_opOptLongSeq(this, in, current);
-            }
-            case 36:
-            {
-                return _iceD_opOptSSeq(this, in, current);
-            }
-            case 37:
-            {
-                return _iceD_opOptShortBufferSeq(this, in, current);
-            }
-            case 38:
-            {
-                return _iceD_opOptShortSeq(this, in, current);
-            }
-            case 39:
-            {
-                return _iceD_opOptStringSeq(this, in, current);
-            }
-            case 40:
-            {
-                return _iceD_opOptStringSeqSeq(this, in, current);
-            }
-            case 41:
-            {
-                return _iceD_opSSeq(this, in, current);
-            }
-            case 42:
-            {
-                return _iceD_opShortBufferSeq(this, in, current);
-            }
-            case 43:
-            {
-                return _iceD_opShortSeq(this, in, current);
-            }
-            case 44:
-            {
-                return _iceD_opStringSeq(this, in, current);
-            }
-            case 45:
-            {
-                return _iceD_opStringSeqSeq(this, in, current);
-            }
-            case 46:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "opASeq" -> TestIntf._iceD_opASeq(this, in, current);
+            case "opAArray" -> TestIntf._iceD_opAArray(this, in, current);
+            case "opAList" -> TestIntf._iceD_opAList(this, in, current);
+            case "opBoolSeq" -> TestIntf._iceD_opBoolSeq(this, in, current);
+            case "opByteSeq" -> TestIntf._iceD_opByteSeq(this, in, current);
+            case "opShortSeq" -> TestIntf._iceD_opShortSeq(this, in, current);
+            case "opIntSeq" -> TestIntf._iceD_opIntSeq(this, in, current);
+            case "opLongSeq" -> TestIntf._iceD_opLongSeq(this, in, current);
+            case "opFloatSeq" -> TestIntf._iceD_opFloatSeq(this, in, current);
+            case "opDoubleSeq" -> TestIntf._iceD_opDoubleSeq(this, in, current);
+            case "opStringSeq" -> TestIntf._iceD_opStringSeq(this, in, current);
+            case "opESeq" -> TestIntf._iceD_opESeq(this, in, current);
+            case "opSSeq" -> TestIntf._iceD_opSSeq(this, in, current);
+            case "opDSeq" -> TestIntf._iceD_opDSeq(this, in, current);
+            case "opStringSeqSeq" -> TestIntf._iceD_opStringSeqSeq(this, in, current);
+            case "opByteBufferSeq" -> TestIntf._iceD_opByteBufferSeq(this, in, current);
+            case "opShortBufferSeq" -> TestIntf._iceD_opShortBufferSeq(this, in, current);
+            case "opIntBufferSeq" -> TestIntf._iceD_opIntBufferSeq(this, in, current);
+            case "opLongBufferSeq" -> TestIntf._iceD_opLongBufferSeq(this, in, current);
+            case "opFloatBufferSeq" -> TestIntf._iceD_opFloatBufferSeq(this, in, current);
+            case "opDoubleBufferSeq" -> TestIntf._iceD_opDoubleBufferSeq(this, in, current);
+            case "opOptASeq" -> TestIntf._iceD_opOptASeq(this, in, current);
+            case "opOptAArray" -> TestIntf._iceD_opOptAArray(this, in, current);
+            case "opOptAList" -> TestIntf._iceD_opOptAList(this, in, current);
+            case "opOptBoolSeq" -> TestIntf._iceD_opOptBoolSeq(this, in, current);
+            case "opOptByteSeq" -> TestIntf._iceD_opOptByteSeq(this, in, current);
+            case "opOptShortSeq" -> TestIntf._iceD_opOptShortSeq(this, in, current);
+            case "opOptIntSeq" -> TestIntf._iceD_opOptIntSeq(this, in, current);
+            case "opOptLongSeq" -> TestIntf._iceD_opOptLongSeq(this, in, current);
+            case "opOptFloatSeq" -> TestIntf._iceD_opOptFloatSeq(this, in, current);
+            case "opOptDoubleSeq" -> TestIntf._iceD_opOptDoubleSeq(this, in, current);
+            case "opOptStringSeq" -> TestIntf._iceD_opOptStringSeq(this, in, current);
+            case "opOptESeq" -> TestIntf._iceD_opOptESeq(this, in, current);
+            case "opOptSSeq" -> TestIntf._iceD_opOptSSeq(this, in, current);
+            case "opOptDSeq" -> TestIntf._iceD_opOptDSeq(this, in, current);
+            case "opOptStringSeqSeq" -> TestIntf._iceD_opOptStringSeqSeq(this, in, current);
+            case "opOptByteBufferSeq" -> TestIntf._iceD_opOptByteBufferSeq(this, in, current);
+            case "opOptShortBufferSeq" -> TestIntf._iceD_opOptShortBufferSeq(this, in, current);
+            case "opOptIntBufferSeq" -> TestIntf._iceD_opOptIntBufferSeq(this, in, current);
+            case "opOptLongBufferSeq" -> TestIntf._iceD_opOptLongBufferSeq(this, in, current);
+            case "opOptFloatBufferSeq" -> TestIntf._iceD_opOptFloatBufferSeq(this, in, current);
+            case "opOptDoubleBufferSeq" -> TestIntf._iceD_opOptDoubleBufferSeq(this, in, current);
+            case "shutdown" -> TestIntf._iceD_shutdown(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

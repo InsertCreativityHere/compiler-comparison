@@ -139,71 +139,22 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "iaop",
-        "ib1op",
-        "ib2op",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "icop",
-        "shutdown"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return _iceD_iaop(this, in, current);
-            }
-            case 1:
-            {
-                return _iceD_ib1op(this, in, current);
-            }
-            case 2:
-            {
-                return _iceD_ib2op(this, in, current);
-            }
-            case 3:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 4:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 5:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 6:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 7:
-            {
-                return _iceD_icop(this, in, current);
-            }
-            case 8:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "shutdown" -> Initial._iceD_shutdown(this, in, current);
+            case "iaop" -> Initial._iceD_iaop(this, in, current);
+            case "ib1op" -> Initial._iceD_ib1op(this, in, current);
+            case "ib2op" -> Initial._iceD_ib2op(this, in, current);
+            case "icop" -> Initial._iceD_icop(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

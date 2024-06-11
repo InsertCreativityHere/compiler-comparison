@@ -1527,271 +1527,62 @@ public interface Admin extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "addApplication",
-        "addObject",
-        "addObjectWithType",
-        "enableServer",
-        "getAdapterInfo",
-        "getAllAdapterIds",
-        "getAllApplicationNames",
-        "getAllNodeNames",
-        "getAllObjectInfos",
-        "getAllRegistryNames",
-        "getAllServerIds",
-        "getApplicationInfo",
-        "getDefaultApplicationDescriptor",
-        "getNodeAdmin",
-        "getNodeHostname",
-        "getNodeInfo",
-        "getNodeLoad",
-        "getNodeProcessorSocketCount",
-        "getObjectInfo",
-        "getObjectInfosByType",
-        "getRegistryAdmin",
-        "getRegistryInfo",
-        "getServerAdmin",
-        "getServerAdminCategory",
-        "getServerInfo",
-        "getServerPid",
-        "getServerState",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "instantiateServer",
-        "isServerEnabled",
-        "pingNode",
-        "pingRegistry",
-        "removeAdapter",
-        "removeApplication",
-        "removeObject",
-        "sendSignal",
-        "shutdown",
-        "shutdownNode",
-        "shutdownRegistry",
-        "startServer",
-        "stopServer",
-        "syncApplication",
-        "syncApplicationWithoutRestart",
-        "updateApplication",
-        "updateApplicationWithoutRestart",
-        "updateObject"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return _iceD_addApplication(this, in, current);
-            }
-            case 1:
-            {
-                return _iceD_addObject(this, in, current);
-            }
-            case 2:
-            {
-                return _iceD_addObjectWithType(this, in, current);
-            }
-            case 3:
-            {
-                return _iceD_enableServer(this, in, current);
-            }
-            case 4:
-            {
-                return _iceD_getAdapterInfo(this, in, current);
-            }
-            case 5:
-            {
-                return _iceD_getAllAdapterIds(this, in, current);
-            }
-            case 6:
-            {
-                return _iceD_getAllApplicationNames(this, in, current);
-            }
-            case 7:
-            {
-                return _iceD_getAllNodeNames(this, in, current);
-            }
-            case 8:
-            {
-                return _iceD_getAllObjectInfos(this, in, current);
-            }
-            case 9:
-            {
-                return _iceD_getAllRegistryNames(this, in, current);
-            }
-            case 10:
-            {
-                return _iceD_getAllServerIds(this, in, current);
-            }
-            case 11:
-            {
-                return _iceD_getApplicationInfo(this, in, current);
-            }
-            case 12:
-            {
-                return _iceD_getDefaultApplicationDescriptor(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_getNodeAdmin(this, in, current);
-            }
-            case 14:
-            {
-                return _iceD_getNodeHostname(this, in, current);
-            }
-            case 15:
-            {
-                return _iceD_getNodeInfo(this, in, current);
-            }
-            case 16:
-            {
-                return _iceD_getNodeLoad(this, in, current);
-            }
-            case 17:
-            {
-                return _iceD_getNodeProcessorSocketCount(this, in, current);
-            }
-            case 18:
-            {
-                return _iceD_getObjectInfo(this, in, current);
-            }
-            case 19:
-            {
-                return _iceD_getObjectInfosByType(this, in, current);
-            }
-            case 20:
-            {
-                return _iceD_getRegistryAdmin(this, in, current);
-            }
-            case 21:
-            {
-                return _iceD_getRegistryInfo(this, in, current);
-            }
-            case 22:
-            {
-                return _iceD_getServerAdmin(this, in, current);
-            }
-            case 23:
-            {
-                return _iceD_getServerAdminCategory(this, in, current);
-            }
-            case 24:
-            {
-                return _iceD_getServerInfo(this, in, current);
-            }
-            case 25:
-            {
-                return _iceD_getServerPid(this, in, current);
-            }
-            case 26:
-            {
-                return _iceD_getServerState(this, in, current);
-            }
-            case 27:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 28:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 29:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 30:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 31:
-            {
-                return _iceD_instantiateServer(this, in, current);
-            }
-            case 32:
-            {
-                return _iceD_isServerEnabled(this, in, current);
-            }
-            case 33:
-            {
-                return _iceD_pingNode(this, in, current);
-            }
-            case 34:
-            {
-                return _iceD_pingRegistry(this, in, current);
-            }
-            case 35:
-            {
-                return _iceD_removeAdapter(this, in, current);
-            }
-            case 36:
-            {
-                return _iceD_removeApplication(this, in, current);
-            }
-            case 37:
-            {
-                return _iceD_removeObject(this, in, current);
-            }
-            case 38:
-            {
-                return _iceD_sendSignal(this, in, current);
-            }
-            case 39:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-            case 40:
-            {
-                return _iceD_shutdownNode(this, in, current);
-            }
-            case 41:
-            {
-                return _iceD_shutdownRegistry(this, in, current);
-            }
-            case 42:
-            {
-                return _iceD_startServer(this, in, current);
-            }
-            case 43:
-            {
-                return _iceD_stopServer(this, in, current);
-            }
-            case 44:
-            {
-                return _iceD_syncApplication(this, in, current);
-            }
-            case 45:
-            {
-                return _iceD_syncApplicationWithoutRestart(this, in, current);
-            }
-            case 46:
-            {
-                return _iceD_updateApplication(this, in, current);
-            }
-            case 47:
-            {
-                return _iceD_updateApplicationWithoutRestart(this, in, current);
-            }
-            case 48:
-            {
-                return _iceD_updateObject(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "addApplication" -> Admin._iceD_addApplication(this, in, current);
+            case "syncApplication" -> Admin._iceD_syncApplication(this, in, current);
+            case "updateApplication" -> Admin._iceD_updateApplication(this, in, current);
+            case "syncApplicationWithoutRestart" -> Admin._iceD_syncApplicationWithoutRestart(this, in, current);
+            case "updateApplicationWithoutRestart" -> Admin._iceD_updateApplicationWithoutRestart(this, in, current);
+            case "removeApplication" -> Admin._iceD_removeApplication(this, in, current);
+            case "instantiateServer" -> Admin._iceD_instantiateServer(this, in, current);
+            case "getApplicationInfo" -> Admin._iceD_getApplicationInfo(this, in, current);
+            case "getDefaultApplicationDescriptor" -> Admin._iceD_getDefaultApplicationDescriptor(this, in, current);
+            case "getAllApplicationNames" -> Admin._iceD_getAllApplicationNames(this, in, current);
+            case "getServerInfo" -> Admin._iceD_getServerInfo(this, in, current);
+            case "getServerState" -> Admin._iceD_getServerState(this, in, current);
+            case "getServerPid" -> Admin._iceD_getServerPid(this, in, current);
+            case "getServerAdminCategory" -> Admin._iceD_getServerAdminCategory(this, in, current);
+            case "getServerAdmin" -> Admin._iceD_getServerAdmin(this, in, current);
+            case "enableServer" -> Admin._iceD_enableServer(this, in, current);
+            case "isServerEnabled" -> Admin._iceD_isServerEnabled(this, in, current);
+            case "startServer" -> Admin._iceD_startServer(this, in, current);
+            case "stopServer" -> Admin._iceD_stopServer(this, in, current);
+            case "sendSignal" -> Admin._iceD_sendSignal(this, in, current);
+            case "getAllServerIds" -> Admin._iceD_getAllServerIds(this, in, current);
+            case "getAdapterInfo" -> Admin._iceD_getAdapterInfo(this, in, current);
+            case "removeAdapter" -> Admin._iceD_removeAdapter(this, in, current);
+            case "getAllAdapterIds" -> Admin._iceD_getAllAdapterIds(this, in, current);
+            case "addObject" -> Admin._iceD_addObject(this, in, current);
+            case "updateObject" -> Admin._iceD_updateObject(this, in, current);
+            case "addObjectWithType" -> Admin._iceD_addObjectWithType(this, in, current);
+            case "removeObject" -> Admin._iceD_removeObject(this, in, current);
+            case "getObjectInfo" -> Admin._iceD_getObjectInfo(this, in, current);
+            case "getObjectInfosByType" -> Admin._iceD_getObjectInfosByType(this, in, current);
+            case "getAllObjectInfos" -> Admin._iceD_getAllObjectInfos(this, in, current);
+            case "pingNode" -> Admin._iceD_pingNode(this, in, current);
+            case "getNodeLoad" -> Admin._iceD_getNodeLoad(this, in, current);
+            case "getNodeInfo" -> Admin._iceD_getNodeInfo(this, in, current);
+            case "getNodeAdmin" -> Admin._iceD_getNodeAdmin(this, in, current);
+            case "getNodeProcessorSocketCount" -> Admin._iceD_getNodeProcessorSocketCount(this, in, current);
+            case "shutdownNode" -> Admin._iceD_shutdownNode(this, in, current);
+            case "getNodeHostname" -> Admin._iceD_getNodeHostname(this, in, current);
+            case "getAllNodeNames" -> Admin._iceD_getAllNodeNames(this, in, current);
+            case "pingRegistry" -> Admin._iceD_pingRegistry(this, in, current);
+            case "getRegistryInfo" -> Admin._iceD_getRegistryInfo(this, in, current);
+            case "getRegistryAdmin" -> Admin._iceD_getRegistryAdmin(this, in, current);
+            case "shutdownRegistry" -> Admin._iceD_shutdownRegistry(this, in, current);
+            case "getAllRegistryNames" -> Admin._iceD_getAllRegistryNames(this, in, current);
+            case "shutdown" -> Admin._iceD_shutdown(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }

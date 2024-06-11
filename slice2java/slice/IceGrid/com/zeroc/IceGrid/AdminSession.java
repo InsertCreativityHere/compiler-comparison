@@ -584,126 +584,33 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
     }
 
     /** @hidden */
-    final static String[] _iceOps =
-    {
-        "destroy",
-        "finishUpdate",
-        "getAdmin",
-        "getAdminCallbackTemplate",
-        "getReplicaName",
-        "ice_id",
-        "ice_ids",
-        "ice_isA",
-        "ice_ping",
-        "keepAlive",
-        "openNodeStdErr",
-        "openNodeStdOut",
-        "openRegistryStdErr",
-        "openRegistryStdOut",
-        "openServerLog",
-        "openServerStdErr",
-        "openServerStdOut",
-        "setObservers",
-        "setObserversByIdentity",
-        "startUpdate"
-    };
-
-    /** @hidden */
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
-        int pos = java.util.Arrays.binarySearch(_iceOps, current.operation);
-        if(pos < 0)
+        return switch (current.operation)
         {
-            throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        switch(pos)
-        {
-            case 0:
-            {
-                return com.zeroc.Glacier2.Session._iceD_destroy(this, in, current);
-            }
-            case 1:
-            {
-                return _iceD_finishUpdate(this, in, current);
-            }
-            case 2:
-            {
-                return _iceD_getAdmin(this, in, current);
-            }
-            case 3:
-            {
-                return _iceD_getAdminCallbackTemplate(this, in, current);
-            }
-            case 4:
-            {
-                return _iceD_getReplicaName(this, in, current);
-            }
-            case 5:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 6:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 7:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 8:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 9:
-            {
-                return _iceD_keepAlive(this, in, current);
-            }
-            case 10:
-            {
-                return _iceD_openNodeStdErr(this, in, current);
-            }
-            case 11:
-            {
-                return _iceD_openNodeStdOut(this, in, current);
-            }
-            case 12:
-            {
-                return _iceD_openRegistryStdErr(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_openRegistryStdOut(this, in, current);
-            }
-            case 14:
-            {
-                return _iceD_openServerLog(this, in, current);
-            }
-            case 15:
-            {
-                return _iceD_openServerStdErr(this, in, current);
-            }
-            case 16:
-            {
-                return _iceD_openServerStdOut(this, in, current);
-            }
-            case 17:
-            {
-                return _iceD_setObservers(this, in, current);
-            }
-            case 18:
-            {
-                return _iceD_setObserversByIdentity(this, in, current);
-            }
-            case 19:
-            {
-                return _iceD_startUpdate(this, in, current);
-            }
-        }
-
-        assert(false);
-        throw new com.zeroc.Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            case "destroy" -> com.zeroc.Glacier2.Session._iceD_destroy(this, in, current);
+            case "keepAlive" -> AdminSession._iceD_keepAlive(this, in, current);
+            case "getAdmin" -> AdminSession._iceD_getAdmin(this, in, current);
+            case "getAdminCallbackTemplate" -> AdminSession._iceD_getAdminCallbackTemplate(this, in, current);
+            case "setObservers" -> AdminSession._iceD_setObservers(this, in, current);
+            case "setObserversByIdentity" -> AdminSession._iceD_setObserversByIdentity(this, in, current);
+            case "startUpdate" -> AdminSession._iceD_startUpdate(this, in, current);
+            case "finishUpdate" -> AdminSession._iceD_finishUpdate(this, in, current);
+            case "getReplicaName" -> AdminSession._iceD_getReplicaName(this, in, current);
+            case "openServerLog" -> AdminSession._iceD_openServerLog(this, in, current);
+            case "openServerStdErr" -> AdminSession._iceD_openServerStdErr(this, in, current);
+            case "openServerStdOut" -> AdminSession._iceD_openServerStdOut(this, in, current);
+            case "openNodeStdErr" -> AdminSession._iceD_openNodeStdErr(this, in, current);
+            case "openNodeStdOut" -> AdminSession._iceD_openNodeStdOut(this, in, current);
+            case "openRegistryStdErr" -> AdminSession._iceD_openRegistryStdErr(this, in, current);
+            case "openRegistryStdOut" -> AdminSession._iceD_openRegistryStdOut(this, in, current);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
+        };
     }
 }
