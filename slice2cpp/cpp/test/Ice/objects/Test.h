@@ -63,8 +63,17 @@ namespace Test
     class CompactExt;
     using CompactExtPtr = ::std::shared_ptr<CompactExt>;
 
+    enum class CompactIdEnum : ::std::uint8_t
+    {
+        First = 1,
+        Second = 2
+    };
+
     class Compact;
     using CompactPtr = ::std::shared_ptr<Compact>;
+
+    class CompactScoped;
+    using CompactScopedPtr = ::std::shared_ptr<CompactScoped>;
 
     constexpr ::std::int32_t CompactExtId = 789;
 
@@ -1311,6 +1320,36 @@ public:
 protected:
 
     Compact(const Compact&) = default;
+
+    ::Ice::ValuePtr _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
+};
+
+class CompactScoped : public ::Ice::Value
+{
+public:
+
+    CompactScoped() = default;
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
+     */
+    CompactScopedPtr ice_clone() const { return ::std::static_pointer_cast <CompactScoped>(_iceCloneImpl()); }
+
+protected:
+
+    CompactScoped(const CompactScoped&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
@@ -2806,6 +2845,16 @@ struct StreamReader<::Test::G>
     static void read(InputStream*, ::Test::G&)
     {
     }
+};
+
+template<>
+struct StreamableTraits< ::Test::CompactIdEnum>
+{
+    static const StreamHelperCategory helper = StreamHelperCategoryEnum;
+    static const int minValue = 1;
+    static const int maxValue = 2;
+    static const int minWireSize = 1;
+    static const bool fixedLength = false;
 };
 
 template<>

@@ -245,10 +245,74 @@ public struct BaseSeqHelper {
     }
 }
 
+public enum CompactIdEnum: Swift.UInt8 {
+    /// First
+    case First = 1
+    /// Second
+    case Second = 2
+    public init() {
+        self = .First
+    }
+}
+
+/// An `Ice.InputStream` extension to read `CompactIdEnum` enumerated values from the stream.
+public extension Ice.InputStream {
+    /// Read an enumerated value.
+    ///
+    /// - returns: `CompactIdEnum` - The enumarated value.
+    func read() throws -> CompactIdEnum {
+        let rawValue: Swift.UInt8 = try read(enumMaxValue: 2)
+        guard let val = CompactIdEnum(rawValue: rawValue) else {
+            throw Ice.MarshalException(reason: "invalid enum value")
+        }
+        return val
+    }
+
+    /// Read an optional enumerated value from the stream.
+    ///
+    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    ///
+    /// - returns: `CompactIdEnum` - The enumerated value.
+    func read(tag: Swift.Int32) throws -> CompactIdEnum? {
+        guard try readOptional(tag: tag, expectedFormat: .Size) else {
+            return nil
+        }
+        return try read() as CompactIdEnum
+    }
+}
+
+/// An `Ice.OutputStream` extension to write `CompactIdEnum` enumerated values to the stream.
+public extension Ice.OutputStream {
+    /// Writes an enumerated value to the stream.
+    ///
+    /// parameter _: `CompactIdEnum` - The enumerator to write.
+    func write(_ v: CompactIdEnum) {
+        write(enum: v.rawValue, maxValue: 2)
+    }
+
+    /// Writes an optional enumerated value to the stream.
+    ///
+    /// parameter tag: `Int32` - The numeric tag associated with the value.
+    ///
+    /// parameter _: `CompactIdEnum` - The enumerator to write.
+    func write(tag: Swift.Int32, value: CompactIdEnum?) {
+        guard let v = value else {
+            return
+        }
+        write(tag: tag, val: v.rawValue, maxValue: 2)
+    }
+}
+
 /// Traits for Slice class`Compact`.
 public struct CompactTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Compact"]
     public static let staticId = "::Test::Compact"
+}
+
+/// Traits for Slice class`CompactScoped`.
+public struct CompactScopedTraits: Ice.SliceTraits {
+    public static let staticIds = ["::Ice::Object", "::Test::CompactScoped"]
+    public static let staticId = "::Test::CompactScoped"
 }
 public let CompactExtId: Swift.Int32 = 789
 
@@ -4072,6 +4136,53 @@ open class Compact: Ice.Value {
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: CompactTraits.staticId, compactId: 1, last: true)
+        ostr.endSlice()
+    }
+}
+
+/// :nodoc:
+public class CompactScoped_TypeResolver: Ice.ValueTypeResolver {
+    public override func type() -> Ice.Value.Type {
+        return CompactScoped.self
+    }
+}
+
+public extension Ice.TypeIdResolver {
+    @objc static func TypeId_2() -> Swift.String {
+        return "::Test::CompactScoped"
+    }
+}
+
+public extension Ice.ClassResolver {
+    @objc static func Test_CompactScoped() -> Ice.ValueTypeResolver {
+        return CompactScoped_TypeResolver()
+    }
+}
+
+open class CompactScoped: Ice.Value {
+    public required init() {}
+
+    /// Returns the Slice type ID of the most-derived interface supported by this object.
+    ///
+    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
+    open override func ice_id() -> Swift.String {
+        return CompactScopedTraits.staticId
+    }
+
+    /// Returns the Slice type ID of the interface supported by this object.
+    ///
+    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    open override class func ice_staticId() -> Swift.String {
+        return CompactScopedTraits.staticId
+    }
+
+    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
+        _ = try istr.startSlice()
+        try istr.endSlice()
+    }
+
+    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
+        ostr.startSlice(typeId: CompactScopedTraits.staticId, compactId: 2, last: true)
         ostr.endSlice()
     }
 }

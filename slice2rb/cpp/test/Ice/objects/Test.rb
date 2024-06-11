@@ -317,6 +317,55 @@ module ::Test
         T_CompactExt = ::Ice::__declareClass('::Test::CompactExt')
     end
 
+    if not defined?(::Test::CompactIdEnum)
+        class CompactIdEnum
+            include Comparable
+
+            def initialize(name, value)
+                @name = name
+                @value = value
+            end
+
+            def CompactIdEnum.from_int(val)
+                @@_enumerators[val]
+            end
+
+            def to_s
+                @name
+            end
+
+            def to_i
+                @value
+            end
+
+            def <=>(other)
+                other.is_a?(CompactIdEnum) or raise ArgumentError, "value must be a CompactIdEnum"
+                @value <=> other.to_i
+            end
+
+            def hash
+                @value.hash
+            end
+
+            def CompactIdEnum.each(&block)
+                @@_enumerators.each_value(&block)
+            end
+
+            First = CompactIdEnum.new("First", 1)
+            Second = CompactIdEnum.new("Second", 2)
+
+            @@_enumerators = {1=>First, 2=>Second}
+
+            def CompactIdEnum._enumerators
+                @@_enumerators
+            end
+
+            private_class_method :new
+        end
+
+        T_CompactIdEnum = ::Ice::__defineEnum('::Test::CompactIdEnum', CompactIdEnum, CompactIdEnum::_enumerators)
+    end
+
     if not defined?(::Test::Compact_Mixin)
 
         module ::Test::Compact_Mixin
@@ -329,6 +378,20 @@ module ::Test
         end
 
         T_Compact.defineClass(Compact, 1, false, nil, [])
+    end
+
+    if not defined?(::Test::CompactScoped_Mixin)
+
+        module ::Test::CompactScoped_Mixin
+        end
+        class CompactScoped < ::Ice::Value
+        end
+
+        if not defined?(::Test::T_CompactScoped)
+            T_CompactScoped = ::Ice::__declareClass('::Test::CompactScoped')
+        end
+
+        T_CompactScoped.defineClass(CompactScoped, 2, false, nil, [])
     end
 
     CompactExtId = 789

@@ -320,11 +320,20 @@
 
     Slice.defineSequence(Test, "BaseSeqHelper", "Ice.ObjectHelper", false, "Test.Base");
 
+    Test.CompactIdEnum = Slice.defineEnum([
+        ['First', 1], ['Second', 2]]);
+
     Test.Compact = class extends Ice.Value
     {
     };
 
     Slice.defineValue(Test.Compact, "::Test::Compact", 1);
+
+    Test.CompactScoped = class extends Ice.Value
+    {
+    };
+
+    Slice.defineValue(Test.CompactScoped, "::Test::CompactScoped", 2);
 
     Object.defineProperty(Test, 'CompactExtId', {
         value: 789

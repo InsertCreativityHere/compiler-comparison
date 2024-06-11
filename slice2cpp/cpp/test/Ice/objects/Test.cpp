@@ -47,6 +47,8 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::G> iceC_Test_G_init("::Test::G");
     const ::IceInternal::DefaultValueFactoryInit<::Test::Compact> iceC_Test_Compact_init("::Test::Compact");
     const ::IceInternal::CompactIdInit iceC_Test_Compact_compactIdInit ("::Test::Compact", 1);
+    const ::IceInternal::DefaultValueFactoryInit<::Test::CompactScoped> iceC_Test_CompactScoped_init("::Test::CompactScoped");
+    const ::IceInternal::CompactIdInit iceC_Test_CompactScoped_compactIdInit ("::Test::CompactScoped", 2);
     const ::IceInternal::DefaultValueFactoryInit<::Test::CompactExt> iceC_Test_CompactExt_init("::Test::CompactExt");
     const ::IceInternal::CompactIdInit iceC_Test_CompactExt_compactIdInit ("::Test::CompactExt", 789);
     const ::IceInternal::DefaultValueFactoryInit<::Test::Inner::A> iceC_Test_Inner_A_init("::Test::Inner::A");
@@ -1784,6 +1786,39 @@ Test::Compact::_iceWriteImpl(::Ice::OutputStream* ostr) const
 
 void
 Test::Compact::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
+::std::string
+Test::CompactScoped::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+::std::string_view
+Test::CompactScoped::ice_staticId() noexcept
+{
+    static constexpr ::std::string_view typeId = "::Test::CompactScoped";
+    return typeId;
+}
+
+::Ice::ValuePtr
+Test::CompactScoped::_iceCloneImpl() const
+{
+    return CloneEnabler<CompactScoped>::clone(*this);
+}
+
+void
+Test::CompactScoped::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::CompactScoped::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->endSlice();

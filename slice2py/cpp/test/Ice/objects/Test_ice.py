@@ -460,6 +460,28 @@ if '_t_BaseSeq' not in _M_Test.__dict__:
 if 'CompactExt' not in _M_Test.__dict__:
     _M_Test._t_CompactExt = IcePy.declareValue('::Test::CompactExt')
 
+if 'CompactIdEnum' not in _M_Test.__dict__:
+    _M_Test.CompactIdEnum = Ice.createTempClass()
+    class CompactIdEnum(Ice.EnumBase):
+
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
+
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
+
+    CompactIdEnum.First = CompactIdEnum("First", 1)
+    CompactIdEnum.Second = CompactIdEnum("Second", 2)
+    CompactIdEnum._enumerators = { 1:CompactIdEnum.First, 2:CompactIdEnum.Second }
+
+    _M_Test._t_CompactIdEnum = IcePy.defineEnum('::Test::CompactIdEnum', CompactIdEnum, (), CompactIdEnum._enumerators)
+
+    _M_Test.CompactIdEnum = CompactIdEnum
+    del CompactIdEnum
+
 if 'Compact' not in _M_Test.__dict__:
     _M_Test.Compact = Ice.createTempClass()
     class Compact(Ice.Value):
@@ -483,6 +505,30 @@ if 'Compact' not in _M_Test.__dict__:
 
     _M_Test.Compact = Compact
     del Compact
+
+if 'CompactScoped' not in _M_Test.__dict__:
+    _M_Test.CompactScoped = Ice.createTempClass()
+    class CompactScoped(Ice.Value):
+        def __init__(self):
+            pass
+
+        def ice_id(self):
+            return '::Test::CompactScoped'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::CompactScoped'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_CompactScoped)
+
+        __repr__ = __str__
+
+    _M_Test._t_CompactScoped = IcePy.defineValue('::Test::CompactScoped', CompactScoped, 2, (), False, None, ())
+    CompactScoped._ice_type = _M_Test._t_CompactScoped
+
+    _M_Test.CompactScoped = CompactScoped
+    del CompactScoped
 
 _M_Test.CompactExtId = 789
 

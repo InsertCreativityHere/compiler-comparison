@@ -488,6 +488,18 @@ namespace Test
 
 namespace Test
 {
+    global $Test__t_CompactIdEnum;
+    class CompactIdEnum
+    {
+        const First = 1;
+        const Second = 2;
+    }
+
+    $Test__t_CompactIdEnum = IcePHP_defineEnum('::Test::CompactIdEnum', array('First', 1, 'Second', 2));
+}
+
+namespace Test
+{
     global $Test__t_Compact;
     class Compact extends \Ice\Value
     {
@@ -514,6 +526,36 @@ namespace Test
 
     global $Ice__t_Value;
     $Test__t_Compact = IcePHP_defineClass('::Test::Compact', '\\Test\\Compact', 1, false, $Ice__t_Value, null);
+}
+
+namespace Test
+{
+    global $Test__t_CompactScoped;
+    class CompactScoped extends \Ice\Value
+    {
+        public function __construct()
+        {
+        }
+
+        public function ice_id()
+        {
+            return '::Test::CompactScoped';
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Test::CompactScoped';
+        }
+
+        public function __toString(): string
+        {
+            global $Test__t_CompactScoped;
+            return IcePHP_stringify($this, $Test__t_CompactScoped);
+        }
+    }
+
+    global $Ice__t_Value;
+    $Test__t_CompactScoped = IcePHP_defineClass('::Test::CompactScoped', '\\Test\\CompactScoped', 2, false, $Ice__t_Value, null);
 }
 
 namespace Test
