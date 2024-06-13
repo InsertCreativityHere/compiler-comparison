@@ -75,5 +75,5 @@ public class ExceptionNoDefaults extends ExceptionNoDefaultsBase
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -784701375089826801L;
+    public static final long serialVersionUID = -9186626959021195015L;
 }
