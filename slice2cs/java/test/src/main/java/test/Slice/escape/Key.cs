@@ -1092,9 +1092,9 @@ namespace @abstract
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class finalizeDisp_ : Ice.ObjectImpl, finalize
     {
-        public abstract void @do(Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task<int> checkedCastAsync(int clone, Ice.Current current);
+
+        public abstract void @do(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
