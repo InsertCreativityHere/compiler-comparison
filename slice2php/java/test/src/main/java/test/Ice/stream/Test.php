@@ -432,15 +432,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_Bar;
-    if(!isset($Test__t_Bar))
-    {
-        $Test__t_Bar = IcePHP_declareClass('::Test::Bar');
-    }
-}
-
-namespace Test
-{
     global $Test__t_MyClass;
     class MyClass extends \Ice\Value
     {

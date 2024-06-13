@@ -83,9 +83,6 @@ namespace Test
 
     using StringStringD = ::std::map<::std::string, ::std::string>;
 
-    class Bar;
-    using BarPtr = ::std::shared_ptr<Bar>;
-
 }
 
 namespace Test

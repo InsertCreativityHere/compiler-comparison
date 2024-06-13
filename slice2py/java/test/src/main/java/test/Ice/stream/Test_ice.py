@@ -321,9 +321,6 @@ if '_t_LongFloatD' not in _M_Test.__dict__:
 if '_t_StringStringD' not in _M_Test.__dict__:
     _M_Test._t_StringStringD = IcePy.defineDictionary('::Test::StringStringD', (), IcePy._t_string, IcePy._t_string)
 
-if 'Bar' not in _M_Test.__dict__:
-    _M_Test._t_Bar = IcePy.declareValue('::Test::Bar')
-
 if 'MyClass' not in _M_Test.__dict__:
     _M_Test.MyClass = Ice.createTempClass()
     class MyClass(Ice.Value):

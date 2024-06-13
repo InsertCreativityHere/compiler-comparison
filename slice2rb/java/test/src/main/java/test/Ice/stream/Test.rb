@@ -301,10 +301,6 @@ module ::Test
         T_StringStringD = ::Ice::__defineDictionary('::Test::StringStringD', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Test::T_Bar)
-        T_Bar = ::Ice::__declareClass('::Test::Bar')
-    end
-
     if not defined?(::Test::MyClass_Mixin)
 
         module ::Test::MyClass_Mixin
