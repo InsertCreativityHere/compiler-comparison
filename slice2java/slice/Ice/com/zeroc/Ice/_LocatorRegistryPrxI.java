@@ -16,7 +16,7 @@
 package com.zeroc.Ice;
 
 /** @hidden */
-public class _LocatorRegistryPrxI extends _ObjectPrxI implements LocatorRegistryPrx
+public class _LocatorRegistryPrxI extends com.zeroc.Ice._ObjectPrxI implements LocatorRegistryPrx
 {
     /** @hidden */
     public static final long serialVersionUID = 0L;

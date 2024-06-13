@@ -21,7 +21,7 @@ package com.zeroc.Ice;
  * locator implementations. Regular user code should not attempt to use any functionality of this interface
  * directly.
  **/
-public interface LocatorRegistry extends Object
+public interface LocatorRegistry extends com.zeroc.Ice.Object
 {
     /**
      * Set the adapter endpoints with the locator registry.
@@ -34,7 +34,7 @@ public interface LocatorRegistry extends Object
      * @throws AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
      **/
-    java.util.concurrent.CompletionStage<Void> setAdapterDirectProxyAsync(String id, ObjectPrx proxy, Current current)
+    java.util.concurrent.CompletionStage<Void> setAdapterDirectProxyAsync(String id, ObjectPrx proxy, com.zeroc.Ice.Current current)
         throws AdapterNotFoundException,
                AdapterAlreadyActiveException;
 
@@ -52,7 +52,7 @@ public interface LocatorRegistry extends Object
      * @throws InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered
      * with the locator registry for this object adapter.
      **/
-    java.util.concurrent.CompletionStage<Void> setReplicatedAdapterDirectProxyAsync(String adapterId, String replicaGroupId, ObjectPrx proxy, Current current)
+    java.util.concurrent.CompletionStage<Void> setReplicatedAdapterDirectProxyAsync(String adapterId, String replicaGroupId, ObjectPrx proxy, com.zeroc.Ice.Current current)
         throws AdapterNotFoundException,
                InvalidReplicaGroupIdException,
                AdapterAlreadyActiveException;
@@ -65,7 +65,7 @@ public interface LocatorRegistry extends Object
      * @return A completion stage that the servant will complete when the invocation completes.
      * @throws ServerNotFoundException Raised if the server cannot be found.
      **/
-    java.util.concurrent.CompletionStage<Void> setServerProcessProxyAsync(String id, ProcessPrx proxy, Current current)
+    java.util.concurrent.CompletionStage<Void> setServerProcessProxyAsync(String id, ProcessPrx proxy, com.zeroc.Ice.Current current)
         throws ServerNotFoundException;
 
     /** @hidden */
@@ -76,13 +76,13 @@ public interface LocatorRegistry extends Object
     };
 
     @Override
-    default String[] ice_ids(Current current)
+    default String[] ice_ids(com.zeroc.Ice.Current current)
     {
         return _iceIds;
     }
 
     @Override
-    default String ice_id(Current current)
+    default String ice_id(com.zeroc.Ice.Current current)
     {
         return ice_staticId();
     }
@@ -93,11 +93,11 @@ public interface LocatorRegistry extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_setAdapterDirectProxy(LocatorRegistry obj, IncomingRequest request)
-        throws UserException
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setAdapterDirectProxy(LocatorRegistry obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         String iceP_id;
         ObjectPrx iceP_proxy;
@@ -109,11 +109,11 @@ public interface LocatorRegistry extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_setReplicatedAdapterDirectProxy(LocatorRegistry obj, IncomingRequest request)
-        throws UserException
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setReplicatedAdapterDirectProxy(LocatorRegistry obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         String iceP_adapterId;
         String iceP_replicaGroupId;
@@ -127,11 +127,11 @@ public interface LocatorRegistry extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_setServerProcessProxy(LocatorRegistry obj, IncomingRequest request)
-        throws UserException
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setServerProcessProxy(LocatorRegistry obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         String iceP_id;
         ProcessPrx iceP_proxy;

@@ -16,7 +16,7 @@
 package com.zeroc.Ice;
 
 /** @hidden */
-public class _LoggerAdminPrxI extends _ObjectPrxI implements LoggerAdminPrx
+public class _LoggerAdminPrxI extends com.zeroc.Ice._ObjectPrxI implements LoggerAdminPrx
 {
     /** @hidden */
     public static final long serialVersionUID = 0L;

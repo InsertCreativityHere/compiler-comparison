@@ -18,7 +18,7 @@ package com.zeroc.Ice;
 /**
  * The PropertiesAdmin interface provides remote access to the properties of a communicator.
  **/
-public interface PropertiesAdminPrx extends ObjectPrx
+public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Get a property by key. If the property is not set, an empty string is returned.
@@ -231,9 +231,9 @@ public interface PropertiesAdminPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static PropertiesAdminPrx checkedCast(ObjectPrx obj)
+    static PropertiesAdminPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._checkedCast(obj, ice_staticId(), PropertiesAdminPrx.class, _PropertiesAdminPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), PropertiesAdminPrx.class, _PropertiesAdminPrxI.class);
     }
 
     /**
@@ -243,9 +243,9 @@ public interface PropertiesAdminPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static PropertiesAdminPrx checkedCast(ObjectPrx obj, java.util.Map<String, String> context)
+    static PropertiesAdminPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, context, ice_staticId(), PropertiesAdminPrx.class, _PropertiesAdminPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), PropertiesAdminPrx.class, _PropertiesAdminPrxI.class);
     }
 
     /**
@@ -255,9 +255,9 @@ public interface PropertiesAdminPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static PropertiesAdminPrx checkedCast(ObjectPrx obj, String facet)
+    static PropertiesAdminPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._checkedCast(obj, facet, ice_staticId(), PropertiesAdminPrx.class, _PropertiesAdminPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), PropertiesAdminPrx.class, _PropertiesAdminPrxI.class);
     }
 
     /**
@@ -268,9 +268,9 @@ public interface PropertiesAdminPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static PropertiesAdminPrx checkedCast(ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static PropertiesAdminPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), PropertiesAdminPrx.class, _PropertiesAdminPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), PropertiesAdminPrx.class, _PropertiesAdminPrxI.class);
     }
 
     /**
@@ -278,9 +278,9 @@ public interface PropertiesAdminPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static PropertiesAdminPrx uncheckedCast(ObjectPrx obj)
+    static PropertiesAdminPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._uncheckedCast(obj, PropertiesAdminPrx.class, _PropertiesAdminPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, PropertiesAdminPrx.class, _PropertiesAdminPrxI.class);
     }
 
     /**
@@ -289,9 +289,9 @@ public interface PropertiesAdminPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static PropertiesAdminPrx uncheckedCast(ObjectPrx obj, String facet)
+    static PropertiesAdminPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._uncheckedCast(obj, facet, PropertiesAdminPrx.class, _PropertiesAdminPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, PropertiesAdminPrx.class, _PropertiesAdminPrxI.class);
     }
 
     /**
@@ -322,7 +322,7 @@ public interface PropertiesAdminPrx extends ObjectPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default PropertiesAdminPrx ice_endpoints(Endpoint[] newEndpoints)
+    default PropertiesAdminPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
         return (PropertiesAdminPrx)_ice_endpoints(newEndpoints);
     }
@@ -366,7 +366,7 @@ public interface PropertiesAdminPrx extends ObjectPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default PropertiesAdminPrx ice_endpointSelection(EndpointSelectionType newType)
+    default PropertiesAdminPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
         return (PropertiesAdminPrx)_ice_endpointSelection(newType);
     }
@@ -390,7 +390,7 @@ public interface PropertiesAdminPrx extends ObjectPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default PropertiesAdminPrx ice_encodingVersion(EncodingVersion e)
+    default PropertiesAdminPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
         return (PropertiesAdminPrx)_ice_encodingVersion(e);
     }
@@ -414,7 +414,7 @@ public interface PropertiesAdminPrx extends ObjectPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default PropertiesAdminPrx ice_router(RouterPrx router)
+    default PropertiesAdminPrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
         return (PropertiesAdminPrx)_ice_router(router);
     }
@@ -425,7 +425,7 @@ public interface PropertiesAdminPrx extends ObjectPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default PropertiesAdminPrx ice_locator(LocatorPrx locator)
+    default PropertiesAdminPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
         return (PropertiesAdminPrx)_ice_locator(locator);
     }

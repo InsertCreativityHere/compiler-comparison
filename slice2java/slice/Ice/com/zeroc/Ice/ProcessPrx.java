@@ -21,7 +21,7 @@ package com.zeroc.Ice;
  * therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
  * identity harder to guess, and be registered in an object adapter with a secured endpoint.
  **/
-public interface ProcessPrx extends ObjectPrx
+public interface ProcessPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Initiate a graceful shut-down.
@@ -148,9 +148,9 @@ public interface ProcessPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static ProcessPrx checkedCast(ObjectPrx obj)
+    static ProcessPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._checkedCast(obj, ice_staticId(), ProcessPrx.class, _ProcessPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), ProcessPrx.class, _ProcessPrxI.class);
     }
 
     /**
@@ -160,9 +160,9 @@ public interface ProcessPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static ProcessPrx checkedCast(ObjectPrx obj, java.util.Map<String, String> context)
+    static ProcessPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, context, ice_staticId(), ProcessPrx.class, _ProcessPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), ProcessPrx.class, _ProcessPrxI.class);
     }
 
     /**
@@ -172,9 +172,9 @@ public interface ProcessPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static ProcessPrx checkedCast(ObjectPrx obj, String facet)
+    static ProcessPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._checkedCast(obj, facet, ice_staticId(), ProcessPrx.class, _ProcessPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), ProcessPrx.class, _ProcessPrxI.class);
     }
 
     /**
@@ -185,9 +185,9 @@ public interface ProcessPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static ProcessPrx checkedCast(ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static ProcessPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), ProcessPrx.class, _ProcessPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), ProcessPrx.class, _ProcessPrxI.class);
     }
 
     /**
@@ -195,9 +195,9 @@ public interface ProcessPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static ProcessPrx uncheckedCast(ObjectPrx obj)
+    static ProcessPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._uncheckedCast(obj, ProcessPrx.class, _ProcessPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, ProcessPrx.class, _ProcessPrxI.class);
     }
 
     /**
@@ -206,9 +206,9 @@ public interface ProcessPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static ProcessPrx uncheckedCast(ObjectPrx obj, String facet)
+    static ProcessPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._uncheckedCast(obj, facet, ProcessPrx.class, _ProcessPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, ProcessPrx.class, _ProcessPrxI.class);
     }
 
     /**
@@ -239,7 +239,7 @@ public interface ProcessPrx extends ObjectPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default ProcessPrx ice_endpoints(Endpoint[] newEndpoints)
+    default ProcessPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
         return (ProcessPrx)_ice_endpoints(newEndpoints);
     }
@@ -283,7 +283,7 @@ public interface ProcessPrx extends ObjectPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default ProcessPrx ice_endpointSelection(EndpointSelectionType newType)
+    default ProcessPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
         return (ProcessPrx)_ice_endpointSelection(newType);
     }
@@ -307,7 +307,7 @@ public interface ProcessPrx extends ObjectPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default ProcessPrx ice_encodingVersion(EncodingVersion e)
+    default ProcessPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
         return (ProcessPrx)_ice_encodingVersion(e);
     }
@@ -331,7 +331,7 @@ public interface ProcessPrx extends ObjectPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default ProcessPrx ice_router(RouterPrx router)
+    default ProcessPrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
         return (ProcessPrx)_ice_router(router);
     }
@@ -342,7 +342,7 @@ public interface ProcessPrx extends ObjectPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default ProcessPrx ice_locator(LocatorPrx locator)
+    default ProcessPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
         return (ProcessPrx)_ice_locator(locator);
     }

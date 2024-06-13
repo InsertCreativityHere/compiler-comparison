@@ -18,7 +18,7 @@ package com.zeroc.Ice;
 /**
  * Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
  **/
-public class RemoteLoggerAlreadyAttachedException extends UserException
+public class RemoteLoggerAlreadyAttachedException extends com.zeroc.Ice.UserException
 {
     public RemoteLoggerAlreadyAttachedException()
     {
@@ -36,7 +36,7 @@ public class RemoteLoggerAlreadyAttachedException extends UserException
 
     /** @hidden */
     @Override
-    protected void _writeImpl(OutputStream ostr_)
+    protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
         ostr_.startSlice("::Ice::RemoteLoggerAlreadyAttachedException", -1, true);
         ostr_.endSlice();
@@ -44,7 +44,7 @@ public class RemoteLoggerAlreadyAttachedException extends UserException
 
     /** @hidden */
     @Override
-    protected void _readImpl(InputStream istr_)
+    protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
         istr_.startSlice();
         istr_.endSlice();

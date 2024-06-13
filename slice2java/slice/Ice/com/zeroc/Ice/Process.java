@@ -21,7 +21,7 @@ package com.zeroc.Ice;
  * therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
  * identity harder to guess, and be registered in an object adapter with a secured endpoint.
  **/
-public interface Process extends Object
+public interface Process extends com.zeroc.Ice.Object
 {
     /**
      * Initiate a graceful shut-down.
@@ -29,7 +29,7 @@ public interface Process extends Object
      *
      * @see Communicator#shutdown
      **/
-    void shutdown(Current current);
+    void shutdown(com.zeroc.Ice.Current current);
 
     /**
      * Write a message on the process' stdout or stderr.
@@ -37,7 +37,7 @@ public interface Process extends Object
      * @param fd 1 for stdout, 2 for stderr.
      * @param current The Current object for the invocation.
      **/
-    void writeMessage(String message, int fd, Current current);
+    void writeMessage(String message, int fd, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -47,13 +47,13 @@ public interface Process extends Object
     };
 
     @Override
-    default String[] ice_ids(Current current)
+    default String[] ice_ids(com.zeroc.Ice.Current current)
     {
         return _iceIds;
     }
 
     @Override
-    default String ice_id(Current current)
+    default String ice_id(com.zeroc.Ice.Current current)
     {
         return ice_staticId();
     }
@@ -64,19 +64,19 @@ public interface Process extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_shutdown(Process obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(Process obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         request.inputStream.skipEmptyEncapsulation();
         obj.shutdown(request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_writeMessage(Process obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_writeMessage(Process obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(null, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         String iceP_message;
         int iceP_fd;

@@ -20,7 +20,7 @@ package com.zeroc.Ice;
 
 public final class ContextHelper
 {
-    public static void write(OutputStream ostr, java.util.Map<java.lang.String, java.lang.String> v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, java.lang.String> v)
     {
         if(v == null)
         {
@@ -37,7 +37,7 @@ public final class ContextHelper
         }
     }
 
-    public static java.util.Map<java.lang.String, java.lang.String> read(InputStream istr)
+    public static java.util.Map<java.lang.String, java.lang.String> read(com.zeroc.Ice.InputStream istr)
     {
         java.util.Map<java.lang.String, java.lang.String> v;
         v = new java.util.HashMap<java.lang.String, java.lang.String>();
@@ -53,7 +53,7 @@ public final class ContextHelper
         return v;
     }
 
-    public static void write(OutputStream ostr, int tag, java.util.Optional<java.util.Map<java.lang.String, java.lang.String>> v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<java.util.Map<java.lang.String, java.lang.String>> v)
     {
         if(v != null && v.isPresent())
         {
@@ -61,7 +61,7 @@ public final class ContextHelper
         }
     }
 
-    public static void write(OutputStream ostr, int tag, java.util.Map<java.lang.String, java.lang.String> v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Map<java.lang.String, java.lang.String> v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
@@ -71,7 +71,7 @@ public final class ContextHelper
         }
     }
 
-    public static java.util.Optional<java.util.Map<java.lang.String, java.lang.String>> read(InputStream istr, int tag)
+    public static java.util.Optional<java.util.Map<java.lang.String, java.lang.String>> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {

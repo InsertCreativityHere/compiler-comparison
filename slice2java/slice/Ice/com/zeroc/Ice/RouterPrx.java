@@ -19,7 +19,7 @@ package com.zeroc.Ice;
  * The Ice router interface. Routers can be set either globally though the <code>Communicator</code>, or with
  * <code>ice_router</code> on specific proxies.
  **/
-public interface RouterPrx extends ObjectPrx
+public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -203,9 +203,9 @@ public interface RouterPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static RouterPrx checkedCast(ObjectPrx obj)
+    static RouterPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._checkedCast(obj, ice_staticId(), RouterPrx.class, _RouterPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), RouterPrx.class, _RouterPrxI.class);
     }
 
     /**
@@ -215,9 +215,9 @@ public interface RouterPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static RouterPrx checkedCast(ObjectPrx obj, java.util.Map<String, String> context)
+    static RouterPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, context, ice_staticId(), RouterPrx.class, _RouterPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), RouterPrx.class, _RouterPrxI.class);
     }
 
     /**
@@ -227,9 +227,9 @@ public interface RouterPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static RouterPrx checkedCast(ObjectPrx obj, String facet)
+    static RouterPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._checkedCast(obj, facet, ice_staticId(), RouterPrx.class, _RouterPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), RouterPrx.class, _RouterPrxI.class);
     }
 
     /**
@@ -240,9 +240,9 @@ public interface RouterPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static RouterPrx checkedCast(ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static RouterPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), RouterPrx.class, _RouterPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), RouterPrx.class, _RouterPrxI.class);
     }
 
     /**
@@ -250,9 +250,9 @@ public interface RouterPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static RouterPrx uncheckedCast(ObjectPrx obj)
+    static RouterPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._uncheckedCast(obj, RouterPrx.class, _RouterPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, RouterPrx.class, _RouterPrxI.class);
     }
 
     /**
@@ -261,9 +261,9 @@ public interface RouterPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static RouterPrx uncheckedCast(ObjectPrx obj, String facet)
+    static RouterPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._uncheckedCast(obj, facet, RouterPrx.class, _RouterPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, RouterPrx.class, _RouterPrxI.class);
     }
 
     /**
@@ -294,7 +294,7 @@ public interface RouterPrx extends ObjectPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default RouterPrx ice_endpoints(Endpoint[] newEndpoints)
+    default RouterPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
         return (RouterPrx)_ice_endpoints(newEndpoints);
     }
@@ -338,7 +338,7 @@ public interface RouterPrx extends ObjectPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default RouterPrx ice_endpointSelection(EndpointSelectionType newType)
+    default RouterPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
         return (RouterPrx)_ice_endpointSelection(newType);
     }
@@ -362,7 +362,7 @@ public interface RouterPrx extends ObjectPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default RouterPrx ice_encodingVersion(EncodingVersion e)
+    default RouterPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
         return (RouterPrx)_ice_encodingVersion(e);
     }
@@ -386,7 +386,7 @@ public interface RouterPrx extends ObjectPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default RouterPrx ice_router(RouterPrx router)
+    default RouterPrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
         return (RouterPrx)_ice_router(router);
     }
@@ -397,7 +397,7 @@ public interface RouterPrx extends ObjectPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default RouterPrx ice_locator(LocatorPrx locator)
+    default RouterPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
         return (RouterPrx)_ice_locator(locator);
     }

@@ -19,7 +19,7 @@ package com.zeroc.Ice;
  * The interface of the admin object that allows an Ice application the attach its
  * {@link RemoteLogger} to the {@link RemoteLogger} of this admin object's Ice communicator.
  **/
-public interface LoggerAdminPrx extends ObjectPrx
+public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
@@ -67,9 +67,9 @@ public interface LoggerAdminPrx extends ObjectPrx
         {
             throw ex;
         }
-        catch(UserException ex)
+        catch(com.zeroc.Ice.UserException ex)
         {
-            throw new UnknownUserException(ex.ice_id(), ex);
+            throw new com.zeroc.Ice.UnknownUserException(ex.ice_id(), ex);
         }
     }
 
@@ -296,9 +296,9 @@ public interface LoggerAdminPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LoggerAdminPrx checkedCast(ObjectPrx obj)
+    static LoggerAdminPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._checkedCast(obj, ice_staticId(), LoggerAdminPrx.class, _LoggerAdminPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), LoggerAdminPrx.class, _LoggerAdminPrxI.class);
     }
 
     /**
@@ -308,9 +308,9 @@ public interface LoggerAdminPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LoggerAdminPrx checkedCast(ObjectPrx obj, java.util.Map<String, String> context)
+    static LoggerAdminPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, context, ice_staticId(), LoggerAdminPrx.class, _LoggerAdminPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), LoggerAdminPrx.class, _LoggerAdminPrxI.class);
     }
 
     /**
@@ -320,9 +320,9 @@ public interface LoggerAdminPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LoggerAdminPrx checkedCast(ObjectPrx obj, String facet)
+    static LoggerAdminPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._checkedCast(obj, facet, ice_staticId(), LoggerAdminPrx.class, _LoggerAdminPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), LoggerAdminPrx.class, _LoggerAdminPrxI.class);
     }
 
     /**
@@ -333,9 +333,9 @@ public interface LoggerAdminPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LoggerAdminPrx checkedCast(ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static LoggerAdminPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), LoggerAdminPrx.class, _LoggerAdminPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), LoggerAdminPrx.class, _LoggerAdminPrxI.class);
     }
 
     /**
@@ -343,9 +343,9 @@ public interface LoggerAdminPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static LoggerAdminPrx uncheckedCast(ObjectPrx obj)
+    static LoggerAdminPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._uncheckedCast(obj, LoggerAdminPrx.class, _LoggerAdminPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, LoggerAdminPrx.class, _LoggerAdminPrxI.class);
     }
 
     /**
@@ -354,9 +354,9 @@ public interface LoggerAdminPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static LoggerAdminPrx uncheckedCast(ObjectPrx obj, String facet)
+    static LoggerAdminPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._uncheckedCast(obj, facet, LoggerAdminPrx.class, _LoggerAdminPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, LoggerAdminPrx.class, _LoggerAdminPrxI.class);
     }
 
     /**
@@ -387,7 +387,7 @@ public interface LoggerAdminPrx extends ObjectPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default LoggerAdminPrx ice_endpoints(Endpoint[] newEndpoints)
+    default LoggerAdminPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
         return (LoggerAdminPrx)_ice_endpoints(newEndpoints);
     }
@@ -431,7 +431,7 @@ public interface LoggerAdminPrx extends ObjectPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default LoggerAdminPrx ice_endpointSelection(EndpointSelectionType newType)
+    default LoggerAdminPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
         return (LoggerAdminPrx)_ice_endpointSelection(newType);
     }
@@ -455,7 +455,7 @@ public interface LoggerAdminPrx extends ObjectPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default LoggerAdminPrx ice_encodingVersion(EncodingVersion e)
+    default LoggerAdminPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
         return (LoggerAdminPrx)_ice_encodingVersion(e);
     }
@@ -479,7 +479,7 @@ public interface LoggerAdminPrx extends ObjectPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default LoggerAdminPrx ice_router(RouterPrx router)
+    default LoggerAdminPrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
         return (LoggerAdminPrx)_ice_router(router);
     }
@@ -490,7 +490,7 @@ public interface LoggerAdminPrx extends ObjectPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default LoggerAdminPrx ice_locator(LocatorPrx locator)
+    default LoggerAdminPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
         return (LoggerAdminPrx)_ice_locator(locator);
     }

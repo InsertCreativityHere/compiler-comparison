@@ -18,7 +18,7 @@ package com.zeroc.Ice;
 /**
  * This exception is raised if the replica group provided by the server is invalid.
  **/
-public class InvalidReplicaGroupIdException extends UserException
+public class InvalidReplicaGroupIdException extends com.zeroc.Ice.UserException
 {
     public InvalidReplicaGroupIdException()
     {
@@ -36,7 +36,7 @@ public class InvalidReplicaGroupIdException extends UserException
 
     /** @hidden */
     @Override
-    protected void _writeImpl(OutputStream ostr_)
+    protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
         ostr_.startSlice("::Ice::InvalidReplicaGroupIdException", -1, true);
         ostr_.endSlice();
@@ -44,7 +44,7 @@ public class InvalidReplicaGroupIdException extends UserException
 
     /** @hidden */
     @Override
-    protected void _readImpl(InputStream istr_)
+    protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
         istr_.startSlice();
         istr_.endSlice();

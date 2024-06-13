@@ -106,19 +106,19 @@ public class Identity implements java.lang.Cloneable,
         return c;
     }
 
-    public void ice_writeMembers(OutputStream ostr)
+    public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.name);
         ostr.writeString(this.category);
     }
 
-    public void ice_readMembers(InputStream istr)
+    public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.name = istr.readString();
         this.category = istr.readString();
     }
 
-    static public void ice_write(OutputStream ostr, Identity v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, Identity v)
     {
         if(v == null)
         {
@@ -130,14 +130,14 @@ public class Identity implements java.lang.Cloneable,
         }
     }
 
-    static public Identity ice_read(InputStream istr)
+    static public Identity ice_read(com.zeroc.Ice.InputStream istr)
     {
         Identity v = new Identity();
         v.ice_readMembers(istr);
         return v;
     }
 
-    static public void ice_write(OutputStream ostr, int tag, java.util.Optional<Identity> v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Identity> v)
     {
         if(v != null && v.isPresent())
         {
@@ -145,7 +145,7 @@ public class Identity implements java.lang.Cloneable,
         }
     }
 
-    static public void ice_write(OutputStream ostr, int tag, Identity v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, Identity v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
@@ -155,7 +155,7 @@ public class Identity implements java.lang.Cloneable,
         }
     }
 
-    static public java.util.Optional<Identity> ice_read(InputStream istr, int tag)
+    static public java.util.Optional<Identity> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
@@ -171,5 +171,5 @@ public class Identity implements java.lang.Cloneable,
     private static final Identity _nullMarshalValue = new Identity();
 
     /** @hidden */
-    public static final long serialVersionUID = -7723459641047275419L;
+    public static final long serialVersionUID = -6014539030447930843L;
 }

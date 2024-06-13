@@ -20,7 +20,7 @@ package com.zeroc.Ice;
  **/
 public final class LogMessageSeqHelper
 {
-    public static void write(OutputStream ostr, LogMessage[] v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, LogMessage[] v)
     {
         if(v == null)
         {
@@ -36,7 +36,7 @@ public final class LogMessageSeqHelper
         }
     }
 
-    public static LogMessage[] read(InputStream istr)
+    public static LogMessage[] read(com.zeroc.Ice.InputStream istr)
     {
         final LogMessage[] v;
         final int len0 = istr.readAndCheckSeqSize(11);
@@ -48,7 +48,7 @@ public final class LogMessageSeqHelper
         return v;
     }
 
-    public static void write(OutputStream ostr, int tag, java.util.Optional<LogMessage[]> v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<LogMessage[]> v)
     {
         if(v != null && v.isPresent())
         {
@@ -56,7 +56,7 @@ public final class LogMessageSeqHelper
         }
     }
 
-    public static void write(OutputStream ostr, int tag, LogMessage[] v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, LogMessage[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
@@ -66,7 +66,7 @@ public final class LogMessageSeqHelper
         }
     }
 
-    public static java.util.Optional<LogMessage[]> read(InputStream istr, int tag)
+    public static java.util.Optional<LogMessage[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {

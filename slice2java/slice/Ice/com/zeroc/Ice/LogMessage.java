@@ -128,7 +128,7 @@ public class LogMessage implements java.lang.Cloneable,
         return c;
     }
 
-    public void ice_writeMembers(OutputStream ostr)
+    public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         LogMessageType.ice_write(ostr, this.type);
         ostr.writeLong(this.timestamp);
@@ -136,7 +136,7 @@ public class LogMessage implements java.lang.Cloneable,
         ostr.writeString(this.message);
     }
 
-    public void ice_readMembers(InputStream istr)
+    public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.type = LogMessageType.ice_read(istr);
         this.timestamp = istr.readLong();
@@ -144,7 +144,7 @@ public class LogMessage implements java.lang.Cloneable,
         this.message = istr.readString();
     }
 
-    static public void ice_write(OutputStream ostr, LogMessage v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, LogMessage v)
     {
         if(v == null)
         {
@@ -156,14 +156,14 @@ public class LogMessage implements java.lang.Cloneable,
         }
     }
 
-    static public LogMessage ice_read(InputStream istr)
+    static public LogMessage ice_read(com.zeroc.Ice.InputStream istr)
     {
         LogMessage v = new LogMessage();
         v.ice_readMembers(istr);
         return v;
     }
 
-    static public void ice_write(OutputStream ostr, int tag, java.util.Optional<LogMessage> v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<LogMessage> v)
     {
         if(v != null && v.isPresent())
         {
@@ -171,7 +171,7 @@ public class LogMessage implements java.lang.Cloneable,
         }
     }
 
-    static public void ice_write(OutputStream ostr, int tag, LogMessage v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, LogMessage v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
@@ -181,7 +181,7 @@ public class LogMessage implements java.lang.Cloneable,
         }
     }
 
-    static public java.util.Optional<LogMessage> ice_read(InputStream istr, int tag)
+    static public java.util.Optional<LogMessage> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
@@ -197,5 +197,5 @@ public class LogMessage implements java.lang.Cloneable,
     private static final LogMessage _nullMarshalValue = new LogMessage();
 
     /** @hidden */
-    public static final long serialVersionUID = 8370776092441401884L;
+    public static final long serialVersionUID = -5339846196731169973L;
 }

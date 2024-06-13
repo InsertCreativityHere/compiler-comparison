@@ -16,7 +16,7 @@
 package com.zeroc.Ice;
 
 /** @hidden */
-public class _ProcessPrxI extends _ObjectPrxI implements ProcessPrx
+public class _ProcessPrxI extends com.zeroc.Ice._ObjectPrxI implements ProcessPrx
 {
     /** @hidden */
     public static final long serialVersionUID = 0L;

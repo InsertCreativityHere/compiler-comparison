@@ -87,19 +87,19 @@ public class EncodingVersion implements java.lang.Cloneable,
         return c;
     }
 
-    public void ice_writeMembers(OutputStream ostr)
+    public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeByte(this.major);
         ostr.writeByte(this.minor);
     }
 
-    public void ice_readMembers(InputStream istr)
+    public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.major = istr.readByte();
         this.minor = istr.readByte();
     }
 
-    static public void ice_write(OutputStream ostr, EncodingVersion v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, EncodingVersion v)
     {
         if(v == null)
         {
@@ -111,14 +111,14 @@ public class EncodingVersion implements java.lang.Cloneable,
         }
     }
 
-    static public EncodingVersion ice_read(InputStream istr)
+    static public EncodingVersion ice_read(com.zeroc.Ice.InputStream istr)
     {
         EncodingVersion v = new EncodingVersion();
         v.ice_readMembers(istr);
         return v;
     }
 
-    static public void ice_write(OutputStream ostr, int tag, java.util.Optional<EncodingVersion> v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<EncodingVersion> v)
     {
         if(v != null && v.isPresent())
         {
@@ -126,7 +126,7 @@ public class EncodingVersion implements java.lang.Cloneable,
         }
     }
 
-    static public void ice_write(OutputStream ostr, int tag, EncodingVersion v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, EncodingVersion v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
         {
@@ -135,7 +135,7 @@ public class EncodingVersion implements java.lang.Cloneable,
         }
     }
 
-    static public java.util.Optional<EncodingVersion> ice_read(InputStream istr, int tag)
+    static public java.util.Optional<EncodingVersion> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
         {
@@ -151,5 +151,5 @@ public class EncodingVersion implements java.lang.Cloneable,
     private static final EncodingVersion _nullMarshalValue = new EncodingVersion();
 
     /** @hidden */
-    public static final long serialVersionUID = -1521482368441755151L;
+    public static final long serialVersionUID = 7554897087529417425L;
 }

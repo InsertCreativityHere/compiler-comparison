@@ -87,19 +87,19 @@ public class ProtocolVersion implements java.lang.Cloneable,
         return c;
     }
 
-    public void ice_writeMembers(OutputStream ostr)
+    public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeByte(this.major);
         ostr.writeByte(this.minor);
     }
 
-    public void ice_readMembers(InputStream istr)
+    public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.major = istr.readByte();
         this.minor = istr.readByte();
     }
 
-    static public void ice_write(OutputStream ostr, ProtocolVersion v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, ProtocolVersion v)
     {
         if(v == null)
         {
@@ -111,14 +111,14 @@ public class ProtocolVersion implements java.lang.Cloneable,
         }
     }
 
-    static public ProtocolVersion ice_read(InputStream istr)
+    static public ProtocolVersion ice_read(com.zeroc.Ice.InputStream istr)
     {
         ProtocolVersion v = new ProtocolVersion();
         v.ice_readMembers(istr);
         return v;
     }
 
-    static public void ice_write(OutputStream ostr, int tag, java.util.Optional<ProtocolVersion> v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ProtocolVersion> v)
     {
         if(v != null && v.isPresent())
         {
@@ -126,7 +126,7 @@ public class ProtocolVersion implements java.lang.Cloneable,
         }
     }
 
-    static public void ice_write(OutputStream ostr, int tag, ProtocolVersion v)
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ProtocolVersion v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
         {
@@ -135,7 +135,7 @@ public class ProtocolVersion implements java.lang.Cloneable,
         }
     }
 
-    static public java.util.Optional<ProtocolVersion> ice_read(InputStream istr, int tag)
+    static public java.util.Optional<ProtocolVersion> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
         {
@@ -151,5 +151,5 @@ public class ProtocolVersion implements java.lang.Cloneable,
     private static final ProtocolVersion _nullMarshalValue = new ProtocolVersion();
 
     /** @hidden */
-    public static final long serialVersionUID = -4085399929457354268L;
+    public static final long serialVersionUID = -619978867768886780L;
 }

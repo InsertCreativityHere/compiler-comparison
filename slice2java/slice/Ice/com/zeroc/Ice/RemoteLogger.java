@@ -19,7 +19,7 @@ package com.zeroc.Ice;
  * The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
  * to the local {@link RemoteLogger} of another Ice application.
  **/
-public interface RemoteLogger extends Object
+public interface RemoteLogger extends com.zeroc.Ice.Object
 {
     /**
      * init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
@@ -27,14 +27,14 @@ public interface RemoteLogger extends Object
      * @param logMessages Old log messages generated before "now".
      * @param current The Current object for the invocation.
      **/
-    void init(String prefix, LogMessage[] logMessages, Current current);
+    void init(String prefix, LogMessage[] logMessages, com.zeroc.Ice.Current current);
 
     /**
      * Log a LogMessage. Note that log may be called by LoggerAdmin before init.
      * @param message The message to log.
      * @param current The Current object for the invocation.
      **/
-    void log(LogMessage message, Current current);
+    void log(LogMessage message, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -44,13 +44,13 @@ public interface RemoteLogger extends Object
     };
 
     @Override
-    default String[] ice_ids(Current current)
+    default String[] ice_ids(com.zeroc.Ice.Current current)
     {
         return _iceIds;
     }
 
     @Override
-    default String ice_id(Current current)
+    default String ice_id(com.zeroc.Ice.Current current)
     {
         return ice_staticId();
     }
@@ -61,10 +61,10 @@ public interface RemoteLogger extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_init(RemoteLogger obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_init(RemoteLogger obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(null, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         String iceP_prefix;
         LogMessage[] iceP_logMessages;
@@ -76,10 +76,10 @@ public interface RemoteLogger extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_log(RemoteLogger obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_log(RemoteLogger obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(null, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         LogMessage iceP_message;
         iceP_message = LogMessage.ice_read(istr);

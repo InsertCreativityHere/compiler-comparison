@@ -63,12 +63,12 @@ public enum LogMessageType implements java.io.Serializable
         _value = v;
     }
 
-    public void ice_write(OutputStream ostr)
+    public void ice_write(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeEnum(_value, 3);
     }
 
-    public static void ice_write(OutputStream ostr, LogMessageType v)
+    public static void ice_write(com.zeroc.Ice.OutputStream ostr, LogMessageType v)
     {
         if(v == null)
         {
@@ -80,13 +80,13 @@ public enum LogMessageType implements java.io.Serializable
         }
     }
 
-    public static LogMessageType ice_read(InputStream istr)
+    public static LogMessageType ice_read(com.zeroc.Ice.InputStream istr)
     {
         int v = istr.readEnum(3);
         return validate(v);
     }
 
-    public static void ice_write(OutputStream ostr, int tag, java.util.Optional<LogMessageType> v)
+    public static void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<LogMessageType> v)
     {
         if(v != null && v.isPresent())
         {
@@ -94,7 +94,7 @@ public enum LogMessageType implements java.io.Serializable
         }
     }
 
-    public static void ice_write(OutputStream ostr, int tag, LogMessageType v)
+    public static void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, LogMessageType v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.Size))
         {
@@ -102,7 +102,7 @@ public enum LogMessageType implements java.io.Serializable
         }
     }
 
-    public static java.util.Optional<LogMessageType> ice_read(InputStream istr, int tag)
+    public static java.util.Optional<LogMessageType> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.Size))
         {
@@ -119,7 +119,7 @@ public enum LogMessageType implements java.io.Serializable
         final LogMessageType e = valueOf(v);
         if(e == null)
         {
-            throw new MarshalException("enumerator value " + v + " is out of range");
+            throw new com.zeroc.Ice.MarshalException("enumerator value " + v + " is out of range");
         }
         return e;
     }

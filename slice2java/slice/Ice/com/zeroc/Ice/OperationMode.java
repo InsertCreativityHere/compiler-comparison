@@ -66,12 +66,12 @@ public enum OperationMode implements java.io.Serializable
         _value = v;
     }
 
-    public void ice_write(OutputStream ostr)
+    public void ice_write(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeEnum(_value, 2);
     }
 
-    public static void ice_write(OutputStream ostr, OperationMode v)
+    public static void ice_write(com.zeroc.Ice.OutputStream ostr, OperationMode v)
     {
         if(v == null)
         {
@@ -83,13 +83,13 @@ public enum OperationMode implements java.io.Serializable
         }
     }
 
-    public static OperationMode ice_read(InputStream istr)
+    public static OperationMode ice_read(com.zeroc.Ice.InputStream istr)
     {
         int v = istr.readEnum(2);
         return validate(v);
     }
 
-    public static void ice_write(OutputStream ostr, int tag, java.util.Optional<OperationMode> v)
+    public static void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<OperationMode> v)
     {
         if(v != null && v.isPresent())
         {
@@ -97,7 +97,7 @@ public enum OperationMode implements java.io.Serializable
         }
     }
 
-    public static void ice_write(OutputStream ostr, int tag, OperationMode v)
+    public static void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, OperationMode v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.Size))
         {
@@ -105,7 +105,7 @@ public enum OperationMode implements java.io.Serializable
         }
     }
 
-    public static java.util.Optional<OperationMode> ice_read(InputStream istr, int tag)
+    public static java.util.Optional<OperationMode> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.Size))
         {
@@ -122,7 +122,7 @@ public enum OperationMode implements java.io.Serializable
         final OperationMode e = valueOf(v);
         if(e == null)
         {
-            throw new MarshalException("enumerator value " + v + " is out of range");
+            throw new com.zeroc.Ice.MarshalException("enumerator value " + v + " is out of range");
         }
         return e;
     }

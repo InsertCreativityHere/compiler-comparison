@@ -19,7 +19,7 @@ package com.zeroc.Ice;
  * The interface of the admin object that allows an Ice application the attach its
  * {@link RemoteLogger} to the {@link RemoteLogger} of this admin object's Ice communicator.
  **/
-public interface LoggerAdmin extends Object
+public interface LoggerAdmin extends com.zeroc.Ice.Object
 {
     /**
      * Holds the result of operation getLog.
@@ -53,13 +53,13 @@ public interface LoggerAdmin extends Object
          **/
         public String prefix;
 
-        public void write(OutputStream ostr)
+        public void write(com.zeroc.Ice.OutputStream ostr)
         {
             ostr.writeString(this.prefix);
             LogMessageSeqHelper.write(ostr, returnValue);
         }
 
-        public void read(InputStream istr)
+        public void read(com.zeroc.Ice.InputStream istr)
         {
             this.prefix = istr.readString();
             returnValue = LogMessageSeqHelper.read(istr);
@@ -81,7 +81,7 @@ public interface LoggerAdmin extends Object
      * @throws RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
      * object.
      **/
-    void attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, String[] traceCategories, int messageMax, Current current)
+    void attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, String[] traceCategories, int messageMax, com.zeroc.Ice.Current current)
         throws RemoteLoggerAlreadyAttachedException;
 
     /**
@@ -90,7 +90,7 @@ public interface LoggerAdmin extends Object
      * @param current The Current object for the invocation.
      * @return True if the provided remote logger proxy was detached, and false otherwise.
      **/
-    boolean detachRemoteLogger(RemoteLoggerPrx prx, Current current);
+    boolean detachRemoteLogger(RemoteLoggerPrx prx, com.zeroc.Ice.Current current);
 
     /**
      * Retrieves log messages recently logged.
@@ -104,7 +104,7 @@ public interface LoggerAdmin extends Object
      * @param current The Current object for the invocation.
      * @return An instance of LoggerAdmin.GetLogResult.
      **/
-    LoggerAdmin.GetLogResult getLog(LogMessageType[] messageTypes, String[] traceCategories, int messageMax, Current current);
+    LoggerAdmin.GetLogResult getLog(LogMessageType[] messageTypes, String[] traceCategories, int messageMax, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -114,13 +114,13 @@ public interface LoggerAdmin extends Object
     };
 
     @Override
-    default String[] ice_ids(Current current)
+    default String[] ice_ids(com.zeroc.Ice.Current current)
     {
         return _iceIds;
     }
 
     @Override
-    default String ice_id(Current current)
+    default String ice_id(com.zeroc.Ice.Current current)
     {
         return ice_staticId();
     }
@@ -131,11 +131,11 @@ public interface LoggerAdmin extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_attachRemoteLogger(LoggerAdmin obj, IncomingRequest request)
-        throws UserException
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_attachRemoteLogger(LoggerAdmin obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
     {
-        Object._iceCheckMode(null, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         RemoteLoggerPrx iceP_prx;
         LogMessageType[] iceP_messageTypes;
@@ -151,10 +151,10 @@ public interface LoggerAdmin extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_detachRemoteLogger(LoggerAdmin obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_detachRemoteLogger(LoggerAdmin obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(null, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         RemoteLoggerPrx iceP_prx;
         iceP_prx = RemoteLoggerPrx.uncheckedCast(istr.readProxy());
@@ -168,10 +168,10 @@ public interface LoggerAdmin extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getLog(LoggerAdmin obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getLog(LoggerAdmin obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(null, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         LogMessageType[] iceP_messageTypes;
         String[] iceP_traceCategories;

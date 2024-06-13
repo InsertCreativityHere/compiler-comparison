@@ -21,7 +21,7 @@ package com.zeroc.Ice;
  * by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
  * of this interface directly.
  **/
-public interface Locator extends Object
+public interface Locator extends com.zeroc.Ice.Object
 {
     /**
      * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
@@ -31,7 +31,7 @@ public interface Locator extends Object
      * @return The proxy, or null if the object is not active.
      * @throws ObjectNotFoundException Raised if the object cannot be found.
      **/
-    java.util.concurrent.CompletionStage<com.zeroc.Ice.ObjectPrx> findObjectByIdAsync(Identity id, Current current)
+    java.util.concurrent.CompletionStage<com.zeroc.Ice.ObjectPrx> findObjectByIdAsync(Identity id, com.zeroc.Ice.Current current)
         throws ObjectNotFoundException;
 
     /**
@@ -41,7 +41,7 @@ public interface Locator extends Object
      * @return The adapter proxy, or null if the adapter is not active.
      * @throws AdapterNotFoundException Raised if the adapter cannot be found.
      **/
-    java.util.concurrent.CompletionStage<com.zeroc.Ice.ObjectPrx> findAdapterByIdAsync(String id, Current current)
+    java.util.concurrent.CompletionStage<com.zeroc.Ice.ObjectPrx> findAdapterByIdAsync(String id, com.zeroc.Ice.Current current)
         throws AdapterNotFoundException;
 
     /**
@@ -49,7 +49,7 @@ public interface Locator extends Object
      * @param current The Current object for the invocation.
      * @return The locator registry.
      **/
-    LocatorRegistryPrx getRegistry(Current current);
+    LocatorRegistryPrx getRegistry(com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -59,13 +59,13 @@ public interface Locator extends Object
     };
 
     @Override
-    default String[] ice_ids(Current current)
+    default String[] ice_ids(com.zeroc.Ice.Current current)
     {
         return _iceIds;
     }
 
     @Override
-    default String ice_id(Current current)
+    default String ice_id(com.zeroc.Ice.Current current)
     {
         return ice_staticId();
     }
@@ -76,11 +76,11 @@ public interface Locator extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_findObjectById(Locator obj, IncomingRequest request)
-        throws UserException
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_findObjectById(Locator obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         Identity iceP_id;
         iceP_id = Identity.ice_read(istr);
@@ -96,11 +96,11 @@ public interface Locator extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_findAdapterById(Locator obj, IncomingRequest request)
-        throws UserException
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_findAdapterById(Locator obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         String iceP_id;
         iceP_id = istr.readString();
@@ -116,9 +116,9 @@ public interface Locator extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getRegistry(Locator obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getRegistry(Locator obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
         request.inputStream.skipEmptyEncapsulation();
         LocatorRegistryPrx ret = obj.getRegistry(request.current);
         var ostr = request.current.startReplyStream();

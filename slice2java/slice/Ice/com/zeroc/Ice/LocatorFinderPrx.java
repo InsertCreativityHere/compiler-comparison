@@ -20,7 +20,7 @@ package com.zeroc.Ice;
  * be advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
  **/
-public interface LocatorFinderPrx extends ObjectPrx
+public interface LocatorFinderPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
@@ -87,9 +87,9 @@ public interface LocatorFinderPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LocatorFinderPrx checkedCast(ObjectPrx obj)
+    static LocatorFinderPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._checkedCast(obj, ice_staticId(), LocatorFinderPrx.class, _LocatorFinderPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), LocatorFinderPrx.class, _LocatorFinderPrxI.class);
     }
 
     /**
@@ -99,9 +99,9 @@ public interface LocatorFinderPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LocatorFinderPrx checkedCast(ObjectPrx obj, java.util.Map<String, String> context)
+    static LocatorFinderPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, context, ice_staticId(), LocatorFinderPrx.class, _LocatorFinderPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), LocatorFinderPrx.class, _LocatorFinderPrxI.class);
     }
 
     /**
@@ -111,9 +111,9 @@ public interface LocatorFinderPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LocatorFinderPrx checkedCast(ObjectPrx obj, String facet)
+    static LocatorFinderPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._checkedCast(obj, facet, ice_staticId(), LocatorFinderPrx.class, _LocatorFinderPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), LocatorFinderPrx.class, _LocatorFinderPrxI.class);
     }
 
     /**
@@ -124,9 +124,9 @@ public interface LocatorFinderPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LocatorFinderPrx checkedCast(ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static LocatorFinderPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), LocatorFinderPrx.class, _LocatorFinderPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), LocatorFinderPrx.class, _LocatorFinderPrxI.class);
     }
 
     /**
@@ -134,9 +134,9 @@ public interface LocatorFinderPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static LocatorFinderPrx uncheckedCast(ObjectPrx obj)
+    static LocatorFinderPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._uncheckedCast(obj, LocatorFinderPrx.class, _LocatorFinderPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, LocatorFinderPrx.class, _LocatorFinderPrxI.class);
     }
 
     /**
@@ -145,9 +145,9 @@ public interface LocatorFinderPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static LocatorFinderPrx uncheckedCast(ObjectPrx obj, String facet)
+    static LocatorFinderPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._uncheckedCast(obj, facet, LocatorFinderPrx.class, _LocatorFinderPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, LocatorFinderPrx.class, _LocatorFinderPrxI.class);
     }
 
     /**
@@ -178,7 +178,7 @@ public interface LocatorFinderPrx extends ObjectPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default LocatorFinderPrx ice_endpoints(Endpoint[] newEndpoints)
+    default LocatorFinderPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
         return (LocatorFinderPrx)_ice_endpoints(newEndpoints);
     }
@@ -222,7 +222,7 @@ public interface LocatorFinderPrx extends ObjectPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default LocatorFinderPrx ice_endpointSelection(EndpointSelectionType newType)
+    default LocatorFinderPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
         return (LocatorFinderPrx)_ice_endpointSelection(newType);
     }
@@ -246,7 +246,7 @@ public interface LocatorFinderPrx extends ObjectPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default LocatorFinderPrx ice_encodingVersion(EncodingVersion e)
+    default LocatorFinderPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
         return (LocatorFinderPrx)_ice_encodingVersion(e);
     }
@@ -270,7 +270,7 @@ public interface LocatorFinderPrx extends ObjectPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default LocatorFinderPrx ice_router(RouterPrx router)
+    default LocatorFinderPrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
         return (LocatorFinderPrx)_ice_router(router);
     }
@@ -281,7 +281,7 @@ public interface LocatorFinderPrx extends ObjectPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default LocatorFinderPrx ice_locator(LocatorPrx locator)
+    default LocatorFinderPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
         return (LocatorFinderPrx)_ice_locator(locator);
     }

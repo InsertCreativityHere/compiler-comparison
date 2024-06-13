@@ -20,7 +20,7 @@ package com.zeroc.Ice;
  **/
 public final class ObjectProxySeqHelper
 {
-    public static void write(OutputStream ostr, ObjectPrx[] v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, ObjectPrx[] v)
     {
         if(v == null)
         {
@@ -36,7 +36,7 @@ public final class ObjectProxySeqHelper
         }
     }
 
-    public static ObjectPrx[] read(InputStream istr)
+    public static ObjectPrx[] read(com.zeroc.Ice.InputStream istr)
     {
         final ObjectPrx[] v;
         final int len0 = istr.readAndCheckSeqSize(2);
@@ -48,7 +48,7 @@ public final class ObjectProxySeqHelper
         return v;
     }
 
-    public static void write(OutputStream ostr, int tag, java.util.Optional<ObjectPrx[]> v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ObjectPrx[]> v)
     {
         if(v != null && v.isPresent())
         {
@@ -56,7 +56,7 @@ public final class ObjectProxySeqHelper
         }
     }
 
-    public static void write(OutputStream ostr, int tag, ObjectPrx[] v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, ObjectPrx[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
@@ -66,7 +66,7 @@ public final class ObjectProxySeqHelper
         }
     }
 
-    public static java.util.Optional<ObjectPrx[]> read(InputStream istr, int tag)
+    public static java.util.Optional<ObjectPrx[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {

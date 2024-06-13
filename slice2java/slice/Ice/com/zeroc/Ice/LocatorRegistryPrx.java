@@ -21,7 +21,7 @@ package com.zeroc.Ice;
  * locator implementations. Regular user code should not attempt to use any functionality of this interface
  * directly.
  **/
-public interface LocatorRegistryPrx extends ObjectPrx
+public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Set the adapter endpoints with the locator registry.
@@ -65,9 +65,9 @@ public interface LocatorRegistryPrx extends ObjectPrx
         {
             throw ex;
         }
-        catch(UserException ex)
+        catch(com.zeroc.Ice.UserException ex)
         {
-            throw new UnknownUserException(ex.ice_id(), ex);
+            throw new com.zeroc.Ice.UnknownUserException(ex.ice_id(), ex);
         }
     }
 
@@ -175,9 +175,9 @@ public interface LocatorRegistryPrx extends ObjectPrx
         {
             throw ex;
         }
-        catch(UserException ex)
+        catch(com.zeroc.Ice.UserException ex)
         {
-            throw new UnknownUserException(ex.ice_id(), ex);
+            throw new com.zeroc.Ice.UnknownUserException(ex.ice_id(), ex);
         }
     }
 
@@ -266,9 +266,9 @@ public interface LocatorRegistryPrx extends ObjectPrx
         {
             throw ex;
         }
-        catch(UserException ex)
+        catch(com.zeroc.Ice.UserException ex)
         {
-            throw new UnknownUserException(ex.ice_id(), ex);
+            throw new com.zeroc.Ice.UnknownUserException(ex.ice_id(), ex);
         }
     }
 
@@ -325,9 +325,9 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LocatorRegistryPrx checkedCast(ObjectPrx obj)
+    static LocatorRegistryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._checkedCast(obj, ice_staticId(), LocatorRegistryPrx.class, _LocatorRegistryPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), LocatorRegistryPrx.class, _LocatorRegistryPrxI.class);
     }
 
     /**
@@ -337,9 +337,9 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LocatorRegistryPrx checkedCast(ObjectPrx obj, java.util.Map<String, String> context)
+    static LocatorRegistryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, context, ice_staticId(), LocatorRegistryPrx.class, _LocatorRegistryPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), LocatorRegistryPrx.class, _LocatorRegistryPrxI.class);
     }
 
     /**
@@ -349,9 +349,9 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LocatorRegistryPrx checkedCast(ObjectPrx obj, String facet)
+    static LocatorRegistryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._checkedCast(obj, facet, ice_staticId(), LocatorRegistryPrx.class, _LocatorRegistryPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), LocatorRegistryPrx.class, _LocatorRegistryPrxI.class);
     }
 
     /**
@@ -362,9 +362,9 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LocatorRegistryPrx checkedCast(ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static LocatorRegistryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), LocatorRegistryPrx.class, _LocatorRegistryPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), LocatorRegistryPrx.class, _LocatorRegistryPrxI.class);
     }
 
     /**
@@ -372,9 +372,9 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static LocatorRegistryPrx uncheckedCast(ObjectPrx obj)
+    static LocatorRegistryPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._uncheckedCast(obj, LocatorRegistryPrx.class, _LocatorRegistryPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, LocatorRegistryPrx.class, _LocatorRegistryPrxI.class);
     }
 
     /**
@@ -383,9 +383,9 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static LocatorRegistryPrx uncheckedCast(ObjectPrx obj, String facet)
+    static LocatorRegistryPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._uncheckedCast(obj, facet, LocatorRegistryPrx.class, _LocatorRegistryPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, LocatorRegistryPrx.class, _LocatorRegistryPrxI.class);
     }
 
     /**
@@ -416,7 +416,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default LocatorRegistryPrx ice_endpoints(Endpoint[] newEndpoints)
+    default LocatorRegistryPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
         return (LocatorRegistryPrx)_ice_endpoints(newEndpoints);
     }
@@ -460,7 +460,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default LocatorRegistryPrx ice_endpointSelection(EndpointSelectionType newType)
+    default LocatorRegistryPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
         return (LocatorRegistryPrx)_ice_endpointSelection(newType);
     }
@@ -484,7 +484,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default LocatorRegistryPrx ice_encodingVersion(EncodingVersion e)
+    default LocatorRegistryPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
         return (LocatorRegistryPrx)_ice_encodingVersion(e);
     }
@@ -508,7 +508,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default LocatorRegistryPrx ice_router(RouterPrx router)
+    default LocatorRegistryPrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
         return (LocatorRegistryPrx)_ice_router(router);
     }
@@ -519,7 +519,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default LocatorRegistryPrx ice_locator(LocatorPrx locator)
+    default LocatorRegistryPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
         return (LocatorRegistryPrx)_ice_locator(locator);
     }

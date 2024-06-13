@@ -20,7 +20,7 @@ package com.zeroc.Ice;
  **/
 public final class ObjectSeqHelper
 {
-    public static void write(OutputStream ostr, Value[] v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, Value[] v)
     {
         if(v == null)
         {
@@ -36,7 +36,7 @@ public final class ObjectSeqHelper
         }
     }
 
-    public static Value[] read(InputStream istr)
+    public static Value[] read(com.zeroc.Ice.InputStream istr)
     {
         final Value[] v;
         final int len0 = istr.readAndCheckSeqSize(1);
@@ -49,7 +49,7 @@ public final class ObjectSeqHelper
         return v;
     }
 
-    public static void write(OutputStream ostr, int tag, java.util.Optional<Value[]> v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Value[]> v)
     {
         if(v != null && v.isPresent())
         {
@@ -57,7 +57,7 @@ public final class ObjectSeqHelper
         }
     }
 
-    public static void write(OutputStream ostr, int tag, Value[] v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, Value[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
@@ -67,7 +67,7 @@ public final class ObjectSeqHelper
         }
     }
 
-    public static java.util.Optional<Value[]> read(InputStream istr, int tag)
+    public static java.util.Optional<Value[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {

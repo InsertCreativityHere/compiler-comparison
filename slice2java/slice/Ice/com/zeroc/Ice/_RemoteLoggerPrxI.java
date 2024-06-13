@@ -16,7 +16,7 @@
 package com.zeroc.Ice;
 
 /** @hidden */
-public class _RemoteLoggerPrxI extends _ObjectPrxI implements RemoteLoggerPrx
+public class _RemoteLoggerPrxI extends com.zeroc.Ice._ObjectPrxI implements RemoteLoggerPrx
 {
     /** @hidden */
     public static final long serialVersionUID = 0L;

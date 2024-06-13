@@ -18,7 +18,7 @@ package com.zeroc.Ice;
 /**
  * The PropertiesAdmin interface provides remote access to the properties of a communicator.
  **/
-public interface PropertiesAdmin extends Object
+public interface PropertiesAdmin extends com.zeroc.Ice.Object
 {
     /**
      * Get a property by key. If the property is not set, an empty string is returned.
@@ -26,7 +26,7 @@ public interface PropertiesAdmin extends Object
      * @param current The Current object for the invocation.
      * @return The property value.
      **/
-    String getProperty(String key, Current current);
+    String getProperty(String key, com.zeroc.Ice.Current current);
 
     /**
      * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
@@ -35,7 +35,7 @@ public interface PropertiesAdmin extends Object
      * @param current The Current object for the invocation.
      * @return The matching property set.
      **/
-    java.util.Map<java.lang.String, java.lang.String> getPropertiesForPrefix(String prefix, Current current);
+    java.util.Map<java.lang.String, java.lang.String> getPropertiesForPrefix(String prefix, com.zeroc.Ice.Current current);
 
     /**
      * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
@@ -45,7 +45,7 @@ public interface PropertiesAdmin extends Object
      * @param newProperties Properties to be added, changed, or removed.
      * @param current The Current object for the invocation.
      **/
-    void setProperties(java.util.Map<java.lang.String, java.lang.String> newProperties, Current current);
+    void setProperties(java.util.Map<java.lang.String, java.lang.String> newProperties, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -55,13 +55,13 @@ public interface PropertiesAdmin extends Object
     };
 
     @Override
-    default String[] ice_ids(Current current)
+    default String[] ice_ids(com.zeroc.Ice.Current current)
     {
         return _iceIds;
     }
 
     @Override
-    default String ice_id(Current current)
+    default String ice_id(com.zeroc.Ice.Current current)
     {
         return ice_staticId();
     }
@@ -72,10 +72,10 @@ public interface PropertiesAdmin extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getProperty(PropertiesAdmin obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getProperty(PropertiesAdmin obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(null, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         String iceP_key;
         iceP_key = istr.readString();
@@ -89,10 +89,10 @@ public interface PropertiesAdmin extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getPropertiesForPrefix(PropertiesAdmin obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getPropertiesForPrefix(PropertiesAdmin obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(null, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         String iceP_prefix;
         iceP_prefix = istr.readString();
@@ -106,10 +106,10 @@ public interface PropertiesAdmin extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_setProperties(PropertiesAdmin obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setProperties(PropertiesAdmin obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(null, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         java.util.Map<java.lang.String, java.lang.String> iceP_newProperties;
         iceP_newProperties = PropertyDictHelper.read(istr);

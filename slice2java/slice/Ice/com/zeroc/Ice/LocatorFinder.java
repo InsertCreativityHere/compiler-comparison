@@ -20,7 +20,7 @@ package com.zeroc.Ice;
  * be advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
  **/
-public interface LocatorFinder extends Object
+public interface LocatorFinder extends com.zeroc.Ice.Object
 {
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
@@ -28,7 +28,7 @@ public interface LocatorFinder extends Object
      * @param current The Current object for the invocation.
      * @return The locator proxy.
      **/
-    LocatorPrx getLocator(Current current);
+    LocatorPrx getLocator(com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -38,13 +38,13 @@ public interface LocatorFinder extends Object
     };
 
     @Override
-    default String[] ice_ids(Current current)
+    default String[] ice_ids(com.zeroc.Ice.Current current)
     {
         return _iceIds;
     }
 
     @Override
-    default String ice_id(Current current)
+    default String ice_id(com.zeroc.Ice.Current current)
     {
         return ice_staticId();
     }
@@ -55,9 +55,9 @@ public interface LocatorFinder extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getLocator(LocatorFinder obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getLocator(LocatorFinder obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         request.inputStream.skipEmptyEncapsulation();
         LocatorPrx ret = obj.getLocator(request.current);
         var ostr = request.current.startReplyStream();

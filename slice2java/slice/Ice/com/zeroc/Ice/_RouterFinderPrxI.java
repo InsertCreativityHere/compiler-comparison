@@ -16,7 +16,7 @@
 package com.zeroc.Ice;
 
 /** @hidden */
-public class _RouterFinderPrxI extends _ObjectPrxI implements RouterFinderPrx
+public class _RouterFinderPrxI extends com.zeroc.Ice._ObjectPrxI implements RouterFinderPrx
 {
     /** @hidden */
     public static final long serialVersionUID = 0L;

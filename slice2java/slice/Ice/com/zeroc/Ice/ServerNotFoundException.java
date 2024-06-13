@@ -18,7 +18,7 @@ package com.zeroc.Ice;
 /**
  * This exception is raised if a server cannot be found.
  **/
-public class ServerNotFoundException extends UserException
+public class ServerNotFoundException extends com.zeroc.Ice.UserException
 {
     public ServerNotFoundException()
     {
@@ -36,7 +36,7 @@ public class ServerNotFoundException extends UserException
 
     /** @hidden */
     @Override
-    protected void _writeImpl(OutputStream ostr_)
+    protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
         ostr_.startSlice("::Ice::ServerNotFoundException", -1, true);
         ostr_.endSlice();
@@ -44,7 +44,7 @@ public class ServerNotFoundException extends UserException
 
     /** @hidden */
     @Override
-    protected void _readImpl(InputStream istr_)
+    protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
         istr_.startSlice();
         istr_.endSlice();

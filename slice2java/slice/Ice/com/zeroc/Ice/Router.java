@@ -19,7 +19,7 @@ package com.zeroc.Ice;
  * The Ice router interface. Routers can be set either globally though the <code>Communicator</code>, or with
  * <code>ice_router</code> on specific proxies.
  **/
-public interface Router extends Object
+public interface Router extends com.zeroc.Ice.Object
 {
     /**
      * Holds the result of operation getClientProxy.
@@ -73,13 +73,13 @@ public interface Router extends Object
          **/
         public java.util.Optional<java.lang.Boolean> hasRoutingTable;
 
-        public void write(OutputStream ostr)
+        public void write(com.zeroc.Ice.OutputStream ostr)
         {
             ostr.writeProxy(returnValue);
             ostr.writeBool(1, this.hasRoutingTable);
         }
 
-        public void read(InputStream istr)
+        public void read(com.zeroc.Ice.InputStream istr)
         {
             returnValue = istr.readProxy();
             this.hasRoutingTable = istr.readBool(1);
@@ -92,14 +92,14 @@ public interface Router extends Object
      * @param current The Current object for the invocation.
      * @return An instance of Router.GetClientProxyResult.
      **/
-    Router.GetClientProxyResult getClientProxy(Current current);
+    Router.GetClientProxyResult getClientProxy(com.zeroc.Ice.Current current);
 
     /**
      * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param current The Current object for the invocation.
      * @return The router's server proxy.
      **/
-    ObjectPrx getServerProxy(Current current);
+    ObjectPrx getServerProxy(com.zeroc.Ice.Current current);
 
     /**
      * Add new proxy information to the router's routing table.
@@ -107,7 +107,7 @@ public interface Router extends Object
      * @param current The Current object for the invocation.
      * @return Proxies discarded by the router. These proxies are all non-null.
      **/
-    ObjectPrx[] addProxies(ObjectPrx[] proxies, Current current);
+    ObjectPrx[] addProxies(ObjectPrx[] proxies, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -117,13 +117,13 @@ public interface Router extends Object
     };
 
     @Override
-    default String[] ice_ids(Current current)
+    default String[] ice_ids(com.zeroc.Ice.Current current)
     {
         return _iceIds;
     }
 
     @Override
-    default String ice_id(Current current)
+    default String ice_id(com.zeroc.Ice.Current current)
     {
         return ice_staticId();
     }
@@ -134,9 +134,9 @@ public interface Router extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getClientProxy(Router obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getClientProxy(Router obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
         request.inputStream.skipEmptyEncapsulation();
         Router.GetClientProxyResult ret = obj.getClientProxy(request.current);
         var ostr = request.current.startReplyStream();
@@ -147,9 +147,9 @@ public interface Router extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getServerProxy(Router obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getServerProxy(Router obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
         request.inputStream.skipEmptyEncapsulation();
         ObjectPrx ret = obj.getServerProxy(request.current);
         var ostr = request.current.startReplyStream();
@@ -160,10 +160,10 @@ public interface Router extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_addProxies(Router obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_addProxies(Router obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
-        InputStream istr = request.inputStream;
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         ObjectPrx[] iceP_proxies;
         iceP_proxies = ObjectProxySeqHelper.read(istr);

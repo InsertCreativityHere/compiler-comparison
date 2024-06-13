@@ -16,7 +16,7 @@
 package com.zeroc.Ice;
 
 /** @hidden */
-public class _LocatorFinderPrxI extends _ObjectPrxI implements LocatorFinderPrx
+public class _LocatorFinderPrxI extends com.zeroc.Ice._ObjectPrxI implements LocatorFinderPrx
 {
     /** @hidden */
     public static final long serialVersionUID = 0L;

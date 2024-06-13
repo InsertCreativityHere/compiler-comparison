@@ -20,7 +20,7 @@ package com.zeroc.Ice;
  **/
 public final class IdentitySeqHelper
 {
-    public static void write(OutputStream ostr, Identity[] v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, Identity[] v)
     {
         if(v == null)
         {
@@ -36,7 +36,7 @@ public final class IdentitySeqHelper
         }
     }
 
-    public static Identity[] read(InputStream istr)
+    public static Identity[] read(com.zeroc.Ice.InputStream istr)
     {
         final Identity[] v;
         final int len0 = istr.readAndCheckSeqSize(2);
@@ -48,7 +48,7 @@ public final class IdentitySeqHelper
         return v;
     }
 
-    public static void write(OutputStream ostr, int tag, java.util.Optional<Identity[]> v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Identity[]> v)
     {
         if(v != null && v.isPresent())
         {
@@ -56,7 +56,7 @@ public final class IdentitySeqHelper
         }
     }
 
-    public static void write(OutputStream ostr, int tag, Identity[] v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, Identity[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
@@ -66,7 +66,7 @@ public final class IdentitySeqHelper
         }
     }
 
-    public static java.util.Optional<Identity[]> read(InputStream istr, int tag)
+    public static java.util.Optional<Identity[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {

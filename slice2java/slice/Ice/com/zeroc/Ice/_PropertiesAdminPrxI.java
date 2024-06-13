@@ -16,7 +16,7 @@
 package com.zeroc.Ice;
 
 /** @hidden */
-public class _PropertiesAdminPrxI extends _ObjectPrxI implements PropertiesAdminPrx
+public class _PropertiesAdminPrxI extends com.zeroc.Ice._ObjectPrxI implements PropertiesAdminPrx
 {
     /** @hidden */
     public static final long serialVersionUID = 0L;

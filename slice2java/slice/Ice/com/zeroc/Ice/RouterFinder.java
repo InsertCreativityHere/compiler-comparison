@@ -20,7 +20,7 @@ package com.zeroc.Ice;
  * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
  * with just the endpoint information of the service.
  **/
-public interface RouterFinder extends Object
+public interface RouterFinder extends com.zeroc.Ice.Object
 {
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
@@ -28,7 +28,7 @@ public interface RouterFinder extends Object
      * @param current The Current object for the invocation.
      * @return The router proxy.
      **/
-    RouterPrx getRouter(Current current);
+    RouterPrx getRouter(com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -38,13 +38,13 @@ public interface RouterFinder extends Object
     };
 
     @Override
-    default String[] ice_ids(Current current)
+    default String[] ice_ids(com.zeroc.Ice.Current current)
     {
         return _iceIds;
     }
 
     @Override
-    default String ice_id(Current current)
+    default String ice_id(com.zeroc.Ice.Current current)
     {
         return ice_staticId();
     }
@@ -55,9 +55,9 @@ public interface RouterFinder extends Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getRouter(RouterFinder obj, IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getRouter(RouterFinder obj, com.zeroc.Ice.IncomingRequest request)
     {
-        Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         request.inputStream.skipEmptyEncapsulation();
         RouterPrx ret = obj.getRouter(request.current);
         var ostr = request.current.startReplyStream();

@@ -19,7 +19,7 @@ package com.zeroc.Ice;
  * The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
  * to the local {@link RemoteLogger} of another Ice application.
  **/
-public interface RemoteLoggerPrx extends ObjectPrx
+public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
@@ -145,9 +145,9 @@ public interface RemoteLoggerPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static RemoteLoggerPrx checkedCast(ObjectPrx obj)
+    static RemoteLoggerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._checkedCast(obj, ice_staticId(), RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
     }
 
     /**
@@ -157,9 +157,9 @@ public interface RemoteLoggerPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static RemoteLoggerPrx checkedCast(ObjectPrx obj, java.util.Map<String, String> context)
+    static RemoteLoggerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, context, ice_staticId(), RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
     }
 
     /**
@@ -169,9 +169,9 @@ public interface RemoteLoggerPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static RemoteLoggerPrx checkedCast(ObjectPrx obj, String facet)
+    static RemoteLoggerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._checkedCast(obj, facet, ice_staticId(), RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
     }
 
     /**
@@ -182,9 +182,9 @@ public interface RemoteLoggerPrx extends ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static RemoteLoggerPrx checkedCast(ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static RemoteLoggerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
     }
 
     /**
@@ -192,9 +192,9 @@ public interface RemoteLoggerPrx extends ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static RemoteLoggerPrx uncheckedCast(ObjectPrx obj)
+    static RemoteLoggerPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return ObjectPrx._uncheckedCast(obj, RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
     }
 
     /**
@@ -203,9 +203,9 @@ public interface RemoteLoggerPrx extends ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static RemoteLoggerPrx uncheckedCast(ObjectPrx obj, String facet)
+    static RemoteLoggerPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return ObjectPrx._uncheckedCast(obj, facet, RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
     }
 
     /**
@@ -236,7 +236,7 @@ public interface RemoteLoggerPrx extends ObjectPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default RemoteLoggerPrx ice_endpoints(Endpoint[] newEndpoints)
+    default RemoteLoggerPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
         return (RemoteLoggerPrx)_ice_endpoints(newEndpoints);
     }
@@ -280,7 +280,7 @@ public interface RemoteLoggerPrx extends ObjectPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default RemoteLoggerPrx ice_endpointSelection(EndpointSelectionType newType)
+    default RemoteLoggerPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
         return (RemoteLoggerPrx)_ice_endpointSelection(newType);
     }
@@ -304,7 +304,7 @@ public interface RemoteLoggerPrx extends ObjectPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default RemoteLoggerPrx ice_encodingVersion(EncodingVersion e)
+    default RemoteLoggerPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
         return (RemoteLoggerPrx)_ice_encodingVersion(e);
     }
@@ -328,7 +328,7 @@ public interface RemoteLoggerPrx extends ObjectPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default RemoteLoggerPrx ice_router(RouterPrx router)
+    default RemoteLoggerPrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
         return (RemoteLoggerPrx)_ice_router(router);
     }
@@ -339,7 +339,7 @@ public interface RemoteLoggerPrx extends ObjectPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default RemoteLoggerPrx ice_locator(LocatorPrx locator)
+    default RemoteLoggerPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
         return (RemoteLoggerPrx)_ice_locator(locator);
     }
