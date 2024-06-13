@@ -64,7 +64,7 @@ public class ChildInvocationMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -6681154884143106438L;
+    public static final long serialVersionUID = -5868689713882946374L;
 
     /** @hidden */
     @Override
