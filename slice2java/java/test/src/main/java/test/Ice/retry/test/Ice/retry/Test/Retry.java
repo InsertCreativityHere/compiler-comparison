@@ -51,109 +51,82 @@ public interface Retry extends com.zeroc.Ice.Object
         return "::Test::Retry";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_op(Retry obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_op(Retry obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         boolean iceP_kill;
         iceP_kill = istr.readBool();
-        inS.endReadParams();
-        obj.op(iceP_kill, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opIdempotent(Retry obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        int iceP_c;
-        iceP_c = istr.readInt();
-        inS.endReadParams();
-        int ret = obj.opIdempotent(iceP_c, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeInt(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opNotIdempotent(Retry obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.opNotIdempotent(current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_sleep(Retry obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        int iceP_delay;
-        iceP_delay = istr.readInt();
-        inS.endReadParams();
-        obj.sleep(iceP_delay, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_shutdown(Retry obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        obj.shutdown(current);
-        return inS.setResult(inS.writeEmptyParams());
+        istr.endEncapsulation();
+        obj.op(iceP_kill, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
     /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opIdempotent(Retry obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        int iceP_c;
+        iceP_c = istr.readInt();
+        istr.endEncapsulation();
+        int ret = obj.opIdempotent(iceP_c, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.writeInt(ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opNotIdempotent(Retry obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.opNotIdempotent(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_sleep(Retry obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        int iceP_delay;
+        iceP_delay = istr.readInt();
+        istr.endEncapsulation();
+        obj.sleep(iceP_delay, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(Retry obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.shutdown(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
     @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "op" -> Retry._iceD_op(this, in, current);
-            case "opIdempotent" -> Retry._iceD_opIdempotent(this, in, current);
-            case "opNotIdempotent" -> Retry._iceD_opNotIdempotent(this, in, current);
-            case "sleep" -> Retry._iceD_sleep(this, in, current);
-            case "shutdown" -> Retry._iceD_shutdown(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "op" -> Retry._iceD_op(this, request);
+            case "opIdempotent" -> Retry._iceD_opIdempotent(this, request);
+            case "opNotIdempotent" -> Retry._iceD_opNotIdempotent(this, request);
+            case "sleep" -> Retry._iceD_sleep(this, request);
+            case "shutdown" -> Retry._iceD_shutdown(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

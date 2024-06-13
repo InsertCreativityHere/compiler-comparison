@@ -91,7 +91,7 @@ public interface FileIteratorPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<FileIterator.ReadResult> _iceI_readAsync(int iceP_size, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<FileIterator.ReadResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "read", null, sync, _iceE_read);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeInt(iceP_size);
                  }, istr -> {
                      FileIterator.ReadResult ret = new FileIterator.ReadResult();
@@ -152,7 +152,7 @@ public interface FileIteratorPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "destroy", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 

@@ -76,7 +76,7 @@ public interface RemoteLoggerPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_initAsync(String iceP_prefix, LogMessage[] iceP_logMessages, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "init", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_prefix);
                      LogMessageSeqHelper.write(ostr, iceP_logMessages);
                  }, null);
@@ -133,7 +133,7 @@ public interface RemoteLoggerPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_logAsync(LogMessage iceP_message, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "log", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      LogMessage.ice_write(ostr, iceP_message);
                  }, null);
         return f;

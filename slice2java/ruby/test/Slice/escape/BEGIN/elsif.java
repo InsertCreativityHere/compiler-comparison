@@ -42,21 +42,20 @@ public interface elsif extends _break
         return "::BEGIN::elsif";
     }
 
-    /** @hidden */
     @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "case" -> _break._iceD_case(this, in, current);
-            case "to_a" -> _break._iceD_to_a(this, in, current);
-            case "instance_variable_set" -> _break._iceD_instance_variable_set(this, in, current);
-            case "instance_variables" -> _break._iceD_instance_variables(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "case" -> _break._iceD_case(this, request);
+            case "to_a" -> _break._iceD_to_a(this, request);
+            case "instance_variable_set" -> _break._iceD_instance_variable_set(this, request);
+            case "instance_variables" -> _break._iceD_instance_variables(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

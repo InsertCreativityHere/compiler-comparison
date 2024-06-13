@@ -47,7 +47,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpResult> _iceI_opAsync(int iceP_i, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "op", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeInt(iceP_i);
                  }, istr -> {
                      TestIntf.OpResult ret = new TestIntf.OpResult();

@@ -277,165 +277,134 @@ public interface TestIntf extends com.zeroc.Ice.Object
         return "::Test::TestIntf";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opByteSpan(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opByteSpan(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         byte[] iceP_dataIn;
         iceP_dataIn = istr.readByteSeq();
-        inS.endReadParams();
-        TestIntf.OpByteSpanResult ret = obj.opByteSpan(iceP_dataIn, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        istr.endEncapsulation();
+        TestIntf.OpByteSpanResult ret = obj.opByteSpan(iceP_dataIn, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opShortSpan(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        short[] iceP_dataIn;
-        iceP_dataIn = istr.readShortSeq();
-        inS.endReadParams();
-        TestIntf.OpShortSpanResult ret = obj.opShortSpan(iceP_dataIn, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opStringSpan(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String[] iceP_dataIn;
-        iceP_dataIn = istr.readStringSeq();
-        inS.endReadParams();
-        TestIntf.OpStringSpanResult ret = obj.opStringSpan(iceP_dataIn, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opOptionalByteSpan(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<byte[]> iceP_dataIn;
-        iceP_dataIn = istr.readByteSeq(1);
-        inS.endReadParams();
-        TestIntf.OpOptionalByteSpanResult ret = obj.opOptionalByteSpan(iceP_dataIn, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opOptionalShortSpan(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<short[]> iceP_dataIn;
-        iceP_dataIn = istr.readShortSeq(1);
-        inS.endReadParams();
-        TestIntf.OpOptionalShortSpanResult ret = obj.opOptionalShortSpan(iceP_dataIn, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opOptionalStringSpan(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<String[]> iceP_dataIn;
-        iceP_dataIn = istr.readStringSeq(1);
-        inS.endReadParams();
-        TestIntf.OpOptionalStringSpanResult ret = obj.opOptionalStringSpan(iceP_dataIn, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_shutdown(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.shutdown(current);
-        return inS.setResult(inS.writeEmptyParams());
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
     /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opShortSpan(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        short[] iceP_dataIn;
+        iceP_dataIn = istr.readShortSeq();
+        istr.endEncapsulation();
+        TestIntf.OpShortSpanResult ret = obj.opShortSpan(iceP_dataIn, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opStringSpan(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        String[] iceP_dataIn;
+        iceP_dataIn = istr.readStringSeq();
+        istr.endEncapsulation();
+        TestIntf.OpStringSpanResult ret = obj.opStringSpan(iceP_dataIn, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opOptionalByteSpan(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Optional<byte[]> iceP_dataIn;
+        iceP_dataIn = istr.readByteSeq(1);
+        istr.endEncapsulation();
+        TestIntf.OpOptionalByteSpanResult ret = obj.opOptionalByteSpan(iceP_dataIn, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opOptionalShortSpan(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Optional<short[]> iceP_dataIn;
+        iceP_dataIn = istr.readShortSeq(1);
+        istr.endEncapsulation();
+        TestIntf.OpOptionalShortSpanResult ret = obj.opOptionalShortSpan(iceP_dataIn, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opOptionalStringSpan(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Optional<String[]> iceP_dataIn;
+        iceP_dataIn = istr.readStringSeq(1);
+        istr.endEncapsulation();
+        TestIntf.OpOptionalStringSpanResult ret = obj.opOptionalStringSpan(iceP_dataIn, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.shutdown(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
     @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "opByteSpan" -> TestIntf._iceD_opByteSpan(this, in, current);
-            case "opShortSpan" -> TestIntf._iceD_opShortSpan(this, in, current);
-            case "opStringSpan" -> TestIntf._iceD_opStringSpan(this, in, current);
-            case "opOptionalByteSpan" -> TestIntf._iceD_opOptionalByteSpan(this, in, current);
-            case "opOptionalShortSpan" -> TestIntf._iceD_opOptionalShortSpan(this, in, current);
-            case "opOptionalStringSpan" -> TestIntf._iceD_opOptionalStringSpan(this, in, current);
-            case "shutdown" -> TestIntf._iceD_shutdown(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "opByteSpan" -> TestIntf._iceD_opByteSpan(this, request);
+            case "opShortSpan" -> TestIntf._iceD_opShortSpan(this, request);
+            case "opStringSpan" -> TestIntf._iceD_opStringSpan(this, request);
+            case "opOptionalByteSpan" -> TestIntf._iceD_opOptionalByteSpan(this, request);
+            case "opOptionalShortSpan" -> TestIntf._iceD_opOptionalShortSpan(this, request);
+            case "opOptionalStringSpan" -> TestIntf._iceD_opOptionalStringSpan(this, request);
+            case "shutdown" -> TestIntf._iceD_shutdown(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

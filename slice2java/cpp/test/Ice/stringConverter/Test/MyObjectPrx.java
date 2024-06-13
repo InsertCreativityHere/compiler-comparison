@@ -60,7 +60,7 @@ public interface MyObjectPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_widenAsync(String iceP_msg, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "widen", null, sync, _iceE_widen);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_msg);
                  }, istr -> {
                      String ret;
@@ -106,7 +106,7 @@ public interface MyObjectPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_narrowAsync(String iceP_wmsg, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "narrow", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_wmsg);
                  }, istr -> {
                      String ret;
@@ -145,7 +145,7 @@ public interface MyObjectPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 

@@ -66,74 +66,58 @@ public interface RegistryObserver extends com.zeroc.Ice.Object
         return "::IceGrid::RegistryObserver";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_registryInit(RegistryObserver obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_registryInit(RegistryObserver obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         RegistryInfo[] iceP_registries;
         iceP_registries = RegistryInfoSeqHelper.read(istr);
-        inS.endReadParams();
-        obj.registryInit(iceP_registries, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_registryUp(RegistryObserver obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        RegistryInfo iceP_registryReplica;
-        iceP_registryReplica = RegistryInfo.ice_read(istr);
-        inS.endReadParams();
-        obj.registryUp(iceP_registryReplica, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_registryDown(RegistryObserver obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_name;
-        iceP_name = istr.readString();
-        inS.endReadParams();
-        obj.registryDown(iceP_name, current);
-        return inS.setResult(inS.writeEmptyParams());
+        istr.endEncapsulation();
+        obj.registryInit(iceP_registries, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
     /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_registryUp(RegistryObserver obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        RegistryInfo iceP_registryReplica;
+        iceP_registryReplica = RegistryInfo.ice_read(istr);
+        istr.endEncapsulation();
+        obj.registryUp(iceP_registryReplica, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_registryDown(RegistryObserver obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        String iceP_name;
+        iceP_name = istr.readString();
+        istr.endEncapsulation();
+        obj.registryDown(iceP_name, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
     @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "registryInit" -> RegistryObserver._iceD_registryInit(this, in, current);
-            case "registryUp" -> RegistryObserver._iceD_registryUp(this, in, current);
-            case "registryDown" -> RegistryObserver._iceD_registryDown(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "registryInit" -> RegistryObserver._iceD_registryInit(this, request);
+            case "registryUp" -> RegistryObserver._iceD_registryUp(this, request);
+            case "registryDown" -> RegistryObserver._iceD_registryDown(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

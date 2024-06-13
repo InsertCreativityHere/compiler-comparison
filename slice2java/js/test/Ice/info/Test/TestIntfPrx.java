@@ -46,7 +46,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 
@@ -79,7 +79,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> _iceI_getEndpointInfoAsContextAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getEndpointInfoAsContext", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      java.util.Map<java.lang.String, java.lang.String> ret;
                      ret = com.zeroc.Ice.ContextHelper.read(istr);
                      return ret;
@@ -116,7 +116,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> _iceI_getConnectionInfoAsContextAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getConnectionInfoAsContext", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      java.util.Map<java.lang.String, java.lang.String> ret;
                      ret = com.zeroc.Ice.ContextHelper.read(istr);
                      return ret;

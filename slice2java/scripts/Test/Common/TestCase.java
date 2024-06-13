@@ -52,111 +52,89 @@ public interface TestCase extends com.zeroc.Ice.Object
         return "::Test::Common::TestCase";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_startServerSide(TestCase obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_startServerSide(TestCase obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         final com.zeroc.IceInternal.Holder<Config> icePP_config = new com.zeroc.IceInternal.Holder<>();
         istr.readValue(v -> icePP_config.value = v, Config.class);
         istr.readPendingValues();
-        inS.endReadParams();
+        istr.endEncapsulation();
         Config iceP_config = icePP_config.value;
-        String ret = obj.startServerSide(iceP_config, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        String ret = obj.startServerSide(iceP_config, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ostr.writeString(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_stopServerSide(TestCase obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_stopServerSide(TestCase obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         boolean iceP_success;
         iceP_success = istr.readBool();
-        inS.endReadParams();
-        String ret = obj.stopServerSide(iceP_success, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        istr.endEncapsulation();
+        String ret = obj.stopServerSide(iceP_success, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ostr.writeString(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_runClientSide(TestCase obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_runClientSide(TestCase obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         String iceP_host;
         final com.zeroc.IceInternal.Holder<Config> icePP_config = new com.zeroc.IceInternal.Holder<>();
         iceP_host = istr.readString();
         istr.readValue(v -> icePP_config.value = v, Config.class);
         istr.readPendingValues();
-        inS.endReadParams();
+        istr.endEncapsulation();
         Config iceP_config = icePP_config.value;
-        String ret = obj.runClientSide(iceP_host, iceP_config, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        String ret = obj.runClientSide(iceP_host, iceP_config, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ostr.writeString(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_destroy(TestCase obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.destroy(current);
-        return inS.setResult(inS.writeEmptyParams());
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
     /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_destroy(TestCase obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.destroy(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
     @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "startServerSide" -> TestCase._iceD_startServerSide(this, in, current);
-            case "stopServerSide" -> TestCase._iceD_stopServerSide(this, in, current);
-            case "runClientSide" -> TestCase._iceD_runClientSide(this, in, current);
-            case "destroy" -> TestCase._iceD_destroy(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "startServerSide" -> TestCase._iceD_startServerSide(this, request);
+            case "stopServerSide" -> TestCase._iceD_stopServerSide(this, request);
+            case "runClientSide" -> TestCase._iceD_runClientSide(this, request);
+            case "destroy" -> TestCase._iceD_destroy(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

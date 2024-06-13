@@ -107,7 +107,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setAdapterDirectProxyAsync(String iceP_id, ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setAdapterDirectProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setAdapterDirectProxy);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_id);
                      ostr.writeProxy(iceP_proxy);
                  }, null);
@@ -220,7 +220,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setReplicatedAdapterDirectProxyAsync(String iceP_adapterId, String iceP_replicaGroupId, ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setReplicatedAdapterDirectProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setReplicatedAdapterDirectProxy);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_adapterId);
                      ostr.writeString(iceP_replicaGroupId);
                      ostr.writeProxy(iceP_proxy);
@@ -306,7 +306,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setServerProcessProxyAsync(String iceP_id, ProcessPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setServerProcessProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setServerProcessProxy);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_id);
                      ostr.writeProxy(iceP_proxy);
                  }, null);

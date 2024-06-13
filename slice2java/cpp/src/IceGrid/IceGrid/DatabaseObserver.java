@@ -46,29 +46,28 @@ public interface DatabaseObserver extends com.zeroc.IceGrid.ApplicationObserver,
         return "::IceGrid::DatabaseObserver";
     }
 
-    /** @hidden */
     @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "applicationInit" -> com.zeroc.IceGrid.ApplicationObserver._iceD_applicationInit(this, in, current);
-            case "applicationAdded" -> com.zeroc.IceGrid.ApplicationObserver._iceD_applicationAdded(this, in, current);
-            case "applicationRemoved" -> com.zeroc.IceGrid.ApplicationObserver._iceD_applicationRemoved(this, in, current);
-            case "applicationUpdated" -> com.zeroc.IceGrid.ApplicationObserver._iceD_applicationUpdated(this, in, current);
-            case "objectInit" -> com.zeroc.IceGrid.ObjectObserver._iceD_objectInit(this, in, current);
-            case "objectAdded" -> com.zeroc.IceGrid.ObjectObserver._iceD_objectAdded(this, in, current);
-            case "objectUpdated" -> com.zeroc.IceGrid.ObjectObserver._iceD_objectUpdated(this, in, current);
-            case "objectRemoved" -> com.zeroc.IceGrid.ObjectObserver._iceD_objectRemoved(this, in, current);
-            case "adapterInit" -> com.zeroc.IceGrid.AdapterObserver._iceD_adapterInit(this, in, current);
-            case "adapterAdded" -> com.zeroc.IceGrid.AdapterObserver._iceD_adapterAdded(this, in, current);
-            case "adapterUpdated" -> com.zeroc.IceGrid.AdapterObserver._iceD_adapterUpdated(this, in, current);
-            case "adapterRemoved" -> com.zeroc.IceGrid.AdapterObserver._iceD_adapterRemoved(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "applicationInit" -> com.zeroc.IceGrid.ApplicationObserver._iceD_applicationInit(this, request);
+            case "applicationAdded" -> com.zeroc.IceGrid.ApplicationObserver._iceD_applicationAdded(this, request);
+            case "applicationRemoved" -> com.zeroc.IceGrid.ApplicationObserver._iceD_applicationRemoved(this, request);
+            case "applicationUpdated" -> com.zeroc.IceGrid.ApplicationObserver._iceD_applicationUpdated(this, request);
+            case "objectInit" -> com.zeroc.IceGrid.ObjectObserver._iceD_objectInit(this, request);
+            case "objectAdded" -> com.zeroc.IceGrid.ObjectObserver._iceD_objectAdded(this, request);
+            case "objectUpdated" -> com.zeroc.IceGrid.ObjectObserver._iceD_objectUpdated(this, request);
+            case "objectRemoved" -> com.zeroc.IceGrid.ObjectObserver._iceD_objectRemoved(this, request);
+            case "adapterInit" -> com.zeroc.IceGrid.AdapterObserver._iceD_adapterInit(this, request);
+            case "adapterAdded" -> com.zeroc.IceGrid.AdapterObserver._iceD_adapterAdded(this, request);
+            case "adapterUpdated" -> com.zeroc.IceGrid.AdapterObserver._iceD_adapterUpdated(this, request);
+            case "adapterRemoved" -> com.zeroc.IceGrid.AdapterObserver._iceD_adapterRemoved(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

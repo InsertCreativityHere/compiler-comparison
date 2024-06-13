@@ -46,7 +46,7 @@ public interface TestIntfControllerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_holdAdapterAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "holdAdapter", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 
@@ -79,7 +79,7 @@ public interface TestIntfControllerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_resumeAdapterAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "resumeAdapter", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 
@@ -125,7 +125,7 @@ public interface TestIntfControllerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_interruptAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "interrupt", null, sync, _iceE_interrupt);
-        f.invoke(true, context, null, null, null);
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 

@@ -99,136 +99,105 @@ public interface ReplicaObserver extends com.zeroc.Ice.Object
         return "::IceStormElection::ReplicaObserver";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_init(ReplicaObserver obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_init(ReplicaObserver obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         LogUpdate iceP_llu;
         TopicContent[] iceP_content;
         iceP_llu = LogUpdate.ice_read(istr);
         iceP_content = TopicContentSeqHelper.read(istr);
-        inS.endReadParams();
-        obj.init(iceP_llu, iceP_content, current);
-        return inS.setResult(inS.writeEmptyParams());
+        istr.endEncapsulation();
+        obj.init(iceP_llu, iceP_content, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_createTopic(ReplicaObserver obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_createTopic(ReplicaObserver obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         LogUpdate iceP_llu;
         String iceP_name;
         iceP_llu = LogUpdate.ice_read(istr);
         iceP_name = istr.readString();
-        inS.endReadParams();
-        obj.createTopic(iceP_llu, iceP_name, current);
-        return inS.setResult(inS.writeEmptyParams());
+        istr.endEncapsulation();
+        obj.createTopic(iceP_llu, iceP_name, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_destroyTopic(ReplicaObserver obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_destroyTopic(ReplicaObserver obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         LogUpdate iceP_llu;
         String iceP_name;
         iceP_llu = LogUpdate.ice_read(istr);
         iceP_name = istr.readString();
-        inS.endReadParams();
-        obj.destroyTopic(iceP_llu, iceP_name, current);
-        return inS.setResult(inS.writeEmptyParams());
+        istr.endEncapsulation();
+        obj.destroyTopic(iceP_llu, iceP_name, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_addSubscriber(ReplicaObserver obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_addSubscriber(ReplicaObserver obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         LogUpdate iceP_llu;
         String iceP_topic;
         IceStorm.SubscriberRecord iceP_record;
         iceP_llu = LogUpdate.ice_read(istr);
         iceP_topic = istr.readString();
         iceP_record = IceStorm.SubscriberRecord.ice_read(istr);
-        inS.endReadParams();
-        obj.addSubscriber(iceP_llu, iceP_topic, iceP_record, current);
-        return inS.setResult(inS.writeEmptyParams());
+        istr.endEncapsulation();
+        obj.addSubscriber(iceP_llu, iceP_topic, iceP_record, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_removeSubscriber(ReplicaObserver obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_removeSubscriber(ReplicaObserver obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         LogUpdate iceP_llu;
         String iceP_topic;
         com.zeroc.Ice.Identity[] iceP_subscribers;
         iceP_llu = LogUpdate.ice_read(istr);
         iceP_topic = istr.readString();
         iceP_subscribers = com.zeroc.Ice.IdentitySeqHelper.read(istr);
-        inS.endReadParams();
-        obj.removeSubscriber(iceP_llu, iceP_topic, iceP_subscribers, current);
-        return inS.setResult(inS.writeEmptyParams());
+        istr.endEncapsulation();
+        obj.removeSubscriber(iceP_llu, iceP_topic, iceP_subscribers, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
     @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "init" -> ReplicaObserver._iceD_init(this, in, current);
-            case "createTopic" -> ReplicaObserver._iceD_createTopic(this, in, current);
-            case "destroyTopic" -> ReplicaObserver._iceD_destroyTopic(this, in, current);
-            case "addSubscriber" -> ReplicaObserver._iceD_addSubscriber(this, in, current);
-            case "removeSubscriber" -> ReplicaObserver._iceD_removeSubscriber(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "init" -> ReplicaObserver._iceD_init(this, request);
+            case "createTopic" -> ReplicaObserver._iceD_createTopic(this, request);
+            case "destroyTopic" -> ReplicaObserver._iceD_destroyTopic(this, request);
+            case "addSubscriber" -> ReplicaObserver._iceD_addSubscriber(this, request);
+            case "removeSubscriber" -> ReplicaObserver._iceD_removeSubscriber(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

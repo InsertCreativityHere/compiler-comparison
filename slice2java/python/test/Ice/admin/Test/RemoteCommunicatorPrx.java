@@ -46,7 +46,7 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getAdminAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAdmin", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      com.zeroc.Ice.ObjectPrx ret;
                      ret = istr.readProxy();
                      return ret;
@@ -83,7 +83,7 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> _iceI_getChangesAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getChanges", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      java.util.Map<java.lang.String, java.lang.String> ret;
                      ret = com.zeroc.Ice.PropertyDictHelper.read(istr);
                      return ret;
@@ -120,7 +120,7 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 
@@ -153,7 +153,7 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_waitForShutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "waitForShutdown", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 
@@ -186,7 +186,7 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "destroy", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 

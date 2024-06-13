@@ -139,217 +139,163 @@ public interface Topic extends com.zeroc.Ice.Object
         return "::IceStorm::Topic";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getName(Topic obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getName(Topic obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        String ret = obj.getName(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        String ret = obj.getName(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ostr.writeString(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getPublisher(Topic obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getPublisher(Topic obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        com.zeroc.Ice.ObjectPrx ret = obj.getPublisher(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        com.zeroc.Ice.ObjectPrx ret = obj.getPublisher(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ostr.writeProxy(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getNonReplicatedPublisher(Topic obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getNonReplicatedPublisher(Topic obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        com.zeroc.Ice.ObjectPrx ret = obj.getNonReplicatedPublisher(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        com.zeroc.Ice.ObjectPrx ret = obj.getNonReplicatedPublisher(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ostr.writeProxy(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_subscribeAndGetPublisher(Topic obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_subscribeAndGetPublisher(Topic obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         java.util.Map<java.lang.String, java.lang.String> iceP_theQoS;
         com.zeroc.Ice.ObjectPrx iceP_subscriber;
         iceP_theQoS = QoSHelper.read(istr);
         iceP_subscriber = istr.readProxy();
-        inS.endReadParams();
-        com.zeroc.Ice.ObjectPrx ret = obj.subscribeAndGetPublisher(iceP_theQoS, iceP_subscriber, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        istr.endEncapsulation();
+        com.zeroc.Ice.ObjectPrx ret = obj.subscribeAndGetPublisher(iceP_theQoS, iceP_subscriber, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ostr.writeProxy(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_unsubscribe(Topic obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_unsubscribe(Topic obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         com.zeroc.Ice.ObjectPrx iceP_subscriber;
         iceP_subscriber = istr.readProxy();
-        inS.endReadParams();
-        obj.unsubscribe(iceP_subscriber, current);
-        return inS.setResult(inS.writeEmptyParams());
+        istr.endEncapsulation();
+        obj.unsubscribe(iceP_subscriber, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_link(Topic obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_link(Topic obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         TopicPrx iceP_linkTo;
         int iceP_cost;
         iceP_linkTo = TopicPrx.uncheckedCast(istr.readProxy());
         iceP_cost = istr.readInt();
-        inS.endReadParams();
-        obj.link(iceP_linkTo, iceP_cost, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_unlink(Topic obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        TopicPrx iceP_linkTo;
-        iceP_linkTo = TopicPrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        obj.unlink(iceP_linkTo, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getLinkInfoSeq(Topic obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        LinkInfo[] ret = obj.getLinkInfoSeq(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        LinkInfoSeqHelper.write(ostr, ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getSubscribers(Topic obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        com.zeroc.Ice.Identity[] ret = obj.getSubscribers(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        com.zeroc.Ice.IdentitySeqHelper.write(ostr, ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_destroy(Topic obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.destroy(current);
-        return inS.setResult(inS.writeEmptyParams());
+        istr.endEncapsulation();
+        obj.link(iceP_linkTo, iceP_cost, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
     /** @hidden */
-    @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_unlink(Topic obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        TopicPrx iceP_linkTo;
+        iceP_linkTo = TopicPrx.uncheckedCast(istr.readProxy());
+        istr.endEncapsulation();
+        obj.unlink(iceP_linkTo, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getLinkInfoSeq(Topic obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        LinkInfo[] ret = obj.getLinkInfoSeq(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        LinkInfoSeqHelper.write(ostr, ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getSubscribers(Topic obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        com.zeroc.Ice.Identity[] ret = obj.getSubscribers(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        com.zeroc.Ice.IdentitySeqHelper.write(ostr, ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_destroy(Topic obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.destroy(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    @Override
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        return switch (request.current.operation)
         {
-            case "getName" -> Topic._iceD_getName(this, in, current);
-            case "getPublisher" -> Topic._iceD_getPublisher(this, in, current);
-            case "getNonReplicatedPublisher" -> Topic._iceD_getNonReplicatedPublisher(this, in, current);
-            case "subscribeAndGetPublisher" -> Topic._iceD_subscribeAndGetPublisher(this, in, current);
-            case "unsubscribe" -> Topic._iceD_unsubscribe(this, in, current);
-            case "link" -> Topic._iceD_link(this, in, current);
-            case "unlink" -> Topic._iceD_unlink(this, in, current);
-            case "getLinkInfoSeq" -> Topic._iceD_getLinkInfoSeq(this, in, current);
-            case "getSubscribers" -> Topic._iceD_getSubscribers(this, in, current);
-            case "destroy" -> Topic._iceD_destroy(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "getName" -> Topic._iceD_getName(this, request);
+            case "getPublisher" -> Topic._iceD_getPublisher(this, request);
+            case "getNonReplicatedPublisher" -> Topic._iceD_getNonReplicatedPublisher(this, request);
+            case "subscribeAndGetPublisher" -> Topic._iceD_subscribeAndGetPublisher(this, request);
+            case "unsubscribe" -> Topic._iceD_unsubscribe(this, request);
+            case "link" -> Topic._iceD_link(this, request);
+            case "unlink" -> Topic._iceD_unlink(this, request);
+            case "getLinkInfoSeq" -> Topic._iceD_getLinkInfoSeq(this, request);
+            case "getSubscribers" -> Topic._iceD_getSubscribers(this, request);
+            case "destroy" -> Topic._iceD_destroy(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

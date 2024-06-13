@@ -169,17 +169,12 @@ public interface optionalParams extends com.zeroc.Ice.Object
         return "::await::optionalParams";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_for(optionalParams obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_for(optionalParams obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         java.util.Optional<var> iceP_goto;
         java.util.Optional<explicitPrx> iceP_if;
         java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal;
@@ -190,92 +185,84 @@ public interface optionalParams extends com.zeroc.Ice.Object
         iceP_internal = whileHelper.read(istr, 5);
         iceP_namespace = istr.readString(7);
         iceP_null = istr.readProxy(8, explicitPrx::uncheckedCast);
-        inS.endReadParams();
-        java.util.Optional<_break> ret = obj._for(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        istr.endEncapsulation();
+        java.util.Optional<_break> ret = obj._for(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         _break.ice_write(ostr, 1, ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_continue(optionalParams obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<var> iceP_goto;
-        java.util.Optional<explicitPrx> iceP_if;
-        java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal;
-        java.util.Optional<java.lang.String> iceP_namespace;
-        java.util.Optional<explicitPrx> iceP_null;
-        iceP_goto = var.ice_read(istr, 2);
-        iceP_if = istr.readProxy(3, explicitPrx::uncheckedCast);
-        iceP_internal = whileHelper.read(istr, 5);
-        iceP_namespace = istr.readString(7);
-        iceP_null = istr.readProxy(8, explicitPrx::uncheckedCast);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.continueAsync(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, current), (ostr, ret) ->
-            {
-                _break.ice_write(ostr, 1, ret);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_in(optionalParams obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        optionalParams.InResult ret = obj.in(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_foreach(optionalParams obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        return inS.setResultFuture(obj.foreachAsync(current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
     /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_continue(optionalParams obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Optional<var> iceP_goto;
+        java.util.Optional<explicitPrx> iceP_if;
+        java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal;
+        java.util.Optional<java.lang.String> iceP_namespace;
+        java.util.Optional<explicitPrx> iceP_null;
+        iceP_goto = var.ice_read(istr, 2);
+        iceP_if = istr.readProxy(3, explicitPrx::uncheckedCast);
+        iceP_internal = whileHelper.read(istr, 5);
+        iceP_namespace = istr.readString(7);
+        iceP_null = istr.readProxy(8, explicitPrx::uncheckedCast);
+        istr.endEncapsulation();
+        var result = obj.continueAsync(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                _break.ice_write(ostr, 1, value);
+            },
+            com.zeroc.Ice.FormatType.DefaultFormat));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_in(optionalParams obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        optionalParams.InResult ret = obj.in(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_foreach(optionalParams obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.foreachAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                value.write(ostr);
+            },
+            com.zeroc.Ice.FormatType.DefaultFormat));
+    }
+
     @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "for" -> optionalParams._iceD_for(this, in, current);
-            case "continue" -> optionalParams._iceD_continue(this, in, current);
-            case "in" -> optionalParams._iceD_in(this, in, current);
-            case "foreach" -> optionalParams._iceD_foreach(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "for" -> optionalParams._iceD_for(this, request);
+            case "continue" -> optionalParams._iceD_continue(this, request);
+            case "in" -> optionalParams._iceD_in(this, request);
+            case "foreach" -> optionalParams._iceD_foreach(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

@@ -54,37 +54,31 @@ public interface LocatorFinder extends Object
         return "::Ice::LocatorFinder";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_getLocator(LocatorFinder obj, final com.zeroc.IceInternal.Incoming inS, Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getLocator(LocatorFinder obj, IncomingRequest request)
     {
-        Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        LocatorPrx ret = obj.getLocator(current);
-        OutputStream ostr = inS.startWriteParams();
+        Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        LocatorPrx ret = obj.getLocator(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ostr.writeProxy(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
     @Override
-    default java.util.concurrent.CompletionStage<OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, Current current)
-        throws UserException
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "getLocator" -> LocatorFinder._iceD_getLocator(this, in, current);
-            case "ice_id" -> Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> Object._iceD_ice_ping(this, in, current);
-            default -> throw new OperationNotExistException();
+            case "getLocator" -> LocatorFinder._iceD_getLocator(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }
 }

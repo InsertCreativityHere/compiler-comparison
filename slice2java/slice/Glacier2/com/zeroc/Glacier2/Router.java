@@ -130,160 +130,123 @@ public interface Router extends com.zeroc.Ice.Router
         return "::Glacier2::Router";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getCategoryForClient(Router obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getCategoryForClient(Router obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        String ret = obj.getCategoryForClient(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        String ret = obj.getCategoryForClient(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ostr.writeString(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_createSession(Router obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_createSession(Router obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         String iceP_userId;
         String iceP_password;
         iceP_userId = istr.readString();
         iceP_password = istr.readString();
-        inS.endReadParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.createSessionAsync(iceP_userId, iceP_password, current), (ostr, ret) ->
+        istr.endEncapsulation();
+        var result = obj.createSessionAsync(iceP_userId, iceP_password, request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeProxy(ret);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_createSessionFromSecureConnection(Router obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.createSessionFromSecureConnectionAsync(current), (ostr, ret) ->
-            {
-                ostr.writeProxy(ret);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_refreshSession(Router obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.refreshSession(current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_destroySession(Router obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.destroySession(current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getSessionTimeout(Router obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        long ret = obj.getSessionTimeout(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeLong(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getACMTimeout(Router obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        int ret = obj.getACMTimeout(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeInt(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+                ostr.writeProxy(value);
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
     /** @hidden */
-    @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_createSessionFromSecureConnection(Router obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.createSessionFromSecureConnectionAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                ostr.writeProxy(value);
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_refreshSession(Router obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.refreshSession(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_destroySession(Router obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.destroySession(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getSessionTimeout(Router obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        long ret = obj.getSessionTimeout(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.writeLong(ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getACMTimeout(Router obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        int ret = obj.getACMTimeout(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.writeInt(ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    @Override
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        return switch (request.current.operation)
         {
-            case "getClientProxy" -> com.zeroc.Ice.Router._iceD_getClientProxy(this, in, current);
-            case "getServerProxy" -> com.zeroc.Ice.Router._iceD_getServerProxy(this, in, current);
-            case "addProxies" -> com.zeroc.Ice.Router._iceD_addProxies(this, in, current);
-            case "getCategoryForClient" -> Router._iceD_getCategoryForClient(this, in, current);
-            case "createSession" -> Router._iceD_createSession(this, in, current);
-            case "createSessionFromSecureConnection" -> Router._iceD_createSessionFromSecureConnection(this, in, current);
-            case "refreshSession" -> Router._iceD_refreshSession(this, in, current);
-            case "destroySession" -> Router._iceD_destroySession(this, in, current);
-            case "getSessionTimeout" -> Router._iceD_getSessionTimeout(this, in, current);
-            case "getACMTimeout" -> Router._iceD_getACMTimeout(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "getClientProxy" -> com.zeroc.Ice.Router._iceD_getClientProxy(this, request);
+            case "getServerProxy" -> com.zeroc.Ice.Router._iceD_getServerProxy(this, request);
+            case "addProxies" -> com.zeroc.Ice.Router._iceD_addProxies(this, request);
+            case "getCategoryForClient" -> Router._iceD_getCategoryForClient(this, request);
+            case "createSession" -> Router._iceD_createSession(this, request);
+            case "createSessionFromSecureConnection" -> Router._iceD_createSessionFromSecureConnection(this, request);
+            case "refreshSession" -> Router._iceD_refreshSession(this, request);
+            case "destroySession" -> Router._iceD_destroySession(this, request);
+            case "getSessionTimeout" -> Router._iceD_getSessionTimeout(this, request);
+            case "getACMTimeout" -> Router._iceD_getACMTimeout(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

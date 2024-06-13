@@ -47,7 +47,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sleepAsync(int iceP_ms, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sleep", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeInt(iceP_ms);
                  }, null);
         return f;
@@ -82,7 +82,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 

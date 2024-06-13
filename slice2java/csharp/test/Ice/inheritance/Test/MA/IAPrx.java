@@ -47,7 +47,7 @@ public interface IAPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<IAPrx> _iceI_iaopAsync(IAPrx iceP_p, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<IAPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "iaop", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeProxy(iceP_p);
                  }, istr -> {
                      IAPrx ret;

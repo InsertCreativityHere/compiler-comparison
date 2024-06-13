@@ -331,209 +331,170 @@ public interface MyClass extends com.zeroc.Ice.Object
         return "::Test::MyClass";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_shutdown(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.shutdown(current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opNV(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Map<java.lang.Integer, java.lang.Integer> iceP_i;
-        iceP_i = NVHelper.read(istr);
-        inS.endReadParams();
-        MyClass.OpNVResult ret = obj.opNV(iceP_i, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opNR(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Map<java.lang.String, java.lang.String> iceP_i;
-        iceP_i = NRHelper.read(istr);
-        inS.endReadParams();
-        MyClass.OpNRResult ret = obj.opNR(iceP_i, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opNDV(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Map<java.lang.String, java.util.Map<java.lang.Integer, java.lang.Integer>> iceP_i;
-        iceP_i = NDVHelper.read(istr);
-        inS.endReadParams();
-        MyClass.OpNDVResult ret = obj.opNDV(iceP_i, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opNDR(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.String>> iceP_i;
-        iceP_i = NDRHelper.read(istr);
-        inS.endReadParams();
-        MyClass.OpNDRResult ret = obj.opNDR(iceP_i, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opNDAIS(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Map<java.lang.String, int[]> iceP_i;
-        iceP_i = NDAISHelper.read(istr);
-        inS.endReadParams();
-        MyClass.OpNDAISResult ret = obj.opNDAIS(iceP_i, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opNDGIS(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Map<java.lang.String, int[]> iceP_i;
-        iceP_i = NDGISHelper.read(istr);
-        inS.endReadParams();
-        MyClass.OpNDGISResult ret = obj.opNDGIS(iceP_i, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opNDASS(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Map<java.lang.String, String[]> iceP_i;
-        iceP_i = NDASSHelper.read(istr);
-        inS.endReadParams();
-        MyClass.OpNDASSResult ret = obj.opNDASS(iceP_i, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opNDGSS(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Map<java.lang.String, String[]> iceP_i;
-        iceP_i = NDGSSHelper.read(istr);
-        inS.endReadParams();
-        MyClass.OpNDGSSResult ret = obj.opNDGSS(iceP_i, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.shutdown(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
     /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opNV(MyClass obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Map<java.lang.Integer, java.lang.Integer> iceP_i;
+        iceP_i = NVHelper.read(istr);
+        istr.endEncapsulation();
+        MyClass.OpNVResult ret = obj.opNV(iceP_i, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opNR(MyClass obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Map<java.lang.String, java.lang.String> iceP_i;
+        iceP_i = NRHelper.read(istr);
+        istr.endEncapsulation();
+        MyClass.OpNRResult ret = obj.opNR(iceP_i, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opNDV(MyClass obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Map<java.lang.String, java.util.Map<java.lang.Integer, java.lang.Integer>> iceP_i;
+        iceP_i = NDVHelper.read(istr);
+        istr.endEncapsulation();
+        MyClass.OpNDVResult ret = obj.opNDV(iceP_i, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opNDR(MyClass obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.String>> iceP_i;
+        iceP_i = NDRHelper.read(istr);
+        istr.endEncapsulation();
+        MyClass.OpNDRResult ret = obj.opNDR(iceP_i, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opNDAIS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Map<java.lang.String, int[]> iceP_i;
+        iceP_i = NDAISHelper.read(istr);
+        istr.endEncapsulation();
+        MyClass.OpNDAISResult ret = obj.opNDAIS(iceP_i, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opNDGIS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Map<java.lang.String, int[]> iceP_i;
+        iceP_i = NDGISHelper.read(istr);
+        istr.endEncapsulation();
+        MyClass.OpNDGISResult ret = obj.opNDGIS(iceP_i, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opNDASS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Map<java.lang.String, String[]> iceP_i;
+        iceP_i = NDASSHelper.read(istr);
+        istr.endEncapsulation();
+        MyClass.OpNDASSResult ret = obj.opNDASS(iceP_i, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opNDGSS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Map<java.lang.String, String[]> iceP_i;
+        iceP_i = NDGSSHelper.read(istr);
+        istr.endEncapsulation();
+        MyClass.OpNDGSSResult ret = obj.opNDGSS(iceP_i, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
     @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "shutdown" -> MyClass._iceD_shutdown(this, in, current);
-            case "opNV" -> MyClass._iceD_opNV(this, in, current);
-            case "opNR" -> MyClass._iceD_opNR(this, in, current);
-            case "opNDV" -> MyClass._iceD_opNDV(this, in, current);
-            case "opNDR" -> MyClass._iceD_opNDR(this, in, current);
-            case "opNDAIS" -> MyClass._iceD_opNDAIS(this, in, current);
-            case "opNDGIS" -> MyClass._iceD_opNDGIS(this, in, current);
-            case "opNDASS" -> MyClass._iceD_opNDASS(this, in, current);
-            case "opNDGSS" -> MyClass._iceD_opNDGSS(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "shutdown" -> MyClass._iceD_shutdown(this, request);
+            case "opNV" -> MyClass._iceD_opNV(this, request);
+            case "opNR" -> MyClass._iceD_opNR(this, request);
+            case "opNDV" -> MyClass._iceD_opNDV(this, request);
+            case "opNDR" -> MyClass._iceD_opNDR(this, request);
+            case "opNDAIS" -> MyClass._iceD_opNDAIS(this, request);
+            case "opNDGIS" -> MyClass._iceD_opNDGIS(this, request);
+            case "opNDASS" -> MyClass._iceD_opNDASS(this, request);
+            case "opNDGSS" -> MyClass._iceD_opNDGSS(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

@@ -72,7 +72,7 @@ public interface ServiceObserverPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_servicesStartedAsync(String[] iceP_services, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "servicesStarted", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeStringSeq(iceP_services);
                  }, null);
         return f;
@@ -128,7 +128,7 @@ public interface ServiceObserverPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_servicesStoppedAsync(String[] iceP_services, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "servicesStopped", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeStringSeq(iceP_services);
                  }, null);
         return f;

@@ -71,81 +71,67 @@ public interface PropertiesAdmin extends Object
         return "::Ice::PropertiesAdmin";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_getProperty(PropertiesAdmin obj, final com.zeroc.IceInternal.Incoming inS, Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getProperty(PropertiesAdmin obj, IncomingRequest request)
     {
-        Object._iceCheckMode(null, current.mode);
-        InputStream istr = inS.startReadParams();
+        Object._iceCheckMode(null, request.current.mode);
+        InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         String iceP_key;
         iceP_key = istr.readString();
-        inS.endReadParams();
-        String ret = obj.getProperty(iceP_key, current);
-        OutputStream ostr = inS.startWriteParams();
+        istr.endEncapsulation();
+        String ret = obj.getProperty(iceP_key, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ostr.writeString(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_getPropertiesForPrefix(PropertiesAdmin obj, final com.zeroc.IceInternal.Incoming inS, Current current)
-    {
-        Object._iceCheckMode(null, current.mode);
-        InputStream istr = inS.startReadParams();
-        String iceP_prefix;
-        iceP_prefix = istr.readString();
-        inS.endReadParams();
-        java.util.Map<java.lang.String, java.lang.String> ret = obj.getPropertiesForPrefix(iceP_prefix, current);
-        OutputStream ostr = inS.startWriteParams();
-        PropertyDictHelper.write(ostr, ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_setProperties(PropertiesAdmin obj, final com.zeroc.IceInternal.Incoming inS, Current current)
-    {
-        Object._iceCheckMode(null, current.mode);
-        InputStream istr = inS.startReadParams();
-        java.util.Map<java.lang.String, java.lang.String> iceP_newProperties;
-        iceP_newProperties = PropertyDictHelper.read(istr);
-        inS.endReadParams();
-        obj.setProperties(iceP_newProperties, current);
-        return inS.setResult(inS.writeEmptyParams());
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
     /** @hidden */
-    @Override
-    default java.util.concurrent.CompletionStage<OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, Current current)
-        throws UserException
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getPropertiesForPrefix(PropertiesAdmin obj, IncomingRequest request)
     {
-        return switch (current.operation)
+        Object._iceCheckMode(null, request.current.mode);
+        InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        String iceP_prefix;
+        iceP_prefix = istr.readString();
+        istr.endEncapsulation();
+        java.util.Map<java.lang.String, java.lang.String> ret = obj.getPropertiesForPrefix(iceP_prefix, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        PropertyDictHelper.write(ostr, ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_setProperties(PropertiesAdmin obj, IncomingRequest request)
+    {
+        Object._iceCheckMode(null, request.current.mode);
+        InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Map<java.lang.String, java.lang.String> iceP_newProperties;
+        iceP_newProperties = PropertyDictHelper.read(istr);
+        istr.endEncapsulation();
+        obj.setProperties(iceP_newProperties, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    @Override
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        return switch (request.current.operation)
         {
-            case "getProperty" -> PropertiesAdmin._iceD_getProperty(this, in, current);
-            case "getPropertiesForPrefix" -> PropertiesAdmin._iceD_getPropertiesForPrefix(this, in, current);
-            case "setProperties" -> PropertiesAdmin._iceD_setProperties(this, in, current);
-            case "ice_id" -> Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> Object._iceD_ice_ping(this, in, current);
-            default -> throw new OperationNotExistException();
+            case "getProperty" -> PropertiesAdmin._iceD_getProperty(this, request);
+            case "getPropertiesForPrefix" -> PropertiesAdmin._iceD_getPropertiesForPrefix(this, request);
+            case "setProperties" -> PropertiesAdmin._iceD_setProperties(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }
 }

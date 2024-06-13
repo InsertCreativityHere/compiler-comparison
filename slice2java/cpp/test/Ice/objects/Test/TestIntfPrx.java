@@ -46,7 +46,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Base> _iceI_opDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Base> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opDerived", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      final com.zeroc.IceInternal.Holder<Base> ret = new com.zeroc.IceInternal.Holder<>();
                      istr.readValue(v -> ret.value = v, Base.class);
                      istr.readPendingValues();
@@ -97,7 +97,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwDerived", null, sync, _iceE_throwDerived);
-        f.invoke(true, context, null, null, null);
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 

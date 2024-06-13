@@ -47,7 +47,7 @@ public interface MyDerivedClassPrx extends MyClassPrx
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_echoAsync(com.zeroc.Ice.ObjectPrx iceP_obj, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "echo", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeProxy(iceP_obj);
                  }, istr -> {
                      com.zeroc.Ice.ObjectPrx ret;

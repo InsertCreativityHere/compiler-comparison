@@ -206,239 +206,193 @@ public interface Node extends FileReader,
         return "::IceGrid::Node";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_loadServer(Node obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_loadServer(Node obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         final com.zeroc.IceInternal.Holder<InternalServerDescriptor> icePP_svr = new com.zeroc.IceInternal.Holder<>();
         String iceP_replicaName;
         istr.readValue(v -> icePP_svr.value = v, InternalServerDescriptor.class);
         iceP_replicaName = istr.readString();
         istr.readPendingValues();
-        inS.endReadParams();
+        istr.endEncapsulation();
         InternalServerDescriptor iceP_svr = icePP_svr.value;
-        return inS.setResultFuture(obj.loadServerAsync(iceP_svr, iceP_replicaName, current), (ostr, ret) ->
+        var result = obj.loadServerAsync(iceP_svr, iceP_replicaName, request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_loadServerWithoutRestart(Node obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        final com.zeroc.IceInternal.Holder<InternalServerDescriptor> icePP_svr = new com.zeroc.IceInternal.Holder<>();
-        String iceP_replicaName;
-        istr.readValue(v -> icePP_svr.value = v, InternalServerDescriptor.class);
-        iceP_replicaName = istr.readString();
-        istr.readPendingValues();
-        inS.endReadParams();
-        InternalServerDescriptor iceP_svr = icePP_svr.value;
-        return inS.setResultFuture(obj.loadServerWithoutRestartAsync(iceP_svr, iceP_replicaName, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_destroyServer(Node obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_name;
-        String iceP_uuid;
-        int iceP_revision;
-        String iceP_replicaName;
-        iceP_name = istr.readString();
-        iceP_uuid = istr.readString();
-        iceP_revision = istr.readInt();
-        iceP_replicaName = istr.readString();
-        inS.endReadParams();
-        return inS.setResultFuture(obj.destroyServerAsync(iceP_name, iceP_uuid, iceP_revision, iceP_replicaName, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_destroyServerWithoutRestart(Node obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_name;
-        String iceP_uuid;
-        int iceP_revision;
-        String iceP_replicaName;
-        iceP_name = istr.readString();
-        iceP_uuid = istr.readString();
-        iceP_revision = istr.readInt();
-        iceP_replicaName = istr.readString();
-        inS.endReadParams();
-        return inS.setResultFuture(obj.destroyServerWithoutRestartAsync(iceP_name, iceP_uuid, iceP_revision, iceP_replicaName, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_registerWithReplica(Node obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        InternalRegistryPrx iceP_replica;
-        iceP_replica = InternalRegistryPrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        obj.registerWithReplica(iceP_replica, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getName(Node obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        String ret = obj.getName(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeString(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getHostname(Node obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        String ret = obj.getHostname(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeString(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getLoad(Node obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        com.zeroc.IceGrid.LoadInfo ret = obj.getLoad(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        com.zeroc.IceGrid.LoadInfo.ice_write(ostr, ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getProcessorSocketCount(Node obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        int ret = obj.getProcessorSocketCount(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeInt(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_shutdown(Node obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        obj.shutdown(current);
-        return inS.setResult(inS.writeEmptyParams());
+                value.write(ostr);
+            },
+            com.zeroc.Ice.FormatType.DefaultFormat));
     }
 
     /** @hidden */
-    @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_loadServerWithoutRestart(Node obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        final com.zeroc.IceInternal.Holder<InternalServerDescriptor> icePP_svr = new com.zeroc.IceInternal.Holder<>();
+        String iceP_replicaName;
+        istr.readValue(v -> icePP_svr.value = v, InternalServerDescriptor.class);
+        iceP_replicaName = istr.readString();
+        istr.readPendingValues();
+        istr.endEncapsulation();
+        InternalServerDescriptor iceP_svr = icePP_svr.value;
+        var result = obj.loadServerWithoutRestartAsync(iceP_svr, iceP_replicaName, request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                value.write(ostr);
+            },
+            com.zeroc.Ice.FormatType.DefaultFormat));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_destroyServer(Node obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        String iceP_name;
+        String iceP_uuid;
+        int iceP_revision;
+        String iceP_replicaName;
+        iceP_name = istr.readString();
+        iceP_uuid = istr.readString();
+        iceP_revision = istr.readInt();
+        iceP_replicaName = istr.readString();
+        istr.endEncapsulation();
+        var result = obj.destroyServerAsync(iceP_name, iceP_uuid, iceP_revision, iceP_replicaName, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_destroyServerWithoutRestart(Node obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        String iceP_name;
+        String iceP_uuid;
+        int iceP_revision;
+        String iceP_replicaName;
+        iceP_name = istr.readString();
+        iceP_uuid = istr.readString();
+        iceP_revision = istr.readInt();
+        iceP_replicaName = istr.readString();
+        istr.endEncapsulation();
+        var result = obj.destroyServerWithoutRestartAsync(iceP_name, iceP_uuid, iceP_revision, iceP_replicaName, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_registerWithReplica(Node obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        InternalRegistryPrx iceP_replica;
+        iceP_replica = InternalRegistryPrx.uncheckedCast(istr.readProxy());
+        istr.endEncapsulation();
+        obj.registerWithReplica(iceP_replica, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getName(Node obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        String ret = obj.getName(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.writeString(ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getHostname(Node obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        String ret = obj.getHostname(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.writeString(ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getLoad(Node obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        com.zeroc.IceGrid.LoadInfo ret = obj.getLoad(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        com.zeroc.IceGrid.LoadInfo.ice_write(ostr, ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getProcessorSocketCount(Node obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        int ret = obj.getProcessorSocketCount(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.writeInt(ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(Node obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.shutdown(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    @Override
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        return switch (request.current.operation)
         {
-            case "getOffsetFromEnd" -> FileReader._iceD_getOffsetFromEnd(this, in, current);
-            case "read" -> FileReader._iceD_read(this, in, current);
-            case "replicaInit" -> ReplicaObserver._iceD_replicaInit(this, in, current);
-            case "replicaAdded" -> ReplicaObserver._iceD_replicaAdded(this, in, current);
-            case "replicaRemoved" -> ReplicaObserver._iceD_replicaRemoved(this, in, current);
-            case "loadServer" -> Node._iceD_loadServer(this, in, current);
-            case "loadServerWithoutRestart" -> Node._iceD_loadServerWithoutRestart(this, in, current);
-            case "destroyServer" -> Node._iceD_destroyServer(this, in, current);
-            case "destroyServerWithoutRestart" -> Node._iceD_destroyServerWithoutRestart(this, in, current);
-            case "registerWithReplica" -> Node._iceD_registerWithReplica(this, in, current);
-            case "getName" -> Node._iceD_getName(this, in, current);
-            case "getHostname" -> Node._iceD_getHostname(this, in, current);
-            case "getLoad" -> Node._iceD_getLoad(this, in, current);
-            case "getProcessorSocketCount" -> Node._iceD_getProcessorSocketCount(this, in, current);
-            case "shutdown" -> Node._iceD_shutdown(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "getOffsetFromEnd" -> FileReader._iceD_getOffsetFromEnd(this, request);
+            case "read" -> FileReader._iceD_read(this, request);
+            case "replicaInit" -> ReplicaObserver._iceD_replicaInit(this, request);
+            case "replicaAdded" -> ReplicaObserver._iceD_replicaAdded(this, request);
+            case "replicaRemoved" -> ReplicaObserver._iceD_replicaRemoved(this, request);
+            case "loadServer" -> Node._iceD_loadServer(this, request);
+            case "loadServerWithoutRestart" -> Node._iceD_loadServerWithoutRestart(this, request);
+            case "destroyServer" -> Node._iceD_destroyServer(this, request);
+            case "destroyServerWithoutRestart" -> Node._iceD_destroyServerWithoutRestart(this, request);
+            case "registerWithReplica" -> Node._iceD_registerWithReplica(this, request);
+            case "getName" -> Node._iceD_getName(this, request);
+            case "getHostname" -> Node._iceD_getHostname(this, request);
+            case "getLoad" -> Node._iceD_getLoad(this, request);
+            case "getProcessorSocketCount" -> Node._iceD_getProcessorSocketCount(this, request);
+            case "shutdown" -> Node._iceD_shutdown(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

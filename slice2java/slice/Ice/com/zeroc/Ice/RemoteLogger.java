@@ -60,58 +60,47 @@ public interface RemoteLogger extends Object
         return "::Ice::RemoteLogger";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_init(RemoteLogger obj, final com.zeroc.IceInternal.Incoming inS, Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_init(RemoteLogger obj, IncomingRequest request)
     {
-        Object._iceCheckMode(null, current.mode);
-        InputStream istr = inS.startReadParams();
+        Object._iceCheckMode(null, request.current.mode);
+        InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         String iceP_prefix;
         LogMessage[] iceP_logMessages;
         iceP_prefix = istr.readString();
         iceP_logMessages = LogMessageSeqHelper.read(istr);
-        inS.endReadParams();
-        obj.init(iceP_prefix, iceP_logMessages, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_log(RemoteLogger obj, final com.zeroc.IceInternal.Incoming inS, Current current)
-    {
-        Object._iceCheckMode(null, current.mode);
-        InputStream istr = inS.startReadParams();
-        LogMessage iceP_message;
-        iceP_message = LogMessage.ice_read(istr);
-        inS.endReadParams();
-        obj.log(iceP_message, current);
-        return inS.setResult(inS.writeEmptyParams());
+        istr.endEncapsulation();
+        obj.init(iceP_prefix, iceP_logMessages, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
     /** @hidden */
-    @Override
-    default java.util.concurrent.CompletionStage<OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, Current current)
-        throws UserException
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_log(RemoteLogger obj, IncomingRequest request)
     {
-        return switch (current.operation)
+        Object._iceCheckMode(null, request.current.mode);
+        InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        LogMessage iceP_message;
+        iceP_message = LogMessage.ice_read(istr);
+        istr.endEncapsulation();
+        obj.log(iceP_message, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    @Override
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        return switch (request.current.operation)
         {
-            case "init" -> RemoteLogger._iceD_init(this, in, current);
-            case "log" -> RemoteLogger._iceD_log(this, in, current);
-            case "ice_id" -> Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> Object._iceD_ice_ping(this, in, current);
-            default -> throw new OperationNotExistException();
+            case "init" -> RemoteLogger._iceD_init(this, request);
+            case "log" -> RemoteLogger._iceD_log(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }
 }

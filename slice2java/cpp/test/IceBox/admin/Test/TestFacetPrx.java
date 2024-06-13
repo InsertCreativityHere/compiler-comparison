@@ -46,7 +46,7 @@ public interface TestFacetPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> _iceI_getChangesAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getChanges", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      java.util.Map<java.lang.String, java.lang.String> ret;
                      ret = com.zeroc.Ice.PropertyDictHelper.read(istr);
                      return ret;

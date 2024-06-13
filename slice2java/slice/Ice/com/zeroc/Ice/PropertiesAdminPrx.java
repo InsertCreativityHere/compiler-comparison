@@ -72,7 +72,7 @@ public interface PropertiesAdminPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getPropertyAsync(String iceP_key, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getProperty", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_key);
                  }, istr -> {
                      String ret;
@@ -138,7 +138,7 @@ public interface PropertiesAdminPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> _iceI_getPropertiesForPrefixAsync(String iceP_prefix, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getPropertiesForPrefix", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_prefix);
                  }, istr -> {
                      java.util.Map<java.lang.String, java.lang.String> ret;
@@ -219,7 +219,7 @@ public interface PropertiesAdminPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setPropertiesAsync(java.util.Map<java.lang.String, java.lang.String> iceP_newProperties, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setProperties", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      PropertyDictHelper.write(ostr, iceP_newProperties);
                  }, null);
         return f;

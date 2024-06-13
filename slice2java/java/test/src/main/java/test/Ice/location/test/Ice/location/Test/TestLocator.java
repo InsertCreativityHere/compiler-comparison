@@ -44,39 +44,33 @@ public interface TestLocator extends com.zeroc.Ice.Locator
         return "::Test::TestLocator";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getRequestCount(TestLocator obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getRequestCount(TestLocator obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        int ret = obj.getRequestCount(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        int ret = obj.getRequestCount(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ostr.writeInt(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
     @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "findObjectById" -> com.zeroc.Ice.Locator._iceD_findObjectById(this, in, current);
-            case "findAdapterById" -> com.zeroc.Ice.Locator._iceD_findAdapterById(this, in, current);
-            case "getRegistry" -> com.zeroc.Ice.Locator._iceD_getRegistry(this, in, current);
-            case "getRequestCount" -> TestLocator._iceD_getRequestCount(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "findObjectById" -> com.zeroc.Ice.Locator._iceD_findObjectById(this, request);
+            case "findAdapterById" -> com.zeroc.Ice.Locator._iceD_findAdapterById(this, request);
+            case "getRegistry" -> com.zeroc.Ice.Locator._iceD_getRegistry(this, request);
+            case "getRequestCount" -> TestLocator._iceD_getRequestCount(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

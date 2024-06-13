@@ -72,7 +72,7 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_keepAliveAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "keepAlive", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 
@@ -169,7 +169,7 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_allocateObjectByIdAsync(com.zeroc.Ice.Identity iceP_id, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "allocateObjectById", null, sync, _iceE_allocateObjectById);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      com.zeroc.Ice.Identity.ice_write(ostr, iceP_id);
                  }, istr -> {
                      com.zeroc.Ice.ObjectPrx ret;
@@ -269,7 +269,7 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_allocateObjectByTypeAsync(String iceP_type, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "allocateObjectByType", null, sync, _iceE_allocateObjectByType);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_type);
                  }, istr -> {
                      com.zeroc.Ice.ObjectPrx ret;
@@ -366,7 +366,7 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_releaseObjectAsync(com.zeroc.Ice.Identity iceP_id, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "releaseObject", null, sync, _iceE_releaseObject);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      com.zeroc.Ice.Identity.ice_write(ostr, iceP_id);
                  }, null);
         return f;
@@ -437,7 +437,7 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setAllocationTimeoutAsync(int iceP_timeout, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setAllocationTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeInt(iceP_timeout);
                  }, null);
         return f;

@@ -65,7 +65,7 @@ public interface printPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<_assert> _iceI_raiseAsync(_continue iceP_else, _for iceP_return, delPrx iceP_while, execPrx iceP_yield, ifPrx iceP_or, int iceP_global, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<_assert> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "raise", null, sync, _iceE_raise);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      _continue.ice_write(ostr, iceP_else);
                      ostr.writeValue(iceP_return);
                      ostr.writeProxy(iceP_while);

@@ -72,7 +72,7 @@ public interface RouterPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Router.GetClientProxyResult> _iceI_getClientProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Router.GetClientProxyResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getClientProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      Router.GetClientProxyResult ret = new Router.GetClientProxyResult();
                      ret.read(istr);
                      return ret;
@@ -127,7 +127,7 @@ public interface RouterPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getServerProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getServerProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      ObjectPrx ret;
                      ret = istr.readProxy();
                      return ret;
@@ -187,7 +187,7 @@ public interface RouterPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<ObjectPrx[]> _iceI_addProxiesAsync(ObjectPrx[] iceP_proxies, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<ObjectPrx[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "addProxies", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ObjectProxySeqHelper.write(ostr, iceP_proxies);
                  }, istr -> {
                      ObjectPrx[] ret;

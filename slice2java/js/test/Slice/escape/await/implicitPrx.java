@@ -75,7 +75,7 @@ public interface implicitPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<var> _iceI_inAsync(_break iceP_internal, delete iceP_is, explicitPrx iceP_lock, casePrx iceP_namespace, typeofPrx iceP_new, delete iceP_null, explicitPrx iceP_operator, int iceP_override, int iceP_params, int iceP_private, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<var> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "in", null, sync, _iceE_in);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      _break.ice_write(ostr, iceP_internal);
                      ostr.writeValue(iceP_is);
                      ostr.writeProxy(iceP_lock);

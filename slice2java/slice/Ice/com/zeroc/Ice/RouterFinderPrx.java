@@ -73,7 +73,7 @@ public interface RouterFinderPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<RouterPrx> _iceI_getRouterAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<RouterPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getRouter", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      RouterPrx ret;
                      ret = RouterPrx.uncheckedCast(istr.readProxy());
                      return ret;

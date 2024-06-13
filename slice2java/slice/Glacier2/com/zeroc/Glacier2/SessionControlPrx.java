@@ -69,7 +69,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<StringSetPrx> _iceI_categoriesAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<StringSetPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "categories", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      StringSetPrx ret;
                      ret = StringSetPrx.uncheckedCast(istr.readProxy());
                      return ret;
@@ -124,7 +124,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<StringSetPrx> _iceI_adapterIdsAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<StringSetPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "adapterIds", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      StringSetPrx ret;
                      ret = StringSetPrx.uncheckedCast(istr.readProxy());
                      return ret;
@@ -179,7 +179,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<IdentitySetPrx> _iceI_identitiesAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<IdentitySetPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "identities", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      IdentitySetPrx ret;
                      ret = IdentitySetPrx.uncheckedCast(istr.readProxy());
                      return ret;
@@ -234,7 +234,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getSessionTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getSessionTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      int ret;
                      ret = istr.readInt();
                      return ret;
@@ -287,7 +287,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "destroy", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 

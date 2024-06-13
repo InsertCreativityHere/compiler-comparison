@@ -72,7 +72,7 @@ public interface forPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<array> _iceI_foreachAsync(breakPrx iceP_if, echo iceP_global, functionPrx iceP_include, diePrx iceP_return, enddeclarePrx iceP_list, int iceP_new, int iceP_static, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<array> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "foreach", null, sync, _iceE_foreach);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeProxy(iceP_if);
                      ostr.writeValue(iceP_global);
                      ostr.writeProxy(iceP_include);

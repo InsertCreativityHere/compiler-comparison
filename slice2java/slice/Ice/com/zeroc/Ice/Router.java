@@ -133,78 +133,63 @@ public interface Router extends Object
         return "::Ice::Router";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_getClientProxy(Router obj, final com.zeroc.IceInternal.Incoming inS, Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getClientProxy(Router obj, IncomingRequest request)
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        Router.GetClientProxyResult ret = obj.getClientProxy(current);
-        OutputStream ostr = inS.startWriteParams();
+        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        Router.GetClientProxyResult ret = obj.getClientProxy(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_getServerProxy(Router obj, final com.zeroc.IceInternal.Incoming inS, Current current)
-    {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        ObjectPrx ret = obj.getServerProxy(current);
-        OutputStream ostr = inS.startWriteParams();
-        ostr.writeProxy(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_addProxies(Router obj, final com.zeroc.IceInternal.Incoming inS, Current current)
-    {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        InputStream istr = inS.startReadParams();
-        ObjectPrx[] iceP_proxies;
-        iceP_proxies = ObjectProxySeqHelper.read(istr);
-        inS.endReadParams();
-        ObjectPrx[] ret = obj.addProxies(iceP_proxies, current);
-        OutputStream ostr = inS.startWriteParams();
-        ObjectProxySeqHelper.write(ostr, ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
     /** @hidden */
-    @Override
-    default java.util.concurrent.CompletionStage<OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, Current current)
-        throws UserException
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getServerProxy(Router obj, IncomingRequest request)
     {
-        return switch (current.operation)
+        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        ObjectPrx ret = obj.getServerProxy(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.writeProxy(ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_addProxies(Router obj, IncomingRequest request)
+    {
+        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        ObjectPrx[] iceP_proxies;
+        iceP_proxies = ObjectProxySeqHelper.read(istr);
+        istr.endEncapsulation();
+        ObjectPrx[] ret = obj.addProxies(iceP_proxies, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ObjectProxySeqHelper.write(ostr, ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    @Override
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        return switch (request.current.operation)
         {
-            case "getClientProxy" -> Router._iceD_getClientProxy(this, in, current);
-            case "getServerProxy" -> Router._iceD_getServerProxy(this, in, current);
-            case "addProxies" -> Router._iceD_addProxies(this, in, current);
-            case "ice_id" -> Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> Object._iceD_ice_ping(this, in, current);
-            default -> throw new OperationNotExistException();
+            case "getClientProxy" -> Router._iceD_getClientProxy(this, request);
+            case "getServerProxy" -> Router._iceD_getServerProxy(this, request);
+            case "addProxies" -> Router._iceD_addProxies(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }
 }

@@ -46,7 +46,7 @@ public interface HPrx extends GPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_callHAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "callH", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      String ret;
                      ret = istr.readString();
                      return ret;

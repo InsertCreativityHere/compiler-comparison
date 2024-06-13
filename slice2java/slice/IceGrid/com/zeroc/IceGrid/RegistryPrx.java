@@ -97,7 +97,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<SessionPrx> _iceI_createSessionAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<SessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createSession", null, sync, _iceE_createSession);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_userId);
                      ostr.writeString(iceP_password);
                  }, istr -> {
@@ -188,7 +188,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<AdminSessionPrx> _iceI_createAdminSessionAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<AdminSessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createAdminSession", null, sync, _iceE_createAdminSession);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_userId);
                      ostr.writeString(iceP_password);
                  }, istr -> {
@@ -269,7 +269,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<SessionPrx> _iceI_createSessionFromSecureConnectionAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<SessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createSessionFromSecureConnection", null, sync, _iceE_createSessionFromSecureConnection);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      SessionPrx ret;
                      ret = SessionPrx.uncheckedCast(istr.readProxy());
                      return ret;
@@ -347,7 +347,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<AdminSessionPrx> _iceI_createAdminSessionFromSecureConnectionAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<AdminSessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createAdminSessionFromSecureConnection", null, sync, _iceE_createAdminSessionFromSecureConnection);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      AdminSessionPrx ret;
                      ret = AdminSessionPrx.uncheckedCast(istr.readProxy());
                      return ret;
@@ -408,7 +408,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getSessionTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getSessionTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      int ret;
                      ret = istr.readInt();
                      return ret;
@@ -463,7 +463,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getACMTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getACMTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      int ret;
                      ret = istr.readInt();
                      return ret;

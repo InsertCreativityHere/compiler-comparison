@@ -54,130 +54,105 @@ public interface Callback extends com.zeroc.Ice.Object
         return "::Test::Callback";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_initiateCallback(Callback obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_initiateCallback(Callback obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         CallbackReceiverPrx iceP_proxy;
         iceP_proxy = CallbackReceiverPrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        return inS.setResultFuture(obj.initiateCallbackAsync(iceP_proxy, current));
+        istr.endEncapsulation();
+        var result = obj.initiateCallbackAsync(iceP_proxy, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_initiateCallbackEx(Callback obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_initiateCallbackEx(Callback obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         CallbackReceiverPrx iceP_proxy;
         iceP_proxy = CallbackReceiverPrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        return inS.setResultFuture(obj.initiateCallbackExAsync(iceP_proxy, current));
+        istr.endEncapsulation();
+        var result = obj.initiateCallbackExAsync(iceP_proxy, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_initiateConcurrentCallback(Callback obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_initiateConcurrentCallback(Callback obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         int iceP_number;
         CallbackReceiverPrx iceP_proxy;
         iceP_number = istr.readInt();
         iceP_proxy = CallbackReceiverPrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        return inS.setResultFuture(obj.initiateConcurrentCallbackAsync(iceP_number, iceP_proxy, current), (ostr, ret) ->
+        istr.endEncapsulation();
+        var result = obj.initiateConcurrentCallbackAsync(iceP_number, iceP_proxy, request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeInt(ret);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_initiateWaitCallback(Callback obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        CallbackReceiverPrx iceP_proxy;
-        iceP_proxy = CallbackReceiverPrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        return inS.setResultFuture(obj.initiateWaitCallbackAsync(iceP_proxy, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_initiateCallbackWithPayload(Callback obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        CallbackReceiverPrx iceP_proxy;
-        iceP_proxy = CallbackReceiverPrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        return inS.setResultFuture(obj.initiateCallbackWithPayloadAsync(iceP_proxy, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_shutdown(Callback obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.shutdown(current);
-        return inS.setResult(inS.writeEmptyParams());
+                ostr.writeInt(value);
+            },
+            com.zeroc.Ice.FormatType.DefaultFormat));
     }
 
     /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_initiateWaitCallback(Callback obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        CallbackReceiverPrx iceP_proxy;
+        iceP_proxy = CallbackReceiverPrx.uncheckedCast(istr.readProxy());
+        istr.endEncapsulation();
+        var result = obj.initiateWaitCallbackAsync(iceP_proxy, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_initiateCallbackWithPayload(Callback obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        CallbackReceiverPrx iceP_proxy;
+        iceP_proxy = CallbackReceiverPrx.uncheckedCast(istr.readProxy());
+        istr.endEncapsulation();
+        var result = obj.initiateCallbackWithPayloadAsync(iceP_proxy, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(Callback obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.shutdown(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
     @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "initiateCallback" -> Callback._iceD_initiateCallback(this, in, current);
-            case "initiateCallbackEx" -> Callback._iceD_initiateCallbackEx(this, in, current);
-            case "initiateConcurrentCallback" -> Callback._iceD_initiateConcurrentCallback(this, in, current);
-            case "initiateWaitCallback" -> Callback._iceD_initiateWaitCallback(this, in, current);
-            case "initiateCallbackWithPayload" -> Callback._iceD_initiateCallbackWithPayload(this, in, current);
-            case "shutdown" -> Callback._iceD_shutdown(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "initiateCallback" -> Callback._iceD_initiateCallback(this, request);
+            case "initiateCallbackEx" -> Callback._iceD_initiateCallbackEx(this, request);
+            case "initiateConcurrentCallback" -> Callback._iceD_initiateConcurrentCallback(this, request);
+            case "initiateWaitCallback" -> Callback._iceD_initiateWaitCallback(this, request);
+            case "initiateCallbackWithPayload" -> Callback._iceD_initiateCallbackWithPayload(this, request);
+            case "shutdown" -> Callback._iceD_shutdown(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

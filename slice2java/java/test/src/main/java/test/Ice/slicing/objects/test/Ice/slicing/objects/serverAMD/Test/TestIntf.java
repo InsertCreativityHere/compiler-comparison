@@ -375,777 +375,639 @@ public interface TestIntf extends com.zeroc.Ice.Object
         return "::Test::TestIntf";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_SBaseAsObject(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_SBaseAsObject(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.SBaseAsObjectAsync(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.SBaseAsObjectAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_SBaseAsSBase(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_SBaseAsSBase(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.SBaseAsSBaseAsync(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.SBaseAsSBaseAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_SBSKnownDerivedAsSBase(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_SBSKnownDerivedAsSBase(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.SBSKnownDerivedAsSBaseAsync(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.SBSKnownDerivedAsSBaseAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_SBSKnownDerivedAsSBSKnownDerived(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_SBSKnownDerivedAsSBSKnownDerived(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.SBSKnownDerivedAsSBSKnownDerivedAsync(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.SBSKnownDerivedAsSBSKnownDerivedAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_SBSUnknownDerivedAsSBase(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_SBSUnknownDerivedAsSBase(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.SBSUnknownDerivedAsSBaseAsync(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.SBSUnknownDerivedAsSBaseAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_SBSUnknownDerivedAsSBaseCompact(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_SBSUnknownDerivedAsSBaseCompact(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.CompactFormat);
-        return inS.setResultFuture(obj.SBSUnknownDerivedAsSBaseCompactAsync(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.SBSUnknownDerivedAsSBaseCompactAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.CompactFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_SUnknownAsObject(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_SUnknownAsObject(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.SUnknownAsObjectAsync(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.SUnknownAsObjectAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_checkSUnknown(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_checkSUnknown(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> icePP_o = new com.zeroc.IceInternal.Holder<>();
         istr.readValue(v -> icePP_o.value = v, com.zeroc.Ice.Value.class);
         istr.readPendingValues();
-        inS.endReadParams();
+        istr.endEncapsulation();
         com.zeroc.Ice.Value iceP_o = icePP_o.value;
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.checkSUnknownAsync(iceP_o, current));
+        var result = obj.checkSUnknownAsync(iceP_o, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_oneElementCycle(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_oneElementCycle(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.oneElementCycleAsync(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.oneElementCycleAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_twoElementCycle(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_twoElementCycle(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.twoElementCycleAsync(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.twoElementCycleAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_D1AsB(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_D1AsB(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.D1AsBAsync(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.D1AsBAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_D1AsD1(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_D1AsD1(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.D1AsD1Async(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.D1AsD1Async(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_D2AsB(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_D2AsB(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.D2AsBAsync(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.D2AsBAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_paramTest1(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_paramTest1(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.paramTest1Async(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.paramTest1Async(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ret.write(ostr);
+                value.write(ostr);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_paramTest2(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_paramTest2(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.paramTest2Async(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.paramTest2Async(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ret.write(ostr);
+                value.write(ostr);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_paramTest3(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_paramTest3(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.paramTest3Async(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.paramTest3Async(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ret.write(ostr);
+                value.write(ostr);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_paramTest4(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_paramTest4(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.paramTest4Async(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.paramTest4Async(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ret.write(ostr);
+                value.write(ostr);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_returnTest1(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_returnTest1(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.returnTest1Async(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.returnTest1Async(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ret.write(ostr);
+                value.write(ostr);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_returnTest2(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_returnTest2(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.returnTest2Async(current), (ostr, ret) ->
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.returnTest2Async(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ret.write(ostr);
+                value.write(ostr);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_returnTest3(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_returnTest3(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         final com.zeroc.IceInternal.Holder<B> icePP_p1 = new com.zeroc.IceInternal.Holder<>();
         final com.zeroc.IceInternal.Holder<B> icePP_p2 = new com.zeroc.IceInternal.Holder<>();
         istr.readValue(v -> icePP_p1.value = v, B.class);
         istr.readValue(v -> icePP_p2.value = v, B.class);
         istr.readPendingValues();
-        inS.endReadParams();
+        istr.endEncapsulation();
         B iceP_p1 = icePP_p1.value;
         B iceP_p2 = icePP_p2.value;
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.returnTest3Async(iceP_p1, iceP_p2, current), (ostr, ret) ->
+        var result = obj.returnTest3Async(iceP_p1, iceP_p2, request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeValue(ret);
+                ostr.writeValue(value);
                 ostr.writePendingValues();
-            });
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_sequenceTest(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_sequenceTest(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         final com.zeroc.IceInternal.Holder<SS1> icePP_p1 = new com.zeroc.IceInternal.Holder<>();
         final com.zeroc.IceInternal.Holder<SS2> icePP_p2 = new com.zeroc.IceInternal.Holder<>();
         istr.readValue(v -> icePP_p1.value = v, SS1.class);
         istr.readValue(v -> icePP_p2.value = v, SS2.class);
         istr.readPendingValues();
-        inS.endReadParams();
+        istr.endEncapsulation();
         SS1 iceP_p1 = icePP_p1.value;
         SS2 iceP_p2 = icePP_p2.value;
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.sequenceTestAsync(iceP_p1, iceP_p2, current), (ostr, ret) ->
+        var result = obj.sequenceTestAsync(iceP_p1, iceP_p2, request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                SS3.ice_write(ostr, ret);
+                SS3.ice_write(ostr, value);
                 ostr.writePendingValues();
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_dictionaryTest(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Map<java.lang.Integer, B> iceP_bin;
-        iceP_bin = BDictHelper.read(istr);
-        istr.readPendingValues();
-        inS.endReadParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.dictionaryTestAsync(iceP_bin, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-                ostr.writePendingValues();
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_exchangePBase(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        final com.zeroc.IceInternal.Holder<PBase> icePP_pb = new com.zeroc.IceInternal.Holder<>();
-        istr.readValue(v -> icePP_pb.value = v, PBase.class);
-        istr.readPendingValues();
-        inS.endReadParams();
-        PBase iceP_pb = icePP_pb.value;
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.exchangePBaseAsync(iceP_pb, current), (ostr, ret) ->
-            {
-                ostr.writeValue(ret);
-                ostr.writePendingValues();
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_PBSUnknownAsPreserved(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.PBSUnknownAsPreservedAsync(current), (ostr, ret) ->
-            {
-                ostr.writeValue(ret);
-                ostr.writePendingValues();
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_checkPBSUnknown(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        final com.zeroc.IceInternal.Holder<Preserved> icePP_p = new com.zeroc.IceInternal.Holder<>();
-        istr.readValue(v -> icePP_p.value = v, Preserved.class);
-        istr.readPendingValues();
-        inS.endReadParams();
-        Preserved iceP_p = icePP_p.value;
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.checkPBSUnknownAsync(iceP_p, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_PBSUnknownAsPreservedWithGraph(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.PBSUnknownAsPreservedWithGraphAsync(current), (ostr, ret) ->
-            {
-                ostr.writeValue(ret);
-                ostr.writePendingValues();
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_checkPBSUnknownWithGraph(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        final com.zeroc.IceInternal.Holder<Preserved> icePP_p = new com.zeroc.IceInternal.Holder<>();
-        istr.readValue(v -> icePP_p.value = v, Preserved.class);
-        istr.readPendingValues();
-        inS.endReadParams();
-        Preserved iceP_p = icePP_p.value;
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.checkPBSUnknownWithGraphAsync(iceP_p, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_PBSUnknown2AsPreservedWithGraph(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.PBSUnknown2AsPreservedWithGraphAsync(current), (ostr, ret) ->
-            {
-                ostr.writeValue(ret);
-                ostr.writePendingValues();
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_checkPBSUnknown2WithGraph(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        final com.zeroc.IceInternal.Holder<Preserved> icePP_p = new com.zeroc.IceInternal.Holder<>();
-        istr.readValue(v -> icePP_p.value = v, Preserved.class);
-        istr.readPendingValues();
-        inS.endReadParams();
-        Preserved iceP_p = icePP_p.value;
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.checkPBSUnknown2WithGraphAsync(iceP_p, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_exchangePNode(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        final com.zeroc.IceInternal.Holder<PNode> icePP_pn = new com.zeroc.IceInternal.Holder<>();
-        istr.readValue(v -> icePP_pn.value = v, PNode.class);
-        istr.readPendingValues();
-        inS.endReadParams();
-        PNode iceP_pn = icePP_pn.value;
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.exchangePNodeAsync(iceP_pn, current), (ostr, ret) ->
-            {
-                ostr.writeValue(ret);
-                ostr.writePendingValues();
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_throwBaseAsBase(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.throwBaseAsBaseAsync(current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_throwDerivedAsBase(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.throwDerivedAsBaseAsync(current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_throwDerivedAsDerived(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.throwDerivedAsDerivedAsync(current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_throwUnknownDerivedAsBase(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.throwUnknownDerivedAsBaseAsync(current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_throwPreservedException(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.throwPreservedExceptionAsync(current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_useForward(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.useForwardAsync(current), (ostr, ret) ->
-            {
-                ostr.writeValue(ret);
-                ostr.writePendingValues();
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_shutdown(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.shutdownAsync(current));
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
     }
 
     /** @hidden */
-    @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_dictionaryTest(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        java.util.Map<java.lang.Integer, B> iceP_bin;
+        iceP_bin = BDictHelper.read(istr);
+        istr.readPendingValues();
+        istr.endEncapsulation();
+        var result = obj.dictionaryTestAsync(iceP_bin, request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                value.write(ostr);
+                ostr.writePendingValues();
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_exchangePBase(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        final com.zeroc.IceInternal.Holder<PBase> icePP_pb = new com.zeroc.IceInternal.Holder<>();
+        istr.readValue(v -> icePP_pb.value = v, PBase.class);
+        istr.readPendingValues();
+        istr.endEncapsulation();
+        PBase iceP_pb = icePP_pb.value;
+        var result = obj.exchangePBaseAsync(iceP_pb, request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                ostr.writeValue(value);
+                ostr.writePendingValues();
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_PBSUnknownAsPreserved(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.PBSUnknownAsPreservedAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                ostr.writeValue(value);
+                ostr.writePendingValues();
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_checkPBSUnknown(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        final com.zeroc.IceInternal.Holder<Preserved> icePP_p = new com.zeroc.IceInternal.Holder<>();
+        istr.readValue(v -> icePP_p.value = v, Preserved.class);
+        istr.readPendingValues();
+        istr.endEncapsulation();
+        Preserved iceP_p = icePP_p.value;
+        var result = obj.checkPBSUnknownAsync(iceP_p, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_PBSUnknownAsPreservedWithGraph(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.PBSUnknownAsPreservedWithGraphAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                ostr.writeValue(value);
+                ostr.writePendingValues();
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_checkPBSUnknownWithGraph(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        final com.zeroc.IceInternal.Holder<Preserved> icePP_p = new com.zeroc.IceInternal.Holder<>();
+        istr.readValue(v -> icePP_p.value = v, Preserved.class);
+        istr.readPendingValues();
+        istr.endEncapsulation();
+        Preserved iceP_p = icePP_p.value;
+        var result = obj.checkPBSUnknownWithGraphAsync(iceP_p, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_PBSUnknown2AsPreservedWithGraph(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.PBSUnknown2AsPreservedWithGraphAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                ostr.writeValue(value);
+                ostr.writePendingValues();
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_checkPBSUnknown2WithGraph(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        final com.zeroc.IceInternal.Holder<Preserved> icePP_p = new com.zeroc.IceInternal.Holder<>();
+        istr.readValue(v -> icePP_p.value = v, Preserved.class);
+        istr.readPendingValues();
+        istr.endEncapsulation();
+        Preserved iceP_p = icePP_p.value;
+        var result = obj.checkPBSUnknown2WithGraphAsync(iceP_p, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_exchangePNode(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        final com.zeroc.IceInternal.Holder<PNode> icePP_pn = new com.zeroc.IceInternal.Holder<>();
+        istr.readValue(v -> icePP_pn.value = v, PNode.class);
+        istr.readPendingValues();
+        istr.endEncapsulation();
+        PNode iceP_pn = icePP_pn.value;
+        var result = obj.exchangePNodeAsync(iceP_pn, request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                ostr.writeValue(value);
+                ostr.writePendingValues();
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwBaseAsBase(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.throwBaseAsBaseAsync(request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwDerivedAsBase(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.throwDerivedAsBaseAsync(request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwDerivedAsDerived(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.throwDerivedAsDerivedAsync(request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwUnknownDerivedAsBase(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.throwUnknownDerivedAsBaseAsync(request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwPreservedException(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.throwPreservedExceptionAsync(request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_useForward(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.useForwardAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                ostr.writeValue(value);
+                ostr.writePendingValues();
+            },
+            com.zeroc.Ice.FormatType.SlicedFormat));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        var result = obj.shutdownAsync(request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
+    }
+
+    @Override
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        return switch (request.current.operation)
         {
-            case "SBaseAsObject" -> TestIntf._iceD_SBaseAsObject(this, in, current);
-            case "SBaseAsSBase" -> TestIntf._iceD_SBaseAsSBase(this, in, current);
-            case "SBSKnownDerivedAsSBase" -> TestIntf._iceD_SBSKnownDerivedAsSBase(this, in, current);
-            case "SBSKnownDerivedAsSBSKnownDerived" -> TestIntf._iceD_SBSKnownDerivedAsSBSKnownDerived(this, in, current);
-            case "SBSUnknownDerivedAsSBase" -> TestIntf._iceD_SBSUnknownDerivedAsSBase(this, in, current);
-            case "SBSUnknownDerivedAsSBaseCompact" -> TestIntf._iceD_SBSUnknownDerivedAsSBaseCompact(this, in, current);
-            case "SUnknownAsObject" -> TestIntf._iceD_SUnknownAsObject(this, in, current);
-            case "checkSUnknown" -> TestIntf._iceD_checkSUnknown(this, in, current);
-            case "oneElementCycle" -> TestIntf._iceD_oneElementCycle(this, in, current);
-            case "twoElementCycle" -> TestIntf._iceD_twoElementCycle(this, in, current);
-            case "D1AsB" -> TestIntf._iceD_D1AsB(this, in, current);
-            case "D1AsD1" -> TestIntf._iceD_D1AsD1(this, in, current);
-            case "D2AsB" -> TestIntf._iceD_D2AsB(this, in, current);
-            case "paramTest1" -> TestIntf._iceD_paramTest1(this, in, current);
-            case "paramTest2" -> TestIntf._iceD_paramTest2(this, in, current);
-            case "paramTest3" -> TestIntf._iceD_paramTest3(this, in, current);
-            case "paramTest4" -> TestIntf._iceD_paramTest4(this, in, current);
-            case "returnTest1" -> TestIntf._iceD_returnTest1(this, in, current);
-            case "returnTest2" -> TestIntf._iceD_returnTest2(this, in, current);
-            case "returnTest3" -> TestIntf._iceD_returnTest3(this, in, current);
-            case "sequenceTest" -> TestIntf._iceD_sequenceTest(this, in, current);
-            case "dictionaryTest" -> TestIntf._iceD_dictionaryTest(this, in, current);
-            case "exchangePBase" -> TestIntf._iceD_exchangePBase(this, in, current);
-            case "PBSUnknownAsPreserved" -> TestIntf._iceD_PBSUnknownAsPreserved(this, in, current);
-            case "checkPBSUnknown" -> TestIntf._iceD_checkPBSUnknown(this, in, current);
-            case "PBSUnknownAsPreservedWithGraph" -> TestIntf._iceD_PBSUnknownAsPreservedWithGraph(this, in, current);
-            case "checkPBSUnknownWithGraph" -> TestIntf._iceD_checkPBSUnknownWithGraph(this, in, current);
-            case "PBSUnknown2AsPreservedWithGraph" -> TestIntf._iceD_PBSUnknown2AsPreservedWithGraph(this, in, current);
-            case "checkPBSUnknown2WithGraph" -> TestIntf._iceD_checkPBSUnknown2WithGraph(this, in, current);
-            case "exchangePNode" -> TestIntf._iceD_exchangePNode(this, in, current);
-            case "throwBaseAsBase" -> TestIntf._iceD_throwBaseAsBase(this, in, current);
-            case "throwDerivedAsBase" -> TestIntf._iceD_throwDerivedAsBase(this, in, current);
-            case "throwDerivedAsDerived" -> TestIntf._iceD_throwDerivedAsDerived(this, in, current);
-            case "throwUnknownDerivedAsBase" -> TestIntf._iceD_throwUnknownDerivedAsBase(this, in, current);
-            case "throwPreservedException" -> TestIntf._iceD_throwPreservedException(this, in, current);
-            case "useForward" -> TestIntf._iceD_useForward(this, in, current);
-            case "shutdown" -> TestIntf._iceD_shutdown(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "SBaseAsObject" -> TestIntf._iceD_SBaseAsObject(this, request);
+            case "SBaseAsSBase" -> TestIntf._iceD_SBaseAsSBase(this, request);
+            case "SBSKnownDerivedAsSBase" -> TestIntf._iceD_SBSKnownDerivedAsSBase(this, request);
+            case "SBSKnownDerivedAsSBSKnownDerived" -> TestIntf._iceD_SBSKnownDerivedAsSBSKnownDerived(this, request);
+            case "SBSUnknownDerivedAsSBase" -> TestIntf._iceD_SBSUnknownDerivedAsSBase(this, request);
+            case "SBSUnknownDerivedAsSBaseCompact" -> TestIntf._iceD_SBSUnknownDerivedAsSBaseCompact(this, request);
+            case "SUnknownAsObject" -> TestIntf._iceD_SUnknownAsObject(this, request);
+            case "checkSUnknown" -> TestIntf._iceD_checkSUnknown(this, request);
+            case "oneElementCycle" -> TestIntf._iceD_oneElementCycle(this, request);
+            case "twoElementCycle" -> TestIntf._iceD_twoElementCycle(this, request);
+            case "D1AsB" -> TestIntf._iceD_D1AsB(this, request);
+            case "D1AsD1" -> TestIntf._iceD_D1AsD1(this, request);
+            case "D2AsB" -> TestIntf._iceD_D2AsB(this, request);
+            case "paramTest1" -> TestIntf._iceD_paramTest1(this, request);
+            case "paramTest2" -> TestIntf._iceD_paramTest2(this, request);
+            case "paramTest3" -> TestIntf._iceD_paramTest3(this, request);
+            case "paramTest4" -> TestIntf._iceD_paramTest4(this, request);
+            case "returnTest1" -> TestIntf._iceD_returnTest1(this, request);
+            case "returnTest2" -> TestIntf._iceD_returnTest2(this, request);
+            case "returnTest3" -> TestIntf._iceD_returnTest3(this, request);
+            case "sequenceTest" -> TestIntf._iceD_sequenceTest(this, request);
+            case "dictionaryTest" -> TestIntf._iceD_dictionaryTest(this, request);
+            case "exchangePBase" -> TestIntf._iceD_exchangePBase(this, request);
+            case "PBSUnknownAsPreserved" -> TestIntf._iceD_PBSUnknownAsPreserved(this, request);
+            case "checkPBSUnknown" -> TestIntf._iceD_checkPBSUnknown(this, request);
+            case "PBSUnknownAsPreservedWithGraph" -> TestIntf._iceD_PBSUnknownAsPreservedWithGraph(this, request);
+            case "checkPBSUnknownWithGraph" -> TestIntf._iceD_checkPBSUnknownWithGraph(this, request);
+            case "PBSUnknown2AsPreservedWithGraph" -> TestIntf._iceD_PBSUnknown2AsPreservedWithGraph(this, request);
+            case "checkPBSUnknown2WithGraph" -> TestIntf._iceD_checkPBSUnknown2WithGraph(this, request);
+            case "exchangePNode" -> TestIntf._iceD_exchangePNode(this, request);
+            case "throwBaseAsBase" -> TestIntf._iceD_throwBaseAsBase(this, request);
+            case "throwDerivedAsBase" -> TestIntf._iceD_throwDerivedAsBase(this, request);
+            case "throwDerivedAsDerived" -> TestIntf._iceD_throwDerivedAsDerived(this, request);
+            case "throwUnknownDerivedAsBase" -> TestIntf._iceD_throwUnknownDerivedAsBase(this, request);
+            case "throwPreservedException" -> TestIntf._iceD_throwPreservedException(this, request);
+            case "useForward" -> TestIntf._iceD_useForward(this, request);
+            case "shutdown" -> TestIntf._iceD_shutdown(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

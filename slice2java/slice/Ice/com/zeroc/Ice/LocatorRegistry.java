@@ -92,86 +92,70 @@ public interface LocatorRegistry extends Object
         return "::Ice::LocatorRegistry";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws UserException -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_setAdapterDirectProxy(LocatorRegistry obj, final com.zeroc.IceInternal.Incoming inS, Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_setAdapterDirectProxy(LocatorRegistry obj, IncomingRequest request)
         throws UserException
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        InputStream istr = inS.startReadParams();
+        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         String iceP_id;
         ObjectPrx iceP_proxy;
         iceP_id = istr.readString();
         iceP_proxy = istr.readProxy();
-        inS.endReadParams();
-        return inS.setResultFuture(obj.setAdapterDirectProxyAsync(iceP_id, iceP_proxy, current));
+        istr.endEncapsulation();
+        var result = obj.setAdapterDirectProxyAsync(iceP_id, iceP_proxy, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws UserException -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_setReplicatedAdapterDirectProxy(LocatorRegistry obj, final com.zeroc.IceInternal.Incoming inS, Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_setReplicatedAdapterDirectProxy(LocatorRegistry obj, IncomingRequest request)
         throws UserException
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        InputStream istr = inS.startReadParams();
+        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         String iceP_adapterId;
         String iceP_replicaGroupId;
         ObjectPrx iceP_proxy;
         iceP_adapterId = istr.readString();
         iceP_replicaGroupId = istr.readString();
         iceP_proxy = istr.readProxy();
-        inS.endReadParams();
-        return inS.setResultFuture(obj.setReplicatedAdapterDirectProxyAsync(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, current));
+        istr.endEncapsulation();
+        var result = obj.setReplicatedAdapterDirectProxyAsync(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws UserException -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_setServerProcessProxy(LocatorRegistry obj, final com.zeroc.IceInternal.Incoming inS, Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_setServerProcessProxy(LocatorRegistry obj, IncomingRequest request)
         throws UserException
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        InputStream istr = inS.startReadParams();
+        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         String iceP_id;
         ProcessPrx iceP_proxy;
         iceP_id = istr.readString();
         iceP_proxy = ProcessPrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        return inS.setResultFuture(obj.setServerProcessProxyAsync(iceP_id, iceP_proxy, current));
+        istr.endEncapsulation();
+        var result = obj.setServerProcessProxyAsync(iceP_id, iceP_proxy, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
     @Override
-    default java.util.concurrent.CompletionStage<OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, Current current)
-        throws UserException
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "setAdapterDirectProxy" -> LocatorRegistry._iceD_setAdapterDirectProxy(this, in, current);
-            case "setReplicatedAdapterDirectProxy" -> LocatorRegistry._iceD_setReplicatedAdapterDirectProxy(this, in, current);
-            case "setServerProcessProxy" -> LocatorRegistry._iceD_setServerProcessProxy(this, in, current);
-            case "ice_id" -> Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> Object._iceD_ice_ping(this, in, current);
-            default -> throw new OperationNotExistException();
+            case "setAdapterDirectProxy" -> LocatorRegistry._iceD_setAdapterDirectProxy(this, request);
+            case "setReplicatedAdapterDirectProxy" -> LocatorRegistry._iceD_setReplicatedAdapterDirectProxy(this, request);
+            case "setServerProcessProxy" -> LocatorRegistry._iceD_setServerProcessProxy(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }
 }

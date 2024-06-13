@@ -47,7 +47,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpByteResult> _iceI_opByteAsync(ByteEnum iceP_b1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpByteResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opByte", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ByteEnum.ice_write(ostr, iceP_b1);
                  }, istr -> {
                      TestIntf.OpByteResult ret = new TestIntf.OpByteResult();
@@ -87,7 +87,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpShortResult> _iceI_opShortAsync(ShortEnum iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpShortResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opShort", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ShortEnum.ice_write(ostr, iceP_s1);
                  }, istr -> {
                      TestIntf.OpShortResult ret = new TestIntf.OpShortResult();
@@ -127,7 +127,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpIntResult> _iceI_opIntAsync(IntEnum iceP_i1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpIntResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opInt", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      IntEnum.ice_write(ostr, iceP_i1);
                  }, istr -> {
                      TestIntf.OpIntResult ret = new TestIntf.OpIntResult();
@@ -167,7 +167,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpSimpleResult> _iceI_opSimpleAsync(SimpleEnum iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpSimpleResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opSimple", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      SimpleEnum.ice_write(ostr, iceP_s1);
                  }, istr -> {
                      TestIntf.OpSimpleResult ret = new TestIntf.OpSimpleResult();
@@ -207,7 +207,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpByteSeqResult> _iceI_opByteSeqAsync(ByteEnum[] iceP_b1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpByteSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opByteSeq", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ByteEnumSeqHelper.write(ostr, iceP_b1);
                  }, istr -> {
                      TestIntf.OpByteSeqResult ret = new TestIntf.OpByteSeqResult();
@@ -247,7 +247,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpShortSeqResult> _iceI_opShortSeqAsync(ShortEnum[] iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpShortSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opShortSeq", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ShortEnumSeqHelper.write(ostr, iceP_s1);
                  }, istr -> {
                      TestIntf.OpShortSeqResult ret = new TestIntf.OpShortSeqResult();
@@ -287,7 +287,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpIntSeqResult> _iceI_opIntSeqAsync(IntEnum[] iceP_i1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpIntSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opIntSeq", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      IntEnumSeqHelper.write(ostr, iceP_i1);
                  }, istr -> {
                      TestIntf.OpIntSeqResult ret = new TestIntf.OpIntSeqResult();
@@ -327,7 +327,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpSimpleSeqResult> _iceI_opSimpleSeqAsync(SimpleEnum[] iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpSimpleSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opSimpleSeq", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      SimpleEnumSeqHelper.write(ostr, iceP_s1);
                  }, istr -> {
                      TestIntf.OpSimpleSeqResult ret = new TestIntf.OpSimpleSeqResult();
@@ -366,7 +366,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 

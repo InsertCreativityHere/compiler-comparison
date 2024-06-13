@@ -14038,6 +14038,8 @@ namespace Test
 
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
 
+        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
+
         public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
 
         public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
@@ -14143,8 +14145,6 @@ namespace Test
         public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
-
-        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -14273,6 +14273,8 @@ namespace Test2
 
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
 
+        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
+
         public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
 
         public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
@@ -14378,8 +14380,6 @@ namespace Test2
         public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
-
-        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

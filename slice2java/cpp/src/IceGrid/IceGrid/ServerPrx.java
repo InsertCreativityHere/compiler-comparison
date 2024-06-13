@@ -75,7 +75,7 @@ public interface ServerPrx extends FileReaderPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_startAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "start", null, sync, _iceE_start);
-        f.invoke(true, context, null, null, null);
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 
@@ -147,7 +147,7 @@ public interface ServerPrx extends FileReaderPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_stopAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "stop", null, sync, _iceE_stop);
-        f.invoke(true, context, null, null, null);
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 
@@ -221,7 +221,7 @@ public interface ServerPrx extends FileReaderPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_checkUpdateAsync(InternalServerDescriptor iceP_svr, boolean iceP_noRestart, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkUpdate", null, sync, _iceE_checkUpdate);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeValue(iceP_svr);
                      ostr.writeBool(iceP_noRestart);
                      ostr.writePendingValues();
@@ -285,7 +285,7 @@ public interface ServerPrx extends FileReaderPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setEnabledAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setEnabled", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeBool(iceP_enable);
                  }, null);
         return f;
@@ -336,7 +336,7 @@ public interface ServerPrx extends FileReaderPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_isEnabledAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "isEnabled", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      boolean ret;
                      ret = istr.readBool();
                      return ret;
@@ -403,7 +403,7 @@ public interface ServerPrx extends FileReaderPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sendSignalAsync(String iceP_signal, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sendSignal", null, sync, _iceE_sendSignal);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_signal);
                  }, null);
         return f;
@@ -462,7 +462,7 @@ public interface ServerPrx extends FileReaderPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_writeMessageAsync(String iceP_message, int iceP_fd, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "writeMessage", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_message);
                      ostr.writeInt(iceP_fd);
                  }, null);
@@ -524,7 +524,7 @@ public interface ServerPrx extends FileReaderPrx
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.IceGrid.ServerState> _iceI_getStateAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<com.zeroc.IceGrid.ServerState> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getState", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      com.zeroc.IceGrid.ServerState ret;
                      ret = com.zeroc.IceGrid.ServerState.ice_read(istr);
                      return ret;
@@ -581,7 +581,7 @@ public interface ServerPrx extends FileReaderPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getPidAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getPid", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      int ret;
                      ret = istr.readInt();
                      return ret;
@@ -635,7 +635,7 @@ public interface ServerPrx extends FileReaderPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setProcessAsync(com.zeroc.Ice.ProcessPrx iceP_proc, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setProcess", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeProxy(iceP_proc);
                  }, null);
         return f;

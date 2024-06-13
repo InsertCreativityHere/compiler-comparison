@@ -75,7 +75,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_invitationAsync(int iceP_j, String iceP_gn, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "invitation", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeInt(iceP_j);
                      ostr.writeString(iceP_gn);
                  }, null);
@@ -152,7 +152,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_readyAsync(int iceP_j, String iceP_gn, com.zeroc.Ice.ObjectPrx iceP_coordinator, int iceP_max, long iceP_generation, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "ready", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeInt(iceP_j);
                      ostr.writeString(iceP_gn);
                      ostr.writeProxy(iceP_coordinator);
@@ -237,7 +237,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_acceptAsync(int iceP_j, String iceP_gn, int[] iceP_forwardedInvites, com.zeroc.Ice.ObjectPrx iceP_observer, LogUpdate iceP_llu, int iceP_max, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "accept", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeInt(iceP_j);
                      ostr.writeString(iceP_gn);
                      ostr.writeIntSeq(iceP_forwardedInvites);
@@ -295,7 +295,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_areYouCoordinatorAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "areYouCoordinator", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      boolean ret;
                      ret = istr.readBool();
                      return ret;
@@ -360,7 +360,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_areYouThereAsync(String iceP_gn, int iceP_j, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "areYouThere", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_gn);
                      ostr.writeInt(iceP_j);
                  }, istr -> {
@@ -418,7 +418,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_syncAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sync", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      com.zeroc.Ice.ObjectPrx ret;
                      ret = istr.readProxy();
                      return ret;
@@ -473,7 +473,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<NodeInfo[]> _iceI_nodesAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<NodeInfo[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "nodes", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      NodeInfo[] ret;
                      ret = NodeInfoSeqHelper.read(istr);
                      return ret;
@@ -528,7 +528,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<QueryInfo> _iceI_queryAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<QueryInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "query", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      QueryInfo ret;
                      ret = QueryInfo.ice_read(istr);
                      return ret;

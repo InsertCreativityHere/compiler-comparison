@@ -48,150 +48,135 @@ public interface MyDerivedClass extends MyClass
         return "::Test::MyDerivedClass";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opDerived(MyDerivedClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opDerived(MyDerivedClass obj, com.zeroc.Ice.IncomingRequest request)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.opDerived(current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opMyClass1(MyDerivedClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        final com.zeroc.IceInternal.Holder<MyClass1> icePP_opMyClass1 = new com.zeroc.IceInternal.Holder<>();
-        istr.readValue(v -> icePP_opMyClass1.value = v, MyClass1.class);
-        istr.readPendingValues();
-        inS.endReadParams();
-        MyClass1 iceP_opMyClass1 = icePP_opMyClass1.value;
-        MyClass1 ret = obj.opMyClass1(iceP_opMyClass1, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeValue(ret);
-        ostr.writePendingValues();
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opMyStruct1(MyDerivedClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        MyStruct1 iceP_opMyStruct1;
-        iceP_opMyStruct1 = MyStruct1.ice_read(istr);
-        inS.endReadParams();
-        MyStruct1 ret = obj.opMyStruct1(iceP_opMyStruct1, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        MyStruct1.ice_write(ostr, ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.opDerived(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
     /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opMyClass1(MyDerivedClass obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        final com.zeroc.IceInternal.Holder<MyClass1> icePP_opMyClass1 = new com.zeroc.IceInternal.Holder<>();
+        istr.readValue(v -> icePP_opMyClass1.value = v, MyClass1.class);
+        istr.readPendingValues();
+        istr.endEncapsulation();
+        MyClass1 iceP_opMyClass1 = icePP_opMyClass1.value;
+        MyClass1 ret = obj.opMyClass1(iceP_opMyClass1, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.writeValue(ret);
+        ostr.writePendingValues();
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opMyStruct1(MyDerivedClass obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        MyStruct1 iceP_opMyStruct1;
+        iceP_opMyStruct1 = MyStruct1.ice_read(istr);
+        istr.endEncapsulation();
+        MyStruct1 ret = obj.opMyStruct1(iceP_opMyStruct1, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        MyStruct1.ice_write(ostr, ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
     @Override
-    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
-        return switch (current.operation)
+        return switch (request.current.operation)
         {
-            case "shutdown" -> MyClass._iceD_shutdown(this, in, current);
-            case "supportsCompress" -> MyClass._iceD_supportsCompress(this, in, current);
-            case "opVoid" -> MyClass._iceD_opVoid(this, in, current);
-            case "opByte" -> MyClass._iceD_opByte(this, in, current);
-            case "opBool" -> MyClass._iceD_opBool(this, in, current);
-            case "opShortIntLong" -> MyClass._iceD_opShortIntLong(this, in, current);
-            case "opFloatDouble" -> MyClass._iceD_opFloatDouble(this, in, current);
-            case "opString" -> MyClass._iceD_opString(this, in, current);
-            case "opMyEnum" -> MyClass._iceD_opMyEnum(this, in, current);
-            case "opMyClass" -> MyClass._iceD_opMyClass(this, in, current);
-            case "opStruct" -> MyClass._iceD_opStruct(this, in, current);
-            case "opByteS" -> MyClass._iceD_opByteS(this, in, current);
-            case "opBoolS" -> MyClass._iceD_opBoolS(this, in, current);
-            case "opShortIntLongS" -> MyClass._iceD_opShortIntLongS(this, in, current);
-            case "opFloatDoubleS" -> MyClass._iceD_opFloatDoubleS(this, in, current);
-            case "opStringS" -> MyClass._iceD_opStringS(this, in, current);
-            case "opByteSS" -> MyClass._iceD_opByteSS(this, in, current);
-            case "opBoolSS" -> MyClass._iceD_opBoolSS(this, in, current);
-            case "opShortIntLongSS" -> MyClass._iceD_opShortIntLongSS(this, in, current);
-            case "opFloatDoubleSS" -> MyClass._iceD_opFloatDoubleSS(this, in, current);
-            case "opStringSS" -> MyClass._iceD_opStringSS(this, in, current);
-            case "opStringSSS" -> MyClass._iceD_opStringSSS(this, in, current);
-            case "opByteBoolD" -> MyClass._iceD_opByteBoolD(this, in, current);
-            case "opShortIntD" -> MyClass._iceD_opShortIntD(this, in, current);
-            case "opLongFloatD" -> MyClass._iceD_opLongFloatD(this, in, current);
-            case "opStringStringD" -> MyClass._iceD_opStringStringD(this, in, current);
-            case "opStringMyEnumD" -> MyClass._iceD_opStringMyEnumD(this, in, current);
-            case "opMyEnumStringD" -> MyClass._iceD_opMyEnumStringD(this, in, current);
-            case "opMyStructMyEnumD" -> MyClass._iceD_opMyStructMyEnumD(this, in, current);
-            case "opByteBoolDS" -> MyClass._iceD_opByteBoolDS(this, in, current);
-            case "opShortIntDS" -> MyClass._iceD_opShortIntDS(this, in, current);
-            case "opLongFloatDS" -> MyClass._iceD_opLongFloatDS(this, in, current);
-            case "opStringStringDS" -> MyClass._iceD_opStringStringDS(this, in, current);
-            case "opStringMyEnumDS" -> MyClass._iceD_opStringMyEnumDS(this, in, current);
-            case "opMyEnumStringDS" -> MyClass._iceD_opMyEnumStringDS(this, in, current);
-            case "opMyStructMyEnumDS" -> MyClass._iceD_opMyStructMyEnumDS(this, in, current);
-            case "opByteByteSD" -> MyClass._iceD_opByteByteSD(this, in, current);
-            case "opBoolBoolSD" -> MyClass._iceD_opBoolBoolSD(this, in, current);
-            case "opShortShortSD" -> MyClass._iceD_opShortShortSD(this, in, current);
-            case "opIntIntSD" -> MyClass._iceD_opIntIntSD(this, in, current);
-            case "opLongLongSD" -> MyClass._iceD_opLongLongSD(this, in, current);
-            case "opStringFloatSD" -> MyClass._iceD_opStringFloatSD(this, in, current);
-            case "opStringDoubleSD" -> MyClass._iceD_opStringDoubleSD(this, in, current);
-            case "opStringStringSD" -> MyClass._iceD_opStringStringSD(this, in, current);
-            case "opMyEnumMyEnumSD" -> MyClass._iceD_opMyEnumMyEnumSD(this, in, current);
-            case "opIntS" -> MyClass._iceD_opIntS(this, in, current);
-            case "opByteSOneway" -> MyClass._iceD_opByteSOneway(this, in, current);
-            case "opByteSOnewayCallCount" -> MyClass._iceD_opByteSOnewayCallCount(this, in, current);
-            case "opContext" -> MyClass._iceD_opContext(this, in, current);
-            case "opDoubleMarshaling" -> MyClass._iceD_opDoubleMarshaling(this, in, current);
-            case "opIdempotent" -> MyClass._iceD_opIdempotent(this, in, current);
-            case "opByte1" -> MyClass._iceD_opByte1(this, in, current);
-            case "opShort1" -> MyClass._iceD_opShort1(this, in, current);
-            case "opInt1" -> MyClass._iceD_opInt1(this, in, current);
-            case "opLong1" -> MyClass._iceD_opLong1(this, in, current);
-            case "opFloat1" -> MyClass._iceD_opFloat1(this, in, current);
-            case "opDouble1" -> MyClass._iceD_opDouble1(this, in, current);
-            case "opString1" -> MyClass._iceD_opString1(this, in, current);
-            case "opStringS1" -> MyClass._iceD_opStringS1(this, in, current);
-            case "opByteBoolD1" -> MyClass._iceD_opByteBoolD1(this, in, current);
-            case "opStringS2" -> MyClass._iceD_opStringS2(this, in, current);
-            case "opByteBoolD2" -> MyClass._iceD_opByteBoolD2(this, in, current);
-            case "opStringLiterals" -> MyClass._iceD_opStringLiterals(this, in, current);
-            case "opWStringLiterals" -> MyClass._iceD_opWStringLiterals(this, in, current);
-            case "opMStruct1" -> MyClass._iceD_opMStruct1(this, in, current);
-            case "opMStruct2" -> MyClass._iceD_opMStruct2(this, in, current);
-            case "opMSeq1" -> MyClass._iceD_opMSeq1(this, in, current);
-            case "opMSeq2" -> MyClass._iceD_opMSeq2(this, in, current);
-            case "opMDict1" -> MyClass._iceD_opMDict1(this, in, current);
-            case "opMDict2" -> MyClass._iceD_opMDict2(this, in, current);
-            case "opDerived" -> MyDerivedClass._iceD_opDerived(this, in, current);
-            case "opMyClass1" -> MyDerivedClass._iceD_opMyClass1(this, in, current);
-            case "opMyStruct1" -> MyDerivedClass._iceD_opMyStruct1(this, in, current);
-            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+            case "shutdown" -> MyClass._iceD_shutdown(this, request);
+            case "supportsCompress" -> MyClass._iceD_supportsCompress(this, request);
+            case "opVoid" -> MyClass._iceD_opVoid(this, request);
+            case "opByte" -> MyClass._iceD_opByte(this, request);
+            case "opBool" -> MyClass._iceD_opBool(this, request);
+            case "opShortIntLong" -> MyClass._iceD_opShortIntLong(this, request);
+            case "opFloatDouble" -> MyClass._iceD_opFloatDouble(this, request);
+            case "opString" -> MyClass._iceD_opString(this, request);
+            case "opMyEnum" -> MyClass._iceD_opMyEnum(this, request);
+            case "opMyClass" -> MyClass._iceD_opMyClass(this, request);
+            case "opStruct" -> MyClass._iceD_opStruct(this, request);
+            case "opByteS" -> MyClass._iceD_opByteS(this, request);
+            case "opBoolS" -> MyClass._iceD_opBoolS(this, request);
+            case "opShortIntLongS" -> MyClass._iceD_opShortIntLongS(this, request);
+            case "opFloatDoubleS" -> MyClass._iceD_opFloatDoubleS(this, request);
+            case "opStringS" -> MyClass._iceD_opStringS(this, request);
+            case "opByteSS" -> MyClass._iceD_opByteSS(this, request);
+            case "opBoolSS" -> MyClass._iceD_opBoolSS(this, request);
+            case "opShortIntLongSS" -> MyClass._iceD_opShortIntLongSS(this, request);
+            case "opFloatDoubleSS" -> MyClass._iceD_opFloatDoubleSS(this, request);
+            case "opStringSS" -> MyClass._iceD_opStringSS(this, request);
+            case "opStringSSS" -> MyClass._iceD_opStringSSS(this, request);
+            case "opByteBoolD" -> MyClass._iceD_opByteBoolD(this, request);
+            case "opShortIntD" -> MyClass._iceD_opShortIntD(this, request);
+            case "opLongFloatD" -> MyClass._iceD_opLongFloatD(this, request);
+            case "opStringStringD" -> MyClass._iceD_opStringStringD(this, request);
+            case "opStringMyEnumD" -> MyClass._iceD_opStringMyEnumD(this, request);
+            case "opMyEnumStringD" -> MyClass._iceD_opMyEnumStringD(this, request);
+            case "opMyStructMyEnumD" -> MyClass._iceD_opMyStructMyEnumD(this, request);
+            case "opByteBoolDS" -> MyClass._iceD_opByteBoolDS(this, request);
+            case "opShortIntDS" -> MyClass._iceD_opShortIntDS(this, request);
+            case "opLongFloatDS" -> MyClass._iceD_opLongFloatDS(this, request);
+            case "opStringStringDS" -> MyClass._iceD_opStringStringDS(this, request);
+            case "opStringMyEnumDS" -> MyClass._iceD_opStringMyEnumDS(this, request);
+            case "opMyEnumStringDS" -> MyClass._iceD_opMyEnumStringDS(this, request);
+            case "opMyStructMyEnumDS" -> MyClass._iceD_opMyStructMyEnumDS(this, request);
+            case "opByteByteSD" -> MyClass._iceD_opByteByteSD(this, request);
+            case "opBoolBoolSD" -> MyClass._iceD_opBoolBoolSD(this, request);
+            case "opShortShortSD" -> MyClass._iceD_opShortShortSD(this, request);
+            case "opIntIntSD" -> MyClass._iceD_opIntIntSD(this, request);
+            case "opLongLongSD" -> MyClass._iceD_opLongLongSD(this, request);
+            case "opStringFloatSD" -> MyClass._iceD_opStringFloatSD(this, request);
+            case "opStringDoubleSD" -> MyClass._iceD_opStringDoubleSD(this, request);
+            case "opStringStringSD" -> MyClass._iceD_opStringStringSD(this, request);
+            case "opMyEnumMyEnumSD" -> MyClass._iceD_opMyEnumMyEnumSD(this, request);
+            case "opIntS" -> MyClass._iceD_opIntS(this, request);
+            case "opByteSOneway" -> MyClass._iceD_opByteSOneway(this, request);
+            case "opByteSOnewayCallCount" -> MyClass._iceD_opByteSOnewayCallCount(this, request);
+            case "opContext" -> MyClass._iceD_opContext(this, request);
+            case "opDoubleMarshaling" -> MyClass._iceD_opDoubleMarshaling(this, request);
+            case "opIdempotent" -> MyClass._iceD_opIdempotent(this, request);
+            case "opByte1" -> MyClass._iceD_opByte1(this, request);
+            case "opShort1" -> MyClass._iceD_opShort1(this, request);
+            case "opInt1" -> MyClass._iceD_opInt1(this, request);
+            case "opLong1" -> MyClass._iceD_opLong1(this, request);
+            case "opFloat1" -> MyClass._iceD_opFloat1(this, request);
+            case "opDouble1" -> MyClass._iceD_opDouble1(this, request);
+            case "opString1" -> MyClass._iceD_opString1(this, request);
+            case "opStringS1" -> MyClass._iceD_opStringS1(this, request);
+            case "opByteBoolD1" -> MyClass._iceD_opByteBoolD1(this, request);
+            case "opStringS2" -> MyClass._iceD_opStringS2(this, request);
+            case "opByteBoolD2" -> MyClass._iceD_opByteBoolD2(this, request);
+            case "opStringLiterals" -> MyClass._iceD_opStringLiterals(this, request);
+            case "opWStringLiterals" -> MyClass._iceD_opWStringLiterals(this, request);
+            case "opMStruct1" -> MyClass._iceD_opMStruct1(this, request);
+            case "opMStruct2" -> MyClass._iceD_opMStruct2(this, request);
+            case "opMSeq1" -> MyClass._iceD_opMSeq1(this, request);
+            case "opMSeq2" -> MyClass._iceD_opMSeq2(this, request);
+            case "opMDict1" -> MyClass._iceD_opMDict1(this, request);
+            case "opMDict2" -> MyClass._iceD_opMDict2(this, request);
+            case "opDerived" -> MyDerivedClass._iceD_opDerived(this, request);
+            case "opMyClass1" -> MyDerivedClass._iceD_opMyClass1(this, request);
+            case "opMyStruct1" -> MyDerivedClass._iceD_opMyStruct1(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
             default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }

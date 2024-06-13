@@ -60,7 +60,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<UserInfo> _iceI_getUserInfoAsync(String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<UserInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getUserInfo", null, sync, _iceE_getUserInfo);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_id);
                  }, istr -> {
                      final com.zeroc.IceInternal.Holder<UserInfo> ret = new com.zeroc.IceInternal.Holder<>();

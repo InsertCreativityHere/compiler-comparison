@@ -94,7 +94,7 @@ public interface LocatorPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_findObjectByIdAsync(Identity iceP_id, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findObjectById", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_findObjectById);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      Identity.ice_write(ostr, iceP_id);
                  }, istr -> {
                      ObjectPrx ret;
@@ -177,7 +177,7 @@ public interface LocatorPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_findAdapterByIdAsync(String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findAdapterById", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_findAdapterById);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_id);
                  }, istr -> {
                      ObjectPrx ret;
@@ -240,7 +240,7 @@ public interface LocatorPrx extends ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<LocatorRegistryPrx> _iceI_getRegistryAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<LocatorRegistryPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getRegistry", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      LocatorRegistryPrx ret;
                      ret = LocatorRegistryPrx.uncheckedCast(istr.readProxy());
                      return ret;

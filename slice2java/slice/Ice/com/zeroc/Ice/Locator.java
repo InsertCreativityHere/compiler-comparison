@@ -75,83 +75,73 @@ public interface Locator extends Object
         return "::Ice::Locator";
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws UserException -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_findObjectById(Locator obj, final com.zeroc.IceInternal.Incoming inS, Current current)
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_findObjectById(Locator obj, IncomingRequest request)
         throws UserException
     {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        InputStream istr = inS.startReadParams();
+        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        InputStream istr = request.inputStream;
+        istr.startEncapsulation();
         Identity iceP_id;
         iceP_id = Identity.ice_read(istr);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.findObjectByIdAsync(iceP_id, current), (ostr, ret) ->
+        istr.endEncapsulation();
+        var result = obj.findObjectByIdAsync(iceP_id, request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
             {
-                ostr.writeProxy(ret);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws UserException -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_findAdapterById(Locator obj, final com.zeroc.IceInternal.Incoming inS, Current current)
-        throws UserException
-    {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        InputStream istr = inS.startReadParams();
-        String iceP_id;
-        iceP_id = istr.readString();
-        inS.endReadParams();
-        return inS.setResultFuture(obj.findAdapterByIdAsync(iceP_id, current), (ostr, ret) ->
-            {
-                ostr.writeProxy(ret);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<OutputStream> _iceD_getRegistry(Locator obj, final com.zeroc.IceInternal.Incoming inS, Current current)
-    {
-        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        LocatorRegistryPrx ret = obj.getRegistry(current);
-        OutputStream ostr = inS.startWriteParams();
-        ostr.writeProxy(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+                ostr.writeProxy(value);
+            },
+            com.zeroc.Ice.FormatType.DefaultFormat));
     }
 
     /** @hidden */
-    @Override
-    default java.util.concurrent.CompletionStage<OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, Current current)
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_findAdapterById(Locator obj, IncomingRequest request)
         throws UserException
     {
-        return switch (current.operation)
+        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        String iceP_id;
+        iceP_id = istr.readString();
+        istr.endEncapsulation();
+        var result = obj.findAdapterByIdAsync(iceP_id, request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                ostr.writeProxy(value);
+            },
+            com.zeroc.Ice.FormatType.DefaultFormat));
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<OutgoingResponse> _iceD_getRegistry(Locator obj, IncomingRequest request)
+    {
+        Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        LocatorRegistryPrx ret = obj.getRegistry(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.writeProxy(ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    @Override
+    default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        return switch (request.current.operation)
         {
-            case "findObjectById" -> Locator._iceD_findObjectById(this, in, current);
-            case "findAdapterById" -> Locator._iceD_findAdapterById(this, in, current);
-            case "getRegistry" -> Locator._iceD_getRegistry(this, in, current);
-            case "ice_id" -> Object._iceD_ice_id(this, in, current);
-            case "ice_ids" -> Object._iceD_ice_ids(this, in, current);
-            case "ice_isA" -> Object._iceD_ice_isA(this, in, current);
-            case "ice_ping" -> Object._iceD_ice_ping(this, in, current);
-            default -> throw new OperationNotExistException();
+            case "findObjectById" -> Locator._iceD_findObjectById(this, request);
+            case "findAdapterById" -> Locator._iceD_findAdapterById(this, request);
+            case "getRegistry" -> Locator._iceD_getRegistry(this, request);
+            case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
+            case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
+            case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);
+            case "ice_ping" -> com.zeroc.Ice.Object._iceD_ice_ping(this, request);
+            default -> throw new com.zeroc.Ice.OperationNotExistException();
         };
     }
 }

@@ -69,7 +69,7 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
     default com.zeroc.IceInternal.OutgoingAsync<TopicLinkPrx> _iceI_getLinkProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TopicLinkPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLinkProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      TopicLinkPrx ret;
                      ret = TopicLinkPrx.uncheckedCast(istr.readProxy());
                      return ret;
@@ -142,7 +142,7 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_reapAsync(com.zeroc.Ice.Identity[] iceP_id, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "reap", null, sync, _iceE_reap);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      com.zeroc.Ice.IdentitySeqHelper.write(ostr, iceP_id);
                  }, null);
         return f;

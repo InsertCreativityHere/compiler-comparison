@@ -46,7 +46,7 @@ public interface MyDerivedClassPrx extends MyClassPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opDerived", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
         return f;
     }
 
@@ -80,7 +80,7 @@ public interface MyDerivedClassPrx extends MyClassPrx
     default com.zeroc.IceInternal.OutgoingAsync<MyStruct1> _iceI_opMyStruct1Async(MyStruct1 iceP_s, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MyStruct1> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opMyStruct1", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      MyStruct1.ice_write(ostr, iceP_s);
                  }, istr -> {
                      MyStruct1 ret;
@@ -120,7 +120,7 @@ public interface MyDerivedClassPrx extends MyClassPrx
     default com.zeroc.IceInternal.OutgoingAsync<MyClass1> _iceI_opMyClass1Async(MyClass1 iceP_c, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MyClass1> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opMyClass1", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeValue(iceP_c);
                      ostr.writePendingValues();
                  }, istr -> {
