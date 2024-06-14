@@ -197,8 +197,8 @@ public protocol MyObject {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func getName(current: Ice.Current) throws -> Swift.String
+    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
+    func getNameAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.String>
 }
 
 /// MyObject overview.
@@ -210,13 +210,14 @@ extension MyObject {
     public func _iceD_getName(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
         do {
             _ = try request.inputStream.skipEmptyEncapsulation()
-
-            let iceP_returnValue = try self.getName(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+            return self.getNameAsync(
+                current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let iceP_returnValue = value
+                    ostr.write(iceP_returnValue)
+                }
+            }
         } catch {
             return PromiseKit.Promise(error: error)
         }

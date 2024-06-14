@@ -95,12 +95,23 @@ Test::MyObject::_iceD_getName(::Ice::IncomingRequest& request, ::std::function<v
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getName(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(ret);
-        },
-        request.current()));
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](::std::string_view ret)
+    {
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(ret);
+            });
+    };
+    try
+    {
+        this->getNameAsync(::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
+    }
+    catch (...)
+    {
+        responseHandler->sendException(::std::current_exception());
+    }
 }
 /// \endcond
 

@@ -72,7 +72,7 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
     _M_Test._t_MyObjectDisp = IcePy.defineClass('::Test::MyObject', MyObject, (), None, ())
     MyObject._ice_type = _M_Test._t_MyObjectDisp
 
-    MyObject._op_getName = IcePy.Operation('getName', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    MyObject._op_getName = IcePy.Operation('getName', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
     _M_Test.MyObject = MyObject
     del MyObject

@@ -14130,9 +14130,9 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
 
-        public abstract string[] opWStringLiterals(Ice.Current current);
-
         public abstract string[] opStringLiterals(Ice.Current current);
+
+        public abstract string[] opWStringLiterals(Ice.Current current);
 
         public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
 
@@ -14365,9 +14365,9 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
 
-        public abstract string[] opWStringLiterals(Ice.Current current);
-
         public abstract string[] opStringLiterals(Ice.Current current);
+
+        public abstract string[] opWStringLiterals(Ice.Current current);
 
         public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
 

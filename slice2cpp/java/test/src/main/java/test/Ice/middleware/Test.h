@@ -128,7 +128,7 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual ::std::string getName(const ::Ice::Current& current) = 0;
+    virtual void getNameAsync(::std::function<void(::std::string_view returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_getName(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

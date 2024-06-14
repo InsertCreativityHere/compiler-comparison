@@ -36,7 +36,7 @@ namespace Test
     public partial interface MyObject : Ice.Object
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getName(Ice.Current current);
+        global::System.Threading.Tasks.Task<string> getNameAsync(Ice.Current current);
     }
 }
 
@@ -169,7 +169,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class MyObjectDisp_ : Ice.ObjectImpl, MyObject
     {
-        public abstract string getName(Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task<string> getNameAsync(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -192,18 +192,20 @@ namespace Test
 {
     public partial interface MyObject
     {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNameAsync(
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNameAsync(
             MyObject obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getName(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
-            ostr.writeString(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
+            var result = await obj.getNameAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeString(ret);
+                });
         }
     }
 }

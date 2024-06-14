@@ -17,7 +17,7 @@ package test.Ice.middleware.Test;
 
 public interface MyObject extends com.zeroc.Ice.Object
 {
-    String getName(com.zeroc.Ice.Current current);
+    java.util.concurrent.CompletionStage<java.lang.String> getNameAsync(com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -48,12 +48,14 @@ public interface MyObject extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         request.inputStream.skipEmptyEncapsulation();
-        String ret = obj.getName(request.current);
-        var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
-        ostr.writeString(ret);
-        ostr.endEncapsulation();
-        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+        var result = obj.getNameAsync(request.current);
+        return result.thenApply(r -> request.current.createOutgoingResponse(
+            r,
+            (ostr, value) -> 
+            {
+                ostr.writeString(value);
+            },
+            com.zeroc.Ice.FormatType.DefaultFormat));
     }
 
     @Override
