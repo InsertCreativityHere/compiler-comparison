@@ -16,7 +16,6 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-import * as Ice_ArrayUtil from "../Ice/ArrayUtil.js";
 import * as Ice_EnumBase from "../Ice/EnumBase.js";
 import * as Ice_Exception from "../Ice/Exception.js";
 import * as Ice_Long from "../Ice/Long.js";
@@ -31,7 +30,6 @@ import * as Ice_Value from "../Ice/Value.js";
 import { Ice as Ice_BuiltinSequences } from "./BuiltinSequences.js"
 
 const Ice = {
-    ...Ice_ArrayUtil,
     ...Ice_EnumBase,
     ...Ice_Exception,
     ...Ice_Long,

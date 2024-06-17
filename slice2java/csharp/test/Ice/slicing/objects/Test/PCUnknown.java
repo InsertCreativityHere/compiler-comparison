@@ -48,7 +48,7 @@ public class PCUnknown extends PBase
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -5081810455999513209L;
+    public static final long serialVersionUID = -5081814422180301184L;
 
     /** @hidden */
     @Override

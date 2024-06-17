@@ -16,7 +16,6 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-import * as Ice_ArrayUtil from "../Ice/ArrayUtil.js";
 import * as Ice_Long from "../Ice/Long.js";
 import * as Ice_Object from "../Ice/Object.js";
 import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
@@ -26,7 +25,6 @@ import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
 import * as Ice_Value from "../Ice/Value.js";
 
 const Ice = {
-    ...Ice_ArrayUtil,
     ...Ice_Long,
     ...Ice_Object,
     ...Ice_ObjectPrx,

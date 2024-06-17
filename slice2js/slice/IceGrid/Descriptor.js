@@ -16,7 +16,6 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-import * as Ice_ArrayUtil from "../Ice/ArrayUtil.js";
 import * as Ice_HashMap from "../Ice/HashMap.js";
 import * as Ice_HashUtil from "../Ice/HashUtil.js";
 import * as Ice_Long from "../Ice/Long.js";
@@ -31,7 +30,6 @@ import { Ice as Ice_Ice_BuiltinSequences } from "../Ice/BuiltinSequences.js"
 import { Ice as Ice_Ice_Identity } from "../Ice/Identity.js"
 
 const Ice = {
-    ...Ice_ArrayUtil,
     ...Ice_HashMap,
     ...Ice_HashUtil,
     ...Ice_Long,

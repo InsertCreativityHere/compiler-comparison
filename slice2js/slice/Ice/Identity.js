@@ -16,7 +16,6 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-import * as Ice_ArrayUtil from "../Ice/ArrayUtil.js";
 import * as Ice_Long from "../Ice/Long.js";
 import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
 import * as Ice_Stream from "../Ice/Stream.js";
@@ -24,7 +23,6 @@ import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
 import * as Ice_Struct from "../Ice/Struct.js";
 
 const Ice = {
-    ...Ice_ArrayUtil,
     ...Ice_Long,
     ...Ice_ObjectPrx,
     ...Ice_Stream,
