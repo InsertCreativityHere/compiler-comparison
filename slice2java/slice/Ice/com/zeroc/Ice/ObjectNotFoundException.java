@@ -51,5 +51,5 @@ public class ObjectNotFoundException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 2980499784430937449L;
+    private static final long serialVersionUID = 2980499784430937449L;
 }

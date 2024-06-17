@@ -54,5 +54,5 @@ public class SessionNotExistException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 6249917280838900973L;
+    private static final long serialVersionUID = 6249917280838900973L;
 }

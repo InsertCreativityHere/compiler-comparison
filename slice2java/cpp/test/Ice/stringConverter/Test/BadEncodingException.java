@@ -48,5 +48,5 @@ public class BadEncodingException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -8759029170367280478L;
+    private static final long serialVersionUID = -8759029170367280478L;
 }

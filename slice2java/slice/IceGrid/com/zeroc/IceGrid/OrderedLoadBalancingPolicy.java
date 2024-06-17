@@ -47,7 +47,7 @@ public class OrderedLoadBalancingPolicy extends LoadBalancingPolicy
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -513378381617019263L;
+    private static final long serialVersionUID = -513378381617019263L;
 
     /** @hidden */
     @Override

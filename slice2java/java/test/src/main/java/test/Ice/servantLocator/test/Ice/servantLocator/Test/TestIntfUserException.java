@@ -48,5 +48,5 @@ public class TestIntfUserException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -4266094284014360620L;
+    private static final long serialVersionUID = -4266094284014360620L;
 }

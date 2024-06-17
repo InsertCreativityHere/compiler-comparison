@@ -64,5 +64,5 @@ public class AllocationTimeoutException extends AllocationException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -3402809394203749652L;
+    private static final long serialVersionUID = -3402809394203749652L;
 }

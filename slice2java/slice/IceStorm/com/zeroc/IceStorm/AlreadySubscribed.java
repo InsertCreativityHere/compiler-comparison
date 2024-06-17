@@ -51,5 +51,5 @@ public class AlreadySubscribed extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 4466560605785314165L;
+    private static final long serialVersionUID = 4466560605785314165L;
 }

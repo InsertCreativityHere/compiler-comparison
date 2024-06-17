@@ -51,5 +51,5 @@ public class InvalidReplicaGroupIdException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 576886521218122140L;
+    private static final long serialVersionUID = 576886521218122140L;
 }

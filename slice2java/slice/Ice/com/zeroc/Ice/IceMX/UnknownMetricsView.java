@@ -51,5 +51,5 @@ public class UnknownMetricsView extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -4401900178865435057L;
+    private static final long serialVersionUID = -4401900178865435057L;
 }

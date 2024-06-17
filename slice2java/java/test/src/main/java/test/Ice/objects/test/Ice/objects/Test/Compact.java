@@ -34,7 +34,7 @@ public class Compact extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 3226599263649806879L;
+    private static final long serialVersionUID = 3226599263649806879L;
 
     /** @hidden */
     @Override

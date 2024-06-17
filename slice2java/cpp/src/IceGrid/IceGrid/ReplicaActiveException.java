@@ -51,5 +51,5 @@ public class ReplicaActiveException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 2541745497775572523L;
+    private static final long serialVersionUID = 2541745497775572523L;
 }

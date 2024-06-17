@@ -51,5 +51,5 @@ public class AlreadyStartedException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 115156757889290093L;
+    private static final long serialVersionUID = 115156757889290093L;
 }
