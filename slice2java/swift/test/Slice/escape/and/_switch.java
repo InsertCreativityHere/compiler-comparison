@@ -51,7 +51,7 @@ public class _switch extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 4451663817440456721L;
+    public static final long serialVersionUID = 1161291279559885296L;
 
     /** @hidden */
     @Override
