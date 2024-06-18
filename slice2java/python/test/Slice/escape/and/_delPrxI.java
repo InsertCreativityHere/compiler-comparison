@@ -18,6 +18,138 @@ package and;
 /** @hidden */
 public class _delPrxI extends com.zeroc.Ice._ObjectPrxI implements delPrx
 {
+    @Override
+    public delPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (delPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public delPrx ice_adapterId(String newAdapterId)
+    {
+        return (delPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public delPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (delPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public delPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (delPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public delPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (delPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public delPrx ice_connectionCached(boolean newCache)
+    {
+        return (delPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public delPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (delPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public delPrx ice_secure(boolean b)
+    {
+        return (delPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public delPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (delPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public delPrx ice_preferSecure(boolean b)
+    {
+        return (delPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public delPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (delPrx)super.ice_router(router);
+    }
+
+    @Override
+    public delPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (delPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public delPrx ice_collocationOptimized(boolean b)
+    {
+        return (delPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public delPrx ice_twoway()
+    {
+        return (delPrx)super.ice_twoway();
+    }
+
+    @Override
+    public delPrx ice_oneway()
+    {
+        return (delPrx)super.ice_oneway();
+    }
+
+    @Override
+    public delPrx ice_batchOneway()
+    {
+        return (delPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public delPrx ice_datagram()
+    {
+        return (delPrx)super.ice_datagram();
+    }
+
+    @Override
+    public delPrx ice_batchDatagram()
+    {
+        return (delPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public delPrx ice_compress(boolean co)
+    {
+        return (delPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public delPrx ice_timeout(int t)
+    {
+        return (delPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public delPrx ice_connectionId(String connectionId)
+    {
+        return (delPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public delPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (delPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

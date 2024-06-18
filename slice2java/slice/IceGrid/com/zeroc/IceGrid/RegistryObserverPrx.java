@@ -261,246 +261,71 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
         return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, RegistryObserverPrx.class, _RegistryObserverPrxI.class);
     }
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the per-proxy context.
-     * @param newContext The context for the new proxy.
-     * @return A proxy with the specified per-proxy context.
-     **/
     @Override
-    default RegistryObserverPrx ice_context(java.util.Map<String, String> newContext)
-    {
-        return (RegistryObserverPrx)_ice_context(newContext);
-    }
+    RegistryObserverPrx ice_context(java.util.Map<String, String> newContext);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the adapter ID.
-     * @param newAdapterId The adapter ID for the new proxy.
-     * @return A proxy with the specified adapter ID.
-     **/
     @Override
-    default RegistryObserverPrx ice_adapterId(String newAdapterId)
-    {
-        return (RegistryObserverPrx)_ice_adapterId(newAdapterId);
-    }
+    RegistryObserverPrx ice_adapterId(String newAdapterId);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the endpoints.
-     * @param newEndpoints The endpoints for the new proxy.
-     * @return A proxy with the specified endpoints.
-     **/
     @Override
-    default RegistryObserverPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
-    {
-        return (RegistryObserverPrx)_ice_endpoints(newEndpoints);
-    }
+    RegistryObserverPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the locator cache timeout.
-     * @param newTimeout The new locator cache timeout (in seconds).
-     * @return A proxy with the specified locator cache timeout.
-     **/
     @Override
-    default RegistryObserverPrx ice_locatorCacheTimeout(int newTimeout)
-    {
-        return (RegistryObserverPrx)_ice_locatorCacheTimeout(newTimeout);
-    }
+    RegistryObserverPrx ice_locatorCacheTimeout(int newTimeout);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the invocation timeout.
-     * @param newTimeout The new invocation timeout (in seconds).
-     * @return A proxy with the specified invocation timeout.
-     **/
     @Override
-    default RegistryObserverPrx ice_invocationTimeout(int newTimeout)
-    {
-        return (RegistryObserverPrx)_ice_invocationTimeout(newTimeout);
-    }
+    RegistryObserverPrx ice_invocationTimeout(int newTimeout);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for connection caching.
-     * @param newCache <code>true</code> if the new proxy should cache connections; <code>false</code> otherwise.
-     * @return A proxy with the specified caching policy.
-     **/
     @Override
-    default RegistryObserverPrx ice_connectionCached(boolean newCache)
-    {
-        return (RegistryObserverPrx)_ice_connectionCached(newCache);
-    }
+    RegistryObserverPrx ice_connectionCached(boolean newCache);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the endpoint selection policy.
-     * @param newType The new endpoint selection policy.
-     * @return A proxy with the specified endpoint selection policy.
-     **/
     @Override
-    default RegistryObserverPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
-    {
-        return (RegistryObserverPrx)_ice_endpointSelection(newType);
-    }
+    RegistryObserverPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for how it selects endpoints.
-     * @param b If <code>b</code> is <code>true</code>, only endpoints that use a secure transport are
-     * used by the new proxy. If <code>b</code> is false, the returned proxy uses both secure and
-     * insecure endpoints.
-     * @return A proxy with the specified selection policy.
-     **/
     @Override
-    default RegistryObserverPrx ice_secure(boolean b)
-    {
-        return (RegistryObserverPrx)_ice_secure(b);
-    }
+    RegistryObserverPrx ice_secure(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the encoding used to marshal parameters.
-     * @param e The encoding version to use to marshal request parameters.
-     * @return A proxy with the specified encoding version.
-     **/
     @Override
-    default RegistryObserverPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
-    {
-        return (RegistryObserverPrx)_ice_encodingVersion(e);
-    }
+    RegistryObserverPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its endpoint selection policy.
-     * @param b If <code>b</code> is <code>true</code>, the new proxy will use secure endpoints for invocations
-     * and only use insecure endpoints if an invocation cannot be made via secure endpoints. If <code>b</code> is
-     * <code>false</code>, the proxy prefers insecure endpoints to secure ones.
-     * @return A proxy with the specified selection policy.
-     **/
     @Override
-    default RegistryObserverPrx ice_preferSecure(boolean b)
-    {
-        return (RegistryObserverPrx)_ice_preferSecure(b);
-    }
+    RegistryObserverPrx ice_preferSecure(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the router.
-     * @param router The router for the new proxy.
-     * @return A proxy with the specified router.
-     **/
     @Override
-    default RegistryObserverPrx ice_router(com.zeroc.Ice.RouterPrx router)
-    {
-        return (RegistryObserverPrx)_ice_router(router);
-    }
+    RegistryObserverPrx ice_router(com.zeroc.Ice.RouterPrx router);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the locator.
-     * @param locator The locator for the new proxy.
-     * @return A proxy with the specified locator.
-     **/
     @Override
-    default RegistryObserverPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
-    {
-        return (RegistryObserverPrx)_ice_locator(locator);
-    }
+    RegistryObserverPrx ice_locator(com.zeroc.Ice.LocatorPrx locator);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for collocation optimization.
-     * @param b <code>true</code> if the new proxy enables collocation optimization; <code>false</code> otherwise.
-     * @return A proxy with the specified collocation optimization.
-     **/
     @Override
-    default RegistryObserverPrx ice_collocationOptimized(boolean b)
-    {
-        return (RegistryObserverPrx)_ice_collocationOptimized(b);
-    }
+    RegistryObserverPrx ice_collocationOptimized(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses twoway invocations.
-     * @return A proxy that uses twoway invocations.
-     **/
     @Override
-    default RegistryObserverPrx ice_twoway()
-    {
-        return (RegistryObserverPrx)_ice_twoway();
-    }
+    RegistryObserverPrx ice_twoway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses oneway invocations.
-     * @return A proxy that uses oneway invocations.
-     **/
     @Override
-    default RegistryObserverPrx ice_oneway()
-    {
-        return (RegistryObserverPrx)_ice_oneway();
-    }
+    RegistryObserverPrx ice_oneway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses batch oneway invocations.
-     * @return A proxy that uses batch oneway invocations.
-     **/
     @Override
-    default RegistryObserverPrx ice_batchOneway()
-    {
-        return (RegistryObserverPrx)_ice_batchOneway();
-    }
+    RegistryObserverPrx ice_batchOneway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses datagram invocations.
-     * @return A proxy that uses datagram invocations.
-     **/
     @Override
-    default RegistryObserverPrx ice_datagram()
-    {
-        return (RegistryObserverPrx)_ice_datagram();
-    }
+    RegistryObserverPrx ice_datagram();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses batch datagram invocations.
-     * @return A proxy that uses batch datagram invocations.
-     **/
     @Override
-    default RegistryObserverPrx ice_batchDatagram()
-    {
-        return (RegistryObserverPrx)_ice_batchDatagram();
-    }
+    RegistryObserverPrx ice_batchDatagram();
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for compression.
-     * @param co <code>true</code> enables compression for the new proxy; <code>false</code> disables compression.
-     * @return A proxy with the specified compression setting.
-     **/
     @Override
-    default RegistryObserverPrx ice_compress(boolean co)
-    {
-        return (RegistryObserverPrx)_ice_compress(co);
-    }
+    RegistryObserverPrx ice_compress(boolean co);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its connection timeout setting.
-     * @param t The connection timeout for the proxy in milliseconds.
-     * @return A proxy with the specified timeout.
-     **/
     @Override
-    default RegistryObserverPrx ice_timeout(int t)
-    {
-        return (RegistryObserverPrx)_ice_timeout(t);
-    }
+    RegistryObserverPrx ice_timeout(int t);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its connection ID.
-     * @param connectionId The connection ID for the new proxy. An empty string removes the connection ID.
-     * @return A proxy with the specified connection ID.
-     **/
     @Override
-    default RegistryObserverPrx ice_connectionId(String connectionId)
-    {
-        return (RegistryObserverPrx)_ice_connectionId(connectionId);
-    }
+    RegistryObserverPrx ice_connectionId(String connectionId);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except it's a fixed proxy bound
-     * the given connection.@param connection The fixed proxy connection.
-     * @return A fixed proxy bound to the given connection.
-     **/
     @Override
-    default RegistryObserverPrx ice_fixed(com.zeroc.Ice.Connection connection)
-    {
-        return (RegistryObserverPrx)_ice_fixed(connection);
-    }
+    RegistryObserverPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
     static String ice_staticId()
     {

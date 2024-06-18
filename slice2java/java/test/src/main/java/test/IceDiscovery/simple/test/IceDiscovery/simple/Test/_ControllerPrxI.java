@@ -18,6 +18,138 @@ package test.IceDiscovery.simple.Test;
 /** @hidden */
 public class _ControllerPrxI extends com.zeroc.Ice._ObjectPrxI implements ControllerPrx
 {
+    @Override
+    public ControllerPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (ControllerPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public ControllerPrx ice_adapterId(String newAdapterId)
+    {
+        return (ControllerPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public ControllerPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (ControllerPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public ControllerPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (ControllerPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public ControllerPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (ControllerPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public ControllerPrx ice_connectionCached(boolean newCache)
+    {
+        return (ControllerPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public ControllerPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (ControllerPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public ControllerPrx ice_secure(boolean b)
+    {
+        return (ControllerPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public ControllerPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (ControllerPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public ControllerPrx ice_preferSecure(boolean b)
+    {
+        return (ControllerPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public ControllerPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (ControllerPrx)super.ice_router(router);
+    }
+
+    @Override
+    public ControllerPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (ControllerPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public ControllerPrx ice_collocationOptimized(boolean b)
+    {
+        return (ControllerPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public ControllerPrx ice_twoway()
+    {
+        return (ControllerPrx)super.ice_twoway();
+    }
+
+    @Override
+    public ControllerPrx ice_oneway()
+    {
+        return (ControllerPrx)super.ice_oneway();
+    }
+
+    @Override
+    public ControllerPrx ice_batchOneway()
+    {
+        return (ControllerPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public ControllerPrx ice_datagram()
+    {
+        return (ControllerPrx)super.ice_datagram();
+    }
+
+    @Override
+    public ControllerPrx ice_batchDatagram()
+    {
+        return (ControllerPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public ControllerPrx ice_compress(boolean co)
+    {
+        return (ControllerPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public ControllerPrx ice_timeout(int t)
+    {
+        return (ControllerPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public ControllerPrx ice_connectionId(String connectionId)
+    {
+        return (ControllerPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public ControllerPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (ControllerPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

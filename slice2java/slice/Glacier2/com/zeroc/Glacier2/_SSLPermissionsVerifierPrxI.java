@@ -18,6 +18,138 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _SSLPermissionsVerifierPrxI extends com.zeroc.Ice._ObjectPrxI implements SSLPermissionsVerifierPrx
 {
+    @Override
+    public SSLPermissionsVerifierPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_adapterId(String newAdapterId)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_connectionCached(boolean newCache)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_secure(boolean b)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_preferSecure(boolean b)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_router(router);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_collocationOptimized(boolean b)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_twoway()
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_twoway();
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_oneway()
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_oneway();
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_batchOneway()
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_datagram()
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_datagram();
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_batchDatagram()
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_compress(boolean co)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_timeout(int t)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_connectionId(String connectionId)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public SSLPermissionsVerifierPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (SSLPermissionsVerifierPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

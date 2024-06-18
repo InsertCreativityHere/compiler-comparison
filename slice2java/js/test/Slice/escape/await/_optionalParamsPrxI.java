@@ -18,6 +18,138 @@ package await;
 /** @hidden */
 public class _optionalParamsPrxI extends com.zeroc.Ice._ObjectPrxI implements optionalParamsPrx
 {
+    @Override
+    public optionalParamsPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (optionalParamsPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public optionalParamsPrx ice_adapterId(String newAdapterId)
+    {
+        return (optionalParamsPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public optionalParamsPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (optionalParamsPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public optionalParamsPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (optionalParamsPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public optionalParamsPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (optionalParamsPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public optionalParamsPrx ice_connectionCached(boolean newCache)
+    {
+        return (optionalParamsPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public optionalParamsPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (optionalParamsPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public optionalParamsPrx ice_secure(boolean b)
+    {
+        return (optionalParamsPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public optionalParamsPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (optionalParamsPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public optionalParamsPrx ice_preferSecure(boolean b)
+    {
+        return (optionalParamsPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public optionalParamsPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (optionalParamsPrx)super.ice_router(router);
+    }
+
+    @Override
+    public optionalParamsPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (optionalParamsPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public optionalParamsPrx ice_collocationOptimized(boolean b)
+    {
+        return (optionalParamsPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public optionalParamsPrx ice_twoway()
+    {
+        return (optionalParamsPrx)super.ice_twoway();
+    }
+
+    @Override
+    public optionalParamsPrx ice_oneway()
+    {
+        return (optionalParamsPrx)super.ice_oneway();
+    }
+
+    @Override
+    public optionalParamsPrx ice_batchOneway()
+    {
+        return (optionalParamsPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public optionalParamsPrx ice_datagram()
+    {
+        return (optionalParamsPrx)super.ice_datagram();
+    }
+
+    @Override
+    public optionalParamsPrx ice_batchDatagram()
+    {
+        return (optionalParamsPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public optionalParamsPrx ice_compress(boolean co)
+    {
+        return (optionalParamsPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public optionalParamsPrx ice_timeout(int t)
+    {
+        return (optionalParamsPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public optionalParamsPrx ice_connectionId(String connectionId)
+    {
+        return (optionalParamsPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public optionalParamsPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (optionalParamsPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

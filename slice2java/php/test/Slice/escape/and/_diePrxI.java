@@ -18,6 +18,138 @@ package and;
 /** @hidden */
 public class _diePrxI extends com.zeroc.Ice._ObjectPrxI implements diePrx
 {
+    @Override
+    public diePrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (diePrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public diePrx ice_adapterId(String newAdapterId)
+    {
+        return (diePrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public diePrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (diePrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public diePrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (diePrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public diePrx ice_invocationTimeout(int newTimeout)
+    {
+        return (diePrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public diePrx ice_connectionCached(boolean newCache)
+    {
+        return (diePrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public diePrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (diePrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public diePrx ice_secure(boolean b)
+    {
+        return (diePrx)super.ice_secure(b);
+    }
+
+    @Override
+    public diePrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (diePrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public diePrx ice_preferSecure(boolean b)
+    {
+        return (diePrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public diePrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (diePrx)super.ice_router(router);
+    }
+
+    @Override
+    public diePrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (diePrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public diePrx ice_collocationOptimized(boolean b)
+    {
+        return (diePrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public diePrx ice_twoway()
+    {
+        return (diePrx)super.ice_twoway();
+    }
+
+    @Override
+    public diePrx ice_oneway()
+    {
+        return (diePrx)super.ice_oneway();
+    }
+
+    @Override
+    public diePrx ice_batchOneway()
+    {
+        return (diePrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public diePrx ice_datagram()
+    {
+        return (diePrx)super.ice_datagram();
+    }
+
+    @Override
+    public diePrx ice_batchDatagram()
+    {
+        return (diePrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public diePrx ice_compress(boolean co)
+    {
+        return (diePrx)super.ice_compress(co);
+    }
+
+    @Override
+    public diePrx ice_timeout(int t)
+    {
+        return (diePrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public diePrx ice_connectionId(String connectionId)
+    {
+        return (diePrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public diePrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (diePrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

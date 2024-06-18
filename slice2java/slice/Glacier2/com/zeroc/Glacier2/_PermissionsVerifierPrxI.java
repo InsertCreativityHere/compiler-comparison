@@ -18,6 +18,138 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _PermissionsVerifierPrxI extends com.zeroc.Ice._ObjectPrxI implements PermissionsVerifierPrx
 {
+    @Override
+    public PermissionsVerifierPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (PermissionsVerifierPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_adapterId(String newAdapterId)
+    {
+        return (PermissionsVerifierPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (PermissionsVerifierPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (PermissionsVerifierPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (PermissionsVerifierPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_connectionCached(boolean newCache)
+    {
+        return (PermissionsVerifierPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (PermissionsVerifierPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_secure(boolean b)
+    {
+        return (PermissionsVerifierPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (PermissionsVerifierPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_preferSecure(boolean b)
+    {
+        return (PermissionsVerifierPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (PermissionsVerifierPrx)super.ice_router(router);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (PermissionsVerifierPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_collocationOptimized(boolean b)
+    {
+        return (PermissionsVerifierPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_twoway()
+    {
+        return (PermissionsVerifierPrx)super.ice_twoway();
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_oneway()
+    {
+        return (PermissionsVerifierPrx)super.ice_oneway();
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_batchOneway()
+    {
+        return (PermissionsVerifierPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_datagram()
+    {
+        return (PermissionsVerifierPrx)super.ice_datagram();
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_batchDatagram()
+    {
+        return (PermissionsVerifierPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_compress(boolean co)
+    {
+        return (PermissionsVerifierPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_timeout(int t)
+    {
+        return (PermissionsVerifierPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_connectionId(String connectionId)
+    {
+        return (PermissionsVerifierPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public PermissionsVerifierPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (PermissionsVerifierPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

@@ -18,6 +18,138 @@ package Test;
 /** @hidden */
 public class _RemoteCommunicatorFactoryPrxI extends com.zeroc.Ice._ObjectPrxI implements RemoteCommunicatorFactoryPrx
 {
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_adapterId(String newAdapterId)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_connectionCached(boolean newCache)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_secure(boolean b)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_preferSecure(boolean b)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_router(router);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_collocationOptimized(boolean b)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_twoway()
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_twoway();
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_oneway()
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_oneway();
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_batchOneway()
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_datagram()
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_datagram();
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_batchDatagram()
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_compress(boolean co)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_timeout(int t)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_connectionId(String connectionId)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public RemoteCommunicatorFactoryPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (RemoteCommunicatorFactoryPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

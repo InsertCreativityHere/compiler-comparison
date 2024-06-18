@@ -18,6 +18,138 @@ package Test.Common;
 /** @hidden */
 public class _TestCasePrxI extends com.zeroc.Ice._ObjectPrxI implements TestCasePrx
 {
+    @Override
+    public TestCasePrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (TestCasePrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public TestCasePrx ice_adapterId(String newAdapterId)
+    {
+        return (TestCasePrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public TestCasePrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (TestCasePrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public TestCasePrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (TestCasePrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public TestCasePrx ice_invocationTimeout(int newTimeout)
+    {
+        return (TestCasePrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public TestCasePrx ice_connectionCached(boolean newCache)
+    {
+        return (TestCasePrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public TestCasePrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (TestCasePrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public TestCasePrx ice_secure(boolean b)
+    {
+        return (TestCasePrx)super.ice_secure(b);
+    }
+
+    @Override
+    public TestCasePrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (TestCasePrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public TestCasePrx ice_preferSecure(boolean b)
+    {
+        return (TestCasePrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public TestCasePrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (TestCasePrx)super.ice_router(router);
+    }
+
+    @Override
+    public TestCasePrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (TestCasePrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public TestCasePrx ice_collocationOptimized(boolean b)
+    {
+        return (TestCasePrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public TestCasePrx ice_twoway()
+    {
+        return (TestCasePrx)super.ice_twoway();
+    }
+
+    @Override
+    public TestCasePrx ice_oneway()
+    {
+        return (TestCasePrx)super.ice_oneway();
+    }
+
+    @Override
+    public TestCasePrx ice_batchOneway()
+    {
+        return (TestCasePrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public TestCasePrx ice_datagram()
+    {
+        return (TestCasePrx)super.ice_datagram();
+    }
+
+    @Override
+    public TestCasePrx ice_batchDatagram()
+    {
+        return (TestCasePrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public TestCasePrx ice_compress(boolean co)
+    {
+        return (TestCasePrx)super.ice_compress(co);
+    }
+
+    @Override
+    public TestCasePrx ice_timeout(int t)
+    {
+        return (TestCasePrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public TestCasePrx ice_connectionId(String connectionId)
+    {
+        return (TestCasePrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public TestCasePrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (TestCasePrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

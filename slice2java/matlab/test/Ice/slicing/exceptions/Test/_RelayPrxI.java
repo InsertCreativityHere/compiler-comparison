@@ -18,6 +18,138 @@ package Test;
 /** @hidden */
 public class _RelayPrxI extends com.zeroc.Ice._ObjectPrxI implements RelayPrx
 {
+    @Override
+    public RelayPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (RelayPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public RelayPrx ice_adapterId(String newAdapterId)
+    {
+        return (RelayPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public RelayPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (RelayPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public RelayPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (RelayPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public RelayPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (RelayPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public RelayPrx ice_connectionCached(boolean newCache)
+    {
+        return (RelayPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public RelayPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (RelayPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public RelayPrx ice_secure(boolean b)
+    {
+        return (RelayPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public RelayPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (RelayPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public RelayPrx ice_preferSecure(boolean b)
+    {
+        return (RelayPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public RelayPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (RelayPrx)super.ice_router(router);
+    }
+
+    @Override
+    public RelayPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (RelayPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public RelayPrx ice_collocationOptimized(boolean b)
+    {
+        return (RelayPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public RelayPrx ice_twoway()
+    {
+        return (RelayPrx)super.ice_twoway();
+    }
+
+    @Override
+    public RelayPrx ice_oneway()
+    {
+        return (RelayPrx)super.ice_oneway();
+    }
+
+    @Override
+    public RelayPrx ice_batchOneway()
+    {
+        return (RelayPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public RelayPrx ice_datagram()
+    {
+        return (RelayPrx)super.ice_datagram();
+    }
+
+    @Override
+    public RelayPrx ice_batchDatagram()
+    {
+        return (RelayPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public RelayPrx ice_compress(boolean co)
+    {
+        return (RelayPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public RelayPrx ice_timeout(int t)
+    {
+        return (RelayPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public RelayPrx ice_connectionId(String connectionId)
+    {
+        return (RelayPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public RelayPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (RelayPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

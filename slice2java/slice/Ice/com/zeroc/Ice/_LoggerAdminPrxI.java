@@ -18,6 +18,138 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _LoggerAdminPrxI extends com.zeroc.Ice._ObjectPrxI implements LoggerAdminPrx
 {
+    @Override
+    public LoggerAdminPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (LoggerAdminPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_adapterId(String newAdapterId)
+    {
+        return (LoggerAdminPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (LoggerAdminPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (LoggerAdminPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (LoggerAdminPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_connectionCached(boolean newCache)
+    {
+        return (LoggerAdminPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (LoggerAdminPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_secure(boolean b)
+    {
+        return (LoggerAdminPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (LoggerAdminPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_preferSecure(boolean b)
+    {
+        return (LoggerAdminPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (LoggerAdminPrx)super.ice_router(router);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (LoggerAdminPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_collocationOptimized(boolean b)
+    {
+        return (LoggerAdminPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_twoway()
+    {
+        return (LoggerAdminPrx)super.ice_twoway();
+    }
+
+    @Override
+    public LoggerAdminPrx ice_oneway()
+    {
+        return (LoggerAdminPrx)super.ice_oneway();
+    }
+
+    @Override
+    public LoggerAdminPrx ice_batchOneway()
+    {
+        return (LoggerAdminPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public LoggerAdminPrx ice_datagram()
+    {
+        return (LoggerAdminPrx)super.ice_datagram();
+    }
+
+    @Override
+    public LoggerAdminPrx ice_batchDatagram()
+    {
+        return (LoggerAdminPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public LoggerAdminPrx ice_compress(boolean co)
+    {
+        return (LoggerAdminPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_timeout(int t)
+    {
+        return (LoggerAdminPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_connectionId(String connectionId)
+    {
+        return (LoggerAdminPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public LoggerAdminPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (LoggerAdminPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

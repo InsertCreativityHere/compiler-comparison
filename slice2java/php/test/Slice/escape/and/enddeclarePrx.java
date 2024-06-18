@@ -87,246 +87,71 @@ public interface enddeclarePrx extends diePrx,
         return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, enddeclarePrx.class, _enddeclarePrxI.class);
     }
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the per-proxy context.
-     * @param newContext The context for the new proxy.
-     * @return A proxy with the specified per-proxy context.
-     **/
     @Override
-    default enddeclarePrx ice_context(java.util.Map<String, String> newContext)
-    {
-        return (enddeclarePrx)_ice_context(newContext);
-    }
+    enddeclarePrx ice_context(java.util.Map<String, String> newContext);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the adapter ID.
-     * @param newAdapterId The adapter ID for the new proxy.
-     * @return A proxy with the specified adapter ID.
-     **/
     @Override
-    default enddeclarePrx ice_adapterId(String newAdapterId)
-    {
-        return (enddeclarePrx)_ice_adapterId(newAdapterId);
-    }
+    enddeclarePrx ice_adapterId(String newAdapterId);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the endpoints.
-     * @param newEndpoints The endpoints for the new proxy.
-     * @return A proxy with the specified endpoints.
-     **/
     @Override
-    default enddeclarePrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
-    {
-        return (enddeclarePrx)_ice_endpoints(newEndpoints);
-    }
+    enddeclarePrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the locator cache timeout.
-     * @param newTimeout The new locator cache timeout (in seconds).
-     * @return A proxy with the specified locator cache timeout.
-     **/
     @Override
-    default enddeclarePrx ice_locatorCacheTimeout(int newTimeout)
-    {
-        return (enddeclarePrx)_ice_locatorCacheTimeout(newTimeout);
-    }
+    enddeclarePrx ice_locatorCacheTimeout(int newTimeout);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the invocation timeout.
-     * @param newTimeout The new invocation timeout (in seconds).
-     * @return A proxy with the specified invocation timeout.
-     **/
     @Override
-    default enddeclarePrx ice_invocationTimeout(int newTimeout)
-    {
-        return (enddeclarePrx)_ice_invocationTimeout(newTimeout);
-    }
+    enddeclarePrx ice_invocationTimeout(int newTimeout);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for connection caching.
-     * @param newCache <code>true</code> if the new proxy should cache connections; <code>false</code> otherwise.
-     * @return A proxy with the specified caching policy.
-     **/
     @Override
-    default enddeclarePrx ice_connectionCached(boolean newCache)
-    {
-        return (enddeclarePrx)_ice_connectionCached(newCache);
-    }
+    enddeclarePrx ice_connectionCached(boolean newCache);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the endpoint selection policy.
-     * @param newType The new endpoint selection policy.
-     * @return A proxy with the specified endpoint selection policy.
-     **/
     @Override
-    default enddeclarePrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
-    {
-        return (enddeclarePrx)_ice_endpointSelection(newType);
-    }
+    enddeclarePrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for how it selects endpoints.
-     * @param b If <code>b</code> is <code>true</code>, only endpoints that use a secure transport are
-     * used by the new proxy. If <code>b</code> is false, the returned proxy uses both secure and
-     * insecure endpoints.
-     * @return A proxy with the specified selection policy.
-     **/
     @Override
-    default enddeclarePrx ice_secure(boolean b)
-    {
-        return (enddeclarePrx)_ice_secure(b);
-    }
+    enddeclarePrx ice_secure(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the encoding used to marshal parameters.
-     * @param e The encoding version to use to marshal request parameters.
-     * @return A proxy with the specified encoding version.
-     **/
     @Override
-    default enddeclarePrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
-    {
-        return (enddeclarePrx)_ice_encodingVersion(e);
-    }
+    enddeclarePrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its endpoint selection policy.
-     * @param b If <code>b</code> is <code>true</code>, the new proxy will use secure endpoints for invocations
-     * and only use insecure endpoints if an invocation cannot be made via secure endpoints. If <code>b</code> is
-     * <code>false</code>, the proxy prefers insecure endpoints to secure ones.
-     * @return A proxy with the specified selection policy.
-     **/
     @Override
-    default enddeclarePrx ice_preferSecure(boolean b)
-    {
-        return (enddeclarePrx)_ice_preferSecure(b);
-    }
+    enddeclarePrx ice_preferSecure(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the router.
-     * @param router The router for the new proxy.
-     * @return A proxy with the specified router.
-     **/
     @Override
-    default enddeclarePrx ice_router(com.zeroc.Ice.RouterPrx router)
-    {
-        return (enddeclarePrx)_ice_router(router);
-    }
+    enddeclarePrx ice_router(com.zeroc.Ice.RouterPrx router);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the locator.
-     * @param locator The locator for the new proxy.
-     * @return A proxy with the specified locator.
-     **/
     @Override
-    default enddeclarePrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
-    {
-        return (enddeclarePrx)_ice_locator(locator);
-    }
+    enddeclarePrx ice_locator(com.zeroc.Ice.LocatorPrx locator);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for collocation optimization.
-     * @param b <code>true</code> if the new proxy enables collocation optimization; <code>false</code> otherwise.
-     * @return A proxy with the specified collocation optimization.
-     **/
     @Override
-    default enddeclarePrx ice_collocationOptimized(boolean b)
-    {
-        return (enddeclarePrx)_ice_collocationOptimized(b);
-    }
+    enddeclarePrx ice_collocationOptimized(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses twoway invocations.
-     * @return A proxy that uses twoway invocations.
-     **/
     @Override
-    default enddeclarePrx ice_twoway()
-    {
-        return (enddeclarePrx)_ice_twoway();
-    }
+    enddeclarePrx ice_twoway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses oneway invocations.
-     * @return A proxy that uses oneway invocations.
-     **/
     @Override
-    default enddeclarePrx ice_oneway()
-    {
-        return (enddeclarePrx)_ice_oneway();
-    }
+    enddeclarePrx ice_oneway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses batch oneway invocations.
-     * @return A proxy that uses batch oneway invocations.
-     **/
     @Override
-    default enddeclarePrx ice_batchOneway()
-    {
-        return (enddeclarePrx)_ice_batchOneway();
-    }
+    enddeclarePrx ice_batchOneway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses datagram invocations.
-     * @return A proxy that uses datagram invocations.
-     **/
     @Override
-    default enddeclarePrx ice_datagram()
-    {
-        return (enddeclarePrx)_ice_datagram();
-    }
+    enddeclarePrx ice_datagram();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses batch datagram invocations.
-     * @return A proxy that uses batch datagram invocations.
-     **/
     @Override
-    default enddeclarePrx ice_batchDatagram()
-    {
-        return (enddeclarePrx)_ice_batchDatagram();
-    }
+    enddeclarePrx ice_batchDatagram();
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for compression.
-     * @param co <code>true</code> enables compression for the new proxy; <code>false</code> disables compression.
-     * @return A proxy with the specified compression setting.
-     **/
     @Override
-    default enddeclarePrx ice_compress(boolean co)
-    {
-        return (enddeclarePrx)_ice_compress(co);
-    }
+    enddeclarePrx ice_compress(boolean co);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its connection timeout setting.
-     * @param t The connection timeout for the proxy in milliseconds.
-     * @return A proxy with the specified timeout.
-     **/
     @Override
-    default enddeclarePrx ice_timeout(int t)
-    {
-        return (enddeclarePrx)_ice_timeout(t);
-    }
+    enddeclarePrx ice_timeout(int t);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its connection ID.
-     * @param connectionId The connection ID for the new proxy. An empty string removes the connection ID.
-     * @return A proxy with the specified connection ID.
-     **/
     @Override
-    default enddeclarePrx ice_connectionId(String connectionId)
-    {
-        return (enddeclarePrx)_ice_connectionId(connectionId);
-    }
+    enddeclarePrx ice_connectionId(String connectionId);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except it's a fixed proxy bound
-     * the given connection.@param connection The fixed proxy connection.
-     * @return A fixed proxy bound to the given connection.
-     **/
     @Override
-    default enddeclarePrx ice_fixed(com.zeroc.Ice.Connection connection)
-    {
-        return (enddeclarePrx)_ice_fixed(connection);
-    }
+    enddeclarePrx ice_fixed(com.zeroc.Ice.Connection connection);
 
     static String ice_staticId()
     {

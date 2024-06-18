@@ -18,6 +18,138 @@ package Test;
 /** @hidden */
 public class _WrongOperationPrxI extends com.zeroc.Ice._ObjectPrxI implements WrongOperationPrx
 {
+    @Override
+    public WrongOperationPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (WrongOperationPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public WrongOperationPrx ice_adapterId(String newAdapterId)
+    {
+        return (WrongOperationPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public WrongOperationPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (WrongOperationPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public WrongOperationPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (WrongOperationPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public WrongOperationPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (WrongOperationPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public WrongOperationPrx ice_connectionCached(boolean newCache)
+    {
+        return (WrongOperationPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public WrongOperationPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (WrongOperationPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public WrongOperationPrx ice_secure(boolean b)
+    {
+        return (WrongOperationPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public WrongOperationPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (WrongOperationPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public WrongOperationPrx ice_preferSecure(boolean b)
+    {
+        return (WrongOperationPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public WrongOperationPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (WrongOperationPrx)super.ice_router(router);
+    }
+
+    @Override
+    public WrongOperationPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (WrongOperationPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public WrongOperationPrx ice_collocationOptimized(boolean b)
+    {
+        return (WrongOperationPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public WrongOperationPrx ice_twoway()
+    {
+        return (WrongOperationPrx)super.ice_twoway();
+    }
+
+    @Override
+    public WrongOperationPrx ice_oneway()
+    {
+        return (WrongOperationPrx)super.ice_oneway();
+    }
+
+    @Override
+    public WrongOperationPrx ice_batchOneway()
+    {
+        return (WrongOperationPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public WrongOperationPrx ice_datagram()
+    {
+        return (WrongOperationPrx)super.ice_datagram();
+    }
+
+    @Override
+    public WrongOperationPrx ice_batchDatagram()
+    {
+        return (WrongOperationPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public WrongOperationPrx ice_compress(boolean co)
+    {
+        return (WrongOperationPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public WrongOperationPrx ice_timeout(int t)
+    {
+        return (WrongOperationPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public WrongOperationPrx ice_connectionId(String connectionId)
+    {
+        return (WrongOperationPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public WrongOperationPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (WrongOperationPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

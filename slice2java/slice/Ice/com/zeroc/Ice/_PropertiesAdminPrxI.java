@@ -18,6 +18,138 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _PropertiesAdminPrxI extends com.zeroc.Ice._ObjectPrxI implements PropertiesAdminPrx
 {
+    @Override
+    public PropertiesAdminPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (PropertiesAdminPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_adapterId(String newAdapterId)
+    {
+        return (PropertiesAdminPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (PropertiesAdminPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (PropertiesAdminPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (PropertiesAdminPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_connectionCached(boolean newCache)
+    {
+        return (PropertiesAdminPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (PropertiesAdminPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_secure(boolean b)
+    {
+        return (PropertiesAdminPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (PropertiesAdminPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_preferSecure(boolean b)
+    {
+        return (PropertiesAdminPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (PropertiesAdminPrx)super.ice_router(router);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (PropertiesAdminPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_collocationOptimized(boolean b)
+    {
+        return (PropertiesAdminPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_twoway()
+    {
+        return (PropertiesAdminPrx)super.ice_twoway();
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_oneway()
+    {
+        return (PropertiesAdminPrx)super.ice_oneway();
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_batchOneway()
+    {
+        return (PropertiesAdminPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_datagram()
+    {
+        return (PropertiesAdminPrx)super.ice_datagram();
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_batchDatagram()
+    {
+        return (PropertiesAdminPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_compress(boolean co)
+    {
+        return (PropertiesAdminPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_timeout(int t)
+    {
+        return (PropertiesAdminPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_connectionId(String connectionId)
+    {
+        return (PropertiesAdminPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public PropertiesAdminPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (PropertiesAdminPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

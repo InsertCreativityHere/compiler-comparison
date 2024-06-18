@@ -18,6 +18,138 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _AdminPrxI extends com.zeroc.Ice._ObjectPrxI implements AdminPrx
 {
+    @Override
+    public AdminPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (AdminPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public AdminPrx ice_adapterId(String newAdapterId)
+    {
+        return (AdminPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public AdminPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (AdminPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public AdminPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (AdminPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public AdminPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (AdminPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public AdminPrx ice_connectionCached(boolean newCache)
+    {
+        return (AdminPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public AdminPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (AdminPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public AdminPrx ice_secure(boolean b)
+    {
+        return (AdminPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public AdminPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (AdminPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public AdminPrx ice_preferSecure(boolean b)
+    {
+        return (AdminPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public AdminPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (AdminPrx)super.ice_router(router);
+    }
+
+    @Override
+    public AdminPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (AdminPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public AdminPrx ice_collocationOptimized(boolean b)
+    {
+        return (AdminPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public AdminPrx ice_twoway()
+    {
+        return (AdminPrx)super.ice_twoway();
+    }
+
+    @Override
+    public AdminPrx ice_oneway()
+    {
+        return (AdminPrx)super.ice_oneway();
+    }
+
+    @Override
+    public AdminPrx ice_batchOneway()
+    {
+        return (AdminPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public AdminPrx ice_datagram()
+    {
+        return (AdminPrx)super.ice_datagram();
+    }
+
+    @Override
+    public AdminPrx ice_batchDatagram()
+    {
+        return (AdminPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public AdminPrx ice_compress(boolean co)
+    {
+        return (AdminPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public AdminPrx ice_timeout(int t)
+    {
+        return (AdminPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public AdminPrx ice_connectionId(String connectionId)
+    {
+        return (AdminPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public AdminPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (AdminPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

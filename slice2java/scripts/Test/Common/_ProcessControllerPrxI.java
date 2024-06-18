@@ -18,6 +18,138 @@ package Test.Common;
 /** @hidden */
 public class _ProcessControllerPrxI extends com.zeroc.Ice._ObjectPrxI implements ProcessControllerPrx
 {
+    @Override
+    public ProcessControllerPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (ProcessControllerPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_adapterId(String newAdapterId)
+    {
+        return (ProcessControllerPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (ProcessControllerPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (ProcessControllerPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (ProcessControllerPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_connectionCached(boolean newCache)
+    {
+        return (ProcessControllerPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (ProcessControllerPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_secure(boolean b)
+    {
+        return (ProcessControllerPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (ProcessControllerPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_preferSecure(boolean b)
+    {
+        return (ProcessControllerPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (ProcessControllerPrx)super.ice_router(router);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (ProcessControllerPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_collocationOptimized(boolean b)
+    {
+        return (ProcessControllerPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_twoway()
+    {
+        return (ProcessControllerPrx)super.ice_twoway();
+    }
+
+    @Override
+    public ProcessControllerPrx ice_oneway()
+    {
+        return (ProcessControllerPrx)super.ice_oneway();
+    }
+
+    @Override
+    public ProcessControllerPrx ice_batchOneway()
+    {
+        return (ProcessControllerPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public ProcessControllerPrx ice_datagram()
+    {
+        return (ProcessControllerPrx)super.ice_datagram();
+    }
+
+    @Override
+    public ProcessControllerPrx ice_batchDatagram()
+    {
+        return (ProcessControllerPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public ProcessControllerPrx ice_compress(boolean co)
+    {
+        return (ProcessControllerPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_timeout(int t)
+    {
+        return (ProcessControllerPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_connectionId(String connectionId)
+    {
+        return (ProcessControllerPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public ProcessControllerPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (ProcessControllerPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

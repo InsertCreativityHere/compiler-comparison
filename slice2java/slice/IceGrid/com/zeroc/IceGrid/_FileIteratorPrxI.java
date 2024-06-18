@@ -18,6 +18,138 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _FileIteratorPrxI extends com.zeroc.Ice._ObjectPrxI implements FileIteratorPrx
 {
+    @Override
+    public FileIteratorPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (FileIteratorPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public FileIteratorPrx ice_adapterId(String newAdapterId)
+    {
+        return (FileIteratorPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public FileIteratorPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (FileIteratorPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public FileIteratorPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (FileIteratorPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public FileIteratorPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (FileIteratorPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public FileIteratorPrx ice_connectionCached(boolean newCache)
+    {
+        return (FileIteratorPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public FileIteratorPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (FileIteratorPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public FileIteratorPrx ice_secure(boolean b)
+    {
+        return (FileIteratorPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public FileIteratorPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (FileIteratorPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public FileIteratorPrx ice_preferSecure(boolean b)
+    {
+        return (FileIteratorPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public FileIteratorPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (FileIteratorPrx)super.ice_router(router);
+    }
+
+    @Override
+    public FileIteratorPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (FileIteratorPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public FileIteratorPrx ice_collocationOptimized(boolean b)
+    {
+        return (FileIteratorPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public FileIteratorPrx ice_twoway()
+    {
+        return (FileIteratorPrx)super.ice_twoway();
+    }
+
+    @Override
+    public FileIteratorPrx ice_oneway()
+    {
+        return (FileIteratorPrx)super.ice_oneway();
+    }
+
+    @Override
+    public FileIteratorPrx ice_batchOneway()
+    {
+        return (FileIteratorPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public FileIteratorPrx ice_datagram()
+    {
+        return (FileIteratorPrx)super.ice_datagram();
+    }
+
+    @Override
+    public FileIteratorPrx ice_batchDatagram()
+    {
+        return (FileIteratorPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public FileIteratorPrx ice_compress(boolean co)
+    {
+        return (FileIteratorPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public FileIteratorPrx ice_timeout(int t)
+    {
+        return (FileIteratorPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public FileIteratorPrx ice_connectionId(String connectionId)
+    {
+        return (FileIteratorPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public FileIteratorPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (FileIteratorPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

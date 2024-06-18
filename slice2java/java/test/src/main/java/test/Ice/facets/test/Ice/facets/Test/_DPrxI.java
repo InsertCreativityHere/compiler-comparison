@@ -18,6 +18,138 @@ package test.Ice.facets.Test;
 /** @hidden */
 public class _DPrxI extends com.zeroc.Ice._ObjectPrxI implements DPrx
 {
+    @Override
+    public DPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (DPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public DPrx ice_adapterId(String newAdapterId)
+    {
+        return (DPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public DPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (DPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public DPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (DPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public DPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (DPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public DPrx ice_connectionCached(boolean newCache)
+    {
+        return (DPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public DPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (DPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public DPrx ice_secure(boolean b)
+    {
+        return (DPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public DPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (DPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public DPrx ice_preferSecure(boolean b)
+    {
+        return (DPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public DPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (DPrx)super.ice_router(router);
+    }
+
+    @Override
+    public DPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (DPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public DPrx ice_collocationOptimized(boolean b)
+    {
+        return (DPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public DPrx ice_twoway()
+    {
+        return (DPrx)super.ice_twoway();
+    }
+
+    @Override
+    public DPrx ice_oneway()
+    {
+        return (DPrx)super.ice_oneway();
+    }
+
+    @Override
+    public DPrx ice_batchOneway()
+    {
+        return (DPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public DPrx ice_datagram()
+    {
+        return (DPrx)super.ice_datagram();
+    }
+
+    @Override
+    public DPrx ice_batchDatagram()
+    {
+        return (DPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public DPrx ice_compress(boolean co)
+    {
+        return (DPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public DPrx ice_timeout(int t)
+    {
+        return (DPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public DPrx ice_connectionId(String connectionId)
+    {
+        return (DPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public DPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (DPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

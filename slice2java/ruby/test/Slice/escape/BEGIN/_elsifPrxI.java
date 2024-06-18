@@ -18,6 +18,138 @@ package BEGIN;
 /** @hidden */
 public class _elsifPrxI extends com.zeroc.Ice._ObjectPrxI implements elsifPrx
 {
+    @Override
+    public elsifPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (elsifPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public elsifPrx ice_adapterId(String newAdapterId)
+    {
+        return (elsifPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public elsifPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (elsifPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public elsifPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (elsifPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public elsifPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (elsifPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public elsifPrx ice_connectionCached(boolean newCache)
+    {
+        return (elsifPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public elsifPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (elsifPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public elsifPrx ice_secure(boolean b)
+    {
+        return (elsifPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public elsifPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (elsifPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public elsifPrx ice_preferSecure(boolean b)
+    {
+        return (elsifPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public elsifPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (elsifPrx)super.ice_router(router);
+    }
+
+    @Override
+    public elsifPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (elsifPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public elsifPrx ice_collocationOptimized(boolean b)
+    {
+        return (elsifPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public elsifPrx ice_twoway()
+    {
+        return (elsifPrx)super.ice_twoway();
+    }
+
+    @Override
+    public elsifPrx ice_oneway()
+    {
+        return (elsifPrx)super.ice_oneway();
+    }
+
+    @Override
+    public elsifPrx ice_batchOneway()
+    {
+        return (elsifPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public elsifPrx ice_datagram()
+    {
+        return (elsifPrx)super.ice_datagram();
+    }
+
+    @Override
+    public elsifPrx ice_batchDatagram()
+    {
+        return (elsifPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public elsifPrx ice_compress(boolean co)
+    {
+        return (elsifPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public elsifPrx ice_timeout(int t)
+    {
+        return (elsifPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public elsifPrx ice_connectionId(String connectionId)
+    {
+        return (elsifPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public elsifPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (elsifPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

@@ -18,6 +18,138 @@ package Test;
 /** @hidden */
 public class _Initial2PrxI extends com.zeroc.Ice._ObjectPrxI implements Initial2Prx
 {
+    @Override
+    public Initial2Prx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (Initial2Prx)super.ice_context(newContext);
+    }
+
+    @Override
+    public Initial2Prx ice_adapterId(String newAdapterId)
+    {
+        return (Initial2Prx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public Initial2Prx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (Initial2Prx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public Initial2Prx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (Initial2Prx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public Initial2Prx ice_invocationTimeout(int newTimeout)
+    {
+        return (Initial2Prx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public Initial2Prx ice_connectionCached(boolean newCache)
+    {
+        return (Initial2Prx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public Initial2Prx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (Initial2Prx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public Initial2Prx ice_secure(boolean b)
+    {
+        return (Initial2Prx)super.ice_secure(b);
+    }
+
+    @Override
+    public Initial2Prx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (Initial2Prx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public Initial2Prx ice_preferSecure(boolean b)
+    {
+        return (Initial2Prx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public Initial2Prx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (Initial2Prx)super.ice_router(router);
+    }
+
+    @Override
+    public Initial2Prx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (Initial2Prx)super.ice_locator(locator);
+    }
+
+    @Override
+    public Initial2Prx ice_collocationOptimized(boolean b)
+    {
+        return (Initial2Prx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public Initial2Prx ice_twoway()
+    {
+        return (Initial2Prx)super.ice_twoway();
+    }
+
+    @Override
+    public Initial2Prx ice_oneway()
+    {
+        return (Initial2Prx)super.ice_oneway();
+    }
+
+    @Override
+    public Initial2Prx ice_batchOneway()
+    {
+        return (Initial2Prx)super.ice_batchOneway();
+    }
+
+    @Override
+    public Initial2Prx ice_datagram()
+    {
+        return (Initial2Prx)super.ice_datagram();
+    }
+
+    @Override
+    public Initial2Prx ice_batchDatagram()
+    {
+        return (Initial2Prx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public Initial2Prx ice_compress(boolean co)
+    {
+        return (Initial2Prx)super.ice_compress(co);
+    }
+
+    @Override
+    public Initial2Prx ice_timeout(int t)
+    {
+        return (Initial2Prx)super.ice_timeout(t);
+    }
+
+    @Override
+    public Initial2Prx ice_connectionId(String connectionId)
+    {
+        return (Initial2Prx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public Initial2Prx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (Initial2Prx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

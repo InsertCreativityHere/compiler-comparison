@@ -18,6 +18,138 @@ package test.Ice.hold.Test;
 /** @hidden */
 public class _HoldPrxI extends com.zeroc.Ice._ObjectPrxI implements HoldPrx
 {
+    @Override
+    public HoldPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (HoldPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public HoldPrx ice_adapterId(String newAdapterId)
+    {
+        return (HoldPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public HoldPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (HoldPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public HoldPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (HoldPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public HoldPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (HoldPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public HoldPrx ice_connectionCached(boolean newCache)
+    {
+        return (HoldPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public HoldPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (HoldPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public HoldPrx ice_secure(boolean b)
+    {
+        return (HoldPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public HoldPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (HoldPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public HoldPrx ice_preferSecure(boolean b)
+    {
+        return (HoldPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public HoldPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (HoldPrx)super.ice_router(router);
+    }
+
+    @Override
+    public HoldPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (HoldPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public HoldPrx ice_collocationOptimized(boolean b)
+    {
+        return (HoldPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public HoldPrx ice_twoway()
+    {
+        return (HoldPrx)super.ice_twoway();
+    }
+
+    @Override
+    public HoldPrx ice_oneway()
+    {
+        return (HoldPrx)super.ice_oneway();
+    }
+
+    @Override
+    public HoldPrx ice_batchOneway()
+    {
+        return (HoldPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public HoldPrx ice_datagram()
+    {
+        return (HoldPrx)super.ice_datagram();
+    }
+
+    @Override
+    public HoldPrx ice_batchDatagram()
+    {
+        return (HoldPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public HoldPrx ice_compress(boolean co)
+    {
+        return (HoldPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public HoldPrx ice_timeout(int t)
+    {
+        return (HoldPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public HoldPrx ice_connectionId(String connectionId)
+    {
+        return (HoldPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public HoldPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (HoldPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

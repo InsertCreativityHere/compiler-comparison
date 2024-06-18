@@ -18,6 +18,138 @@ package IceGrid;
 /** @hidden */
 public class _ReplicaSessionPrxI extends com.zeroc.Ice._ObjectPrxI implements ReplicaSessionPrx
 {
+    @Override
+    public ReplicaSessionPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (ReplicaSessionPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_adapterId(String newAdapterId)
+    {
+        return (ReplicaSessionPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (ReplicaSessionPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (ReplicaSessionPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (ReplicaSessionPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_connectionCached(boolean newCache)
+    {
+        return (ReplicaSessionPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (ReplicaSessionPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_secure(boolean b)
+    {
+        return (ReplicaSessionPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (ReplicaSessionPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_preferSecure(boolean b)
+    {
+        return (ReplicaSessionPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (ReplicaSessionPrx)super.ice_router(router);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (ReplicaSessionPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_collocationOptimized(boolean b)
+    {
+        return (ReplicaSessionPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_twoway()
+    {
+        return (ReplicaSessionPrx)super.ice_twoway();
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_oneway()
+    {
+        return (ReplicaSessionPrx)super.ice_oneway();
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_batchOneway()
+    {
+        return (ReplicaSessionPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_datagram()
+    {
+        return (ReplicaSessionPrx)super.ice_datagram();
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_batchDatagram()
+    {
+        return (ReplicaSessionPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_compress(boolean co)
+    {
+        return (ReplicaSessionPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_timeout(int t)
+    {
+        return (ReplicaSessionPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_connectionId(String connectionId)
+    {
+        return (ReplicaSessionPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public ReplicaSessionPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (ReplicaSessionPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

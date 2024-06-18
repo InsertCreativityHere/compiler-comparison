@@ -18,6 +18,138 @@ package com.zeroc.IceLocatorDiscovery;
 /** @hidden */
 public class _LookupPrxI extends com.zeroc.Ice._ObjectPrxI implements LookupPrx
 {
+    @Override
+    public LookupPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (LookupPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public LookupPrx ice_adapterId(String newAdapterId)
+    {
+        return (LookupPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public LookupPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (LookupPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public LookupPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (LookupPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public LookupPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (LookupPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public LookupPrx ice_connectionCached(boolean newCache)
+    {
+        return (LookupPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public LookupPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (LookupPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public LookupPrx ice_secure(boolean b)
+    {
+        return (LookupPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public LookupPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (LookupPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public LookupPrx ice_preferSecure(boolean b)
+    {
+        return (LookupPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public LookupPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (LookupPrx)super.ice_router(router);
+    }
+
+    @Override
+    public LookupPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (LookupPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public LookupPrx ice_collocationOptimized(boolean b)
+    {
+        return (LookupPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public LookupPrx ice_twoway()
+    {
+        return (LookupPrx)super.ice_twoway();
+    }
+
+    @Override
+    public LookupPrx ice_oneway()
+    {
+        return (LookupPrx)super.ice_oneway();
+    }
+
+    @Override
+    public LookupPrx ice_batchOneway()
+    {
+        return (LookupPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public LookupPrx ice_datagram()
+    {
+        return (LookupPrx)super.ice_datagram();
+    }
+
+    @Override
+    public LookupPrx ice_batchDatagram()
+    {
+        return (LookupPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public LookupPrx ice_compress(boolean co)
+    {
+        return (LookupPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public LookupPrx ice_timeout(int t)
+    {
+        return (LookupPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public LookupPrx ice_connectionId(String connectionId)
+    {
+        return (LookupPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public LookupPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (LookupPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

@@ -352,246 +352,71 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
         return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, optionalParamsPrx.class, _optionalParamsPrxI.class);
     }
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the per-proxy context.
-     * @param newContext The context for the new proxy.
-     * @return A proxy with the specified per-proxy context.
-     **/
     @Override
-    default optionalParamsPrx ice_context(java.util.Map<String, String> newContext)
-    {
-        return (optionalParamsPrx)_ice_context(newContext);
-    }
+    optionalParamsPrx ice_context(java.util.Map<String, String> newContext);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the adapter ID.
-     * @param newAdapterId The adapter ID for the new proxy.
-     * @return A proxy with the specified adapter ID.
-     **/
     @Override
-    default optionalParamsPrx ice_adapterId(String newAdapterId)
-    {
-        return (optionalParamsPrx)_ice_adapterId(newAdapterId);
-    }
+    optionalParamsPrx ice_adapterId(String newAdapterId);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the endpoints.
-     * @param newEndpoints The endpoints for the new proxy.
-     * @return A proxy with the specified endpoints.
-     **/
     @Override
-    default optionalParamsPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
-    {
-        return (optionalParamsPrx)_ice_endpoints(newEndpoints);
-    }
+    optionalParamsPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the locator cache timeout.
-     * @param newTimeout The new locator cache timeout (in seconds).
-     * @return A proxy with the specified locator cache timeout.
-     **/
     @Override
-    default optionalParamsPrx ice_locatorCacheTimeout(int newTimeout)
-    {
-        return (optionalParamsPrx)_ice_locatorCacheTimeout(newTimeout);
-    }
+    optionalParamsPrx ice_locatorCacheTimeout(int newTimeout);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the invocation timeout.
-     * @param newTimeout The new invocation timeout (in seconds).
-     * @return A proxy with the specified invocation timeout.
-     **/
     @Override
-    default optionalParamsPrx ice_invocationTimeout(int newTimeout)
-    {
-        return (optionalParamsPrx)_ice_invocationTimeout(newTimeout);
-    }
+    optionalParamsPrx ice_invocationTimeout(int newTimeout);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for connection caching.
-     * @param newCache <code>true</code> if the new proxy should cache connections; <code>false</code> otherwise.
-     * @return A proxy with the specified caching policy.
-     **/
     @Override
-    default optionalParamsPrx ice_connectionCached(boolean newCache)
-    {
-        return (optionalParamsPrx)_ice_connectionCached(newCache);
-    }
+    optionalParamsPrx ice_connectionCached(boolean newCache);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the endpoint selection policy.
-     * @param newType The new endpoint selection policy.
-     * @return A proxy with the specified endpoint selection policy.
-     **/
     @Override
-    default optionalParamsPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
-    {
-        return (optionalParamsPrx)_ice_endpointSelection(newType);
-    }
+    optionalParamsPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for how it selects endpoints.
-     * @param b If <code>b</code> is <code>true</code>, only endpoints that use a secure transport are
-     * used by the new proxy. If <code>b</code> is false, the returned proxy uses both secure and
-     * insecure endpoints.
-     * @return A proxy with the specified selection policy.
-     **/
     @Override
-    default optionalParamsPrx ice_secure(boolean b)
-    {
-        return (optionalParamsPrx)_ice_secure(b);
-    }
+    optionalParamsPrx ice_secure(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the encoding used to marshal parameters.
-     * @param e The encoding version to use to marshal request parameters.
-     * @return A proxy with the specified encoding version.
-     **/
     @Override
-    default optionalParamsPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
-    {
-        return (optionalParamsPrx)_ice_encodingVersion(e);
-    }
+    optionalParamsPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its endpoint selection policy.
-     * @param b If <code>b</code> is <code>true</code>, the new proxy will use secure endpoints for invocations
-     * and only use insecure endpoints if an invocation cannot be made via secure endpoints. If <code>b</code> is
-     * <code>false</code>, the proxy prefers insecure endpoints to secure ones.
-     * @return A proxy with the specified selection policy.
-     **/
     @Override
-    default optionalParamsPrx ice_preferSecure(boolean b)
-    {
-        return (optionalParamsPrx)_ice_preferSecure(b);
-    }
+    optionalParamsPrx ice_preferSecure(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the router.
-     * @param router The router for the new proxy.
-     * @return A proxy with the specified router.
-     **/
     @Override
-    default optionalParamsPrx ice_router(com.zeroc.Ice.RouterPrx router)
-    {
-        return (optionalParamsPrx)_ice_router(router);
-    }
+    optionalParamsPrx ice_router(com.zeroc.Ice.RouterPrx router);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the locator.
-     * @param locator The locator for the new proxy.
-     * @return A proxy with the specified locator.
-     **/
     @Override
-    default optionalParamsPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
-    {
-        return (optionalParamsPrx)_ice_locator(locator);
-    }
+    optionalParamsPrx ice_locator(com.zeroc.Ice.LocatorPrx locator);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for collocation optimization.
-     * @param b <code>true</code> if the new proxy enables collocation optimization; <code>false</code> otherwise.
-     * @return A proxy with the specified collocation optimization.
-     **/
     @Override
-    default optionalParamsPrx ice_collocationOptimized(boolean b)
-    {
-        return (optionalParamsPrx)_ice_collocationOptimized(b);
-    }
+    optionalParamsPrx ice_collocationOptimized(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses twoway invocations.
-     * @return A proxy that uses twoway invocations.
-     **/
     @Override
-    default optionalParamsPrx ice_twoway()
-    {
-        return (optionalParamsPrx)_ice_twoway();
-    }
+    optionalParamsPrx ice_twoway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses oneway invocations.
-     * @return A proxy that uses oneway invocations.
-     **/
     @Override
-    default optionalParamsPrx ice_oneway()
-    {
-        return (optionalParamsPrx)_ice_oneway();
-    }
+    optionalParamsPrx ice_oneway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses batch oneway invocations.
-     * @return A proxy that uses batch oneway invocations.
-     **/
     @Override
-    default optionalParamsPrx ice_batchOneway()
-    {
-        return (optionalParamsPrx)_ice_batchOneway();
-    }
+    optionalParamsPrx ice_batchOneway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses datagram invocations.
-     * @return A proxy that uses datagram invocations.
-     **/
     @Override
-    default optionalParamsPrx ice_datagram()
-    {
-        return (optionalParamsPrx)_ice_datagram();
-    }
+    optionalParamsPrx ice_datagram();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses batch datagram invocations.
-     * @return A proxy that uses batch datagram invocations.
-     **/
     @Override
-    default optionalParamsPrx ice_batchDatagram()
-    {
-        return (optionalParamsPrx)_ice_batchDatagram();
-    }
+    optionalParamsPrx ice_batchDatagram();
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for compression.
-     * @param co <code>true</code> enables compression for the new proxy; <code>false</code> disables compression.
-     * @return A proxy with the specified compression setting.
-     **/
     @Override
-    default optionalParamsPrx ice_compress(boolean co)
-    {
-        return (optionalParamsPrx)_ice_compress(co);
-    }
+    optionalParamsPrx ice_compress(boolean co);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its connection timeout setting.
-     * @param t The connection timeout for the proxy in milliseconds.
-     * @return A proxy with the specified timeout.
-     **/
     @Override
-    default optionalParamsPrx ice_timeout(int t)
-    {
-        return (optionalParamsPrx)_ice_timeout(t);
-    }
+    optionalParamsPrx ice_timeout(int t);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its connection ID.
-     * @param connectionId The connection ID for the new proxy. An empty string removes the connection ID.
-     * @return A proxy with the specified connection ID.
-     **/
     @Override
-    default optionalParamsPrx ice_connectionId(String connectionId)
-    {
-        return (optionalParamsPrx)_ice_connectionId(connectionId);
-    }
+    optionalParamsPrx ice_connectionId(String connectionId);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except it's a fixed proxy bound
-     * the given connection.@param connection The fixed proxy connection.
-     * @return A fixed proxy bound to the given connection.
-     **/
     @Override
-    default optionalParamsPrx ice_fixed(com.zeroc.Ice.Connection connection)
-    {
-        return (optionalParamsPrx)_ice_fixed(connection);
-    }
+    optionalParamsPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
     static String ice_staticId()
     {

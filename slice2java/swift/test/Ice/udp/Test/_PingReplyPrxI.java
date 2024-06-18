@@ -18,6 +18,138 @@ package Test;
 /** @hidden */
 public class _PingReplyPrxI extends com.zeroc.Ice._ObjectPrxI implements PingReplyPrx
 {
+    @Override
+    public PingReplyPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (PingReplyPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public PingReplyPrx ice_adapterId(String newAdapterId)
+    {
+        return (PingReplyPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public PingReplyPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (PingReplyPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public PingReplyPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (PingReplyPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public PingReplyPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (PingReplyPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public PingReplyPrx ice_connectionCached(boolean newCache)
+    {
+        return (PingReplyPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public PingReplyPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (PingReplyPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public PingReplyPrx ice_secure(boolean b)
+    {
+        return (PingReplyPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public PingReplyPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (PingReplyPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public PingReplyPrx ice_preferSecure(boolean b)
+    {
+        return (PingReplyPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public PingReplyPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (PingReplyPrx)super.ice_router(router);
+    }
+
+    @Override
+    public PingReplyPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (PingReplyPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public PingReplyPrx ice_collocationOptimized(boolean b)
+    {
+        return (PingReplyPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public PingReplyPrx ice_twoway()
+    {
+        return (PingReplyPrx)super.ice_twoway();
+    }
+
+    @Override
+    public PingReplyPrx ice_oneway()
+    {
+        return (PingReplyPrx)super.ice_oneway();
+    }
+
+    @Override
+    public PingReplyPrx ice_batchOneway()
+    {
+        return (PingReplyPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public PingReplyPrx ice_datagram()
+    {
+        return (PingReplyPrx)super.ice_datagram();
+    }
+
+    @Override
+    public PingReplyPrx ice_batchDatagram()
+    {
+        return (PingReplyPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public PingReplyPrx ice_compress(boolean co)
+    {
+        return (PingReplyPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public PingReplyPrx ice_timeout(int t)
+    {
+        return (PingReplyPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public PingReplyPrx ice_connectionId(String connectionId)
+    {
+        return (PingReplyPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public PingReplyPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (PingReplyPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

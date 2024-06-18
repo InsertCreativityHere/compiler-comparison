@@ -18,6 +18,138 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _SessionControlPrxI extends com.zeroc.Ice._ObjectPrxI implements SessionControlPrx
 {
+    @Override
+    public SessionControlPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (SessionControlPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public SessionControlPrx ice_adapterId(String newAdapterId)
+    {
+        return (SessionControlPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public SessionControlPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (SessionControlPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public SessionControlPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (SessionControlPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public SessionControlPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (SessionControlPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public SessionControlPrx ice_connectionCached(boolean newCache)
+    {
+        return (SessionControlPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public SessionControlPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (SessionControlPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public SessionControlPrx ice_secure(boolean b)
+    {
+        return (SessionControlPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public SessionControlPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (SessionControlPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public SessionControlPrx ice_preferSecure(boolean b)
+    {
+        return (SessionControlPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public SessionControlPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (SessionControlPrx)super.ice_router(router);
+    }
+
+    @Override
+    public SessionControlPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (SessionControlPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public SessionControlPrx ice_collocationOptimized(boolean b)
+    {
+        return (SessionControlPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public SessionControlPrx ice_twoway()
+    {
+        return (SessionControlPrx)super.ice_twoway();
+    }
+
+    @Override
+    public SessionControlPrx ice_oneway()
+    {
+        return (SessionControlPrx)super.ice_oneway();
+    }
+
+    @Override
+    public SessionControlPrx ice_batchOneway()
+    {
+        return (SessionControlPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public SessionControlPrx ice_datagram()
+    {
+        return (SessionControlPrx)super.ice_datagram();
+    }
+
+    @Override
+    public SessionControlPrx ice_batchDatagram()
+    {
+        return (SessionControlPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public SessionControlPrx ice_compress(boolean co)
+    {
+        return (SessionControlPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public SessionControlPrx ice_timeout(int t)
+    {
+        return (SessionControlPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public SessionControlPrx ice_connectionId(String connectionId)
+    {
+        return (SessionControlPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public SessionControlPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (SessionControlPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

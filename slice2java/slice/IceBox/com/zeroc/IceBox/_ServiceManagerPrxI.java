@@ -18,6 +18,138 @@ package com.zeroc.IceBox;
 /** @hidden */
 public class _ServiceManagerPrxI extends com.zeroc.Ice._ObjectPrxI implements ServiceManagerPrx
 {
+    @Override
+    public ServiceManagerPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (ServiceManagerPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_adapterId(String newAdapterId)
+    {
+        return (ServiceManagerPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (ServiceManagerPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (ServiceManagerPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (ServiceManagerPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_connectionCached(boolean newCache)
+    {
+        return (ServiceManagerPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (ServiceManagerPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_secure(boolean b)
+    {
+        return (ServiceManagerPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (ServiceManagerPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_preferSecure(boolean b)
+    {
+        return (ServiceManagerPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (ServiceManagerPrx)super.ice_router(router);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (ServiceManagerPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_collocationOptimized(boolean b)
+    {
+        return (ServiceManagerPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_twoway()
+    {
+        return (ServiceManagerPrx)super.ice_twoway();
+    }
+
+    @Override
+    public ServiceManagerPrx ice_oneway()
+    {
+        return (ServiceManagerPrx)super.ice_oneway();
+    }
+
+    @Override
+    public ServiceManagerPrx ice_batchOneway()
+    {
+        return (ServiceManagerPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public ServiceManagerPrx ice_datagram()
+    {
+        return (ServiceManagerPrx)super.ice_datagram();
+    }
+
+    @Override
+    public ServiceManagerPrx ice_batchDatagram()
+    {
+        return (ServiceManagerPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public ServiceManagerPrx ice_compress(boolean co)
+    {
+        return (ServiceManagerPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_timeout(int t)
+    {
+        return (ServiceManagerPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_connectionId(String connectionId)
+    {
+        return (ServiceManagerPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public ServiceManagerPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (ServiceManagerPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

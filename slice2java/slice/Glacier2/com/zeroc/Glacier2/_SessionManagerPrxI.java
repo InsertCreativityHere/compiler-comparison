@@ -18,6 +18,138 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _SessionManagerPrxI extends com.zeroc.Ice._ObjectPrxI implements SessionManagerPrx
 {
+    @Override
+    public SessionManagerPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (SessionManagerPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public SessionManagerPrx ice_adapterId(String newAdapterId)
+    {
+        return (SessionManagerPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public SessionManagerPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (SessionManagerPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public SessionManagerPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (SessionManagerPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public SessionManagerPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (SessionManagerPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public SessionManagerPrx ice_connectionCached(boolean newCache)
+    {
+        return (SessionManagerPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public SessionManagerPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (SessionManagerPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public SessionManagerPrx ice_secure(boolean b)
+    {
+        return (SessionManagerPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public SessionManagerPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (SessionManagerPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public SessionManagerPrx ice_preferSecure(boolean b)
+    {
+        return (SessionManagerPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public SessionManagerPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (SessionManagerPrx)super.ice_router(router);
+    }
+
+    @Override
+    public SessionManagerPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (SessionManagerPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public SessionManagerPrx ice_collocationOptimized(boolean b)
+    {
+        return (SessionManagerPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public SessionManagerPrx ice_twoway()
+    {
+        return (SessionManagerPrx)super.ice_twoway();
+    }
+
+    @Override
+    public SessionManagerPrx ice_oneway()
+    {
+        return (SessionManagerPrx)super.ice_oneway();
+    }
+
+    @Override
+    public SessionManagerPrx ice_batchOneway()
+    {
+        return (SessionManagerPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public SessionManagerPrx ice_datagram()
+    {
+        return (SessionManagerPrx)super.ice_datagram();
+    }
+
+    @Override
+    public SessionManagerPrx ice_batchDatagram()
+    {
+        return (SessionManagerPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public SessionManagerPrx ice_compress(boolean co)
+    {
+        return (SessionManagerPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public SessionManagerPrx ice_timeout(int t)
+    {
+        return (SessionManagerPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public SessionManagerPrx ice_connectionId(String connectionId)
+    {
+        return (SessionManagerPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public SessionManagerPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (SessionManagerPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

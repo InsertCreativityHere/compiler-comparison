@@ -18,6 +18,138 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _LocatorFinderPrxI extends com.zeroc.Ice._ObjectPrxI implements LocatorFinderPrx
 {
+    @Override
+    public LocatorFinderPrx ice_context(java.util.Map<String, String> newContext)
+    {
+        return (LocatorFinderPrx)super.ice_context(newContext);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_adapterId(String newAdapterId)
+    {
+        return (LocatorFinderPrx)super.ice_adapterId(newAdapterId);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    {
+        return (LocatorFinderPrx)super.ice_endpoints(newEndpoints);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_locatorCacheTimeout(int newTimeout)
+    {
+        return (LocatorFinderPrx)super.ice_locatorCacheTimeout(newTimeout);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_invocationTimeout(int newTimeout)
+    {
+        return (LocatorFinderPrx)super.ice_invocationTimeout(newTimeout);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_connectionCached(boolean newCache)
+    {
+        return (LocatorFinderPrx)super.ice_connectionCached(newCache);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    {
+        return (LocatorFinderPrx)super.ice_endpointSelection(newType);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_secure(boolean b)
+    {
+        return (LocatorFinderPrx)super.ice_secure(b);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    {
+        return (LocatorFinderPrx)super.ice_encodingVersion(e);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_preferSecure(boolean b)
+    {
+        return (LocatorFinderPrx)super.ice_preferSecure(b);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    {
+        return (LocatorFinderPrx)super.ice_router(router);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    {
+        return (LocatorFinderPrx)super.ice_locator(locator);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_collocationOptimized(boolean b)
+    {
+        return (LocatorFinderPrx)super.ice_collocationOptimized(b);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_twoway()
+    {
+        return (LocatorFinderPrx)super.ice_twoway();
+    }
+
+    @Override
+    public LocatorFinderPrx ice_oneway()
+    {
+        return (LocatorFinderPrx)super.ice_oneway();
+    }
+
+    @Override
+    public LocatorFinderPrx ice_batchOneway()
+    {
+        return (LocatorFinderPrx)super.ice_batchOneway();
+    }
+
+    @Override
+    public LocatorFinderPrx ice_datagram()
+    {
+        return (LocatorFinderPrx)super.ice_datagram();
+    }
+
+    @Override
+    public LocatorFinderPrx ice_batchDatagram()
+    {
+        return (LocatorFinderPrx)super.ice_batchDatagram();
+    }
+
+    @Override
+    public LocatorFinderPrx ice_compress(boolean co)
+    {
+        return (LocatorFinderPrx)super.ice_compress(co);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_timeout(int t)
+    {
+        return (LocatorFinderPrx)super.ice_timeout(t);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_connectionId(String connectionId)
+    {
+        return (LocatorFinderPrx)super.ice_connectionId(connectionId);
+    }
+
+    @Override
+    public LocatorFinderPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    {
+        return (LocatorFinderPrx)super.ice_fixed(connection);
+    }
+
     /** @hidden */
     public static final long serialVersionUID = 0L;
 }

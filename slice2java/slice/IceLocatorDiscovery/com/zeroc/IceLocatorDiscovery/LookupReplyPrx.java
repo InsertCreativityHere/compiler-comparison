@@ -148,246 +148,71 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
         return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, LookupReplyPrx.class, _LookupReplyPrxI.class);
     }
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the per-proxy context.
-     * @param newContext The context for the new proxy.
-     * @return A proxy with the specified per-proxy context.
-     **/
     @Override
-    default LookupReplyPrx ice_context(java.util.Map<String, String> newContext)
-    {
-        return (LookupReplyPrx)_ice_context(newContext);
-    }
+    LookupReplyPrx ice_context(java.util.Map<String, String> newContext);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the adapter ID.
-     * @param newAdapterId The adapter ID for the new proxy.
-     * @return A proxy with the specified adapter ID.
-     **/
     @Override
-    default LookupReplyPrx ice_adapterId(String newAdapterId)
-    {
-        return (LookupReplyPrx)_ice_adapterId(newAdapterId);
-    }
+    LookupReplyPrx ice_adapterId(String newAdapterId);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the endpoints.
-     * @param newEndpoints The endpoints for the new proxy.
-     * @return A proxy with the specified endpoints.
-     **/
     @Override
-    default LookupReplyPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
-    {
-        return (LookupReplyPrx)_ice_endpoints(newEndpoints);
-    }
+    LookupReplyPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the locator cache timeout.
-     * @param newTimeout The new locator cache timeout (in seconds).
-     * @return A proxy with the specified locator cache timeout.
-     **/
     @Override
-    default LookupReplyPrx ice_locatorCacheTimeout(int newTimeout)
-    {
-        return (LookupReplyPrx)_ice_locatorCacheTimeout(newTimeout);
-    }
+    LookupReplyPrx ice_locatorCacheTimeout(int newTimeout);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the invocation timeout.
-     * @param newTimeout The new invocation timeout (in seconds).
-     * @return A proxy with the specified invocation timeout.
-     **/
     @Override
-    default LookupReplyPrx ice_invocationTimeout(int newTimeout)
-    {
-        return (LookupReplyPrx)_ice_invocationTimeout(newTimeout);
-    }
+    LookupReplyPrx ice_invocationTimeout(int newTimeout);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for connection caching.
-     * @param newCache <code>true</code> if the new proxy should cache connections; <code>false</code> otherwise.
-     * @return A proxy with the specified caching policy.
-     **/
     @Override
-    default LookupReplyPrx ice_connectionCached(boolean newCache)
-    {
-        return (LookupReplyPrx)_ice_connectionCached(newCache);
-    }
+    LookupReplyPrx ice_connectionCached(boolean newCache);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the endpoint selection policy.
-     * @param newType The new endpoint selection policy.
-     * @return A proxy with the specified endpoint selection policy.
-     **/
     @Override
-    default LookupReplyPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
-    {
-        return (LookupReplyPrx)_ice_endpointSelection(newType);
-    }
+    LookupReplyPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for how it selects endpoints.
-     * @param b If <code>b</code> is <code>true</code>, only endpoints that use a secure transport are
-     * used by the new proxy. If <code>b</code> is false, the returned proxy uses both secure and
-     * insecure endpoints.
-     * @return A proxy with the specified selection policy.
-     **/
     @Override
-    default LookupReplyPrx ice_secure(boolean b)
-    {
-        return (LookupReplyPrx)_ice_secure(b);
-    }
+    LookupReplyPrx ice_secure(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the encoding used to marshal parameters.
-     * @param e The encoding version to use to marshal request parameters.
-     * @return A proxy with the specified encoding version.
-     **/
     @Override
-    default LookupReplyPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
-    {
-        return (LookupReplyPrx)_ice_encodingVersion(e);
-    }
+    LookupReplyPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its endpoint selection policy.
-     * @param b If <code>b</code> is <code>true</code>, the new proxy will use secure endpoints for invocations
-     * and only use insecure endpoints if an invocation cannot be made via secure endpoints. If <code>b</code> is
-     * <code>false</code>, the proxy prefers insecure endpoints to secure ones.
-     * @return A proxy with the specified selection policy.
-     **/
     @Override
-    default LookupReplyPrx ice_preferSecure(boolean b)
-    {
-        return (LookupReplyPrx)_ice_preferSecure(b);
-    }
+    LookupReplyPrx ice_preferSecure(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the router.
-     * @param router The router for the new proxy.
-     * @return A proxy with the specified router.
-     **/
     @Override
-    default LookupReplyPrx ice_router(com.zeroc.Ice.RouterPrx router)
-    {
-        return (LookupReplyPrx)_ice_router(router);
-    }
+    LookupReplyPrx ice_router(com.zeroc.Ice.RouterPrx router);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the locator.
-     * @param locator The locator for the new proxy.
-     * @return A proxy with the specified locator.
-     **/
     @Override
-    default LookupReplyPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
-    {
-        return (LookupReplyPrx)_ice_locator(locator);
-    }
+    LookupReplyPrx ice_locator(com.zeroc.Ice.LocatorPrx locator);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for collocation optimization.
-     * @param b <code>true</code> if the new proxy enables collocation optimization; <code>false</code> otherwise.
-     * @return A proxy with the specified collocation optimization.
-     **/
     @Override
-    default LookupReplyPrx ice_collocationOptimized(boolean b)
-    {
-        return (LookupReplyPrx)_ice_collocationOptimized(b);
-    }
+    LookupReplyPrx ice_collocationOptimized(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses twoway invocations.
-     * @return A proxy that uses twoway invocations.
-     **/
     @Override
-    default LookupReplyPrx ice_twoway()
-    {
-        return (LookupReplyPrx)_ice_twoway();
-    }
+    LookupReplyPrx ice_twoway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses oneway invocations.
-     * @return A proxy that uses oneway invocations.
-     **/
     @Override
-    default LookupReplyPrx ice_oneway()
-    {
-        return (LookupReplyPrx)_ice_oneway();
-    }
+    LookupReplyPrx ice_oneway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses batch oneway invocations.
-     * @return A proxy that uses batch oneway invocations.
-     **/
     @Override
-    default LookupReplyPrx ice_batchOneway()
-    {
-        return (LookupReplyPrx)_ice_batchOneway();
-    }
+    LookupReplyPrx ice_batchOneway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses datagram invocations.
-     * @return A proxy that uses datagram invocations.
-     **/
     @Override
-    default LookupReplyPrx ice_datagram()
-    {
-        return (LookupReplyPrx)_ice_datagram();
-    }
+    LookupReplyPrx ice_datagram();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses batch datagram invocations.
-     * @return A proxy that uses batch datagram invocations.
-     **/
     @Override
-    default LookupReplyPrx ice_batchDatagram()
-    {
-        return (LookupReplyPrx)_ice_batchDatagram();
-    }
+    LookupReplyPrx ice_batchDatagram();
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for compression.
-     * @param co <code>true</code> enables compression for the new proxy; <code>false</code> disables compression.
-     * @return A proxy with the specified compression setting.
-     **/
     @Override
-    default LookupReplyPrx ice_compress(boolean co)
-    {
-        return (LookupReplyPrx)_ice_compress(co);
-    }
+    LookupReplyPrx ice_compress(boolean co);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its connection timeout setting.
-     * @param t The connection timeout for the proxy in milliseconds.
-     * @return A proxy with the specified timeout.
-     **/
     @Override
-    default LookupReplyPrx ice_timeout(int t)
-    {
-        return (LookupReplyPrx)_ice_timeout(t);
-    }
+    LookupReplyPrx ice_timeout(int t);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its connection ID.
-     * @param connectionId The connection ID for the new proxy. An empty string removes the connection ID.
-     * @return A proxy with the specified connection ID.
-     **/
     @Override
-    default LookupReplyPrx ice_connectionId(String connectionId)
-    {
-        return (LookupReplyPrx)_ice_connectionId(connectionId);
-    }
+    LookupReplyPrx ice_connectionId(String connectionId);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except it's a fixed proxy bound
-     * the given connection.@param connection The fixed proxy connection.
-     * @return A fixed proxy bound to the given connection.
-     **/
     @Override
-    default LookupReplyPrx ice_fixed(com.zeroc.Ice.Connection connection)
-    {
-        return (LookupReplyPrx)_ice_fixed(connection);
-    }
+    LookupReplyPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
     static String ice_staticId()
     {

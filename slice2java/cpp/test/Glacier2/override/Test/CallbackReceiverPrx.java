@@ -158,246 +158,71 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
         return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, CallbackReceiverPrx.class, _CallbackReceiverPrxI.class);
     }
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the per-proxy context.
-     * @param newContext The context for the new proxy.
-     * @return A proxy with the specified per-proxy context.
-     **/
     @Override
-    default CallbackReceiverPrx ice_context(java.util.Map<String, String> newContext)
-    {
-        return (CallbackReceiverPrx)_ice_context(newContext);
-    }
+    CallbackReceiverPrx ice_context(java.util.Map<String, String> newContext);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the adapter ID.
-     * @param newAdapterId The adapter ID for the new proxy.
-     * @return A proxy with the specified adapter ID.
-     **/
     @Override
-    default CallbackReceiverPrx ice_adapterId(String newAdapterId)
-    {
-        return (CallbackReceiverPrx)_ice_adapterId(newAdapterId);
-    }
+    CallbackReceiverPrx ice_adapterId(String newAdapterId);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the endpoints.
-     * @param newEndpoints The endpoints for the new proxy.
-     * @return A proxy with the specified endpoints.
-     **/
     @Override
-    default CallbackReceiverPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
-    {
-        return (CallbackReceiverPrx)_ice_endpoints(newEndpoints);
-    }
+    CallbackReceiverPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the locator cache timeout.
-     * @param newTimeout The new locator cache timeout (in seconds).
-     * @return A proxy with the specified locator cache timeout.
-     **/
     @Override
-    default CallbackReceiverPrx ice_locatorCacheTimeout(int newTimeout)
-    {
-        return (CallbackReceiverPrx)_ice_locatorCacheTimeout(newTimeout);
-    }
+    CallbackReceiverPrx ice_locatorCacheTimeout(int newTimeout);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the invocation timeout.
-     * @param newTimeout The new invocation timeout (in seconds).
-     * @return A proxy with the specified invocation timeout.
-     **/
     @Override
-    default CallbackReceiverPrx ice_invocationTimeout(int newTimeout)
-    {
-        return (CallbackReceiverPrx)_ice_invocationTimeout(newTimeout);
-    }
+    CallbackReceiverPrx ice_invocationTimeout(int newTimeout);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for connection caching.
-     * @param newCache <code>true</code> if the new proxy should cache connections; <code>false</code> otherwise.
-     * @return A proxy with the specified caching policy.
-     **/
     @Override
-    default CallbackReceiverPrx ice_connectionCached(boolean newCache)
-    {
-        return (CallbackReceiverPrx)_ice_connectionCached(newCache);
-    }
+    CallbackReceiverPrx ice_connectionCached(boolean newCache);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the endpoint selection policy.
-     * @param newType The new endpoint selection policy.
-     * @return A proxy with the specified endpoint selection policy.
-     **/
     @Override
-    default CallbackReceiverPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
-    {
-        return (CallbackReceiverPrx)_ice_endpointSelection(newType);
-    }
+    CallbackReceiverPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for how it selects endpoints.
-     * @param b If <code>b</code> is <code>true</code>, only endpoints that use a secure transport are
-     * used by the new proxy. If <code>b</code> is false, the returned proxy uses both secure and
-     * insecure endpoints.
-     * @return A proxy with the specified selection policy.
-     **/
     @Override
-    default CallbackReceiverPrx ice_secure(boolean b)
-    {
-        return (CallbackReceiverPrx)_ice_secure(b);
-    }
+    CallbackReceiverPrx ice_secure(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the encoding used to marshal parameters.
-     * @param e The encoding version to use to marshal request parameters.
-     * @return A proxy with the specified encoding version.
-     **/
     @Override
-    default CallbackReceiverPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
-    {
-        return (CallbackReceiverPrx)_ice_encodingVersion(e);
-    }
+    CallbackReceiverPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its endpoint selection policy.
-     * @param b If <code>b</code> is <code>true</code>, the new proxy will use secure endpoints for invocations
-     * and only use insecure endpoints if an invocation cannot be made via secure endpoints. If <code>b</code> is
-     * <code>false</code>, the proxy prefers insecure endpoints to secure ones.
-     * @return A proxy with the specified selection policy.
-     **/
     @Override
-    default CallbackReceiverPrx ice_preferSecure(boolean b)
-    {
-        return (CallbackReceiverPrx)_ice_preferSecure(b);
-    }
+    CallbackReceiverPrx ice_preferSecure(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the router.
-     * @param router The router for the new proxy.
-     * @return A proxy with the specified router.
-     **/
     @Override
-    default CallbackReceiverPrx ice_router(com.zeroc.Ice.RouterPrx router)
-    {
-        return (CallbackReceiverPrx)_ice_router(router);
-    }
+    CallbackReceiverPrx ice_router(com.zeroc.Ice.RouterPrx router);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the locator.
-     * @param locator The locator for the new proxy.
-     * @return A proxy with the specified locator.
-     **/
     @Override
-    default CallbackReceiverPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
-    {
-        return (CallbackReceiverPrx)_ice_locator(locator);
-    }
+    CallbackReceiverPrx ice_locator(com.zeroc.Ice.LocatorPrx locator);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for collocation optimization.
-     * @param b <code>true</code> if the new proxy enables collocation optimization; <code>false</code> otherwise.
-     * @return A proxy with the specified collocation optimization.
-     **/
     @Override
-    default CallbackReceiverPrx ice_collocationOptimized(boolean b)
-    {
-        return (CallbackReceiverPrx)_ice_collocationOptimized(b);
-    }
+    CallbackReceiverPrx ice_collocationOptimized(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses twoway invocations.
-     * @return A proxy that uses twoway invocations.
-     **/
     @Override
-    default CallbackReceiverPrx ice_twoway()
-    {
-        return (CallbackReceiverPrx)_ice_twoway();
-    }
+    CallbackReceiverPrx ice_twoway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses oneway invocations.
-     * @return A proxy that uses oneway invocations.
-     **/
     @Override
-    default CallbackReceiverPrx ice_oneway()
-    {
-        return (CallbackReceiverPrx)_ice_oneway();
-    }
+    CallbackReceiverPrx ice_oneway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses batch oneway invocations.
-     * @return A proxy that uses batch oneway invocations.
-     **/
     @Override
-    default CallbackReceiverPrx ice_batchOneway()
-    {
-        return (CallbackReceiverPrx)_ice_batchOneway();
-    }
+    CallbackReceiverPrx ice_batchOneway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses datagram invocations.
-     * @return A proxy that uses datagram invocations.
-     **/
     @Override
-    default CallbackReceiverPrx ice_datagram()
-    {
-        return (CallbackReceiverPrx)_ice_datagram();
-    }
+    CallbackReceiverPrx ice_datagram();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses batch datagram invocations.
-     * @return A proxy that uses batch datagram invocations.
-     **/
     @Override
-    default CallbackReceiverPrx ice_batchDatagram()
-    {
-        return (CallbackReceiverPrx)_ice_batchDatagram();
-    }
+    CallbackReceiverPrx ice_batchDatagram();
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for compression.
-     * @param co <code>true</code> enables compression for the new proxy; <code>false</code> disables compression.
-     * @return A proxy with the specified compression setting.
-     **/
     @Override
-    default CallbackReceiverPrx ice_compress(boolean co)
-    {
-        return (CallbackReceiverPrx)_ice_compress(co);
-    }
+    CallbackReceiverPrx ice_compress(boolean co);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its connection timeout setting.
-     * @param t The connection timeout for the proxy in milliseconds.
-     * @return A proxy with the specified timeout.
-     **/
     @Override
-    default CallbackReceiverPrx ice_timeout(int t)
-    {
-        return (CallbackReceiverPrx)_ice_timeout(t);
-    }
+    CallbackReceiverPrx ice_timeout(int t);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its connection ID.
-     * @param connectionId The connection ID for the new proxy. An empty string removes the connection ID.
-     * @return A proxy with the specified connection ID.
-     **/
     @Override
-    default CallbackReceiverPrx ice_connectionId(String connectionId)
-    {
-        return (CallbackReceiverPrx)_ice_connectionId(connectionId);
-    }
+    CallbackReceiverPrx ice_connectionId(String connectionId);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except it's a fixed proxy bound
-     * the given connection.@param connection The fixed proxy connection.
-     * @return A fixed proxy bound to the given connection.
-     **/
     @Override
-    default CallbackReceiverPrx ice_fixed(com.zeroc.Ice.Connection connection)
-    {
-        return (CallbackReceiverPrx)_ice_fixed(connection);
-    }
+    CallbackReceiverPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
     static String ice_staticId()
     {

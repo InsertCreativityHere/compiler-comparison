@@ -119,246 +119,71 @@ public interface PingablePrx extends com.zeroc.Ice.ObjectPrx
         return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, PingablePrx.class, _PingablePrxI.class);
     }
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the per-proxy context.
-     * @param newContext The context for the new proxy.
-     * @return A proxy with the specified per-proxy context.
-     **/
     @Override
-    default PingablePrx ice_context(java.util.Map<String, String> newContext)
-    {
-        return (PingablePrx)_ice_context(newContext);
-    }
+    PingablePrx ice_context(java.util.Map<String, String> newContext);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the adapter ID.
-     * @param newAdapterId The adapter ID for the new proxy.
-     * @return A proxy with the specified adapter ID.
-     **/
     @Override
-    default PingablePrx ice_adapterId(String newAdapterId)
-    {
-        return (PingablePrx)_ice_adapterId(newAdapterId);
-    }
+    PingablePrx ice_adapterId(String newAdapterId);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the endpoints.
-     * @param newEndpoints The endpoints for the new proxy.
-     * @return A proxy with the specified endpoints.
-     **/
     @Override
-    default PingablePrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
-    {
-        return (PingablePrx)_ice_endpoints(newEndpoints);
-    }
+    PingablePrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the locator cache timeout.
-     * @param newTimeout The new locator cache timeout (in seconds).
-     * @return A proxy with the specified locator cache timeout.
-     **/
     @Override
-    default PingablePrx ice_locatorCacheTimeout(int newTimeout)
-    {
-        return (PingablePrx)_ice_locatorCacheTimeout(newTimeout);
-    }
+    PingablePrx ice_locatorCacheTimeout(int newTimeout);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the invocation timeout.
-     * @param newTimeout The new invocation timeout (in seconds).
-     * @return A proxy with the specified invocation timeout.
-     **/
     @Override
-    default PingablePrx ice_invocationTimeout(int newTimeout)
-    {
-        return (PingablePrx)_ice_invocationTimeout(newTimeout);
-    }
+    PingablePrx ice_invocationTimeout(int newTimeout);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for connection caching.
-     * @param newCache <code>true</code> if the new proxy should cache connections; <code>false</code> otherwise.
-     * @return A proxy with the specified caching policy.
-     **/
     @Override
-    default PingablePrx ice_connectionCached(boolean newCache)
-    {
-        return (PingablePrx)_ice_connectionCached(newCache);
-    }
+    PingablePrx ice_connectionCached(boolean newCache);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the endpoint selection policy.
-     * @param newType The new endpoint selection policy.
-     * @return A proxy with the specified endpoint selection policy.
-     **/
     @Override
-    default PingablePrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
-    {
-        return (PingablePrx)_ice_endpointSelection(newType);
-    }
+    PingablePrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for how it selects endpoints.
-     * @param b If <code>b</code> is <code>true</code>, only endpoints that use a secure transport are
-     * used by the new proxy. If <code>b</code> is false, the returned proxy uses both secure and
-     * insecure endpoints.
-     * @return A proxy with the specified selection policy.
-     **/
     @Override
-    default PingablePrx ice_secure(boolean b)
-    {
-        return (PingablePrx)_ice_secure(b);
-    }
+    PingablePrx ice_secure(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the encoding used to marshal parameters.
-     * @param e The encoding version to use to marshal request parameters.
-     * @return A proxy with the specified encoding version.
-     **/
     @Override
-    default PingablePrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
-    {
-        return (PingablePrx)_ice_encodingVersion(e);
-    }
+    PingablePrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its endpoint selection policy.
-     * @param b If <code>b</code> is <code>true</code>, the new proxy will use secure endpoints for invocations
-     * and only use insecure endpoints if an invocation cannot be made via secure endpoints. If <code>b</code> is
-     * <code>false</code>, the proxy prefers insecure endpoints to secure ones.
-     * @return A proxy with the specified selection policy.
-     **/
     @Override
-    default PingablePrx ice_preferSecure(boolean b)
-    {
-        return (PingablePrx)_ice_preferSecure(b);
-    }
+    PingablePrx ice_preferSecure(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the router.
-     * @param router The router for the new proxy.
-     * @return A proxy with the specified router.
-     **/
     @Override
-    default PingablePrx ice_router(com.zeroc.Ice.RouterPrx router)
-    {
-        return (PingablePrx)_ice_router(router);
-    }
+    PingablePrx ice_router(com.zeroc.Ice.RouterPrx router);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for the locator.
-     * @param locator The locator for the new proxy.
-     * @return A proxy with the specified locator.
-     **/
     @Override
-    default PingablePrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
-    {
-        return (PingablePrx)_ice_locator(locator);
-    }
+    PingablePrx ice_locator(com.zeroc.Ice.LocatorPrx locator);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for collocation optimization.
-     * @param b <code>true</code> if the new proxy enables collocation optimization; <code>false</code> otherwise.
-     * @return A proxy with the specified collocation optimization.
-     **/
     @Override
-    default PingablePrx ice_collocationOptimized(boolean b)
-    {
-        return (PingablePrx)_ice_collocationOptimized(b);
-    }
+    PingablePrx ice_collocationOptimized(boolean b);
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses twoway invocations.
-     * @return A proxy that uses twoway invocations.
-     **/
     @Override
-    default PingablePrx ice_twoway()
-    {
-        return (PingablePrx)_ice_twoway();
-    }
+    PingablePrx ice_twoway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses oneway invocations.
-     * @return A proxy that uses oneway invocations.
-     **/
     @Override
-    default PingablePrx ice_oneway()
-    {
-        return (PingablePrx)_ice_oneway();
-    }
+    PingablePrx ice_oneway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses batch oneway invocations.
-     * @return A proxy that uses batch oneway invocations.
-     **/
     @Override
-    default PingablePrx ice_batchOneway()
-    {
-        return (PingablePrx)_ice_batchOneway();
-    }
+    PingablePrx ice_batchOneway();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses datagram invocations.
-     * @return A proxy that uses datagram invocations.
-     **/
     @Override
-    default PingablePrx ice_datagram()
-    {
-        return (PingablePrx)_ice_datagram();
-    }
+    PingablePrx ice_datagram();
 
-    /**
-     * Returns a proxy that is identical to this proxy, but uses batch datagram invocations.
-     * @return A proxy that uses batch datagram invocations.
-     **/
     @Override
-    default PingablePrx ice_batchDatagram()
-    {
-        return (PingablePrx)_ice_batchDatagram();
-    }
+    PingablePrx ice_batchDatagram();
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for compression.
-     * @param co <code>true</code> enables compression for the new proxy; <code>false</code> disables compression.
-     * @return A proxy with the specified compression setting.
-     **/
     @Override
-    default PingablePrx ice_compress(boolean co)
-    {
-        return (PingablePrx)_ice_compress(co);
-    }
+    PingablePrx ice_compress(boolean co);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its connection timeout setting.
-     * @param t The connection timeout for the proxy in milliseconds.
-     * @return A proxy with the specified timeout.
-     **/
     @Override
-    default PingablePrx ice_timeout(int t)
-    {
-        return (PingablePrx)_ice_timeout(t);
-    }
+    PingablePrx ice_timeout(int t);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except for its connection ID.
-     * @param connectionId The connection ID for the new proxy. An empty string removes the connection ID.
-     * @return A proxy with the specified connection ID.
-     **/
     @Override
-    default PingablePrx ice_connectionId(String connectionId)
-    {
-        return (PingablePrx)_ice_connectionId(connectionId);
-    }
+    PingablePrx ice_connectionId(String connectionId);
 
-    /**
-     * Returns a proxy that is identical to this proxy, except it's a fixed proxy bound
-     * the given connection.@param connection The fixed proxy connection.
-     * @return A fixed proxy bound to the given connection.
-     **/
     @Override
-    default PingablePrx ice_fixed(com.zeroc.Ice.Connection connection)
-    {
-        return (PingablePrx)_ice_fixed(connection);
-    }
+    PingablePrx ice_fixed(com.zeroc.Ice.Connection connection);
 
     static String ice_staticId()
     {
