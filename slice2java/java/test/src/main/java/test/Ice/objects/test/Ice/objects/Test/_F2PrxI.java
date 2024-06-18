@@ -150,6 +150,5 @@ public class _F2PrxI extends com.zeroc.Ice._ObjectPrxI implements F2Prx
         return (F2Prx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

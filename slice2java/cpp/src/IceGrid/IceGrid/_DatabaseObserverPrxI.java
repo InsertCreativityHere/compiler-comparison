@@ -150,6 +150,5 @@ public class _DatabaseObserverPrxI extends com.zeroc.Ice._ObjectPrxI implements 
         return (DatabaseObserverPrx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

@@ -150,6 +150,5 @@ public class _PropertiesAdminPrxI extends com.zeroc.Ice._ObjectPrxI implements P
         return (PropertiesAdminPrx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

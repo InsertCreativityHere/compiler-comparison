@@ -150,6 +150,5 @@ public class _RouterFinderPrxI extends com.zeroc.Ice._ObjectPrxI implements Rout
         return (RouterFinderPrx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

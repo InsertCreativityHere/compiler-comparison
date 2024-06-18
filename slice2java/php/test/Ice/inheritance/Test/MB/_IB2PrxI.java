@@ -150,6 +150,5 @@ public class _IB2PrxI extends com.zeroc.Ice._ObjectPrxI implements IB2Prx
         return (IB2Prx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

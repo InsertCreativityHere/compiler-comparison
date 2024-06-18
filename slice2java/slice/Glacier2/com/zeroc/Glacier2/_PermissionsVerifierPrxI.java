@@ -150,6 +150,5 @@ public class _PermissionsVerifierPrxI extends com.zeroc.Ice._ObjectPrxI implemen
         return (PermissionsVerifierPrx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

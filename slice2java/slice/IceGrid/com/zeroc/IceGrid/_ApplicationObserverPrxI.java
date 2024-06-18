@@ -150,6 +150,5 @@ public class _ApplicationObserverPrxI extends com.zeroc.Ice._ObjectPrxI implemen
         return (ApplicationObserverPrx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

@@ -150,6 +150,5 @@ public class _ServerManagerPrxI extends com.zeroc.Ice._ObjectPrxI implements Ser
         return (ServerManagerPrx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

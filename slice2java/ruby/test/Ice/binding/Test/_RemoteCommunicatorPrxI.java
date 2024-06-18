@@ -150,6 +150,5 @@ public class _RemoteCommunicatorPrxI extends com.zeroc.Ice._ObjectPrxI implement
         return (RemoteCommunicatorPrx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

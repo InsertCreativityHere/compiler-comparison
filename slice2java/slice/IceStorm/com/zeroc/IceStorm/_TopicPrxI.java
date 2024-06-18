@@ -150,6 +150,5 @@ public class _TopicPrxI extends com.zeroc.Ice._ObjectPrxI implements TopicPrx
         return (TopicPrx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

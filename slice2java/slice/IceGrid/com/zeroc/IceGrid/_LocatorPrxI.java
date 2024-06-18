@@ -150,6 +150,5 @@ public class _LocatorPrxI extends com.zeroc.Ice._ObjectPrxI implements LocatorPr
         return (LocatorPrx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

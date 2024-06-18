@@ -150,6 +150,5 @@ public class _RegistryPrxI extends com.zeroc.Ice._ObjectPrxI implements Registry
         return (RegistryPrx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

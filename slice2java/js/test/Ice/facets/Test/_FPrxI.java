@@ -150,6 +150,5 @@ public class _FPrxI extends com.zeroc.Ice._ObjectPrxI implements FPrx
         return (FPrx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

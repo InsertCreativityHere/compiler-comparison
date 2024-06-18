@@ -150,6 +150,5 @@ public class _SSLPermissionsVerifierPrxI extends com.zeroc.Ice._ObjectPrxI imple
         return (SSLPermissionsVerifierPrx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }

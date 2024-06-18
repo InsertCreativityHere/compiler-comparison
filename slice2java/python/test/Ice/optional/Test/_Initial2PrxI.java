@@ -150,6 +150,5 @@ public class _Initial2PrxI extends com.zeroc.Ice._ObjectPrxI implements Initial2
         return (Initial2Prx)super.ice_fixed(connection);
     }
 
-    /** @hidden */
-    public static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
 }
