@@ -68,22 +68,6 @@ namespace Ice.idleTimeout
 {
     namespace Test
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class ByteSeqHelper
-        {
-            public static void write(Ice.OutputStream ostr, byte[] v)
-            {
-                ostr.writeByteSeq(v);
-            }
-
-            public static byte[] read(Ice.InputStream istr)
-            {
-                byte[] v;
-                v = istr.readByteSeq();
-                return v;
-            }
-        }
-
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
