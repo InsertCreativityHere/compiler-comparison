@@ -7110,6 +7110,12 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class DatabaseObserverDisp_ : Ice.ObjectImpl, DatabaseObserver
     {
+        public abstract void applicationInit(int serial, ApplicationInfo[] applications, Ice.Current current);
+
+        public abstract void applicationAdded(int serial, ApplicationInfo desc, Ice.Current current);
+
+        public abstract void applicationRemoved(int serial, string name, Ice.Current current);
+
         public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, Ice.Current current);
 
         public abstract void adapterInit(AdapterInfo[] adpts, Ice.Current current);
@@ -7127,12 +7133,6 @@ namespace IceGrid
         public abstract void objectUpdated(ObjectInfo info, Ice.Current current);
 
         public abstract void objectRemoved(global::Ice.Identity id, Ice.Current current);
-
-        public abstract void applicationInit(int serial, ApplicationInfo[] applications, Ice.Current current);
-
-        public abstract void applicationAdded(int serial, ApplicationInfo desc, Ice.Current current);
-
-        public abstract void applicationRemoved(int serial, string name, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
