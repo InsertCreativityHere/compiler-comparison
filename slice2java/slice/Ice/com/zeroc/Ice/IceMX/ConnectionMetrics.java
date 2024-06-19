@@ -61,7 +61,7 @@ public class ConnectionMetrics extends Metrics
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -3641268483579501673L;
+    private static final long serialVersionUID = 281650205887274807L;
 
     /** @hidden */
     @Override
