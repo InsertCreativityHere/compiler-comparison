@@ -24,11 +24,14 @@
 #include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
-#   pragma warning(disable:4458) // declaration of ... hides class member
+#   pragma warning(disable : 4458) // declaration of ... hides class member
+#   pragma warning(disable : 4996) // ... was declared deprecated
 #elif defined(__clang__)
 #   pragma clang diagnostic ignored "-Wshadow"
+#   pragma clang diagnostic ignored "-Wdeprecated-declarations"
 #elif defined(__GNUC__)
 #   pragma GCC diagnostic ignored "-Wshadow"
+#   pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
 #ifndef ICE_IGNORE_VERSION
