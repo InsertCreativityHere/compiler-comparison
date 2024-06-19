@@ -29,6 +29,18 @@ public struct MyDerivedClassTraits: Ice.SliceTraits {
     public static let staticId = "::Test::MyDerivedClass"
 }
 
+/// Traits for Slice interface`MyOtherDerivedClass`.
+public struct MyOtherDerivedClassTraits: Ice.SliceTraits {
+    public static let staticIds = ["::Ice::Object", "::Test::MyClass", "::Test::MyOtherDerivedClass"]
+    public static let staticId = "::Test::MyOtherDerivedClass"
+}
+
+/// Traits for Slice interface`DiamondClass`.
+public struct DiamondClassTraits: Ice.SliceTraits {
+    public static let staticIds = ["::Ice::Object", "::Test::DiamondClass", "::Test::MyClass", "::Test::MyDerivedClass", "::Test::MyOtherDerivedClass"]
+    public static let staticId = "::Test::DiamondClass"
+}
+
 /// MyClassPrx overview.
 ///
 /// MyClassPrx Methods:
@@ -360,6 +372,188 @@ public extension MyDerivedClassPrx {
     }
 }
 
+/// MyOtherDerivedClassPrx overview.
+public protocol MyOtherDerivedClassPrx: MyClassPrx {}
+
+private final class MyOtherDerivedClassPrxI: Ice.ObjectPrxI, MyOtherDerivedClassPrx {
+    public override class func ice_staticId() -> Swift.String {
+        return MyOtherDerivedClassTraits.staticId
+    }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MyOtherDerivedClassPrx.Protocol) throws -> MyOtherDerivedClassPrx {
+    try communicator.makeProxyImpl(proxyString) as MyOtherDerivedClassPrxI
+}
+
+/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
+/// implements this type.
+///
+/// It will throw a local exception if a communication error occurs. You can optionally supply a
+/// facet name and a context map.
+///
+/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+///
+/// - parameter type: `MyOtherDerivedClassPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet.
+///
+/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
+///
+/// - returns: `MyOtherDerivedClassPrx` - A proxy with the requested type or nil if the objet does not
+///   support this type.
+///
+/// - throws: `Ice.LocalException` if a communication error occurs.
+public func checkedCast(prx: Ice.ObjectPrx, type: MyOtherDerivedClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyOtherDerivedClassPrx? {
+    return try MyOtherDerivedClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyOtherDerivedClassPrxI?
+}
+
+/// Downcasts the given proxy to this type without contacting the remote server.
+///
+/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+///
+/// - parameter type: `MyOtherDerivedClassPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet
+///
+/// - returns: `MyOtherDerivedClassPrx` - A proxy with the requested type
+public func uncheckedCast(prx: Ice.ObjectPrx, type: MyOtherDerivedClassPrx.Protocol, facet: Swift.String? = nil) -> MyOtherDerivedClassPrx {
+    return MyOtherDerivedClassPrxI.uncheckedCast(prx: prx, facet: facet) as MyOtherDerivedClassPrxI
+}
+
+/// Returns the Slice type id of the interface or class associated with this proxy type.
+///
+/// parameter type: `MyOtherDerivedClassPrx.Protocol` -  The proxy type to retrieve the type id.
+///
+/// returns: `String` - The type id of the interface or class associated with this proxy type.
+public func ice_staticId(_ type: MyOtherDerivedClassPrx.Protocol) -> Swift.String {
+    return MyOtherDerivedClassTraits.staticId
+}
+
+/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// `MyOtherDerivedClassPrx`.
+public extension Ice.InputStream {
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter type: `MyOtherDerivedClassPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `MyOtherDerivedClassPrx?` - The extracted proxy
+    func read(_ type: MyOtherDerivedClassPrx.Protocol) throws -> MyOtherDerivedClassPrx? {
+        return try read() as MyOtherDerivedClassPrxI?
+    }
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter type: `MyOtherDerivedClassPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `MyOtherDerivedClassPrx` - The extracted proxy.
+    func read(tag: Swift.Int32, type: MyOtherDerivedClassPrx.Protocol) throws -> MyOtherDerivedClassPrx? {
+        return try read(tag: tag) as MyOtherDerivedClassPrxI?
+    }
+}
+
+/// MyOtherDerivedClassPrx overview.
+public extension MyOtherDerivedClassPrx {}
+
+/// DiamondClassPrx overview.
+public protocol DiamondClassPrx: MyDerivedClassPrx, MyOtherDerivedClassPrx {}
+
+private final class DiamondClassPrxI: Ice.ObjectPrxI, DiamondClassPrx {
+    public override class func ice_staticId() -> Swift.String {
+        return DiamondClassTraits.staticId
+    }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: DiamondClassPrx.Protocol) throws -> DiamondClassPrx {
+    try communicator.makeProxyImpl(proxyString) as DiamondClassPrxI
+}
+
+/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
+/// implements this type.
+///
+/// It will throw a local exception if a communication error occurs. You can optionally supply a
+/// facet name and a context map.
+///
+/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+///
+/// - parameter type: `DiamondClassPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet.
+///
+/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
+///
+/// - returns: `DiamondClassPrx` - A proxy with the requested type or nil if the objet does not
+///   support this type.
+///
+/// - throws: `Ice.LocalException` if a communication error occurs.
+public func checkedCast(prx: Ice.ObjectPrx, type: DiamondClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> DiamondClassPrx? {
+    return try DiamondClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as DiamondClassPrxI?
+}
+
+/// Downcasts the given proxy to this type without contacting the remote server.
+///
+/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+///
+/// - parameter type: `DiamondClassPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet
+///
+/// - returns: `DiamondClassPrx` - A proxy with the requested type
+public func uncheckedCast(prx: Ice.ObjectPrx, type: DiamondClassPrx.Protocol, facet: Swift.String? = nil) -> DiamondClassPrx {
+    return DiamondClassPrxI.uncheckedCast(prx: prx, facet: facet) as DiamondClassPrxI
+}
+
+/// Returns the Slice type id of the interface or class associated with this proxy type.
+///
+/// parameter type: `DiamondClassPrx.Protocol` -  The proxy type to retrieve the type id.
+///
+/// returns: `String` - The type id of the interface or class associated with this proxy type.
+public func ice_staticId(_ type: DiamondClassPrx.Protocol) -> Swift.String {
+    return DiamondClassTraits.staticId
+}
+
+/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// `DiamondClassPrx`.
+public extension Ice.InputStream {
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter type: `DiamondClassPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `DiamondClassPrx?` - The extracted proxy
+    func read(_ type: DiamondClassPrx.Protocol) throws -> DiamondClassPrx? {
+        return try read() as DiamondClassPrxI?
+    }
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter type: `DiamondClassPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `DiamondClassPrx` - The extracted proxy.
+    func read(tag: Swift.Int32, type: DiamondClassPrx.Protocol) throws -> DiamondClassPrx? {
+        return try read(tag: tag) as DiamondClassPrxI?
+    }
+}
+
+/// DiamondClassPrx overview.
+public extension DiamondClassPrx {}
+
 
 /// Dispatcher for `MyClass` servants.
 public struct MyClassDisp: Ice.Dispatcher {
@@ -446,6 +640,72 @@ public protocol MyDerivedClass: MyClass {
     func echoAsync(obj: Ice.ObjectPrx?, current: Ice.Current) -> PromiseKit.Promise<Ice.ObjectPrx?>
 }
 
+
+/// Dispatcher for `MyOtherDerivedClass` servants.
+public struct MyOtherDerivedClassDisp: Ice.Dispatcher {
+    public let servant: MyOtherDerivedClass
+    private static let defaultObject = Ice.ObjectI<MyOtherDerivedClassTraits>()
+
+    public init(_ servant: MyOtherDerivedClass) {
+        self.servant = servant
+    }
+
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
+        case "getContext":
+            servant._iceD_getContext(request)
+        case "ice_id":
+            (servant as? Ice.Object ?? MyOtherDerivedClassDisp.defaultObject)._iceD_ice_id(request)
+        case "ice_ids":
+            (servant as? Ice.Object ?? MyOtherDerivedClassDisp.defaultObject)._iceD_ice_ids(request)
+        case "ice_isA":
+            (servant as? Ice.Object ?? MyOtherDerivedClassDisp.defaultObject)._iceD_ice_isA(request)
+        case "ice_ping":
+            (servant as? Ice.Object ?? MyOtherDerivedClassDisp.defaultObject)._iceD_ice_ping(request)
+        case "shutdown":
+            servant._iceD_shutdown(request)
+        default:
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
+        }
+    }
+}
+
+public protocol MyOtherDerivedClass: MyClass {}
+
+
+/// Dispatcher for `DiamondClass` servants.
+public struct DiamondClassDisp: Ice.Dispatcher {
+    public let servant: DiamondClass
+    private static let defaultObject = Ice.ObjectI<DiamondClassTraits>()
+
+    public init(_ servant: DiamondClass) {
+        self.servant = servant
+    }
+
+    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        switch request.current.operation {
+        case "echo":
+            servant._iceD_echo(request)
+        case "getContext":
+            servant._iceD_getContext(request)
+        case "ice_id":
+            (servant as? Ice.Object ?? DiamondClassDisp.defaultObject)._iceD_ice_id(request)
+        case "ice_ids":
+            (servant as? Ice.Object ?? DiamondClassDisp.defaultObject)._iceD_ice_ids(request)
+        case "ice_isA":
+            (servant as? Ice.Object ?? DiamondClassDisp.defaultObject)._iceD_ice_isA(request)
+        case "ice_ping":
+            (servant as? Ice.Object ?? DiamondClassDisp.defaultObject)._iceD_ice_ping(request)
+        case "shutdown":
+            servant._iceD_shutdown(request)
+        default:
+            PromiseKit.Promise(error: Ice.OperationNotExistException())
+        }
+    }
+}
+
+public protocol DiamondClass: MyDerivedClass, MyOtherDerivedClass {}
+
 /// MyClass overview.
 ///
 /// MyClass Methods:
@@ -508,3 +768,9 @@ extension MyDerivedClass {
         }
     }
 }
+
+/// MyOtherDerivedClass overview.
+extension MyOtherDerivedClass {}
+
+/// DiamondClass overview.
+extension DiamondClass {}

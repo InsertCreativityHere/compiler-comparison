@@ -32,6 +32,10 @@ namespace Test
 
     class MyDerivedClassPrx;
 
+    class MyOtherDerivedClassPrx;
+
+    class DiamondClassPrx;
+
 }
 
 namespace Test
@@ -183,6 +187,128 @@ protected:
 #endif
 };
 
+class MyOtherDerivedClassPrx : public ::Ice::Proxy<MyOtherDerivedClassPrx, MyClassPrx>
+{
+public:
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
+    explicit MyOtherDerivedClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    MyOtherDerivedClassPrx(const MyOtherDerivedClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    MyOtherDerivedClassPrx(MyOtherDerivedClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MyOtherDerivedClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MyOtherDerivedClassPrx& operator=(const MyOtherDerivedClassPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MyOtherDerivedClassPrx& operator=(MyOtherDerivedClassPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static MyOtherDerivedClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyOtherDerivedClassPrx(::std::move(ref)); }
+
+protected:
+
+    MyOtherDerivedClassPrx() = default;
+
+    explicit MyOtherDerivedClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
+    /// \endcond
+
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
+};
+
+class DiamondClassPrx : public ::Ice::Proxy<DiamondClassPrx, MyDerivedClassPrx, MyOtherDerivedClassPrx>
+{
+public:
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
+    explicit DiamondClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    DiamondClassPrx(const DiamondClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    DiamondClassPrx(DiamondClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    DiamondClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    DiamondClassPrx& operator=(const DiamondClassPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    DiamondClassPrx& operator=(DiamondClassPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static DiamondClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return DiamondClassPrx(::std::move(ref)); }
+
+protected:
+
+    DiamondClassPrx() = default;
+
+    explicit DiamondClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
+    /// \endcond
+
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
+};
+
 }
 
 namespace Test
@@ -268,6 +394,73 @@ public:
 };
 
 using MyDerivedClassPtr = ::std::shared_ptr<MyDerivedClass>;
+
+class MyOtherDerivedClass : public virtual MyClass
+{
+public:
+
+    using ProxyType = MyOtherDerivedClassPrx;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this interface.
+     * @return A fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    /// \cond INTERNAL
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    /// \endcond
+};
+
+using MyOtherDerivedClassPtr = ::std::shared_ptr<MyOtherDerivedClass>;
+
+class DiamondClass : public virtual MyDerivedClass,
+                     public virtual MyOtherDerivedClass
+{
+public:
+
+    using ProxyType = DiamondClassPrx;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this interface.
+     * @return A fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    /// \cond INTERNAL
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    /// \endcond
+};
+
+using DiamondClassPtr = ::std::shared_ptr<DiamondClass>;
 
 }
 

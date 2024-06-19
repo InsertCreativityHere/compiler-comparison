@@ -59,6 +59,38 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::Ice.ObjectPrx? echo(global::Ice.ObjectPrx? obj, Ice.Current current);
     }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test::MyOtherDerivedClass")]
+    public partial interface MyOtherDerivedClass : MyClass
+    {
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test::DiamondClass")]
+    public partial interface DiamondClass : MyDerivedClass, MyOtherDerivedClass
+    {
+    }
 }
 
 namespace Test
@@ -81,6 +113,16 @@ namespace Test
         global::Ice.ObjectPrx? echo(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> echoAsync(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+    public interface MyOtherDerivedClassPrx : MyClassPrx
+    {
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+    public interface DiamondClassPrx : MyDerivedClassPrx, MyOtherDerivedClassPrx
+    {
     }
 }
 
@@ -426,6 +468,350 @@ namespace Test
         {
         }
     }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+    public sealed class MyOtherDerivedClassPrxHelper : Ice.ObjectPrxHelperBase, MyOtherDerivedClassPrx
+    {
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public global::System.Collections.Generic.Dictionary<string, string> getContext(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                return _iceI_getContextAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_shutdownAsync(context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            _iceI_shutdown(context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _shutdown_name = "shutdown";
+
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<object>(completed);
+            outAsync.invoke(
+                _shutdown_name,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
+                context,
+                synchronous);
+        }
+
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_getContextAsync(context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_getContextAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            iceCheckTwowayOnly(_getContext_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
+            _iceI_getContext(context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _getContext_name = "getContext";
+
+        private void _iceI_getContext(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<global::System.Collections.Generic.Dictionary<string, string>>(completed);
+            outAsync.invoke(
+                _getContext_name,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
+                context,
+                synchronous,
+                read: (Ice.InputStream istr) =>
+                {
+                    global::System.Collections.Generic.Dictionary<string, string> ret;
+                    ret = global::Ice.ContextHelper.read(istr);
+                    return ret;
+                });
+        }
+
+        public static MyOtherDerivedClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            new MyOtherDerivedClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+
+        public static MyOtherDerivedClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyOtherDerivedClassPrxHelper(b) : null;
+
+        public static MyOtherDerivedClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        {
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
+            try
+            {
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
+                {
+                    return new MyOtherDerivedClassPrxHelper(bb);
+                }
+            }
+            catch (Ice.FacetNotExistException)
+            {
+            }
+            return null;
+        }
+
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static MyOtherDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new MyOtherDerivedClassPrxHelper(b) : null;
+
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static MyOtherDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new MyOtherDerivedClassPrxHelper(b.ice_facet(f)) : null;
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::Test::MyClass",
+            "::Test::MyOtherDerivedClass"
+        };
+
+        public static string ice_staticId() => "::Test::MyOtherDerivedClass";
+
+        public static void write(Ice.OutputStream ostr, MyOtherDerivedClassPrx? v)
+        {
+            ostr.writeProxy(v);
+        }
+
+        public static MyOtherDerivedClassPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new MyOtherDerivedClassPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new MyOtherDerivedClassPrxHelper(reference);
+
+        private MyOtherDerivedClassPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
+        {
+        }
+
+        private MyOtherDerivedClassPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
+        }
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+    public sealed class DiamondClassPrxHelper : Ice.ObjectPrxHelperBase, DiamondClassPrx
+    {
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public global::System.Collections.Generic.Dictionary<string, string> getContext(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                return _iceI_getContextAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public global::Ice.ObjectPrx? echo(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                return _iceI_echoAsync(obj, context, null, global::System.Threading.CancellationToken.None, true).Result;
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_shutdownAsync(context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            _iceI_shutdown(context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _shutdown_name = "shutdown";
+
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<object>(completed);
+            outAsync.invoke(
+                _shutdown_name,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
+                context,
+                synchronous);
+        }
+
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_getContextAsync(context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_getContextAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            iceCheckTwowayOnly(_getContext_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
+            _iceI_getContext(context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _getContext_name = "getContext";
+
+        private void _iceI_getContext(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<global::System.Collections.Generic.Dictionary<string, string>>(completed);
+            outAsync.invoke(
+                _getContext_name,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
+                context,
+                synchronous,
+                read: (Ice.InputStream istr) =>
+                {
+                    global::System.Collections.Generic.Dictionary<string, string> ret;
+                    ret = global::Ice.ContextHelper.read(istr);
+                    return ret;
+                });
+        }
+
+        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> echoAsync(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_echoAsync(obj, context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_echoAsync(global::Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            iceCheckTwowayOnly(_echo_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            _iceI_echo(iceP_obj, context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _echo_name = "echo";
+
+        private void _iceI_echo(global::Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            outAsync.invoke(
+                _echo_name,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
+                context,
+                synchronous,
+                write: (Ice.OutputStream ostr) =>
+                {
+                    ostr.writeProxy(iceP_obj);
+                },
+                read: (Ice.InputStream istr) =>
+                {
+                    global::Ice.ObjectPrx? ret;
+                    ret = istr.readProxy();
+                    return ret;
+                });
+        }
+
+        public static DiamondClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            new DiamondClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+
+        public static DiamondClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new DiamondClassPrxHelper(b) : null;
+
+        public static DiamondClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
+        {
+            Ice.ObjectPrx? bb = b?.ice_facet(f);
+            try
+            {
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
+                {
+                    return new DiamondClassPrxHelper(bb);
+                }
+            }
+            catch (Ice.FacetNotExistException)
+            {
+            }
+            return null;
+        }
+
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static DiamondClassPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new DiamondClassPrxHelper(b) : null;
+
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static DiamondClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            b is not null ? new DiamondClassPrxHelper(b.ice_facet(f)) : null;
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::Test::DiamondClass",
+            "::Test::MyClass",
+            "::Test::MyDerivedClass",
+            "::Test::MyOtherDerivedClass"
+        };
+
+        public static string ice_staticId() => "::Test::DiamondClass";
+
+        public static void write(Ice.OutputStream ostr, DiamondClassPrx? v)
+        {
+            ostr.writeProxy(v);
+        }
+
+        public static DiamondClassPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new DiamondClassPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new DiamondClassPrxHelper(reference);
+
+        private DiamondClassPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
+        {
+        }
+
+        private DiamondClassPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
+        }
+    }
 }
 
 namespace Test
@@ -468,6 +854,59 @@ namespace Test
         public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Test::MyDerivedClass";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "shutdown" => MyClass.iceD_shutdownAsync(this, request),
+                "getContext" => MyClass.iceD_getContextAsync(this, request),
+                "echo" => MyDerivedClass.iceD_echoAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+    public abstract class MyOtherDerivedClassDisp_ : Ice.ObjectImpl, MyOtherDerivedClass
+    {
+        public abstract void shutdown(Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> getContext(Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::Test::MyOtherDerivedClass";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "shutdown" => MyClass.iceD_shutdownAsync(this, request),
+                "getContext" => MyClass.iceD_getContextAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+    public abstract class DiamondClassDisp_ : Ice.ObjectImpl, DiamondClass
+    {
+        public abstract void shutdown(Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> getContext(Ice.Current current);
+
+        public abstract global::Ice.ObjectPrx? echo(global::Ice.ObjectPrx? obj, Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::Test::DiamondClass";
 
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
@@ -532,5 +971,13 @@ namespace Test
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
+    }
+
+    public partial interface MyOtherDerivedClass
+    {
+    }
+
+    public partial interface DiamondClass
+    {
     }
 }

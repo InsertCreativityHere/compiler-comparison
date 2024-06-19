@@ -76,4 +76,47 @@ module ::Test
 
         MyDerivedClassPrx_mixin::OP_echo = ::Ice::__defineOperation('echo', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [])
     end
+
+    if not defined?(::Test::MyOtherDerivedClass_Mixin)
+
+        module ::Test::MyOtherDerivedClass_Mixin
+        end
+        module MyOtherDerivedClassPrx_mixin
+            include ::Test::MyClassPrx_mixin
+        end
+
+        class MyOtherDerivedClassPrx < ::Ice::ObjectPrx
+            include ::Ice::Proxy_mixin
+            include MyOtherDerivedClassPrx_mixin
+        end
+
+        if not defined?(::Test::T_MyOtherDerivedClassPrx)
+            T_MyOtherDerivedClass = ::Ice::__declareClass('::Test::MyOtherDerivedClass')
+            T_MyOtherDerivedClassPrx = ::Ice::__declareProxy('::Test::MyOtherDerivedClass')
+        end
+
+        T_MyOtherDerivedClassPrx.defineProxy(MyOtherDerivedClassPrx, nil, [::Test::T_MyClassPrx])
+    end
+
+    if not defined?(::Test::DiamondClass_Mixin)
+
+        module ::Test::DiamondClass_Mixin
+        end
+        module DiamondClassPrx_mixin
+            include ::Test::MyDerivedClassPrx_mixin
+            include ::Test::MyOtherDerivedClassPrx_mixin
+        end
+
+        class DiamondClassPrx < ::Ice::ObjectPrx
+            include ::Ice::Proxy_mixin
+            include DiamondClassPrx_mixin
+        end
+
+        if not defined?(::Test::T_DiamondClassPrx)
+            T_DiamondClass = ::Ice::__declareClass('::Test::DiamondClass')
+            T_DiamondClassPrx = ::Ice::__declareProxy('::Test::DiamondClass')
+        end
+
+        T_DiamondClassPrx.defineProxy(DiamondClassPrx, nil, [::Test::T_MyDerivedClassPrx, ::Test::T_MyOtherDerivedClassPrx])
+    end
 end

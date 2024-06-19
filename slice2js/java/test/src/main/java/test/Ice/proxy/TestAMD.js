@@ -79,3 +79,71 @@ Ice.defineOperations(
     {
         "echo": [, , , [9], [[9]], , , , ]
     });
+
+const iceC_Test_MyOtherDerivedClass_ids = [
+    "::Ice::Object",
+    "::Test::MyClass",
+    "::Test::MyOtherDerivedClass"
+];
+
+Test.MyOtherDerivedClass = class extends Ice.Object
+{
+    static get _iceImplements()
+    {
+        return [
+            Test.MyClass
+        ];
+    }
+};
+
+Test.MyOtherDerivedClassPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
+    {
+        return [
+            Test.MyClassPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.MyOtherDerivedClassPrx", Test.MyOtherDerivedClassPrx);
+
+Ice.defineOperations(
+    Test.MyOtherDerivedClass,
+    Test.MyOtherDerivedClassPrx,
+    iceC_Test_MyOtherDerivedClass_ids,
+    "::Test::MyOtherDerivedClass");
+
+const iceC_Test_DiamondClass_ids = [
+    "::Ice::Object",
+    "::Test::DiamondClass",
+    "::Test::MyClass",
+    "::Test::MyDerivedClass",
+    "::Test::MyOtherDerivedClass"
+];
+
+Test.DiamondClass = class extends Ice.Object
+{
+    static get _iceImplements()
+    {
+        return [
+            Test.MyDerivedClass,
+            Test.MyOtherDerivedClass
+        ];
+    }
+};
+
+Test.DiamondClassPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
+    {
+        return [
+            Test.MyDerivedClassPrx,
+            Test.MyOtherDerivedClassPrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("Test.DiamondClassPrx", Test.DiamondClassPrx);
+
+Ice.defineOperations(
+    Test.DiamondClass,
+    Test.DiamondClassPrx,
+    iceC_Test_DiamondClass_ids,
+    "::Test::DiamondClass");

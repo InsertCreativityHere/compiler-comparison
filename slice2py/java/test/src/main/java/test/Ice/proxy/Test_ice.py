@@ -148,4 +148,96 @@ if 'MyDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyDerivedClass = MyDerivedClass
     del MyDerivedClass
 
+_M_Test._t_MyOtherDerivedClass = IcePy.defineValue('::Test::MyOtherDerivedClass', Ice.Value, -1, (), True, None, ())
+
+if 'MyOtherDerivedClassPrx' not in _M_Test.__dict__:
+    _M_Test.MyOtherDerivedClassPrx = Ice.createTempClass()
+    class MyOtherDerivedClassPrx(_M_Test.MyClassPrx):
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.MyOtherDerivedClassPrx.ice_checkedCast(proxy, '::Test::MyOtherDerivedClass', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.MyOtherDerivedClassPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyOtherDerivedClass'
+    _M_Test._t_MyOtherDerivedClassPrx = IcePy.defineProxy('::Test::MyOtherDerivedClass', MyOtherDerivedClassPrx)
+
+    _M_Test.MyOtherDerivedClassPrx = MyOtherDerivedClassPrx
+    del MyOtherDerivedClassPrx
+
+    _M_Test.MyOtherDerivedClass = Ice.createTempClass()
+    class MyOtherDerivedClass(_M_Test.MyClass):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::MyClass', '::Test::MyOtherDerivedClass')
+
+        def ice_id(self, current=None):
+            return '::Test::MyOtherDerivedClass'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyOtherDerivedClass'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_MyOtherDerivedClassDisp)
+
+        __repr__ = __str__
+
+    _M_Test._t_MyOtherDerivedClassDisp = IcePy.defineClass('::Test::MyOtherDerivedClass', MyOtherDerivedClass, (), None, (_M_Test._t_MyClassDisp,))
+    MyOtherDerivedClass._ice_type = _M_Test._t_MyOtherDerivedClassDisp
+
+    _M_Test.MyOtherDerivedClass = MyOtherDerivedClass
+    del MyOtherDerivedClass
+
+_M_Test._t_DiamondClass = IcePy.defineValue('::Test::DiamondClass', Ice.Value, -1, (), True, None, ())
+
+if 'DiamondClassPrx' not in _M_Test.__dict__:
+    _M_Test.DiamondClassPrx = Ice.createTempClass()
+    class DiamondClassPrx(_M_Test.MyDerivedClassPrx, _M_Test.MyOtherDerivedClassPrx):
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.DiamondClassPrx.ice_checkedCast(proxy, '::Test::DiamondClass', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.DiamondClassPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::DiamondClass'
+    _M_Test._t_DiamondClassPrx = IcePy.defineProxy('::Test::DiamondClass', DiamondClassPrx)
+
+    _M_Test.DiamondClassPrx = DiamondClassPrx
+    del DiamondClassPrx
+
+    _M_Test.DiamondClass = Ice.createTempClass()
+    class DiamondClass(_M_Test.MyDerivedClass, _M_Test.MyOtherDerivedClass):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::DiamondClass', '::Test::MyClass', '::Test::MyDerivedClass', '::Test::MyOtherDerivedClass')
+
+        def ice_id(self, current=None):
+            return '::Test::DiamondClass'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::DiamondClass'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_DiamondClassDisp)
+
+        __repr__ = __str__
+
+    _M_Test._t_DiamondClassDisp = IcePy.defineClass('::Test::DiamondClass', DiamondClass, (), None, (_M_Test._t_MyDerivedClassDisp, _M_Test._t_MyOtherDerivedClassDisp))
+    DiamondClass._ice_type = _M_Test._t_DiamondClassDisp
+
+    _M_Test.DiamondClass = DiamondClass
+    del DiamondClass
+
 # End of module Test

@@ -80,4 +80,58 @@ namespace Test
     global $Ice__t_ObjectPrx;
     IcePHP_defineOperation($Test__t_MyDerivedClassPrx, 'echo', 0, 0, array(array($Ice__t_ObjectPrx)), null, array($Ice__t_ObjectPrx), null);
 }
+
+namespace Test
+{
+    global $Test__t_MyOtherDerivedClass;
+    global $Test__t_MyOtherDerivedClassPrx;
+
+    class MyOtherDerivedClassPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        {
+            return $proxy->ice_checkedCast('::Test::MyOtherDerivedClass', $facetOrContext, $context);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Test::MyOtherDerivedClass', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Test::MyOtherDerivedClass';
+        }
+    }
+
+    global $Ice__t_ObjectPrx;
+    $Test__t_MyOtherDerivedClassPrx = IcePHP_defineProxy('::Test::MyOtherDerivedClass', $Ice__t_ObjectPrx, array($Test__t_MyClassPrx));
+}
+
+namespace Test
+{
+    global $Test__t_DiamondClass;
+    global $Test__t_DiamondClassPrx;
+
+    class DiamondClassPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        {
+            return $proxy->ice_checkedCast('::Test::DiamondClass', $facetOrContext, $context);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Test::DiamondClass', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Test::DiamondClass';
+        }
+    }
+
+    global $Ice__t_ObjectPrx;
+    $Test__t_DiamondClassPrx = IcePHP_defineProxy('::Test::DiamondClass', $Ice__t_ObjectPrx, array($Test__t_MyDerivedClassPrx, $Test__t_MyOtherDerivedClassPrx));
+}
 ?>
