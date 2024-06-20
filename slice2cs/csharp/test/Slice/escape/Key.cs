@@ -2007,9 +2007,9 @@ namespace @abstract
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class explicitDisp_ : Ice.ObjectImpl, @explicit
     {
-        public abstract void @default(Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, Ice.Current current);
+
+        public abstract void @default(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
