@@ -208,9 +208,6 @@ public interface LocatorFinderPrx extends com.zeroc.Ice.ObjectPrx
     LocatorFinderPrx ice_compress(boolean co);
 
     @Override
-    LocatorFinderPrx ice_timeout(int t);
-
-    @Override
     LocatorFinderPrx ice_connectionId(String connectionId);
 
     @Override

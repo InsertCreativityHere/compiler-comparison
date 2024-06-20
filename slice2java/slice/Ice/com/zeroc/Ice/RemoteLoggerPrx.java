@@ -266,9 +266,6 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
     RemoteLoggerPrx ice_compress(boolean co);
 
     @Override
-    RemoteLoggerPrx ice_timeout(int t);
-
-    @Override
     RemoteLoggerPrx ice_connectionId(String connectionId);
 
     @Override

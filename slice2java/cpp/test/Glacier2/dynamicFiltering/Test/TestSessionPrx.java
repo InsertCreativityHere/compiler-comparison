@@ -177,9 +177,6 @@ public interface TestSessionPrx extends com.zeroc.Glacier2.SessionPrx
     TestSessionPrx ice_compress(boolean co);
 
     @Override
-    TestSessionPrx ice_timeout(int t);
-
-    @Override
     TestSessionPrx ice_connectionId(String connectionId);
 
     @Override

@@ -578,9 +578,6 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     ReplicaObserverPrx ice_compress(boolean co);
 
     @Override
-    ReplicaObserverPrx ice_timeout(int t);
-
-    @Override
     ReplicaObserverPrx ice_connectionId(String connectionId);
 
     @Override

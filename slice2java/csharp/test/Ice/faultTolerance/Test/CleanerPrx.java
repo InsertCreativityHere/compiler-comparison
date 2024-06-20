@@ -177,9 +177,6 @@ public interface CleanerPrx extends com.zeroc.Ice.ObjectPrx
     CleanerPrx ice_compress(boolean co);
 
     @Override
-    CleanerPrx ice_timeout(int t);
-
-    @Override
     CleanerPrx ice_connectionId(String connectionId);
 
     @Override

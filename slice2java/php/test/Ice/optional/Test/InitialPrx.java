@@ -3372,9 +3372,6 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     InitialPrx ice_compress(boolean co);
 
     @Override
-    InitialPrx ice_timeout(int t);
-
-    @Override
     InitialPrx ice_connectionId(String connectionId);
 
     @Override

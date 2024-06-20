@@ -180,9 +180,6 @@ public interface ClockPrx extends com.zeroc.Ice.ObjectPrx
     ClockPrx ice_compress(boolean co);
 
     @Override
-    ClockPrx ice_timeout(int t);
-
-    @Override
     ClockPrx ice_connectionId(String connectionId);
 
     @Override

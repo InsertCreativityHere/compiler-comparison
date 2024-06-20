@@ -325,9 +325,6 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     IdentitySetPrx ice_compress(boolean co);
 
     @Override
-    IdentitySetPrx ice_timeout(int t);
-
-    @Override
     IdentitySetPrx ice_connectionId(String connectionId);
 
     @Override

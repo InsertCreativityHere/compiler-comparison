@@ -177,9 +177,6 @@ public interface decimalPrx extends com.zeroc.Ice.ObjectPrx
     decimalPrx ice_compress(boolean co);
 
     @Override
-    decimalPrx ice_timeout(int t);
-
-    @Override
     decimalPrx ice_connectionId(String connectionId);
 
     @Override

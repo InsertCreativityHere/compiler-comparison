@@ -181,9 +181,6 @@ public interface BPrx extends APrx
     BPrx ice_compress(boolean co);
 
     @Override
-    BPrx ice_timeout(int t);
-
-    @Override
     BPrx ice_connectionId(String connectionId);
 
     @Override

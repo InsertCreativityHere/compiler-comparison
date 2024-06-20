@@ -177,9 +177,6 @@ public interface BackendPrx extends com.zeroc.Ice.ObjectPrx
     BackendPrx ice_compress(boolean co);
 
     @Override
-    BackendPrx ice_timeout(int t);
-
-    @Override
     BackendPrx ice_connectionId(String connectionId);
 
     @Override

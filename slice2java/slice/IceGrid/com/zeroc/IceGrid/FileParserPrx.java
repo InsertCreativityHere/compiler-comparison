@@ -238,9 +238,6 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
     FileParserPrx ice_compress(boolean co);
 
     @Override
-    FileParserPrx ice_timeout(int t);
-
-    @Override
     FileParserPrx ice_connectionId(String connectionId);
 
     @Override

@@ -203,9 +203,6 @@ public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
     FinderPrx ice_compress(boolean co);
 
     @Override
-    FinderPrx ice_timeout(int t);
-
-    @Override
     FinderPrx ice_connectionId(String connectionId);
 
     @Override

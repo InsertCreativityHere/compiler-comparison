@@ -144,9 +144,6 @@ public interface DPrx extends com.zeroc.Ice.ObjectPrx
     DPrx ice_compress(boolean co);
 
     @Override
-    DPrx ice_timeout(int t);
-
-    @Override
     DPrx ice_connectionId(String connectionId);
 
     @Override

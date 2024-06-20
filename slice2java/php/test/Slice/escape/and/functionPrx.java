@@ -182,9 +182,6 @@ public interface functionPrx extends com.zeroc.Ice.ObjectPrx
     functionPrx ice_compress(boolean co);
 
     @Override
-    functionPrx ice_timeout(int t);
-
-    @Override
     functionPrx ice_connectionId(String connectionId);
 
     @Override

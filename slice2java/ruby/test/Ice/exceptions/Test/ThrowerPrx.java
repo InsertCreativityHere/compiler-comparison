@@ -1002,9 +1002,6 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     ThrowerPrx ice_compress(boolean co);
 
     @Override
-    ThrowerPrx ice_timeout(int t);
-
-    @Override
     ThrowerPrx ice_connectionId(String connectionId);
 
     @Override

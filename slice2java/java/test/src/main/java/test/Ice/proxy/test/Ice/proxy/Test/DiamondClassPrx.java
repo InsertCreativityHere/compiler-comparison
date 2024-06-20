@@ -145,9 +145,6 @@ public interface DiamondClassPrx extends MyDerivedClassPrx,
     DiamondClassPrx ice_compress(boolean co);
 
     @Override
-    DiamondClassPrx ice_timeout(int t);
-
-    @Override
     DiamondClassPrx ice_connectionId(String connectionId);
 
     @Override

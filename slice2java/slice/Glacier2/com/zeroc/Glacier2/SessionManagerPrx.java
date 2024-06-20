@@ -250,9 +250,6 @@ public interface SessionManagerPrx extends com.zeroc.Ice.ObjectPrx
     SessionManagerPrx ice_compress(boolean co);
 
     @Override
-    SessionManagerPrx ice_timeout(int t);
-
-    @Override
     SessionManagerPrx ice_connectionId(String connectionId);
 
     @Override

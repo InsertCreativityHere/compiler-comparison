@@ -180,9 +180,6 @@ public interface SinglePrx extends com.zeroc.Ice.ObjectPrx
     SinglePrx ice_compress(boolean co);
 
     @Override
-    SinglePrx ice_timeout(int t);
-
-    @Override
     SinglePrx ice_connectionId(String connectionId);
 
     @Override

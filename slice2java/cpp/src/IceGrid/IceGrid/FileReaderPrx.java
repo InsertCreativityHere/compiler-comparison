@@ -302,9 +302,6 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
     FileReaderPrx ice_compress(boolean co);
 
     @Override
-    FileReaderPrx ice_timeout(int t);
-
-    @Override
     FileReaderPrx ice_connectionId(String connectionId);
 
     @Override

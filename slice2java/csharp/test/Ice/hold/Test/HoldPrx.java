@@ -326,9 +326,6 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
     HoldPrx ice_compress(boolean co);
 
     @Override
-    HoldPrx ice_timeout(int t);
-
-    @Override
     HoldPrx ice_connectionId(String connectionId);
 
     @Override

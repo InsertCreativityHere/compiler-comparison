@@ -1545,9 +1545,6 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     AdminSessionPrx ice_compress(boolean co);
 
     @Override
-    AdminSessionPrx ice_timeout(int t);
-
-    @Override
     AdminSessionPrx ice_connectionId(String connectionId);
 
     @Override

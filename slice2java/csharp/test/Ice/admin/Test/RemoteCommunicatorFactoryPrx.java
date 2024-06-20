@@ -217,9 +217,6 @@ public interface RemoteCommunicatorFactoryPrx extends com.zeroc.Ice.ObjectPrx
     RemoteCommunicatorFactoryPrx ice_compress(boolean co);
 
     @Override
-    RemoteCommunicatorFactoryPrx ice_timeout(int t);
-
-    @Override
     RemoteCommunicatorFactoryPrx ice_connectionId(String connectionId);
 
     @Override

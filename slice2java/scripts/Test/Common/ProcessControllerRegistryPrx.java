@@ -180,9 +180,6 @@ public interface ProcessControllerRegistryPrx extends com.zeroc.Ice.ObjectPrx
     ProcessControllerRegistryPrx ice_compress(boolean co);
 
     @Override
-    ProcessControllerRegistryPrx ice_timeout(int t);
-
-    @Override
     ProcessControllerRegistryPrx ice_connectionId(String connectionId);
 
     @Override

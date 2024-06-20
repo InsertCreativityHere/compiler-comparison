@@ -214,9 +214,6 @@ public interface PriorityPrx extends com.zeroc.Ice.ObjectPrx
     PriorityPrx ice_compress(boolean co);
 
     @Override
-    PriorityPrx ice_timeout(int t);
-
-    @Override
     PriorityPrx ice_connectionId(String connectionId);
 
     @Override

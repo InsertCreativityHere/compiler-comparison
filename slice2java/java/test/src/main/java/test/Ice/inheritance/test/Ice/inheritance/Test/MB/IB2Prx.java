@@ -184,9 +184,6 @@ public interface IB2Prx extends test.Ice.inheritance.Test.MA.IAPrx
     IB2Prx ice_compress(boolean co);
 
     @Override
-    IB2Prx ice_timeout(int t);
-
-    @Override
     IB2Prx ice_connectionId(String connectionId);
 
     @Override

@@ -241,9 +241,6 @@ public interface SSLSessionManagerPrx extends com.zeroc.Ice.ObjectPrx
     SSLSessionManagerPrx ice_compress(boolean co);
 
     @Override
-    SSLSessionManagerPrx ice_timeout(int t);
-
-    @Override
     SSLSessionManagerPrx ice_connectionId(String connectionId);
 
     @Override

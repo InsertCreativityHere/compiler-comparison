@@ -181,9 +181,6 @@ public interface HPrx extends GPrx
     HPrx ice_compress(boolean co);
 
     @Override
-    HPrx ice_timeout(int t);
-
-    @Override
     HPrx ice_connectionId(String connectionId);
 
     @Override

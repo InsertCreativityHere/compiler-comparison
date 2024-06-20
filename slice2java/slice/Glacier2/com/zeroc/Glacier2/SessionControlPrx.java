@@ -418,9 +418,6 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     SessionControlPrx ice_compress(boolean co);
 
     @Override
-    SessionControlPrx ice_timeout(int t);
-
-    @Override
     SessionControlPrx ice_connectionId(String connectionId);
 
     @Override

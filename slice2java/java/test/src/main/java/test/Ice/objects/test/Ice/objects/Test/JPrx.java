@@ -144,9 +144,6 @@ public interface JPrx extends IPrx
     JPrx ice_compress(boolean co);
 
     @Override
-    JPrx ice_timeout(int t);
-
-    @Override
     JPrx ice_connectionId(String connectionId);
 
     @Override

@@ -448,9 +448,6 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     NodeObserverPrx ice_compress(boolean co);
 
     @Override
-    NodeObserverPrx ice_timeout(int t);
-
-    @Override
     NodeObserverPrx ice_connectionId(String connectionId);
 
     @Override

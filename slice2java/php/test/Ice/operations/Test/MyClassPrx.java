@@ -2705,9 +2705,6 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     MyClassPrx ice_compress(boolean co);
 
     @Override
-    MyClassPrx ice_timeout(int t);
-
-    @Override
     MyClassPrx ice_connectionId(String connectionId);
 
     @Override

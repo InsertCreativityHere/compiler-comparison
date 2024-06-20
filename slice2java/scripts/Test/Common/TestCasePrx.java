@@ -358,9 +358,6 @@ public interface TestCasePrx extends com.zeroc.Ice.ObjectPrx
     TestCasePrx ice_compress(boolean co);
 
     @Override
-    TestCasePrx ice_timeout(int t);
-
-    @Override
     TestCasePrx ice_connectionId(String connectionId);
 
     @Override

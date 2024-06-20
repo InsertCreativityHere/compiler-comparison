@@ -223,9 +223,6 @@ public interface forPrx extends com.zeroc.Ice.ObjectPrx
     forPrx ice_compress(boolean co);
 
     @Override
-    forPrx ice_timeout(int t);
-
-    @Override
     forPrx ice_connectionId(String connectionId);
 
     @Override

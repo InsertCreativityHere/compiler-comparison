@@ -246,9 +246,6 @@ public interface BackgroundPrx extends com.zeroc.Ice.ObjectPrx
     BackgroundPrx ice_compress(boolean co);
 
     @Override
-    BackgroundPrx ice_timeout(int t);
-
-    @Override
     BackgroundPrx ice_connectionId(String connectionId);
 
     @Override

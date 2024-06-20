@@ -815,9 +815,6 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     TestIntfPrx ice_compress(boolean co);
 
     @Override
-    TestIntfPrx ice_timeout(int t);
-
-    @Override
     TestIntfPrx ice_connectionId(String connectionId);
 
     @Override

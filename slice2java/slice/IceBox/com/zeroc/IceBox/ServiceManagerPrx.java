@@ -426,9 +426,6 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
     ServiceManagerPrx ice_compress(boolean co);
 
     @Override
-    ServiceManagerPrx ice_timeout(int t);
-
-    @Override
     ServiceManagerPrx ice_connectionId(String connectionId);
 
     @Override

@@ -410,9 +410,6 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
     optionalParamsPrx ice_compress(boolean co);
 
     @Override
-    optionalParamsPrx ice_timeout(int t);
-
-    @Override
     optionalParamsPrx ice_connectionId(String connectionId);
 
     @Override

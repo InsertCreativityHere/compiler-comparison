@@ -484,9 +484,6 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
     QueryPrx ice_compress(boolean co);
 
     @Override
-    QueryPrx ice_timeout(int t);
-
-    @Override
     QueryPrx ice_connectionId(String connectionId);
 
     @Override

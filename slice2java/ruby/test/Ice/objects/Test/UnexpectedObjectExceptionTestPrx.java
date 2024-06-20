@@ -182,9 +182,6 @@ public interface UnexpectedObjectExceptionTestPrx extends com.zeroc.Ice.ObjectPr
     UnexpectedObjectExceptionTestPrx ice_compress(boolean co);
 
     @Override
-    UnexpectedObjectExceptionTestPrx ice_timeout(int t);
-
-    @Override
     UnexpectedObjectExceptionTestPrx ice_connectionId(String connectionId);
 
     @Override

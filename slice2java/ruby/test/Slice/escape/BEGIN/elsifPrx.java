@@ -144,9 +144,6 @@ public interface elsifPrx extends breakPrx
     elsifPrx ice_compress(boolean co);
 
     @Override
-    elsifPrx ice_timeout(int t);
-
-    @Override
     elsifPrx ice_connectionId(String connectionId);
 
     @Override

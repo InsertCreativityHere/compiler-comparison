@@ -177,9 +177,6 @@ public interface typeofPrx extends com.zeroc.Ice.ObjectPrx
     typeofPrx ice_compress(boolean co);
 
     @Override
-    typeofPrx ice_timeout(int t);
-
-    @Override
     typeofPrx ice_connectionId(String connectionId);
 
     @Override

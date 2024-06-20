@@ -281,9 +281,6 @@ public interface breakPrx extends com.zeroc.Ice.ObjectPrx
     breakPrx ice_compress(boolean co);
 
     @Override
-    breakPrx ice_timeout(int t);
-
-    @Override
     breakPrx ice_connectionId(String connectionId);
 
     @Override

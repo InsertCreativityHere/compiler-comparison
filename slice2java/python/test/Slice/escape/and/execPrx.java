@@ -177,9 +177,6 @@ public interface execPrx extends com.zeroc.Ice.ObjectPrx
     execPrx ice_compress(boolean co);
 
     @Override
-    execPrx ice_timeout(int t);
-
-    @Override
     execPrx ice_connectionId(String connectionId);
 
     @Override

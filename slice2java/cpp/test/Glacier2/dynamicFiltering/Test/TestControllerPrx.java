@@ -226,9 +226,6 @@ public interface TestControllerPrx extends com.zeroc.Ice.ObjectPrx
     TestControllerPrx ice_compress(boolean co);
 
     @Override
-    TestControllerPrx ice_timeout(int t);
-
-    @Override
     TestControllerPrx ice_connectionId(String connectionId);
 
     @Override

@@ -177,9 +177,6 @@ public interface Interface2Prx extends com.zeroc.Ice.ObjectPrx
     Interface2Prx ice_compress(boolean co);
 
     @Override
-    Interface2Prx ice_timeout(int t);
-
-    @Override
     Interface2Prx ice_connectionId(String connectionId);
 
     @Override

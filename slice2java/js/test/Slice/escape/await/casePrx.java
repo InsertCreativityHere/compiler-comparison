@@ -184,9 +184,6 @@ public interface casePrx extends com.zeroc.Ice.ObjectPrx
     casePrx ice_compress(boolean co);
 
     @Override
-    casePrx ice_timeout(int t);
-
-    @Override
     casePrx ice_connectionId(String connectionId);
 
     @Override

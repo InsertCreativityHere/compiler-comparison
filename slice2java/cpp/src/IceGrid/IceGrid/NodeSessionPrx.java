@@ -571,9 +571,6 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     NodeSessionPrx ice_compress(boolean co);
 
     @Override
-    NodeSessionPrx ice_timeout(int t);
-
-    @Override
     NodeSessionPrx ice_connectionId(String connectionId);
 
     @Override

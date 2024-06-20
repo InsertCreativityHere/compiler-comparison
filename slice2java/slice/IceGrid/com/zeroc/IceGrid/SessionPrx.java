@@ -570,9 +570,6 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     SessionPrx ice_compress(boolean co);
 
     @Override
-    SessionPrx ice_timeout(int t);
-
-    @Override
     SessionPrx ice_connectionId(String connectionId);
 
     @Override

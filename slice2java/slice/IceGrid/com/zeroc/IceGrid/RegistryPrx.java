@@ -598,9 +598,6 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     RegistryPrx ice_compress(boolean co);
 
     @Override
-    RegistryPrx ice_timeout(int t);
-
-    @Override
     RegistryPrx ice_connectionId(String connectionId);
 
     @Override

@@ -181,9 +181,6 @@ public interface TestLocatorPrx extends com.zeroc.Ice.LocatorPrx
     TestLocatorPrx ice_compress(boolean co);
 
     @Override
-    TestLocatorPrx ice_timeout(int t);
-
-    @Override
     TestLocatorPrx ice_connectionId(String connectionId);
 
     @Override

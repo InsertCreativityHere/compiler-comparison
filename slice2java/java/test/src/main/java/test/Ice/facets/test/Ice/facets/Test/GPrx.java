@@ -214,9 +214,6 @@ public interface GPrx extends com.zeroc.Ice.ObjectPrx
     GPrx ice_compress(boolean co);
 
     @Override
-    GPrx ice_timeout(int t);
-
-    @Override
     GPrx ice_connectionId(String connectionId);
 
     @Override

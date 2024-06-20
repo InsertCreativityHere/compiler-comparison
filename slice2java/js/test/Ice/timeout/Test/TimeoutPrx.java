@@ -249,9 +249,6 @@ public interface TimeoutPrx extends com.zeroc.Ice.ObjectPrx
     TimeoutPrx ice_compress(boolean co);
 
     @Override
-    TimeoutPrx ice_timeout(int t);
-
-    @Override
     TimeoutPrx ice_connectionId(String connectionId);
 
     @Override

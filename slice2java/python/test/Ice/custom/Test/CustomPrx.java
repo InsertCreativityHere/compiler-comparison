@@ -1114,9 +1114,6 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
     CustomPrx ice_compress(boolean co);
 
     @Override
-    CustomPrx ice_timeout(int t);
-
-    @Override
     CustomPrx ice_connectionId(String connectionId);
 
     @Override

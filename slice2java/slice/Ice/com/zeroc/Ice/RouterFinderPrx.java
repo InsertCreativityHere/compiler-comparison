@@ -208,9 +208,6 @@ public interface RouterFinderPrx extends com.zeroc.Ice.ObjectPrx
     RouterFinderPrx ice_compress(boolean co);
 
     @Override
-    RouterFinderPrx ice_timeout(int t);
-
-    @Override
     RouterFinderPrx ice_connectionId(String connectionId);
 
     @Override

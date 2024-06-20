@@ -352,9 +352,6 @@ public interface RelayPrx extends com.zeroc.Ice.ObjectPrx
     RelayPrx ice_compress(boolean co);
 
     @Override
-    RelayPrx ice_timeout(int t);
-
-    @Override
     RelayPrx ice_connectionId(String connectionId);
 
     @Override

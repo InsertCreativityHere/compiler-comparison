@@ -319,9 +319,6 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     RegistryObserverPrx ice_compress(boolean co);
 
     @Override
-    RegistryObserverPrx ice_timeout(int t);
-
-    @Override
     RegistryObserverPrx ice_connectionId(String connectionId);
 
     @Override

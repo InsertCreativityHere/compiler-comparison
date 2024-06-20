@@ -279,9 +279,6 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
     WstringClassPrx ice_compress(boolean co);
 
     @Override
-    WstringClassPrx ice_timeout(int t);
-
-    @Override
     WstringClassPrx ice_connectionId(String connectionId);
 
     @Override

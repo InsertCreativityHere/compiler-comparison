@@ -180,9 +180,6 @@ public interface TestActivationPrx extends com.zeroc.Ice.ObjectPrx
     TestActivationPrx ice_compress(boolean co);
 
     @Override
-    TestActivationPrx ice_timeout(int t);
-
-    @Override
     TestActivationPrx ice_connectionId(String connectionId);
 
     @Override

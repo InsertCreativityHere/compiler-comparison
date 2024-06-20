@@ -145,9 +145,6 @@ public interface finalizePrx extends defaultPrx,
     finalizePrx ice_compress(boolean co);
 
     @Override
-    finalizePrx ice_timeout(int t);
-
-    @Override
     finalizePrx ice_connectionId(String connectionId);
 
     @Override

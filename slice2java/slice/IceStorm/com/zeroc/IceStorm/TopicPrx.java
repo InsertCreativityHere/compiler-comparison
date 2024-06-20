@@ -840,9 +840,6 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     TopicPrx ice_compress(boolean co);
 
     @Override
-    TopicPrx ice_timeout(int t);
-
-    @Override
     TopicPrx ice_connectionId(String connectionId);
 
     @Override

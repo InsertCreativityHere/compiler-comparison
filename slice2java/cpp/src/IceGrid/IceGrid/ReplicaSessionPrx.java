@@ -702,9 +702,6 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     ReplicaSessionPrx ice_compress(boolean co);
 
     @Override
-    ReplicaSessionPrx ice_timeout(int t);
-
-    @Override
     ReplicaSessionPrx ice_connectionId(String connectionId);
 
     @Override

@@ -313,9 +313,6 @@ public interface EchoPrx extends com.zeroc.Ice.ObjectPrx
     EchoPrx ice_compress(boolean co);
 
     @Override
-    EchoPrx ice_timeout(int t);
-
-    @Override
     EchoPrx ice_connectionId(String connectionId);
 
     @Override

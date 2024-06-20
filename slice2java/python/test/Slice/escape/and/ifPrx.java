@@ -145,9 +145,6 @@ public interface ifPrx extends execPrx,
     ifPrx ice_compress(boolean co);
 
     @Override
-    ifPrx ice_timeout(int t);
-
-    @Override
     ifPrx ice_connectionId(String connectionId);
 
     @Override

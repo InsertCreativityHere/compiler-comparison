@@ -246,9 +246,6 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     ControllerPrx ice_compress(boolean co);
 
     @Override
-    ControllerPrx ice_timeout(int t);
-
-    @Override
     ControllerPrx ice_connectionId(String connectionId);
 
     @Override

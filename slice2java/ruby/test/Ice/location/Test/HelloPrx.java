@@ -177,9 +177,6 @@ public interface HelloPrx extends com.zeroc.Ice.ObjectPrx
     HelloPrx ice_compress(boolean co);
 
     @Override
-    HelloPrx ice_timeout(int t);
-
-    @Override
     HelloPrx ice_connectionId(String connectionId);
 
     @Override

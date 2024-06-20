@@ -225,9 +225,6 @@ public interface newPrx extends com.zeroc.Ice.ObjectPrx
     newPrx ice_compress(boolean co);
 
     @Override
-    newPrx ice_timeout(int t);
-
-    @Override
     newPrx ice_connectionId(String connectionId);
 
     @Override

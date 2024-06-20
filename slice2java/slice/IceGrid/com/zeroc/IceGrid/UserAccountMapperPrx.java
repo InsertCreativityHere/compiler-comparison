@@ -242,9 +242,6 @@ public interface UserAccountMapperPrx extends com.zeroc.Ice.ObjectPrx
     UserAccountMapperPrx ice_compress(boolean co);
 
     @Override
-    UserAccountMapperPrx ice_timeout(int t);
-
-    @Override
     UserAccountMapperPrx ice_connectionId(String connectionId);
 
     @Override

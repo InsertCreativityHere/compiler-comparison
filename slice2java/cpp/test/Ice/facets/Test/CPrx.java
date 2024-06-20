@@ -181,9 +181,6 @@ public interface CPrx extends APrx
     CPrx ice_compress(boolean co);
 
     @Override
-    CPrx ice_timeout(int t);
-
-    @Override
     CPrx ice_connectionId(String connectionId);
 
     @Override

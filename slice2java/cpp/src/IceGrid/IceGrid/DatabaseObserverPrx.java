@@ -146,9 +146,6 @@ public interface DatabaseObserverPrx extends com.zeroc.IceGrid.ApplicationObserv
     DatabaseObserverPrx ice_compress(boolean co);
 
     @Override
-    DatabaseObserverPrx ice_timeout(int t);
-
-    @Override
     DatabaseObserverPrx ice_connectionId(String connectionId);
 
     @Override

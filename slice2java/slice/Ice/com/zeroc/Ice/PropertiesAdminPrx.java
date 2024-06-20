@@ -352,9 +352,6 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx
     PropertiesAdminPrx ice_compress(boolean co);
 
     @Override
-    PropertiesAdminPrx ice_timeout(int t);
-
-    @Override
     PropertiesAdminPrx ice_connectionId(String connectionId);
 
     @Override

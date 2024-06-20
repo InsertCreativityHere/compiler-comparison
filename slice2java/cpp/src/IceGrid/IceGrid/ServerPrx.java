@@ -768,9 +768,6 @@ public interface ServerPrx extends FileReaderPrx
     ServerPrx ice_compress(boolean co);
 
     @Override
-    ServerPrx ice_timeout(int t);
-
-    @Override
     ServerPrx ice_connectionId(String connectionId);
 
     @Override

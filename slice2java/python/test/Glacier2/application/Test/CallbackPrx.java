@@ -213,9 +213,6 @@ public interface CallbackPrx extends com.zeroc.Ice.ObjectPrx
     CallbackPrx ice_compress(boolean co);
 
     @Override
-    CallbackPrx ice_timeout(int t);
-
-    @Override
     CallbackPrx ice_connectionId(String connectionId);
 
     @Override

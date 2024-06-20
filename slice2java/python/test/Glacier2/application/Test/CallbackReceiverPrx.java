@@ -177,9 +177,6 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
     CallbackReceiverPrx ice_compress(boolean co);
 
     @Override
-    CallbackReceiverPrx ice_timeout(int t);
-
-    @Override
     CallbackReceiverPrx ice_connectionId(String connectionId);
 
     @Override

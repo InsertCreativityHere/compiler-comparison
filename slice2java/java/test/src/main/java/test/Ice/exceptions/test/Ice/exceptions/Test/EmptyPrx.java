@@ -144,9 +144,6 @@ public interface EmptyPrx extends com.zeroc.Ice.ObjectPrx
     EmptyPrx ice_compress(boolean co);
 
     @Override
-    EmptyPrx ice_timeout(int t);
-
-    @Override
     EmptyPrx ice_connectionId(String connectionId);
 
     @Override

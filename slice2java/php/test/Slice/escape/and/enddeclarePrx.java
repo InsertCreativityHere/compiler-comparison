@@ -145,9 +145,6 @@ public interface enddeclarePrx extends diePrx,
     enddeclarePrx ice_compress(boolean co);
 
     @Override
-    enddeclarePrx ice_timeout(int t);
-
-    @Override
     enddeclarePrx ice_connectionId(String connectionId);
 
     @Override

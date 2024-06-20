@@ -417,9 +417,6 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
     LoggerAdminPrx ice_compress(boolean co);
 
     @Override
-    LoggerAdminPrx ice_timeout(int t);
-
-    @Override
     LoggerAdminPrx ice_connectionId(String connectionId);
 
     @Override

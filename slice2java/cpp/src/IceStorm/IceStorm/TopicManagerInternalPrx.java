@@ -204,9 +204,6 @@ public interface TopicManagerInternalPrx extends com.zeroc.IceStorm.TopicManager
     TopicManagerInternalPrx ice_compress(boolean co);
 
     @Override
-    TopicManagerInternalPrx ice_timeout(int t);
-
-    @Override
     TopicManagerInternalPrx ice_connectionId(String connectionId);
 
     @Override

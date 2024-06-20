@@ -214,9 +214,6 @@ public interface printPrx extends com.zeroc.Ice.ObjectPrx
     printPrx ice_compress(boolean co);
 
     @Override
-    printPrx ice_timeout(int t);
-
-    @Override
     printPrx ice_connectionId(String connectionId);
 
     @Override

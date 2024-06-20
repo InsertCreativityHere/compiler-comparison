@@ -177,9 +177,6 @@ public interface diePrx extends com.zeroc.Ice.ObjectPrx
     diePrx ice_compress(boolean co);
 
     @Override
-    diePrx ice_timeout(int t);
-
-    @Override
     diePrx ice_connectionId(String connectionId);
 
     @Override

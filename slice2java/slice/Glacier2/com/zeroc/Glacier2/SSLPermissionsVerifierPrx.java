@@ -242,9 +242,6 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
     SSLPermissionsVerifierPrx ice_compress(boolean co);
 
     @Override
-    SSLPermissionsVerifierPrx ice_timeout(int t);
-
-    @Override
     SSLPermissionsVerifierPrx ice_connectionId(String connectionId);
 
     @Override

@@ -324,9 +324,6 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
     RouterPrx ice_compress(boolean co);
 
     @Override
-    RouterPrx ice_timeout(int t);
-
-    @Override
     RouterPrx ice_connectionId(String connectionId);
 
     @Override

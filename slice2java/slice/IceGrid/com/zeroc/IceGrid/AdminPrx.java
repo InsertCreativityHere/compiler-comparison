@@ -4055,9 +4055,6 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     AdminPrx ice_compress(boolean co);
 
     @Override
-    AdminPrx ice_timeout(int t);
-
-    @Override
     AdminPrx ice_connectionId(String connectionId);
 
     @Override

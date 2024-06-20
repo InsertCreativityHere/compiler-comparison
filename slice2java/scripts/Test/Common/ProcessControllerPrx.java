@@ -249,9 +249,6 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
     ProcessControllerPrx ice_compress(boolean co);
 
     @Override
-    ProcessControllerPrx ice_timeout(int t);
-
-    @Override
     ProcessControllerPrx ice_connectionId(String connectionId);
 
     @Override

@@ -177,9 +177,6 @@ public interface defaultPrx extends com.zeroc.Ice.ObjectPrx
     defaultPrx ice_compress(boolean co);
 
     @Override
-    defaultPrx ice_timeout(int t);
-
-    @Override
     defaultPrx ice_connectionId(String connectionId);
 
     @Override

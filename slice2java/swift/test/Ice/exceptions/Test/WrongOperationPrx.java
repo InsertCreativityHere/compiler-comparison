@@ -177,9 +177,6 @@ public interface WrongOperationPrx extends com.zeroc.Ice.ObjectPrx
     WrongOperationPrx ice_compress(boolean co);
 
     @Override
-    WrongOperationPrx ice_timeout(int t);
-
-    @Override
     WrongOperationPrx ice_connectionId(String connectionId);
 
     @Override

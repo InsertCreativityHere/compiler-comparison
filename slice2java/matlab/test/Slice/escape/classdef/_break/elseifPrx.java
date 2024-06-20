@@ -276,9 +276,6 @@ public interface elseifPrx extends com.zeroc.Ice.ObjectPrx
     elseifPrx ice_compress(boolean co);
 
     @Override
-    elseifPrx ice_timeout(int t);
-
-    @Override
     elseifPrx ice_connectionId(String connectionId);
 
     @Override

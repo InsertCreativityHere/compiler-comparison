@@ -145,9 +145,6 @@ public interface doPrx extends funcPrx,
     doPrx ice_compress(boolean co);
 
     @Override
-    doPrx ice_timeout(int t);
-
-    @Override
     doPrx ice_connectionId(String connectionId);
 
     @Override

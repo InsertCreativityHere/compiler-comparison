@@ -529,9 +529,6 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     RemoteCommunicatorPrx ice_compress(boolean co);
 
     @Override
-    RemoteCommunicatorPrx ice_timeout(int t);
-
-    @Override
     RemoteCommunicatorPrx ice_connectionId(String connectionId);
 
     @Override

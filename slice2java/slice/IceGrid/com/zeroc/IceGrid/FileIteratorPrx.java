@@ -283,9 +283,6 @@ public interface FileIteratorPrx extends com.zeroc.Ice.ObjectPrx
     FileIteratorPrx ice_compress(boolean co);
 
     @Override
-    FileIteratorPrx ice_timeout(int t);
-
-    @Override
     FileIteratorPrx ice_connectionId(String connectionId);
 
     @Override

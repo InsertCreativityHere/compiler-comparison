@@ -281,9 +281,6 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
     LookupReplyPrx ice_compress(boolean co);
 
     @Override
-    LookupReplyPrx ice_timeout(int t);
-
-    @Override
     LookupReplyPrx ice_connectionId(String connectionId);
 
     @Override

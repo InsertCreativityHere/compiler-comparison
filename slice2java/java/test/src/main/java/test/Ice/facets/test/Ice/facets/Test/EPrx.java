@@ -181,9 +181,6 @@ public interface EPrx extends com.zeroc.Ice.ObjectPrx
     EPrx ice_compress(boolean co);
 
     @Override
-    EPrx ice_timeout(int t);
-
-    @Override
     EPrx ice_connectionId(String connectionId);
 
     @Override

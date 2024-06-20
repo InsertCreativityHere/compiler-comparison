@@ -180,9 +180,6 @@ public interface EventPrx extends com.zeroc.Ice.ObjectPrx
     EventPrx ice_compress(boolean co);
 
     @Override
-    EventPrx ice_timeout(int t);
-
-    @Override
     EventPrx ice_connectionId(String connectionId);
 
     @Override

@@ -102,8 +102,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * @see PermissionsVerifier
      **/
     default SessionPrx createSession(String userId, String password)
-        throws CannotCreateSessionException,
-               PermissionDeniedException
+        throws PermissionDeniedException,
+               CannotCreateSessionException
     {
         return createSession(userId, password, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -128,18 +128,18 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * @see PermissionsVerifier
      **/
     default SessionPrx createSession(String userId, String password, java.util.Map<String, String> context)
-        throws CannotCreateSessionException,
-               PermissionDeniedException
+        throws PermissionDeniedException,
+               CannotCreateSessionException
     {
         try
         {
             return _iceI_createSessionAsync(userId, password, context, true).waitForResponseOrUserEx();
         }
-        catch(CannotCreateSessionException ex)
+        catch(PermissionDeniedException ex)
         {
             throw ex;
         }
-        catch(PermissionDeniedException ex)
+        catch(CannotCreateSessionException ex)
         {
             throw ex;
         }
@@ -215,8 +215,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     /** @hidden */
     static final Class<?>[] _iceE_createSession =
     {
-        CannotCreateSessionException.class,
-        PermissionDeniedException.class
+        PermissionDeniedException.class,
+        CannotCreateSessionException.class
     };
 
     /**
@@ -237,8 +237,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * @see PermissionsVerifier
      **/
     default SessionPrx createSessionFromSecureConnection()
-        throws CannotCreateSessionException,
-               PermissionDeniedException
+        throws PermissionDeniedException,
+               CannotCreateSessionException
     {
         return createSessionFromSecureConnection(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -262,18 +262,18 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * @see PermissionsVerifier
      **/
     default SessionPrx createSessionFromSecureConnection(java.util.Map<String, String> context)
-        throws CannotCreateSessionException,
-               PermissionDeniedException
+        throws PermissionDeniedException,
+               CannotCreateSessionException
     {
         try
         {
             return _iceI_createSessionFromSecureConnectionAsync(context, true).waitForResponseOrUserEx();
         }
-        catch(CannotCreateSessionException ex)
+        catch(PermissionDeniedException ex)
         {
             throw ex;
         }
-        catch(PermissionDeniedException ex)
+        catch(CannotCreateSessionException ex)
         {
             throw ex;
         }
@@ -342,8 +342,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     /** @hidden */
     static final Class<?>[] _iceE_createSessionFromSecureConnection =
     {
-        CannotCreateSessionException.class,
-        PermissionDeniedException.class
+        PermissionDeniedException.class,
+        CannotCreateSessionException.class
     };
 
     /**
@@ -725,9 +725,6 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
 
     @Override
     RouterPrx ice_compress(boolean co);
-
-    @Override
-    RouterPrx ice_timeout(int t);
 
     @Override
     RouterPrx ice_connectionId(String connectionId);

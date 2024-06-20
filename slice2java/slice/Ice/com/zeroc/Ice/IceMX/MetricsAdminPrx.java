@@ -633,9 +633,6 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     MetricsAdminPrx ice_compress(boolean co);
 
     @Override
-    MetricsAdminPrx ice_timeout(int t);
-
-    @Override
     MetricsAdminPrx ice_connectionId(String connectionId);
 
     @Override

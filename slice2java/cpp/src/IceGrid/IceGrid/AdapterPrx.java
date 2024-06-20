@@ -358,9 +358,6 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
     AdapterPrx ice_compress(boolean co);
 
     @Override
-    AdapterPrx ice_timeout(int t);
-
-    @Override
     AdapterPrx ice_connectionId(String connectionId);
 
     @Override

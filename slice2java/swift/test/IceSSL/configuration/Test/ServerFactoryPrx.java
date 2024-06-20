@@ -253,9 +253,6 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
     ServerFactoryPrx ice_compress(boolean co);
 
     @Override
-    ServerFactoryPrx ice_timeout(int t);
-
-    @Override
     ServerFactoryPrx ice_connectionId(String connectionId);
 
     @Override

@@ -145,9 +145,6 @@ public interface explicitPrx extends typeofPrx,
     explicitPrx ice_compress(boolean co);
 
     @Override
-    explicitPrx ice_timeout(int t);
-
-    @Override
     explicitPrx ice_connectionId(String connectionId);
 
     @Override

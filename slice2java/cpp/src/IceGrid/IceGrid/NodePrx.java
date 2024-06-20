@@ -788,9 +788,6 @@ public interface NodePrx extends FileReaderPrx,
     NodePrx ice_compress(boolean co);
 
     @Override
-    NodePrx ice_timeout(int t);
-
-    @Override
     NodePrx ice_connectionId(String connectionId);
 
     @Override

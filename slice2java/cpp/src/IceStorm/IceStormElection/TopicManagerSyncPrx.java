@@ -202,9 +202,6 @@ public interface TopicManagerSyncPrx extends com.zeroc.Ice.ObjectPrx
     TopicManagerSyncPrx ice_compress(boolean co);
 
     @Override
-    TopicManagerSyncPrx ice_timeout(int t);
-
-    @Override
     TopicManagerSyncPrx ice_connectionId(String connectionId);
 
     @Override

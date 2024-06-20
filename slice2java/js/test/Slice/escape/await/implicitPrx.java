@@ -229,9 +229,6 @@ public interface implicitPrx extends com.zeroc.Ice.ObjectPrx
     implicitPrx ice_compress(boolean co);
 
     @Override
-    implicitPrx ice_timeout(int t);
-
-    @Override
     implicitPrx ice_connectionId(String connectionId);
 
     @Override

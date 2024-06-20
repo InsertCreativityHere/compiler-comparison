@@ -701,9 +701,6 @@ public interface InternalRegistryPrx extends FileReaderPrx
     InternalRegistryPrx ice_compress(boolean co);
 
     @Override
-    InternalRegistryPrx ice_timeout(int t);
-
-    @Override
     InternalRegistryPrx ice_connectionId(String connectionId);
 
     @Override

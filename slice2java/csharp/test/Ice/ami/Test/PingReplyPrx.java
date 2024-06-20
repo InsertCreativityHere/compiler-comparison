@@ -177,9 +177,6 @@ public interface PingReplyPrx extends com.zeroc.Ice.ObjectPrx
     PingReplyPrx ice_compress(boolean co);
 
     @Override
-    PingReplyPrx ice_timeout(int t);
-
-    @Override
     PingReplyPrx ice_connectionId(String connectionId);
 
     @Override

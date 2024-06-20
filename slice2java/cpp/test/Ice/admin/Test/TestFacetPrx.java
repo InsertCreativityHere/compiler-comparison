@@ -177,9 +177,6 @@ public interface TestFacetPrx extends com.zeroc.Ice.ObjectPrx
     TestFacetPrx ice_compress(boolean co);
 
     @Override
-    TestFacetPrx ice_timeout(int t);
-
-    @Override
     TestFacetPrx ice_connectionId(String connectionId);
 
     @Override

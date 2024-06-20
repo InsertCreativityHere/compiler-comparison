@@ -240,9 +240,6 @@ public interface PermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
     PermissionsVerifierPrx ice_compress(boolean co);
 
     @Override
-    PermissionsVerifierPrx ice_timeout(int t);
-
-    @Override
     PermissionsVerifierPrx ice_connectionId(String connectionId);
 
     @Override

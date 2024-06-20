@@ -180,9 +180,6 @@ public interface BrowserProcessControllerPrx extends ProcessControllerPrx
     BrowserProcessControllerPrx ice_compress(boolean co);
 
     @Override
-    BrowserProcessControllerPrx ice_timeout(int t);
-
-    @Override
     BrowserProcessControllerPrx ice_connectionId(String connectionId);
 
     @Override

@@ -623,9 +623,6 @@ public interface IntfPrx extends com.zeroc.Ice.ObjectPrx
     IntfPrx ice_compress(boolean co);
 
     @Override
-    IntfPrx ice_timeout(int t);
-
-    @Override
     IntfPrx ice_connectionId(String connectionId);
 
     @Override

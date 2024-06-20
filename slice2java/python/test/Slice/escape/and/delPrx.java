@@ -184,9 +184,6 @@ public interface delPrx extends com.zeroc.Ice.ObjectPrx
     delPrx ice_compress(boolean co);
 
     @Override
-    delPrx ice_timeout(int t);
-
-    @Override
     delPrx ice_connectionId(String connectionId);
 
     @Override

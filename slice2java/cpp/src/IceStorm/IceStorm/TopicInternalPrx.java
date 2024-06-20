@@ -281,9 +281,6 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
     TopicInternalPrx ice_compress(boolean co);
 
     @Override
-    TopicInternalPrx ice_timeout(int t);
-
-    @Override
     TopicInternalPrx ice_connectionId(String connectionId);
 
     @Override

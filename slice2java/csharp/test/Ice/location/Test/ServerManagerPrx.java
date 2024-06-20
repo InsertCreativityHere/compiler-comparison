@@ -210,9 +210,6 @@ public interface ServerManagerPrx extends com.zeroc.Ice.ObjectPrx
     ServerManagerPrx ice_compress(boolean co);
 
     @Override
-    ServerManagerPrx ice_timeout(int t);
-
-    @Override
     ServerManagerPrx ice_connectionId(String connectionId);
 
     @Override

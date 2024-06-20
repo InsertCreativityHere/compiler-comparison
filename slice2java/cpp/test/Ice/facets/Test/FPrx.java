@@ -181,9 +181,6 @@ public interface FPrx extends EPrx
     FPrx ice_compress(boolean co);
 
     @Override
-    FPrx ice_timeout(int t);
-
-    @Override
     FPrx ice_connectionId(String connectionId);
 
     @Override

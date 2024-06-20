@@ -299,9 +299,6 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     LookupPrx ice_compress(boolean co);
 
     @Override
-    LookupPrx ice_timeout(int t);
-
-    @Override
     LookupPrx ice_connectionId(String connectionId);
 
     @Override

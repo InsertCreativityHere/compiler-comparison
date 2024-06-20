@@ -467,9 +467,6 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
     MetricsPrx ice_compress(boolean co);
 
     @Override
-    MetricsPrx ice_timeout(int t);
-
-    @Override
     MetricsPrx ice_connectionId(String connectionId);
 
     @Override

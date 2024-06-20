@@ -322,9 +322,6 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     StringSetPrx ice_compress(boolean co);
 
     @Override
-    StringSetPrx ice_timeout(int t);
-
-    @Override
     StringSetPrx ice_connectionId(String connectionId);
 
     @Override

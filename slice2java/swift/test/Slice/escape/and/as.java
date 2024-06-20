@@ -73,5 +73,5 @@ public class as extends _return
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3634928611713384568L;
+    private static final long serialVersionUID = 8892385974020422520L;
 }

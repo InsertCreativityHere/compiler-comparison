@@ -184,9 +184,6 @@ public interface MyDerivedClassPrx extends MyClassPrx
     MyDerivedClassPrx ice_compress(boolean co);
 
     @Override
-    MyDerivedClassPrx ice_timeout(int t);
-
-    @Override
     MyDerivedClassPrx ice_connectionId(String connectionId);
 
     @Override

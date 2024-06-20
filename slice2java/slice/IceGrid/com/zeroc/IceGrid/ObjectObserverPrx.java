@@ -391,9 +391,6 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     ObjectObserverPrx ice_compress(boolean co);
 
     @Override
-    ObjectObserverPrx ice_timeout(int t);
-
-    @Override
     ObjectObserverPrx ice_connectionId(String connectionId);
 
     @Override

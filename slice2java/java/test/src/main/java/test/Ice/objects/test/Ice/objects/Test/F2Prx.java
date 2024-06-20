@@ -177,9 +177,6 @@ public interface F2Prx extends com.zeroc.Ice.ObjectPrx
     F2Prx ice_compress(boolean co);
 
     @Override
-    F2Prx ice_timeout(int t);
-
-    @Override
     F2Prx ice_connectionId(String connectionId);
 
     @Override

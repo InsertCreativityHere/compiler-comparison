@@ -177,9 +177,6 @@ public interface PingablePrx extends com.zeroc.Ice.ObjectPrx
     PingablePrx ice_compress(boolean co);
 
     @Override
-    PingablePrx ice_timeout(int t);
-
-    @Override
     PingablePrx ice_connectionId(String connectionId);
 
     @Override

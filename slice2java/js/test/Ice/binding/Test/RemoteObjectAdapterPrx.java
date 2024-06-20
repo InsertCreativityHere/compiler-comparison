@@ -214,9 +214,6 @@ public interface RemoteObjectAdapterPrx extends com.zeroc.Ice.ObjectPrx
     RemoteObjectAdapterPrx ice_compress(boolean co);
 
     @Override
-    RemoteObjectAdapterPrx ice_timeout(int t);
-
-    @Override
     RemoteObjectAdapterPrx ice_connectionId(String connectionId);
 
     @Override

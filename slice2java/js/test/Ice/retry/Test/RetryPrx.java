@@ -286,9 +286,6 @@ public interface RetryPrx extends com.zeroc.Ice.ObjectPrx
     RetryPrx ice_compress(boolean co);
 
     @Override
-    RetryPrx ice_timeout(int t);
-
-    @Override
     RetryPrx ice_connectionId(String connectionId);
 
     @Override

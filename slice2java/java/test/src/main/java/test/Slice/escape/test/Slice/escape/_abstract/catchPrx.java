@@ -184,9 +184,6 @@ public interface catchPrx extends com.zeroc.Ice.ObjectPrx
     catchPrx ice_compress(boolean co);
 
     @Override
-    catchPrx ice_timeout(int t);
-
-    @Override
     catchPrx ice_connectionId(String connectionId);
 
     @Override
