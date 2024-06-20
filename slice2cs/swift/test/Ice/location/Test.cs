@@ -1231,11 +1231,11 @@ namespace Test
     {
         public abstract void addObject(global::Ice.ObjectPrx? obj, Ice.Current current);
 
+        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx? proxy, Ice.Current current);
+
         public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, global::Ice.ObjectPrx? proxy, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx? proxy, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1262,11 +1262,11 @@ namespace Test
     {
         public abstract int getRequestCount(Ice.Current current);
 
-        public abstract global::Ice.LocatorRegistryPrx? getRegistry(Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findAdapterByIdAsync(string id, Ice.Current current);
+
+        public abstract global::Ice.LocatorRegistryPrx? getRegistry(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
