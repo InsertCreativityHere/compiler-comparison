@@ -71,5 +71,5 @@ public class TopicExists extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3979359336074739122L;
+    private static final long serialVersionUID = 3979363087861808585L;
 }

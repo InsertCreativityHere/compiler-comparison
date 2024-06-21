@@ -138,5 +138,5 @@ public class guard implements java.lang.Cloneable,
     private static final guard _nullMarshalValue = new guard();
 
     /** @hidden */
-    private static final long serialVersionUID = 6403718659810435254L;
+    private static final long serialVersionUID = 6403718648094439570L;
 }
