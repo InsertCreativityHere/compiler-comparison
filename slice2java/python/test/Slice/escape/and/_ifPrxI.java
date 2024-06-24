@@ -18,5 +18,15 @@ package and;
 /** @hidden */
 public class _ifPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ifPrx> implements ifPrx
 {
+    public _ifPrxI()
+    {
+        super();
+    }
+
+    public _ifPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

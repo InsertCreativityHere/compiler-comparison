@@ -18,5 +18,15 @@ package and;
 /** @hidden */
 public class _forPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<forPrx> implements forPrx
 {
+    public _forPrxI()
+    {
+        super();
+    }
+
+    public _forPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

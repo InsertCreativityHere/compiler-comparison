@@ -18,5 +18,15 @@ package test.Ice.facets.Test;
 /** @hidden */
 public class _EPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<EPrx> implements EPrx
 {
+    public _EPrxI()
+    {
+        super();
+    }
+
+    public _EPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

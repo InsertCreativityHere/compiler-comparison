@@ -18,5 +18,15 @@ package IceGrid;
 /** @hidden */
 public class _AdapterPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<AdapterPrx> implements AdapterPrx
 {
+    public _AdapterPrxI()
+    {
+        super();
+    }
+
+    public _AdapterPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

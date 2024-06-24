@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _BackendPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<BackendPrx> implements BackendPrx
 {
+    public _BackendPrxI()
+    {
+        super();
+    }
+
+    public _BackendPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

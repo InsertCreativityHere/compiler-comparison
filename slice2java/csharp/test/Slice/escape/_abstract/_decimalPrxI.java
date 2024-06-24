@@ -18,5 +18,15 @@ package _abstract;
 /** @hidden */
 public class _decimalPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<decimalPrx> implements decimalPrx
 {
+    public _decimalPrxI()
+    {
+        super();
+    }
+
+    public _decimalPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

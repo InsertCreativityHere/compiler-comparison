@@ -61,7 +61,7 @@ public interface BrowserProcessControllerPrx extends ProcessControllerPrx
      **/
     static BrowserProcessControllerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), BrowserProcessControllerPrx.class, _BrowserProcessControllerPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -73,7 +73,18 @@ public interface BrowserProcessControllerPrx extends ProcessControllerPrx
      **/
     static BrowserProcessControllerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), BrowserProcessControllerPrx.class, _BrowserProcessControllerPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _BrowserProcessControllerPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -85,7 +96,7 @@ public interface BrowserProcessControllerPrx extends ProcessControllerPrx
      **/
     static BrowserProcessControllerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), BrowserProcessControllerPrx.class, _BrowserProcessControllerPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -98,7 +109,7 @@ public interface BrowserProcessControllerPrx extends ProcessControllerPrx
      **/
     static BrowserProcessControllerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), BrowserProcessControllerPrx.class, _BrowserProcessControllerPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -108,7 +119,7 @@ public interface BrowserProcessControllerPrx extends ProcessControllerPrx
      **/
     static BrowserProcessControllerPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, BrowserProcessControllerPrx.class, _BrowserProcessControllerPrxI.class);
+        return (obj == null) ? null : new _BrowserProcessControllerPrxI(obj);
     }
 
     /**
@@ -119,7 +130,7 @@ public interface BrowserProcessControllerPrx extends ProcessControllerPrx
      **/
     static BrowserProcessControllerPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, BrowserProcessControllerPrx.class, _BrowserProcessControllerPrxI.class);
+        return (obj == null) ? null : new _BrowserProcessControllerPrxI(obj.ice_facet(facet));
     }
 
     @Override

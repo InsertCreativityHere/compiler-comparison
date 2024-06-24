@@ -18,5 +18,15 @@ package _abstract;
 /** @hidden */
 public class _casePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<casePrx> implements casePrx
 {
+    public _casePrxI()
+    {
+        super();
+    }
+
+    public _casePrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

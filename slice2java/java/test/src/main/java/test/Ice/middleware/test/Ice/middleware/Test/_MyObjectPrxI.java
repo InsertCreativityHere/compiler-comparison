@@ -18,5 +18,15 @@ package test.Ice.middleware.Test;
 /** @hidden */
 public class _MyObjectPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<MyObjectPrx> implements MyObjectPrx
 {
+    public _MyObjectPrxI()
+    {
+        super();
+    }
+
+    public _MyObjectPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

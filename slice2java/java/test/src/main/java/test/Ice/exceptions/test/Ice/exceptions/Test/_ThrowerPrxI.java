@@ -18,5 +18,15 @@ package test.Ice.exceptions.Test;
 /** @hidden */
 public class _ThrowerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ThrowerPrx> implements ThrowerPrx
 {
+    public _ThrowerPrxI()
+    {
+        super();
+    }
+
+    public _ThrowerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

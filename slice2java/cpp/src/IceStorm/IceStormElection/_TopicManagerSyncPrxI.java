@@ -18,5 +18,15 @@ package IceStormElection;
 /** @hidden */
 public class _TopicManagerSyncPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TopicManagerSyncPrx> implements TopicManagerSyncPrx
 {
+    public _TopicManagerSyncPrxI()
+    {
+        super();
+    }
+
+    public _TopicManagerSyncPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

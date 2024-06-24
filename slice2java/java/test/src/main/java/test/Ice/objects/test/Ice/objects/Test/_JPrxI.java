@@ -18,5 +18,15 @@ package test.Ice.objects.Test;
 /** @hidden */
 public class _JPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<JPrx> implements JPrx
 {
+    public _JPrxI()
+    {
+        super();
+    }
+
+    public _JPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

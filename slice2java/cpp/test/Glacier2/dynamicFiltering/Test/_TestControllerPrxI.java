@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _TestControllerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestControllerPrx> implements TestControllerPrx
 {
+    public _TestControllerPrxI()
+    {
+        super();
+    }
+
+    public _TestControllerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

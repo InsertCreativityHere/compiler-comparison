@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _ServerFactoryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ServerFactoryPrx> implements ServerFactoryPrx
 {
+    public _ServerFactoryPrxI()
+    {
+        super();
+    }
+
+    public _ServerFactoryPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

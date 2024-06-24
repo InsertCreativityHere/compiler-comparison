@@ -18,5 +18,15 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _NodeObserverPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<NodeObserverPrx> implements NodeObserverPrx
 {
+    public _NodeObserverPrxI()
+    {
+        super();
+    }
+
+    public _NodeObserverPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

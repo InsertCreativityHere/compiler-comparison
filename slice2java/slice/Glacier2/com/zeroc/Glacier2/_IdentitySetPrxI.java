@@ -18,5 +18,15 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _IdentitySetPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IdentitySetPrx> implements IdentitySetPrx
 {
+    public _IdentitySetPrxI()
+    {
+        super();
+    }
+
+    public _IdentitySetPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

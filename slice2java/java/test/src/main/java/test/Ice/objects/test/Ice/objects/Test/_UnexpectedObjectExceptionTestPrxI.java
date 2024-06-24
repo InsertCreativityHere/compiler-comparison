@@ -18,5 +18,15 @@ package test.Ice.objects.Test;
 /** @hidden */
 public class _UnexpectedObjectExceptionTestPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<UnexpectedObjectExceptionTestPrx> implements UnexpectedObjectExceptionTestPrx
 {
+    public _UnexpectedObjectExceptionTestPrxI()
+    {
+        super();
+    }
+
+    public _UnexpectedObjectExceptionTestPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

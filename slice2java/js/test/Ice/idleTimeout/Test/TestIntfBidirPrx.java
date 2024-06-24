@@ -65,7 +65,7 @@ public interface TestIntfBidirPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static TestIntfBidirPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), TestIntfBidirPrx.class, _TestIntfBidirPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -77,7 +77,18 @@ public interface TestIntfBidirPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static TestIntfBidirPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), TestIntfBidirPrx.class, _TestIntfBidirPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _TestIntfBidirPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -89,7 +100,7 @@ public interface TestIntfBidirPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static TestIntfBidirPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), TestIntfBidirPrx.class, _TestIntfBidirPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -102,7 +113,7 @@ public interface TestIntfBidirPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static TestIntfBidirPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), TestIntfBidirPrx.class, _TestIntfBidirPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -112,7 +123,7 @@ public interface TestIntfBidirPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static TestIntfBidirPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, TestIntfBidirPrx.class, _TestIntfBidirPrxI.class);
+        return (obj == null) ? null : new _TestIntfBidirPrxI(obj);
     }
 
     /**
@@ -123,7 +134,7 @@ public interface TestIntfBidirPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static TestIntfBidirPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, TestIntfBidirPrx.class, _TestIntfBidirPrxI.class);
+        return (obj == null) ? null : new _TestIntfBidirPrxI(obj.ice_facet(facet));
     }
 
     @Override

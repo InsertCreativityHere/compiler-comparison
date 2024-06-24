@@ -18,5 +18,15 @@ package test.Ice.retry.Test;
 /** @hidden */
 public class _RetryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RetryPrx> implements RetryPrx
 {
+    public _RetryPrxI()
+    {
+        super();
+    }
+
+    public _RetryPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

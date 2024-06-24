@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _BackgroundControllerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<BackgroundControllerPrx> implements BackgroundControllerPrx
 {
+    public _BackgroundControllerPrxI()
+    {
+        super();
+    }
+
+    public _BackgroundControllerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

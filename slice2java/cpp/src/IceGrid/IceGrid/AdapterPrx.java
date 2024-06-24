@@ -239,7 +239,7 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static AdapterPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), AdapterPrx.class, _AdapterPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -251,7 +251,18 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static AdapterPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), AdapterPrx.class, _AdapterPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _AdapterPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -263,7 +274,7 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static AdapterPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), AdapterPrx.class, _AdapterPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -276,7 +287,7 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static AdapterPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), AdapterPrx.class, _AdapterPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -286,7 +297,7 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static AdapterPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, AdapterPrx.class, _AdapterPrxI.class);
+        return (obj == null) ? null : new _AdapterPrxI(obj);
     }
 
     /**
@@ -297,7 +308,7 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static AdapterPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, AdapterPrx.class, _AdapterPrxI.class);
+        return (obj == null) ? null : new _AdapterPrxI(obj.ice_facet(facet));
     }
 
     @Override

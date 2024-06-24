@@ -18,5 +18,15 @@ package Test.Common;
 /** @hidden */
 public class _ProcessControllerRegistryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ProcessControllerRegistryPrx> implements ProcessControllerRegistryPrx
 {
+    public _ProcessControllerRegistryPrxI()
+    {
+        super();
+    }
+
+    public _ProcessControllerRegistryPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

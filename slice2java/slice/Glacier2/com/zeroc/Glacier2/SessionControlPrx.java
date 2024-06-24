@@ -299,7 +299,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static SessionControlPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), SessionControlPrx.class, _SessionControlPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -311,7 +311,18 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static SessionControlPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), SessionControlPrx.class, _SessionControlPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _SessionControlPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -323,7 +334,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static SessionControlPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), SessionControlPrx.class, _SessionControlPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -336,7 +347,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static SessionControlPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), SessionControlPrx.class, _SessionControlPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -346,7 +357,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static SessionControlPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, SessionControlPrx.class, _SessionControlPrxI.class);
+        return (obj == null) ? null : new _SessionControlPrxI(obj);
     }
 
     /**
@@ -357,7 +368,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static SessionControlPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, SessionControlPrx.class, _SessionControlPrxI.class);
+        return (obj == null) ? null : new _SessionControlPrxI(obj.ice_facet(facet));
     }
 
     @Override

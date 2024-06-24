@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _CustomPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<CustomPrx> implements CustomPrx
 {
+    public _CustomPrxI()
+    {
+        super();
+    }
+
+    public _CustomPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

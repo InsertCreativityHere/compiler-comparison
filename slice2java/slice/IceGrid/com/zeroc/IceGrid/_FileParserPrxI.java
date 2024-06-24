@@ -18,5 +18,15 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _FileParserPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<FileParserPrx> implements FileParserPrx
 {
+    public _FileParserPrxI()
+    {
+        super();
+    }
+
+    public _FileParserPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

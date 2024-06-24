@@ -18,5 +18,15 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _QueryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<QueryPrx> implements QueryPrx
 {
+    public _QueryPrxI()
+    {
+        super();
+    }
+
+    public _QueryPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

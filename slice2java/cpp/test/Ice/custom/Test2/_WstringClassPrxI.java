@@ -18,5 +18,15 @@ package Test2;
 /** @hidden */
 public class _WstringClassPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<WstringClassPrx> implements WstringClassPrx
 {
+    public _WstringClassPrxI()
+    {
+        super();
+    }
+
+    public _WstringClassPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

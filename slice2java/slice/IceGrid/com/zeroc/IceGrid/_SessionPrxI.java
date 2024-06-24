@@ -18,5 +18,15 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _SessionPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<SessionPrx> implements SessionPrx
 {
+    public _SessionPrxI()
+    {
+        super();
+    }
+
+    public _SessionPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

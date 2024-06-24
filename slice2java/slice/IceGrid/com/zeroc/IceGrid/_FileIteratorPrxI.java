@@ -18,5 +18,15 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _FileIteratorPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<FileIteratorPrx> implements FileIteratorPrx
 {
+    public _FileIteratorPrxI()
+    {
+        super();
+    }
+
+    public _FileIteratorPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

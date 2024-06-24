@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _TestSessionPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestSessionPrx> implements TestSessionPrx
 {
+    public _TestSessionPrxI()
+    {
+        super();
+    }
+
+    public _TestSessionPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

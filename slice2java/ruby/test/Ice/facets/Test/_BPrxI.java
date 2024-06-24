@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _BPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<BPrx> implements BPrx
 {
+    public _BPrxI()
+    {
+        super();
+    }
+
+    public _BPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

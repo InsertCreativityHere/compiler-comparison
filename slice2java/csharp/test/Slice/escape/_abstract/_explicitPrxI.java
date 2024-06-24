@@ -18,5 +18,15 @@ package _abstract;
 /** @hidden */
 public class _explicitPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<explicitPrx> implements explicitPrx
 {
+    public _explicitPrxI()
+    {
+        super();
+    }
+
+    public _explicitPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

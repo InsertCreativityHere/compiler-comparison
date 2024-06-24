@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _RelayPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RelayPrx> implements RelayPrx
 {
+    public _RelayPrxI()
+    {
+        super();
+    }
+
+    public _RelayPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

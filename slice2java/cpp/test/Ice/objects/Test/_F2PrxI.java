@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _F2PrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<F2Prx> implements F2Prx
 {
+    public _F2PrxI()
+    {
+        super();
+    }
+
+    public _F2PrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _EmptyPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<EmptyPrx> implements EmptyPrx
 {
+    public _EmptyPrxI()
+    {
+        super();
+    }
+
+    public _EmptyPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

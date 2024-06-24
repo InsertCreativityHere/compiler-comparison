@@ -18,5 +18,15 @@ package test.Slice.escape._abstract;
 /** @hidden */
 public class _finalizePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<finalizePrx> implements finalizePrx
 {
+    public _finalizePrxI()
+    {
+        super();
+    }
+
+    public _finalizePrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

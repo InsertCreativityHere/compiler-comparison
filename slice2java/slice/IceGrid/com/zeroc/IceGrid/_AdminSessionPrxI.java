@@ -18,5 +18,15 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _AdminSessionPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<AdminSessionPrx> implements AdminSessionPrx
 {
+    public _AdminSessionPrxI()
+    {
+        super();
+    }
+
+    public _AdminSessionPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

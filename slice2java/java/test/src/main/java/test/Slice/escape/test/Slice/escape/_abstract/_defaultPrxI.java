@@ -18,5 +18,15 @@ package test.Slice.escape._abstract;
 /** @hidden */
 public class _defaultPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<defaultPrx> implements defaultPrx
 {
+    public _defaultPrxI()
+    {
+        super();
+    }
+
+    public _defaultPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

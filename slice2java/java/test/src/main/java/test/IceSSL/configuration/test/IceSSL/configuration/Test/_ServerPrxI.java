@@ -18,5 +18,15 @@ package test.IceSSL.configuration.Test;
 /** @hidden */
 public class _ServerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ServerPrx> implements ServerPrx
 {
+    public _ServerPrxI()
+    {
+        super();
+    }
+
+    public _ServerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

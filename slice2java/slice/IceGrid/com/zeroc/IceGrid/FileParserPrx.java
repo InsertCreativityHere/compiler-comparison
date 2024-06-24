@@ -119,7 +119,7 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static FileParserPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), FileParserPrx.class, _FileParserPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -131,7 +131,18 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static FileParserPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), FileParserPrx.class, _FileParserPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _FileParserPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -143,7 +154,7 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static FileParserPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), FileParserPrx.class, _FileParserPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -156,7 +167,7 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static FileParserPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), FileParserPrx.class, _FileParserPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -166,7 +177,7 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static FileParserPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, FileParserPrx.class, _FileParserPrxI.class);
+        return (obj == null) ? null : new _FileParserPrxI(obj);
     }
 
     /**
@@ -177,7 +188,7 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static FileParserPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, FileParserPrx.class, _FileParserPrxI.class);
+        return (obj == null) ? null : new _FileParserPrxI(obj.ice_facet(facet));
     }
 
     @Override

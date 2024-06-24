@@ -18,5 +18,15 @@ package test.Ice.threadPoolPriority.Test;
 /** @hidden */
 public class _PriorityPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<PriorityPrx> implements PriorityPrx
 {
+    public _PriorityPrxI()
+    {
+        super();
+    }
+
+    public _PriorityPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

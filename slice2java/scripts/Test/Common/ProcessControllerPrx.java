@@ -130,7 +130,7 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static ProcessControllerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), ProcessControllerPrx.class, _ProcessControllerPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -142,7 +142,18 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static ProcessControllerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), ProcessControllerPrx.class, _ProcessControllerPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _ProcessControllerPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -154,7 +165,7 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static ProcessControllerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), ProcessControllerPrx.class, _ProcessControllerPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -167,7 +178,7 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static ProcessControllerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), ProcessControllerPrx.class, _ProcessControllerPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -177,7 +188,7 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static ProcessControllerPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, ProcessControllerPrx.class, _ProcessControllerPrxI.class);
+        return (obj == null) ? null : new _ProcessControllerPrxI(obj);
     }
 
     /**
@@ -188,7 +199,7 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static ProcessControllerPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, ProcessControllerPrx.class, _ProcessControllerPrxI.class);
+        return (obj == null) ? null : new _ProcessControllerPrxI(obj.ice_facet(facet));
     }
 
     @Override

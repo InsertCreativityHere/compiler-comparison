@@ -348,7 +348,7 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static MetricsPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), MetricsPrx.class, _MetricsPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -360,7 +360,18 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static MetricsPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), MetricsPrx.class, _MetricsPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _MetricsPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -372,7 +383,7 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static MetricsPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), MetricsPrx.class, _MetricsPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -385,7 +396,7 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static MetricsPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), MetricsPrx.class, _MetricsPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -395,7 +406,7 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static MetricsPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, MetricsPrx.class, _MetricsPrxI.class);
+        return (obj == null) ? null : new _MetricsPrxI(obj);
     }
 
     /**
@@ -406,7 +417,7 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static MetricsPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, MetricsPrx.class, _MetricsPrxI.class);
+        return (obj == null) ? null : new _MetricsPrxI(obj.ice_facet(facet));
     }
 
     @Override

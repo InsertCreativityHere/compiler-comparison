@@ -18,5 +18,15 @@ package classdef._break;
 /** @hidden */
 public class _elseifPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<elseifPrx> implements elseifPrx
 {
+    public _elseifPrxI()
+    {
+        super();
+    }
+
+    public _elseifPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

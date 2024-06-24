@@ -18,5 +18,15 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _RemoteLoggerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RemoteLoggerPrx> implements RemoteLoggerPrx
 {
+    public _RemoteLoggerPrxI()
+    {
+        super();
+    }
+
+    public _RemoteLoggerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

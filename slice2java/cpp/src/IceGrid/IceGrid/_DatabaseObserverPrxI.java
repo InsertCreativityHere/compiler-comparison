@@ -18,5 +18,15 @@ package IceGrid;
 /** @hidden */
 public class _DatabaseObserverPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<DatabaseObserverPrx> implements DatabaseObserverPrx
 {
+    public _DatabaseObserverPrxI()
+    {
+        super();
+    }
+
+    public _DatabaseObserverPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -18,5 +18,15 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _AdminPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<AdminPrx> implements AdminPrx
 {
+    public _AdminPrxI()
+    {
+        super();
+    }
+
+    public _AdminPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -18,5 +18,15 @@ package IceStormElection;
 /** @hidden */
 public class _ReplicaObserverPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ReplicaObserverPrx> implements ReplicaObserverPrx
 {
+    public _ReplicaObserverPrxI()
+    {
+        super();
+    }
+
+    public _ReplicaObserverPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

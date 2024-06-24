@@ -18,5 +18,15 @@ package and;
 /** @hidden */
 public class _execPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<execPrx> implements execPrx
 {
+    public _execPrxI()
+    {
+        super();
+    }
+
+    public _execPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

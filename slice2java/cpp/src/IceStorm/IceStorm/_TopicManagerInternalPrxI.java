@@ -18,5 +18,15 @@ package IceStorm;
 /** @hidden */
 public class _TopicManagerInternalPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TopicManagerInternalPrx> implements TopicManagerInternalPrx
 {
+    public _TopicManagerInternalPrxI()
+    {
+        super();
+    }
+
+    public _TopicManagerInternalPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

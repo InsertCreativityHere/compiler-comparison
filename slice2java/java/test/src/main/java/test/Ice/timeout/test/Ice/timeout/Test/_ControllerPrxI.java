@@ -18,5 +18,15 @@ package test.Ice.timeout.Test;
 /** @hidden */
 public class _ControllerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ControllerPrx> implements ControllerPrx
 {
+    public _ControllerPrxI()
+    {
+        super();
+    }
+
+    public _ControllerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

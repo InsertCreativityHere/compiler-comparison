@@ -18,5 +18,15 @@ package IceStormElection;
 /** @hidden */
 public class _NodePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<NodePrx> implements NodePrx
 {
+    public _NodePrxI()
+    {
+        super();
+    }
+
+    public _NodePrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

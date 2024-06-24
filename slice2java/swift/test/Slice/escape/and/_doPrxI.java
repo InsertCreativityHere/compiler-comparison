@@ -18,5 +18,15 @@ package and;
 /** @hidden */
 public class _doPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<doPrx> implements doPrx
 {
+    public _doPrxI()
+    {
+        super();
+    }
+
+    public _doPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

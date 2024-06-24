@@ -18,5 +18,15 @@ package test.IceBox.admin.Test;
 /** @hidden */
 public class _TestFacetPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestFacetPrx> implements TestFacetPrx
 {
+    public _TestFacetPrxI()
+    {
+        super();
+    }
+
+    public _TestFacetPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -256,7 +256,7 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static LocatorPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), LocatorPrx.class, _LocatorPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -268,7 +268,18 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static LocatorPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), LocatorPrx.class, _LocatorPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _LocatorPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -280,7 +291,7 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static LocatorPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), LocatorPrx.class, _LocatorPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -293,7 +304,7 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static LocatorPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), LocatorPrx.class, _LocatorPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -303,7 +314,7 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static LocatorPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, LocatorPrx.class, _LocatorPrxI.class);
+        return (obj == null) ? null : new _LocatorPrxI(obj);
     }
 
     /**
@@ -314,7 +325,7 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static LocatorPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, LocatorPrx.class, _LocatorPrxI.class);
+        return (obj == null) ? null : new _LocatorPrxI(obj.ice_facet(facet));
     }
 
     @Override

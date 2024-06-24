@@ -18,5 +18,15 @@ package com.zeroc.IceLocatorDiscovery;
 /** @hidden */
 public class _LookupReplyPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<LookupReplyPrx> implements LookupReplyPrx
 {
+    public _LookupReplyPrxI()
+    {
+        super();
+    }
+
+    public _LookupReplyPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -18,5 +18,15 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _LoggerAdminPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<LoggerAdminPrx> implements LoggerAdminPrx
 {
+    public _LoggerAdminPrxI()
+    {
+        super();
+    }
+
+    public _LoggerAdminPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

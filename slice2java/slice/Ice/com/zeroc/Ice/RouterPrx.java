@@ -205,7 +205,7 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RouterPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), RouterPrx.class, _RouterPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -217,7 +217,18 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RouterPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), RouterPrx.class, _RouterPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _RouterPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -229,7 +240,7 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RouterPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), RouterPrx.class, _RouterPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -242,7 +253,7 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RouterPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), RouterPrx.class, _RouterPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -252,7 +263,7 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RouterPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, RouterPrx.class, _RouterPrxI.class);
+        return (obj == null) ? null : new _RouterPrxI(obj);
     }
 
     /**
@@ -263,7 +274,7 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RouterPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, RouterPrx.class, _RouterPrxI.class);
+        return (obj == null) ? null : new _RouterPrxI(obj.ice_facet(facet));
     }
 
     @Override

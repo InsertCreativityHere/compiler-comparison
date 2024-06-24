@@ -18,5 +18,15 @@ package and;
 /** @hidden */
 public class _enddeclarePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<enddeclarePrx> implements enddeclarePrx
 {
+    public _enddeclarePrxI()
+    {
+        super();
+    }
+
+    public _enddeclarePrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

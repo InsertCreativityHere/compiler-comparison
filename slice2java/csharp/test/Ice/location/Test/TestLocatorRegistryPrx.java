@@ -61,7 +61,7 @@ public interface TestLocatorRegistryPrx extends com.zeroc.Ice.LocatorRegistryPrx
      **/
     static TestLocatorRegistryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), TestLocatorRegistryPrx.class, _TestLocatorRegistryPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -73,7 +73,18 @@ public interface TestLocatorRegistryPrx extends com.zeroc.Ice.LocatorRegistryPrx
      **/
     static TestLocatorRegistryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), TestLocatorRegistryPrx.class, _TestLocatorRegistryPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _TestLocatorRegistryPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -85,7 +96,7 @@ public interface TestLocatorRegistryPrx extends com.zeroc.Ice.LocatorRegistryPrx
      **/
     static TestLocatorRegistryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), TestLocatorRegistryPrx.class, _TestLocatorRegistryPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -98,7 +109,7 @@ public interface TestLocatorRegistryPrx extends com.zeroc.Ice.LocatorRegistryPrx
      **/
     static TestLocatorRegistryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), TestLocatorRegistryPrx.class, _TestLocatorRegistryPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -108,7 +119,7 @@ public interface TestLocatorRegistryPrx extends com.zeroc.Ice.LocatorRegistryPrx
      **/
     static TestLocatorRegistryPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, TestLocatorRegistryPrx.class, _TestLocatorRegistryPrxI.class);
+        return (obj == null) ? null : new _TestLocatorRegistryPrxI(obj);
     }
 
     /**
@@ -119,7 +130,7 @@ public interface TestLocatorRegistryPrx extends com.zeroc.Ice.LocatorRegistryPrx
      **/
     static TestLocatorRegistryPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, TestLocatorRegistryPrx.class, _TestLocatorRegistryPrxI.class);
+        return (obj == null) ? null : new _TestLocatorRegistryPrxI(obj.ice_facet(facet));
     }
 
     @Override

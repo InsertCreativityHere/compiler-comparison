@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _BackgroundPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<BackgroundPrx> implements BackgroundPrx
 {
+    public _BackgroundPrxI()
+    {
+        super();
+    }
+
+    public _BackgroundPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

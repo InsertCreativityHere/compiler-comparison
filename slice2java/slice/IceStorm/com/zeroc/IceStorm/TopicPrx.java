@@ -721,7 +721,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static TopicPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), TopicPrx.class, _TopicPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -733,7 +733,18 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static TopicPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), TopicPrx.class, _TopicPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _TopicPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -745,7 +756,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static TopicPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), TopicPrx.class, _TopicPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -758,7 +769,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static TopicPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), TopicPrx.class, _TopicPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -768,7 +779,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static TopicPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, TopicPrx.class, _TopicPrxI.class);
+        return (obj == null) ? null : new _TopicPrxI(obj);
     }
 
     /**
@@ -779,7 +790,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static TopicPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, TopicPrx.class, _TopicPrxI.class);
+        return (obj == null) ? null : new _TopicPrxI(obj.ice_facet(facet));
     }
 
     @Override

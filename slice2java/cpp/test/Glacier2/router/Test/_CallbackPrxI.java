@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _CallbackPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<CallbackPrx> implements CallbackPrx
 {
+    public _CallbackPrxI()
+    {
+        super();
+    }
+
+    public _CallbackPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

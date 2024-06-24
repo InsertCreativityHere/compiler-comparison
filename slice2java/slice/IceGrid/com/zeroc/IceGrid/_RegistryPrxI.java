@@ -18,5 +18,15 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _RegistryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RegistryPrx> implements RegistryPrx
 {
+    public _RegistryPrxI()
+    {
+        super();
+    }
+
+    public _RegistryPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -18,5 +18,15 @@ package test.Ice.inheritance.Test.MB;
 /** @hidden */
 public class _IB2PrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IB2Prx> implements IB2Prx
 {
+    public _IB2PrxI()
+    {
+        super();
+    }
+
+    public _IB2PrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

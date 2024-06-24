@@ -98,7 +98,7 @@ public interface RemoteCommunicatorFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteCommunicatorFactoryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), RemoteCommunicatorFactoryPrx.class, _RemoteCommunicatorFactoryPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -110,7 +110,18 @@ public interface RemoteCommunicatorFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteCommunicatorFactoryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), RemoteCommunicatorFactoryPrx.class, _RemoteCommunicatorFactoryPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _RemoteCommunicatorFactoryPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -122,7 +133,7 @@ public interface RemoteCommunicatorFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteCommunicatorFactoryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), RemoteCommunicatorFactoryPrx.class, _RemoteCommunicatorFactoryPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -135,7 +146,7 @@ public interface RemoteCommunicatorFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteCommunicatorFactoryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), RemoteCommunicatorFactoryPrx.class, _RemoteCommunicatorFactoryPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -145,7 +156,7 @@ public interface RemoteCommunicatorFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteCommunicatorFactoryPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, RemoteCommunicatorFactoryPrx.class, _RemoteCommunicatorFactoryPrxI.class);
+        return (obj == null) ? null : new _RemoteCommunicatorFactoryPrxI(obj);
     }
 
     /**
@@ -156,7 +167,7 @@ public interface RemoteCommunicatorFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteCommunicatorFactoryPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, RemoteCommunicatorFactoryPrx.class, _RemoteCommunicatorFactoryPrxI.class);
+        return (obj == null) ? null : new _RemoteCommunicatorFactoryPrxI(obj.ice_facet(facet));
     }
 
     @Override

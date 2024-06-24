@@ -134,7 +134,7 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static ServerFactoryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), ServerFactoryPrx.class, _ServerFactoryPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -146,7 +146,18 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static ServerFactoryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), ServerFactoryPrx.class, _ServerFactoryPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _ServerFactoryPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -158,7 +169,7 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static ServerFactoryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), ServerFactoryPrx.class, _ServerFactoryPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -171,7 +182,7 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static ServerFactoryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), ServerFactoryPrx.class, _ServerFactoryPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -181,7 +192,7 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static ServerFactoryPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, ServerFactoryPrx.class, _ServerFactoryPrxI.class);
+        return (obj == null) ? null : new _ServerFactoryPrxI(obj);
     }
 
     /**
@@ -192,7 +203,7 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static ServerFactoryPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, ServerFactoryPrx.class, _ServerFactoryPrxI.class);
+        return (obj == null) ? null : new _ServerFactoryPrxI(obj.ice_facet(facet));
     }
 
     @Override

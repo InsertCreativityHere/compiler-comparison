@@ -162,7 +162,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static LookupReplyPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), LookupReplyPrx.class, _LookupReplyPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -174,7 +174,18 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static LookupReplyPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), LookupReplyPrx.class, _LookupReplyPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _LookupReplyPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -186,7 +197,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static LookupReplyPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), LookupReplyPrx.class, _LookupReplyPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -199,7 +210,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static LookupReplyPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), LookupReplyPrx.class, _LookupReplyPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -209,7 +220,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static LookupReplyPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, LookupReplyPrx.class, _LookupReplyPrxI.class);
+        return (obj == null) ? null : new _LookupReplyPrxI(obj);
     }
 
     /**
@@ -220,7 +231,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static LookupReplyPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, LookupReplyPrx.class, _LookupReplyPrxI.class);
+        return (obj == null) ? null : new _LookupReplyPrxI(obj.ice_facet(facet));
     }
 
     @Override

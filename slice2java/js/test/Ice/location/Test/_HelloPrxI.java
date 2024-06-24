@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _HelloPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<HelloPrx> implements HelloPrx
 {
+    public _HelloPrxI()
+    {
+        super();
+    }
+
+    public _HelloPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

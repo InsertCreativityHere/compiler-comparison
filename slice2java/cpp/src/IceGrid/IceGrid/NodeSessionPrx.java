@@ -452,7 +452,7 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static NodeSessionPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), NodeSessionPrx.class, _NodeSessionPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -464,7 +464,18 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static NodeSessionPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), NodeSessionPrx.class, _NodeSessionPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _NodeSessionPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -476,7 +487,7 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static NodeSessionPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), NodeSessionPrx.class, _NodeSessionPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -489,7 +500,7 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static NodeSessionPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), NodeSessionPrx.class, _NodeSessionPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -499,7 +510,7 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static NodeSessionPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, NodeSessionPrx.class, _NodeSessionPrxI.class);
+        return (obj == null) ? null : new _NodeSessionPrxI(obj);
     }
 
     /**
@@ -510,7 +521,7 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static NodeSessionPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, NodeSessionPrx.class, _NodeSessionPrxI.class);
+        return (obj == null) ? null : new _NodeSessionPrxI(obj.ice_facet(facet));
     }
 
     @Override

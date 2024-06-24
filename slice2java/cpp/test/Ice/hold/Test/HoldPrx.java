@@ -207,7 +207,7 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static HoldPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), HoldPrx.class, _HoldPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -219,7 +219,18 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static HoldPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), HoldPrx.class, _HoldPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _HoldPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -231,7 +242,7 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static HoldPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), HoldPrx.class, _HoldPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -244,7 +255,7 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static HoldPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), HoldPrx.class, _HoldPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -254,7 +265,7 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static HoldPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, HoldPrx.class, _HoldPrxI.class);
+        return (obj == null) ? null : new _HoldPrxI(obj);
     }
 
     /**
@@ -265,7 +276,7 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static HoldPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, HoldPrx.class, _HoldPrxI.class);
+        return (obj == null) ? null : new _HoldPrxI(obj.ice_facet(facet));
     }
 
     @Override

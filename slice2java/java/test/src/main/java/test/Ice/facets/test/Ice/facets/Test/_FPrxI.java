@@ -18,5 +18,15 @@ package test.Ice.facets.Test;
 /** @hidden */
 public class _FPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<FPrx> implements FPrx
 {
+    public _FPrxI()
+    {
+        super();
+    }
+
+    public _FPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

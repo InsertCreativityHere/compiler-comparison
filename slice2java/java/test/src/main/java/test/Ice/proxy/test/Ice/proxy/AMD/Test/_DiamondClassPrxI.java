@@ -18,5 +18,15 @@ package test.Ice.proxy.AMD.Test;
 /** @hidden */
 public class _DiamondClassPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<DiamondClassPrx> implements DiamondClassPrx
 {
+    public _DiamondClassPrxI()
+    {
+        super();
+    }
+
+    public _DiamondClassPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -18,5 +18,15 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _UserAccountMapperPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<UserAccountMapperPrx> implements UserAccountMapperPrx
 {
+    public _UserAccountMapperPrxI()
+    {
+        super();
+    }
+
+    public _UserAccountMapperPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -18,5 +18,15 @@ package test.Ice.location.Test;
 /** @hidden */
 public class _TestIntfPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestIntfPrx> implements TestIntfPrx
 {
+    public _TestIntfPrxI()
+    {
+        super();
+    }
+
+    public _TestIntfPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

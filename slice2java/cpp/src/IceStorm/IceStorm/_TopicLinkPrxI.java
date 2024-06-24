@@ -18,5 +18,15 @@ package IceStorm;
 /** @hidden */
 public class _TopicLinkPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TopicLinkPrx> implements TopicLinkPrx
 {
+    public _TopicLinkPrxI()
+    {
+        super();
+    }
+
+    public _TopicLinkPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

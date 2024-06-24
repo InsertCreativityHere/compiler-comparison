@@ -18,5 +18,15 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _LocatorPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<LocatorPrx> implements LocatorPrx
 {
+    public _LocatorPrxI()
+    {
+        super();
+    }
+
+    public _LocatorPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

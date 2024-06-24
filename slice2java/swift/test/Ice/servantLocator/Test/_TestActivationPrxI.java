@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _TestActivationPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestActivationPrx> implements TestActivationPrx
 {
+    public _TestActivationPrxI()
+    {
+        super();
+    }
+
+    public _TestActivationPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

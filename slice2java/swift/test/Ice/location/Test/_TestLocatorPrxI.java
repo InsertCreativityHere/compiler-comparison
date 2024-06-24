@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _TestLocatorPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestLocatorPrx> implements TestLocatorPrx
 {
+    public _TestLocatorPrxI()
+    {
+        super();
+    }
+
+    public _TestLocatorPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

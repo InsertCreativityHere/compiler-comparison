@@ -18,5 +18,15 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _StringSetPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<StringSetPrx> implements StringSetPrx
 {
+    public _StringSetPrxI()
+    {
+        super();
+    }
+
+    public _StringSetPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _PingablePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<PingablePrx> implements PingablePrx
 {
+    public _PingablePrxI()
+    {
+        super();
+    }
+
+    public _PingablePrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

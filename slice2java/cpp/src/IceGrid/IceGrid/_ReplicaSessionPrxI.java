@@ -18,5 +18,15 @@ package IceGrid;
 /** @hidden */
 public class _ReplicaSessionPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ReplicaSessionPrx> implements ReplicaSessionPrx
 {
+    public _ReplicaSessionPrxI()
+    {
+        super();
+    }
+
+    public _ReplicaSessionPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

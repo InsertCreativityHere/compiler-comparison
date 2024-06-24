@@ -104,7 +104,7 @@ public interface forPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static forPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), forPrx.class, _forPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -116,7 +116,18 @@ public interface forPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static forPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), forPrx.class, _forPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _forPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -128,7 +139,7 @@ public interface forPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static forPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), forPrx.class, _forPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -141,7 +152,7 @@ public interface forPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static forPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), forPrx.class, _forPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -151,7 +162,7 @@ public interface forPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static forPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, forPrx.class, _forPrxI.class);
+        return (obj == null) ? null : new _forPrxI(obj);
     }
 
     /**
@@ -162,7 +173,7 @@ public interface forPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static forPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, forPrx.class, _forPrxI.class);
+        return (obj == null) ? null : new _forPrxI(obj.ice_facet(facet));
     }
 
     @Override

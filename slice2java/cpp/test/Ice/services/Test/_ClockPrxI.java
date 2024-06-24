@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _ClockPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ClockPrx> implements ClockPrx
 {
+    public _ClockPrxI()
+    {
+        super();
+    }
+
+    public _ClockPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

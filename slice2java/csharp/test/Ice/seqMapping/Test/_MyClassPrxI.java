@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _MyClassPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<MyClassPrx> implements MyClassPrx
 {
+    public _MyClassPrxI()
+    {
+        super();
+    }
+
+    public _MyClassPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

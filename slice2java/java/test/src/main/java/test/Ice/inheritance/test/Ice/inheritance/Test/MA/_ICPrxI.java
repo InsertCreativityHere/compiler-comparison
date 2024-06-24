@@ -18,5 +18,15 @@ package test.Ice.inheritance.Test.MA;
 /** @hidden */
 public class _ICPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ICPrx> implements ICPrx
 {
+    public _ICPrxI()
+    {
+        super();
+    }
+
+    public _ICPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -18,5 +18,15 @@ package Test.MA;
 /** @hidden */
 public class _IAPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IAPrx> implements IAPrx
 {
+    public _IAPrxI()
+    {
+        super();
+    }
+
+    public _IAPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

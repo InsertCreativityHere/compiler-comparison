@@ -18,5 +18,15 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _RouterPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RouterPrx> implements RouterPrx
 {
+    public _RouterPrxI()
+    {
+        super();
+    }
+
+    public _RouterPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

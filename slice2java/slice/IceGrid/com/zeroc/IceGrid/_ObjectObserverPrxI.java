@@ -18,5 +18,15 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _ObjectObserverPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ObjectObserverPrx> implements ObjectObserverPrx
 {
+    public _ObjectObserverPrxI()
+    {
+        super();
+    }
+
+    public _ObjectObserverPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

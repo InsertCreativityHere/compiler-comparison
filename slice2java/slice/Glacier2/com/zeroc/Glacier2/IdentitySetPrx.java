@@ -206,7 +206,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static IdentitySetPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), IdentitySetPrx.class, _IdentitySetPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -218,7 +218,18 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static IdentitySetPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), IdentitySetPrx.class, _IdentitySetPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _IdentitySetPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -230,7 +241,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static IdentitySetPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), IdentitySetPrx.class, _IdentitySetPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -243,7 +254,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static IdentitySetPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), IdentitySetPrx.class, _IdentitySetPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -253,7 +264,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static IdentitySetPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, IdentitySetPrx.class, _IdentitySetPrxI.class);
+        return (obj == null) ? null : new _IdentitySetPrxI(obj);
     }
 
     /**
@@ -264,7 +275,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static IdentitySetPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, IdentitySetPrx.class, _IdentitySetPrxI.class);
+        return (obj == null) ? null : new _IdentitySetPrxI(obj.ice_facet(facet));
     }
 
     @Override

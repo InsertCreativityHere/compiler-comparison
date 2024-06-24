@@ -18,5 +18,15 @@ package test.Ice.operations.Test;
 /** @hidden */
 public class _MyDerivedClassPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<MyDerivedClassPrx> implements MyDerivedClassPrx
 {
+    public _MyDerivedClassPrxI()
+    {
+        super();
+    }
+
+    public _MyDerivedClassPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

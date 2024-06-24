@@ -26,7 +26,7 @@ public interface explicitPrx extends decimalPrx,
      **/
     static explicitPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), explicitPrx.class, _explicitPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -38,7 +38,18 @@ public interface explicitPrx extends decimalPrx,
      **/
     static explicitPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), explicitPrx.class, _explicitPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _explicitPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -50,7 +61,7 @@ public interface explicitPrx extends decimalPrx,
      **/
     static explicitPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), explicitPrx.class, _explicitPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -63,7 +74,7 @@ public interface explicitPrx extends decimalPrx,
      **/
     static explicitPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), explicitPrx.class, _explicitPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -73,7 +84,7 @@ public interface explicitPrx extends decimalPrx,
      **/
     static explicitPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, explicitPrx.class, _explicitPrxI.class);
+        return (obj == null) ? null : new _explicitPrxI(obj);
     }
 
     /**
@@ -84,7 +95,7 @@ public interface explicitPrx extends decimalPrx,
      **/
     static explicitPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, explicitPrx.class, _explicitPrxI.class);
+        return (obj == null) ? null : new _explicitPrxI(obj.ice_facet(facet));
     }
 
     @Override

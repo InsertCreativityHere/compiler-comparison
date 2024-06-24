@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _CleanerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<CleanerPrx> implements CleanerPrx
 {
+    public _CleanerPrxI()
+    {
+        super();
+    }
+
+    public _CleanerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

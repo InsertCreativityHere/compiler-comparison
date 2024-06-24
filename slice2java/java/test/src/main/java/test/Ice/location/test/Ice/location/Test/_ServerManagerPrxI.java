@@ -18,5 +18,15 @@ package test.Ice.location.Test;
 /** @hidden */
 public class _ServerManagerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ServerManagerPrx> implements ServerManagerPrx
 {
+    public _ServerManagerPrxI()
+    {
+        super();
+    }
+
+    public _ServerManagerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

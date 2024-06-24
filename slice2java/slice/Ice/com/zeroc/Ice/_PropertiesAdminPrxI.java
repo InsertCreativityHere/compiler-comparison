@@ -18,5 +18,15 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _PropertiesAdminPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<PropertiesAdminPrx> implements PropertiesAdminPrx
 {
+    public _PropertiesAdminPrxI()
+    {
+        super();
+    }
+
+    public _PropertiesAdminPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

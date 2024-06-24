@@ -18,5 +18,15 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _SessionManagerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<SessionManagerPrx> implements SessionManagerPrx
 {
+    public _SessionManagerPrxI()
+    {
+        super();
+    }
+
+    public _SessionManagerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

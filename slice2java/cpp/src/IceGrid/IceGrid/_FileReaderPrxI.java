@@ -18,5 +18,15 @@ package IceGrid;
 /** @hidden */
 public class _FileReaderPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<FileReaderPrx> implements FileReaderPrx
 {
+    public _FileReaderPrxI()
+    {
+        super();
+    }
+
+    public _FileReaderPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

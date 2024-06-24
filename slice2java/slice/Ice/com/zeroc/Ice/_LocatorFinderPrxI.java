@@ -18,5 +18,15 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _LocatorFinderPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<LocatorFinderPrx> implements LocatorFinderPrx
 {
+    public _LocatorFinderPrxI()
+    {
+        super();
+    }
+
+    public _LocatorFinderPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

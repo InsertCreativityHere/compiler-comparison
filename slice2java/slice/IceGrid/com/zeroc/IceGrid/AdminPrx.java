@@ -3936,7 +3936,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static AdminPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), AdminPrx.class, _AdminPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -3948,7 +3948,18 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static AdminPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), AdminPrx.class, _AdminPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _AdminPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -3960,7 +3971,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static AdminPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), AdminPrx.class, _AdminPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -3973,7 +3984,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static AdminPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), AdminPrx.class, _AdminPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -3983,7 +3994,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static AdminPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, AdminPrx.class, _AdminPrxI.class);
+        return (obj == null) ? null : new _AdminPrxI(obj);
     }
 
     /**
@@ -3994,7 +4005,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static AdminPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, AdminPrx.class, _AdminPrxI.class);
+        return (obj == null) ? null : new _AdminPrxI(obj.ice_facet(facet));
     }
 
     @Override

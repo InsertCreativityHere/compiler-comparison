@@ -66,7 +66,7 @@ public interface ICPrx extends Test.MB.IB1Prx,
      **/
     static ICPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), ICPrx.class, _ICPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -78,7 +78,18 @@ public interface ICPrx extends Test.MB.IB1Prx,
      **/
     static ICPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), ICPrx.class, _ICPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _ICPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -90,7 +101,7 @@ public interface ICPrx extends Test.MB.IB1Prx,
      **/
     static ICPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), ICPrx.class, _ICPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -103,7 +114,7 @@ public interface ICPrx extends Test.MB.IB1Prx,
      **/
     static ICPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), ICPrx.class, _ICPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -113,7 +124,7 @@ public interface ICPrx extends Test.MB.IB1Prx,
      **/
     static ICPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, ICPrx.class, _ICPrxI.class);
+        return (obj == null) ? null : new _ICPrxI(obj);
     }
 
     /**
@@ -124,7 +135,7 @@ public interface ICPrx extends Test.MB.IB1Prx,
      **/
     static ICPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, ICPrx.class, _ICPrxI.class);
+        return (obj == null) ? null : new _ICPrxI(obj.ice_facet(facet));
     }
 
     @Override

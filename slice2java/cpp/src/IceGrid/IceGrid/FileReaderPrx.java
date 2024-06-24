@@ -183,7 +183,7 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static FileReaderPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), FileReaderPrx.class, _FileReaderPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -195,7 +195,18 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static FileReaderPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), FileReaderPrx.class, _FileReaderPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _FileReaderPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -207,7 +218,7 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static FileReaderPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), FileReaderPrx.class, _FileReaderPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -220,7 +231,7 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static FileReaderPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), FileReaderPrx.class, _FileReaderPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -230,7 +241,7 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static FileReaderPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, FileReaderPrx.class, _FileReaderPrxI.class);
+        return (obj == null) ? null : new _FileReaderPrxI(obj);
     }
 
     /**
@@ -241,7 +252,7 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static FileReaderPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, FileReaderPrx.class, _FileReaderPrxI.class);
+        return (obj == null) ? null : new _FileReaderPrxI(obj.ice_facet(facet));
     }
 
     @Override

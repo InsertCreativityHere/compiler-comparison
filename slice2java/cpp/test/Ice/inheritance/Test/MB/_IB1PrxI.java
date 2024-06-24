@@ -18,5 +18,15 @@ package Test.MB;
 /** @hidden */
 public class _IB1PrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IB1Prx> implements IB1Prx
 {
+    public _IB1PrxI()
+    {
+        super();
+    }
+
+    public _IB1PrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

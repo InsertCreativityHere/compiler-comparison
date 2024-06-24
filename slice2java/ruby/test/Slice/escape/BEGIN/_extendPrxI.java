@@ -18,5 +18,15 @@ package BEGIN;
 /** @hidden */
 public class _extendPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<extendPrx> implements extendPrx
 {
+    public _extendPrxI()
+    {
+        super();
+    }
+
+    public _extendPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

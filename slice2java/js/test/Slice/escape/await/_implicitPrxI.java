@@ -18,5 +18,15 @@ package await;
 /** @hidden */
 public class _implicitPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<implicitPrx> implements implicitPrx
 {
+    public _implicitPrxI()
+    {
+        super();
+    }
+
+    public _implicitPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

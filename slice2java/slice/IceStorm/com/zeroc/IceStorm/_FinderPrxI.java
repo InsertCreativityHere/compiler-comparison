@@ -18,5 +18,15 @@ package com.zeroc.IceStorm;
 /** @hidden */
 public class _FinderPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<FinderPrx> implements FinderPrx
 {
+    public _FinderPrxI()
+    {
+        super();
+    }
+
+    public _FinderPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

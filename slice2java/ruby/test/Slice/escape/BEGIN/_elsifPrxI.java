@@ -18,5 +18,15 @@ package BEGIN;
 /** @hidden */
 public class _elsifPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<elsifPrx> implements elsifPrx
 {
+    public _elsifPrxI()
+    {
+        super();
+    }
+
+    public _elsifPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

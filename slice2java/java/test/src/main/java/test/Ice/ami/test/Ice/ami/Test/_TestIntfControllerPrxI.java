@@ -18,5 +18,15 @@ package test.Ice.ami.Test;
 /** @hidden */
 public class _TestIntfControllerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestIntfControllerPrx> implements TestIntfControllerPrx
 {
+    public _TestIntfControllerPrxI()
+    {
+        super();
+    }
+
+    public _TestIntfControllerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

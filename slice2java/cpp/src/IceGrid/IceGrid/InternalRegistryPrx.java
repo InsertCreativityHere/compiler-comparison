@@ -582,7 +582,7 @@ public interface InternalRegistryPrx extends FileReaderPrx
      **/
     static InternalRegistryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), InternalRegistryPrx.class, _InternalRegistryPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -594,7 +594,18 @@ public interface InternalRegistryPrx extends FileReaderPrx
      **/
     static InternalRegistryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), InternalRegistryPrx.class, _InternalRegistryPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _InternalRegistryPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -606,7 +617,7 @@ public interface InternalRegistryPrx extends FileReaderPrx
      **/
     static InternalRegistryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), InternalRegistryPrx.class, _InternalRegistryPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -619,7 +630,7 @@ public interface InternalRegistryPrx extends FileReaderPrx
      **/
     static InternalRegistryPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), InternalRegistryPrx.class, _InternalRegistryPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -629,7 +640,7 @@ public interface InternalRegistryPrx extends FileReaderPrx
      **/
     static InternalRegistryPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, InternalRegistryPrx.class, _InternalRegistryPrxI.class);
+        return (obj == null) ? null : new _InternalRegistryPrxI(obj);
     }
 
     /**
@@ -640,7 +651,7 @@ public interface InternalRegistryPrx extends FileReaderPrx
      **/
     static InternalRegistryPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, InternalRegistryPrx.class, _InternalRegistryPrxI.class);
+        return (obj == null) ? null : new _InternalRegistryPrxI(obj.ice_facet(facet));
     }
 
     @Override

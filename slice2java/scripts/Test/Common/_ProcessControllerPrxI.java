@@ -18,5 +18,15 @@ package Test.Common;
 /** @hidden */
 public class _ProcessControllerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ProcessControllerPrx> implements ProcessControllerPrx
 {
+    public _ProcessControllerPrxI()
+    {
+        super();
+    }
+
+    public _ProcessControllerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

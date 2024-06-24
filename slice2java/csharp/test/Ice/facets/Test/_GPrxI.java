@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _GPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<GPrx> implements GPrx
 {
+    public _GPrxI()
+    {
+        super();
+    }
+
+    public _GPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

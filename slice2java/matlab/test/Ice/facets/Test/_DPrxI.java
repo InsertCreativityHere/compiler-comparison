@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _DPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<DPrx> implements DPrx
 {
+    public _DPrxI()
+    {
+        super();
+    }
+
+    public _DPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -127,7 +127,7 @@ public interface BackgroundPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static BackgroundPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), BackgroundPrx.class, _BackgroundPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -139,7 +139,18 @@ public interface BackgroundPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static BackgroundPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), BackgroundPrx.class, _BackgroundPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _BackgroundPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -151,7 +162,7 @@ public interface BackgroundPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static BackgroundPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), BackgroundPrx.class, _BackgroundPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -164,7 +175,7 @@ public interface BackgroundPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static BackgroundPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), BackgroundPrx.class, _BackgroundPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -174,7 +185,7 @@ public interface BackgroundPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static BackgroundPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, BackgroundPrx.class, _BackgroundPrxI.class);
+        return (obj == null) ? null : new _BackgroundPrxI(obj);
     }
 
     /**
@@ -185,7 +196,7 @@ public interface BackgroundPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static BackgroundPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, BackgroundPrx.class, _BackgroundPrxI.class);
+        return (obj == null) ? null : new _BackgroundPrxI(obj.ice_facet(facet));
     }
 
     @Override

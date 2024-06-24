@@ -58,7 +58,7 @@ public interface TestSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     static TestSessionPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), TestSessionPrx.class, _TestSessionPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -70,7 +70,18 @@ public interface TestSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     static TestSessionPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), TestSessionPrx.class, _TestSessionPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _TestSessionPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -82,7 +93,7 @@ public interface TestSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     static TestSessionPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), TestSessionPrx.class, _TestSessionPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -95,7 +106,7 @@ public interface TestSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     static TestSessionPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), TestSessionPrx.class, _TestSessionPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -105,7 +116,7 @@ public interface TestSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     static TestSessionPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, TestSessionPrx.class, _TestSessionPrxI.class);
+        return (obj == null) ? null : new _TestSessionPrxI(obj);
     }
 
     /**
@@ -116,7 +127,7 @@ public interface TestSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     static TestSessionPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, TestSessionPrx.class, _TestSessionPrxI.class);
+        return (obj == null) ? null : new _TestSessionPrxI(obj.ice_facet(facet));
     }
 
     @Override

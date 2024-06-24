@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _IPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IPrx> implements IPrx
 {
+    public _IPrxI()
+    {
+        super();
+    }
+
+    public _IPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -18,5 +18,15 @@ package test.Ice.optional.Test;
 /** @hidden */
 public class _InitialPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<InitialPrx> implements InitialPrx
 {
+    public _InitialPrxI()
+    {
+        super();
+    }
+
+    public _InitialPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

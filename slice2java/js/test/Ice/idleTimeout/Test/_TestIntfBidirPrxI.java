@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _TestIntfBidirPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestIntfBidirPrx> implements TestIntfBidirPrx
 {
+    public _TestIntfBidirPrxI()
+    {
+        super();
+    }
+
+    public _TestIntfBidirPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

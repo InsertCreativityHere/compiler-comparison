@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _EventPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<EventPrx> implements EventPrx
 {
+    public _EventPrxI()
+    {
+        super();
+    }
+
+    public _EventPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

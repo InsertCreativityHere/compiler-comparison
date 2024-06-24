@@ -18,5 +18,15 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _RouterFinderPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RouterFinderPrx> implements RouterFinderPrx
 {
+    public _RouterFinderPrxI()
+    {
+        super();
+    }
+
+    public _RouterFinderPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

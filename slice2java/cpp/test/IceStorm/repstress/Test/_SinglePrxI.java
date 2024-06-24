@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _SinglePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<SinglePrx> implements SinglePrx
 {
+    public _SinglePrxI()
+    {
+        super();
+    }
+
+    public _SinglePrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

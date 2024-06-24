@@ -18,5 +18,15 @@ package IceGrid;
 /** @hidden */
 public class _InternalRegistryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<InternalRegistryPrx> implements InternalRegistryPrx
 {
+    public _InternalRegistryPrxI()
+    {
+        super();
+    }
+
+    public _InternalRegistryPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

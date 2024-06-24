@@ -18,5 +18,15 @@ package await;
 /** @hidden */
 public class _optionalParamsPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<optionalParamsPrx> implements optionalParamsPrx
 {
+    public _optionalParamsPrxI()
+    {
+        super();
+    }
+
+    public _optionalParamsPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -18,5 +18,15 @@ package BEGIN;
 /** @hidden */
 public class _breakPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<breakPrx> implements breakPrx
 {
+    public _breakPrxI()
+    {
+        super();
+    }
+
+    public _breakPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

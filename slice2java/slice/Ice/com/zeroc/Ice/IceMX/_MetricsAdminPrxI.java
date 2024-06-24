@@ -18,5 +18,15 @@ package com.zeroc.Ice.IceMX;
 /** @hidden */
 public class _MetricsAdminPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<MetricsAdminPrx> implements MetricsAdminPrx
 {
+    public _MetricsAdminPrxI()
+    {
+        super();
+    }
+
+    public _MetricsAdminPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

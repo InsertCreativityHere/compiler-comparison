@@ -18,5 +18,15 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _LocatorRegistryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<LocatorRegistryPrx> implements LocatorRegistryPrx
 {
+    public _LocatorRegistryPrxI()
+    {
+        super();
+    }
+
+    public _LocatorRegistryPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

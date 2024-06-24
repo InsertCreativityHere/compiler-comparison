@@ -18,5 +18,15 @@ package com.zeroc.IceBox;
 /** @hidden */
 public class _ServiceObserverPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ServiceObserverPrx> implements ServiceObserverPrx
 {
+    public _ServiceObserverPrxI()
+    {
+        super();
+    }
+
+    public _ServiceObserverPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

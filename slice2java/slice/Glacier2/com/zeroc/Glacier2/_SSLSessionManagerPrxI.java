@@ -18,5 +18,15 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _SSLSessionManagerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<SSLSessionManagerPrx> implements SSLSessionManagerPrx
 {
+    public _SSLSessionManagerPrxI()
+    {
+        super();
+    }
+
+    public _SSLSessionManagerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

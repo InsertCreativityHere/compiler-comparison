@@ -18,5 +18,15 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _SSLPermissionsVerifierPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<SSLPermissionsVerifierPrx> implements SSLPermissionsVerifierPrx
 {
+    public _SSLPermissionsVerifierPrxI()
+    {
+        super();
+    }
+
+    public _SSLPermissionsVerifierPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

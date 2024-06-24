@@ -18,5 +18,15 @@ package test.Slice.escape._abstract;
 /** @hidden */
 public class _catchPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<catchPrx> implements catchPrx
 {
+    public _catchPrxI()
+    {
+        super();
+    }
+
+    public _catchPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

@@ -18,5 +18,15 @@ package test.Ice.facets.Test;
 /** @hidden */
 public class _HPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<HPrx> implements HPrx
 {
+    public _HPrxI()
+    {
+        super();
+    }
+
+    public _HPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

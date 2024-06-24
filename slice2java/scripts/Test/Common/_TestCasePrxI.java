@@ -18,5 +18,15 @@ package Test.Common;
 /** @hidden */
 public class _TestCasePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestCasePrx> implements TestCasePrx
 {
+    public _TestCasePrxI()
+    {
+        super();
+    }
+
+    public _TestCasePrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

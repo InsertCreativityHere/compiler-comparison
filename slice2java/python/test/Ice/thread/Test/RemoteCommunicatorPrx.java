@@ -169,7 +169,7 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteCommunicatorPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), RemoteCommunicatorPrx.class, _RemoteCommunicatorPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -181,7 +181,18 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteCommunicatorPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), RemoteCommunicatorPrx.class, _RemoteCommunicatorPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _RemoteCommunicatorPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -193,7 +204,7 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteCommunicatorPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), RemoteCommunicatorPrx.class, _RemoteCommunicatorPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -206,7 +217,7 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteCommunicatorPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), RemoteCommunicatorPrx.class, _RemoteCommunicatorPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -216,7 +227,7 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteCommunicatorPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, RemoteCommunicatorPrx.class, _RemoteCommunicatorPrxI.class);
+        return (obj == null) ? null : new _RemoteCommunicatorPrxI(obj);
     }
 
     /**
@@ -227,7 +238,7 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteCommunicatorPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, RemoteCommunicatorPrx.class, _RemoteCommunicatorPrxI.class);
+        return (obj == null) ? null : new _RemoteCommunicatorPrxI(obj.ice_facet(facet));
     }
 
     @Override

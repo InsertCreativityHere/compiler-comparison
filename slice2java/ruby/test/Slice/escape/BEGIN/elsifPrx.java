@@ -25,7 +25,7 @@ public interface elsifPrx extends breakPrx
      **/
     static elsifPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), elsifPrx.class, _elsifPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -37,7 +37,18 @@ public interface elsifPrx extends breakPrx
      **/
     static elsifPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), elsifPrx.class, _elsifPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _elsifPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -49,7 +60,7 @@ public interface elsifPrx extends breakPrx
      **/
     static elsifPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), elsifPrx.class, _elsifPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -62,7 +73,7 @@ public interface elsifPrx extends breakPrx
      **/
     static elsifPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), elsifPrx.class, _elsifPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -72,7 +83,7 @@ public interface elsifPrx extends breakPrx
      **/
     static elsifPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, elsifPrx.class, _elsifPrxI.class);
+        return (obj == null) ? null : new _elsifPrxI(obj);
     }
 
     /**
@@ -83,7 +94,7 @@ public interface elsifPrx extends breakPrx
      **/
     static elsifPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, elsifPrx.class, _elsifPrxI.class);
+        return (obj == null) ? null : new _elsifPrxI(obj.ice_facet(facet));
     }
 
     @Override

@@ -18,5 +18,15 @@ package _abstract.System;
 /** @hidden */
 public class _TestPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestPrx> implements TestPrx
 {
+    public _TestPrxI()
+    {
+        super();
+    }
+
+    public _TestPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

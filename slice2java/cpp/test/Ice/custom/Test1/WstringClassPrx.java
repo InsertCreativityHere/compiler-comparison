@@ -160,7 +160,7 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static WstringClassPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), WstringClassPrx.class, _WstringClassPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -172,7 +172,18 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static WstringClassPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), WstringClassPrx.class, _WstringClassPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _WstringClassPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -184,7 +195,7 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static WstringClassPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), WstringClassPrx.class, _WstringClassPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -197,7 +208,7 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static WstringClassPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), WstringClassPrx.class, _WstringClassPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -207,7 +218,7 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static WstringClassPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, WstringClassPrx.class, _WstringClassPrxI.class);
+        return (obj == null) ? null : new _WstringClassPrxI(obj);
     }
 
     /**
@@ -218,7 +229,7 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static WstringClassPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, WstringClassPrx.class, _WstringClassPrxI.class);
+        return (obj == null) ? null : new _WstringClassPrxI(obj.ice_facet(facet));
     }
 
     @Override

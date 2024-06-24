@@ -18,5 +18,15 @@ package and;
 /** @hidden */
 public class _diePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<diePrx> implements diePrx
 {
+    public _diePrxI()
+    {
+        super();
+    }
+
+    public _diePrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

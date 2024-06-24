@@ -18,5 +18,15 @@ package test.Ice.udp.Test;
 /** @hidden */
 public class _PingReplyPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<PingReplyPrx> implements PingReplyPrx
 {
+    public _PingReplyPrxI()
+    {
+        super();
+    }
+
+    public _PingReplyPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

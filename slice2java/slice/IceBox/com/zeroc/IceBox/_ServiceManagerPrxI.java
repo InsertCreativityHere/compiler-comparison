@@ -18,5 +18,15 @@ package com.zeroc.IceBox;
 /** @hidden */
 public class _ServiceManagerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ServiceManagerPrx> implements ServiceManagerPrx
 {
+    public _ServiceManagerPrxI()
+    {
+        super();
+    }
+
+    public _ServiceManagerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

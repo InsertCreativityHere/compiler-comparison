@@ -94,7 +94,7 @@ public interface CallbackPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static CallbackPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), CallbackPrx.class, _CallbackPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -106,7 +106,18 @@ public interface CallbackPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static CallbackPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), CallbackPrx.class, _CallbackPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _CallbackPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -118,7 +129,7 @@ public interface CallbackPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static CallbackPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), CallbackPrx.class, _CallbackPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -131,7 +142,7 @@ public interface CallbackPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static CallbackPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), CallbackPrx.class, _CallbackPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -141,7 +152,7 @@ public interface CallbackPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static CallbackPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, CallbackPrx.class, _CallbackPrxI.class);
+        return (obj == null) ? null : new _CallbackPrxI(obj);
     }
 
     /**
@@ -152,7 +163,7 @@ public interface CallbackPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static CallbackPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, CallbackPrx.class, _CallbackPrxI.class);
+        return (obj == null) ? null : new _CallbackPrxI(obj.ice_facet(facet));
     }
 
     @Override

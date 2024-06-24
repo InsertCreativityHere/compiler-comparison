@@ -18,5 +18,15 @@ package test.Slice.escape._abstract;
 /** @hidden */
 public class _newPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<newPrx> implements newPrx
 {
+    public _newPrxI()
+    {
+        super();
+    }
+
+    public _newPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

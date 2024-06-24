@@ -147,7 +147,7 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteLoggerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -159,7 +159,18 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteLoggerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _RemoteLoggerPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -171,7 +182,7 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteLoggerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -184,7 +195,7 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteLoggerPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -194,7 +205,7 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteLoggerPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
+        return (obj == null) ? null : new _RemoteLoggerPrxI(obj);
     }
 
     /**
@@ -205,7 +216,7 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static RemoteLoggerPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, RemoteLoggerPrx.class, _RemoteLoggerPrxI.class);
+        return (obj == null) ? null : new _RemoteLoggerPrxI(obj.ice_facet(facet));
     }
 
     @Override

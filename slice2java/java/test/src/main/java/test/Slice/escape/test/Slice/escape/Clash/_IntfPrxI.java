@@ -18,5 +18,15 @@ package test.Slice.escape.Clash;
 /** @hidden */
 public class _IntfPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IntfPrx> implements IntfPrx
 {
+    public _IntfPrxI()
+    {
+        super();
+    }
+
+    public _IntfPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

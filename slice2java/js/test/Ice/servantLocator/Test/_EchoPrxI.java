@@ -18,5 +18,15 @@ package Test;
 /** @hidden */
 public class _EchoPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<EchoPrx> implements EchoPrx
 {
+    public _EchoPrxI()
+    {
+        super();
+    }
+
+    public _EchoPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

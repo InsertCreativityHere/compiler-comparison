@@ -18,5 +18,15 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _PermissionsVerifierPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<PermissionsVerifierPrx> implements PermissionsVerifierPrx
 {
+    public _PermissionsVerifierPrxI()
+    {
+        super();
+    }
+
+    public _PermissionsVerifierPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

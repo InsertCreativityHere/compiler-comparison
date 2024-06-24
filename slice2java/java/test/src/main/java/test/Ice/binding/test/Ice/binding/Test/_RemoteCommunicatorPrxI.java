@@ -18,5 +18,15 @@ package test.Ice.binding.Test;
 /** @hidden */
 public class _RemoteCommunicatorPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RemoteCommunicatorPrx> implements RemoteCommunicatorPrx
 {
+    public _RemoteCommunicatorPrxI()
+    {
+        super();
+    }
+
+    public _RemoteCommunicatorPrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }

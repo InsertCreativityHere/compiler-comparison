@@ -123,7 +123,7 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static SSLPermissionsVerifierPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), SSLPermissionsVerifierPrx.class, _SSLPermissionsVerifierPrxI.class);
+        return checkedCast(obj, noExplicitContext);
     }
 
     /**
@@ -135,7 +135,18 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static SSLPermissionsVerifierPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), SSLPermissionsVerifierPrx.class, _SSLPermissionsVerifierPrxI.class);
+        if (obj != null)
+        {
+            try
+            {
+                boolean ok = obj.ice_isA(ice_staticId(), context);
+                return ok ? new _SSLPermissionsVerifierPrxI(obj) : null;
+            }
+            catch (com.zeroc.Ice.FacetNotExistException ex)
+            {
+            }
+        }
+        return null;
     }
 
     /**
@@ -147,7 +158,7 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static SSLPermissionsVerifierPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), SSLPermissionsVerifierPrx.class, _SSLPermissionsVerifierPrxI.class);
+        return checkedCast(obj, facet, noExplicitContext);
     }
 
     /**
@@ -160,7 +171,7 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static SSLPermissionsVerifierPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), SSLPermissionsVerifierPrx.class, _SSLPermissionsVerifierPrxI.class);
+        return (obj == null) ? null : checkedCast(obj.ice_facet(facet), context);
     }
 
     /**
@@ -170,7 +181,7 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static SSLPermissionsVerifierPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, SSLPermissionsVerifierPrx.class, _SSLPermissionsVerifierPrxI.class);
+        return (obj == null) ? null : new _SSLPermissionsVerifierPrxI(obj);
     }
 
     /**
@@ -181,7 +192,7 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static SSLPermissionsVerifierPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, SSLPermissionsVerifierPrx.class, _SSLPermissionsVerifierPrxI.class);
+        return (obj == null) ? null : new _SSLPermissionsVerifierPrxI(obj.ice_facet(facet));
     }
 
     @Override

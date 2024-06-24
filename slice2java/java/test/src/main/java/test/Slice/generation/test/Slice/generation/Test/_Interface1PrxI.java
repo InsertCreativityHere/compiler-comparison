@@ -18,5 +18,15 @@ package test.Slice.generation.Test;
 /** @hidden */
 public class _Interface1PrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<Interface1Prx> implements Interface1Prx
 {
+    public _Interface1PrxI()
+    {
+        super();
+    }
+
+    public _Interface1PrxI(com.zeroc.Ice.ObjectPrx obj)
+    {
+        super(obj);
+    }
+
     private static final long serialVersionUID = 0L;
 }
