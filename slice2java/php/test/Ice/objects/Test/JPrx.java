@@ -18,6 +18,17 @@ package Test;
 public interface JPrx extends IPrx
 {
     /**
+     * Creates a new proxy that implements {@link JPrx}.
+     * @param communicator The communicator of the new proxy.
+     * @param proxyString The string representation of the proxy.
+     * @return The new proxy.
+     **/
+    public static JPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
+    {
+        return uncheckedCast(communicator.stringToProxy(proxyString));
+    }
+
+    /**
      * Contacts the remote server to verify that the object implements this type.
      * Raises a local exception if a communication error occurs.
      * @param obj The untyped proxy.
