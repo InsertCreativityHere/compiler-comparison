@@ -217,17 +217,16 @@ abstract::_cpp_else::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 abstract::hashCode::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::hashCode";
-    return typeId;
+    return "::abstract::hashCode";
 }
 
-::std::string
-abstract::hashCode::ice_id() const
+const char*
+abstract::hashCode::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -252,17 +251,16 @@ abstract::hashCode::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 abstract::import::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::import";
-    return typeId;
+    return "::abstract::import";
 }
 
-::std::string
-abstract::import::ice_id() const
+const char*
+abstract::import::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

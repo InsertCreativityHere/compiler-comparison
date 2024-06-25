@@ -255,17 +255,16 @@ _cpp_and::echo::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 _cpp_and::endif::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::and::endif";
-    return typeId;
+    return "::and::endif";
 }
 
-::std::string
-_cpp_and::endif::ice_id() const
+const char*
+_cpp_and::endif::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -290,17 +289,16 @@ _cpp_and::endif::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 _cpp_and::endwhile::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::and::endwhile";
-    return typeId;
+    return "::and::endwhile";
 }
 
-::std::string
-_cpp_and::endwhile::ice_id() const
+const char*
+_cpp_and::endwhile::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

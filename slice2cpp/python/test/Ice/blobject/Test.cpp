@@ -182,17 +182,16 @@ Test::HelloPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test::UE::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UE";
-    return typeId;
+    return "::Test::UE";
 }
 
-::std::string
-Test::UE::ice_id() const
+const char*
+Test::UE::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

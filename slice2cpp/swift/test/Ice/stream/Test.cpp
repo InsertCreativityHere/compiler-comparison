@@ -123,17 +123,16 @@ Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::MyException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyException";
-    return typeId;
+    return "::Test::MyException";
 }
 
-::std::string
-Test::MyException::ice_id() const
+const char*
+Test::MyException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -166,17 +165,16 @@ Test::MyException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::Sub::NestedException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Sub::NestedException";
-    return typeId;
+    return "::Test::Sub::NestedException";
 }
 
-::std::string
-Test::Sub::NestedException::ice_id() const
+const char*
+Test::Sub::NestedException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -201,17 +199,16 @@ Test::Sub::NestedException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test2::Sub2::NestedException2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test2::Sub2::NestedException2";
-    return typeId;
+    return "::Test2::Sub2::NestedException2";
 }
 
-::std::string
-Test2::Sub2::NestedException2::ice_id() const
+const char*
+Test2::Sub2::NestedException2::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

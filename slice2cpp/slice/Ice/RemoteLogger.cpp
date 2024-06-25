@@ -242,17 +242,16 @@ Ice::LoggerAdminPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Ice::RemoteLoggerAlreadyAttachedException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::RemoteLoggerAlreadyAttachedException";
-    return typeId;
+    return "::Ice::RemoteLoggerAlreadyAttachedException";
 }
 
-::std::string
-Ice::RemoteLoggerAlreadyAttachedException::ice_id() const
+const char*
+Ice::RemoteLoggerAlreadyAttachedException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

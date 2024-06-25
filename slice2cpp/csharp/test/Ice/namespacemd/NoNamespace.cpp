@@ -118,17 +118,16 @@ NoNamespace::C2::_iceReadImpl(::Ice::InputStream* istr)
     C1::_iceReadImpl(istr);
 }
 
-::std::string_view
+const char*
 NoNamespace::E1::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::NoNamespace::E1";
-    return typeId;
+    return "::NoNamespace::E1";
 }
 
-::std::string
-NoNamespace::E1::ice_id() const
+const char*
+NoNamespace::E1::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -153,17 +152,16 @@ NoNamespace::E1::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 NoNamespace::E2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::NoNamespace::E2";
-    return typeId;
+    return "::NoNamespace::E2";
 }
 
-::std::string
-NoNamespace::E2::ice_id() const
+const char*
+NoNamespace::E2::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -190,17 +188,16 @@ NoNamespace::E2::_readImpl(::Ice::InputStream* istr)
     E1::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 NoNamespace::notify::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::NoNamespace::notify";
-    return typeId;
+    return "::NoNamespace::notify";
 }
 
-::std::string
-NoNamespace::notify::ice_id() const
+const char*
+NoNamespace::notify::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

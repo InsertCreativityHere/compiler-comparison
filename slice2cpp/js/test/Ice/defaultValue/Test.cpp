@@ -121,17 +121,16 @@ Test::Derived::_iceReadImpl(::Ice::InputStream* istr)
     Base::_iceReadImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::BaseEx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::BaseEx";
-    return typeId;
+    return "::Test::BaseEx";
 }
 
-::std::string
-Test::BaseEx::ice_id() const
+const char*
+Test::BaseEx::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -156,17 +155,16 @@ Test::BaseEx::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::DerivedEx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::DerivedEx";
-    return typeId;
+    return "::Test::DerivedEx";
 }
 
-::std::string
-Test::DerivedEx::ice_id() const
+const char*
+Test::DerivedEx::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -193,17 +191,16 @@ Test::DerivedEx::_readImpl(::Ice::InputStream* istr)
     BaseEx::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::ExceptionNoDefaultsBase::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::ExceptionNoDefaultsBase";
-    return typeId;
+    return "::Test::ExceptionNoDefaultsBase";
 }
 
-::std::string
-Test::ExceptionNoDefaultsBase::ice_id() const
+const char*
+Test::ExceptionNoDefaultsBase::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -228,17 +225,16 @@ Test::ExceptionNoDefaultsBase::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::ExceptionNoDefaults::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::ExceptionNoDefaults";
-    return typeId;
+    return "::Test::ExceptionNoDefaults";
 }
 
-::std::string
-Test::ExceptionNoDefaults::ice_id() const
+const char*
+Test::ExceptionNoDefaults::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

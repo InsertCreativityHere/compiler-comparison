@@ -46,17 +46,16 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::Pen> iceC_Test_Pen_init("::Test::Pen");
 }
 
-::std::string_view
+const char*
 Test::BaseException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::BaseException";
-    return typeId;
+    return "::Test::BaseException";
 }
 
-::std::string
-Test::BaseException::ice_id() const
+const char*
+Test::BaseException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -79,17 +78,16 @@ Test::BaseException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::InvalidPointException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::InvalidPointException";
-    return typeId;
+    return "::Test::InvalidPointException";
 }
 
-::std::string
-Test::InvalidPointException::ice_id() const
+const char*
+Test::InvalidPointException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -116,17 +114,16 @@ Test::InvalidPointException::_readImpl(::Ice::InputStream* istr)
     BaseException::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::InvalidLengthException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::InvalidLengthException";
-    return typeId;
+    return "::Test::InvalidLengthException";
 }
 
-::std::string
-Test::InvalidLengthException::ice_id() const
+const char*
+Test::InvalidLengthException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -153,17 +150,16 @@ Test::InvalidLengthException::_readImpl(::Ice::InputStream* istr)
     BaseException::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::OtherException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::OtherException";
-    return typeId;
+    return "::Test::OtherException";
 }
 
-::std::string
-Test::OtherException::ice_id() const
+const char*
+Test::OtherException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

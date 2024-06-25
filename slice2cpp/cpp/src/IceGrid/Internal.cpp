@@ -1708,11 +1708,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const NodeActiveException&)
             {
                 throw;
             }
-            catch(const NodeActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -1758,11 +1758,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerReplica(const ::std::shared_ptr<::Ic
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const ReplicaActiveException&)
             {
                 throw;
             }
-            catch(const ReplicaActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -2125,17 +2125,16 @@ IceGrid::InternalServerDescriptor::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::AdapterActiveException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::AdapterActiveException";
-    return typeId;
+    return "::IceGrid::AdapterActiveException";
 }
 
-::std::string
-IceGrid::AdapterActiveException::ice_id() const
+const char*
+IceGrid::AdapterActiveException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -2158,17 +2157,16 @@ IceGrid::AdapterActiveException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::AdapterNotActiveException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::AdapterNotActiveException";
-    return typeId;
+    return "::IceGrid::AdapterNotActiveException";
 }
 
-::std::string
-IceGrid::AdapterNotActiveException::ice_id() const
+const char*
+IceGrid::AdapterNotActiveException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -2193,17 +2191,16 @@ IceGrid::AdapterNotActiveException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::AdapterExistsException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::AdapterExistsException";
-    return typeId;
+    return "::IceGrid::AdapterExistsException";
 }
 
-::std::string
-IceGrid::AdapterExistsException::ice_id() const
+const char*
+IceGrid::AdapterExistsException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -2228,17 +2225,16 @@ IceGrid::AdapterExistsException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::NodeActiveException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::NodeActiveException";
-    return typeId;
+    return "::IceGrid::NodeActiveException";
 }
 
-::std::string
-IceGrid::NodeActiveException::ice_id() const
+const char*
+IceGrid::NodeActiveException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -2261,17 +2257,16 @@ IceGrid::NodeActiveException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::ReplicaActiveException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::ReplicaActiveException";
-    return typeId;
+    return "::IceGrid::ReplicaActiveException";
 }
 
-::std::string
-IceGrid::ReplicaActiveException::ice_id() const
+const char*
+IceGrid::ReplicaActiveException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

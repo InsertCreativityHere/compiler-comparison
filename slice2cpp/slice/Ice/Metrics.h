@@ -489,9 +489,9 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+    ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
+    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICE_API) void ice_throw() const override;
 

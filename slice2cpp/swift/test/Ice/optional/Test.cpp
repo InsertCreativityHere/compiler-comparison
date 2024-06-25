@@ -2289,17 +2289,16 @@ Test::WD::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::OptionalException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::OptionalException";
-    return typeId;
+    return "::Test::OptionalException";
 }
 
-::std::string
-Test::OptionalException::ice_id() const
+const char*
+Test::OptionalException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -2324,17 +2323,16 @@ Test::OptionalException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::DerivedException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::DerivedException";
-    return typeId;
+    return "::Test::DerivedException";
 }
 
-::std::string
-Test::DerivedException::ice_id() const
+const char*
+Test::DerivedException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -2361,17 +2359,16 @@ Test::DerivedException::_readImpl(::Ice::InputStream* istr)
     OptionalException::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::RequiredException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::RequiredException";
-    return typeId;
+    return "::Test::RequiredException";
 }
 
-::std::string
-Test::RequiredException::ice_id() const
+const char*
+Test::RequiredException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

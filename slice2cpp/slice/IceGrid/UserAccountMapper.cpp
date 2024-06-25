@@ -97,17 +97,16 @@ IceGrid::UserAccountMapperPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 IceGrid::UserAccountNotFoundException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::UserAccountNotFoundException";
-    return typeId;
+    return "::IceGrid::UserAccountNotFoundException";
 }
 
-::std::string
-IceGrid::UserAccountNotFoundException::ice_id() const
+const char*
+IceGrid::UserAccountNotFoundException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

@@ -64,17 +64,16 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::FileNotAvailableException> iceC_IceGrid_FileNotAvailableException_init("::IceGrid::FileNotAvailableException");
 }
 
-::std::string_view
+const char*
 IceGrid::ApplicationNotExistException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::ApplicationNotExistException";
-    return typeId;
+    return "::IceGrid::ApplicationNotExistException";
 }
 
-::std::string
-IceGrid::ApplicationNotExistException::ice_id() const
+const char*
+IceGrid::ApplicationNotExistException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -99,17 +98,16 @@ IceGrid::ApplicationNotExistException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::ServerNotExistException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::ServerNotExistException";
-    return typeId;
+    return "::IceGrid::ServerNotExistException";
 }
 
-::std::string
-IceGrid::ServerNotExistException::ice_id() const
+const char*
+IceGrid::ServerNotExistException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -134,17 +132,16 @@ IceGrid::ServerNotExistException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::ServerStartException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::ServerStartException";
-    return typeId;
+    return "::IceGrid::ServerStartException";
 }
 
-::std::string
-IceGrid::ServerStartException::ice_id() const
+const char*
+IceGrid::ServerStartException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -169,17 +166,16 @@ IceGrid::ServerStartException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::ServerStopException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::ServerStopException";
-    return typeId;
+    return "::IceGrid::ServerStopException";
 }
 
-::std::string
-IceGrid::ServerStopException::ice_id() const
+const char*
+IceGrid::ServerStopException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -204,17 +200,16 @@ IceGrid::ServerStopException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::AdapterNotExistException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::AdapterNotExistException";
-    return typeId;
+    return "::IceGrid::AdapterNotExistException";
 }
 
-::std::string
-IceGrid::AdapterNotExistException::ice_id() const
+const char*
+IceGrid::AdapterNotExistException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -239,17 +234,16 @@ IceGrid::AdapterNotExistException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::ObjectExistsException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::ObjectExistsException";
-    return typeId;
+    return "::IceGrid::ObjectExistsException";
 }
 
-::std::string
-IceGrid::ObjectExistsException::ice_id() const
+const char*
+IceGrid::ObjectExistsException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -274,17 +268,16 @@ IceGrid::ObjectExistsException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::ObjectNotRegisteredException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::ObjectNotRegisteredException";
-    return typeId;
+    return "::IceGrid::ObjectNotRegisteredException";
 }
 
-::std::string
-IceGrid::ObjectNotRegisteredException::ice_id() const
+const char*
+IceGrid::ObjectNotRegisteredException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -309,17 +302,16 @@ IceGrid::ObjectNotRegisteredException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::NodeNotExistException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::NodeNotExistException";
-    return typeId;
+    return "::IceGrid::NodeNotExistException";
 }
 
-::std::string
-IceGrid::NodeNotExistException::ice_id() const
+const char*
+IceGrid::NodeNotExistException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -344,17 +336,16 @@ IceGrid::NodeNotExistException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::RegistryNotExistException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::RegistryNotExistException";
-    return typeId;
+    return "::IceGrid::RegistryNotExistException";
 }
 
-::std::string
-IceGrid::RegistryNotExistException::ice_id() const
+const char*
+IceGrid::RegistryNotExistException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -379,17 +370,16 @@ IceGrid::RegistryNotExistException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::DeploymentException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::DeploymentException";
-    return typeId;
+    return "::IceGrid::DeploymentException";
 }
 
-::std::string
-IceGrid::DeploymentException::ice_id() const
+const char*
+IceGrid::DeploymentException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -414,17 +404,16 @@ IceGrid::DeploymentException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::NodeUnreachableException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::NodeUnreachableException";
-    return typeId;
+    return "::IceGrid::NodeUnreachableException";
 }
 
-::std::string
-IceGrid::NodeUnreachableException::ice_id() const
+const char*
+IceGrid::NodeUnreachableException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -449,17 +438,16 @@ IceGrid::NodeUnreachableException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::ServerUnreachableException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::ServerUnreachableException";
-    return typeId;
+    return "::IceGrid::ServerUnreachableException";
 }
 
-::std::string
-IceGrid::ServerUnreachableException::ice_id() const
+const char*
+IceGrid::ServerUnreachableException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -484,17 +472,16 @@ IceGrid::ServerUnreachableException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::RegistryUnreachableException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::RegistryUnreachableException";
-    return typeId;
+    return "::IceGrid::RegistryUnreachableException";
 }
 
-::std::string
-IceGrid::RegistryUnreachableException::ice_id() const
+const char*
+IceGrid::RegistryUnreachableException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -519,17 +506,16 @@ IceGrid::RegistryUnreachableException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::BadSignalException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::BadSignalException";
-    return typeId;
+    return "::IceGrid::BadSignalException";
 }
 
-::std::string
-IceGrid::BadSignalException::ice_id() const
+const char*
+IceGrid::BadSignalException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -554,17 +540,16 @@ IceGrid::BadSignalException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::AccessDeniedException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::AccessDeniedException";
-    return typeId;
+    return "::IceGrid::AccessDeniedException";
 }
 
-::std::string
-IceGrid::AccessDeniedException::ice_id() const
+const char*
+IceGrid::AccessDeniedException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -589,17 +574,16 @@ IceGrid::AccessDeniedException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::AllocationException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::AllocationException";
-    return typeId;
+    return "::IceGrid::AllocationException";
 }
 
-::std::string
-IceGrid::AllocationException::ice_id() const
+const char*
+IceGrid::AllocationException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -624,17 +608,16 @@ IceGrid::AllocationException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::AllocationTimeoutException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::AllocationTimeoutException";
-    return typeId;
+    return "::IceGrid::AllocationTimeoutException";
 }
 
-::std::string
-IceGrid::AllocationTimeoutException::ice_id() const
+const char*
+IceGrid::AllocationTimeoutException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -659,17 +642,16 @@ IceGrid::AllocationTimeoutException::_readImpl(::Ice::InputStream* istr)
     AllocationException::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 IceGrid::PermissionDeniedException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::PermissionDeniedException";
-    return typeId;
+    return "::IceGrid::PermissionDeniedException";
 }
 
-::std::string
-IceGrid::PermissionDeniedException::ice_id() const
+const char*
+IceGrid::PermissionDeniedException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -694,17 +676,16 @@ IceGrid::PermissionDeniedException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::ObserverAlreadyRegisteredException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::ObserverAlreadyRegisteredException";
-    return typeId;
+    return "::IceGrid::ObserverAlreadyRegisteredException";
 }
 
-::std::string
-IceGrid::ObserverAlreadyRegisteredException::ice_id() const
+const char*
+IceGrid::ObserverAlreadyRegisteredException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -729,17 +710,16 @@ IceGrid::ObserverAlreadyRegisteredException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceGrid::FileNotAvailableException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::FileNotAvailableException";
-    return typeId;
+    return "::IceGrid::FileNotAvailableException";
 }
 
-::std::string
-IceGrid::FileNotAvailableException::ice_id() const
+const char*
+IceGrid::FileNotAvailableException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

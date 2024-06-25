@@ -415,17 +415,16 @@ Test::CallbackPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test::CallbackException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::CallbackException";
-    return typeId;
+    return "::Test::CallbackException";
 }
 
-::std::string
-Test::CallbackException::ice_id() const
+const char*
+Test::CallbackException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

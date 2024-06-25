@@ -310,17 +310,16 @@ classdef::_cpp_break::properties::_iceReadImpl(::Ice::InputStream* istr)
     _cpp_try::_iceReadImpl(istr);
 }
 
-::std::string_view
+const char*
 classdef::_cpp_break::persistent::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::classdef::break::persistent";
-    return typeId;
+    return "::classdef::break::persistent";
 }
 
-::std::string
-classdef::_cpp_break::persistent::ice_id() const
+const char*
+classdef::_cpp_break::persistent::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -353,17 +352,16 @@ classdef::_cpp_break::persistent::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 classdef::_cpp_break::global::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::classdef::break::global";
-    return typeId;
+    return "::classdef::break::global";
 }
 
-::std::string
-classdef::_cpp_break::global::ice_id() const
+const char*
+classdef::_cpp_break::global::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

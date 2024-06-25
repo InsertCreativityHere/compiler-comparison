@@ -117,17 +117,16 @@ Test::Derived::_iceReadImpl(::Ice::InputStream* istr)
     Base::_iceReadImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::BaseEx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::BaseEx";
-    return typeId;
+    return "::Test::BaseEx";
 }
 
-::std::string
-Test::BaseEx::ice_id() const
+const char*
+Test::BaseEx::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -152,17 +151,16 @@ Test::BaseEx::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::DerivedEx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::DerivedEx";
-    return typeId;
+    return "::Test::DerivedEx";
 }
 
-::std::string
-Test::DerivedEx::ice_id() const
+const char*
+Test::DerivedEx::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

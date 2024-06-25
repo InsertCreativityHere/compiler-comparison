@@ -628,17 +628,16 @@ Test::TestIntfPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test::Base::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Base";
-    return typeId;
+    return "::Test::Base";
 }
 
-::std::string
-Test::Base::ice_id() const
+const char*
+Test::Base::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -663,17 +662,16 @@ Test::Base::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::KnownDerived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::KnownDerived";
-    return typeId;
+    return "::Test::KnownDerived";
 }
 
-::std::string
-Test::KnownDerived::ice_id() const
+const char*
+Test::KnownDerived::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -700,17 +698,16 @@ Test::KnownDerived::_readImpl(::Ice::InputStream* istr)
     Base::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::KnownIntermediate::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::KnownIntermediate";
-    return typeId;
+    return "::Test::KnownIntermediate";
 }
 
-::std::string
-Test::KnownIntermediate::ice_id() const
+const char*
+Test::KnownIntermediate::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -737,17 +734,16 @@ Test::KnownIntermediate::_readImpl(::Ice::InputStream* istr)
     Base::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::KnownMostDerived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::KnownMostDerived";
-    return typeId;
+    return "::Test::KnownMostDerived";
 }
 
-::std::string
-Test::KnownMostDerived::ice_id() const
+const char*
+Test::KnownMostDerived::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -774,17 +770,16 @@ Test::KnownMostDerived::_readImpl(::Ice::InputStream* istr)
     KnownIntermediate::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::KnownPreserved::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::KnownPreserved";
-    return typeId;
+    return "::Test::KnownPreserved";
 }
 
-::std::string
-Test::KnownPreserved::ice_id() const
+const char*
+Test::KnownPreserved::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -811,17 +806,16 @@ Test::KnownPreserved::_readImpl(::Ice::InputStream* istr)
     Base::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::KnownPreservedDerived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::KnownPreservedDerived";
-    return typeId;
+    return "::Test::KnownPreservedDerived";
 }
 
-::std::string
-Test::KnownPreservedDerived::ice_id() const
+const char*
+Test::KnownPreservedDerived::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

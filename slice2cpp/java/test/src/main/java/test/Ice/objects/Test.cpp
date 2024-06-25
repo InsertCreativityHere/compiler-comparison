@@ -1741,17 +1741,16 @@ Test::Inner::A::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::Inner::Ex::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Inner::Ex";
-    return typeId;
+    return "::Test::Inner::Ex";
 }
 
-::std::string
-Test::Inner::Ex::ice_id() const
+const char*
+Test::Inner::Ex::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -1811,17 +1810,16 @@ Test::Inner::Sub::A::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::Inner::Sub::Ex::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Inner::Sub::Ex";
-    return typeId;
+    return "::Test::Inner::Sub::Ex";
 }
 
-::std::string
-Test::Inner::Sub::Ex::ice_id() const
+const char*
+Test::Inner::Sub::Ex::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -1953,17 +1951,16 @@ Test::D1::_iceReadImpl(::Ice::InputStream* istr)
     B1::_iceReadImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::EBase::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::EBase";
-    return typeId;
+    return "::Test::EBase";
 }
 
-::std::string
-Test::EBase::ice_id() const
+const char*
+Test::EBase::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -1996,17 +1993,16 @@ Test::EBase::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::EDerived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::EDerived";
-    return typeId;
+    return "::Test::EDerived";
 }
 
-::std::string
-Test::EDerived::ice_id() const
+const char*
+Test::EDerived::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -2344,17 +2340,16 @@ Test::CTwoMembers::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::EOneMember::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::EOneMember";
-    return typeId;
+    return "::Test::EOneMember";
 }
 
-::std::string
-Test::EOneMember::ice_id() const
+const char*
+Test::EOneMember::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -2387,17 +2382,16 @@ Test::EOneMember::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::ETwoMembers::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::ETwoMembers";
-    return typeId;
+    return "::Test::ETwoMembers";
 }
 
-::std::string
-Test::ETwoMembers::ice_id() const
+const char*
+Test::ETwoMembers::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

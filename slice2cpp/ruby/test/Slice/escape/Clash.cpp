@@ -448,17 +448,16 @@ Clash::Cls::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Clash::Ex::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Clash::Ex";
-    return typeId;
+    return "::Clash::Ex";
 }
 
-::std::string
-Clash::Ex::ice_id() const
+const char*
+Clash::Ex::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

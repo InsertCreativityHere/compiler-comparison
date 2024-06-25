@@ -318,17 +318,16 @@ Glacier2::RouterPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Glacier2::SessionNotExistException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::SessionNotExistException";
-    return typeId;
+    return "::Glacier2::SessionNotExistException";
 }
 
-::std::string
-Glacier2::SessionNotExistException::ice_id() const
+const char*
+Glacier2::SessionNotExistException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

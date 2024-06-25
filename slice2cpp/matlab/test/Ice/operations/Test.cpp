@@ -2887,17 +2887,16 @@ Test2::MyDerivedClassPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test::SomeException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::SomeException";
-    return typeId;
+    return "::Test::SomeException";
 }
 
-::std::string
-Test::SomeException::ice_id() const
+const char*
+Test::SomeException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

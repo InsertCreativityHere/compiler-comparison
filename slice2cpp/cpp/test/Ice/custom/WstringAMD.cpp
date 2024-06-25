@@ -323,17 +323,16 @@ Test2::WstringClassPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test1::WstringException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test1::WstringException";
-    return typeId;
+    return "::Test1::WstringException";
 }
 
-::std::string
-Test1::WstringException::ice_id() const
+const char*
+Test1::WstringException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -358,17 +357,16 @@ Test1::WstringException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test2::WstringException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test2::WstringException";
-    return typeId;
+    return "::Test2::WstringException";
 }
 
-::std::string
-Test2::WstringException::ice_id() const
+const char*
+Test2::WstringException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

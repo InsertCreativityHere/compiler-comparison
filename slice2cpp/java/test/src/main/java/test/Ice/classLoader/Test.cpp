@@ -191,17 +191,16 @@ Test::ConcreteClass::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::E::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::E";
-    return typeId;
+    return "::Test::E";
 }
 
-::std::string
-Test::E::ice_id() const
+const char*
+Test::E::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

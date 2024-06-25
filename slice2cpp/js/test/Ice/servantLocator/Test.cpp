@@ -645,17 +645,16 @@ Test::EchoPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test::TestIntfUserException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntfUserException";
-    return typeId;
+    return "::Test::TestIntfUserException";
 }
 
-::std::string
-Test::TestIntfUserException::ice_id() const
+const char*
+Test::TestIntfUserException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -678,17 +677,16 @@ Test::TestIntfUserException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::TestImpossibleException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestImpossibleException";
-    return typeId;
+    return "::Test::TestImpossibleException";
 }
 
-::std::string
-Test::TestImpossibleException::ice_id() const
+const char*
+Test::TestImpossibleException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

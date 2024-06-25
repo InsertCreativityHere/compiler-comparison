@@ -104,17 +104,16 @@ IceGrid::FileParserPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 IceGrid::ParseException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::ParseException";
-    return typeId;
+    return "::IceGrid::ParseException";
 }
 
-::std::string
-IceGrid::ParseException::ice_id() const
+const char*
+IceGrid::ParseException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

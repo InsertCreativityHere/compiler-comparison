@@ -154,17 +154,16 @@ Test::MyObjectPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test::BadEncodingException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::BadEncodingException";
-    return typeId;
+    return "::Test::BadEncodingException";
 }
 
-::std::string
-Test::BadEncodingException::ice_id() const
+const char*
+Test::BadEncodingException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

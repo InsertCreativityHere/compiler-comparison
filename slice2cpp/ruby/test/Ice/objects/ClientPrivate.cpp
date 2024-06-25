@@ -226,17 +226,16 @@ Test::CTwoMembers::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::EOneMember::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::EOneMember";
-    return typeId;
+    return "::Test::EOneMember";
 }
 
-::std::string
-Test::EOneMember::ice_id() const
+const char*
+Test::EOneMember::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -269,17 +268,16 @@ Test::EOneMember::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::ETwoMembers::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::ETwoMembers";
-    return typeId;
+    return "::Test::ETwoMembers";
 }
 
-::std::string
-Test::ETwoMembers::ice_id() const
+const char*
+Test::ETwoMembers::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

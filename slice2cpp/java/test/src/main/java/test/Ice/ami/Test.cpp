@@ -876,17 +876,16 @@ Test::Outer::Inner::TestIntfPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test::TestIntfException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntfException";
-    return typeId;
+    return "::Test::TestIntfException";
 }
 
-::std::string
-Test::TestIntfException::ice_id() const
+const char*
+Test::TestIntfException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

@@ -497,17 +497,16 @@ await::package::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 await::fixed::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::await::fixed";
-    return typeId;
+    return "::await::fixed";
 }
 
-::std::string
-await::fixed::ice_id() const
+const char*
+await::fixed::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -532,17 +531,16 @@ await::fixed::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 await::foreach::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::await::foreach";
-    return typeId;
+    return "::await::foreach";
 }
 
-::std::string
-await::foreach::ice_id() const
+const char*
+await::foreach::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -569,17 +567,16 @@ await::foreach::_readImpl(::Ice::InputStream* istr)
     fixed::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 await::BaseMethods::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::await::BaseMethods";
-    return typeId;
+    return "::await::BaseMethods";
 }
 
-::std::string
-await::BaseMethods::ice_id() const
+const char*
+await::BaseMethods::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

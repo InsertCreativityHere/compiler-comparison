@@ -97,17 +97,16 @@ Test::MyInterfacePrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test::UserError::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UserError";
-    return typeId;
+    return "::Test::UserError";
 }
 
-::std::string
-Test::UserError::ice_id() const
+const char*
+Test::UserError::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

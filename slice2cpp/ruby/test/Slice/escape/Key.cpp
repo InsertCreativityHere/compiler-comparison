@@ -261,17 +261,16 @@ BEGIN::display::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 BEGIN::next::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::BEGIN::next";
-    return typeId;
+    return "::BEGIN::next";
 }
 
-::std::string
-BEGIN::next::ice_id() const
+const char*
+BEGIN::next::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -296,17 +295,16 @@ BEGIN::next::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 BEGIN::nil::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::BEGIN::nil";
-    return typeId;
+    return "::BEGIN::nil";
 }
 
-::std::string
-BEGIN::nil::ice_id() const
+const char*
+BEGIN::nil::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

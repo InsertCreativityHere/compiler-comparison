@@ -630,17 +630,16 @@ Test::TestIntfPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test::Base::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Base";
-    return typeId;
+    return "::Test::Base";
 }
 
-::std::string
-Test::Base::ice_id() const
+const char*
+Test::Base::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -665,17 +664,16 @@ Test::Base::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::KnownDerived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::KnownDerived";
-    return typeId;
+    return "::Test::KnownDerived";
 }
 
-::std::string
-Test::KnownDerived::ice_id() const
+const char*
+Test::KnownDerived::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -702,17 +700,16 @@ Test::KnownDerived::_readImpl(::Ice::InputStream* istr)
     Base::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::KnownIntermediate::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::KnownIntermediate";
-    return typeId;
+    return "::Test::KnownIntermediate";
 }
 
-::std::string
-Test::KnownIntermediate::ice_id() const
+const char*
+Test::KnownIntermediate::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -739,17 +736,16 @@ Test::KnownIntermediate::_readImpl(::Ice::InputStream* istr)
     Base::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::KnownMostDerived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::KnownMostDerived";
-    return typeId;
+    return "::Test::KnownMostDerived";
 }
 
-::std::string
-Test::KnownMostDerived::ice_id() const
+const char*
+Test::KnownMostDerived::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -776,17 +772,16 @@ Test::KnownMostDerived::_readImpl(::Ice::InputStream* istr)
     KnownIntermediate::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::UnknownDerived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UnknownDerived";
-    return typeId;
+    return "::Test::UnknownDerived";
 }
 
-::std::string
-Test::UnknownDerived::ice_id() const
+const char*
+Test::UnknownDerived::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -813,17 +808,16 @@ Test::UnknownDerived::_readImpl(::Ice::InputStream* istr)
     Base::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::UnknownIntermediate::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UnknownIntermediate";
-    return typeId;
+    return "::Test::UnknownIntermediate";
 }
 
-::std::string
-Test::UnknownIntermediate::ice_id() const
+const char*
+Test::UnknownIntermediate::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -850,17 +844,16 @@ Test::UnknownIntermediate::_readImpl(::Ice::InputStream* istr)
     Base::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::UnknownMostDerived1::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UnknownMostDerived1";
-    return typeId;
+    return "::Test::UnknownMostDerived1";
 }
 
-::std::string
-Test::UnknownMostDerived1::ice_id() const
+const char*
+Test::UnknownMostDerived1::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -887,17 +880,16 @@ Test::UnknownMostDerived1::_readImpl(::Ice::InputStream* istr)
     KnownIntermediate::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::UnknownMostDerived2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UnknownMostDerived2";
-    return typeId;
+    return "::Test::UnknownMostDerived2";
 }
 
-::std::string
-Test::UnknownMostDerived2::ice_id() const
+const char*
+Test::UnknownMostDerived2::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

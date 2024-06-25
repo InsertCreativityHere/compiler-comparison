@@ -495,17 +495,16 @@ abstract::optionalMembers::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 abstract::fixed::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::fixed";
-    return typeId;
+    return "::abstract::fixed";
 }
 
-::std::string
-abstract::fixed::ice_id() const
+const char*
+abstract::fixed::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -530,17 +529,16 @@ abstract::fixed::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 abstract::foreach::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::foreach";
-    return typeId;
+    return "::abstract::foreach";
 }
 
-::std::string
-abstract::foreach::ice_id() const
+const char*
+abstract::foreach::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -567,17 +565,16 @@ abstract::foreach::_readImpl(::Ice::InputStream* istr)
     fixed::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 abstract::BaseMethods::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::BaseMethods";
-    return typeId;
+    return "::abstract::BaseMethods";
 }
 
-::std::string
-abstract::BaseMethods::ice_id() const
+const char*
+abstract::BaseMethods::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

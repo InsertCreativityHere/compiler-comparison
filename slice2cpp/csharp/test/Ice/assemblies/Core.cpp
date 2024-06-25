@@ -42,17 +42,16 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Core::ArgumentException> iceC_Core_ArgumentException_init("::Core::ArgumentException");
 }
 
-::std::string_view
+const char*
 Core::ArgumentException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Core::ArgumentException";
-    return typeId;
+    return "::Core::ArgumentException";
 }
 
-::std::string
-Core::ArgumentException::ice_id() const
+const char*
+Core::ArgumentException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

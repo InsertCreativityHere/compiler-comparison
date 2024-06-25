@@ -42,17 +42,16 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedEx> iceC_Test_DerivedEx_init("::Test::DerivedEx");
 }
 
-::std::string_view
+const char*
 Test::DerivedEx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::DerivedEx";
-    return typeId;
+    return "::Test::DerivedEx";
 }
 
-::std::string
-Test::DerivedEx::ice_id() const
+const char*
+Test::DerivedEx::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

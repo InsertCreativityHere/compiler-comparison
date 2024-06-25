@@ -191,17 +191,16 @@ Test::MyClassPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test::MyException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyException";
-    return typeId;
+    return "::Test::MyException";
 }
 
-::std::string
-Test::MyException::ice_id() const
+const char*
+Test::MyException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

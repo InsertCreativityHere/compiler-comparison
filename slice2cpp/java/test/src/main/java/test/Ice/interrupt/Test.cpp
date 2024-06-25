@@ -315,17 +315,16 @@ Test::TestIntfControllerPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test::InterruptedException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::InterruptedException";
-    return typeId;
+    return "::Test::InterruptedException";
 }
 
-::std::string
-Test::InterruptedException::ice_id() const
+const char*
+Test::InterruptedException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -348,17 +347,16 @@ Test::InterruptedException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::CannotInterruptException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::CannotInterruptException";
-    return typeId;
+    return "::Test::CannotInterruptException";
 }
 
-::std::string
-Test::CannotInterruptException::ice_id() const
+const char*
+Test::CannotInterruptException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

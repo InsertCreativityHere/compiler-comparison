@@ -374,17 +374,16 @@ IceMX::Metrics::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceMX::UnknownMetricsView::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::UnknownMetricsView";
-    return typeId;
+    return "::IceMX::UnknownMetricsView";
 }
 
-::std::string
-IceMX::UnknownMetricsView::ice_id() const
+const char*
+IceMX::UnknownMetricsView::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

@@ -197,17 +197,16 @@ IceStorm::TopicManagerInternalPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 IceStorm::ReapWouldBlock::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::ReapWouldBlock";
-    return typeId;
+    return "::IceStorm::ReapWouldBlock";
 }
 
-::std::string
-IceStorm::ReapWouldBlock::ice_id() const
+const char*
+IceStorm::ReapWouldBlock::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

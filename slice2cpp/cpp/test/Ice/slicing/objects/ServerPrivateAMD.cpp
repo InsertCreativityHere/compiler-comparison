@@ -195,17 +195,16 @@ Test::D4::_iceReadImpl(::Ice::InputStream* istr)
     B::_iceReadImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::UnknownDerivedException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UnknownDerivedException";
-    return typeId;
+    return "::Test::UnknownDerivedException";
 }
 
-::std::string
-Test::UnknownDerivedException::ice_id() const
+const char*
+Test::UnknownDerivedException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

@@ -117,17 +117,16 @@ WithNamespace::C2::_iceReadImpl(::Ice::InputStream* istr)
     C1::_iceReadImpl(istr);
 }
 
-::std::string_view
+const char*
 WithNamespace::E1::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::WithNamespace::E1";
-    return typeId;
+    return "::WithNamespace::E1";
 }
 
-::std::string
-WithNamespace::E1::ice_id() const
+const char*
+WithNamespace::E1::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -152,17 +151,16 @@ WithNamespace::E1::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 WithNamespace::E2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::WithNamespace::E2";
-    return typeId;
+    return "::WithNamespace::E2";
 }
 
-::std::string
-WithNamespace::E2::ice_id() const
+const char*
+WithNamespace::E2::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

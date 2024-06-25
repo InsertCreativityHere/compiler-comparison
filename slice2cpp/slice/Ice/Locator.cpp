@@ -366,17 +366,16 @@ Ice::LocatorFinderPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Ice::AdapterNotFoundException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::AdapterNotFoundException";
-    return typeId;
+    return "::Ice::AdapterNotFoundException";
 }
 
-::std::string
-Ice::AdapterNotFoundException::ice_id() const
+const char*
+Ice::AdapterNotFoundException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -399,17 +398,16 @@ Ice::AdapterNotFoundException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Ice::InvalidReplicaGroupIdException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::InvalidReplicaGroupIdException";
-    return typeId;
+    return "::Ice::InvalidReplicaGroupIdException";
 }
 
-::std::string
-Ice::InvalidReplicaGroupIdException::ice_id() const
+const char*
+Ice::InvalidReplicaGroupIdException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -432,17 +430,16 @@ Ice::InvalidReplicaGroupIdException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Ice::AdapterAlreadyActiveException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::AdapterAlreadyActiveException";
-    return typeId;
+    return "::Ice::AdapterAlreadyActiveException";
 }
 
-::std::string
-Ice::AdapterAlreadyActiveException::ice_id() const
+const char*
+Ice::AdapterAlreadyActiveException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -465,17 +462,16 @@ Ice::AdapterAlreadyActiveException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Ice::ObjectNotFoundException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::ObjectNotFoundException";
-    return typeId;
+    return "::Ice::ObjectNotFoundException";
 }
 
-::std::string
-Ice::ObjectNotFoundException::ice_id() const
+const char*
+Ice::ObjectNotFoundException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -498,17 +494,16 @@ Ice::ObjectNotFoundException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Ice::ServerNotFoundException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::ServerNotFoundException";
-    return typeId;
+    return "::Ice::ServerNotFoundException";
 }
 
-::std::string
-Ice::ServerNotFoundException::ice_id() const
+const char*
+Ice::ServerNotFoundException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

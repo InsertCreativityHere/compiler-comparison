@@ -382,17 +382,16 @@ Test::ControllerPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Test::UserEx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UserEx";
-    return typeId;
+    return "::Test::UserEx";
 }
 
-::std::string
-Test::UserEx::ice_id() const
+const char*
+Test::UserEx::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

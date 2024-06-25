@@ -726,17 +726,16 @@ Test::Common::OptionOverrides::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::Common::TestCaseNotExistException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Common::TestCaseNotExistException";
-    return typeId;
+    return "::Test::Common::TestCaseNotExistException";
 }
 
-::std::string
-Test::Common::TestCaseNotExistException::ice_id() const
+const char*
+Test::Common::TestCaseNotExistException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -761,17 +760,16 @@ Test::Common::TestCaseNotExistException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::Common::TestCaseFailedException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Common::TestCaseFailedException";
-    return typeId;
+    return "::Test::Common::TestCaseFailedException";
 }
 
-::std::string
-Test::Common::TestCaseFailedException::ice_id() const
+const char*
+Test::Common::TestCaseFailedException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -796,17 +794,16 @@ Test::Common::TestCaseFailedException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 Test::Common::ProcessFailedException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Common::ProcessFailedException";
-    return typeId;
+    return "::Test::Common::ProcessFailedException";
 }
 
-::std::string
-Test::Common::ProcessFailedException::ice_id() const
+const char*
+Test::Common::ProcessFailedException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

@@ -365,9 +365,9 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEBOX_API) static ::std::string_view ice_staticId() noexcept;
+    ICE_MEMBER(ICEBOX_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEBOX_API) ::std::string ice_id() const override;
+    ICE_MEMBER(ICEBOX_API) const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEBOX_API) void ice_throw() const override;
 
@@ -394,9 +394,9 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEBOX_API) static ::std::string_view ice_staticId() noexcept;
+    ICE_MEMBER(ICEBOX_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEBOX_API) ::std::string ice_id() const override;
+    ICE_MEMBER(ICEBOX_API) const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEBOX_API) void ice_throw() const override;
 
@@ -419,9 +419,9 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEBOX_API) static ::std::string_view ice_staticId() noexcept;
+    ICE_MEMBER(ICEBOX_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEBOX_API) ::std::string ice_id() const override;
+    ICE_MEMBER(ICEBOX_API) const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEBOX_API) void ice_throw() const override;
 

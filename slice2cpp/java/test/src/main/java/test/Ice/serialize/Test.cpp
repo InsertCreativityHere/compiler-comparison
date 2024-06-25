@@ -238,17 +238,16 @@ Test::Derived::_iceReadImpl(::Ice::InputStream* istr)
     Base::_iceReadImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::Ex::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Ex";
-    return typeId;
+    return "::Test::Ex";
 }
 
-::std::string
-Test::Ex::ice_id() const
+const char*
+Test::Ex::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

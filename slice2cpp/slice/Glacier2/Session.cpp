@@ -531,17 +531,16 @@ Glacier2::SSLSessionManagerPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 Glacier2::CannotCreateSessionException::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::CannotCreateSessionException";
-    return typeId;
+    return "::Glacier2::CannotCreateSessionException";
 }
 
-::std::string
-Glacier2::CannotCreateSessionException::ice_id() const
+const char*
+Glacier2::CannotCreateSessionException::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

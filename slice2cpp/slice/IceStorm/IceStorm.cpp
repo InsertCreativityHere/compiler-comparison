@@ -567,17 +567,16 @@ IceStorm::FinderPrx::ice_staticId() noexcept
     return typeId;
 }
 
-::std::string_view
+const char*
 IceStorm::LinkExists::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::LinkExists";
-    return typeId;
+    return "::IceStorm::LinkExists";
 }
 
-::std::string
-IceStorm::LinkExists::ice_id() const
+const char*
+IceStorm::LinkExists::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -602,17 +601,16 @@ IceStorm::LinkExists::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceStorm::NoSuchLink::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::NoSuchLink";
-    return typeId;
+    return "::IceStorm::NoSuchLink";
 }
 
-::std::string
-IceStorm::NoSuchLink::ice_id() const
+const char*
+IceStorm::NoSuchLink::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -637,17 +635,16 @@ IceStorm::NoSuchLink::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceStorm::AlreadySubscribed::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::AlreadySubscribed";
-    return typeId;
+    return "::IceStorm::AlreadySubscribed";
 }
 
-::std::string
-IceStorm::AlreadySubscribed::ice_id() const
+const char*
+IceStorm::AlreadySubscribed::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -670,17 +667,16 @@ IceStorm::AlreadySubscribed::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceStorm::InvalidSubscriber::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::InvalidSubscriber";
-    return typeId;
+    return "::IceStorm::InvalidSubscriber";
 }
 
-::std::string
-IceStorm::InvalidSubscriber::ice_id() const
+const char*
+IceStorm::InvalidSubscriber::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -705,17 +701,16 @@ IceStorm::InvalidSubscriber::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceStorm::BadQoS::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::BadQoS";
-    return typeId;
+    return "::IceStorm::BadQoS";
 }
 
-::std::string
-IceStorm::BadQoS::ice_id() const
+const char*
+IceStorm::BadQoS::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -740,17 +735,16 @@ IceStorm::BadQoS::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceStorm::TopicExists::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::TopicExists";
-    return typeId;
+    return "::IceStorm::TopicExists";
 }
 
-::std::string
-IceStorm::TopicExists::ice_id() const
+const char*
+IceStorm::TopicExists::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -775,17 +769,16 @@ IceStorm::TopicExists::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string_view
+const char*
 IceStorm::NoSuchTopic::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::NoSuchTopic";
-    return typeId;
+    return "::IceStorm::NoSuchTopic";
 }
 
-::std::string
-IceStorm::NoSuchTopic::ice_id() const
+const char*
+IceStorm::NoSuchTopic::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void

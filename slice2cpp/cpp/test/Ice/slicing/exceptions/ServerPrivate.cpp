@@ -45,17 +45,16 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownMostDerived2> iceC_Test_UnknownMostDerived2_init("::Test::UnknownMostDerived2");
 }
 
-::std::string_view
+const char*
 Test::UnknownDerived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UnknownDerived";
-    return typeId;
+    return "::Test::UnknownDerived";
 }
 
-::std::string
-Test::UnknownDerived::ice_id() const
+const char*
+Test::UnknownDerived::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -82,17 +81,16 @@ Test::UnknownDerived::_readImpl(::Ice::InputStream* istr)
     Base::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::UnknownIntermediate::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UnknownIntermediate";
-    return typeId;
+    return "::Test::UnknownIntermediate";
 }
 
-::std::string
-Test::UnknownIntermediate::ice_id() const
+const char*
+Test::UnknownIntermediate::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -119,17 +117,16 @@ Test::UnknownIntermediate::_readImpl(::Ice::InputStream* istr)
     Base::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::UnknownMostDerived1::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UnknownMostDerived1";
-    return typeId;
+    return "::Test::UnknownMostDerived1";
 }
 
-::std::string
-Test::UnknownMostDerived1::ice_id() const
+const char*
+Test::UnknownMostDerived1::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
@@ -156,17 +153,16 @@ Test::UnknownMostDerived1::_readImpl(::Ice::InputStream* istr)
     KnownIntermediate::_readImpl(istr);
 }
 
-::std::string_view
+const char*
 Test::UnknownMostDerived2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UnknownMostDerived2";
-    return typeId;
+    return "::Test::UnknownMostDerived2";
 }
 
-::std::string
-Test::UnknownMostDerived2::ice_id() const
+const char*
+Test::UnknownMostDerived2::ice_id() const noexcept
 {
-    return ::std::string{ice_staticId()};
+    return ice_staticId();
 }
 
 void
