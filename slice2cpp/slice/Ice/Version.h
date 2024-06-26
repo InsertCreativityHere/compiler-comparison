@@ -16,7 +16,7 @@
 #ifndef __Version_h__
 #define __Version_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Config.h>
 #include <Ice/Comparable.h>
 #include <cstdint>
@@ -95,5 +95,5 @@ using Ice::operator!=;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

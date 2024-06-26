@@ -16,7 +16,7 @@
 #ifndef __LinkRecord_h__
 #define __LinkRecord_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/Identity.h>
 #include "IceStormInternal.h"
@@ -97,5 +97,5 @@ struct StreamReader<::IceStorm::LinkRecord>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

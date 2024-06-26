@@ -16,7 +16,7 @@
 #ifndef __DBTypes_h__
 #define __DBTypes_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "SubscriberRecord.h"
 #include "LLURecord.h"
@@ -92,5 +92,5 @@ struct StreamReader<::IceStorm::AllData>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

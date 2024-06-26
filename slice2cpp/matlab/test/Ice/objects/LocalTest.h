@@ -16,7 +16,7 @@
 #ifndef __LocalTest_h__
 #define __LocalTest_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -923,5 +923,5 @@ struct StreamReader<::LocalTest::StructKey>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

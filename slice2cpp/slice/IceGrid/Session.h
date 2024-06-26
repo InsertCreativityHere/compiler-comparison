@@ -16,7 +16,7 @@
 #ifndef __Session_h__
 #define __Session_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "../Glacier2/Session.h"
 #include "Exception.h"
@@ -421,5 +421,5 @@ using SessionPtr = ::std::shared_ptr<Session>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

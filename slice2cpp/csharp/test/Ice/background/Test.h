@@ -16,7 +16,7 @@
 #ifndef __Test_h__
 #define __Test_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/BuiltinSequences.h>
 
@@ -422,5 +422,5 @@ using BackgroundControllerPtr = ::std::shared_ptr<BackgroundController>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

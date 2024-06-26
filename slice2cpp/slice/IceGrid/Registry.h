@@ -16,7 +16,7 @@
 #ifndef __Registry_h__
 #define __Registry_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "Exception.h"
 #include "Session.h"
@@ -971,5 +971,5 @@ struct StreamableTraits< ::IceGrid::LoadSample>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

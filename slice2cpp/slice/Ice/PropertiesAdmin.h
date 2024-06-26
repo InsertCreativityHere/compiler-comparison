@@ -16,7 +16,7 @@
 #ifndef __PropertiesAdmin_h__
 #define __PropertiesAdmin_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "PropertyDict.h"
 
@@ -286,5 +286,5 @@ using PropertiesAdminPtr = ::std::shared_ptr<PropertiesAdmin>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

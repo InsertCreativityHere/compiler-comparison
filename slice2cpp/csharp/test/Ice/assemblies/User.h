@@ -16,7 +16,7 @@
 #ifndef __User_h__
 #define __User_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "Core.h"
 
@@ -192,5 +192,5 @@ namespace Ice
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

@@ -16,7 +16,7 @@
 #ifndef __Identity_h__
 #define __Identity_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Config.h>
 #include <Ice/Comparable.h>
 #include <Ice/StreamHelpers.h>
@@ -115,5 +115,5 @@ struct StreamReader<::Ice::Identity>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

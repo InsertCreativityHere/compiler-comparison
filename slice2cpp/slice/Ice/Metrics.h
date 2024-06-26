@@ -16,7 +16,7 @@
 #ifndef __Metrics_h__
 #define __Metrics_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "BuiltinSequences.h"
 
@@ -1257,5 +1257,5 @@ struct StreamReader<::IceMX::ConnectionMetrics>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

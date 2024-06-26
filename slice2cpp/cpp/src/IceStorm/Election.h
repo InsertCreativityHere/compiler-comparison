@@ -16,7 +16,7 @@
 #ifndef __Election_h__
 #define __Election_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/Identity.h>
 #include <Ice/BuiltinSequences.h>
@@ -1292,5 +1292,5 @@ struct StreamReader<::IceStormElection::QueryInfo>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

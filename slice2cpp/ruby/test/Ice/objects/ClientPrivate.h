@@ -16,7 +16,7 @@
 #ifndef __ClientPrivate_h__
 #define __ClientPrivate_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -534,5 +534,5 @@ struct StreamReader<::Test::STwoMembers>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

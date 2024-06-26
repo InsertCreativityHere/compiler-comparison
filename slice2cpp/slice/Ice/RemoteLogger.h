@@ -16,7 +16,7 @@
 #ifndef __RemoteLogger_h__
 #define __RemoteLogger_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "BuiltinSequences.h"
 #include <list>
@@ -660,5 +660,5 @@ struct StreamReader<::Ice::LogMessage>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

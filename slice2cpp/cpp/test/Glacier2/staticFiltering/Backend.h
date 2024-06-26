@@ -16,7 +16,7 @@
 #ifndef __Backend_h__
 #define __Backend_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -142,5 +142,5 @@ using BackendPtr = ::std::shared_ptr<Backend>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

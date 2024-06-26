@@ -16,7 +16,7 @@
 #ifndef __TestAMD_h__
 #define __TestAMD_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/Context.h>
 
@@ -271,5 +271,5 @@ using MyDerivedClassPtr = ::std::shared_ptr<MyDerivedClass>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

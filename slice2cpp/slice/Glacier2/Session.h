@@ -16,7 +16,7 @@
 #ifndef __Session_h__
 #define __Session_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "../Ice/BuiltinSequences.h"
 #include "../Ice/Identity.h"
@@ -1308,5 +1308,5 @@ struct StreamReader<::Glacier2::CannotCreateSessionException>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

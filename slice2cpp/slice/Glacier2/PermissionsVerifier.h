@@ -16,7 +16,7 @@
 #ifndef __PermissionsVerifier_h__
 #define __PermissionsVerifier_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "SSLInfo.h"
 #include <Glacier2/Config.h>
@@ -420,5 +420,5 @@ struct StreamReader<::Glacier2::PermissionDeniedException>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

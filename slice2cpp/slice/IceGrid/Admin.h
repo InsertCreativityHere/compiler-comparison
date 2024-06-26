@@ -16,7 +16,7 @@
 #ifndef __Admin_h__
 #define __Admin_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "../Ice/Identity.h"
 #include "../Ice/BuiltinSequences.h"
@@ -5416,5 +5416,5 @@ struct StreamReader<::IceGrid::NodeDynamicInfo>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

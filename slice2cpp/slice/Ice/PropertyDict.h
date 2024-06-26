@@ -16,7 +16,7 @@
 #ifndef __PropertyDict_h__
 #define __PropertyDict_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Config.h>
 #include <map>
 #include <string>
@@ -48,5 +48,5 @@ namespace Ice
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

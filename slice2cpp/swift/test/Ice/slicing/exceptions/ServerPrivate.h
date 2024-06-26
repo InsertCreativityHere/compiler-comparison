@@ -16,7 +16,7 @@
 #ifndef __ServerPrivate_h__
 #define __ServerPrivate_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "Test.h"
 
@@ -282,5 +282,5 @@ struct StreamReader<::Test::UnknownMostDerived2>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

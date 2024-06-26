@@ -16,7 +16,7 @@
 #ifndef __ServiceManager_h__
 #define __ServiceManager_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "../Ice/BuiltinSequences.h"
 #include <IceBox/Config.h>
@@ -582,5 +582,5 @@ namespace Ice
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

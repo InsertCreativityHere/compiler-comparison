@@ -121,13 +121,13 @@ Ice.defineOperations(
         "getCategoryForClient": [, 2, , [7], , , , , ],
         "createSession": [, , 2, ["Glacier2.SessionPrx"], [[7], [7]], ,
         [
-            Glacier2.CannotCreateSessionException,
-            Glacier2.PermissionDeniedException
+            Glacier2.PermissionDeniedException,
+            Glacier2.CannotCreateSessionException
         ], , ],
         "createSessionFromSecureConnection": [, , 2, ["Glacier2.SessionPrx"], , ,
         [
-            Glacier2.CannotCreateSessionException,
-            Glacier2.PermissionDeniedException
+            Glacier2.PermissionDeniedException,
+            Glacier2.CannotCreateSessionException
         ], , ],
         "refreshSession": [, , , , , ,
         [

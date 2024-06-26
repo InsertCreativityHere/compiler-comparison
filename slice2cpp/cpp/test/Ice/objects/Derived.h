@@ -16,7 +16,7 @@
 #ifndef __Derived_h__
 #define __Derived_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "Test.h"
 #include "Forward.h"
@@ -118,5 +118,5 @@ struct StreamReader<::Test::Derived>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

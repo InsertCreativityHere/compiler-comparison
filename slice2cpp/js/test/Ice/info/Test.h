@@ -16,7 +16,7 @@
 #ifndef __Test_h__
 #define __Test_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/Context.h>
 
@@ -175,5 +175,5 @@ using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

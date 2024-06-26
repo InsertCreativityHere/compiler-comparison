@@ -16,7 +16,7 @@
 #ifndef __Callback_h__
 #define __Callback_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/BuiltinSequences.h>
 
@@ -294,5 +294,5 @@ using CallbackPtr = ::std::shared_ptr<Callback>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

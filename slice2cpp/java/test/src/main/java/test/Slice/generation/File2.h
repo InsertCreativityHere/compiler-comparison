@@ -16,7 +16,7 @@
 #ifndef __File2_h__
 #define __File2_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -142,5 +142,5 @@ using Interface2Ptr = ::std::shared_ptr<Interface2>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

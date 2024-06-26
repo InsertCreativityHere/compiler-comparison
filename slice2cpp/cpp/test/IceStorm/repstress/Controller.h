@@ -16,7 +16,7 @@
 #ifndef __Controller_h__
 #define __Controller_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -142,5 +142,5 @@ using ControllerPtr = ::std::shared_ptr<Controller>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

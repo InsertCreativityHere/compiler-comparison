@@ -16,7 +16,7 @@
 #ifndef __TestAMD_h__
 #define __TestAMD_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -294,5 +294,5 @@ using MyClassPtr = ::std::shared_ptr<MyClass>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

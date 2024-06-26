@@ -16,7 +16,7 @@
 #ifndef __Process_h__
 #define __Process_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -234,5 +234,5 @@ using ProcessPtr = ::std::shared_ptr<Process>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

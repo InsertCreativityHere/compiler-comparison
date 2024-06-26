@@ -16,7 +16,7 @@
 #ifndef __Key_h__
 #define __Key_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -1239,5 +1239,5 @@ struct StreamReader<::await::BaseMethods>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

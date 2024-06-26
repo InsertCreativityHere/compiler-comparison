@@ -16,7 +16,7 @@
 #ifndef __IceDiscovery_h__
 #define __IceDiscovery_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/Identity.h>
 
@@ -438,5 +438,5 @@ using LookupPtr = ::std::shared_ptr<Lookup>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

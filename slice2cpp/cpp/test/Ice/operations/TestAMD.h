@@ -16,7 +16,7 @@
 #ifndef __TestAMD_h__
 #define __TestAMD_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/Context.h>
 
@@ -1969,5 +1969,5 @@ struct StreamReader<::Test::MyClass1>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

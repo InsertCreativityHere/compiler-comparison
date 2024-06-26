@@ -16,7 +16,7 @@
 #ifndef __Test_h__
 #define __Test_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/BuiltinSequences.h>
 
@@ -763,5 +763,5 @@ struct StreamReader<::Test2::Sub2::NestedException2>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

@@ -16,7 +16,7 @@
 #ifndef __EndpointTypes_h__
 #define __EndpointTypes_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Config.h>
 #include <cstdint>
 
@@ -85,5 +85,5 @@ namespace Ice
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

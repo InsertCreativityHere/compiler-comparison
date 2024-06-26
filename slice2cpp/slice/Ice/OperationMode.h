@@ -16,7 +16,7 @@
 #ifndef __OperationMode_h__
 #define __OperationMode_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Config.h>
 #include <Ice/StreamHelpers.h>
 
@@ -85,5 +85,5 @@ struct StreamableTraits< ::Ice::OperationMode>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

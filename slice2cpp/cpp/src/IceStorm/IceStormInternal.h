@@ -16,7 +16,7 @@
 #ifndef __IceStormInternal_h__
 #define __IceStormInternal_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <IceStorm/IceStorm.h>
 #include "Election.h"
@@ -612,5 +612,5 @@ struct StreamReader<::IceStorm::EventData>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

@@ -16,7 +16,7 @@
 #ifndef __WstringAMD_h__
 #define __WstringAMD_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -537,5 +537,5 @@ struct StreamReader<::Test2::WstringException>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

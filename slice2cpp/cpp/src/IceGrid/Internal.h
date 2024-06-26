@@ -16,7 +16,7 @@
 #ifndef __Internal_h__
 #define __Internal_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/Identity.h>
 #include <Ice/BuiltinSequences.h>
@@ -3662,5 +3662,5 @@ struct StreamReader<::IceGrid::InternalReplicaInfo>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

@@ -16,7 +16,7 @@
 #ifndef __FileParser_h__
 #define __FileParser_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "Admin.h"
 #include <IceGrid/Config.h>
@@ -268,5 +268,5 @@ struct StreamReader<::IceGrid::ParseException>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

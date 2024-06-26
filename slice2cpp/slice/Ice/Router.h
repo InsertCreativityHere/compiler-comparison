@@ -16,7 +16,7 @@
 #ifndef __Router_h__
 #define __Router_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "BuiltinSequences.h"
 
@@ -418,5 +418,5 @@ using RouterFinderPtr = ::std::shared_ptr<RouterFinder>;
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

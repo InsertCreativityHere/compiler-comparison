@@ -16,7 +16,7 @@
 #ifndef __Callback_h__
 #define __Callback_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -360,5 +360,5 @@ struct StreamReader<::Test::CallbackException>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

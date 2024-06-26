@@ -16,7 +16,7 @@
 #ifndef __Test_h__
 #define __Test_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/PropertyDict.h>
 
@@ -413,5 +413,5 @@ using RemoteCommunicatorFactoryPtr = ::std::shared_ptr<RemoteCommunicatorFactory
 
 }
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif

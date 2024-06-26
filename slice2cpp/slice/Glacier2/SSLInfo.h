@@ -16,7 +16,7 @@
 #ifndef __SSLInfo_h__
 #define __SSLInfo_h__
 
-#include <IceUtil/PushDisableWarnings.h>
+#include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include "../Ice/BuiltinSequences.h"
 #include <Glacier2/Config.h>
@@ -121,5 +121,5 @@ struct StreamReader<::Glacier2::SSLInfo>
 }
 /// \endcond
 
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/PopDisableWarnings.h>
 #endif
