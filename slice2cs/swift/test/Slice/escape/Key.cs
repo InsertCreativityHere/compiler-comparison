@@ -952,9 +952,9 @@ namespace and
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class doDisp_ : Ice.ObjectImpl, @do
     {
-        public abstract global::System.Threading.Tasks.Task<int> caseAsync(int @catch, Ice.Current current);
-
         public abstract void @public(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<int> caseAsync(int @catch, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
