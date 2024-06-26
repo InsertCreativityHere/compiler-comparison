@@ -189,8 +189,8 @@ Ice.defineOperations(
         ], , ],
         "stopService": [, , , , [[7]], ,
         [
-            IceBox.AlreadyStoppedException,
-            IceBox.NoSuchServiceException
+            IceBox.NoSuchServiceException,
+            IceBox.AlreadyStoppedException
         ], , ],
         "addObserver": [, , , , [["IceBox.ServiceObserverPrx"]], , , , ],
         "shutdown": [, , , , , , , , ]
