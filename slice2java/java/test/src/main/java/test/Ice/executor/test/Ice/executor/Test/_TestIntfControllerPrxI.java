@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package test.Ice.dispatcher.Test;
+package test.Ice.executor.Test;
 
 /** @hidden */
 public class _TestIntfControllerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestIntfControllerPrx> implements TestIntfControllerPrx

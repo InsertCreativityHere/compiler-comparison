@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package test.Ice.dispatcher.Test;
+package test.Ice.executor.Test;
 
 public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
 {
