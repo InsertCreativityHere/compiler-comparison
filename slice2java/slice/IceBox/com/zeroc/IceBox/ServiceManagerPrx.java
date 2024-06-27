@@ -29,8 +29,8 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
      * @throws NoSuchServiceException If no service could be found with the given name.
      **/
     default void startService(String service)
-        throws AlreadyStartedException,
-               NoSuchServiceException
+        throws NoSuchServiceException,
+               AlreadyStartedException
     {
         startService(service, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -43,18 +43,18 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
      * @throws NoSuchServiceException If no service could be found with the given name.
      **/
     default void startService(String service, java.util.Map<String, String> context)
-        throws AlreadyStartedException,
-               NoSuchServiceException
+        throws NoSuchServiceException,
+               AlreadyStartedException
     {
         try
         {
             _iceI_startServiceAsync(service, context, true).waitForResponseOrUserEx();
         }
-        catch(AlreadyStartedException ex)
+        catch(NoSuchServiceException ex)
         {
             throw ex;
         }
-        catch(NoSuchServiceException ex)
+        catch(AlreadyStartedException ex)
         {
             throw ex;
         }
@@ -104,8 +104,8 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_startService =
     {
-        AlreadyStartedException.class,
-        NoSuchServiceException.class
+        NoSuchServiceException.class,
+        AlreadyStartedException.class
     };
 
     /**
