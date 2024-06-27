@@ -369,7 +369,7 @@ public class _package extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5816963687848975485L;
+    private static final long serialVersionUID = -7827811960631535714L;
 
     /** @hidden */
     @Override
@@ -408,9 +408,9 @@ public class _package extends com.zeroc.Ice.Value
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
         istr_.startSlice();
-        if(_for = istr_.readOptional(1, com.zeroc.Ice.OptionalFormat.VSize))
+        if(_for = istr_.readOptional(1, com.zeroc.Ice.OptionalFormat.FSize))
         {
-            istr_.skipSize();
+            istr_.skip(4);
             _for = _break.ice_read(istr_);
         }
         if(_goto = istr_.readOptional(2, com.zeroc.Ice.OptionalFormat.Size))

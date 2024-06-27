@@ -29,7 +29,7 @@ and.xor = class
     constructor(abstract = 0, clone = 0, _private = 0, _protected = 0, _public = 0, _this = 0, _throw = 0, use = 0, _var = 0)
     {
         this.abstract = abstract;
-        this.clone = clone;
+        this._clone = clone;
         this._private = _private;
         this._protected = _protected;
         this._public = _public;
@@ -42,7 +42,7 @@ and.xor = class
     _write(ostr)
     {
         ostr.writeInt(this.abstract);
-        ostr.writeInt(this.clone);
+        ostr.writeInt(this._clone);
         ostr.writeInt(this._private);
         ostr.writeInt(this._protected);
         ostr.writeInt(this._public);
@@ -55,7 +55,7 @@ and.xor = class
     _read(istr)
     {
         this.abstract = istr.readInt();
-        this.clone = istr.readInt();
+        this._clone = istr.readInt();
         this._private = istr.readInt();
         this._protected = istr.readInt();
         this._public = istr.readInt();

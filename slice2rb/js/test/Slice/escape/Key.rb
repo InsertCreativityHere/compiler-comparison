@@ -69,19 +69,31 @@ module ::Await
     if not defined?(::Await::Break)
         class Break
             include ::Ice::Inspect_mixin
-            def initialize(_while=0)
+            def initialize(_while=0, _clone='', equals='', hashCode='', constructor='')
                 @_while = _while
+                @_clone = _clone
+                @equals = equals
+                @hashCode = hashCode
+                @constructor = constructor
             end
 
             def hash
                 _h = 0
                 _h = 5 * _h + @_while.hash
+                _h = 5 * _h + @_clone.hash
+                _h = 5 * _h + @equals.hash
+                _h = 5 * _h + @hashCode.hash
+                _h = 5 * _h + @constructor.hash
                 _h % 0x7fffffff
             end
 
             def ==(other)
                 return false if !other.is_a? ::Await::Break or
-                    @_while != other._while
+                    @_while != other._while or
+                    @_clone != other._clone or
+                    @equals != other.equals or
+                    @hashCode != other.hashCode or
+                    @constructor != other.constructor
                 true
             end
 
@@ -89,10 +101,16 @@ module ::Await
                 return other.class == self.class && other == self
             end
 
-            attr_accessor :_while
+            attr_accessor :_while, :_clone, :equals, :hashCode, :constructor
         end
 
-        T_Break = ::Ice::__defineStruct('::await::break', Break, [["_while", ::Ice::T_int]])
+        T_Break = ::Ice::__defineStruct('::await::break', Break, [
+            ["_while", ::Ice::T_int],
+            ["_clone", ::Ice::T_string],
+            ["equals", ::Ice::T_string],
+            ["hashCode", ::Ice::T_string],
+            ["constructor", ::Ice::T_string]
+        ])
     end
 
     if not defined?(::Await::Case_Mixin)
@@ -153,13 +171,17 @@ module ::Await
         end
         class Delete < ::Ice::Value
 
-            def initialize(_if=0, _else=nil, export=0)
+            def initialize(_if=0, _else=nil, export=0, _clone='', equals='', hashCode='', constructor='')
                 @_if = _if
                 @_else = _else
                 @export = export
+                @_clone = _clone
+                @equals = equals
+                @hashCode = hashCode
+                @constructor = constructor
             end
 
-            attr_accessor :_if, :_else, :export
+            attr_accessor :_if, :_else, :export, :_clone, :equals, :hashCode, :constructor
         end
 
         if not defined?(::Await::T_Delete)
@@ -169,7 +191,11 @@ module ::Await
         T_Delete.defineClass(Delete, -1, false, nil, [
             ['_if', ::Ice::T_int, false, 0],
             ['_else', ::Await::T_CasePrx, false, 0],
-            ['export', ::Ice::T_int, false, 0]
+            ['export', ::Ice::T_int, false, 0],
+            ['_clone', ::Ice::T_string, false, 0],
+            ['equals', ::Ice::T_string, false, 0],
+            ['hashCode', ::Ice::T_string, false, 0],
+            ['constructor', ::Ice::T_string, false, 0]
         ])
     end
 

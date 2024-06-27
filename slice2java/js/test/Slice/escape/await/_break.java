@@ -20,13 +20,29 @@ public class _break implements java.lang.Cloneable,
 {
     public int _while;
 
+    public String _clone;
+
+    public String _equals;
+
+    public String _hashCode;
+
+    public String constructor;
+
     public _break()
     {
+        this._clone = "";
+        this._equals = "";
+        this._hashCode = "";
+        this.constructor = "";
     }
 
-    public _break(int _while)
+    public _break(int _while, String _clone, String _equals, String _hashCode, String constructor)
     {
         this._while = _while;
+        this._clone = _clone;
+        this._equals = _equals;
+        this._hashCode = _hashCode;
+        this.constructor = constructor;
     }
 
     public boolean equals(java.lang.Object rhs)
@@ -47,6 +63,34 @@ public class _break implements java.lang.Cloneable,
             {
                 return false;
             }
+            if(this._clone != r._clone)
+            {
+                if(this._clone == null || r._clone == null || !this._clone.equals(r._clone))
+                {
+                    return false;
+                }
+            }
+            if(this._equals != r._equals)
+            {
+                if(this._equals == null || r._equals == null || !this._equals.equals(r._equals))
+                {
+                    return false;
+                }
+            }
+            if(this._hashCode != r._hashCode)
+            {
+                if(this._hashCode == null || r._hashCode == null || !this._hashCode.equals(r._hashCode))
+                {
+                    return false;
+                }
+            }
+            if(this.constructor != r.constructor)
+            {
+                if(this.constructor == null || r.constructor == null || !this.constructor.equals(r.constructor))
+                {
+                    return false;
+                }
+            }
 
             return true;
         }
@@ -59,6 +103,10 @@ public class _break implements java.lang.Cloneable,
         int h_ = 5381;
         h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::await::break");
         h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _while);
+        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _clone);
+        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _equals);
+        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _hashCode);
+        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, constructor);
         return h_;
     }
 
@@ -79,11 +127,19 @@ public class _break implements java.lang.Cloneable,
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeInt(this._while);
+        ostr.writeString(this._clone);
+        ostr.writeString(this._equals);
+        ostr.writeString(this._hashCode);
+        ostr.writeString(this.constructor);
     }
 
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this._while = istr.readInt();
+        this._clone = istr.readString();
+        this._equals = istr.readString();
+        this._hashCode = istr.readString();
+        this.constructor = istr.readString();
     }
 
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, _break v)
@@ -115,18 +171,19 @@ public class _break implements java.lang.Cloneable,
 
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, _break v)
     {
-        if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
+        if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
-            ostr.writeSize(4);
+            int pos = ostr.startSize();
             ice_write(ostr, v);
+            ostr.endSize(pos);
         }
     }
 
     static public java.util.Optional<_break> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
-        if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
+        if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
-            istr.skipSize();
+            istr.skip(4);
             return java.util.Optional.of(_break.ice_read(istr));
         }
         else
@@ -138,5 +195,5 @@ public class _break implements java.lang.Cloneable,
     private static final _break _nullMarshalValue = new _break();
 
     /** @hidden */
-    private static final long serialVersionUID = 7953039401066070985L;
+    private static final long serialVersionUID = 723316558288629066L;
 }

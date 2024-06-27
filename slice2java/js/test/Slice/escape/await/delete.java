@@ -19,13 +19,21 @@ public class delete extends com.zeroc.Ice.Value
 {
     public delete()
     {
+        this._clone = "";
+        this._equals = "";
+        this._hashCode = "";
+        this.constructor = "";
     }
 
-    public delete(int _if, casePrx _else, int export)
+    public delete(int _if, casePrx _else, int export, String _clone, String _equals, String _hashCode, String constructor)
     {
         this._if = _if;
         this._else = _else;
         this.export = export;
+        this._clone = _clone;
+        this._equals = _equals;
+        this._hashCode = _hashCode;
+        this.constructor = constructor;
     }
 
     public int _if;
@@ -33,6 +41,14 @@ public class delete extends com.zeroc.Ice.Value
     public casePrx _else;
 
     public int export;
+
+    public String _clone;
+
+    public String _equals;
+
+    public String _hashCode;
+
+    public String constructor;
 
     public delete clone()
     {
@@ -51,7 +67,7 @@ public class delete extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 145910917172494173L;
+    private static final long serialVersionUID = -3553174649013943391L;
 
     /** @hidden */
     @Override
@@ -61,6 +77,10 @@ public class delete extends com.zeroc.Ice.Value
         ostr_.writeInt(_if);
         ostr_.writeProxy(_else);
         ostr_.writeInt(export);
+        ostr_.writeString(_clone);
+        ostr_.writeString(_equals);
+        ostr_.writeString(_hashCode);
+        ostr_.writeString(constructor);
         ostr_.endSlice();
     }
 
@@ -72,6 +92,10 @@ public class delete extends com.zeroc.Ice.Value
         _if = istr_.readInt();
         _else = casePrx.uncheckedCast(istr_.readProxy());
         export = istr_.readInt();
+        _clone = istr_.readString();
+        _equals = istr_.readString();
+        _hashCode = istr_.readString();
+        constructor = istr_.readString();
         istr_.endSlice();
     }
 }

@@ -54,17 +54,43 @@ namespace @await
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial record struct @break
+    public sealed partial record class @break
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int @while;
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public string ice_clone_ = "";
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public string ice_equals_ = "";
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public string hashCode = "";
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public string constructor = "";
+
         partial void ice_initialize();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @break(int @while)
+        public @break()
+        {
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public @break(int @while, string ice_clone_, string ice_equals_, string hashCode, string constructor)
         {
             this.@while = @while;
+            global::System.ArgumentNullException.ThrowIfNull(ice_clone_);
+            this.ice_clone_ = ice_clone_;
+            global::System.ArgumentNullException.ThrowIfNull(ice_equals_);
+            this.ice_equals_ = ice_equals_;
+            global::System.ArgumentNullException.ThrowIfNull(hashCode);
+            this.hashCode = hashCode;
+            global::System.ArgumentNullException.ThrowIfNull(constructor);
+            this.constructor = constructor;
             ice_initialize();
         }
 
@@ -72,6 +98,10 @@ namespace @await
         public @break(Ice.InputStream istr)
         {
             this.@while = istr.readInt();
+            this.ice_clone_ = istr.readString();
+            this.ice_equals_ = istr.readString();
+            this.hashCode = istr.readString();
+            this.constructor = istr.readString();
             ice_initialize();
         }
 
@@ -79,6 +109,10 @@ namespace @await
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeInt(this.@while);
+            ostr.writeString(this.ice_clone_);
+            ostr.writeString(this.ice_equals_);
+            ostr.writeString(this.hashCode);
+            ostr.writeString(this.constructor);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -150,14 +184,34 @@ namespace @await
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int export;
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public string ice_clone_ = "";
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public string ice_equals_ = "";
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public string hashCode = "";
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public string constructor = "";
+
         partial void ice_initialize();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delete(int @if, casePrx? @else, int export)
+        public delete(int @if, casePrx? @else, int export, string ice_clone_, string ice_equals_, string hashCode, string constructor)
         {
             this.@if = @if;
             this.@else = @else;
             this.export = export;
+            global::System.ArgumentNullException.ThrowIfNull(ice_clone_);
+            this.ice_clone_ = ice_clone_;
+            global::System.ArgumentNullException.ThrowIfNull(ice_equals_);
+            this.ice_equals_ = ice_equals_;
+            global::System.ArgumentNullException.ThrowIfNull(hashCode);
+            this.hashCode = hashCode;
+            global::System.ArgumentNullException.ThrowIfNull(constructor);
+            this.constructor = constructor;
             ice_initialize();
         }
 
@@ -187,6 +241,10 @@ namespace @await
             ostr_.writeInt(@if);
             casePrxHelper.write(ostr_, @else);
             ostr_.writeInt(export);
+            ostr_.writeString(ice_clone_);
+            ostr_.writeString(ice_equals_);
+            ostr_.writeString(hashCode);
+            ostr_.writeString(constructor);
             ostr_.endSlice();
         }
 
@@ -197,6 +255,10 @@ namespace @await
             @if = istr_.readInt();
             @else = casePrxHelper.read(istr_);
             export = istr_.readInt();
+            ice_clone_ = istr_.readString();
+            ice_equals_ = istr_.readString();
+            hashCode = istr_.readString();
+            constructor = istr_.readString();
             istr_.endSlice();
         }
     }
@@ -286,10 +348,11 @@ namespace @await
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
-            if (@for is not null && ostr_.writeOptional(1, Ice.OptionalFormat.VSize))
+            if (@for is not null && ostr_.writeOptional(1, Ice.OptionalFormat.FSize))
             {
-                ostr_.writeSize(4);
-                @for.Value.ice_writeMembers(ostr_);
+                int pos = ostr_.startSize();
+                @break.ice_write(ostr_, @for);
+                ostr_.endSize(pos);
             }
             if (@goto is not null)
             {
@@ -321,9 +384,9 @@ namespace @await
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            if (istr_.readOptional(1, Ice.OptionalFormat.VSize))
+            if (istr_.readOptional(1, Ice.OptionalFormat.FSize))
             {
-                istr_.skipSize();
+                istr_.skip(4);
                 @break tmpVal;
                 tmpVal = new @break(istr_);
                 @for = tmpVal;
@@ -1209,7 +1272,7 @@ namespace @await
                 foreach(global::System.Collections.Generic.KeyValuePair<string, @break> e in v)
                 {
                     ostr.writeString(e.Key);
-                    e.Value.ice_writeMembers(ostr);
+                    @break.ice_write(ostr, e.Value);
                 }
             }
         }
@@ -1347,9 +1410,9 @@ namespace @await
                 read: (Ice.InputStream istr) =>
                 {
                     @break? ret;
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
+                    if (istr.readOptional(1, Ice.OptionalFormat.FSize))
                     {
-                        istr.skipSize();
+                        istr.skip(4);
                         @break tmpVal;
                         tmpVal = new @break(istr);
                         ret = tmpVal;
@@ -1415,9 +1478,9 @@ namespace @await
                 read: (Ice.InputStream istr) =>
                 {
                     @break? ret;
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
+                    if (istr.readOptional(1, Ice.OptionalFormat.FSize))
                     {
-                        istr.skipSize();
+                        istr.skip(4);
                         @break tmpVal;
                         tmpVal = new @break(istr);
                         ret = tmpVal;
@@ -1457,9 +1520,9 @@ namespace @await
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new optionalParams_InResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
+                    if (istr.readOptional(1, Ice.OptionalFormat.FSize))
                     {
-                        istr.skipSize();
+                        istr.skip(4);
                         @break tmpVal;
                         tmpVal = new @break(istr);
                         ret.returnValue = tmpVal;
@@ -1543,9 +1606,9 @@ namespace @await
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new optionalParams_ForeachResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
+                    if (istr.readOptional(1, Ice.OptionalFormat.FSize))
                     {
-                        istr.skipSize();
+                        istr.skip(4);
                         @break tmpVal;
                         tmpVal = new @break(istr);
                         ret.returnValue = tmpVal;
@@ -1705,7 +1768,7 @@ namespace @await
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    iceP_internal.ice_writeMembers(ostr);
+                    @break.ice_write(ostr, iceP_internal);
                     ostr.writeValue(iceP_is);
                     explicitPrxHelper.write(ostr, iceP_lock);
                     casePrxHelper.write(ostr, iceP_namespace);
@@ -2294,10 +2357,11 @@ namespace @await
             var ret = obj.@for(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
             {
-                ostr.writeSize(4);
-                ret.Value.ice_writeMembers(ostr);
+                int pos = ostr.startSize();
+                @break.ice_write(ostr, ret);
+                ostr.endSize(pos);
             }
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -2366,10 +2430,11 @@ namespace @await
                 result,
                 static (ostr, ret) =>
                 {
-                    if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+                    if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
                     {
-                        ostr.writeSize(4);
-                        ret.Value.ice_writeMembers(ostr);
+                        int pos = ostr.startSize();
+                        @break.ice_write(ostr, ret);
+                        ostr.endSize(pos);
                     }
                 });
         }
@@ -2388,10 +2453,11 @@ namespace @await
             var ret = obj.@in(out iceP_goto, out iceP_if, out iceP_internal, out iceP_namespace, out iceP_null, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
             {
-                ostr.writeSize(4);
-                ret.Value.ice_writeMembers(ostr);
+                int pos = ostr.startSize();
+                @break.ice_write(ostr, ret);
+                ostr.endSize(pos);
             }
             if (iceP_goto is not null)
             {
@@ -2432,10 +2498,11 @@ namespace @await
                 result,
                 static (ostr, ret) =>
                 {
-                    if (ret.returnValue is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+                    if (ret.returnValue is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
                     {
-                        ostr.writeSize(4);
-                        ret.returnValue.Value.ice_writeMembers(ostr);
+                        int pos = ostr.startSize();
+                        @break.ice_write(ostr, ret.returnValue);
+                        ostr.endSize(pos);
                     }
                     if (ret.@goto is not null)
                     {

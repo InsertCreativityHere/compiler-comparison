@@ -563,14 +563,18 @@ namespace await
 struct _cpp_break
 {
     ::std::int32_t _cpp_while;
+    ::std::string clone;
+    ::std::string equals;
+    ::std::string hashCode;
+    ::std::string constructor;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
-        return std::tie(_cpp_while);
+        return std::tie(_cpp_while, clone, equals, hashCode, constructor);
     }
 };
 
@@ -583,10 +587,14 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_delete(::std::int32_t _cpp_if, ::std::optional<::await::casePrx> _cpp_else, ::std::int32_t _cpp_export) :
+    _cpp_delete(::std::int32_t _cpp_if, ::std::optional<::await::casePrx> _cpp_else, ::std::int32_t _cpp_export, ::std::string clone, ::std::string equals, ::std::string hashCode, ::std::string constructor) :
         _cpp_if(_cpp_if),
         _cpp_else(::std::move(_cpp_else)),
-        _cpp_export(_cpp_export)
+        _cpp_export(_cpp_export),
+        clone(::std::move(clone)),
+        equals(::std::move(equals)),
+        hashCode(::std::move(hashCode)),
+        constructor(::std::move(constructor))
     {
     }
 
@@ -602,9 +610,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::int32_t&, const ::std::optional<::await::casePrx>&, const ::std::int32_t&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::optional<::await::casePrx>&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
-        return std::tie(_cpp_if, _cpp_else, _cpp_export);
+        return std::tie(_cpp_if, _cpp_else, _cpp_export, clone, equals, hashCode, constructor);
     }
 
     /**
@@ -616,6 +624,10 @@ public:
     ::std::int32_t _cpp_if;
     ::std::optional<::await::casePrx> _cpp_else;
     ::std::int32_t _cpp_export;
+    ::std::string clone;
+    ::std::string equals;
+    ::std::string hashCode;
+    ::std::string constructor;
 
 protected:
 
@@ -1160,8 +1172,8 @@ template<>
 struct StreamableTraits<::await::_cpp_break>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = true;
+    static const int minWireSize = 8;
+    static const bool fixedLength = false;
 };
 
 template<>
@@ -1169,7 +1181,7 @@ struct StreamReader<::await::_cpp_break>
 {
     static void read(InputStream* istr, ::await::_cpp_break& v)
     {
-        istr->readAll(v._cpp_while);
+        istr->readAll(v._cpp_while, v.clone, v.equals, v.hashCode, v.constructor);
     }
 };
 
@@ -1178,7 +1190,7 @@ struct StreamReader<::await::_cpp_delete>
 {
     static void read(InputStream* istr, ::await::_cpp_delete& v)
     {
-        istr->readAll(v._cpp_if, v._cpp_else, v._cpp_export);
+        istr->readAll(v._cpp_if, v._cpp_else, v._cpp_export, v.clone, v.equals, v.hashCode, v.constructor);
     }
 };
 

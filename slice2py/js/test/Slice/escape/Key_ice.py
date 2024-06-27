@@ -44,12 +44,20 @@ if 'var' not in _M__await.__dict__:
 if '_break' not in _M__await.__dict__:
     _M__await._break = Ice.createTempClass()
     class _break(object):
-        def __init__(self, _while=0):
+        def __init__(self, _while=0, clone='', equals='', hashCode='', constructor=''):
             self._while = _while
+            self.clone = clone
+            self.equals = equals
+            self.hashCode = hashCode
+            self.constructor = constructor
 
         def __hash__(self):
             _h = 0
             _h = 5 * _h + Ice.getHash(self._while)
+            _h = 5 * _h + Ice.getHash(self.clone)
+            _h = 5 * _h + Ice.getHash(self.equals)
+            _h = 5 * _h + Ice.getHash(self.hashCode)
+            _h = 5 * _h + Ice.getHash(self.constructor)
             return _h % 0x7fffffff
 
         def __compare(self, other):
@@ -65,6 +73,38 @@ if '_break' not in _M__await.__dict__:
                     if self._while < other._while:
                         return -1
                     elif self._while > other._while:
+                        return 1
+                if self.clone is None or other.clone is None:
+                    if self.clone != other.clone:
+                        return (-1 if self.clone is None else 1)
+                else:
+                    if self.clone < other.clone:
+                        return -1
+                    elif self.clone > other.clone:
+                        return 1
+                if self.equals is None or other.equals is None:
+                    if self.equals != other.equals:
+                        return (-1 if self.equals is None else 1)
+                else:
+                    if self.equals < other.equals:
+                        return -1
+                    elif self.equals > other.equals:
+                        return 1
+                if self.hashCode is None or other.hashCode is None:
+                    if self.hashCode != other.hashCode:
+                        return (-1 if self.hashCode is None else 1)
+                else:
+                    if self.hashCode < other.hashCode:
+                        return -1
+                    elif self.hashCode > other.hashCode:
+                        return 1
+                if self.constructor is None or other.constructor is None:
+                    if self.constructor != other.constructor:
+                        return (-1 if self.constructor is None else 1)
+                else:
+                    if self.constructor < other.constructor:
+                        return -1
+                    elif self.constructor > other.constructor:
                         return 1
                 return 0
 
@@ -115,7 +155,13 @@ if '_break' not in _M__await.__dict__:
 
         __repr__ = __str__
 
-    _M__await._t__break = IcePy.defineStruct('::await::break', _break, (), (('_while', (), IcePy._t_int),))
+    _M__await._t__break = IcePy.defineStruct('::await::break', _break, (), (
+        ('_while', (), IcePy._t_int),
+        ('clone', (), IcePy._t_string),
+        ('equals', (), IcePy._t_string),
+        ('hashCode', (), IcePy._t_string),
+        ('constructor', (), IcePy._t_string)
+    ))
 
     _M__await._break = _break
     del _break
@@ -237,10 +283,14 @@ if 'typeofPrx' not in _M__await.__dict__:
 if 'delete' not in _M__await.__dict__:
     _M__await.delete = Ice.createTempClass()
     class delete(Ice.Value):
-        def __init__(self, _if=0, _else=None, export=0):
+        def __init__(self, _if=0, _else=None, export=0, clone='', equals='', hashCode='', constructor=''):
             self._if = _if
             self._else = _else
             self.export = export
+            self.clone = clone
+            self.equals = equals
+            self.hashCode = hashCode
+            self.constructor = constructor
 
         def ice_id(self):
             return '::await::delete'
@@ -257,7 +307,11 @@ if 'delete' not in _M__await.__dict__:
     _M__await._t_delete = IcePy.defineValue('::await::delete', delete, -1, (), False, None, (
         ('_if', (), IcePy._t_int, False, 0),
         ('_else', (), _M__await._t_casePrx, False, 0),
-        ('export', (), IcePy._t_int, False, 0)
+        ('export', (), IcePy._t_int, False, 0),
+        ('clone', (), IcePy._t_string, False, 0),
+        ('equals', (), IcePy._t_string, False, 0),
+        ('hashCode', (), IcePy._t_string, False, 0),
+        ('constructor', (), IcePy._t_string, False, 0)
     ))
     delete._ice_type = _M__await._t_delete
 

@@ -133,8 +133,8 @@ Clash.St = class
         this.istr = istr;
         this.ostr = ostr;
         this.rhs = rhs;
-        this.hashCode = hashCode;
-        this.clone = clone;
+        this._hashCode = hashCode;
+        this._clone = clone;
     }
 
     _write(ostr)
@@ -143,8 +143,8 @@ Clash.St = class
         ostr.writeShort(this.istr);
         ostr.writeInt(this.ostr);
         ostr.writeInt(this.rhs);
-        ostr.writeString(this.hashCode);
-        ostr.writeInt(this.clone);
+        ostr.writeString(this._hashCode);
+        ostr.writeInt(this._clone);
     }
 
     _read(istr)
@@ -153,8 +153,8 @@ Clash.St = class
         this.istr = istr.readShort();
         this.ostr = istr.readInt();
         this.rhs = istr.readInt();
-        this.hashCode = istr.readString();
-        this.clone = istr.readInt();
+        this._hashCode = istr.readString();
+        this._clone = istr.readInt();
     }
 
     static get minWireSize()

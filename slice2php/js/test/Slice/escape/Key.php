@@ -31,9 +31,13 @@ namespace await
     global $await__t_break;
     class _break
     {
-        public function __construct($_while=0)
+        public function __construct($_while=0, $_clone='', $equals='', $hashCode='', $constructor='')
         {
             $this->_while = $_while;
+            $this->_clone = $_clone;
+            $this->equals = $equals;
+            $this->hashCode = $hashCode;
+            $this->constructor = $constructor;
         }
 
         public function __toString(): string
@@ -43,11 +47,20 @@ namespace await
         }
 
         public $_while;
+        public $_clone;
+        public $equals;
+        public $hashCode;
+        public $constructor;
     }
 
     global $IcePHP__t_int;
+    global $IcePHP__t_string;
     $await__t_break = IcePHP_defineStruct('::await::break', '\\await\\_break', array(
-        array('_while', $IcePHP__t_int)));
+        array('_while', $IcePHP__t_int),
+        array('_clone', $IcePHP__t_string),
+        array('equals', $IcePHP__t_string),
+        array('hashCode', $IcePHP__t_string),
+        array('constructor', $IcePHP__t_string)));
 }
 
 namespace await
@@ -114,11 +127,15 @@ namespace await
     global $await__t_delete;
     class delete extends \Ice\Value
     {
-        public function __construct($_if=0, $_else=null, $export=0)
+        public function __construct($_if=0, $_else=null, $export=0, $_clone='', $equals='', $hashCode='', $constructor='')
         {
             $this->_if = $_if;
             $this->_else = $_else;
             $this->export = $export;
+            $this->_clone = $_clone;
+            $this->equals = $equals;
+            $this->hashCode = $hashCode;
+            $this->constructor = $constructor;
         }
 
         public function ice_id()
@@ -140,15 +157,24 @@ namespace await
         public $_if;
         public $_else;
         public $export;
+        public $_clone;
+        public $equals;
+        public $hashCode;
+        public $constructor;
     }
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $await__t_casePrx;
+    global $IcePHP__t_string;
     $await__t_delete = IcePHP_defineClass('::await::delete', '\\await\\delete', -1, false, $Ice__t_Value, array(
         array('_if', $IcePHP__t_int, false, 0),
         array('_else', $await__t_casePrx, false, 0),
-        array('export', $IcePHP__t_int, false, 0)));
+        array('export', $IcePHP__t_int, false, 0),
+        array('_clone', $IcePHP__t_string, false, 0),
+        array('equals', $IcePHP__t_string, false, 0),
+        array('hashCode', $IcePHP__t_string, false, 0),
+        array('constructor', $IcePHP__t_string, false, 0)));
 }
 
 namespace await

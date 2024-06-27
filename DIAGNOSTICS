@@ -29,7 +29,7 @@ Package.ice:32: invalid module mapping:
  Slice module `::Inner' should be map to Swift module `Test'
 /Users/austin/Code/zeroc/ice/python/test/Ice/operations/Test.ice:348: invalid module mapping:
  Slice module `::Test2' should be map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/js/test/Slice/escape/Key.ice:140: invalid module mapping:
+/Users/austin/Code/zeroc/ice/js/test/Slice/escape/Key.ice:148: invalid module mapping:
  Slice module `::System' should be map to Swift module `await'
 /Users/austin/Code/zeroc/ice/js/test/Ice/scope/Test.ice:147: invalid module mapping:
  Slice module `::Inner' should be map to Swift module `Test'

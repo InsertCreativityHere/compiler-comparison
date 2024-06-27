@@ -30,28 +30,40 @@ _await._var = Ice.defineEnum([
 
 _await._break = class
 {
-    constructor(_while = 0)
+    constructor(_while = 0, clone = "", equals = "", hashCode = "", constructor = "")
     {
         this._while = _while;
+        this._clone = clone;
+        this._equals = equals;
+        this._hashCode = hashCode;
+        this._constructor = constructor;
     }
 
     _write(ostr)
     {
         ostr.writeInt(this._while);
+        ostr.writeString(this._clone);
+        ostr.writeString(this._equals);
+        ostr.writeString(this._hashCode);
+        ostr.writeString(this._constructor);
     }
 
     _read(istr)
     {
         this._while = istr.readInt();
+        this._clone = istr.readString();
+        this._equals = istr.readString();
+        this._hashCode = istr.readString();
+        this._constructor = istr.readString();
     }
 
     static get minWireSize()
     {
-        return  4;
+        return  8;
     }
 };
 
-Ice.defineStruct(_await._break, true, false);
+Ice.defineStruct(_await._break, true, true);
 
 const iceC__await__case_ids = [
     "::Ice::Object",
@@ -101,12 +113,16 @@ Ice.defineOperations(
 
 _await._delete = class extends Ice.Value
 {
-    constructor(_if = 0, _else = null, _export = 0)
+    constructor(_if = 0, _else = null, _export = 0, clone = "", equals = "", hashCode = "", constructor = "")
     {
         super();
         this._if = _if;
         this._else = _else;
         this._export = _export;
+        this.clone = clone;
+        this.equals = equals;
+        this.hashCode = hashCode;
+        this._constructor = constructor;
     }
 
     _iceWriteMemberImpl(ostr)
@@ -114,6 +130,10 @@ _await._delete = class extends Ice.Value
         ostr.writeInt(this._if);
         ostr.writeProxy(this._else);
         ostr.writeInt(this._export);
+        ostr.writeString(this.clone);
+        ostr.writeString(this.equals);
+        ostr.writeString(this.hashCode);
+        ostr.writeString(this._constructor);
     }
 
     _iceReadMemberImpl(istr)
@@ -121,6 +141,10 @@ _await._delete = class extends Ice.Value
         this._if = istr.readInt();
         this._else = istr.readProxy();
         this._export = istr.readInt();
+        this.clone = istr.readString();
+        this.equals = istr.readString();
+        this.hashCode = istr.readString();
+        this._constructor = istr.readString();
     }
 };
 
