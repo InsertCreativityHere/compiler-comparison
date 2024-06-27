@@ -6086,11 +6086,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
@@ -6504,11 +6504,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -7114,6 +7114,10 @@ namespace IceGrid
 
         public abstract void applicationAdded(int serial, ApplicationInfo desc, Ice.Current current);
 
+        public abstract void adapterUpdated(AdapterInfo info, Ice.Current current);
+
+        public abstract void adapterRemoved(string id, Ice.Current current);
+
         public abstract void applicationRemoved(int serial, string name, Ice.Current current);
 
         public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, Ice.Current current);
@@ -7121,10 +7125,6 @@ namespace IceGrid
         public abstract void adapterInit(AdapterInfo[] adpts, Ice.Current current);
 
         public abstract void adapterAdded(AdapterInfo info, Ice.Current current);
-
-        public abstract void adapterUpdated(AdapterInfo info, Ice.Current current);
-
-        public abstract void adapterRemoved(string id, Ice.Current current);
 
         public abstract void objectInit(ObjectInfo[] objects, Ice.Current current);
 
