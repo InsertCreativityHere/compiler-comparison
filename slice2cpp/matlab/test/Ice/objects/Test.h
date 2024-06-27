@@ -53,10 +53,6 @@ namespace Test
     class G;
     using GPtr = ::std::shared_ptr<G>;
 
-    class IPrx;
-
-    class JPrx;
-
     using BaseSeq = ::std::vector<BasePtr>;
 
     class CompactExt;
@@ -146,119 +142,6 @@ namespace Test
 
 namespace Test
 {
-
-class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId() noexcept;
-
-    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    IPrx(const IPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    IPrx(IPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
-
-    IPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
-
-    IPrx& operator=(const IPrx& rhs) noexcept
-    {
-        ::Ice::ObjectPrx::operator=(rhs);
-        return *this;
-    }
-
-    IPrx& operator=(IPrx&& rhs) noexcept
-    {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
-        return *this;
-    }
-
-    /// \cond INTERNAL
-    static IPrx _fromReference(::IceInternal::ReferencePtr ref) { return IPrx(::std::move(ref)); }
-
-protected:
-
-    IPrx() = default;
-
-    explicit IPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
-class JPrx : public ::Ice::Proxy<JPrx, IPrx>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId() noexcept;
-
-#if defined(__GNUC__)
-#   pragma GCC diagnostic push
-#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
-#endif
-
-    explicit JPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    JPrx(const JPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    JPrx(JPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
-
-    JPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
-
-    JPrx& operator=(const JPrx& rhs) noexcept
-    {
-        ::Ice::ObjectPrx::operator=(rhs);
-        return *this;
-    }
-
-    JPrx& operator=(JPrx&& rhs) noexcept
-    {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
-        return *this;
-    }
-
-    /// \cond INTERNAL
-    static JPrx _fromReference(::IceInternal::ReferencePtr ref) { return JPrx(::std::move(ref)); }
-
-protected:
-
-    JPrx() = default;
-
-    explicit JPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
-    {
-    }
-    /// \endcond
-
-#if defined(__GNUC__)
-#   pragma GCC diagnostic pop
-#endif
-};
 
 class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
@@ -2212,64 +2095,6 @@ using Ice::operator!=;
 
 namespace Test
 {
-
-class I : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = IPrx;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId() noexcept;
-};
-
-using IPtr = ::std::shared_ptr<I>;
-
-class J : public virtual I
-{
-public:
-
-    using ProxyType = JPrx;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId() noexcept;
-};
-
-using JPtr = ::std::shared_ptr<J>;
 
 class Initial : public virtual ::Ice::Object
 {

@@ -56,8 +56,8 @@ public interface ReplicaSession extends com.zeroc.Ice.Object
      * @param current The Current object for the invocation.
      **/
     void setAdapterDirectProxy(String adapterId, String replicaGroupId, com.zeroc.Ice.ObjectPrx proxy, com.zeroc.Ice.Current current)
-        throws com.zeroc.IceGrid.AdapterNotExistException,
-               AdapterExistsException;
+        throws AdapterExistsException,
+               com.zeroc.IceGrid.AdapterNotExistException;
 
     /**
      * Notify the master that an update was received. The master might wait for replication updates to be received by

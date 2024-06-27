@@ -30,8 +30,8 @@ public interface ServiceManager extends com.zeroc.Ice.Object
      * @throws NoSuchServiceException If no service could be found with the given name.
      **/
     void startService(String service, com.zeroc.Ice.Current current)
-        throws NoSuchServiceException,
-               AlreadyStartedException;
+        throws AlreadyStartedException,
+               NoSuchServiceException;
 
     /**
      * Stop an individual service.

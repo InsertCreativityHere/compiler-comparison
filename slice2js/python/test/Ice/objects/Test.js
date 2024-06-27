@@ -251,58 +251,6 @@ Test.G = class extends Test.Base
 Ice.defineValue(Test.G, "::Test::G");
 Ice.TypeRegistry.declareValueType("Test.G", Test.G);
 
-const iceC_Test_I_ids = [
-    "::Ice::Object",
-    "::Test::I"
-];
-
-Test.I = class extends Ice.Object
-{
-};
-
-Test.IPrx = class extends Ice.ObjectPrx
-{
-};
-Ice.TypeRegistry.declareProxyType("Test.IPrx", Test.IPrx);
-
-Ice.defineOperations(
-    Test.I,
-    Test.IPrx,
-    iceC_Test_I_ids,
-    "::Test::I");
-
-const iceC_Test_J_ids = [
-    "::Ice::Object",
-    "::Test::I",
-    "::Test::J"
-];
-
-Test.J = class extends Ice.Object
-{
-    static get _iceImplements()
-    {
-        return [
-            Test.I
-        ];
-    }
-};
-
-Test.JPrx = class extends Ice.ObjectPrx
-{
-    static get _implements()
-    {
-        return [
-            Test.IPrx];
-    }
-};
-Ice.TypeRegistry.declareProxyType("Test.JPrx", Test.JPrx);
-
-Ice.defineOperations(
-    Test.J,
-    Test.JPrx,
-    iceC_Test_J_ids,
-    "::Test::J");
-
 Test.BaseSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "Test.Base");
 
 Test.Compact = class extends Ice.Value

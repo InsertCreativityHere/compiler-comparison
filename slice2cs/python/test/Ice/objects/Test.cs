@@ -672,38 +672,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [Ice.SliceTypeId("::Test::I")]
-    public partial interface I : Ice.Object
-    {
-    }
-
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [Ice.SliceTypeId("::Test::J")]
-    public partial interface J : I
-    {
-    }
-
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Test::Compact")]
     [Ice.CompactSliceTypeId(1)]
     public partial class Compact : Ice.Value
@@ -1934,16 +1902,6 @@ namespace Test
 namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface IPrx : Ice.ObjectPrx
-    {
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface JPrx : IPrx
-    {
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface InitialPrx : Ice.ObjectPrx
     {
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -2078,137 +2036,6 @@ namespace Test
 
 namespace Test
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class IPrxHelper : Ice.ObjectPrxHelperBase, IPrx
-    {
-        public static IPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            new IPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static IPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
-            b is not null && b.ice_isA(ice_staticId(), ctx) ? new IPrxHelper(b) : null;
-
-        public static IPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new IPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
-
-        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
-
-        public static IPrx? uncheckedCast(Ice.ObjectPrx? b) =>
-            b is not null ? new IPrxHelper(b) : null;
-
-        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
-
-        public static IPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new IPrxHelper(b.ice_facet(f)) : null;
-
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::I"
-        };
-
-        public static string ice_staticId() => "::Test::I";
-
-        public static void write(Ice.OutputStream ostr, IPrx? v)
-        {
-            ostr.writeProxy(v);
-        }
-
-        public static IPrx? read(Ice.InputStream istr) =>
-            istr.readProxy() is Ice.ObjectPrx proxy ? new IPrxHelper(proxy) : null;
-
-        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new IPrxHelper(reference);
-
-        private IPrxHelper(Ice.ObjectPrx proxy)
-            : base(proxy)
-        {
-        }
-
-        private IPrxHelper(Ice.Internal.Reference reference)
-            : base(reference)
-        {
-        }
-    }
-
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class JPrxHelper : Ice.ObjectPrxHelperBase, JPrx
-    {
-        public static JPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            new JPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static JPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
-            b is not null && b.ice_isA(ice_staticId(), ctx) ? new JPrxHelper(b) : null;
-
-        public static JPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new JPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
-
-        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
-
-        public static JPrx? uncheckedCast(Ice.ObjectPrx? b) =>
-            b is not null ? new JPrxHelper(b) : null;
-
-        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
-
-        public static JPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new JPrxHelper(b.ice_facet(f)) : null;
-
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::I",
-            "::Test::J"
-        };
-
-        public static string ice_staticId() => "::Test::J";
-
-        public static void write(Ice.OutputStream ostr, JPrx? v)
-        {
-            ostr.writeProxy(v);
-        }
-
-        public static JPrx? read(Ice.InputStream istr) =>
-            istr.readProxy() is Ice.ObjectPrx proxy ? new JPrxHelper(proxy) : null;
-
-        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new JPrxHelper(reference);
-
-        private JPrxHelper(Ice.ObjectPrx proxy)
-            : base(proxy)
-        {
-        }
-
-        private JPrxHelper(Ice.Internal.Reference reference)
-            : base(reference)
-        {
-        }
-    }
-
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class BaseSeqHelper
     {
@@ -3928,24 +3755,6 @@ namespace Test
 
 namespace Test
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class IDisp_ : Ice.ObjectImpl, I
-    {
-        public override string ice_id(Ice.Current current) => ice_staticId();
-
-        public static new string ice_staticId() => "::Test::I";
-    }
-
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class JDisp_ : Ice.ObjectImpl, J
-    {
-        public override string ice_id(Ice.Current current) => ice_staticId();
-
-        public static new string ice_staticId() => "::Test::J";
-    }
-
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class InitialDisp_ : Ice.ObjectImpl, Initial

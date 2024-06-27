@@ -268,47 +268,6 @@ module ::Test
         T_G.defineClass(G, -1, false, ::Test::T_Base, [])
     end
 
-    if not defined?(::Test::I_Mixin)
-
-        module ::Test::I_Mixin
-        end
-        module IPrx_mixin
-        end
-
-        class IPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
-            include IPrx_mixin
-        end
-
-        if not defined?(::Test::T_IPrx)
-            T_I = ::Ice::__declareClass('::Test::I')
-            T_IPrx = ::Ice::__declareProxy('::Test::I')
-        end
-
-        T_IPrx.defineProxy(IPrx, nil, [])
-    end
-
-    if not defined?(::Test::J_Mixin)
-
-        module ::Test::J_Mixin
-        end
-        module JPrx_mixin
-            include ::Test::IPrx_mixin
-        end
-
-        class JPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
-            include JPrx_mixin
-        end
-
-        if not defined?(::Test::T_JPrx)
-            T_J = ::Ice::__declareClass('::Test::J')
-            T_JPrx = ::Ice::__declareProxy('::Test::J')
-        end
-
-        T_JPrx.defineProxy(JPrx, nil, [::Test::T_IPrx])
-    end
-
     if not defined?(::Test::T_BaseSeq)
         T_BaseSeq = ::Ice::__defineSequence('::Test::BaseSeq', ::Test::T_Base)
     end

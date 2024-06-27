@@ -77,20 +77,6 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ETwoMembers> iceC_Test_ETwoMembers_init("::Test::ETwoMembers");
 }
 
-::std::string_view
-Test::IPrx::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::Test::I";
-    return typeId;
-}
-
-::std::string_view
-Test::JPrx::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::Test::J";
-    return typeId;
-}
-
 void
 Test::InitialPrx::shutdown(const ::Ice::Context& context) const
 {
@@ -2566,46 +2552,6 @@ Test::ETwoMembers::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     ::Ice::StreamReader<ETwoMembers>::read(istr, *this);
     istr->endSlice();
-}
-
-::std::vector<::std::string>
-Test::I::ice_ids(const ::Ice::Current&) const
-{
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::I"};
-    return allTypeIds;
-}
-
-::std::string
-Test::I::ice_id(const ::Ice::Current&) const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
-Test::I::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::Test::I";
-    return typeId;
-}
-
-::std::vector<::std::string>
-Test::J::ice_ids(const ::Ice::Current&) const
-{
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::I", "::Test::J"};
-    return allTypeIds;
-}
-
-::std::string
-Test::J::ice_id(const ::Ice::Current&) const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
-Test::J::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::Test::J";
-    return typeId;
 }
 
 ::std::vector<::std::string>

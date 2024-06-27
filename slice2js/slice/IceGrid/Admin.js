@@ -414,44 +414,44 @@ Ice.defineOperations(
     {
         "addApplication": [, , , , [[IceGrid.ApplicationDescriptor]], ,
         [
-            IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.AccessDeniedException,
+            IceGrid.DeploymentException
         ], true, ],
         "syncApplication": [, , , , [[IceGrid.ApplicationDescriptor]], ,
         [
+            IceGrid.AccessDeniedException,
             IceGrid.ApplicationNotExistException,
-            IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.DeploymentException
         ], true, ],
         "updateApplication": [, , , , [[IceGrid.ApplicationUpdateDescriptor]], ,
         [
+            IceGrid.AccessDeniedException,
             IceGrid.ApplicationNotExistException,
-            IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.DeploymentException
         ], true, ],
         "syncApplicationWithoutRestart": [, , , , [[IceGrid.ApplicationDescriptor]], ,
         [
+            IceGrid.AccessDeniedException,
             IceGrid.ApplicationNotExistException,
-            IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.DeploymentException
         ], true, ],
         "updateApplicationWithoutRestart": [, , , , [[IceGrid.ApplicationUpdateDescriptor]], ,
         [
+            IceGrid.AccessDeniedException,
             IceGrid.ApplicationNotExistException,
-            IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.DeploymentException
         ], true, ],
         "removeApplication": [, , , , [[7]], ,
         [
+            IceGrid.AccessDeniedException,
             IceGrid.ApplicationNotExistException,
-            IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.DeploymentException
         ], , ],
         "instantiateServer": [, , , , [[7], [7], [IceGrid.ServerInstanceDescriptor]], ,
         [
+            IceGrid.AccessDeniedException,
             IceGrid.ApplicationNotExistException,
-            IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.DeploymentException
         ], , ],
         "getApplicationInfo": [, 2, , [IceGrid.ApplicationInfo], [[7]], ,
         [
@@ -513,10 +513,10 @@ Ice.defineOperations(
         ], , ],
         "sendSignal": [, , , , [[7], [7]], ,
         [
+            IceGrid.BadSignalException,
             IceGrid.ServerNotExistException,
             IceGrid.DeploymentException,
-            IceGrid.NodeUnreachableException,
-            IceGrid.BadSignalException
+            IceGrid.NodeUnreachableException
         ], , ],
         "getAllServerIds": [, 2, , [Ice.StringSeqHelper], , , , , ],
         "getAdapterInfo": [, 2, , [IceGrid.AdapterInfoSeqHelper], [[7]], ,
