@@ -2818,9 +2818,9 @@ namespace Test
         {
             public abstract ICPrx? icop(ICPrx? p, Ice.Current current);
 
-            public abstract global::Test.MB.IB1Prx? ib1op(global::Test.MB.IB1Prx? p, Ice.Current current);
-
             public abstract IAPrx? iaop(IAPrx? p, Ice.Current current);
+
+            public abstract global::Test.MB.IB1Prx? ib1op(global::Test.MB.IB1Prx? p, Ice.Current current);
 
             public abstract global::Test.MB.IB2Prx? ib2op(global::Test.MB.IB2Prx? p, Ice.Current current);
 
