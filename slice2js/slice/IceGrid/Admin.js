@@ -525,8 +525,8 @@ Ice.defineOperations(
         ], , ],
         "removeAdapter": [, , , , [[7]], ,
         [
-            IceGrid.DeploymentException,
-            IceGrid.AdapterNotExistException
+            IceGrid.AdapterNotExistException,
+            IceGrid.DeploymentException
         ], , ],
         "getAllAdapterIds": [, 2, , [Ice.StringSeqHelper], , , , , ],
         "addObject": [, , , , [[9]], ,
