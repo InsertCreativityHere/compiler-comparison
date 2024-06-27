@@ -100,7 +100,7 @@ private final class CallbackReceiverPrxI: Ice.ObjectPrxI, CallbackReceiverPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CallbackReceiverPrx.Protocol) throws -> CallbackReceiverPrx {
     try communicator.makeProxyImpl(proxyString) as CallbackReceiverPrxI
@@ -287,7 +287,7 @@ private final class CallbackPrxI: Ice.ObjectPrxI, CallbackPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CallbackPrx.Protocol) throws -> CallbackPrx {
     try communicator.makeProxyImpl(proxyString) as CallbackPrxI

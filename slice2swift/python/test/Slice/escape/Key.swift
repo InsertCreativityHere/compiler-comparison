@@ -467,7 +467,7 @@ private final class delPrxI: Ice.ObjectPrxI, delPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: delPrx.Protocol) throws -> delPrx {
     try communicator.makeProxyImpl(proxyString) as delPrxI
@@ -619,7 +619,7 @@ private final class execPrxI: Ice.ObjectPrxI, execPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: execPrx.Protocol) throws -> execPrx {
     try communicator.makeProxyImpl(proxyString) as execPrxI
@@ -745,7 +745,7 @@ private final class ifPrxI: Ice.ObjectPrxI, ifPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ifPrx.Protocol) throws -> ifPrx {
     try communicator.makeProxyImpl(proxyString) as ifPrxI
@@ -842,7 +842,7 @@ private final class printPrxI: Ice.ObjectPrxI, printPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: printPrx.Protocol) throws -> printPrx {
     try communicator.makeProxyImpl(proxyString) as printPrxI

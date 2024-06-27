@@ -49,7 +49,7 @@ private final class SessionPrxI: Ice.ObjectPrxI, SessionPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SessionPrx.Protocol) throws -> SessionPrx {
     try communicator.makeProxyImpl(proxyString) as SessionPrxI

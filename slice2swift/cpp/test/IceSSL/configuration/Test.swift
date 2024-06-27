@@ -121,7 +121,7 @@ private final class ServerPrxI: Ice.ObjectPrxI, ServerPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ServerPrx.Protocol) throws -> ServerPrx {
     try communicator.makeProxyImpl(proxyString) as ServerPrxI
@@ -310,7 +310,7 @@ private final class ServerFactoryPrxI: Ice.ObjectPrxI, ServerFactoryPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ServerFactoryPrx.Protocol) throws -> ServerFactoryPrx {
     try communicator.makeProxyImpl(proxyString) as ServerFactoryPrxI

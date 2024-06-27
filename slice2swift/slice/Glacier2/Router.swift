@@ -104,7 +104,7 @@ private final class RouterPrxI: Ice.ObjectPrxI, RouterPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: RouterPrx.Protocol) throws -> RouterPrx {
     try communicator.makeProxyImpl(proxyString) as RouterPrxI
@@ -290,9 +290,9 @@ public extension RouterPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as CannotCreateSessionException {
-                                         throw error
                                      } catch let error as PermissionDeniedException {
+                                         throw error
+                                     } catch let error as CannotCreateSessionException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -336,9 +336,9 @@ public extension RouterPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as CannotCreateSessionException {
-                                          throw error
                                       } catch let error as PermissionDeniedException {
+                                          throw error
+                                      } catch let error as CannotCreateSessionException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -377,9 +377,9 @@ public extension RouterPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as CannotCreateSessionException {
-                                         throw error
                                      } catch let error as PermissionDeniedException {
+                                         throw error
+                                     } catch let error as CannotCreateSessionException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -416,9 +416,9 @@ public extension RouterPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as CannotCreateSessionException {
-                                          throw error
                                       } catch let error as PermissionDeniedException {
+                                          throw error
+                                      } catch let error as CannotCreateSessionException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },

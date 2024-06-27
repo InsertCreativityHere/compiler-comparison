@@ -172,7 +172,7 @@ public class Cls extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5953498074562246553L;
+    private static final long serialVersionUID = 5692928268464408841L;
 
     /** @hidden */
     @Override

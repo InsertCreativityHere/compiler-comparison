@@ -236,7 +236,7 @@ private final class TopicLinkPrxI: Ice.ObjectPrxI, TopicLinkPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TopicLinkPrx.Protocol) throws -> TopicLinkPrx {
     try communicator.makeProxyImpl(proxyString) as TopicLinkPrxI
@@ -384,7 +384,7 @@ private final class TopicInternalPrxI: Ice.ObjectPrxI, TopicInternalPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TopicInternalPrx.Protocol) throws -> TopicInternalPrx {
     try communicator.makeProxyImpl(proxyString) as TopicInternalPrxI
@@ -591,7 +591,7 @@ private final class TopicManagerInternalPrxI: Ice.ObjectPrxI, TopicManagerIntern
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TopicManagerInternalPrx.Protocol) throws -> TopicManagerInternalPrx {
     try communicator.makeProxyImpl(proxyString) as TopicManagerInternalPrxI

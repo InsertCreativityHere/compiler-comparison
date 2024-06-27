@@ -850,7 +850,7 @@ private final class AdapterPrxI: Ice.ObjectPrxI, AdapterPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: AdapterPrx.Protocol) throws -> AdapterPrx {
     try communicator.makeProxyImpl(proxyString) as AdapterPrxI
@@ -1127,7 +1127,7 @@ private final class FileReaderPrxI: Ice.ObjectPrxI, FileReaderPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: FileReaderPrx.Protocol) throws -> FileReaderPrx {
     try communicator.makeProxyImpl(proxyString) as FileReaderPrxI
@@ -1428,7 +1428,7 @@ private final class ServerPrxI: Ice.ObjectPrxI, ServerPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ServerPrx.Protocol) throws -> ServerPrx {
     try communicator.makeProxyImpl(proxyString) as ServerPrxI
@@ -2053,7 +2053,7 @@ private final class ReplicaObserverPrxI: Ice.ObjectPrxI, ReplicaObserverPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ReplicaObserverPrx.Protocol) throws -> ReplicaObserverPrx {
     try communicator.makeProxyImpl(proxyString) as ReplicaObserverPrxI
@@ -2323,7 +2323,7 @@ private final class NodePrxI: Ice.ObjectPrxI, NodePrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: NodePrx.Protocol) throws -> NodePrx {
     try communicator.makeProxyImpl(proxyString) as NodePrxI
@@ -3054,7 +3054,7 @@ private final class NodeSessionPrxI: Ice.ObjectPrxI, NodeSessionPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: NodeSessionPrx.Protocol) throws -> NodeSessionPrx {
     try communicator.makeProxyImpl(proxyString) as NodeSessionPrxI
@@ -3499,7 +3499,7 @@ private final class DatabaseObserverPrxI: Ice.ObjectPrxI, DatabaseObserverPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: DatabaseObserverPrx.Protocol) throws -> DatabaseObserverPrx {
     try communicator.makeProxyImpl(proxyString) as DatabaseObserverPrxI
@@ -3624,7 +3624,7 @@ private final class ReplicaSessionPrxI: Ice.ObjectPrxI, ReplicaSessionPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ReplicaSessionPrx.Protocol) throws -> ReplicaSessionPrx {
     try communicator.makeProxyImpl(proxyString) as ReplicaSessionPrxI
@@ -3975,9 +3975,9 @@ public extension ReplicaSessionPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as AdapterExistsException {
-                                  throw error
                               } catch let error as AdapterNotExistException {
+                                  throw error
+                              } catch let error as AdapterExistsException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -4015,9 +4015,9 @@ public extension ReplicaSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as AdapterExistsException {
-                                          throw error
                                       } catch let error as AdapterNotExistException {
+                                          throw error
+                                      } catch let error as AdapterExistsException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -4167,7 +4167,7 @@ private final class InternalRegistryPrxI: Ice.ObjectPrxI, InternalRegistryPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: InternalRegistryPrx.Protocol) throws -> InternalRegistryPrx {
     try communicator.makeProxyImpl(proxyString) as InternalRegistryPrxI
@@ -4313,9 +4313,9 @@ public extension InternalRegistryPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
                                      } catch let error as NodeActiveException {
+                                         throw error
+                                     } catch let error as PermissionDeniedException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -4359,9 +4359,9 @@ public extension InternalRegistryPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as PermissionDeniedException {
-                                          throw error
                                       } catch let error as NodeActiveException {
+                                          throw error
+                                      } catch let error as PermissionDeniedException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -4401,9 +4401,9 @@ public extension InternalRegistryPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
                                      } catch let error as ReplicaActiveException {
+                                         throw error
+                                     } catch let error as PermissionDeniedException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -4444,9 +4444,9 @@ public extension InternalRegistryPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as PermissionDeniedException {
-                                          throw error
                                       } catch let error as ReplicaActiveException {
+                                          throw error
+                                      } catch let error as PermissionDeniedException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },

@@ -58,7 +58,7 @@ private final class BackgroundPrxI: Ice.ObjectPrxI, BackgroundPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: BackgroundPrx.Protocol) throws -> BackgroundPrx {
     try communicator.makeProxyImpl(proxyString) as BackgroundPrxI
@@ -306,7 +306,7 @@ private final class BackgroundControllerPrxI: Ice.ObjectPrxI, BackgroundControll
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: BackgroundControllerPrx.Protocol) throws -> BackgroundControllerPrx {
     try communicator.makeProxyImpl(proxyString) as BackgroundControllerPrxI

@@ -3251,7 +3251,7 @@ private final class MyClassPrxI: Ice.ObjectPrxI, MyClassPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MyClassPrx.Protocol) throws -> MyClassPrx {
     try communicator.makeProxyImpl(proxyString) as MyClassPrxI
@@ -7482,7 +7482,7 @@ private final class MyDerivedClassPrxI: Ice.ObjectPrxI, MyDerivedClassPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MyDerivedClassPrx.Protocol) throws -> MyDerivedClassPrx {
     try communicator.makeProxyImpl(proxyString) as MyDerivedClassPrxI
@@ -7721,7 +7721,7 @@ private final class Test2MyDerivedClassPrxI: Ice.ObjectPrxI, Test2MyDerivedClass
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: Test2MyDerivedClassPrx.Protocol) throws -> Test2MyDerivedClassPrx {
     try communicator.makeProxyImpl(proxyString) as Test2MyDerivedClassPrxI

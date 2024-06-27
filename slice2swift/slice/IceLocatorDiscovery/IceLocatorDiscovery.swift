@@ -51,7 +51,7 @@ private final class LookupReplyPrxI: Ice.ObjectPrxI, LookupReplyPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LookupReplyPrx.Protocol) throws -> LookupReplyPrx {
     try communicator.makeProxyImpl(proxyString) as LookupReplyPrxI
@@ -199,7 +199,7 @@ private final class LookupPrxI: Ice.ObjectPrxI, LookupPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LookupPrx.Protocol) throws -> LookupPrx {
     try communicator.makeProxyImpl(proxyString) as LookupPrxI

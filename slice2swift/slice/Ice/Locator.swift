@@ -241,7 +241,7 @@ internal final class LocatorPrxI: ObjectPrxI, LocatorPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LocatorPrx.Protocol) throws -> LocatorPrx {
     try communicator.makeProxyImpl(proxyString) as LocatorPrxI
@@ -547,7 +547,7 @@ internal final class LocatorRegistryPrxI: ObjectPrxI, LocatorRegistryPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LocatorRegistryPrx.Protocol) throws -> LocatorRegistryPrx {
     try communicator.makeProxyImpl(proxyString) as LocatorRegistryPrxI
@@ -889,7 +889,7 @@ internal final class LocatorFinderPrxI: ObjectPrxI, LocatorFinderPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LocatorFinderPrx.Protocol) throws -> LocatorFinderPrx {
     try communicator.makeProxyImpl(proxyString) as LocatorFinderPrxI

@@ -118,7 +118,7 @@ private final class SessionPrxI: Ice.ObjectPrxI, SessionPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SessionPrx.Protocol) throws -> SessionPrx {
     try communicator.makeProxyImpl(proxyString) as SessionPrxI
@@ -261,7 +261,7 @@ private final class StringSetPrxI: Ice.ObjectPrxI, StringSetPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: StringSetPrx.Protocol) throws -> StringSetPrx {
     try communicator.makeProxyImpl(proxyString) as StringSetPrxI
@@ -506,7 +506,7 @@ private final class IdentitySetPrxI: Ice.ObjectPrxI, IdentitySetPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: IdentitySetPrx.Protocol) throws -> IdentitySetPrx {
     try communicator.makeProxyImpl(proxyString) as IdentitySetPrxI
@@ -760,7 +760,7 @@ private final class SessionControlPrxI: Ice.ObjectPrxI, SessionControlPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SessionControlPrx.Protocol) throws -> SessionControlPrx {
     try communicator.makeProxyImpl(proxyString) as SessionControlPrxI
@@ -1077,7 +1077,7 @@ private final class SessionManagerPrxI: Ice.ObjectPrxI, SessionManagerPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SessionManagerPrx.Protocol) throws -> SessionManagerPrx {
     try communicator.makeProxyImpl(proxyString) as SessionManagerPrxI
@@ -1266,7 +1266,7 @@ private final class SSLSessionManagerPrxI: Ice.ObjectPrxI, SSLSessionManagerPrx 
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SSLSessionManagerPrx.Protocol) throws -> SSLSessionManagerPrx {
     try communicator.makeProxyImpl(proxyString) as SSLSessionManagerPrxI

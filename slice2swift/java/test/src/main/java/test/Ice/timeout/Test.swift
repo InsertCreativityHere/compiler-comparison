@@ -60,7 +60,7 @@ private final class TimeoutPrxI: Ice.ObjectPrxI, TimeoutPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TimeoutPrx.Protocol) throws -> TimeoutPrx {
     try communicator.makeProxyImpl(proxyString) as TimeoutPrxI
@@ -286,7 +286,7 @@ private final class ControllerPrxI: Ice.ObjectPrxI, ControllerPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ControllerPrx.Protocol) throws -> ControllerPrx {
     try communicator.makeProxyImpl(proxyString) as ControllerPrxI

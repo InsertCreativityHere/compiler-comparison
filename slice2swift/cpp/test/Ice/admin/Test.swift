@@ -96,7 +96,7 @@ private final class RemoteCommunicatorPrxI: Ice.ObjectPrxI, RemoteCommunicatorPr
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: RemoteCommunicatorPrx.Protocol) throws -> RemoteCommunicatorPrx {
     try communicator.makeProxyImpl(proxyString) as RemoteCommunicatorPrxI
@@ -628,7 +628,7 @@ private final class RemoteCommunicatorFactoryPrxI: Ice.ObjectPrxI, RemoteCommuni
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: RemoteCommunicatorFactoryPrx.Protocol) throws -> RemoteCommunicatorFactoryPrx {
     try communicator.makeProxyImpl(proxyString) as RemoteCommunicatorFactoryPrxI
@@ -813,7 +813,7 @@ private final class TestFacetPrxI: Ice.ObjectPrxI, TestFacetPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
-/// - Throws: `Ice.ProxyParseException` if the proxy string is invalid.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TestFacetPrx.Protocol) throws -> TestFacetPrx {
     try communicator.makeProxyImpl(proxyString) as TestFacetPrxI
