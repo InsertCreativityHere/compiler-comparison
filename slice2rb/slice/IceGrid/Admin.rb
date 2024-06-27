@@ -15,9 +15,9 @@
 #
 
 require 'Ice'
-require_relative '../Ice/Identity.rb'
-require_relative '../Ice/BuiltinSequences.rb'
-require_relative '../Glacier2/Session.rb'
+require 'Ice/Identity.rb'
+require 'Ice/BuiltinSequences.rb'
+require 'Glacier2/Session.rb'
 require_relative 'Exception.rb'
 require_relative 'Descriptor.rb'
 

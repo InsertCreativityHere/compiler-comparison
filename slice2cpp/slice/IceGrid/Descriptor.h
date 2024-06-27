@@ -18,8 +18,8 @@
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include "../Ice/Identity.h"
-#include "../Ice/BuiltinSequences.h"
+#include <Ice/Identity.h>
+#include <Ice/BuiltinSequences.h>
 #include <IceGrid/Config.h>
 
 #ifndef ICE_IGNORE_VERSION

@@ -10215,6 +10215,8 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, Ice.Current current);
 
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, Ice.Current current);
@@ -10248,6 +10250,18 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, Ice.Current current);
 
@@ -10290,20 +10304,6 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

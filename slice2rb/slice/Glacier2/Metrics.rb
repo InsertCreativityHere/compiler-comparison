@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require_relative '../Ice/Metrics.rb'
+require 'Ice/Metrics.rb'
 
 module ::IceMX
 

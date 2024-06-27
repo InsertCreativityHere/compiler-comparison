@@ -18,7 +18,7 @@
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include "../Ice/Metrics.h"
+#include <Ice/Metrics.h>
 #include <IceStorm/Config.h>
 
 #ifndef ICE_IGNORE_VERSION

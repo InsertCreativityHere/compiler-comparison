@@ -18,9 +18,9 @@
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include "../Ice/Identity.h"
-#include "../Ice/BuiltinSequences.h"
-#include "../Glacier2/Session.h"
+#include <Ice/Identity.h>
+#include <Ice/BuiltinSequences.h>
+#include <Glacier2/Session.h>
 #include "Exception.h"
 #include "Descriptor.h"
 #include <IceGrid/Config.h>

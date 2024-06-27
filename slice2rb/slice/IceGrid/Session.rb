@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require_relative '../Glacier2/Session.rb'
+require 'Glacier2/Session.rb'
 require_relative 'Exception.rb'
 
 module ::IceGrid

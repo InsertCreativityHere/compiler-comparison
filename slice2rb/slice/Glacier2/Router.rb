@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require_relative '../Ice/Router.rb'
+require 'Ice/Router.rb'
 require_relative 'Session.rb'
 require_relative 'PermissionsVerifier.rb'
 

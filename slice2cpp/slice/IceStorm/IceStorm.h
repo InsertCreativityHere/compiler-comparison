@@ -18,7 +18,7 @@
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include "../Ice/Identity.h"
+#include <Ice/Identity.h>
 #include "Metrics.h"
 #include <IceStorm/Config.h>
 

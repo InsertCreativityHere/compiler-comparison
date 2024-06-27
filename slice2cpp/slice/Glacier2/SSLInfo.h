@@ -18,7 +18,7 @@
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include "../Ice/BuiltinSequences.h"
+#include <Ice/BuiltinSequences.h>
 #include <Glacier2/Config.h>
 
 #ifndef ICE_IGNORE_VERSION

@@ -18,7 +18,7 @@ require 'Ice'
 require_relative 'Exception.rb'
 require_relative 'Session.rb'
 require_relative 'Admin.rb'
-require_relative '../Ice/Locator.rb'
+require 'Ice/Locator.rb'
 
 module ::IceGrid
 

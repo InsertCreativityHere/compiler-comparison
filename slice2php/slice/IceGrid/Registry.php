@@ -20,7 +20,7 @@ namespace
     require_once 'Exception.php';
     require_once 'Session.php';
     require_once 'Admin.php';
-    require_once '../Ice/Locator.php';
+    require_once 'Ice/Locator.php';
 }
 
 namespace IceGrid

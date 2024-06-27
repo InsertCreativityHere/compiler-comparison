@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require_relative '../Ice/BuiltinSequences.rb'
+require 'Ice/BuiltinSequences.rb'
 
 module ::Glacier2
 

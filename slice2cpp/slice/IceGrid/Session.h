@@ -18,7 +18,7 @@
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include "../Glacier2/Session.h"
+#include <Glacier2/Session.h>
 #include "Exception.h"
 #include <IceGrid/Config.h>
 

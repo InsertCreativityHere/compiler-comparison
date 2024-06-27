@@ -18,7 +18,7 @@
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include "../Ice/Router.h"
+#include <Ice/Router.h>
 #include "Session.h"
 #include "PermissionsVerifier.h"
 #include <Glacier2/Config.h>
