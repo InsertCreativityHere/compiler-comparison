@@ -36,6 +36,12 @@
 #   endif
 #endif
 
+namespace
+{
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::CallbackException> iceC_Test_CallbackException_init("::Test::CallbackException");
+}
+
 void
 Test::CallbackReceiverPrx::callback(const ::Ice::Context& context) const
 {
@@ -62,6 +68,48 @@ Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal:
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
+}
+
+void
+Test::CallbackReceiverPrx::callbackEx(const ::Ice::Context& context) const
+{
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callbackEx, context).get();
+}
+
+::std::future<void>
+Test::CallbackReceiverPrx::callbackExAsync(const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackReceiverPrx::_iceI_callbackEx, context);
+}
+
+::std::function<void()>
+Test::CallbackReceiverPrx::callbackExAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callbackEx, context);
+}
+
+void
+Test::CallbackReceiverPrx::_iceI_callbackEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+{
+    static constexpr ::std::string_view operationName = "callbackEx";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const CallbackException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
 }
 
 ::std::string_view
@@ -103,6 +151,51 @@ Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal:
 }
 
 void
+Test::CallbackPrx::initiateCallbackEx(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
+{
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallbackEx, iceP_proxy, context).get();
+}
+
+::std::future<void>
+Test::CallbackPrx::initiateCallbackExAsync(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackPrx::_iceI_initiateCallbackEx, iceP_proxy, context);
+}
+
+::std::function<void()>
+Test::CallbackPrx::initiateCallbackExAsync(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallbackEx, iceP_proxy, context);
+}
+
+void
+Test::CallbackPrx::_iceI_initiateCallbackEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
+{
+    static constexpr ::std::string_view operationName = "initiateCallbackEx";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_proxy);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const CallbackException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+
+void
 Test::CallbackPrx::shutdown(const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_shutdown, context).get();
@@ -135,6 +228,40 @@ Test::CallbackPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Callback";
     return typeId;
+}
+
+const char*
+Test::CallbackException::ice_staticId() noexcept
+{
+    return "::Test::CallbackException";
+}
+
+const char*
+Test::CallbackException::ice_id() const noexcept
+{
+    return ice_staticId();
+}
+
+void
+Test::CallbackException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::CallbackException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<CallbackException>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::CallbackException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<CallbackException>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>
@@ -170,12 +297,23 @@ Test::CallbackReceiver::_iceD_callback(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
+Test::CallbackReceiver::_iceD_callbackEx(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->callbackEx(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
 Test::CallbackReceiver::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"callback", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::string_view allOperations[] = {"callback", "callbackEx", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -191,20 +329,25 @@ Test::CallbackReceiver::dispatch(::Ice::IncomingRequest& request, ::std::functio
         }
         case 1:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_callbackEx(request, ::std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, ::std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, ::std::move(sendResponse));
             break;
         }
         case 4:
+        {
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
+        }
+        case 5:
         {
             _iceD_ice_ping(request, ::std::move(sendResponse));
             break;
@@ -255,6 +398,21 @@ Test::Callback::_iceD_initiateCallback(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
+Test::Callback::_iceD_initiateCallbackEx(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
+    ::std::optional<CallbackReceiverPrx> iceP_proxy;
+    istr->readAll(iceP_proxy);
+    istr->endEncapsulation();
+    this->initiateCallbackEx(::std::move(iceP_proxy), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
 Test::Callback::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
@@ -268,10 +426,10 @@ Test::Callback::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<
 void
 Test::Callback::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "initiateCallback", "shutdown"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "initiateCallback", "initiateCallbackEx", "shutdown"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -306,6 +464,11 @@ Test::Callback::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
             break;
         }
         case 5:
+        {
+            _iceD_initiateCallbackEx(request, ::std::move(sendResponse));
+            break;
+        }
+        case 6:
         {
             _iceD_shutdown(request, ::std::move(sendResponse));
             break;

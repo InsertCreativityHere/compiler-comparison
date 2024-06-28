@@ -19,6 +19,9 @@ public interface CallbackReceiver extends com.zeroc.Ice.Object
 {
     void callback(com.zeroc.Ice.Current current);
 
+    void callbackEx(com.zeroc.Ice.Current current)
+        throws CallbackException;
+
     /** @hidden */
     static final String[] _iceIds =
     {
@@ -52,6 +55,16 @@ public interface CallbackReceiver extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_callbackEx(CallbackReceiver obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.callbackEx(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
@@ -59,6 +72,7 @@ public interface CallbackReceiver extends com.zeroc.Ice.Object
         return switch (request.current.operation)
         {
             case "callback" -> CallbackReceiver._iceD_callback(this, request);
+            case "callbackEx" -> CallbackReceiver._iceD_callbackEx(this, request);
             case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
             case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
             case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);

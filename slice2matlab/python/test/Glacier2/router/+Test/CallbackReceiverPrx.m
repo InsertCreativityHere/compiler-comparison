@@ -1,69 +1,61 @@
-% CallbackPrx   Summary of CallbackPrx
+% CallbackReceiverPrx   Summary of CallbackReceiverPrx
 %
-% CallbackPrx Methods:
-%   initiateCallback
-%   initiateCallbackAsync
-%   shutdown
-%   shutdownAsync
+% CallbackReceiverPrx Methods:
+%   callback
+%   callbackAsync
+%   callbackEx
+%   callbackExAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Callback.ice by slice2matlab version 3.8.0-alpha.0
 
-classdef CallbackPrx < Ice.ObjectPrx
+classdef CallbackReceiverPrx < Ice.ObjectPrx
     methods
-        function initiateCallback(obj, proxy, varargin)
-            % initiateCallback
-            %
-            % Parameters:
-            %   proxy (Test.CallbackReceiverPrx)
-            %   context (containers.Map) - Optional request context.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeProxy(proxy);
-            obj.iceEndWriteParams(os_);
-            obj.iceInvoke('initiateCallback', 0, false, os_, false, {}, varargin{:});
-        end
-        function r_ = initiateCallbackAsync(obj, proxy, varargin)
-            % initiateCallbackAsync
-            %
-            % Parameters:
-            %   proxy (Test.CallbackReceiverPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeProxy(proxy);
-            obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('initiateCallback', 0, false, os_, 0, [], {}, varargin{:});
-        end
-        function shutdown(obj, varargin)
-            % shutdown
+        function callback(obj, varargin)
+            % callback
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             
-            obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
+            obj.iceInvoke('callback', 0, false, [], false, {}, varargin{:});
         end
-        function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
+        function r_ = callbackAsync(obj, varargin)
+            % callbackAsync
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('callback', 0, false, [], 0, [], {}, varargin{:});
+        end
+        function callbackEx(obj, varargin)
+            % callbackEx
+            %
+            % Parameters:
+            %   context (containers.Map) - Optional request context.
+            
+            obj.iceInvoke('callbackEx', 0, true, [], false, Test.CallbackReceiverPrx.callbackEx_ex_, varargin{:});
+        end
+        function r_ = callbackExAsync(obj, varargin)
+            % callbackExAsync
+            %
+            % Parameters:
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
+            r_ = obj.iceInvokeAsync('callbackEx', 0, true, [], 0, [], Test.CallbackReceiverPrx.callbackEx_ex_, varargin{:});
         end
     end
     methods(Static)
         function id = ice_staticId()
-            id = '::Test::Callback';
+            id = '::Test::CallbackReceiver';
         end
         function r = ice_read(is)
-            r = is.readProxy('Test.CallbackPrx');
+            r = is.readProxy('Test.CallbackReceiverPrx');
         end
         function r = checkedCast(p, varargin)
             % checkedCast   Contacts the remote server to verify that the object implements this type.
@@ -75,8 +67,8 @@ classdef CallbackPrx < Ice.ObjectPrx
             %   facet - The optional name of the desired facet.
             %   context - The optional context map to send with the invocation.
             %
-            % Returns (Test.CallbackPrx) - A proxy for this type, or an empty array if the object does not support this type.
-            r = Ice.ObjectPrx.iceCheckedCast(p, Test.CallbackPrx.ice_staticId(), 'Test.CallbackPrx', varargin{:});
+            % Returns (Test.CallbackReceiverPrx) - A proxy for this type, or an empty array if the object does not support this type.
+            r = Ice.ObjectPrx.iceCheckedCast(p, Test.CallbackReceiverPrx.ice_staticId(), 'Test.CallbackReceiverPrx', varargin{:});
         end
         function r = uncheckedCast(p, varargin)
             % uncheckedCast   Downcasts the given proxy to this type without contacting the remote server.
@@ -86,13 +78,16 @@ classdef CallbackPrx < Ice.ObjectPrx
             %   p - The proxy to be cast.
             %   facet - The optional name of the desired facet.
             %
-            % Returns (Test.CallbackPrx) - A proxy for this type.
-            r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.CallbackPrx', varargin{:});
+            % Returns (Test.CallbackReceiverPrx) - A proxy for this type.
+            r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.CallbackReceiverPrx', varargin{:});
         end
     end
     methods(Hidden=true)
-        function obj = CallbackPrx(communicator, encoding, impl, bytes)
+        function obj = CallbackReceiverPrx(communicator, encoding, impl, bytes)
             obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
         end
+    end
+    properties(Constant,Access=private)
+        callbackEx_ex_ = { 'Test.CallbackException' }
     end
 end

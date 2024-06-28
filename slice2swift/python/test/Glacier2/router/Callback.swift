@@ -17,6 +17,52 @@ import Foundation
 import Ice
 import PromiseKit
 
+/// :nodoc:
+public class CallbackException_TypeResolver: Ice.UserExceptionTypeResolver {
+    public override func type() -> Ice.UserException.Type {
+        return CallbackException.self
+    }
+}
+
+public extension Ice.ClassResolver {
+    @objc static func Test_CallbackException() -> Ice.UserExceptionTypeResolver {
+        return CallbackException_TypeResolver()
+    }
+}
+
+open class CallbackException: Ice.UserException {
+    public var someValue: Swift.Double = 0.0
+    public var someString: Swift.String = ""
+
+    public required init() {}
+
+    public init(someValue: Swift.Double, someString: Swift.String) {
+        self.someValue = someValue
+        self.someString = someString
+    }
+
+    /// Returns the Slice type ID of this exception.
+    ///
+    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    open override class func ice_staticId() -> Swift.String {
+        return "::Test::CallbackException"
+    }
+
+    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
+        ostr.startSlice(typeId: CallbackException.ice_staticId(), compactId: -1, last: true)
+        ostr.write(self.someValue)
+        ostr.write(self.someString)
+        ostr.endSlice()
+    }
+
+    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
+        _ = try istr.startSlice()
+        self.someValue = try istr.read()
+        self.someString = try istr.read()
+        try istr.endSlice()
+    }
+}
+
 /// Traits for Slice interface`CallbackReceiver`.
 public struct CallbackReceiverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::CallbackReceiver"]
@@ -36,6 +82,10 @@ public struct CallbackTraits: Ice.SliceTraits {
 ///  - callback: 
 ///
 ///  - callbackAsync: 
+///
+///  - callbackEx: 
+///
+///  - callbackExAsync: 
 public protocol CallbackReceiverPrx: Ice.ObjectPrx {}
 
 private final class CallbackReceiverPrxI: Ice.ObjectPrxI, CallbackReceiverPrx {
@@ -130,6 +180,10 @@ public extension Ice.InputStream {
 ///  - callback: 
 ///
 ///  - callbackAsync: 
+///
+///  - callbackEx: 
+///
+///  - callbackExAsync: 
 public extension CallbackReceiverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -159,6 +213,49 @@ public extension CallbackReceiverPrx {
                                   sentFlags: sentFlags,
                                   sent: sent)
     }
+
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    func callbackEx(context: Ice.Context? = nil) throws {
+        try _impl._invoke(operation: "callbackEx",
+                          mode: .Normal,
+                          userException:{ ex in
+                              do  {
+                                  throw ex
+                              } catch let error as CallbackException {
+                                  throw error
+                              } catch is Ice.UserException {}
+                          },
+                          context: context)
+    }
+
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
+    ///   dispatch the sent callback.
+    ///
+    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
+    ///   to dispatch the sent callback
+    ///
+    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
+    ///
+    /// - returns: `PromiseKit.Promise<>` - The result of the operation
+    func callbackExAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
+        return _impl._invokeAsync(operation: "callbackEx",
+                                  mode: .Normal,
+                                  userException:{ ex in
+                                      do  {
+                                          throw ex
+                                      } catch let error as CallbackException {
+                                          throw error
+                                      } catch is Ice.UserException {}
+                                  },
+                                  context: context,
+                                  sentOn: sentOn,
+                                  sentFlags: sentFlags,
+                                  sent: sent)
+    }
 }
 
 /// CallbackPrx overview.
@@ -168,6 +265,10 @@ public extension CallbackReceiverPrx {
 ///  - initiateCallback: 
 ///
 ///  - initiateCallbackAsync: 
+///
+///  - initiateCallbackEx: 
+///
+///  - initiateCallbackExAsync: 
 ///
 ///  - shutdown: 
 ///
@@ -267,6 +368,10 @@ public extension Ice.InputStream {
 ///
 ///  - initiateCallbackAsync: 
 ///
+///  - initiateCallbackEx: 
+///
+///  - initiateCallbackExAsync: 
+///
 ///  - shutdown: 
 ///
 ///  - shutdownAsync: 
@@ -303,6 +408,59 @@ public extension CallbackPrx {
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(iceP_proxy)
+                                  },
+                                  context: context,
+                                  sentOn: sentOn,
+                                  sentFlags: sentFlags,
+                                  sent: sent)
+    }
+
+    ///
+    /// - parameter _: `CallbackReceiverPrx?`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    func initiateCallbackEx(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) throws {
+        try _impl._invoke(operation: "initiateCallbackEx",
+                          mode: .Normal,
+                          write: { ostr in
+                              ostr.write(iceP_proxy)
+                          },
+                          userException:{ ex in
+                              do  {
+                                  throw ex
+                              } catch let error as CallbackException {
+                                  throw error
+                              } catch is Ice.UserException {}
+                          },
+                          context: context)
+    }
+
+    ///
+    /// - parameter _: `CallbackReceiverPrx?`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
+    ///   dispatch the sent callback.
+    ///
+    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
+    ///   to dispatch the sent callback
+    ///
+    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
+    ///
+    /// - returns: `PromiseKit.Promise<>` - The result of the operation
+    func initiateCallbackExAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
+        return _impl._invokeAsync(operation: "initiateCallbackEx",
+                                  mode: .Normal,
+                                  write: { ostr in
+                                      ostr.write(iceP_proxy)
+                                  },
+                                  userException:{ ex in
+                                      do  {
+                                          throw ex
+                                      } catch let error as CallbackException {
+                                          throw error
+                                      } catch is Ice.UserException {}
                                   },
                                   context: context,
                                   sentOn: sentOn,
@@ -354,6 +512,8 @@ public struct CallbackReceiverDisp: Ice.Dispatcher {
         switch request.current.operation {
         case "callback":
             servant._iceD_callback(request)
+        case "callbackEx":
+            servant._iceD_callbackEx(request)
         case "ice_id":
             (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
@@ -372,6 +532,10 @@ public protocol CallbackReceiver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func callback(current: Ice.Current) throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    func callbackEx(current: Ice.Current) throws
 }
 
 
@@ -396,6 +560,8 @@ public struct CallbackDisp: Ice.Dispatcher {
             (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(request)
         case "initiateCallback":
             servant._iceD_initiateCallback(request)
+        case "initiateCallbackEx":
+            servant._iceD_initiateCallbackEx(request)
         case "shutdown":
             servant._iceD_shutdown(request)
         default:
@@ -412,6 +578,12 @@ public protocol Callback {
     func initiateCallback(proxy: CallbackReceiverPrx?, current: Ice.Current) throws
 
     ///
+    /// - parameter proxy: `CallbackReceiverPrx?`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    func initiateCallbackEx(proxy: CallbackReceiverPrx?, current: Ice.Current) throws
+
+    ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) throws
 }
@@ -421,12 +593,25 @@ public protocol Callback {
 /// CallbackReceiver Methods:
 ///
 ///  - callback: 
+///
+///  - callbackEx: 
 extension CallbackReceiver {
     public func _iceD_callback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
         do {
             _ = try request.inputStream.skipEmptyEncapsulation()
 
             try self.callback(current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_callbackEx(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            _ = try request.inputStream.skipEmptyEncapsulation()
+
+            try self.callbackEx(current: request.current)
             return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
         } catch {
             return PromiseKit.Promise(error: error)
@@ -440,6 +625,8 @@ extension CallbackReceiver {
 ///
 ///  - initiateCallback: 
 ///
+///  - initiateCallbackEx: 
+///
 ///  - shutdown: 
 extension Callback {
     public func _iceD_initiateCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
@@ -449,6 +636,19 @@ extension Callback {
             let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
 
             try self.initiateCallback(proxy: iceP_proxy, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_initiateCallbackEx(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
+            let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
+
+            try self.initiateCallbackEx(proxy: iceP_proxy, current: request.current)
             return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
         } catch {
             return PromiseKit.Promise(error: error)

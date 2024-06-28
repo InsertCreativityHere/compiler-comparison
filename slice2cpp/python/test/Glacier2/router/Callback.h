@@ -51,6 +51,17 @@ public:
     void _iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
+    void callbackEx(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<void> callbackExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    callbackExAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_callbackEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
+    /// \endcond
+
     /**
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
@@ -112,6 +123,17 @@ public:
 
     /// \cond INTERNAL
     void _iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<CallbackReceiverPrx>&, const ::Ice::Context&) const;
+    /// \endcond
+
+    void initiateCallbackEx(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<void> initiateCallbackExAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    initiateCallbackExAsync(const ::std::optional<CallbackReceiverPrx>& proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_initiateCallbackEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<CallbackReceiverPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -178,6 +200,57 @@ protected:
 namespace Test
 {
 
+class CallbackException : public ::Ice::UserException
+{
+public:
+    using ::Ice::UserException::UserException;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    CallbackException(double someValue, ::std::string someString) noexcept :
+        someValue(someValue),
+        someString(::std::move(someString))
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const double&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(someValue, someString);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const char* ice_staticId() noexcept;
+
+    const char* ice_id() const noexcept override;
+
+    void ice_throw() const override;
+
+    double someValue;
+    ::std::string someString;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
+};
+
+/// \cond INTERNAL
+static CallbackException _iceS_CallbackException_init;
+/// \endcond
+
+}
+
+namespace Test
+{
+
 class CallbackReceiver : public virtual ::Ice::Object
 {
 public:
@@ -207,6 +280,11 @@ public:
     virtual void callback(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_callback(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    /// \endcond
+
+    virtual void callbackEx(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    void _iceD_callbackEx(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
@@ -247,6 +325,11 @@ public:
     void _iceD_initiateCallback(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
+    virtual void initiateCallbackEx(::std::optional<CallbackReceiverPrx> proxy, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    void _iceD_initiateCallbackEx(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    /// \endcond
+
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
@@ -260,6 +343,22 @@ public:
 using CallbackPtr = ::std::shared_ptr<Callback>;
 
 }
+
+/// \cond STREAM
+namespace Ice
+{
+
+template<>
+struct StreamReader<::Test::CallbackException>
+{
+    static void read(InputStream* istr, ::Test::CallbackException& v)
+    {
+        istr->readAll(v.someValue, v.someString);
+    }
+};
+
+}
+/// \endcond
 
 #include <Ice/PopDisableWarnings.h>
 #endif

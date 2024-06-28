@@ -18,6 +18,26 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::CallbackException)
+        class CallbackException < Ice::UserException
+            def initialize(someValue=0.0, someString='')
+                @someValue = someValue
+                @someString = someString
+            end
+
+            def to_s
+                '::Test::CallbackException'
+            end
+
+            attr_accessor :someValue, :someString
+        end
+
+        T_CallbackException = ::Ice::__defineException('::Test::CallbackException', CallbackException, nil, [
+            ["someValue", ::Ice::T_double, false, 0],
+            ["someString", ::Ice::T_string, false, 0]
+        ])
+    end
+
     if not defined?(::Test::CallbackReceiver_Mixin)
 
         module ::Test::CallbackReceiver_Mixin
@@ -26,6 +46,10 @@ module ::Test
 
             def callback(context=nil)
                 CallbackReceiverPrx_mixin::OP_callback.invoke(self, [], context)
+            end
+
+            def callbackEx(context=nil)
+                CallbackReceiverPrx_mixin::OP_callbackEx.invoke(self, [], context)
             end
         end
 
@@ -42,6 +66,7 @@ module ::Test
         T_CallbackReceiverPrx.defineProxy(CallbackReceiverPrx, nil, [])
 
         CallbackReceiverPrx_mixin::OP_callback = ::Ice::__defineOperation('callback', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        CallbackReceiverPrx_mixin::OP_callbackEx = ::Ice::__defineOperation('callbackEx', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_CallbackException])
     end
 
     if not defined?(::Test::Callback_Mixin)
@@ -52,6 +77,10 @@ module ::Test
 
             def initiateCallback(proxy, context=nil)
                 CallbackPrx_mixin::OP_initiateCallback.invoke(self, [proxy], context)
+            end
+
+            def initiateCallbackEx(proxy, context=nil)
+                CallbackPrx_mixin::OP_initiateCallbackEx.invoke(self, [proxy], context)
             end
 
             def shutdown(context=nil)
@@ -72,6 +101,7 @@ module ::Test
         T_CallbackPrx.defineProxy(CallbackPrx, nil, [])
 
         CallbackPrx_mixin::OP_initiateCallback = ::Ice::__defineOperation('initiateCallback', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CallbackReceiverPrx, false, 0]], [], nil, [])
+        CallbackPrx_mixin::OP_initiateCallbackEx = ::Ice::__defineOperation('initiateCallbackEx', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CallbackReceiverPrx, false, 0]], [], nil, [::Test::T_CallbackException])
         CallbackPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

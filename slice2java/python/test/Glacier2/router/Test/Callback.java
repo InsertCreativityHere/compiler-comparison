@@ -19,6 +19,9 @@ public interface Callback extends com.zeroc.Ice.Object
 {
     void initiateCallback(CallbackReceiverPrx proxy, com.zeroc.Ice.Current current);
 
+    void initiateCallbackEx(CallbackReceiverPrx proxy, com.zeroc.Ice.Current current)
+        throws CallbackException;
+
     void shutdown(com.zeroc.Ice.Current current);
 
     /** @hidden */
@@ -59,6 +62,20 @@ public interface Callback extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_initiateCallbackEx(Callback obj, com.zeroc.Ice.IncomingRequest request)
+        throws com.zeroc.Ice.UserException
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        CallbackReceiverPrx iceP_proxy;
+        iceP_proxy = CallbackReceiverPrx.uncheckedCast(istr.readProxy());
+        istr.endEncapsulation();
+        obj.initiateCallbackEx(iceP_proxy, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(Callback obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
@@ -74,6 +91,7 @@ public interface Callback extends com.zeroc.Ice.Object
         return switch (request.current.operation)
         {
             case "initiateCallback" -> Callback._iceD_initiateCallback(this, request);
+            case "initiateCallbackEx" -> Callback._iceD_initiateCallbackEx(this, request);
             case "shutdown" -> Callback._iceD_shutdown(this, request);
             case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
             case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);

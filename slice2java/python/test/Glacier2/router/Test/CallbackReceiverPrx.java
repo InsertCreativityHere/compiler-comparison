@@ -50,6 +50,58 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default void callbackEx()
+        throws CallbackException
+    {
+        callbackEx(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void callbackEx(java.util.Map<String, String> context)
+        throws CallbackException
+    {
+        try
+        {
+            _iceI_callbackExAsync(context, true).waitForResponseOrUserEx();
+        }
+        catch(CallbackException ex)
+        {
+            throw ex;
+        }
+        catch(com.zeroc.Ice.UserException ex)
+        {
+            throw new com.zeroc.Ice.UnknownUserException(ex.ice_id(), ex);
+        }
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> callbackExAsync()
+    {
+        return _iceI_callbackExAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> callbackExAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_callbackExAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_callbackExAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "callbackEx", null, sync, _iceE_callbackEx);
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        return f;
+    }
+
+    /** @hidden */
+    static final Class<?>[] _iceE_callbackEx =
+    {
+        CallbackException.class
+    };
+
     /**
      * Creates a new proxy that implements {@link CallbackReceiverPrx}.
      * @param communicator The communicator of the new proxy.

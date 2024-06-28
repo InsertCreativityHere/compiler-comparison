@@ -21,6 +21,46 @@ import { Ice } from "ice";
 
 export const Test = {};
 
+Test.CallbackException = class extends Ice.UserException
+{
+    constructor(someValue = 0.0, someString = "", _cause = "")
+    {
+        super(_cause);
+        this.someValue = someValue;
+        this.someString = someString;
+    }
+
+    static get _parent()
+    {
+        return Ice.UserException;
+    }
+
+    static get _id()
+    {
+        return "::Test::CallbackException";
+    }
+
+    _mostDerivedType()
+    {
+        return Test.CallbackException;
+    }
+
+    _writeMemberImpl(ostr)
+    {
+        ostr.writeDouble(this.someValue);
+        ostr.writeString(this.someString);
+    }
+
+    _readMemberImpl(istr)
+    {
+        this.someValue = istr.readDouble();
+        this.someString = istr.readString();
+    }
+};
+Ice.TypeRegistry.declareUserExceptionType(
+    "Test.CallbackException",
+    Test.CallbackException);
+
 const iceC_Test_CallbackReceiver_ids = [
     "::Ice::Object",
     "::Test::CallbackReceiver"
@@ -41,7 +81,11 @@ Ice.defineOperations(
     iceC_Test_CallbackReceiver_ids,
     "::Test::CallbackReceiver",
     {
-        "callback": [, , , , , , , , ]
+        "callback": [, , , , , , , , ],
+        "callbackEx": [, , , , , ,
+        [
+            Test.CallbackException
+        ], , ]
     });
 
 const iceC_Test_Callback_ids = [
@@ -65,5 +109,9 @@ Ice.defineOperations(
     "::Test::Callback",
     {
         "initiateCallback": [, , , , [["Test.CallbackReceiverPrx"]], , , , ],
+        "initiateCallbackEx": [, , , , [["Test.CallbackReceiverPrx"]], ,
+        [
+            Test.CallbackException
+        ], , ],
         "shutdown": [, , , , , , , , ]
     });
