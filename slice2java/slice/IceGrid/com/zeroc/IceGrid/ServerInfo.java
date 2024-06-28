@@ -229,5 +229,5 @@ public class ServerInfo implements java.lang.Cloneable,
     private static final ServerInfo _nullMarshalValue = new ServerInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 9122295613984378337L;
+    private static final long serialVersionUID = -6463081615990131421L;
 }

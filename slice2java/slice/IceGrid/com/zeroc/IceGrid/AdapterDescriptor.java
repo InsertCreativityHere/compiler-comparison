@@ -278,5 +278,5 @@ public class AdapterDescriptor implements java.lang.Cloneable,
     private static final AdapterDescriptor _nullMarshalValue = new AdapterDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = -8832984684822845028L;
+    private static final long serialVersionUID = -8513535884284078742L;
 }
