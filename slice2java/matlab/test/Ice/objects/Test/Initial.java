@@ -393,8 +393,6 @@ public interface Initial extends com.zeroc.Ice.Object
 
     void setRecursive(Recursive p, com.zeroc.Ice.Current current);
 
-    boolean supportsClassGraphDepthMax(com.zeroc.Ice.Current current);
-
     void setCycle(Recursive r, com.zeroc.Ice.Current current);
 
     boolean acceptsClassCycles(com.zeroc.Ice.Current current);
@@ -574,19 +572,6 @@ public interface Initial extends com.zeroc.Ice.Object
         Recursive iceP_p = icePP_p.value;
         obj.setRecursive(iceP_p, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
-    }
-
-    /** @hidden */
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_supportsClassGraphDepthMax(Initial obj, com.zeroc.Ice.IncomingRequest request)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
-        request.inputStream.skipEmptyEncapsulation();
-        boolean ret = obj.supportsClassGraphDepthMax(request.current);
-        var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
-        ostr.writeBool(ret);
-        ostr.endEncapsulation();
-        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
     /** @hidden */
@@ -951,7 +936,6 @@ public interface Initial extends com.zeroc.Ice.Object
             case "getE" -> Initial._iceD_getE(this, request);
             case "getF" -> Initial._iceD_getF(this, request);
             case "setRecursive" -> Initial._iceD_setRecursive(this, request);
-            case "supportsClassGraphDepthMax" -> Initial._iceD_supportsClassGraphDepthMax(this, request);
             case "setCycle" -> Initial._iceD_setCycle(this, request);
             case "acceptsClassCycles" -> Initial._iceD_acceptsClassCycles(this, request);
             case "getMB" -> Initial._iceD_getMB(this, request);

@@ -597,10 +597,6 @@ module ::Test
                 InitialPrx_mixin::OP_setRecursive.invoke(self, [p], context)
             end
 
-            def supportsClassGraphDepthMax(context=nil)
-                InitialPrx_mixin::OP_supportsClassGraphDepthMax.invoke(self, [], context)
-            end
-
             def setCycle(r, context=nil)
                 InitialPrx_mixin::OP_setCycle.invoke(self, [r], context)
             end
@@ -698,7 +694,6 @@ module ::Test
         InitialPrx_mixin::OP_getE = ::Ice::__defineOperation('getE', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_E, false, 0], [])
         InitialPrx_mixin::OP_getF = ::Ice::__defineOperation('getF', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_F, false, 0], [])
         InitialPrx_mixin::OP_setRecursive = ::Ice::__defineOperation('setRecursive', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_Recursive, false, 0]], [], nil, [])
-        InitialPrx_mixin::OP_supportsClassGraphDepthMax = ::Ice::__defineOperation('supportsClassGraphDepthMax', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_setCycle = ::Ice::__defineOperation('setCycle', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_Recursive, false, 0]], [], nil, [])
         InitialPrx_mixin::OP_acceptsClassCycles = ::Ice::__defineOperation('acceptsClassCycles', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_getMB = ::Ice::__defineOperation('getMB', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_B, false, 0], [])

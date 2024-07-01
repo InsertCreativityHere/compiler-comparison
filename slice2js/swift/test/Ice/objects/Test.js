@@ -759,7 +759,6 @@ Ice.defineOperations(
         "getE": [, , , ["Test.E", true], , , , , true],
         "getF": [, , , ["Test.F", true], , , , , true],
         "setRecursive": [, , , , [["Test.Recursive", true]], , , true, ],
-        "supportsClassGraphDepthMax": [, , , [1], , , , , ],
         "setCycle": [, , , , [["Test.Recursive", true]], , , true, ],
         "acceptsClassCycles": [, , , [1], , , , , ],
         "getMB": [, , , ["Test.B", true], , , , , true],

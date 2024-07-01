@@ -358,35 +358,6 @@ Test::InitialPrx::_iceI_setRecursive(const ::std::shared_ptr<::IceInternal::Outg
         nullptr);
 }
 
-bool
-Test::InitialPrx::supportsClassGraphDepthMax(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_supportsClassGraphDepthMax, context).get();
-}
-
-::std::future<bool>
-Test::InitialPrx::supportsClassGraphDepthMaxAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<bool>(false, this, &InitialPrx::_iceI_supportsClassGraphDepthMax, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::supportsClassGraphDepthMaxAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<bool>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_supportsClassGraphDepthMax, context);
-}
-
-void
-Test::InitialPrx::_iceI_supportsClassGraphDepthMax(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "supportsClassGraphDepthMax";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-
 void
 Test::InitialPrx::setCycle(const RecursivePtr& iceP_r, const ::Ice::Context& context) const
 {
@@ -2229,21 +2200,6 @@ Test::Initial::_iceD_setRecursive(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_supportsClassGraphDepthMax(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    request.inputStream().skipEmptyEncapsulation();
-    bool ret = this->supportsClassGraphDepthMax(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(ret);
-        },
-        request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::Initial::_iceD_setCycle(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
@@ -2592,10 +2548,10 @@ Test::Initial::_iceD_hasF3(::Ice::IncomingRequest& request, ::std::function<void
 void
 Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"acceptsClassCycles", "getAMDMB", "getAll", "getB1", "getB2", "getC", "getCompact", "getD", "getD1", "getE", "getF", "getK", "getMB", "hasF3", "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBaseSeq", "opF1", "opF2", "opF3", "opValue", "opValueMap", "opValueSeq", "setCycle", "setG", "setRecursive", "shutdown", "supportsClassGraphDepthMax", "throwEDerived"};
+    static constexpr ::std::string_view allOperations[] = {"acceptsClassCycles", "getAMDMB", "getAll", "getB1", "getB2", "getC", "getCompact", "getD", "getD1", "getE", "getF", "getK", "getMB", "hasF3", "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBaseSeq", "opF1", "opF2", "opF3", "opValue", "opValueMap", "opValueSeq", "setCycle", "setG", "setRecursive", "shutdown", "throwEDerived"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 31, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 30, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -2750,11 +2706,6 @@ Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
             break;
         }
         case 29:
-        {
-            _iceD_supportsClassGraphDepthMax(request, ::std::move(sendResponse));
-            break;
-        }
-        case 30:
         {
             _iceD_throwEDerived(request, ::std::move(sendResponse));
             break;

@@ -1109,7 +1109,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'getE', 0, 0, null, null, array($Test__t_E), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'getF', 0, 0, null, null, array($Test__t_F), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'setRecursive', 0, 0, array(array($Test__t_Recursive)), null, null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'supportsClassGraphDepthMax', 0, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'setCycle', 0, 0, array(array($Test__t_Recursive)), null, null, null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'acceptsClassCycles', 0, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'getMB', 0, 0, null, null, array($Test__t_B), null);

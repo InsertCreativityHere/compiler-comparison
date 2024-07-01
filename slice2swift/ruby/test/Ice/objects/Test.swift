@@ -678,10 +678,6 @@ public struct InitialTraits: Ice.SliceTraits {
 ///
 ///  - setRecursiveAsync: 
 ///
-///  - supportsClassGraphDepthMax: 
-///
-///  - supportsClassGraphDepthMaxAsync: 
-///
 ///  - setCycle: 
 ///
 ///  - setCycleAsync: 
@@ -879,10 +875,6 @@ public extension Ice.InputStream {
 ///  - setRecursive: 
 ///
 ///  - setRecursiveAsync: 
-///
-///  - supportsClassGraphDepthMax: 
-///
-///  - supportsClassGraphDepthMaxAsync: 
 ///
 ///  - setCycle: 
 ///
@@ -1281,45 +1273,6 @@ public extension InitialPrx {
                                   write: { ostr in
                                       ostr.write(iceP_p)
                                       ostr.writePendingValues()
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
-    func supportsClassGraphDepthMax(context: Ice.Context? = nil) throws -> Swift.Bool {
-        return try _impl._invoke(operation: "supportsClassGraphDepthMax",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func supportsClassGraphDepthMaxAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "supportsClassGraphDepthMax",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
                                   },
                                   context: context,
                                   sentOn: sentOn,
@@ -3317,8 +3270,6 @@ public struct InitialDisp: Ice.Dispatcher {
             servant._iceD_setRecursive(request)
         case "shutdown":
             servant._iceD_shutdown(request)
-        case "supportsClassGraphDepthMax":
-            servant._iceD_supportsClassGraphDepthMax(request)
         case "throwEDerived":
             servant._iceD_throwEDerived(request)
         default:
@@ -3373,12 +3324,6 @@ public protocol Initial {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setRecursive(p: Recursive?, current: Ice.Current) throws
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
-    func supportsClassGraphDepthMax(current: Ice.Current) throws -> Swift.Bool
 
     ///
     /// - parameter r: `Recursive?`
@@ -3571,8 +3516,6 @@ public protocol Initial {
 ///
 ///  - setRecursive: 
 ///
-///  - supportsClassGraphDepthMax: 
-///
 ///  - setCycle: 
 ///
 ///  - acceptsClassCycles: 
@@ -3728,21 +3671,6 @@ extension Initial {
 
             try self.setRecursive(p: iceP_p, current: request.current)
             return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_supportsClassGraphDepthMax(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-
-            let iceP_returnValue = try self.supportsClassGraphDepthMax(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
         } catch {
             return PromiseKit.Promise(error: error)
         }

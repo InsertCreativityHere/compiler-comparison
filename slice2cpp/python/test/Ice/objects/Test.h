@@ -213,17 +213,6 @@ public:
     void _iceI_setRecursive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const RecursivePtr&, const ::Ice::Context&) const;
     /// \endcond
 
-    bool supportsClassGraphDepthMax(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<bool> supportsClassGraphDepthMaxAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    supportsClassGraphDepthMaxAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_supportsClassGraphDepthMax(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
-    /// \endcond
-
     void setCycle(const RecursivePtr& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<void> setCycleAsync(const RecursivePtr& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1796,11 +1785,6 @@ public:
     virtual void setRecursive(RecursivePtr p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_setRecursive(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual bool supportsClassGraphDepthMax(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_supportsClassGraphDepthMax(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void setCycle(RecursivePtr r, const ::Ice::Current& current) = 0;

@@ -315,43 +315,6 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default boolean supportsClassGraphDepthMax()
-    {
-        return supportsClassGraphDepthMax(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default boolean supportsClassGraphDepthMax(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsClassGraphDepthMaxAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsClassGraphDepthMaxAsync()
-    {
-        return _iceI_supportsClassGraphDepthMaxAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsClassGraphDepthMaxAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsClassGraphDepthMaxAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_supportsClassGraphDepthMaxAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "supportsClassGraphDepthMax", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
-                     boolean ret;
-                     ret = istr.readBool();
-                     return ret;
-                 });
-        return f;
-    }
-
     default void setCycle(Recursive r)
     {
         setCycle(r, com.zeroc.Ice.ObjectPrx.noExplicitContext);

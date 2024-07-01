@@ -17,8 +17,6 @@
 %   getFAsync
 %   setRecursive
 %   setRecursiveAsync
-%   supportsClassGraphDepthMax
-%   supportsClassGraphDepthMaxAsync
 %   setCycle
 %   setCycleAsync
 %   acceptsClassCycles
@@ -314,35 +312,6 @@ classdef InitialPrx < Ice.ObjectPrx
             os_.writePendingValues();
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('setRecursive', 0, false, os_, 0, [], {}, varargin{:});
-        end
-        function result = supportsClassGraphDepthMax(obj, varargin)
-            % supportsClassGraphDepthMax
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (logical)
-            
-            is_ = obj.iceInvoke('supportsClassGraphDepthMax', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readBool();
-            is_.endEncapsulation();
-        end
-        function r_ = supportsClassGraphDepthMaxAsync(obj, varargin)
-            % supportsClassGraphDepthMaxAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readBool();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('supportsClassGraphDepthMax', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function setCycle(obj, r, varargin)
             % setCycle

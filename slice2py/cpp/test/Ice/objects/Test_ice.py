@@ -1088,12 +1088,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def setRecursiveAsync(self, p, context=None):
             return _M_Test.Initial._op_setRecursive.invokeAsync(self, ((p, ), context))
 
-        def supportsClassGraphDepthMax(self, context=None):
-            return _M_Test.Initial._op_supportsClassGraphDepthMax.invoke(self, ((), context))
-
-        def supportsClassGraphDepthMaxAsync(self, context=None):
-            return _M_Test.Initial._op_supportsClassGraphDepthMax.invokeAsync(self, ((), context))
-
         def setCycle(self, r, context=None):
             return _M_Test.Initial._op_setCycle.invoke(self, ((r, ), context))
 
@@ -1285,9 +1279,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def setRecursive(self, p, current=None):
             raise NotImplementedError("servant method 'setRecursive' not implemented")
 
-        def supportsClassGraphDepthMax(self, current=None):
-            raise NotImplementedError("servant method 'supportsClassGraphDepthMax' not implemented")
-
         def setCycle(self, r, current=None):
             raise NotImplementedError("servant method 'setCycle' not implemented")
 
@@ -1399,7 +1390,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_getE = IcePy.Operation('getE', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_E, False, 0), ())
     Initial._op_getF = IcePy.Operation('getF', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_F, False, 0), ())
     Initial._op_setRecursive = IcePy.Operation('setRecursive', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Recursive, False, 0),), (), None, ())
-    Initial._op_supportsClassGraphDepthMax = IcePy.Operation('supportsClassGraphDepthMax', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_setCycle = IcePy.Operation('setCycle', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Recursive, False, 0),), (), None, ())
     Initial._op_acceptsClassCycles = IcePy.Operation('acceptsClassCycles', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_getMB = IcePy.Operation('getMB', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
