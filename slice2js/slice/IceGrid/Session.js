@@ -91,8 +91,8 @@ Ice.defineOperations(
         "keepAlive": [, 2, , , , , , , ],
         "allocateObjectById": [, , , [9], [[Ice.Identity]], ,
         [
-            IceGrid.ObjectNotRegisteredException,
-            IceGrid.AllocationException
+            IceGrid.AllocationException,
+            IceGrid.ObjectNotRegisteredException
         ], , ],
         "allocateObjectByType": [, , , [9], [[7]], ,
         [
@@ -100,8 +100,8 @@ Ice.defineOperations(
         ], , ],
         "releaseObject": [, , , , [[Ice.Identity]], ,
         [
-            IceGrid.ObjectNotRegisteredException,
-            IceGrid.AllocationException
+            IceGrid.AllocationException,
+            IceGrid.ObjectNotRegisteredException
         ], , ],
         "setAllocationTimeout": [, 2, , , [[3]], , , , ]
     });
