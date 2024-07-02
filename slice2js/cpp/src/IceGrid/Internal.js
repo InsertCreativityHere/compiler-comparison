@@ -623,8 +623,8 @@ Ice.defineOperations(
         "getTimeout": [, 2, , [3], , , , , ],
         "setDatabaseObserver": [, 2, , , [["IceGrid.DatabaseObserverPrx"], [IceGrid.StringLongDictHelper, , 1]], ,
         [
-            IceGrid.ObserverAlreadyRegisteredException,
-            IceGrid.DeploymentException
+            IceGrid.DeploymentException,
+            IceGrid.ObserverAlreadyRegisteredException
         ], , ],
         "setEndpoints": [, 2, , , [[IceGrid.StringObjectProxyDictHelper]], , , , ],
         "registerWellKnownObjects": [, 2, , , [[IceGrid.ObjectInfoSeqHelper]], , , , ],

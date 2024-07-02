@@ -138,5 +138,5 @@ public class _continue implements java.lang.Cloneable,
     private static final _continue _nullMarshalValue = new _continue();
 
     /** @hidden */
-    private static final long serialVersionUID = 1201383897333823205L;
+    private static final long serialVersionUID = 1201380428451874498L;
 }

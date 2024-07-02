@@ -10459,26 +10459,6 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(Ice.Current current);
@@ -10506,6 +10486,26 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

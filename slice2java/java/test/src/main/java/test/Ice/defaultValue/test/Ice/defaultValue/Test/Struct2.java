@@ -370,5 +370,5 @@ public class Struct2 implements java.lang.Cloneable,
     private static final Struct2 _nullMarshalValue = new Struct2();
 
     /** @hidden */
-    private static final long serialVersionUID = -9094036722016676491L;
+    private static final long serialVersionUID = -1220936371620332700L;
 }

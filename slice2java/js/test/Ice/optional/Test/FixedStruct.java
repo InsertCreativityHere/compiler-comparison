@@ -138,5 +138,5 @@ public class FixedStruct implements java.lang.Cloneable,
     private static final FixedStruct _nullMarshalValue = new FixedStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = 1569605491119138288L;
+    private static final long serialVersionUID = 1569605635771731769L;
 }
