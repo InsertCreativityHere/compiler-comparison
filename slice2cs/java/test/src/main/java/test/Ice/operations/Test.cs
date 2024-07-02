@@ -13746,6 +13746,24 @@ namespace Test
 
         public abstract MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, Ice.Current current);
 
+        public abstract int opInt1(int opInt1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
+
+        public abstract float opFloat1(float opFloat1, Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, Ice.Current current);
+
+        public abstract string opString1(string opString1, Ice.Current current);
+
+        public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
+
+        public abstract string[] opStringS2(string[] stringS, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
+
         public abstract string[] opStringLiterals(Ice.Current current);
 
         public abstract string[] opWStringLiterals(Ice.Current current);
@@ -13772,13 +13790,13 @@ namespace Test
 
         public abstract bool opBool(bool p1, bool p2, out bool p3, Ice.Current current);
 
+        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, Ice.Current current);
+
         public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, Ice.Current current);
 
         public abstract string opString(string p1, string p2, out string p3, Ice.Current current);
 
         public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, Ice.Current current);
-
-        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, Ice.Current current);
 
         public abstract MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, Ice.Current current);
 
@@ -13867,24 +13885,6 @@ namespace Test
         public abstract byte opByte1(byte opByte1, Ice.Current current);
 
         public abstract short opShort1(short opShort1, Ice.Current current);
-
-        public abstract int opInt1(int opInt1, Ice.Current current);
-
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
-        public abstract float opFloat1(float opFloat1, Ice.Current current);
-
-        public abstract double opDouble1(double opDouble1, Ice.Current current);
-
-        public abstract string opString1(string opString1, Ice.Current current);
-
-        public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
-
-        public abstract string[] opStringS2(string[] stringS, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -13981,6 +13981,24 @@ namespace Test2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
+        public abstract int opInt1(int opInt1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
+
+        public abstract float opFloat1(float opFloat1, Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, Ice.Current current);
+
+        public abstract string opString1(string opString1, Ice.Current current);
+
+        public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
+
+        public abstract string[] opStringS2(string[] stringS, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
+
         public abstract string[] opStringLiterals(Ice.Current current);
 
         public abstract string[] opWStringLiterals(Ice.Current current);
@@ -14007,13 +14025,13 @@ namespace Test2
 
         public abstract bool opBool(bool p1, bool p2, out bool p3, Ice.Current current);
 
+        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, Ice.Current current);
+
         public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, Ice.Current current);
 
         public abstract string opString(string p1, string p2, out string p3, Ice.Current current);
 
         public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, Ice.Current current);
-
-        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, Ice.Current current);
 
         public abstract global::Test.MyClassPrx? opMyClass(global::Test.MyClassPrx? p1, out global::Test.MyClassPrx? p2, out global::Test.MyClassPrx? p3, Ice.Current current);
 
@@ -14102,24 +14120,6 @@ namespace Test2
         public abstract byte opByte1(byte opByte1, Ice.Current current);
 
         public abstract short opShort1(short opShort1, Ice.Current current);
-
-        public abstract int opInt1(int opInt1, Ice.Current current);
-
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
-        public abstract float opFloat1(float opFloat1, Ice.Current current);
-
-        public abstract double opDouble1(double opDouble1, Ice.Current current);
-
-        public abstract string opString1(string opString1, Ice.Current current);
-
-        public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
-
-        public abstract string[] opStringS2(string[] stringS, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
