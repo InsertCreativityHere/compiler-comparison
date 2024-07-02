@@ -5978,11 +5978,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(DeploymentException)
+                    catch(ObserverAlreadyRegisteredException)
                     {
                         throw;
                     }
-                    catch(ObserverAlreadyRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -6086,11 +6086,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
@@ -6504,11 +6504,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
@@ -6560,11 +6560,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
@@ -7118,10 +7118,6 @@ namespace IceGrid
 
         public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, Ice.Current current);
 
-        public abstract void adapterInit(AdapterInfo[] adpts, Ice.Current current);
-
-        public abstract void adapterAdded(AdapterInfo info, Ice.Current current);
-
         public abstract void adapterUpdated(AdapterInfo info, Ice.Current current);
 
         public abstract void adapterRemoved(string id, Ice.Current current);
@@ -7133,6 +7129,10 @@ namespace IceGrid
         public abstract void objectUpdated(ObjectInfo info, Ice.Current current);
 
         public abstract void objectRemoved(global::Ice.Identity id, Ice.Current current);
+
+        public abstract void adapterInit(AdapterInfo[] adpts, Ice.Current current);
+
+        public abstract void adapterAdded(AdapterInfo info, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
