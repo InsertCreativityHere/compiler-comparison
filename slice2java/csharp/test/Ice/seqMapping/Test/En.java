@@ -15,7 +15,7 @@
 
 package Test;
 
-public enum En implements java.io.Serializable
+public enum En
 {
     A(0),
     B(1),

@@ -15,7 +15,7 @@
 
 package and;
 
-public enum EnumNone implements java.io.Serializable
+public enum EnumNone
 {
     None(0);
 

@@ -15,7 +15,7 @@
 
 package test.Ice.stream.Test;
 
-public enum MyEnum implements java.io.Serializable
+public enum MyEnum
 {
     enum1(0),
     enum2(1),

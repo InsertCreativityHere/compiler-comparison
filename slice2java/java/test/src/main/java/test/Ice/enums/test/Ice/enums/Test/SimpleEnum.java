@@ -15,7 +15,7 @@
 
 package test.Ice.enums.Test;
 
-public enum SimpleEnum implements java.io.Serializable
+public enum SimpleEnum
 {
     red(0),
     green(1),

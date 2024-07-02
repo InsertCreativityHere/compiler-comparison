@@ -18,7 +18,7 @@ package com.zeroc.IceGrid;
 /**
  * An enumeration representing the state of the server.
  **/
-public enum ServerState implements java.io.Serializable
+public enum ServerState
 {
     /**
      * The server is not running.

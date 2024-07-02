@@ -15,7 +15,7 @@
 
 package test.Ice.enums.Test;
 
-public enum ShortEnum implements java.io.Serializable
+public enum ShortEnum
 {
     senum1(3),
     senum2(4),

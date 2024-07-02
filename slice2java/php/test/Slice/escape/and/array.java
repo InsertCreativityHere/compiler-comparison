@@ -15,7 +15,7 @@
 
 package and;
 
-public enum array implements java.io.Serializable
+public enum array
 {
     as(0);
 

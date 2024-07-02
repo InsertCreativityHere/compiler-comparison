@@ -15,7 +15,7 @@
 
 package and;
 
-public enum _continue implements java.io.Serializable
+public enum _continue
 {
     let(0),
     var(1);

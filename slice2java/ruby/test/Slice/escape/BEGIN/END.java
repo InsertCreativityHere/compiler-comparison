@@ -15,7 +15,7 @@
 
 package BEGIN;
 
-public enum END implements java.io.Serializable
+public enum END
 {
     alias(0);
 

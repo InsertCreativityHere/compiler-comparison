@@ -15,7 +15,7 @@
 
 package Test.Nested;
 
-public enum Color implements java.io.Serializable
+public enum Color
 {
     red(0),
     green(1),

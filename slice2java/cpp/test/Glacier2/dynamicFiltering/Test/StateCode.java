@@ -15,7 +15,7 @@
 
 package Test;
 
-public enum StateCode implements java.io.Serializable
+public enum StateCode
 {
     Initial(0),
     Running(1),

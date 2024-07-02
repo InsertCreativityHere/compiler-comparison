@@ -15,7 +15,7 @@
 
 package Test;
 
-public enum CompactIdEnum implements java.io.Serializable
+public enum CompactIdEnum
 {
     First(1),
     Second(2);

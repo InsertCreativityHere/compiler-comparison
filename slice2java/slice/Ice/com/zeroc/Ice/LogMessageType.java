@@ -18,7 +18,7 @@ package com.zeroc.Ice;
 /**
  * An enumeration representing the different types of log messages.
  **/
-public enum LogMessageType implements java.io.Serializable
+public enum LogMessageType
 {
     /**
      * The {@link RemoteLogger} received a print message.

@@ -18,7 +18,7 @@ package com.zeroc.IceGrid;
 /**
  * Determines which load sampling interval to use.
  **/
-public enum LoadSample implements java.io.Serializable
+public enum LoadSample
 {
     /**
      * Sample every minute.

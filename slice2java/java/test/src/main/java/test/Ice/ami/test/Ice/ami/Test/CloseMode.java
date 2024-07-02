@@ -15,7 +15,7 @@
 
 package test.Ice.ami.Test;
 
-public enum CloseMode implements java.io.Serializable
+public enum CloseMode
 {
     Forcefully(0),
     Gracefully(1),

@@ -15,7 +15,7 @@
 
 package Test.Sub;
 
-public enum NestedEnum implements java.io.Serializable
+public enum NestedEnum
 {
     nestedEnum1(0),
     nestedEnum2(1),

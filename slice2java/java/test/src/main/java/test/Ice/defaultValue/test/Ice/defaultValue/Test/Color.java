@@ -15,7 +15,7 @@
 
 package test.Ice.defaultValue.Test;
 
-public enum Color implements java.io.Serializable
+public enum Color
 {
     red(0),
     green(1),

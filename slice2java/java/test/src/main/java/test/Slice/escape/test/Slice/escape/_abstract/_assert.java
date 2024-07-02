@@ -15,7 +15,7 @@
 
 package test.Slice.escape._abstract;
 
-public enum _assert implements java.io.Serializable
+public enum _assert
 {
     _boolean(0);
 

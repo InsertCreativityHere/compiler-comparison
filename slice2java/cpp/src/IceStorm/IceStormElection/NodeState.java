@@ -18,7 +18,7 @@ package IceStormElection;
 /**
  * The node state.
  **/
-public enum NodeState implements java.io.Serializable
+public enum NodeState
 {
     /**
      * The node is inactive and awaiting an election.

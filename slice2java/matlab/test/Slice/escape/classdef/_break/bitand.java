@@ -15,7 +15,7 @@
 
 package classdef._break;
 
-public enum bitand implements java.io.Serializable
+public enum bitand
 {
     _break(0),
     _case(1),

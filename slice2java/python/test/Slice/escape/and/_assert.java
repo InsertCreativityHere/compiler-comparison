@@ -15,7 +15,7 @@
 
 package and;
 
-public enum _assert implements java.io.Serializable
+public enum _assert
 {
     _break(0);
 

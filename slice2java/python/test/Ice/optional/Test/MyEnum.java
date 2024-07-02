@@ -15,7 +15,7 @@
 
 package Test;
 
-public enum MyEnum implements java.io.Serializable
+public enum MyEnum
 {
     MyEnumMember(0);
 

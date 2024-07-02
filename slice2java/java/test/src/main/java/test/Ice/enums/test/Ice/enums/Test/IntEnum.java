@@ -15,7 +15,7 @@
 
 package test.Ice.enums.Test;
 
-public enum IntEnum implements java.io.Serializable
+public enum IntEnum
 {
     ienum1(0),
     ienum2(1),

@@ -15,7 +15,7 @@
 
 package IceGrid;
 
-public enum TopicName implements java.io.Serializable
+public enum TopicName
 {
     RegistryObserver(0),
     NodeObserver(1),

@@ -18,7 +18,7 @@ package com.zeroc.Ice;
 /**
  * Determines the retry behavior an invocation in case of a (potentially) recoverable error.
  **/
-public enum OperationMode implements java.io.Serializable
+public enum OperationMode
 {
     /**
      * Ordinary operations have <code>Normal</code> mode. These operations modify object state; invoking such an

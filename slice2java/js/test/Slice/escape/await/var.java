@@ -15,7 +15,7 @@
 
 package await;
 
-public enum var implements java.io.Serializable
+public enum var
 {
     base(0);
 

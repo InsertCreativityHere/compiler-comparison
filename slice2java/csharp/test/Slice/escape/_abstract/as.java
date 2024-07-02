@@ -15,7 +15,7 @@
 
 package _abstract;
 
-public enum as implements java.io.Serializable
+public enum as
 {
     base(0);
 

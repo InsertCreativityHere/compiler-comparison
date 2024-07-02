@@ -15,7 +15,7 @@
 
 package test.Ice.optional.Test;
 
-public enum MyEnum implements java.io.Serializable
+public enum MyEnum
 {
     MyEnumMember(0);
 

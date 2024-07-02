@@ -15,7 +15,7 @@
 
 package test.Ice.enums.Test;
 
-public enum ByteEnum implements java.io.Serializable
+public enum ByteEnum
 {
     benum1(0),
     benum2(1),
