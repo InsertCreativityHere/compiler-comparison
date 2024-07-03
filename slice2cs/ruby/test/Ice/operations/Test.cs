@@ -13422,14 +13422,6 @@ namespace Test
 
         public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, Ice.Current current);
 
-        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
-
-        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
-
-        public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
-
-        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
-
         public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
 
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
@@ -13535,6 +13527,14 @@ namespace Test
         public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
 
         public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, Ice.Current current);
+
+        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
+
+        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
+
+        public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
+
+        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -13651,14 +13651,6 @@ namespace Test2
 
         public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, Ice.Current current);
 
-        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
-
         public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
 
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
@@ -13764,6 +13756,14 @@ namespace Test2
         public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
 
         public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
