@@ -2357,7 +2357,7 @@ public extension Ice.InputStream {
     func read() throws -> En {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 2)
         guard let val = En(rawValue: rawValue) else {
-            throw Ice.MarshalException(reason: "invalid enum value")
+            throw Ice.MarshalException("invalid enum value")
         }
         return val
     }

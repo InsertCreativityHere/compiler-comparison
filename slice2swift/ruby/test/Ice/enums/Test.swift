@@ -69,7 +69,7 @@ public extension Ice.InputStream {
     func read() throws -> ByteEnum {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 126)
         guard let val = ByteEnum(rawValue: rawValue) else {
-            throw Ice.MarshalException(reason: "invalid enum value")
+            throw Ice.MarshalException("invalid enum value")
         }
         return val
     }
@@ -145,7 +145,7 @@ public extension Ice.InputStream {
     func read() throws -> ShortEnum {
         let rawValue: Swift.Int32 = try read(enumMaxValue: 32766)
         guard let val = ShortEnum(rawValue: rawValue) else {
-            throw Ice.MarshalException(reason: "invalid enum value")
+            throw Ice.MarshalException("invalid enum value")
         }
         return val
     }
@@ -223,7 +223,7 @@ public extension Ice.InputStream {
     func read() throws -> IntEnum {
         let rawValue: Swift.Int32 = try read(enumMaxValue: 2147483647)
         guard let val = IntEnum(rawValue: rawValue) else {
-            throw Ice.MarshalException(reason: "invalid enum value")
+            throw Ice.MarshalException("invalid enum value")
         }
         return val
     }
@@ -283,7 +283,7 @@ public extension Ice.InputStream {
     func read() throws -> SimpleEnum {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 2)
         guard let val = SimpleEnum(rawValue: rawValue) else {
-            throw Ice.MarshalException(reason: "invalid enum value")
+            throw Ice.MarshalException("invalid enum value")
         }
         return val
     }

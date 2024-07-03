@@ -45,7 +45,7 @@ public extension InputStream {
     func read() throws -> OperationMode {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 2)
         guard let val = OperationMode(rawValue: rawValue) else {
-            throw MarshalException(reason: "invalid enum value")
+            throw MarshalException("invalid enum value")
         }
         return val
     }

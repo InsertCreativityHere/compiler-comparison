@@ -707,11 +707,11 @@ namespace Ice.servantLocator.AMD
                         {
                             throw ex;
                         }
-                        catch(TestIntfUserException)
+                        catch(TestImpossibleException)
                         {
                             throw;
                         }
-                        catch(TestImpossibleException)
+                        catch(TestIntfUserException)
                         {
                             throw;
                         }
@@ -757,11 +757,11 @@ namespace Ice.servantLocator.AMD
                         {
                             throw ex;
                         }
-                        catch(TestIntfUserException)
+                        catch(TestImpossibleException)
                         {
                             throw;
                         }
-                        catch(TestImpossibleException)
+                        catch(TestIntfUserException)
                         {
                             throw;
                         }
@@ -801,11 +801,11 @@ namespace Ice.servantLocator.AMD
                         {
                             throw ex;
                         }
-                        catch(TestIntfUserException)
+                        catch(TestImpossibleException)
                         {
                             throw;
                         }
-                        catch(TestImpossibleException)
+                        catch(TestIntfUserException)
                         {
                             throw;
                         }

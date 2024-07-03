@@ -36,7 +36,7 @@ public extension Ice.InputStream {
     func read() throws -> Color {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 2)
         guard let val = Color(rawValue: rawValue) else {
-            throw Ice.MarshalException(reason: "invalid enum value")
+            throw Ice.MarshalException("invalid enum value")
         }
         return val
     }
@@ -96,7 +96,7 @@ public extension Ice.InputStream {
     func read() throws -> NestedColor {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 2)
         guard let val = NestedColor(rawValue: rawValue) else {
-            throw Ice.MarshalException(reason: "invalid enum value")
+            throw Ice.MarshalException("invalid enum value")
         }
         return val
     }

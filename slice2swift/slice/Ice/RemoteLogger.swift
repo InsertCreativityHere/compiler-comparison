@@ -39,7 +39,7 @@ public extension InputStream {
     func read() throws -> LogMessageType {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 3)
         guard let val = LogMessageType(rawValue: rawValue) else {
-            throw MarshalException(reason: "invalid enum value")
+            throw MarshalException("invalid enum value")
         }
         return val
     }

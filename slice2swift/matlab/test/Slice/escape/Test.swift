@@ -95,7 +95,7 @@ public extension Ice.InputStream {
     func read() throws -> breakbitand {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 31)
         guard let val = breakbitand(rawValue: rawValue) else {
-            throw Ice.MarshalException(reason: "invalid enum value")
+            throw Ice.MarshalException("invalid enum value")
         }
         return val
     }
