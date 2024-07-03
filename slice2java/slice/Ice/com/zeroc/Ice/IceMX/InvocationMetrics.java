@@ -77,7 +77,7 @@ public class InvocationMetrics extends Metrics
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7940938657553214223L;
+    private static final long serialVersionUID = -5530767747076114161L;
 
     /** @hidden */
     @Override
