@@ -157,7 +157,7 @@ public interface MyObjectPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static MyObjectPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _MyObjectPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -306,5 +306,14 @@ public interface MyObjectPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::MyObject";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default MyObjectPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _MyObjectPrxI(ref);
     }
 }

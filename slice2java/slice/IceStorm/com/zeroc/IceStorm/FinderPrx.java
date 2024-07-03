@@ -84,7 +84,7 @@ public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static FinderPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _FinderPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -233,5 +233,14 @@ public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceStorm::Finder";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default FinderPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _FinderPrxI(ref);
     }
 }

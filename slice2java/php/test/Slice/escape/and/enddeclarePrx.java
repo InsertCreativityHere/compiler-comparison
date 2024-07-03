@@ -26,7 +26,7 @@ public interface enddeclarePrx extends diePrx,
      **/
     public static enddeclarePrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _enddeclarePrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -175,5 +175,14 @@ public interface enddeclarePrx extends diePrx,
     static String ice_staticId()
     {
         return "::and::enddeclare";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default enddeclarePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _enddeclarePrxI(ref);
     }
 }

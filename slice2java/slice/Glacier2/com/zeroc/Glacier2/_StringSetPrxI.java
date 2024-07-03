@@ -18,12 +18,12 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _StringSetPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<StringSetPrx> implements StringSetPrx
 {
-    public _StringSetPrxI()
+    _StringSetPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _StringSetPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _StringSetPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

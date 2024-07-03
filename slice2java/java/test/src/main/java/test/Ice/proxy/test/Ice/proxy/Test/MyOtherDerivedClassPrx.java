@@ -25,7 +25,7 @@ public interface MyOtherDerivedClassPrx extends MyClassPrx
      **/
     public static MyOtherDerivedClassPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _MyOtherDerivedClassPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -174,5 +174,14 @@ public interface MyOtherDerivedClassPrx extends MyClassPrx
     static String ice_staticId()
     {
         return "::Test::MyOtherDerivedClass";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default MyOtherDerivedClassPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _MyOtherDerivedClassPrxI(ref);
     }
 }

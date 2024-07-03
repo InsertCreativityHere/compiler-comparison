@@ -18,12 +18,12 @@ package test.Ice.scope.Inner.Test.Inner2;
 /** @hidden */
 public class _IPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IPrx> implements IPrx
 {
-    public _IPrxI()
+    _IPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _IPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _IPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

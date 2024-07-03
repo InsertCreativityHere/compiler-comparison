@@ -298,7 +298,7 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static LoggerAdminPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _LoggerAdminPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -447,5 +447,14 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Ice::LoggerAdmin";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default LoggerAdminPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _LoggerAdminPrxI(ref);
     }
 }

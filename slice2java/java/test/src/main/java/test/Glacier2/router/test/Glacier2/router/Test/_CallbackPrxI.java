@@ -18,12 +18,12 @@ package test.Glacier2.router.Test;
 /** @hidden */
 public class _CallbackPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<CallbackPrx> implements CallbackPrx
 {
-    public _CallbackPrxI()
+    _CallbackPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _CallbackPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _CallbackPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

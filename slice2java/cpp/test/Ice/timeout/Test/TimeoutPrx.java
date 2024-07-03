@@ -130,7 +130,7 @@ public interface TimeoutPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static TimeoutPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _TimeoutPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -279,5 +279,14 @@ public interface TimeoutPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Timeout";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default TimeoutPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _TimeoutPrxI(ref);
     }
 }

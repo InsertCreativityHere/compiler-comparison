@@ -608,7 +608,7 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      **/
     public static RouterPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _RouterPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -757,5 +757,14 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     static String ice_staticId()
     {
         return "::Glacier2::Router";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default RouterPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _RouterPrxI(ref);
     }
 }

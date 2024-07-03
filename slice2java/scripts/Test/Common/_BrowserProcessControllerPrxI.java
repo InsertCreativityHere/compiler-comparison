@@ -18,12 +18,12 @@ package Test.Common;
 /** @hidden */
 public class _BrowserProcessControllerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<BrowserProcessControllerPrx> implements BrowserProcessControllerPrx
 {
-    public _BrowserProcessControllerPrxI()
+    _BrowserProcessControllerPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _BrowserProcessControllerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _BrowserProcessControllerPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

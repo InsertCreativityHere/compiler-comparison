@@ -164,7 +164,7 @@ public interface FileIteratorPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static FileIteratorPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _FileIteratorPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -313,5 +313,14 @@ public interface FileIteratorPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceGrid::FileIterator";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default FileIteratorPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _FileIteratorPrxI(ref);
     }
 }

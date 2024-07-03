@@ -95,7 +95,7 @@ public interface RemoteObjectAdapterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static RemoteObjectAdapterPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _RemoteObjectAdapterPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -244,5 +244,14 @@ public interface RemoteObjectAdapterPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::RemoteObjectAdapter";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default RemoteObjectAdapterPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _RemoteObjectAdapterPrxI(ref);
     }
 }

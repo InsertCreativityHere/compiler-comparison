@@ -25,7 +25,7 @@ public interface JPrx extends IPrx
      **/
     public static JPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _JPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -174,5 +174,14 @@ public interface JPrx extends IPrx
     static String ice_staticId()
     {
         return "::Test::J";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default JPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _JPrxI(ref);
     }
 }

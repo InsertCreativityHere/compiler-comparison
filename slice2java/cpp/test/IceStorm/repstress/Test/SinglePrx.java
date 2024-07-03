@@ -61,7 +61,7 @@ public interface SinglePrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static SinglePrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _SinglePrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -210,5 +210,14 @@ public interface SinglePrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Single";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default SinglePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _SinglePrxI(ref);
     }
 }

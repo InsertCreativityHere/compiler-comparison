@@ -304,7 +304,7 @@ public interface IPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static IPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _IPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -453,5 +453,14 @@ public interface IPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Inner::Inner2::I";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default IPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _IPrxI(ref);
     }
 }

@@ -123,7 +123,7 @@ public interface UserAccountMapperPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static UserAccountMapperPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _UserAccountMapperPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -272,5 +272,14 @@ public interface UserAccountMapperPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceGrid::UserAccountMapper";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default UserAccountMapperPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _UserAccountMapperPrxI(ref);
     }
 }

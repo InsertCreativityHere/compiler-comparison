@@ -95,7 +95,7 @@ public interface printPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static printPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _printPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -244,5 +244,14 @@ public interface printPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::and::print";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default printPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _printPrxI(ref);
     }
 }

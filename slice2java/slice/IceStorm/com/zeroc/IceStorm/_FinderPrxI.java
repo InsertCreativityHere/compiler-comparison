@@ -18,12 +18,12 @@ package com.zeroc.IceStorm;
 /** @hidden */
 public class _FinderPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<FinderPrx> implements FinderPrx
 {
-    public _FinderPrxI()
+    _FinderPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _FinderPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _FinderPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

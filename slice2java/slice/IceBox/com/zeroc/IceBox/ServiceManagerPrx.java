@@ -307,7 +307,7 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static ServiceManagerPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _ServiceManagerPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -456,5 +456,14 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceBox::ServiceManager";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default ServiceManagerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _ServiceManagerPrxI(ref);
     }
 }

@@ -26,7 +26,7 @@ public interface explicitPrx extends typeofPrx,
      **/
     public static explicitPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _explicitPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -175,5 +175,14 @@ public interface explicitPrx extends typeofPrx,
     static String ice_staticId()
     {
         return "::await::explicit";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default explicitPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _explicitPrxI(ref);
     }
 }

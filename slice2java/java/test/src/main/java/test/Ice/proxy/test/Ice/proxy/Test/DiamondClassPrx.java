@@ -26,7 +26,7 @@ public interface DiamondClassPrx extends MyDerivedClassPrx,
      **/
     public static DiamondClassPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _DiamondClassPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -175,5 +175,14 @@ public interface DiamondClassPrx extends MyDerivedClassPrx,
     static String ice_staticId()
     {
         return "::Test::DiamondClass";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default DiamondClassPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _DiamondClassPrxI(ref);
     }
 }

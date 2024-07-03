@@ -65,7 +65,7 @@ public interface IAPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static IAPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _IAPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -214,5 +214,14 @@ public interface IAPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::MA::IA";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default IAPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _IAPrxI(ref);
     }
 }

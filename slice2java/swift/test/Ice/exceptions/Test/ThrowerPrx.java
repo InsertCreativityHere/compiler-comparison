@@ -968,7 +968,7 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static ThrowerPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _ThrowerPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -1117,5 +1117,14 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Thrower";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default ThrowerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _ThrowerPrxI(ref);
     }
 }

@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _PriorityPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<PriorityPrx> implements PriorityPrx
 {
-    public _PriorityPrxI()
+    _PriorityPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _PriorityPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _PriorityPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

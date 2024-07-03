@@ -18,12 +18,12 @@ package User;
 /** @hidden */
 public class _RegistryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RegistryPrx> implements RegistryPrx
 {
-    public _RegistryPrxI()
+    _RegistryPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _RegistryPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _RegistryPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

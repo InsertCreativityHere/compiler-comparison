@@ -239,7 +239,7 @@ public interface TestCasePrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static TestCasePrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _TestCasePrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -388,5 +388,14 @@ public interface TestCasePrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Common::TestCase";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default TestCasePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _TestCasePrxI(ref);
     }
 }

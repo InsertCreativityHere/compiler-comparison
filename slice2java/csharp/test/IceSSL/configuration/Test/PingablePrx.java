@@ -58,7 +58,7 @@ public interface PingablePrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static PingablePrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _PingablePrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -207,5 +207,14 @@ public interface PingablePrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Pingable";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default PingablePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _PingablePrxI(ref);
     }
 }

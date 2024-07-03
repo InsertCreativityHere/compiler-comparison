@@ -18,12 +18,12 @@ package Clash;
 /** @hidden */
 public class _IntfPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IntfPrx> implements IntfPrx
 {
-    public _IntfPrxI()
+    _IntfPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _IntfPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _IntfPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

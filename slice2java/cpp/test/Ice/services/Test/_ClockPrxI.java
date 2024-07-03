@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _ClockPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ClockPrx> implements ClockPrx
 {
-    public _ClockPrxI()
+    _ClockPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _ClockPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _ClockPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

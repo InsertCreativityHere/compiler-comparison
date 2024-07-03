@@ -18,12 +18,12 @@ package test.Slice.escape._abstract;
 /** @hidden */
 public class _finalizePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<finalizePrx> implements finalizePrx
 {
-    public _finalizePrxI()
+    _finalizePrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _finalizePrxI(com.zeroc.Ice.ObjectPrx obj)
+    _finalizePrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

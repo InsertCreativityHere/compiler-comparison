@@ -18,12 +18,12 @@ package IceStormElection;
 /** @hidden */
 public class _ReplicaObserverPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ReplicaObserverPrx> implements ReplicaObserverPrx
 {
-    public _ReplicaObserverPrxI()
+    _ReplicaObserverPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _ReplicaObserverPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _ReplicaObserverPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

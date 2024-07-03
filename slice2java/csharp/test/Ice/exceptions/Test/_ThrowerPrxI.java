@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _ThrowerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ThrowerPrx> implements ThrowerPrx
 {
-    public _ThrowerPrxI()
+    _ThrowerPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _ThrowerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _ThrowerPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

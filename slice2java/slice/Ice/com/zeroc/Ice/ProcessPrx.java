@@ -150,7 +150,7 @@ public interface ProcessPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static ProcessPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _ProcessPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -299,5 +299,14 @@ public interface ProcessPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Ice::Process";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default ProcessPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _ProcessPrxI(ref);
     }
 }

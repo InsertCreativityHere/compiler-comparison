@@ -86,7 +86,7 @@ public interface TopicLinkPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static TopicLinkPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _TopicLinkPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -235,5 +235,14 @@ public interface TopicLinkPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceStorm::TopicLink";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default TopicLinkPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _TopicLinkPrxI(ref);
     }
 }

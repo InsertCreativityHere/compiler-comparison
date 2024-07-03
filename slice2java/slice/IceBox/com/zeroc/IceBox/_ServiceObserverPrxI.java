@@ -18,12 +18,12 @@ package com.zeroc.IceBox;
 /** @hidden */
 public class _ServiceObserverPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ServiceObserverPrx> implements ServiceObserverPrx
 {
-    public _ServiceObserverPrxI()
+    _ServiceObserverPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _ServiceObserverPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _ServiceObserverPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

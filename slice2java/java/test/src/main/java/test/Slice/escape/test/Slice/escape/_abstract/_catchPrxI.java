@@ -18,12 +18,12 @@ package test.Slice.escape._abstract;
 /** @hidden */
 public class _catchPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<catchPrx> implements catchPrx
 {
-    public _catchPrxI()
+    _catchPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _catchPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _catchPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

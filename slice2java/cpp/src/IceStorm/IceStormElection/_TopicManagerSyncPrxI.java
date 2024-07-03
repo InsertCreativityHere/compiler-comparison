@@ -18,12 +18,12 @@ package IceStormElection;
 /** @hidden */
 public class _TopicManagerSyncPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TopicManagerSyncPrx> implements TopicManagerSyncPrx
 {
-    public _TopicManagerSyncPrxI()
+    _TopicManagerSyncPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _TopicManagerSyncPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _TopicManagerSyncPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

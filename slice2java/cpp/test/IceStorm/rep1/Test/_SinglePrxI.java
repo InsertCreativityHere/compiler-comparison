@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _SinglePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<SinglePrx> implements SinglePrx
 {
-    public _SinglePrxI()
+    _SinglePrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _SinglePrxI(com.zeroc.Ice.ObjectPrx obj)
+    _SinglePrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

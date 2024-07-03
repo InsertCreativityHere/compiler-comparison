@@ -25,7 +25,7 @@ public interface EmptyPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static EmptyPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _EmptyPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -174,5 +174,14 @@ public interface EmptyPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Empty";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default EmptyPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _EmptyPrxI(ref);
     }
 }

@@ -18,12 +18,12 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _UserAccountMapperPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<UserAccountMapperPrx> implements UserAccountMapperPrx
 {
-    public _UserAccountMapperPrxI()
+    _UserAccountMapperPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _UserAccountMapperPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _UserAccountMapperPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

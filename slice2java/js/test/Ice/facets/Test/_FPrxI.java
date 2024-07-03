@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _FPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<FPrx> implements FPrx
 {
-    public _FPrxI()
+    _FPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _FPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _FPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

@@ -18,12 +18,12 @@ package test.Ice.facets.Test;
 /** @hidden */
 public class _DPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<DPrx> implements DPrx
 {
-    public _DPrxI()
+    _DPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _DPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _DPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

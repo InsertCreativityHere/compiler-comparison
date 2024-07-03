@@ -18,12 +18,12 @@ package test.Ice.executor.Test;
 /** @hidden */
 public class _TestIntfControllerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestIntfControllerPrx> implements TestIntfControllerPrx
 {
-    public _TestIntfControllerPrxI()
+    _TestIntfControllerPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _TestIntfControllerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _TestIntfControllerPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

@@ -58,7 +58,7 @@ public interface decimalPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static decimalPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _decimalPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -207,5 +207,14 @@ public interface decimalPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::abstract::decimal";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default decimalPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _decimalPrxI(ref);
     }
 }

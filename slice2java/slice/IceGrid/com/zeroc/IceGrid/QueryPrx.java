@@ -365,7 +365,7 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static QueryPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _QueryPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -514,5 +514,14 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceGrid::Query";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default QueryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _QueryPrxI(ref);
     }
 }

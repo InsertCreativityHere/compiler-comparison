@@ -95,7 +95,7 @@ public interface GPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static GPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _GPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -244,5 +244,14 @@ public interface GPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::G";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default GPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _GPrxI(ref);
     }
 }

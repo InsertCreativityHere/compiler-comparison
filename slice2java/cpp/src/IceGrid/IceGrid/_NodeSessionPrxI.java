@@ -18,12 +18,12 @@ package IceGrid;
 /** @hidden */
 public class _NodeSessionPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<NodeSessionPrx> implements NodeSessionPrx
 {
-    public _NodeSessionPrxI()
+    _NodeSessionPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _NodeSessionPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _NodeSessionPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

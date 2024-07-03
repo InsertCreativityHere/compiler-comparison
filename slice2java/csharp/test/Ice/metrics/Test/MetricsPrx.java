@@ -348,7 +348,7 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static MetricsPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _MetricsPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -497,5 +497,14 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Metrics";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default MetricsPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _MetricsPrxI(ref);
     }
 }

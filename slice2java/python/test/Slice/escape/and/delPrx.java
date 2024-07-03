@@ -65,7 +65,7 @@ public interface delPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static delPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _delPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -214,5 +214,14 @@ public interface delPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::and::del";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default delPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _delPrxI(ref);
     }
 }

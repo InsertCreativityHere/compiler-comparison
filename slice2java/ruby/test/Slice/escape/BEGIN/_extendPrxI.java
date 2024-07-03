@@ -18,12 +18,12 @@ package BEGIN;
 /** @hidden */
 public class _extendPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<extendPrx> implements extendPrx
 {
-    public _extendPrxI()
+    _extendPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _extendPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _extendPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

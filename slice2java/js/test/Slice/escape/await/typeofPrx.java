@@ -58,7 +58,7 @@ public interface typeofPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static typeofPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _typeofPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -207,5 +207,14 @@ public interface typeofPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::await::typeof";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default typeofPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _typeofPrxI(ref);
     }
 }

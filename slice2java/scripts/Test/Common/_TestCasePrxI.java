@@ -18,12 +18,12 @@ package Test.Common;
 /** @hidden */
 public class _TestCasePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestCasePrx> implements TestCasePrx
 {
-    public _TestCasePrxI()
+    _TestCasePrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _TestCasePrxI(com.zeroc.Ice.ObjectPrx obj)
+    _TestCasePrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _RetryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RetryPrx> implements RetryPrx
 {
-    public _RetryPrxI()
+    _RetryPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _RetryPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _RetryPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

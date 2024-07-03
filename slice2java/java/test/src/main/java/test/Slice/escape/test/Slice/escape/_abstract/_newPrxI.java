@@ -18,12 +18,12 @@ package test.Slice.escape._abstract;
 /** @hidden */
 public class _newPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<newPrx> implements newPrx
 {
-    public _newPrxI()
+    _newPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _newPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _newPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

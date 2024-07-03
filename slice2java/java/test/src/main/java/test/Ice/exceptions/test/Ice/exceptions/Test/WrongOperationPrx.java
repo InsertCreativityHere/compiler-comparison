@@ -58,7 +58,7 @@ public interface WrongOperationPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static WrongOperationPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _WrongOperationPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -207,5 +207,14 @@ public interface WrongOperationPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::WrongOperation";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default WrongOperationPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _WrongOperationPrxI(ref);
     }
 }

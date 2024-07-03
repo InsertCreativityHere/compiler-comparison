@@ -18,12 +18,12 @@ package test.Ice.admin.Test;
 /** @hidden */
 public class _RemoteCommunicatorFactoryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RemoteCommunicatorFactoryPrx> implements RemoteCommunicatorFactoryPrx
 {
-    public _RemoteCommunicatorFactoryPrxI()
+    _RemoteCommunicatorFactoryPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _RemoteCommunicatorFactoryPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _RemoteCommunicatorFactoryPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

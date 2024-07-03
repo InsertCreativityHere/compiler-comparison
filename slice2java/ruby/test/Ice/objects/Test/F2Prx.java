@@ -58,7 +58,7 @@ public interface F2Prx extends com.zeroc.Ice.ObjectPrx
      **/
     public static F2Prx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _F2PrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -207,5 +207,14 @@ public interface F2Prx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::F2";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default F2Prx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _F2PrxI(ref);
     }
 }

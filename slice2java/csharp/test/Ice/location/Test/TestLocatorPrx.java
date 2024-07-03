@@ -62,7 +62,7 @@ public interface TestLocatorPrx extends com.zeroc.Ice.LocatorPrx
      **/
     public static TestLocatorPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _TestLocatorPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -211,5 +211,14 @@ public interface TestLocatorPrx extends com.zeroc.Ice.LocatorPrx
     static String ice_staticId()
     {
         return "::Test::TestLocator";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default TestLocatorPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _TestLocatorPrxI(ref);
     }
 }

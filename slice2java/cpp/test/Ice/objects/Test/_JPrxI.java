@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _JPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<JPrx> implements JPrx
 {
-    public _JPrxI()
+    _JPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _JPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _JPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

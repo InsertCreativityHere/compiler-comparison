@@ -183,7 +183,7 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static FileReaderPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _FileReaderPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -332,5 +332,14 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceGrid::FileReader";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default FileReaderPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _FileReaderPrxI(ref);
     }
 }

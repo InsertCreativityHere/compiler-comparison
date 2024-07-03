@@ -18,12 +18,12 @@ package await.System;
 /** @hidden */
 public class _TestPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestPrx> implements TestPrx
 {
-    public _TestPrxI()
+    _TestPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _TestPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _TestPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

@@ -65,7 +65,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static TestIntfPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _TestIntfPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -214,5 +214,14 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Outer::Inner::TestIntf";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default TestIntfPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _TestIntfPrxI(ref);
     }
 }

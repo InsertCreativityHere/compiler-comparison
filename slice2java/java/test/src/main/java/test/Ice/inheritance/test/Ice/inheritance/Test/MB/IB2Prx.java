@@ -65,7 +65,7 @@ public interface IB2Prx extends test.Ice.inheritance.Test.MA.IAPrx
      **/
     public static IB2Prx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _IB2PrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -214,5 +214,14 @@ public interface IB2Prx extends test.Ice.inheritance.Test.MA.IAPrx
     static String ice_staticId()
     {
         return "::Test::MB::IB2";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default IB2Prx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _IB2PrxI(ref);
     }
 }

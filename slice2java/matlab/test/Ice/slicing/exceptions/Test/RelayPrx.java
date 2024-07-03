@@ -233,7 +233,7 @@ public interface RelayPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static RelayPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _RelayPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -382,5 +382,14 @@ public interface RelayPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Relay";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default RelayPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _RelayPrxI(ref);
     }
 }

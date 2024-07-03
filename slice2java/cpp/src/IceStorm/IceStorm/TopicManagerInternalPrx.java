@@ -85,7 +85,7 @@ public interface TopicManagerInternalPrx extends com.zeroc.IceStorm.TopicManager
      **/
     public static TopicManagerInternalPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _TopicManagerInternalPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -234,5 +234,14 @@ public interface TopicManagerInternalPrx extends com.zeroc.IceStorm.TopicManager
     static String ice_staticId()
     {
         return "::IceStorm::TopicManagerInternal";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default TopicManagerInternalPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _TopicManagerInternalPrxI(ref);
     }
 }

@@ -18,12 +18,12 @@ package test.Ice.exceptions.AMD.Test;
 /** @hidden */
 public class _WrongOperationPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<WrongOperationPrx> implements WrongOperationPrx
 {
-    public _WrongOperationPrxI()
+    _WrongOperationPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _WrongOperationPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _WrongOperationPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

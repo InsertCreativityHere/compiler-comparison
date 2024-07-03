@@ -63,7 +63,7 @@ public interface UnexpectedObjectExceptionTestPrx extends com.zeroc.Ice.ObjectPr
      **/
     public static UnexpectedObjectExceptionTestPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _UnexpectedObjectExceptionTestPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -212,5 +212,14 @@ public interface UnexpectedObjectExceptionTestPrx extends com.zeroc.Ice.ObjectPr
     static String ice_staticId()
     {
         return "::Test::UnexpectedObjectExceptionTest";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default UnexpectedObjectExceptionTestPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _UnexpectedObjectExceptionTestPrxI(ref);
     }
 }

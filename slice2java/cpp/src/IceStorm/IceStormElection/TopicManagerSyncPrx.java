@@ -83,7 +83,7 @@ public interface TopicManagerSyncPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static TopicManagerSyncPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _TopicManagerSyncPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -232,5 +232,14 @@ public interface TopicManagerSyncPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceStormElection::TopicManagerSync";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default TopicManagerSyncPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _TopicManagerSyncPrxI(ref);
     }
 }

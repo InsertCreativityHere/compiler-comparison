@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _TestSessionPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestSessionPrx> implements TestSessionPrx
 {
-    public _TestSessionPrxI()
+    _TestSessionPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _TestSessionPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _TestSessionPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

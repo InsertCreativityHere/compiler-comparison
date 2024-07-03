@@ -544,7 +544,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static NodePrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _NodePrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -693,5 +693,14 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceStormElection::Node";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default NodePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _NodePrxI(ref);
     }
 }

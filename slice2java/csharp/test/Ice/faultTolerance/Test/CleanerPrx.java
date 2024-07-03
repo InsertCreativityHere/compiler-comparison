@@ -58,7 +58,7 @@ public interface CleanerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static CleanerPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _CleanerPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -207,5 +207,14 @@ public interface CleanerPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Cleaner";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default CleanerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _CleanerPrxI(ref);
     }
 }

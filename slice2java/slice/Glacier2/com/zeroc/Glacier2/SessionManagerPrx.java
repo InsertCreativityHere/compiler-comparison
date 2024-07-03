@@ -131,7 +131,7 @@ public interface SessionManagerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static SessionManagerPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _SessionManagerPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -280,5 +280,14 @@ public interface SessionManagerPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Glacier2::SessionManager";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default SessionManagerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _SessionManagerPrxI(ref);
     }
 }

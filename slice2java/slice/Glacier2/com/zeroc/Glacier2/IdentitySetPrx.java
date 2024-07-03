@@ -206,7 +206,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static IdentitySetPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _IdentitySetPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -355,5 +355,14 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Glacier2::IdentitySet";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default IdentitySetPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _IdentitySetPrxI(ref);
     }
 }

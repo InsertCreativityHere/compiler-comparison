@@ -167,7 +167,7 @@ public interface RetryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static RetryPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _RetryPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -316,5 +316,14 @@ public interface RetryPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Retry";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default RetryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _RetryPrxI(ref);
     }
 }

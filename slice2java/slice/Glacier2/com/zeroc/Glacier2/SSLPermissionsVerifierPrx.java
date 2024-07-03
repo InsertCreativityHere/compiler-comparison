@@ -123,7 +123,7 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static SSLPermissionsVerifierPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _SSLPermissionsVerifierPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -272,5 +272,14 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Glacier2::SSLPermissionsVerifier";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default SSLPermissionsVerifierPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _SSLPermissionsVerifierPrxI(ref);
     }
 }

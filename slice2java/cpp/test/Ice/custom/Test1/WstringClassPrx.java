@@ -160,7 +160,7 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static WstringClassPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _WstringClassPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -309,5 +309,14 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test1::WstringClass";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default WstringClassPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _WstringClassPrxI(ref);
     }
 }

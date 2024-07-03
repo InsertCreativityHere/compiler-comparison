@@ -630,8 +630,8 @@ Ice.defineOperations(
         "registerWellKnownObjects": [, 2, , , [[IceGrid.ObjectInfoSeqHelper]], , , , ],
         "setAdapterDirectProxy": [, 2, , , [[7], [7], [9]], ,
         [
-            IceGrid.AdapterExistsException,
-            IceGrid.AdapterNotExistException
+            IceGrid.AdapterNotExistException,
+            IceGrid.AdapterExistsException
         ], , ],
         "receivedUpdate": [, , , , [[IceGrid.TopicName._helper], [3], [7]], , , , ],
         "destroy": [, , , , , , , , ]

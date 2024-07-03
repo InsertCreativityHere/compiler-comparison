@@ -26,7 +26,7 @@ public interface ifPrx extends execPrx,
      **/
     public static ifPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _ifPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -175,5 +175,14 @@ public interface ifPrx extends execPrx,
     static String ice_staticId()
     {
         return "::and::if";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default ifPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _ifPrxI(ref);
     }
 }

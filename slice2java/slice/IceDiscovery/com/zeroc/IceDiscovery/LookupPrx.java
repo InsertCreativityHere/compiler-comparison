@@ -180,7 +180,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static LookupPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _LookupPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -329,5 +329,14 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceDiscovery::Lookup";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default LookupPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _LookupPrxI(ref);
     }
 }

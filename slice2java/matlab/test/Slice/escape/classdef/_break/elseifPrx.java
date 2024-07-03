@@ -157,7 +157,7 @@ public interface elseifPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static elseifPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _elseifPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -306,5 +306,14 @@ public interface elseifPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::classdef::break::elseif";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default elseifPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _elseifPrxI(ref);
     }
 }

@@ -147,7 +147,7 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static RemoteLoggerPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _RemoteLoggerPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -296,5 +296,14 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Ice::RemoteLogger";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default RemoteLoggerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _RemoteLoggerPrxI(ref);
     }
 }

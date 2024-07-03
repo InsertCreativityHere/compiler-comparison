@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _CustomPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<CustomPrx> implements CustomPrx
 {
-    public _CustomPrxI()
+    _CustomPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _CustomPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _CustomPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

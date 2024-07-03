@@ -26,7 +26,7 @@ public interface doPrx extends funcPrx,
      **/
     public static doPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _doPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -175,5 +175,14 @@ public interface doPrx extends funcPrx,
     static String ice_staticId()
     {
         return "::and::do";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default doPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _doPrxI(ref);
     }
 }

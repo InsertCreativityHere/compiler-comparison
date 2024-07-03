@@ -97,7 +97,7 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static CallbackReceiverPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _CallbackReceiverPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -246,5 +246,14 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::CallbackReceiver";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default CallbackReceiverPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _CallbackReceiverPrxI(ref);
     }
 }

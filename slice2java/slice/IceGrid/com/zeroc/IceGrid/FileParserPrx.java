@@ -119,7 +119,7 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static FileParserPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _FileParserPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -268,5 +268,14 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceGrid::FileParser";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default FileParserPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _FileParserPrxI(ref);
     }
 }

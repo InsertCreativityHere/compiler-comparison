@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _CPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<CPrx> implements CPrx
 {
-    public _CPrxI()
+    _CPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _CPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _CPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

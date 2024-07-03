@@ -62,7 +62,7 @@ public interface BPrx extends APrx
      **/
     public static BPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _BPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -211,5 +211,14 @@ public interface BPrx extends APrx
     static String ice_staticId()
     {
         return "::Test::B";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default BPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _BPrxI(ref);
     }
 }

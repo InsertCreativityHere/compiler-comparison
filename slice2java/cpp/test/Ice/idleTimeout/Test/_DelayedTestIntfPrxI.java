@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _DelayedTestIntfPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<DelayedTestIntfPrx> implements DelayedTestIntfPrx
 {
-    public _DelayedTestIntfPrxI()
+    _DelayedTestIntfPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _DelayedTestIntfPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _DelayedTestIntfPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

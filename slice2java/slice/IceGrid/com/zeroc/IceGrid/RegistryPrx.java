@@ -479,7 +479,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static RegistryPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _RegistryPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -628,5 +628,14 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceGrid::Registry";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default RegistryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _RegistryPrxI(ref);
     }
 }

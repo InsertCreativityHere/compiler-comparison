@@ -61,7 +61,7 @@ public interface BrowserProcessControllerPrx extends ProcessControllerPrx
      **/
     public static BrowserProcessControllerPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _BrowserProcessControllerPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -210,5 +210,14 @@ public interface BrowserProcessControllerPrx extends ProcessControllerPrx
     static String ice_staticId()
     {
         return "::Test::Common::BrowserProcessController";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default BrowserProcessControllerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _BrowserProcessControllerPrxI(ref);
     }
 }

@@ -18,12 +18,12 @@ package test.Ice.stream.Test;
 /** @hidden */
 public class _MyInterfacePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<MyInterfacePrx> implements MyInterfacePrx
 {
-    public _MyInterfacePrxI()
+    _MyInterfacePrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _MyInterfacePrxI(com.zeroc.Ice.ObjectPrx obj)
+    _MyInterfacePrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

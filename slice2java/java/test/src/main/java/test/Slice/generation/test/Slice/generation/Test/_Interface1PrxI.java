@@ -18,12 +18,12 @@ package test.Slice.generation.Test;
 /** @hidden */
 public class _Interface1PrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<Interface1Prx> implements Interface1Prx
 {
-    public _Interface1PrxI()
+    _Interface1PrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _Interface1PrxI(com.zeroc.Ice.ObjectPrx obj)
+    _Interface1PrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

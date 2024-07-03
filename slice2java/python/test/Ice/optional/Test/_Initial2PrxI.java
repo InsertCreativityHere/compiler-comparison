@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _Initial2PrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<Initial2Prx> implements Initial2Prx
 {
-    public _Initial2PrxI()
+    _Initial2PrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _Initial2PrxI(com.zeroc.Ice.ObjectPrx obj)
+    _Initial2PrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

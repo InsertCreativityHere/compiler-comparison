@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _GPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<GPrx> implements GPrx
 {
-    public _GPrxI()
+    _GPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _GPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _GPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

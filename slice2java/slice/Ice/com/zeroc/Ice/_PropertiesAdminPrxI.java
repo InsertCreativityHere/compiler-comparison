@@ -18,12 +18,12 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _PropertiesAdminPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<PropertiesAdminPrx> implements PropertiesAdminPrx
 {
-    public _PropertiesAdminPrxI()
+    _PropertiesAdminPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _PropertiesAdminPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _PropertiesAdminPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

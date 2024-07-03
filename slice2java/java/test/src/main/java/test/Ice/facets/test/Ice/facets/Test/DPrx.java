@@ -63,7 +63,7 @@ public interface DPrx extends BPrx,
      **/
     public static DPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _DPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -212,5 +212,14 @@ public interface DPrx extends BPrx,
     static String ice_staticId()
     {
         return "::Test::D";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default DPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _DPrxI(ref);
     }
 }

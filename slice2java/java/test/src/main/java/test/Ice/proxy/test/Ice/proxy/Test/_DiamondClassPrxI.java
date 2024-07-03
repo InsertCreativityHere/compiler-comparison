@@ -18,12 +18,12 @@ package test.Ice.proxy.Test;
 /** @hidden */
 public class _DiamondClassPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<DiamondClassPrx> implements DiamondClassPrx
 {
-    public _DiamondClassPrxI()
+    _DiamondClassPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _DiamondClassPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _DiamondClassPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

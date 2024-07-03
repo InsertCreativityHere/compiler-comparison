@@ -3286,7 +3286,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static InitialPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _InitialPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -3435,5 +3435,14 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Initial";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default InitialPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _InitialPrxI(ref);
     }
 }

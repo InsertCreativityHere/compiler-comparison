@@ -18,12 +18,12 @@ package com.zeroc.Ice.IceMX;
 /** @hidden */
 public class _MetricsAdminPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<MetricsAdminPrx> implements MetricsAdminPrx
 {
-    public _MetricsAdminPrxI()
+    _MetricsAdminPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _MetricsAdminPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _MetricsAdminPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

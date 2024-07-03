@@ -61,7 +61,7 @@ public interface ClockPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static ClockPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _ClockPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -210,5 +210,14 @@ public interface ClockPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Clock";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default ClockPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _ClockPrxI(ref);
     }
 }

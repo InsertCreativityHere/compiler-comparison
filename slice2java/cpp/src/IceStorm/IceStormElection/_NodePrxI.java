@@ -18,12 +18,12 @@ package IceStormElection;
 /** @hidden */
 public class _NodePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<NodePrx> implements NodePrx
 {
-    public _NodePrxI()
+    _NodePrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _NodePrxI(com.zeroc.Ice.ObjectPrx obj)
+    _NodePrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

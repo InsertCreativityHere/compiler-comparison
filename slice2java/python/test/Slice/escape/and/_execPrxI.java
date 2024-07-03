@@ -18,12 +18,12 @@ package and;
 /** @hidden */
 public class _execPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<execPrx> implements execPrx
 {
-    public _execPrxI()
+    _execPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _execPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _execPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

@@ -18,12 +18,12 @@ package await;
 /** @hidden */
 public class _casePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<casePrx> implements casePrx
 {
-    public _casePrxI()
+    _casePrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _casePrxI(com.zeroc.Ice.ObjectPrx obj)
+    _casePrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

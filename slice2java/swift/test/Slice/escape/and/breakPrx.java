@@ -65,7 +65,7 @@ public interface breakPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static breakPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _breakPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -214,5 +214,14 @@ public interface breakPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::and::break";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default breakPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _breakPrxI(ref);
     }
 }

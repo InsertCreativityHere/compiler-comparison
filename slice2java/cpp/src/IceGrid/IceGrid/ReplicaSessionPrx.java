@@ -583,7 +583,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static ReplicaSessionPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _ReplicaSessionPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -732,5 +732,14 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceGrid::ReplicaSession";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default ReplicaSessionPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _ReplicaSessionPrxI(ref);
     }
 }

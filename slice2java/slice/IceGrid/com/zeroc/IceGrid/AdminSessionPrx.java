@@ -1426,7 +1426,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     public static AdminSessionPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _AdminSessionPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -1575,5 +1575,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     static String ice_staticId()
     {
         return "::IceGrid::AdminSession";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default AdminSessionPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _AdminSessionPrxI(ref);
     }
 }

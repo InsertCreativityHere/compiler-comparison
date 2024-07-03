@@ -134,7 +134,7 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static ServerFactoryPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _ServerFactoryPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -283,5 +283,14 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::ServerFactory";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default ServerFactoryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _ServerFactoryPrxI(ref);
     }
 }

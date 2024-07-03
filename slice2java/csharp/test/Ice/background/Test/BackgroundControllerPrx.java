@@ -379,7 +379,7 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static BackgroundControllerPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _BackgroundControllerPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -528,5 +528,14 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::BackgroundController";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default BackgroundControllerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _BackgroundControllerPrxI(ref);
     }
 }

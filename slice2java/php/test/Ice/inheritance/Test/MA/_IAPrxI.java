@@ -18,12 +18,12 @@ package Test.MA;
 /** @hidden */
 public class _IAPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IAPrx> implements IAPrx
 {
-    public _IAPrxI()
+    _IAPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _IAPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _IAPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

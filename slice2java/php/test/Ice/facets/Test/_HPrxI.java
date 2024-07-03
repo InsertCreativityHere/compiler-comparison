@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _HPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<HPrx> implements HPrx
 {
-    public _HPrxI()
+    _HPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _HPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _HPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

@@ -18,12 +18,12 @@ package test.Ice.servantLocator.AMD.Test;
 /** @hidden */
 public class _TestActivationPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestActivationPrx> implements TestActivationPrx
 {
-    public _TestActivationPrxI()
+    _TestActivationPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _TestActivationPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _TestActivationPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

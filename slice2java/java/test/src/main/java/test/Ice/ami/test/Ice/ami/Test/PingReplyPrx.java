@@ -58,7 +58,7 @@ public interface PingReplyPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static PingReplyPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _PingReplyPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -207,5 +207,14 @@ public interface PingReplyPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::PingReply";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default PingReplyPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _PingReplyPrxI(ref);
     }
 }

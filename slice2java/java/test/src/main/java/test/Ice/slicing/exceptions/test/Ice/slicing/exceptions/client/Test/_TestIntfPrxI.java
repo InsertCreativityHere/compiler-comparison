@@ -18,12 +18,12 @@ package test.Ice.slicing.exceptions.client.Test;
 /** @hidden */
 public class _TestIntfPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestIntfPrx> implements TestIntfPrx
 {
-    public _TestIntfPrxI()
+    _TestIntfPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _TestIntfPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _TestIntfPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

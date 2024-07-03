@@ -58,7 +58,7 @@ public interface diePrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static diePrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _diePrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -207,5 +207,14 @@ public interface diePrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::and::die";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default diePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _diePrxI(ref);
     }
 }

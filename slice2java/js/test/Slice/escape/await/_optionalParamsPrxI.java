@@ -18,12 +18,12 @@ package await;
 /** @hidden */
 public class _optionalParamsPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<optionalParamsPrx> implements optionalParamsPrx
 {
-    public _optionalParamsPrxI()
+    _optionalParamsPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _optionalParamsPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _optionalParamsPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

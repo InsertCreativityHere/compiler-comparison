@@ -18,12 +18,12 @@ package IceGrid;
 /** @hidden */
 public class _FileReaderPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<FileReaderPrx> implements FileReaderPrx
 {
-    public _FileReaderPrxI()
+    _FileReaderPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _FileReaderPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _FileReaderPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

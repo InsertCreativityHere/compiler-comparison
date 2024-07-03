@@ -514,7 +514,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static MetricsAdminPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _MetricsAdminPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -663,5 +663,14 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceMX::MetricsAdmin";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default MetricsAdminPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _MetricsAdminPrxI(ref);
     }
 }

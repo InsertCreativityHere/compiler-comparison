@@ -18,12 +18,12 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _SessionControlPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<SessionControlPrx> implements SessionControlPrx
 {
-    public _SessionControlPrxI()
+    _SessionControlPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _SessionControlPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _SessionControlPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

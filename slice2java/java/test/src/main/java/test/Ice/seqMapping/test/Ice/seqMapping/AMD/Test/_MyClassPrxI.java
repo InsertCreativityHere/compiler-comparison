@@ -18,12 +18,12 @@ package test.Ice.seqMapping.AMD.Test;
 /** @hidden */
 public class _MyClassPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<MyClassPrx> implements MyClassPrx
 {
-    public _MyClassPrxI()
+    _MyClassPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _MyClassPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _MyClassPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

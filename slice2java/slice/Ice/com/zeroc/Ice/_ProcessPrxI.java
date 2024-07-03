@@ -18,12 +18,12 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _ProcessPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ProcessPrx> implements ProcessPrx
 {
-    public _ProcessPrxI()
+    _ProcessPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _ProcessPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _ProcessPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

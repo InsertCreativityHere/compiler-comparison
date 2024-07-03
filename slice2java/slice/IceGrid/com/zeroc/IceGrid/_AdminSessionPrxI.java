@@ -18,12 +18,12 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _AdminSessionPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<AdminSessionPrx> implements AdminSessionPrx
 {
-    public _AdminSessionPrxI()
+    _AdminSessionPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _AdminSessionPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _AdminSessionPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

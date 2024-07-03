@@ -25,7 +25,7 @@ public interface elsifPrx extends breakPrx
      **/
     public static elsifPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _elsifPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -174,5 +174,14 @@ public interface elsifPrx extends breakPrx
     static String ice_staticId()
     {
         return "::BEGIN::elsif";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default elsifPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _elsifPrxI(ref);
     }
 }

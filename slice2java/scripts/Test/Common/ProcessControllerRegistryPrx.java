@@ -61,7 +61,7 @@ public interface ProcessControllerRegistryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static ProcessControllerRegistryPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _ProcessControllerRegistryPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -210,5 +210,14 @@ public interface ProcessControllerRegistryPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Common::ProcessControllerRegistry";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default ProcessControllerRegistryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _ProcessControllerRegistryPrxI(ref);
     }
 }

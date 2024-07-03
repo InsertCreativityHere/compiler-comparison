@@ -268,7 +268,7 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static AdapterObserverPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _AdapterObserverPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -417,5 +417,14 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceGrid::AdapterObserver";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default AdapterObserverPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _AdapterObserverPrxI(ref);
     }
 }

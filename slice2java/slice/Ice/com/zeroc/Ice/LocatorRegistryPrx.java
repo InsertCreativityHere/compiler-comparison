@@ -327,7 +327,7 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static LocatorRegistryPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _LocatorRegistryPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -476,5 +476,14 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Ice::LocatorRegistry";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default LocatorRegistryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _LocatorRegistryPrxI(ref);
     }
 }

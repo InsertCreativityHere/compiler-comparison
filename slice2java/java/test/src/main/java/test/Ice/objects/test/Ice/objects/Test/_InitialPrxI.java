@@ -18,12 +18,12 @@ package test.Ice.objects.Test;
 /** @hidden */
 public class _InitialPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<InitialPrx> implements InitialPrx
 {
-    public _InitialPrxI()
+    _InitialPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _InitialPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _InitialPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

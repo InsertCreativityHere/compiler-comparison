@@ -18,12 +18,12 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _LocatorPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<LocatorPrx> implements LocatorPrx
 {
-    public _LocatorPrxI()
+    _LocatorPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _LocatorPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _LocatorPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

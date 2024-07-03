@@ -65,7 +65,7 @@ public interface casePrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static casePrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _casePrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -214,5 +214,14 @@ public interface casePrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::abstract::case";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default casePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _casePrxI(ref);
     }
 }

@@ -18,12 +18,12 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _RouterFinderPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RouterFinderPrx> implements RouterFinderPrx
 {
-    public _RouterFinderPrxI()
+    _RouterFinderPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _RouterFinderPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _RouterFinderPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

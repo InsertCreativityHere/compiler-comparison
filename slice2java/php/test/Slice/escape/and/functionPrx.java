@@ -63,7 +63,7 @@ public interface functionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static functionPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _functionPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -212,5 +212,14 @@ public interface functionPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::and::function";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default functionPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _functionPrxI(ref);
     }
 }

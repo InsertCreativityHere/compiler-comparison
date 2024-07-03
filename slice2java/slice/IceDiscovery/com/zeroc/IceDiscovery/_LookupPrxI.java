@@ -18,12 +18,12 @@ package com.zeroc.IceDiscovery;
 /** @hidden */
 public class _LookupPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<LookupPrx> implements LookupPrx
 {
-    public _LookupPrxI()
+    _LookupPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _LookupPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _LookupPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

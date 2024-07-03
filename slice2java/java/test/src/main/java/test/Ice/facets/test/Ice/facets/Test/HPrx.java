@@ -62,7 +62,7 @@ public interface HPrx extends GPrx
      **/
     public static HPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _HPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -211,5 +211,14 @@ public interface HPrx extends GPrx
     static String ice_staticId()
     {
         return "::Test::H";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default HPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _HPrxI(ref);
     }
 }

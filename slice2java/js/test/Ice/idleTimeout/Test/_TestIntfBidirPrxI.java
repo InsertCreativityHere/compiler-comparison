@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _TestIntfBidirPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestIntfBidirPrx> implements TestIntfBidirPrx
 {
-    public _TestIntfBidirPrxI()
+    _TestIntfBidirPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _TestIntfBidirPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _TestIntfBidirPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

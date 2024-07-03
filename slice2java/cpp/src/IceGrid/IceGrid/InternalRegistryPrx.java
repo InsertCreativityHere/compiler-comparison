@@ -582,7 +582,7 @@ public interface InternalRegistryPrx extends FileReaderPrx
      **/
     public static InternalRegistryPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _InternalRegistryPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -731,5 +731,14 @@ public interface InternalRegistryPrx extends FileReaderPrx
     static String ice_staticId()
     {
         return "::IceGrid::InternalRegistry";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default InternalRegistryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _InternalRegistryPrxI(ref);
     }
 }

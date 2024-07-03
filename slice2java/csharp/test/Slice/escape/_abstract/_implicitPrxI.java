@@ -18,12 +18,12 @@ package _abstract;
 /** @hidden */
 public class _implicitPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<implicitPrx> implements implicitPrx
 {
-    public _implicitPrxI()
+    _implicitPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _implicitPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _implicitPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

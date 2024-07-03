@@ -162,7 +162,7 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
      **/
     public static TopicInternalPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _TopicInternalPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -311,5 +311,14 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
     static String ice_staticId()
     {
         return "::IceStorm::TopicInternal";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default TopicInternalPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _TopicInternalPrxI(ref);
     }
 }

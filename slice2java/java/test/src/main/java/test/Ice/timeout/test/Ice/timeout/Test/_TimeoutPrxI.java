@@ -18,12 +18,12 @@ package test.Ice.timeout.Test;
 /** @hidden */
 public class _TimeoutPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TimeoutPrx> implements TimeoutPrx
 {
-    public _TimeoutPrxI()
+    _TimeoutPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _TimeoutPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _TimeoutPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

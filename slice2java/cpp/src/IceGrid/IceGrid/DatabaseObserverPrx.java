@@ -27,7 +27,7 @@ public interface DatabaseObserverPrx extends com.zeroc.IceGrid.ApplicationObserv
      **/
     public static DatabaseObserverPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _DatabaseObserverPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -176,5 +176,14 @@ public interface DatabaseObserverPrx extends com.zeroc.IceGrid.ApplicationObserv
     static String ice_staticId()
     {
         return "::IceGrid::DatabaseObserver";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default DatabaseObserverPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _DatabaseObserverPrxI(ref);
     }
 }

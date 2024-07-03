@@ -95,7 +95,7 @@ public interface PriorityPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static PriorityPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _PriorityPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -244,5 +244,14 @@ public interface PriorityPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Priority";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default PriorityPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _PriorityPrxI(ref);
     }
 }

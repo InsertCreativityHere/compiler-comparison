@@ -18,12 +18,12 @@ package and;
 /** @hidden */
 public class _delPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<delPrx> implements delPrx
 {
-    public _delPrxI()
+    _delPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _delPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _delPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

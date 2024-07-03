@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _HoldPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<HoldPrx> implements HoldPrx
 {
-    public _HoldPrxI()
+    _HoldPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _HoldPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _HoldPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

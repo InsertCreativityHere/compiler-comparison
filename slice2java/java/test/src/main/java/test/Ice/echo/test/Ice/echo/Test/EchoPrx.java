@@ -124,7 +124,7 @@ public interface EchoPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static EchoPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _EchoPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -273,5 +273,14 @@ public interface EchoPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Echo";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default EchoPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _EchoPrxI(ref);
     }
 }

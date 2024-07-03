@@ -207,7 +207,7 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static HoldPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _HoldPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -356,5 +356,14 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Hold";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default HoldPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _HoldPrxI(ref);
     }
 }

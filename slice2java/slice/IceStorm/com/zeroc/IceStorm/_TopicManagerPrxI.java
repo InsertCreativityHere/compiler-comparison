@@ -18,12 +18,12 @@ package com.zeroc.IceStorm;
 /** @hidden */
 public class _TopicManagerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TopicManagerPrx> implements TopicManagerPrx
 {
-    public _TopicManagerPrxI()
+    _TopicManagerPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _TopicManagerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _TopicManagerPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

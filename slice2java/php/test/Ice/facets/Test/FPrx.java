@@ -62,7 +62,7 @@ public interface FPrx extends EPrx
      **/
     public static FPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _FPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -211,5 +211,14 @@ public interface FPrx extends EPrx
     static String ice_staticId()
     {
         return "::Test::F";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default FPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _FPrxI(ref);
     }
 }

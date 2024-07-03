@@ -18,12 +18,12 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _FileIteratorPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<FileIteratorPrx> implements FileIteratorPrx
 {
-    public _FileIteratorPrxI()
+    _FileIteratorPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _FileIteratorPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _FileIteratorPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

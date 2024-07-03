@@ -58,7 +58,7 @@ public interface Interface2Prx extends com.zeroc.Ice.ObjectPrx
      **/
     public static Interface2Prx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _Interface2PrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -207,5 +207,14 @@ public interface Interface2Prx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Interface2";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default Interface2Prx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _Interface2PrxI(ref);
     }
 }

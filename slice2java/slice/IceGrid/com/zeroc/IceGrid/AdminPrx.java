@@ -3936,7 +3936,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static AdminPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _AdminPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -4085,5 +4085,14 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceGrid::Admin";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default AdminPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _AdminPrxI(ref);
     }
 }

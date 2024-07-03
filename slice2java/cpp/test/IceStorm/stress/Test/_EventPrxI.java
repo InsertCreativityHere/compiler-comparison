@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _EventPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<EventPrx> implements EventPrx
 {
-    public _EventPrxI()
+    _EventPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _EventPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _EventPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

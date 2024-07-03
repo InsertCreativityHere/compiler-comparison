@@ -452,7 +452,7 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static NodeSessionPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _NodeSessionPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -601,5 +601,14 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::IceGrid::NodeSession";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default NodeSessionPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _NodeSessionPrxI(ref);
     }
 }

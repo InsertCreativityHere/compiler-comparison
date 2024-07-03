@@ -18,12 +18,12 @@ package Test;
 /** @hidden */
 public class _PingReplyPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<PingReplyPrx> implements PingReplyPrx
 {
-    public _PingReplyPrxI()
+    _PingReplyPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _PingReplyPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _PingReplyPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

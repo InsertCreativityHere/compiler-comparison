@@ -61,7 +61,7 @@ public interface EventPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static EventPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _EventPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -210,5 +210,14 @@ public interface EventPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::Event";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default EventPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _EventPrxI(ref);
     }
 }

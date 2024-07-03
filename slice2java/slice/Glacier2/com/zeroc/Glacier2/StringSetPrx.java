@@ -203,7 +203,7 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static StringSetPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _StringSetPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -352,5 +352,14 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Glacier2::StringSet";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default StringSetPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _StringSetPrxI(ref);
     }
 }

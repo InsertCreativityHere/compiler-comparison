@@ -26,7 +26,7 @@ public interface finalizePrx extends defaultPrx,
      **/
     public static finalizePrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _finalizePrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -175,5 +175,14 @@ public interface finalizePrx extends defaultPrx,
     static String ice_staticId()
     {
         return "::abstract::finalize";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default finalizePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _finalizePrxI(ref);
     }
 }

@@ -18,12 +18,12 @@ package test.Ice.timeout.Test;
 /** @hidden */
 public class _ControllerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ControllerPrx> implements ControllerPrx
 {
-    public _ControllerPrxI()
+    _ControllerPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _ControllerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _ControllerPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

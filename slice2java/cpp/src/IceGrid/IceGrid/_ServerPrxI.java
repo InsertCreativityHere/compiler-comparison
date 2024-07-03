@@ -18,12 +18,12 @@ package IceGrid;
 /** @hidden */
 public class _ServerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ServerPrx> implements ServerPrx
 {
-    public _ServerPrxI()
+    _ServerPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _ServerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _ServerPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

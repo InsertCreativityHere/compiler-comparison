@@ -98,7 +98,7 @@ public interface RemoteCommunicatorFactoryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static RemoteCommunicatorFactoryPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _RemoteCommunicatorFactoryPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -247,5 +247,14 @@ public interface RemoteCommunicatorFactoryPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::Test::RemoteCommunicatorFactory";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default RemoteCommunicatorFactoryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _RemoteCommunicatorFactoryPrxI(ref);
     }
 }

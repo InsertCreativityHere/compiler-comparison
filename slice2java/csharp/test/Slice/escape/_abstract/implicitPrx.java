@@ -108,7 +108,7 @@ public interface implicitPrx extends com.zeroc.Ice.ObjectPrx
      **/
     public static implicitPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _implicitPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -257,5 +257,14 @@ public interface implicitPrx extends com.zeroc.Ice.ObjectPrx
     static String ice_staticId()
     {
         return "::abstract::implicit";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default implicitPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _implicitPrxI(ref);
     }
 }

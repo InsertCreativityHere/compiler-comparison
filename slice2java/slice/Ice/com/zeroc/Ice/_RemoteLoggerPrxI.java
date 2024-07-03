@@ -18,12 +18,12 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _RemoteLoggerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RemoteLoggerPrx> implements RemoteLoggerPrx
 {
-    public _RemoteLoggerPrxI()
+    _RemoteLoggerPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _RemoteLoggerPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _RemoteLoggerPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

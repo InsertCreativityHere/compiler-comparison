@@ -18,12 +18,12 @@ package and;
 /** @hidden */
 public class _funcPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<funcPrx> implements funcPrx
 {
-    public _funcPrxI()
+    _funcPrxI(com.zeroc.IceInternal.Reference ref)
     {
-        super();
+        super(ref);
     }
 
-    public _funcPrxI(com.zeroc.Ice.ObjectPrx obj)
+    _funcPrxI(com.zeroc.Ice.ObjectPrx obj)
     {
         super(obj);
     }

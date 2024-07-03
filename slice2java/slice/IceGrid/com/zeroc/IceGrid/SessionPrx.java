@@ -451,7 +451,7 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     public static SessionPrx createProxy(com.zeroc.Ice.Communicator communicator, String proxyString)
     {
-        return uncheckedCast(communicator.stringToProxy(proxyString));
+        return new _SessionPrxI(com.zeroc.Ice.ObjectPrx.createProxy(communicator, proxyString));
     }
 
     /**
@@ -600,5 +600,14 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     static String ice_staticId()
     {
         return "::IceGrid::Session";
+    }
+
+    /**
+     * @hidden
+     **/
+    @Override
+    default SessionPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    {
+        return new _SessionPrxI(ref);
     }
 }
