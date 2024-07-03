@@ -180,25 +180,25 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     default void throwAorDasAorD(int a)
-        throws D,
-               A
+        throws A,
+               D
     {
         throwAorDasAorD(a, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
     default void throwAorDasAorD(int a, java.util.Map<String, String> context)
-        throws D,
-               A
+        throws A,
+               D
     {
         try
         {
             _iceI_throwAorDasAorDAsync(a, context, true).waitForResponseOrUserEx();
         }
-        catch(D ex)
+        catch(A ex)
         {
             throw ex;
         }
-        catch(A ex)
+        catch(D ex)
         {
             throw ex;
         }
@@ -237,8 +237,8 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_throwAorDasAorD =
     {
-        D.class,
-        A.class
+        A.class,
+        D.class
     };
 
     default void throwBasA(int a, int b)

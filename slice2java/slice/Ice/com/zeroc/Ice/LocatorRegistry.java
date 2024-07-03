@@ -35,8 +35,8 @@ public interface LocatorRegistry extends com.zeroc.Ice.Object
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
      **/
     java.util.concurrent.CompletionStage<Void> setAdapterDirectProxyAsync(String id, ObjectPrx proxy, com.zeroc.Ice.Current current)
-        throws AdapterAlreadyActiveException,
-               AdapterNotFoundException;
+        throws AdapterNotFoundException,
+               AdapterAlreadyActiveException;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -53,9 +53,9 @@ public interface LocatorRegistry extends com.zeroc.Ice.Object
      * with the locator registry for this object adapter.
      **/
     java.util.concurrent.CompletionStage<Void> setReplicatedAdapterDirectProxyAsync(String adapterId, String replicaGroupId, ObjectPrx proxy, com.zeroc.Ice.Current current)
-        throws AdapterAlreadyActiveException,
+        throws AdapterNotFoundException,
                InvalidReplicaGroupIdException,
-               AdapterNotFoundException;
+               AdapterAlreadyActiveException;
 
     /**
      * Set the process proxy for a server.
