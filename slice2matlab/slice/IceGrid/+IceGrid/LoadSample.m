@@ -52,7 +52,7 @@ classdef LoadSample < uint8
                 case 2
                     r = IceGrid.LoadSample.LoadSample15;
                 otherwise
-                    throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
+                    throw(Ice.MarshalException(sprintf('enumerator value %d is out of range', v)));
             end
         end
     end

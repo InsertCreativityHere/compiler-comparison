@@ -39,7 +39,7 @@ classdef assert < uint8
                 case 0
                     r = and.assert.break_;
                 otherwise
-                    throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
+                    throw(Ice.MarshalException(sprintf('enumerator value %d is out of range', v)));
             end
         end
     end

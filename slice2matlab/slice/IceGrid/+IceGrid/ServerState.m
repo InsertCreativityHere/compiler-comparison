@@ -73,7 +73,7 @@ classdef ServerState < uint8
                 case 6
                     r = IceGrid.ServerState.Destroyed;
                 otherwise
-                    throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
+                    throw(Ice.MarshalException(sprintf('enumerator value %d is out of range', v)));
             end
         end
     end

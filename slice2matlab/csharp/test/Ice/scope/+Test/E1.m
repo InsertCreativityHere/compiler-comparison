@@ -47,7 +47,7 @@ classdef E1 < uint8
                 case 2
                     r = Test.E1.v3;
                 otherwise
-                    throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
+                    throw(Ice.MarshalException(sprintf('enumerator value %d is out of range', v)));
             end
         end
     end

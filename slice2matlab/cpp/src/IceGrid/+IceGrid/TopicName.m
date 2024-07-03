@@ -55,7 +55,7 @@ classdef TopicName < uint8
                 case 4
                     r = IceGrid.TopicName.ObjectObserver;
                 otherwise
-                    throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
+                    throw(Ice.MarshalException(sprintf('enumerator value %d is out of range', v)));
             end
         end
     end

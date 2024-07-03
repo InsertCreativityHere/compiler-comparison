@@ -79,7 +79,7 @@ classdef ByteEnum < uint8
                 case 126
                     r = Test.ByteEnum.benum11;
                 otherwise
-                    throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
+                    throw(Ice.MarshalException(sprintf('enumerator value %d is out of range', v)));
             end
         end
     end

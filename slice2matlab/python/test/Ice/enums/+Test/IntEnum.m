@@ -83,7 +83,7 @@ classdef IntEnum < int32
                 case 2147483646
                     r = Test.IntEnum.ienum12;
                 otherwise
-                    throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
+                    throw(Ice.MarshalException(sprintf('enumerator value %d is out of range', v)));
             end
         end
     end

@@ -57,7 +57,7 @@ classdef NodeState < uint8
                 case 3
                     r = IceStormElection.NodeState.NodeStateNormal;
                 otherwise
-                    throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
+                    throw(Ice.MarshalException(sprintf('enumerator value %d is out of range', v)));
             end
         end
     end

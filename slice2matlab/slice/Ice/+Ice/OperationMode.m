@@ -61,7 +61,7 @@ classdef OperationMode < uint8
                 case 2
                     r = Ice.OperationMode.Idempotent;
                 otherwise
-                    throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
+                    throw(Ice.MarshalException(sprintf('enumerator value %d is out of range', v)));
             end
         end
     end

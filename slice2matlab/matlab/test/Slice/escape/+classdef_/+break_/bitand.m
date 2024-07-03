@@ -163,7 +163,7 @@ classdef bitand < uint8
                 case 31
                     r = classdef_.break_.bitand.LAST;
                 otherwise
-                    throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
+                    throw(Ice.MarshalException(sprintf('enumerator value %d is out of range', v)));
             end
         end
     end

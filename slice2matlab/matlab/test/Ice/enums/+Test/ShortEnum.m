@@ -79,7 +79,7 @@ classdef ShortEnum < int32
                 case 32766
                     r = Test.ShortEnum.senum11;
                 otherwise
-                    throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
+                    throw(Ice.MarshalException(sprintf('enumerator value %d is out of range', v)));
             end
         end
     end

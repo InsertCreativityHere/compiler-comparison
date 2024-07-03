@@ -39,7 +39,7 @@ classdef MyEnum < uint8
                 case 0
                     r = Test.MyEnum.MyEnumMember;
                 otherwise
-                    throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
+                    throw(Ice.MarshalException(sprintf('enumerator value %d is out of range', v)));
             end
         end
     end
