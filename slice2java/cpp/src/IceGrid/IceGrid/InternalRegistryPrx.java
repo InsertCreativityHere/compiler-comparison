@@ -138,8 +138,8 @@ public interface InternalRegistryPrx extends FileReaderPrx
      * @throws ReplicaActiveException Raised if the replica is already registered and currently active.
      **/
     default ReplicaSessionPrx registerReplica(InternalReplicaInfo info, InternalRegistryPrx prx)
-        throws ReplicaActiveException,
-               com.zeroc.IceGrid.PermissionDeniedException
+        throws com.zeroc.IceGrid.PermissionDeniedException,
+               ReplicaActiveException
     {
         return registerReplica(info, prx, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -155,18 +155,18 @@ public interface InternalRegistryPrx extends FileReaderPrx
      * @throws ReplicaActiveException Raised if the replica is already registered and currently active.
      **/
     default ReplicaSessionPrx registerReplica(InternalReplicaInfo info, InternalRegistryPrx prx, java.util.Map<String, String> context)
-        throws ReplicaActiveException,
-               com.zeroc.IceGrid.PermissionDeniedException
+        throws com.zeroc.IceGrid.PermissionDeniedException,
+               ReplicaActiveException
     {
         try
         {
             return _iceI_registerReplicaAsync(info, prx, context, true).waitForResponseOrUserEx();
         }
-        catch(ReplicaActiveException ex)
+        catch(com.zeroc.IceGrid.PermissionDeniedException ex)
         {
             throw ex;
         }
-        catch(com.zeroc.IceGrid.PermissionDeniedException ex)
+        catch(ReplicaActiveException ex)
         {
             throw ex;
         }
@@ -229,8 +229,8 @@ public interface InternalRegistryPrx extends FileReaderPrx
     /** @hidden */
     static final Class<?>[] _iceE_registerReplica =
     {
-        ReplicaActiveException.class,
-        com.zeroc.IceGrid.PermissionDeniedException.class
+        com.zeroc.IceGrid.PermissionDeniedException.class,
+        ReplicaActiveException.class
     };
 
     /**
