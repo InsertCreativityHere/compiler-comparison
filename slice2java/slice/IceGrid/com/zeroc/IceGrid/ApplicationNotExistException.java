@@ -71,5 +71,5 @@ public class ApplicationNotExistException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -7270586156196679123L;
+    private static final long serialVersionUID = -7270587508276096676L;
 }
