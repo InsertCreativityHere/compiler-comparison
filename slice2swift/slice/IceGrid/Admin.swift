@@ -3226,11 +3226,11 @@ public extension AdminPrx {
                                   throw ex
                               } catch let error as ServerNotExistException {
                                   throw error
-                              } catch let error as ServerStartException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as NodeUnreachableException {
+                                  throw error
+                              } catch let error as ServerStartException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3263,11 +3263,11 @@ public extension AdminPrx {
                                           throw ex
                                       } catch let error as ServerNotExistException {
                                           throw error
-                                      } catch let error as ServerStartException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
+                                          throw error
+                                      } catch let error as ServerStartException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -3303,11 +3303,11 @@ public extension AdminPrx {
                                   throw ex
                               } catch let error as ServerNotExistException {
                                   throw error
-                              } catch let error as ServerStopException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as NodeUnreachableException {
+                                  throw error
+                              } catch let error as ServerStopException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3340,11 +3340,11 @@ public extension AdminPrx {
                                           throw ex
                                       } catch let error as ServerNotExistException {
                                           throw error
-                                      } catch let error as ServerStopException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
+                                          throw error
+                                      } catch let error as ServerStopException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
