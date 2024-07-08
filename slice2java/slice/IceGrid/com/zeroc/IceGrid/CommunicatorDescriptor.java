@@ -71,7 +71,7 @@ public class CommunicatorDescriptor extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -3421158713809605730L;
+    private static final long serialVersionUID = -1318562158382901332L;
 
     /** @hidden */
     @Override
