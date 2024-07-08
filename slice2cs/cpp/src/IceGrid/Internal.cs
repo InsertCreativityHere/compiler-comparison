@@ -5978,11 +5978,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(DeploymentException)
+                    catch(ObserverAlreadyRegisteredException)
                     {
                         throw;
                     }
-                    catch(ObserverAlreadyRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -6504,11 +6504,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
