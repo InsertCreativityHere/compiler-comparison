@@ -68,7 +68,7 @@ public class DispatchMetrics extends Metrics
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 6301706700311533707L;
+    private static final long serialVersionUID = -1123519533972400787L;
 
     /** @hidden */
     @Override
