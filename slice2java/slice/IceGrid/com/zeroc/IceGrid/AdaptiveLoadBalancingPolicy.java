@@ -55,7 +55,7 @@ public class AdaptiveLoadBalancingPolicy extends LoadBalancingPolicy
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7644443363863888309L;
+    private static final long serialVersionUID = 7644439977648027557L;
 
     /** @hidden */
     @Override
