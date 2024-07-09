@@ -257,17 +257,6 @@ public:
     void _iceI_getCallbackDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t getHeartbeatCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::int32_t> getHeartbeatCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    getHeartbeatCountAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
-    /// \endcond
-
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -464,11 +453,6 @@ public:
     virtual void getCallbackDatagramCountAsync(::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_getCallbackDatagramCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual ::std::int32_t getHeartbeatCount(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getHeartbeatCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;

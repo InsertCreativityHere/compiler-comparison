@@ -409,43 +409,6 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default int getHeartbeatCount()
-    {
-        return getHeartbeatCount(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default int getHeartbeatCount(java.util.Map<String, String> context)
-    {
-        return _iceI_getHeartbeatCountAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Integer> getHeartbeatCountAsync()
-    {
-        return _iceI_getHeartbeatCountAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Integer> getHeartbeatCountAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_getHeartbeatCountAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getHeartbeatCountAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getHeartbeatCount", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
-                     int ret;
-                     ret = istr.readInt();
-                     return ret;
-                 });
-        return f;
-    }
-
     default void shutdown()
     {
         shutdown(com.zeroc.Ice.ObjectPrx.noExplicitContext);

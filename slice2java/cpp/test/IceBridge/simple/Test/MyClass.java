@@ -39,8 +39,6 @@ public interface MyClass extends com.zeroc.Ice.Object
 
     java.util.concurrent.CompletionStage<java.lang.Integer> getCallbackDatagramCountAsync(com.zeroc.Ice.Current current);
 
-    int getHeartbeatCount(com.zeroc.Ice.Current current);
-
     void shutdown(com.zeroc.Ice.Current current);
 
     /** @hidden */
@@ -203,19 +201,6 @@ public interface MyClass extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getHeartbeatCount(MyClass obj, com.zeroc.Ice.IncomingRequest request)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
-        request.inputStream.skipEmptyEncapsulation();
-        int ret = obj.getHeartbeatCount(request.current);
-        var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
-        ostr.writeInt(ret);
-        ostr.endEncapsulation();
-        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
-    }
-
-    /** @hidden */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
@@ -241,7 +226,6 @@ public interface MyClass extends com.zeroc.Ice.Object
             case "getDatagramCount" -> MyClass._iceD_getDatagramCount(this, request);
             case "callDatagramCallback" -> MyClass._iceD_callDatagramCallback(this, request);
             case "getCallbackDatagramCount" -> MyClass._iceD_getCallbackDatagramCount(this, request);
-            case "getHeartbeatCount" -> MyClass._iceD_getHeartbeatCount(this, request);
             case "shutdown" -> MyClass._iceD_shutdown(this, request);
             case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
             case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);

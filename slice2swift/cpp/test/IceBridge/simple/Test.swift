@@ -340,10 +340,6 @@ public extension CallbackPrx {
 ///
 ///  - getCallbackDatagramCountAsync: 
 ///
-///  - getHeartbeatCount: 
-///
-///  - getHeartbeatCountAsync: 
-///
 ///  - shutdown: 
 ///
 ///  - shutdownAsync: 
@@ -481,10 +477,6 @@ public extension Ice.InputStream {
 ///  - getCallbackDatagramCount: 
 ///
 ///  - getCallbackDatagramCountAsync: 
-///
-///  - getHeartbeatCount: 
-///
-///  - getHeartbeatCountAsync: 
 ///
 ///  - shutdown: 
 ///
@@ -891,45 +883,6 @@ public extension MyClassPrx {
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
-    func getHeartbeatCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getHeartbeatCount",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func getHeartbeatCountAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "getHeartbeatCount",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "shutdown",
                           mode: .Normal,
@@ -1044,8 +997,6 @@ public struct MyClassDisp: Ice.Dispatcher {
             servant._iceD_getConnectionInfo(request)
         case "getDatagramCount":
             servant._iceD_getDatagramCount(request)
-        case "getHeartbeatCount":
-            servant._iceD_getHeartbeatCount(request)
         case "ice_id":
             (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
@@ -1128,12 +1079,6 @@ public protocol MyClass {
     ///
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func getCallbackDatagramCountAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Int32>
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
-    func getHeartbeatCount(current: Ice.Current) throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -1230,8 +1175,6 @@ extension Callback {
 ///  - callDatagramCallback: 
 ///
 ///  - getCallbackDatagramCount: 
-///
-///  - getHeartbeatCount: 
 ///
 ///  - shutdown: 
 extension MyClass {
@@ -1381,21 +1324,6 @@ extension MyClass {
                     ostr.write(iceP_returnValue)
                 }
             }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_getHeartbeatCount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-
-            let iceP_returnValue = try self.getHeartbeatCount(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
         } catch {
             return PromiseKit.Promise(error: error)
         }

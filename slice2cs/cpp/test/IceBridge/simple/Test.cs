@@ -96,9 +96,6 @@ namespace Test
         global::System.Threading.Tasks.Task<int> getCallbackDatagramCountAsync(Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getHeartbeatCount(Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void shutdown(Ice.Current current);
     }
 }
@@ -171,10 +168,6 @@ namespace Test
         int getCallbackDatagramCount(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<int> getCallbackDatagramCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        int getHeartbeatCount(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<int> getHeartbeatCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -547,18 +540,6 @@ namespace Test
             }
         }
 
-        public int getHeartbeatCount(global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                return _iceI_getHeartbeatCountAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
         public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -893,38 +874,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int> getHeartbeatCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_getHeartbeatCountAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<int> _iceI_getHeartbeatCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_getHeartbeatCount_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
-            _iceI_getHeartbeatCount(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _getHeartbeatCount_name = "getHeartbeatCount";
-
-        private void _iceI_getHeartbeatCount(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<int>(completed);
-            outAsync.invoke(
-                _getHeartbeatCount_name,
-                Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                read: (Ice.InputStream istr) =>
-                {
-                    int ret;
-                    ret = istr.readInt();
-                    return ret;
-                });
-        }
-
         public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
@@ -1071,8 +1020,6 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<int> getCallbackDatagramCountAsync(Ice.Current current);
 
-        public abstract int getHeartbeatCount(Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
@@ -1093,7 +1040,6 @@ namespace Test
                 "getDatagramCount" => MyClass.iceD_getDatagramCountAsync(this, request),
                 "callDatagramCallback" => MyClass.iceD_callDatagramCallbackAsync(this, request),
                 "getCallbackDatagramCount" => MyClass.iceD_getCallbackDatagramCountAsync(this, request),
-                "getHeartbeatCount" => MyClass.iceD_getHeartbeatCountAsync(this, request),
                 "shutdown" => MyClass.iceD_shutdownAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
@@ -1303,20 +1249,6 @@ namespace Test
                 {
                     ostr.writeInt(ret);
                 });
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getHeartbeatCountAsync(
-            MyClass obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getHeartbeatCount(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
-            ostr.writeInt(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
         }
 
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(

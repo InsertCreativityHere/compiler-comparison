@@ -88,7 +88,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_MyClassPrx, 'getDatagramCount', 0, 0, null, null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'callDatagramCallback', 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'getCallbackDatagramCount', 0, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'getHeartbeatCount', 0, 0, null, null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 ?>

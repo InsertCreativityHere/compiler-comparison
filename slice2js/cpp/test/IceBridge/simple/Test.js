@@ -78,6 +78,5 @@ Ice.defineOperations(
         "getDatagramCount": [, , , [3], , , , , ],
         "callDatagramCallback": [, , , , , , , , ],
         "getCallbackDatagramCount": [, , , [3], , , , , ],
-        "getHeartbeatCount": [, , , [3], , , , , ],
         "shutdown": [, , , , , , , , ]
     });
