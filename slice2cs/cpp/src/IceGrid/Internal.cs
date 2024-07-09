@@ -6560,11 +6560,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -7023,15 +7023,15 @@ namespace IceGrid
 
         public abstract void shutdown(Ice.Current current);
 
+        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
+
         public abstract void replicaInit(InternalRegistryPrx?[] replicas, Ice.Current current);
 
         public abstract void replicaAdded(InternalRegistryPrx? replica, Ice.Current current);
 
         public abstract void replicaRemoved(InternalRegistryPrx? replica, Ice.Current current);
-
-        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
-
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
