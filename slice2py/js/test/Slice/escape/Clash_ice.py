@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module Clash
 _M_Clash = Ice.openModule('Clash')
@@ -258,12 +260,12 @@ if 'St' not in _M_Clash.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.v)
-            _h = 5 * _h + Ice.getHash(self.istr)
-            _h = 5 * _h + Ice.getHash(self.ostr)
-            _h = 5 * _h + Ice.getHash(self.rhs)
-            _h = 5 * _h + Ice.getHash(self.hashCode)
-            _h = 5 * _h + Ice.getHash(self.clone)
+            _h = 5 * _h + _builtins.hash(self.v)
+            _h = 5 * _h + _builtins.hash(self.istr)
+            _h = 5 * _h + _builtins.hash(self.ostr)
+            _h = 5 * _h + _builtins.hash(self.rhs)
+            _h = 5 * _h + _builtins.hash(self.hashCode)
+            _h = 5 * _h + _builtins.hash(self.clone)
             return _h % 0x7fffffff
 
         def __compare(self, other):

@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module _and
 _M__and = Ice.openModule('_and')
@@ -57,15 +59,15 @@ if 'xor' not in _M__and.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.abstract)
-            _h = 5 * _h + Ice.getHash(self.clone)
-            _h = 5 * _h + Ice.getHash(self.private)
-            _h = 5 * _h + Ice.getHash(self.protected)
-            _h = 5 * _h + Ice.getHash(self.public)
-            _h = 5 * _h + Ice.getHash(self.this)
-            _h = 5 * _h + Ice.getHash(self.throw)
-            _h = 5 * _h + Ice.getHash(self.use)
-            _h = 5 * _h + Ice.getHash(self.var)
+            _h = 5 * _h + _builtins.hash(self.abstract)
+            _h = 5 * _h + _builtins.hash(self.clone)
+            _h = 5 * _h + _builtins.hash(self.private)
+            _h = 5 * _h + _builtins.hash(self.protected)
+            _h = 5 * _h + _builtins.hash(self.public)
+            _h = 5 * _h + _builtins.hash(self.this)
+            _h = 5 * _h + _builtins.hash(self.throw)
+            _h = 5 * _h + _builtins.hash(self.use)
+            _h = 5 * _h + _builtins.hash(self.var)
             return _h % 0x7fffffff
 
         def __compare(self, other):

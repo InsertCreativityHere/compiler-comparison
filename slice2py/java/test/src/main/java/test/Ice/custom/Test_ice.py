@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 import Ice.BuiltinSequences_ice
 
 # Included module Ice
@@ -32,7 +34,7 @@ if 'A' not in _M_Test.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.i)
+            _h = 5 * _h + _builtins.hash(self.i)
             return _h % 0x7fffffff
 
         def __compare(self, other):
@@ -188,7 +190,7 @@ if 'S' not in _M_Test.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.en)
+            _h = 5 * _h + _builtins.hash(self.en)
             return _h % 0x7fffffff
 
         def __compare(self, other):

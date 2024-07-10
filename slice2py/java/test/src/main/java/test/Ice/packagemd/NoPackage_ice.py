@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module Test1
 _M_Test1 = Ice.openModule('Test1')

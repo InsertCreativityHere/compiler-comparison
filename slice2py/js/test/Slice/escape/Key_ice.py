@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module _await
 _M__await = Ice.openModule('_await')
@@ -53,11 +55,11 @@ if '_break' not in _M__await.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self._while)
-            _h = 5 * _h + Ice.getHash(self.clone)
-            _h = 5 * _h + Ice.getHash(self.equals)
-            _h = 5 * _h + Ice.getHash(self.hashCode)
-            _h = 5 * _h + Ice.getHash(self.constructor)
+            _h = 5 * _h + _builtins.hash(self._while)
+            _h = 5 * _h + _builtins.hash(self.clone)
+            _h = 5 * _h + _builtins.hash(self.equals)
+            _h = 5 * _h + _builtins.hash(self.hashCode)
+            _h = 5 * _h + _builtins.hash(self.constructor)
             return _h % 0x7fffffff
 
         def __compare(self, other):

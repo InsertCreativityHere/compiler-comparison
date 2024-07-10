@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module IceGrid
 _M_IceGrid = Ice.openModule('IceGrid')

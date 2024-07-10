@@ -129,15 +129,15 @@ IceGrid::AdminPrx::_iceI_syncApplication(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
+            catch(const ApplicationNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
-            {
-                throw;
-            }
-            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -183,15 +183,15 @@ IceGrid::AdminPrx::_iceI_updateApplication(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
+            catch(const ApplicationNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
-            {
-                throw;
-            }
-            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -237,15 +237,15 @@ IceGrid::AdminPrx::_iceI_syncApplicationWithoutRestart(const ::std::shared_ptr<:
             {
                 ex.ice_throw();
             }
+            catch(const ApplicationNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
-            {
-                throw;
-            }
-            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -291,15 +291,15 @@ IceGrid::AdminPrx::_iceI_updateApplicationWithoutRestart(const ::std::shared_ptr
             {
                 ex.ice_throw();
             }
+            catch(const ApplicationNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
-            {
-                throw;
-            }
-            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -344,15 +344,15 @@ IceGrid::AdminPrx::_iceI_removeApplication(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
+            catch(const ApplicationNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
-            {
-                throw;
-            }
-            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -397,15 +397,15 @@ IceGrid::AdminPrx::_iceI_instantiateServer(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
+            catch(const ApplicationNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
-            {
-                throw;
-            }
-            catch(const ApplicationNotExistException&)
             {
                 throw;
             }

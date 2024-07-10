@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module _and
 _M__and = Ice.openModule('_and')
@@ -49,7 +51,7 @@ if '_continue' not in _M__and.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self._def)
+            _h = 5 * _h + _builtins.hash(self._def)
             return _h % 0x7fffffff
 
         def __compare(self, other):

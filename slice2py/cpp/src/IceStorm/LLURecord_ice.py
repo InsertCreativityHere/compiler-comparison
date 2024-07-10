@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module IceStormElection
 _M_IceStormElection = Ice.openModule('IceStormElection')
@@ -35,8 +37,8 @@ if 'LogUpdate' not in _M_IceStormElection.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.generation)
-            _h = 5 * _h + Ice.getHash(self.iteration)
+            _h = 5 * _h + _builtins.hash(self.generation)
+            _h = 5 * _h + _builtins.hash(self.iteration)
             return _h % 0x7fffffff
 
         def __compare(self, other):

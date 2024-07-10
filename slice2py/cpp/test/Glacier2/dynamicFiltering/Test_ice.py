@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 import Glacier2.Session_ice
 
 # Included module Ice
@@ -130,12 +132,12 @@ if 'TestToken' not in _M_Test.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.expectedResult)
-            _h = 5 * _h + Ice.getHash(self.description)
-            _h = 5 * _h + Ice.getHash(self.code)
-            _h = 5 * _h + Ice.getHash(self.config)
-            _h = 5 * _h + Ice.getHash(self.caseIndex)
-            _h = 5 * _h + Ice.getHash(self.testReference)
+            _h = 5 * _h + _builtins.hash(self.expectedResult)
+            _h = 5 * _h + _builtins.hash(self.description)
+            _h = 5 * _h + _builtins.hash(self.code)
+            _h = 5 * _h + _builtins.hash(self.config)
+            _h = 5 * _h + _builtins.hash(self.caseIndex)
+            _h = 5 * _h + _builtins.hash(self.testReference)
             return _h % 0x7fffffff
 
         def __compare(self, other):

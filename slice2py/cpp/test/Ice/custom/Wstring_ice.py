@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module Test1
 _M_Test1 = Ice.openModule('Test1')
@@ -34,7 +36,7 @@ if 'WstringStruct' not in _M_Test1.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.s)
+            _h = 5 * _h + _builtins.hash(self.s)
             return _h % 0x7fffffff
 
         def __compare(self, other):
@@ -221,7 +223,7 @@ if 'WstringStruct' not in _M_Test2.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.s)
+            _h = 5 * _h + _builtins.hash(self.s)
             return _h % 0x7fffffff
 
         def __compare(self, other):

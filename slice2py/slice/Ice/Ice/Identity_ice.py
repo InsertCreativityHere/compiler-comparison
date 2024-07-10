@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module Ice
 _M_Ice = Ice.openModule('Ice')
@@ -37,8 +39,8 @@ if 'Identity' not in _M_Ice.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.name)
-            _h = 5 * _h + Ice.getHash(self.category)
+            _h = 5 * _h + _builtins.hash(self.name)
+            _h = 5 * _h + _builtins.hash(self.category)
             return _h % 0x7fffffff
 
         def __compare(self, other):

@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module Test
 _M_Test = Ice.openModule('Test')
@@ -169,7 +171,7 @@ if 'S' not in _M_Test.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.i)
+            _h = 5 * _h + _builtins.hash(self.i)
             return _h % 0x7fffffff
 
         def __compare(self, other):
@@ -263,7 +265,7 @@ if 'SD' not in _M_Test.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.i)
+            _h = 5 * _h + _builtins.hash(self.i)
             return _h % 0x7fffffff
 
         def __compare(self, other):

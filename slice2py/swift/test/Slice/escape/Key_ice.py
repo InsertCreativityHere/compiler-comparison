@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module _and
 _M__and = Ice.openModule('_and')
@@ -50,7 +52,7 @@ if 'guard' not in _M__and.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.default)
+            _h = 5 * _h + _builtins.hash(self.default)
             return _h % 0x7fffffff
 
         def __compare(self, other):
@@ -129,7 +131,7 @@ if 'defer' not in _M__and.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self._else)
+            _h = 5 * _h + _builtins.hash(self._else)
             return _h % 0x7fffffff
 
         def __compare(self, other):

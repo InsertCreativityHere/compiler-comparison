@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 import Ice.Identity_ice
 import Ice.BuiltinSequences_ice
 import Ice.Process_ice

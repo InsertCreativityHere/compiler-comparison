@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module Test
 _M_Test = Ice.openModule('Test')
@@ -193,8 +195,8 @@ if 'Point' not in _M_Test.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.x)
-            _h = 5 * _h + Ice.getHash(self.y)
+            _h = 5 * _h + _builtins.hash(self.x)
+            _h = 5 * _h + _builtins.hash(self.y)
             return _h % 0x7fffffff
 
         def __compare(self, other):
@@ -319,10 +321,10 @@ if 'Color' not in _M_Test.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.r)
-            _h = 5 * _h + Ice.getHash(self.g)
-            _h = 5 * _h + Ice.getHash(self.b)
-            _h = 5 * _h + Ice.getHash(self.a)
+            _h = 5 * _h + _builtins.hash(self.r)
+            _h = 5 * _h + _builtins.hash(self.g)
+            _h = 5 * _h + _builtins.hash(self.b)
+            _h = 5 * _h + _builtins.hash(self.a)
             return _h % 0x7fffffff
 
         def __compare(self, other):

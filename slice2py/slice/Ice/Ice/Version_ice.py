@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module Ice
 _M_Ice = Ice.openModule('Ice')
@@ -32,8 +34,8 @@ if 'ProtocolVersion' not in _M_Ice.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.major)
-            _h = 5 * _h + Ice.getHash(self.minor)
+            _h = 5 * _h + _builtins.hash(self.major)
+            _h = 5 * _h + _builtins.hash(self.minor)
             return _h % 0x7fffffff
 
         def __compare(self, other):
@@ -127,8 +129,8 @@ if 'EncodingVersion' not in _M_Ice.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.major)
-            _h = 5 * _h + Ice.getHash(self.minor)
+            _h = 5 * _h + _builtins.hash(self.major)
+            _h = 5 * _h + _builtins.hash(self.minor)
             return _h % 0x7fffffff
 
         def __compare(self, other):

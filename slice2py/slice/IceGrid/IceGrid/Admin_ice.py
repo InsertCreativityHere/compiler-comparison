@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 import Ice.Identity_ice
 import Ice.BuiltinSequences_ice
 import Glacier2.Session_ice
@@ -257,14 +259,14 @@ if 'NodeInfo' not in _M_IceGrid.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.name)
-            _h = 5 * _h + Ice.getHash(self.os)
-            _h = 5 * _h + Ice.getHash(self.hostname)
-            _h = 5 * _h + Ice.getHash(self.release)
-            _h = 5 * _h + Ice.getHash(self.version)
-            _h = 5 * _h + Ice.getHash(self.machine)
-            _h = 5 * _h + Ice.getHash(self.nProcessors)
-            _h = 5 * _h + Ice.getHash(self.dataDir)
+            _h = 5 * _h + _builtins.hash(self.name)
+            _h = 5 * _h + _builtins.hash(self.os)
+            _h = 5 * _h + _builtins.hash(self.hostname)
+            _h = 5 * _h + _builtins.hash(self.release)
+            _h = 5 * _h + _builtins.hash(self.version)
+            _h = 5 * _h + _builtins.hash(self.machine)
+            _h = 5 * _h + _builtins.hash(self.nProcessors)
+            _h = 5 * _h + _builtins.hash(self.dataDir)
             return _h % 0x7fffffff
 
         def __compare(self, other):
@@ -415,8 +417,8 @@ if 'RegistryInfo' not in _M_IceGrid.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.name)
-            _h = 5 * _h + Ice.getHash(self.hostname)
+            _h = 5 * _h + _builtins.hash(self.name)
+            _h = 5 * _h + _builtins.hash(self.hostname)
             return _h % 0x7fffffff
 
         def __compare(self, other):
@@ -2493,10 +2495,10 @@ if 'ServerDynamicInfo' not in _M_IceGrid.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.id)
-            _h = 5 * _h + Ice.getHash(self.state)
-            _h = 5 * _h + Ice.getHash(self.pid)
-            _h = 5 * _h + Ice.getHash(self.enabled)
+            _h = 5 * _h + _builtins.hash(self.id)
+            _h = 5 * _h + _builtins.hash(self.state)
+            _h = 5 * _h + _builtins.hash(self.pid)
+            _h = 5 * _h + _builtins.hash(self.enabled)
             return _h % 0x7fffffff
 
         def __compare(self, other):

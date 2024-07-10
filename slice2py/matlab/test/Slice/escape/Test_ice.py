@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module classdef
 _M_classdef = Ice.openModule('classdef')
@@ -87,10 +89,10 @@ if 'bitor' not in _M_classdef._break.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self._case)
-            _h = 5 * _h + Ice.getHash(self._continue)
-            _h = 5 * _h + Ice.getHash(self.eq)
-            _h = 5 * _h + Ice.getHash(self.ne)
+            _h = 5 * _h + _builtins.hash(self._case)
+            _h = 5 * _h + _builtins.hash(self._continue)
+            _h = 5 * _h + _builtins.hash(self.eq)
+            _h = 5 * _h + _builtins.hash(self.ne)
             return _h % 0x7fffffff
 
         def __compare(self, other):

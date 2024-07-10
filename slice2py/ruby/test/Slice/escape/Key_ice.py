@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 
 # Start of module BEGIN
 _M_BEGIN = Ice.openModule('BEGIN')
@@ -49,7 +51,7 @@ if '_and' not in _M_BEGIN.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.begin)
+            _h = 5 * _h + _builtins.hash(self.begin)
             return _h % 0x7fffffff
 
         def __compare(self, other):

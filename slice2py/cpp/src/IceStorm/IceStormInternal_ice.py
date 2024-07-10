@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 import IceStorm.IceStorm_ice
 import Election_ice
 import Ice.Context_ice

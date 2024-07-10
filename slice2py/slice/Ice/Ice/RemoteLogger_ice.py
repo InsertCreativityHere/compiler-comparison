@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 import Ice.BuiltinSequences_ice
 
 # Included module Ice
@@ -78,10 +80,10 @@ if 'LogMessage' not in _M_Ice.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.type)
-            _h = 5 * _h + Ice.getHash(self.timestamp)
-            _h = 5 * _h + Ice.getHash(self.traceCategory)
-            _h = 5 * _h + Ice.getHash(self.message)
+            _h = 5 * _h + _builtins.hash(self.type)
+            _h = 5 * _h + _builtins.hash(self.timestamp)
+            _h = 5 * _h + _builtins.hash(self.traceCategory)
+            _h = 5 * _h + _builtins.hash(self.message)
             return _h % 0x7fffffff
 
         def __compare(self, other):

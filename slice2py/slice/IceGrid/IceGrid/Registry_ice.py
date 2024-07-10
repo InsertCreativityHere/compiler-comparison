@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 import IceGrid.Exception_ice
 import IceGrid.Session_ice
 import IceGrid.Admin_ice

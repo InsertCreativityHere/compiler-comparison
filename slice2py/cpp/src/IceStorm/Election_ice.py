@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 import Ice.Identity_ice
 import Ice.BuiltinSequences_ice
 import SubscriberRecord_ice
@@ -519,8 +521,8 @@ if 'GroupInfo' not in _M_IceStormElection.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.id)
-            _h = 5 * _h + Ice.getHash(self.llu)
+            _h = 5 * _h + _builtins.hash(self.id)
+            _h = 5 * _h + _builtins.hash(self.llu)
             return _h % 0x7fffffff
 
         def __compare(self, other):

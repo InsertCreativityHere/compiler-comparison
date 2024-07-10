@@ -14,7 +14,9 @@
 # </auto-generated>
 #
 
-import Ice, IcePy
+import Ice
+import IcePy
+import builtins as _builtins
 import Ice.Identity_ice
 import Ice.BuiltinSequences_ice
 
@@ -43,8 +45,8 @@ if 'PropertyDescriptor' not in _M_IceGrid.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.name)
-            _h = 5 * _h + Ice.getHash(self.value)
+            _h = 5 * _h + _builtins.hash(self.name)
+            _h = 5 * _h + _builtins.hash(self.value)
             return _h % 0x7fffffff
 
         def __compare(self, other):
@@ -194,9 +196,9 @@ if 'ObjectDescriptor' not in _M_IceGrid.__dict__:
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + Ice.getHash(self.id)
-            _h = 5 * _h + Ice.getHash(self.type)
-            _h = 5 * _h + Ice.getHash(self.proxyOptions)
+            _h = 5 * _h + _builtins.hash(self.id)
+            _h = 5 * _h + _builtins.hash(self.type)
+            _h = 5 * _h + _builtins.hash(self.proxyOptions)
             return _h % 0x7fffffff
 
         def __compare(self, other):
