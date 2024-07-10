@@ -65,5 +65,5 @@ public class TestCaseFailedException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7577592324928854148L;
+    private static final long serialVersionUID = 7577592585964439123L;
 }
