@@ -21,89 +21,83 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
+_M_Test.Default = None
+class Default(Ice.Value):
+    def __init__(self, x=10, y=10):
+        self.x = x
+        self.y = y
 
-if 'Default' not in _M_Test.__dict__:
-    _M_Test.Default = Ice.createTempClass()
-    class Default(Ice.Value):
-        def __init__(self, x=10, y=10):
-            self.x = x
-            self.y = y
+    def ice_id(self):
+        return '::Test::Default'
 
-        def ice_id(self):
-            return '::Test::Default'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Default'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Default'
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_Default)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Default)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_Default = IcePy.defineValue('::Test::Default', Default, -1, (), False, None, (
+    ('x', (), IcePy._t_int, False, 0),
+    ('y', (), IcePy._t_int, False, 0)
+))
+Default._ice_type = _M_Test._t_Default
 
-    _M_Test._t_Default = IcePy.defineValue('::Test::Default', Default, -1, (), False, None, (
-        ('x', (), IcePy._t_int, False, 0),
-        ('y', (), IcePy._t_int, False, 0)
-    ))
-    Default._ice_type = _M_Test._t_Default
+_M_Test.Default = Default
+del Default
+_M_Test.NoDefault = None
+class NoDefault(Ice.Value):
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
 
-    _M_Test.Default = Default
-    del Default
+    def ice_id(self):
+        return '::Test::NoDefault'
 
-if 'NoDefault' not in _M_Test.__dict__:
-    _M_Test.NoDefault = Ice.createTempClass()
-    class NoDefault(Ice.Value):
-        def __init__(self, x=0, y=0):
-            self.x = x
-            self.y = y
+    @staticmethod
+    def ice_staticId():
+        return '::Test::NoDefault'
 
-        def ice_id(self):
-            return '::Test::NoDefault'
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_NoDefault)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::NoDefault'
+    __repr__ = __str__
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_NoDefault)
+_M_Test._t_NoDefault = IcePy.defineValue('::Test::NoDefault', NoDefault, -1, (), False, None, (
+    ('x', (), IcePy._t_int, False, 0),
+    ('y', (), IcePy._t_int, False, 0)
+))
+NoDefault._ice_type = _M_Test._t_NoDefault
 
-        __repr__ = __str__
+_M_Test.NoDefault = NoDefault
+del NoDefault
+_M_Test.PythonOnly = None
+class PythonOnly(Ice.Value):
+    def __init__(self, lang="python", version=30850):
+        self.lang = lang
+        self.version = version
 
-    _M_Test._t_NoDefault = IcePy.defineValue('::Test::NoDefault', NoDefault, -1, (), False, None, (
-        ('x', (), IcePy._t_int, False, 0),
-        ('y', (), IcePy._t_int, False, 0)
-    ))
-    NoDefault._ice_type = _M_Test._t_NoDefault
+    def ice_id(self):
+        return '::Test::PythonOnly'
 
-    _M_Test.NoDefault = NoDefault
-    del NoDefault
+    @staticmethod
+    def ice_staticId():
+        return '::Test::PythonOnly'
 
-if 'PythonOnly' not in _M_Test.__dict__:
-    _M_Test.PythonOnly = Ice.createTempClass()
-    class PythonOnly(Ice.Value):
-        def __init__(self, lang="python", version=30850):
-            self.lang = lang
-            self.version = version
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_PythonOnly)
 
-        def ice_id(self):
-            return '::Test::PythonOnly'
+    __repr__ = __str__
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::PythonOnly'
+_M_Test._t_PythonOnly = IcePy.defineValue('::Test::PythonOnly', PythonOnly, -1, (), False, None, (
+    ('lang', (), IcePy._t_string, False, 0),
+    ('version', (), IcePy._t_int, False, 0)
+))
+PythonOnly._ice_type = _M_Test._t_PythonOnly
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_PythonOnly)
-
-        __repr__ = __str__
-
-    _M_Test._t_PythonOnly = IcePy.defineValue('::Test::PythonOnly', PythonOnly, -1, (), False, None, (
-        ('lang', (), IcePy._t_string, False, 0),
-        ('version', (), IcePy._t_int, False, 0)
-    ))
-    PythonOnly._ice_type = _M_Test._t_PythonOnly
-
-    _M_Test.PythonOnly = PythonOnly
-    del PythonOnly
+_M_Test.PythonOnly = PythonOnly
+del PythonOnly
 
 # End of module Test

@@ -24,169 +24,157 @@ _M_Test = Ice.openModule('Test')
 
 # Start of module Test
 __name__ = 'Test'
+_M_Test.D3 = None
+class D3(_M_Test.B):
+    def __init__(self, sb='', pb=None, sd3='', pd3=None):
+        _M_Test.B.__init__(self, sb, pb)
+        self.sd3 = sd3
+        self.pd3 = pd3
 
-if 'D3' not in _M_Test.__dict__:
-    _M_Test.D3 = Ice.createTempClass()
-    class D3(_M_Test.B):
-        def __init__(self, sb='', pb=None, sd3='', pd3=None):
-            _M_Test.B.__init__(self, sb, pb)
-            self.sd3 = sd3
-            self.pd3 = pd3
+    def ice_id(self):
+        return '::Test::D3'
 
-        def ice_id(self):
-            return '::Test::D3'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::D3'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::D3'
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_D3)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_D3)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_D3 = IcePy.declareValue('::Test::D3')
 
-    _M_Test._t_D3 = IcePy.declareValue('::Test::D3')
+_M_Test._t_D3 = IcePy.defineValue('::Test::D3', D3, -1, (), False, _M_Test._t_B, (
+    ('sd3', (), IcePy._t_string, False, 0),
+    ('pd3', (), _M_Test._t_B, False, 0)
+))
+D3._ice_type = _M_Test._t_D3
 
-    _M_Test._t_D3 = IcePy.defineValue('::Test::D3', D3, -1, (), False, _M_Test._t_B, (
-        ('sd3', (), IcePy._t_string, False, 0),
-        ('pd3', (), _M_Test._t_B, False, 0)
-    ))
-    D3._ice_type = _M_Test._t_D3
+_M_Test.D3 = D3
+del D3
+_M_Test.PCUnknown = None
+class PCUnknown(_M_Test.PBase):
+    def __init__(self, pi=0, pu=''):
+        _M_Test.PBase.__init__(self, pi)
+        self.pu = pu
 
-    _M_Test.D3 = D3
-    del D3
+    def ice_id(self):
+        return '::Test::PCUnknown'
 
-if 'PCUnknown' not in _M_Test.__dict__:
-    _M_Test.PCUnknown = Ice.createTempClass()
-    class PCUnknown(_M_Test.PBase):
-        def __init__(self, pi=0, pu=''):
-            _M_Test.PBase.__init__(self, pi)
-            self.pu = pu
+    @staticmethod
+    def ice_staticId():
+        return '::Test::PCUnknown'
 
-        def ice_id(self):
-            return '::Test::PCUnknown'
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_PCUnknown)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::PCUnknown'
+    __repr__ = __str__
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_PCUnknown)
+_M_Test._t_PCUnknown = IcePy.defineValue('::Test::PCUnknown', PCUnknown, -1, (), False, _M_Test._t_PBase, (('pu', (), IcePy._t_string, False, 0),))
+PCUnknown._ice_type = _M_Test._t_PCUnknown
 
-        __repr__ = __str__
+_M_Test.PCUnknown = PCUnknown
+del PCUnknown
+_M_Test.PCDerived = None
+class PCDerived(_M_Test.PDerived):
+    def __init__(self, pi=0, ps='', pb=None, pbs=None):
+        _M_Test.PDerived.__init__(self, pi, ps, pb)
+        self.pbs = pbs
 
-    _M_Test._t_PCUnknown = IcePy.defineValue('::Test::PCUnknown', PCUnknown, -1, (), False, _M_Test._t_PBase, (('pu', (), IcePy._t_string, False, 0),))
-    PCUnknown._ice_type = _M_Test._t_PCUnknown
+    def ice_id(self):
+        return '::Test::PCDerived'
 
-    _M_Test.PCUnknown = PCUnknown
-    del PCUnknown
+    @staticmethod
+    def ice_staticId():
+        return '::Test::PCDerived'
 
-if 'PCDerived' not in _M_Test.__dict__:
-    _M_Test.PCDerived = Ice.createTempClass()
-    class PCDerived(_M_Test.PDerived):
-        def __init__(self, pi=0, ps='', pb=None, pbs=None):
-            _M_Test.PDerived.__init__(self, pi, ps, pb)
-            self.pbs = pbs
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_PCDerived)
 
-        def ice_id(self):
-            return '::Test::PCDerived'
+    __repr__ = __str__
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::PCDerived'
+_M_Test._t_PCDerived = IcePy.declareValue('::Test::PCDerived')
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_PCDerived)
+_M_Test._t_PCDerived = IcePy.defineValue('::Test::PCDerived', PCDerived, -1, (), False, _M_Test._t_PDerived, (('pbs', (), _M_Test._t_PBaseSeq, False, 0),))
+PCDerived._ice_type = _M_Test._t_PCDerived
 
-        __repr__ = __str__
+_M_Test.PCDerived = PCDerived
+del PCDerived
+_M_Test.PCDerived2 = None
+class PCDerived2(_M_Test.PCDerived):
+    def __init__(self, pi=0, ps='', pb=None, pbs=None, pcd2=0):
+        _M_Test.PCDerived.__init__(self, pi, ps, pb, pbs)
+        self.pcd2 = pcd2
 
-    _M_Test._t_PCDerived = IcePy.declareValue('::Test::PCDerived')
+    def ice_id(self):
+        return '::Test::PCDerived2'
 
-    _M_Test._t_PCDerived = IcePy.defineValue('::Test::PCDerived', PCDerived, -1, (), False, _M_Test._t_PDerived, (('pbs', (), _M_Test._t_PBaseSeq, False, 0),))
-    PCDerived._ice_type = _M_Test._t_PCDerived
+    @staticmethod
+    def ice_staticId():
+        return '::Test::PCDerived2'
 
-    _M_Test.PCDerived = PCDerived
-    del PCDerived
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_PCDerived2)
 
-if 'PCDerived2' not in _M_Test.__dict__:
-    _M_Test.PCDerived2 = Ice.createTempClass()
-    class PCDerived2(_M_Test.PCDerived):
-        def __init__(self, pi=0, ps='', pb=None, pbs=None, pcd2=0):
-            _M_Test.PCDerived.__init__(self, pi, ps, pb, pbs)
-            self.pcd2 = pcd2
+    __repr__ = __str__
 
-        def ice_id(self):
-            return '::Test::PCDerived2'
+_M_Test._t_PCDerived2 = IcePy.declareValue('::Test::PCDerived2')
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::PCDerived2'
+_M_Test._t_PCDerived2 = IcePy.defineValue('::Test::PCDerived2', PCDerived2, -1, (), False, _M_Test._t_PCDerived, (('pcd2', (), IcePy._t_int, False, 0),))
+PCDerived2._ice_type = _M_Test._t_PCDerived2
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_PCDerived2)
+_M_Test.PCDerived2 = PCDerived2
+del PCDerived2
+_M_Test.PCDerived3 = None
+class PCDerived3(_M_Test.PCDerived2):
+    def __init__(self, pi=0, ps='', pb=None, pbs=None, pcd2=0, pcd3=None):
+        _M_Test.PCDerived2.__init__(self, pi, ps, pb, pbs, pcd2)
+        self.pcd3 = pcd3
 
-        __repr__ = __str__
+    def ice_id(self):
+        return '::Test::PCDerived3'
 
-    _M_Test._t_PCDerived2 = IcePy.declareValue('::Test::PCDerived2')
+    @staticmethod
+    def ice_staticId():
+        return '::Test::PCDerived3'
 
-    _M_Test._t_PCDerived2 = IcePy.defineValue('::Test::PCDerived2', PCDerived2, -1, (), False, _M_Test._t_PCDerived, (('pcd2', (), IcePy._t_int, False, 0),))
-    PCDerived2._ice_type = _M_Test._t_PCDerived2
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_PCDerived3)
 
-    _M_Test.PCDerived2 = PCDerived2
-    del PCDerived2
+    __repr__ = __str__
 
-if 'PCDerived3' not in _M_Test.__dict__:
-    _M_Test.PCDerived3 = Ice.createTempClass()
-    class PCDerived3(_M_Test.PCDerived2):
-        def __init__(self, pi=0, ps='', pb=None, pbs=None, pcd2=0, pcd3=None):
-            _M_Test.PCDerived2.__init__(self, pi, ps, pb, pbs, pcd2)
-            self.pcd3 = pcd3
+_M_Test._t_PCDerived3 = IcePy.declareValue('::Test::PCDerived3')
 
-        def ice_id(self):
-            return '::Test::PCDerived3'
+_M_Test._t_PCDerived3 = IcePy.defineValue('::Test::PCDerived3', PCDerived3, -1, (), False, _M_Test._t_PCDerived2, (('pcd3', (), IcePy._t_Value, False, 0),))
+PCDerived3._ice_type = _M_Test._t_PCDerived3
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::PCDerived3'
+_M_Test.PCDerived3 = PCDerived3
+del PCDerived3
+_M_Test.CompactPCDerived = None
+class CompactPCDerived(_M_Test.CompactPDerived):
+    def __init__(self, pi=0, ps='', pb=None, pbs=None):
+        _M_Test.CompactPDerived.__init__(self, pi, ps, pb)
+        self.pbs = pbs
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_PCDerived3)
+    def ice_id(self):
+        return '::Test::CompactPCDerived'
 
-        __repr__ = __str__
+    @staticmethod
+    def ice_staticId():
+        return '::Test::CompactPCDerived'
 
-    _M_Test._t_PCDerived3 = IcePy.declareValue('::Test::PCDerived3')
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_CompactPCDerived)
 
-    _M_Test._t_PCDerived3 = IcePy.defineValue('::Test::PCDerived3', PCDerived3, -1, (), False, _M_Test._t_PCDerived2, (('pcd3', (), IcePy._t_Value, False, 0),))
-    PCDerived3._ice_type = _M_Test._t_PCDerived3
+    __repr__ = __str__
 
-    _M_Test.PCDerived3 = PCDerived3
-    del PCDerived3
+_M_Test._t_CompactPCDerived = IcePy.declareValue('::Test::CompactPCDerived')
 
-if 'CompactPCDerived' not in _M_Test.__dict__:
-    _M_Test.CompactPCDerived = Ice.createTempClass()
-    class CompactPCDerived(_M_Test.CompactPDerived):
-        def __init__(self, pi=0, ps='', pb=None, pbs=None):
-            _M_Test.CompactPDerived.__init__(self, pi, ps, pb)
-            self.pbs = pbs
+_M_Test._t_CompactPCDerived = IcePy.defineValue('::Test::CompactPCDerived', CompactPCDerived, 57, (), False, _M_Test._t_CompactPDerived, (('pbs', (), _M_Test._t_PBaseSeq, False, 0),))
+CompactPCDerived._ice_type = _M_Test._t_CompactPCDerived
 
-        def ice_id(self):
-            return '::Test::CompactPCDerived'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::CompactPCDerived'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_CompactPCDerived)
-
-        __repr__ = __str__
-
-    _M_Test._t_CompactPCDerived = IcePy.declareValue('::Test::CompactPCDerived')
-
-    _M_Test._t_CompactPCDerived = IcePy.defineValue('::Test::CompactPCDerived', CompactPCDerived, 57, (), False, _M_Test._t_CompactPDerived, (('pbs', (), _M_Test._t_PBaseSeq, False, 0),))
-    CompactPCDerived._ice_type = _M_Test._t_CompactPCDerived
-
-    _M_Test.CompactPCDerived = CompactPCDerived
-    del CompactPCDerived
+_M_Test.CompactPCDerived = CompactPCDerived
+del CompactPCDerived
 
 # End of module Test

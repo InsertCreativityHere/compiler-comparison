@@ -21,44 +21,42 @@ import builtins as _builtins
 # Start of module Ice
 _M_Ice = Ice.openModule('Ice')
 __name__ = 'Ice'
+_M_Ice.OperationMode = None
+class OperationMode(Ice.EnumBase):
+    """
+     Determines the retry behavior an invocation in case of a (potentially) recoverable error.
+    Enumerators:
+    Normal --  Ordinary operations have Normal mode. These operations modify object state; invoking such an
+     operation twice in a row has different semantics than invoking it once. The Ice run time guarantees that it
+     will not violate at-most-once semantics for Normal operations.
+    Nonmutating --  Operations that are nonmutating must not modify object state.
+     The Ice run-time no longer makes a distinction between nonmutating operations and idempotent operations.
+     Nonmutating is deprecated; Use the idempotent keyword
+     instead.
+    Idempotent --  Operations that use the Slice idempotent keyword can modify object state, but invoking an
+     operation twice in a row must result in the same object state as invoking it once. For example,
+     x = 1 is an idempotent statement, whereas x += 1 is not. In addition, the Ice
+     run time will attempt to transparently recover from certain run-time errors by re-issuing a failed request
+     and propagate the failure to the application only if the second attempt fails.
+    """
 
-if 'OperationMode' not in _M_Ice.__dict__:
-    _M_Ice.OperationMode = Ice.createTempClass()
-    class OperationMode(Ice.EnumBase):
-        """
-         Determines the retry behavior an invocation in case of a (potentially) recoverable error.
-        Enumerators:
-        Normal --  Ordinary operations have Normal mode. These operations modify object state; invoking such an
-         operation twice in a row has different semantics than invoking it once. The Ice run time guarantees that it
-         will not violate at-most-once semantics for Normal operations.
-        Nonmutating --  Operations that are nonmutating must not modify object state.
-         The Ice run-time no longer makes a distinction between nonmutating operations and idempotent operations.
-         Nonmutating is deprecated; Use the idempotent keyword
-         instead.
-        Idempotent --  Operations that use the Slice idempotent keyword can modify object state, but invoking an
-         operation twice in a row must result in the same object state as invoking it once. For example,
-         x = 1 is an idempotent statement, whereas x += 1 is not. In addition, the Ice
-         run time will attempt to transparently recover from certain run-time errors by re-issuing a failed request
-         and propagate the failure to the application only if the second attempt fails.
-        """
+    def __init__(self, _n, _v):
+        Ice.EnumBase.__init__(self, _n, _v)
 
-        def __init__(self, _n, _v):
-            Ice.EnumBase.__init__(self, _n, _v)
+    def valueOf(self, _n):
+        if _n in self._enumerators:
+            return self._enumerators[_n]
+        return None
+    valueOf = classmethod(valueOf)
 
-        def valueOf(self, _n):
-            if _n in self._enumerators:
-                return self._enumerators[_n]
-            return None
-        valueOf = classmethod(valueOf)
+OperationMode.Normal = OperationMode("Normal", 0)
+OperationMode.Nonmutating = OperationMode("Nonmutating", 1)
+OperationMode.Idempotent = OperationMode("Idempotent", 2)
+OperationMode._enumerators = { 0:OperationMode.Normal, 1:OperationMode.Nonmutating, 2:OperationMode.Idempotent }
 
-    OperationMode.Normal = OperationMode("Normal", 0)
-    OperationMode.Nonmutating = OperationMode("Nonmutating", 1)
-    OperationMode.Idempotent = OperationMode("Idempotent", 2)
-    OperationMode._enumerators = { 0:OperationMode.Normal, 1:OperationMode.Nonmutating, 2:OperationMode.Idempotent }
+_M_Ice._t_OperationMode = IcePy.defineEnum('::Ice::OperationMode', OperationMode, (), OperationMode._enumerators)
 
-    _M_Ice._t_OperationMode = IcePy.defineEnum('::Ice::OperationMode', OperationMode, (), OperationMode._enumerators)
-
-    _M_Ice.OperationMode = OperationMode
-    del OperationMode
+_M_Ice.OperationMode = OperationMode
+del OperationMode
 
 # End of module Ice

@@ -21,215 +21,203 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
+_M_Test._t_IntSeq = IcePy.defineSequence('::Test::IntSeq', (), IcePy._t_int)
+_M_Test._t_StringDict = IcePy.defineDictionary('::Test::StringDict', (), IcePy._t_string, IcePy._t_string)
+_M_Test.S1 = None
+class S1(object):
+    def __init__(self, name=''):
+        self.name = name
 
-if '_t_IntSeq' not in _M_Test.__dict__:
-    _M_Test._t_IntSeq = IcePy.defineSequence('::Test::IntSeq', (), IcePy._t_int)
+    def __hash__(self):
+        _h = 0
+        _h = 5 * _h + _builtins.hash(self.name)
+        return _h % 0x7fffffff
 
-if '_t_StringDict' not in _M_Test.__dict__:
-    _M_Test._t_StringDict = IcePy.defineDictionary('::Test::StringDict', (), IcePy._t_string, IcePy._t_string)
-
-if 'S1' not in _M_Test.__dict__:
-    _M_Test.S1 = Ice.createTempClass()
-    class S1(object):
-        def __init__(self, name=''):
-            self.name = name
-
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + _builtins.hash(self.name)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
-            if other is None:
-                return 1
-            elif not isinstance(other, _M_Test.S1):
-                return NotImplemented
+    def __compare(self, other):
+        if other is None:
+            return 1
+        elif not isinstance(other, _M_Test.S1):
+            return NotImplemented
+        else:
+            if self.name is None or other.name is None:
+                if self.name != other.name:
+                    return (-1 if self.name is None else 1)
             else:
-                if self.name is None or other.name is None:
-                    if self.name != other.name:
-                        return (-1 if self.name is None else 1)
-                else:
-                    if self.name < other.name:
-                        return -1
-                    elif self.name > other.name:
-                        return 1
-                return 0
+                if self.name < other.name:
+                    return -1
+                elif self.name > other.name:
+                    return 1
+            return 0
 
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
+    def __lt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r < 0
 
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
+    def __le__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r <= 0
 
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
+    def __gt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r > 0
 
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
+    def __ge__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r >= 0
 
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
+    def __eq__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r == 0
 
-        def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
+    def __ne__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r != 0
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_S1)
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_S1)
 
-        __repr__ = __str__
+    __repr__ = __str__
 
-    _M_Test._t_S1 = IcePy.defineStruct('::Test::S1', S1, (), (('name', (), IcePy._t_string),))
+_M_Test._t_S1 = IcePy.defineStruct('::Test::S1', S1, (), (('name', (), IcePy._t_string),))
 
-    _M_Test.S1 = S1
-    del S1
+_M_Test.S1 = S1
+del S1
+_M_Test.S2 = None
+class S2(object):
+    def __init__(self, bo=False, by=0, sh=0, i=0, l=0, str='', seq=None, s=Ice._struct_marker):
+        self.bo = bo
+        self.by = by
+        self.sh = sh
+        self.i = i
+        self.l = l
+        self.str = str
+        self.seq = seq
+        if s is Ice._struct_marker:
+            self.s = _M_Test.S1()
+        else:
+            self.s = s
 
-if 'S2' not in _M_Test.__dict__:
-    _M_Test.S2 = Ice.createTempClass()
-    class S2(object):
-        def __init__(self, bo=False, by=0, sh=0, i=0, l=0, str='', seq=None, s=Ice._struct_marker):
-            self.bo = bo
-            self.by = by
-            self.sh = sh
-            self.i = i
-            self.l = l
-            self.str = str
-            self.seq = seq
-            if s is Ice._struct_marker:
-                self.s = _M_Test.S1()
-            else:
-                self.s = s
-
-        def __eq__(self, other):
-            if other is None:
+    def __eq__(self, other):
+        if other is None:
+            return False
+        elif not isinstance(other, _M_Test.S2):
+            return NotImplemented
+        else:
+            if self.bo != other.bo:
                 return False
-            elif not isinstance(other, _M_Test.S2):
-                return NotImplemented
-            else:
-                if self.bo != other.bo:
-                    return False
-                if self.by != other.by:
-                    return False
-                if self.sh != other.sh:
-                    return False
-                if self.i != other.i:
-                    return False
-                if self.l != other.l:
-                    return False
-                if self.str != other.str:
-                    return False
-                if self.seq != other.seq:
-                    return False
-                if self.s != other.s:
-                    return False
-                return True
-
-        def __ne__(self, other):
-            return not self.__eq__(other)
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_S2)
-
-        __repr__ = __str__
-
-    _M_Test._t_S2 = IcePy.defineStruct('::Test::S2', S2, (), (
-        ('bo', (), IcePy._t_bool),
-        ('by', (), IcePy._t_byte),
-        ('sh', (), IcePy._t_short),
-        ('i', (), IcePy._t_int),
-        ('l', (), IcePy._t_long),
-        ('str', (), IcePy._t_string),
-        ('seq', (), _M_Test._t_IntSeq),
-        ('s', (), _M_Test._t_S1)
-    ))
-
-    _M_Test.S2 = S2
-    del S2
-
-if 'C' not in _M_Test.__dict__:
-    _M_Test.C = Ice.createTempClass()
-    class C(Ice.Value):
-        def __init__(self, name=''):
-            self.name = name
-
-        def ice_id(self):
-            return '::Test::C'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::C'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_C)
-
-        __repr__ = __str__
-
-    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, (('name', (), IcePy._t_string, False, 0),))
-    C._ice_type = _M_Test._t_C
-
-    _M_Test.C = C
-    del C
-
-if 'S3' not in _M_Test.__dict__:
-    _M_Test.S3 = Ice.createTempClass()
-    class S3(object):
-        def __init__(self, obj=None, sd=None, prx=None):
-            self.obj = obj
-            self.sd = sd
-            self.prx = prx
-
-        def __eq__(self, other):
-            if other is None:
+            if self.by != other.by:
                 return False
-            elif not isinstance(other, _M_Test.S3):
-                return NotImplemented
-            else:
-                if self.obj != other.obj:
-                    return False
-                if self.sd != other.sd:
-                    return False
-                if self.prx != other.prx:
-                    return False
-                return True
+            if self.sh != other.sh:
+                return False
+            if self.i != other.i:
+                return False
+            if self.l != other.l:
+                return False
+            if self.str != other.str:
+                return False
+            if self.seq != other.seq:
+                return False
+            if self.s != other.s:
+                return False
+            return True
 
-        def __ne__(self, other):
-            return not self.__eq__(other)
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_S3)
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_S2)
 
-        __repr__ = __str__
+    __repr__ = __str__
 
-    _M_Test._t_S3 = IcePy.defineStruct('::Test::S3', S3, (), (
-        ('obj', (), _M_Test._t_C),
-        ('sd', (), _M_Test._t_StringDict),
-        ('prx', (), IcePy._t_ObjectPrx)
-    ))
+_M_Test._t_S2 = IcePy.defineStruct('::Test::S2', S2, (), (
+    ('bo', (), IcePy._t_bool),
+    ('by', (), IcePy._t_byte),
+    ('sh', (), IcePy._t_short),
+    ('i', (), IcePy._t_int),
+    ('l', (), IcePy._t_long),
+    ('str', (), IcePy._t_string),
+    ('seq', (), _M_Test._t_IntSeq),
+    ('s', (), _M_Test._t_S1)
+))
 
-    _M_Test.S3 = S3
-    del S3
+_M_Test.S2 = S2
+del S2
+_M_Test.C = None
+class C(Ice.Value):
+    def __init__(self, name=''):
+        self.name = name
+
+    def ice_id(self):
+        return '::Test::C'
+
+    @staticmethod
+    def ice_staticId():
+        return '::Test::C'
+
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_C)
+
+    __repr__ = __str__
+
+_M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, (('name', (), IcePy._t_string, False, 0),))
+C._ice_type = _M_Test._t_C
+
+_M_Test.C = C
+del C
+_M_Test.S3 = None
+class S3(object):
+    def __init__(self, obj=None, sd=None, prx=None):
+        self.obj = obj
+        self.sd = sd
+        self.prx = prx
+
+    def __eq__(self, other):
+        if other is None:
+            return False
+        elif not isinstance(other, _M_Test.S3):
+            return NotImplemented
+        else:
+            if self.obj != other.obj:
+                return False
+            if self.sd != other.sd:
+                return False
+            if self.prx != other.prx:
+                return False
+            return True
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_S3)
+
+    __repr__ = __str__
+
+_M_Test._t_S3 = IcePy.defineStruct('::Test::S3', S3, (), (
+    ('obj', (), _M_Test._t_C),
+    ('sd', (), _M_Test._t_StringDict),
+    ('prx', (), IcePy._t_ObjectPrx)
+))
+
+_M_Test.S3 = S3
+del S3
 
 # End of module Test

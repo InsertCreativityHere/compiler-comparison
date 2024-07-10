@@ -27,61 +27,59 @@ _M_Test.MA = Ice.openModule('Test.MA')
 __name__ = 'Test.MA'
 
 _M_Test.MA._t_IA = IcePy.defineValue('::Test::MA::IA', Ice.Value, -1, (), True, None, ())
+_M_Test.MA.IAPrx = None
+class IAPrx(Ice.ObjectPrx):
 
-if 'IAPrx' not in _M_Test.MA.__dict__:
-    _M_Test.MA.IAPrx = Ice.createTempClass()
-    class IAPrx(Ice.ObjectPrx):
+    def iaop(self, p, context=None):
+        return _M_Test.MA.IA._op_iaop.invoke(self, ((p, ), context))
 
-        def iaop(self, p, context=None):
-            return _M_Test.MA.IA._op_iaop.invoke(self, ((p, ), context))
+    def iaopAsync(self, p, context=None):
+        return _M_Test.MA.IA._op_iaop.invokeAsync(self, ((p, ), context))
 
-        def iaopAsync(self, p, context=None):
-            return _M_Test.MA.IA._op_iaop.invokeAsync(self, ((p, ), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.MA.IAPrx.ice_checkedCast(proxy, '::Test::MA::IA', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.MA.IAPrx.ice_checkedCast(proxy, '::Test::MA::IA', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.MA.IAPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.MA.IAPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MA::IA'
+_M_Test.MA._t_IAPrx = IcePy.defineProxy('::Test::MA::IA', IAPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MA::IA'
-    _M_Test.MA._t_IAPrx = IcePy.defineProxy('::Test::MA::IA', IAPrx)
+_M_Test.MA.IAPrx = IAPrx
+del IAPrx
 
-    _M_Test.MA.IAPrx = IAPrx
-    del IAPrx
+_M_Test.MA.IA = None
+class IA(Ice.Object):
 
-    _M_Test.MA.IA = Ice.createTempClass()
-    class IA(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::MA::IA')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::MA::IA')
+    def ice_id(self, current=None):
+        return '::Test::MA::IA'
 
-        def ice_id(self, current=None):
-            return '::Test::MA::IA'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MA::IA'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MA::IA'
+    def iaop(self, p, current=None):
+        raise NotImplementedError("servant method 'iaop' not implemented")
 
-        def iaop(self, p, current=None):
-            raise NotImplementedError("servant method 'iaop' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test.MA._t_IADisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test.MA._t_IADisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test.MA._t_IADisp = IcePy.defineClass('::Test::MA::IA', IA, (), None, ())
+IA._ice_type = _M_Test.MA._t_IADisp
 
-    _M_Test.MA._t_IADisp = IcePy.defineClass('::Test::MA::IA', IA, (), None, ())
-    IA._ice_type = _M_Test.MA._t_IADisp
+IA._op_iaop = IcePy.Operation('iaop', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MA._t_IAPrx, False, 0),), (), ((), _M_Test.MA._t_IAPrx, False, 0), ())
 
-    IA._op_iaop = IcePy.Operation('iaop', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MA._t_IAPrx, False, 0),), (), ((), _M_Test.MA._t_IAPrx, False, 0), ())
-
-    _M_Test.MA.IA = IA
-    del IA
+_M_Test.MA.IA = IA
+del IA
 
 # End of module Test.MA
 
@@ -92,118 +90,114 @@ _M_Test.MB = Ice.openModule('Test.MB')
 __name__ = 'Test.MB'
 
 _M_Test.MB._t_IB1 = IcePy.defineValue('::Test::MB::IB1', Ice.Value, -1, (), True, None, ())
+_M_Test.MB.IB1Prx = None
+class IB1Prx(_M_Test.MA.IAPrx):
 
-if 'IB1Prx' not in _M_Test.MB.__dict__:
-    _M_Test.MB.IB1Prx = Ice.createTempClass()
-    class IB1Prx(_M_Test.MA.IAPrx):
+    def ib1op(self, p, context=None):
+        return _M_Test.MB.IB1._op_ib1op.invoke(self, ((p, ), context))
 
-        def ib1op(self, p, context=None):
-            return _M_Test.MB.IB1._op_ib1op.invoke(self, ((p, ), context))
+    def ib1opAsync(self, p, context=None):
+        return _M_Test.MB.IB1._op_ib1op.invokeAsync(self, ((p, ), context))
 
-        def ib1opAsync(self, p, context=None):
-            return _M_Test.MB.IB1._op_ib1op.invokeAsync(self, ((p, ), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.MB.IB1Prx.ice_checkedCast(proxy, '::Test::MB::IB1', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.MB.IB1Prx.ice_checkedCast(proxy, '::Test::MB::IB1', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.MB.IB1Prx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.MB.IB1Prx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MB::IB1'
+_M_Test.MB._t_IB1Prx = IcePy.defineProxy('::Test::MB::IB1', IB1Prx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MB::IB1'
-    _M_Test.MB._t_IB1Prx = IcePy.defineProxy('::Test::MB::IB1', IB1Prx)
+_M_Test.MB.IB1Prx = IB1Prx
+del IB1Prx
 
-    _M_Test.MB.IB1Prx = IB1Prx
-    del IB1Prx
+_M_Test.MB.IB1 = None
+class IB1(_M_Test.MA.IA):
 
-    _M_Test.MB.IB1 = Ice.createTempClass()
-    class IB1(_M_Test.MA.IA):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::MA::IA', '::Test::MB::IB1')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::MA::IA', '::Test::MB::IB1')
+    def ice_id(self, current=None):
+        return '::Test::MB::IB1'
 
-        def ice_id(self, current=None):
-            return '::Test::MB::IB1'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MB::IB1'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MB::IB1'
+    def ib1op(self, p, current=None):
+        raise NotImplementedError("servant method 'ib1op' not implemented")
 
-        def ib1op(self, p, current=None):
-            raise NotImplementedError("servant method 'ib1op' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test.MB._t_IB1Disp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test.MB._t_IB1Disp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test.MB._t_IB1Disp = IcePy.defineClass('::Test::MB::IB1', IB1, (), None, (_M_Test.MA._t_IADisp,))
+IB1._ice_type = _M_Test.MB._t_IB1Disp
 
-    _M_Test.MB._t_IB1Disp = IcePy.defineClass('::Test::MB::IB1', IB1, (), None, (_M_Test.MA._t_IADisp,))
-    IB1._ice_type = _M_Test.MB._t_IB1Disp
+IB1._op_ib1op = IcePy.Operation('ib1op', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MB._t_IB1Prx, False, 0),), (), ((), _M_Test.MB._t_IB1Prx, False, 0), ())
 
-    IB1._op_ib1op = IcePy.Operation('ib1op', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MB._t_IB1Prx, False, 0),), (), ((), _M_Test.MB._t_IB1Prx, False, 0), ())
-
-    _M_Test.MB.IB1 = IB1
-    del IB1
+_M_Test.MB.IB1 = IB1
+del IB1
 
 _M_Test.MB._t_IB2 = IcePy.defineValue('::Test::MB::IB2', Ice.Value, -1, (), True, None, ())
+_M_Test.MB.IB2Prx = None
+class IB2Prx(_M_Test.MA.IAPrx):
 
-if 'IB2Prx' not in _M_Test.MB.__dict__:
-    _M_Test.MB.IB2Prx = Ice.createTempClass()
-    class IB2Prx(_M_Test.MA.IAPrx):
+    def ib2op(self, p, context=None):
+        return _M_Test.MB.IB2._op_ib2op.invoke(self, ((p, ), context))
 
-        def ib2op(self, p, context=None):
-            return _M_Test.MB.IB2._op_ib2op.invoke(self, ((p, ), context))
+    def ib2opAsync(self, p, context=None):
+        return _M_Test.MB.IB2._op_ib2op.invokeAsync(self, ((p, ), context))
 
-        def ib2opAsync(self, p, context=None):
-            return _M_Test.MB.IB2._op_ib2op.invokeAsync(self, ((p, ), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.MB.IB2Prx.ice_checkedCast(proxy, '::Test::MB::IB2', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.MB.IB2Prx.ice_checkedCast(proxy, '::Test::MB::IB2', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.MB.IB2Prx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.MB.IB2Prx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MB::IB2'
+_M_Test.MB._t_IB2Prx = IcePy.defineProxy('::Test::MB::IB2', IB2Prx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MB::IB2'
-    _M_Test.MB._t_IB2Prx = IcePy.defineProxy('::Test::MB::IB2', IB2Prx)
+_M_Test.MB.IB2Prx = IB2Prx
+del IB2Prx
 
-    _M_Test.MB.IB2Prx = IB2Prx
-    del IB2Prx
+_M_Test.MB.IB2 = None
+class IB2(_M_Test.MA.IA):
 
-    _M_Test.MB.IB2 = Ice.createTempClass()
-    class IB2(_M_Test.MA.IA):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::MA::IA', '::Test::MB::IB2')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::MA::IA', '::Test::MB::IB2')
+    def ice_id(self, current=None):
+        return '::Test::MB::IB2'
 
-        def ice_id(self, current=None):
-            return '::Test::MB::IB2'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MB::IB2'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MB::IB2'
+    def ib2op(self, p, current=None):
+        raise NotImplementedError("servant method 'ib2op' not implemented")
 
-        def ib2op(self, p, current=None):
-            raise NotImplementedError("servant method 'ib2op' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test.MB._t_IB2Disp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test.MB._t_IB2Disp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test.MB._t_IB2Disp = IcePy.defineClass('::Test::MB::IB2', IB2, (), None, (_M_Test.MA._t_IADisp,))
+IB2._ice_type = _M_Test.MB._t_IB2Disp
 
-    _M_Test.MB._t_IB2Disp = IcePy.defineClass('::Test::MB::IB2', IB2, (), None, (_M_Test.MA._t_IADisp,))
-    IB2._ice_type = _M_Test.MB._t_IB2Disp
+IB2._op_ib2op = IcePy.Operation('ib2op', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MB._t_IB2Prx, False, 0),), (), ((), _M_Test.MB._t_IB2Prx, False, 0), ())
 
-    IB2._op_ib2op = IcePy.Operation('ib2op', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MB._t_IB2Prx, False, 0),), (), ((), _M_Test.MB._t_IB2Prx, False, 0), ())
-
-    _M_Test.MB.IB2 = IB2
-    del IB2
+_M_Test.MB.IB2 = IB2
+del IB2
 
 # End of module Test.MB
 
@@ -213,161 +207,157 @@ __name__ = 'Test'
 __name__ = 'Test.MA'
 
 _M_Test.MA._t_IC = IcePy.defineValue('::Test::MA::IC', Ice.Value, -1, (), True, None, ())
+_M_Test.MA.ICPrx = None
+class ICPrx(_M_Test.MB.IB1Prx, _M_Test.MB.IB2Prx):
 
-if 'ICPrx' not in _M_Test.MA.__dict__:
-    _M_Test.MA.ICPrx = Ice.createTempClass()
-    class ICPrx(_M_Test.MB.IB1Prx, _M_Test.MB.IB2Prx):
+    def icop(self, p, context=None):
+        return _M_Test.MA.IC._op_icop.invoke(self, ((p, ), context))
 
-        def icop(self, p, context=None):
-            return _M_Test.MA.IC._op_icop.invoke(self, ((p, ), context))
+    def icopAsync(self, p, context=None):
+        return _M_Test.MA.IC._op_icop.invokeAsync(self, ((p, ), context))
 
-        def icopAsync(self, p, context=None):
-            return _M_Test.MA.IC._op_icop.invokeAsync(self, ((p, ), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.MA.ICPrx.ice_checkedCast(proxy, '::Test::MA::IC', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.MA.ICPrx.ice_checkedCast(proxy, '::Test::MA::IC', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.MA.ICPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.MA.ICPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MA::IC'
+_M_Test.MA._t_ICPrx = IcePy.defineProxy('::Test::MA::IC', ICPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MA::IC'
-    _M_Test.MA._t_ICPrx = IcePy.defineProxy('::Test::MA::IC', ICPrx)
+_M_Test.MA.ICPrx = ICPrx
+del ICPrx
 
-    _M_Test.MA.ICPrx = ICPrx
-    del ICPrx
+_M_Test.MA.IC = None
+class IC(_M_Test.MB.IB1, _M_Test.MB.IB2):
 
-    _M_Test.MA.IC = Ice.createTempClass()
-    class IC(_M_Test.MB.IB1, _M_Test.MB.IB2):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::MA::IA', '::Test::MA::IC', '::Test::MB::IB1', '::Test::MB::IB2')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::MA::IA', '::Test::MA::IC', '::Test::MB::IB1', '::Test::MB::IB2')
+    def ice_id(self, current=None):
+        return '::Test::MA::IC'
 
-        def ice_id(self, current=None):
-            return '::Test::MA::IC'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MA::IC'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MA::IC'
+    def icop(self, p, current=None):
+        raise NotImplementedError("servant method 'icop' not implemented")
 
-        def icop(self, p, current=None):
-            raise NotImplementedError("servant method 'icop' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test.MA._t_ICDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test.MA._t_ICDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test.MA._t_ICDisp = IcePy.defineClass('::Test::MA::IC', IC, (), None, (_M_Test.MB._t_IB1Disp, _M_Test.MB._t_IB2Disp))
+IC._ice_type = _M_Test.MA._t_ICDisp
 
-    _M_Test.MA._t_ICDisp = IcePy.defineClass('::Test::MA::IC', IC, (), None, (_M_Test.MB._t_IB1Disp, _M_Test.MB._t_IB2Disp))
-    IC._ice_type = _M_Test.MA._t_ICDisp
+IC._op_icop = IcePy.Operation('icop', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MA._t_ICPrx, False, 0),), (), ((), _M_Test.MA._t_ICPrx, False, 0), ())
 
-    IC._op_icop = IcePy.Operation('icop', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MA._t_ICPrx, False, 0),), (), ((), _M_Test.MA._t_ICPrx, False, 0), ())
-
-    _M_Test.MA.IC = IC
-    del IC
+_M_Test.MA.IC = IC
+del IC
 
 # End of module Test.MA
 
 __name__ = 'Test'
 
 _M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
+_M_Test.InitialPrx = None
+class InitialPrx(Ice.ObjectPrx):
 
-if 'InitialPrx' not in _M_Test.__dict__:
-    _M_Test.InitialPrx = Ice.createTempClass()
-    class InitialPrx(Ice.ObjectPrx):
+    def shutdown(self, context=None):
+        return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
 
-        def shutdown(self, context=None):
-            return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
+    def shutdownAsync(self, context=None):
+        return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
 
-        def shutdownAsync(self, context=None):
-            return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
+    def iaop(self, context=None):
+        return _M_Test.Initial._op_iaop.invoke(self, ((), context))
 
-        def iaop(self, context=None):
-            return _M_Test.Initial._op_iaop.invoke(self, ((), context))
+    def iaopAsync(self, context=None):
+        return _M_Test.Initial._op_iaop.invokeAsync(self, ((), context))
 
-        def iaopAsync(self, context=None):
-            return _M_Test.Initial._op_iaop.invokeAsync(self, ((), context))
+    def ib1op(self, context=None):
+        return _M_Test.Initial._op_ib1op.invoke(self, ((), context))
 
-        def ib1op(self, context=None):
-            return _M_Test.Initial._op_ib1op.invoke(self, ((), context))
+    def ib1opAsync(self, context=None):
+        return _M_Test.Initial._op_ib1op.invokeAsync(self, ((), context))
 
-        def ib1opAsync(self, context=None):
-            return _M_Test.Initial._op_ib1op.invokeAsync(self, ((), context))
+    def ib2op(self, context=None):
+        return _M_Test.Initial._op_ib2op.invoke(self, ((), context))
 
-        def ib2op(self, context=None):
-            return _M_Test.Initial._op_ib2op.invoke(self, ((), context))
+    def ib2opAsync(self, context=None):
+        return _M_Test.Initial._op_ib2op.invokeAsync(self, ((), context))
 
-        def ib2opAsync(self, context=None):
-            return _M_Test.Initial._op_ib2op.invokeAsync(self, ((), context))
+    def icop(self, context=None):
+        return _M_Test.Initial._op_icop.invoke(self, ((), context))
 
-        def icop(self, context=None):
-            return _M_Test.Initial._op_icop.invoke(self, ((), context))
+    def icopAsync(self, context=None):
+        return _M_Test.Initial._op_icop.invokeAsync(self, ((), context))
 
-        def icopAsync(self, context=None):
-            return _M_Test.Initial._op_icop.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.InitialPrx.ice_checkedCast(proxy, '::Test::Initial', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.InitialPrx.ice_checkedCast(proxy, '::Test::Initial', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.InitialPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.InitialPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Initial'
+_M_Test._t_InitialPrx = IcePy.defineProxy('::Test::Initial', InitialPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Initial'
-    _M_Test._t_InitialPrx = IcePy.defineProxy('::Test::Initial', InitialPrx)
+_M_Test.InitialPrx = InitialPrx
+del InitialPrx
 
-    _M_Test.InitialPrx = InitialPrx
-    del InitialPrx
+_M_Test.Initial = None
+class Initial(Ice.Object):
 
-    _M_Test.Initial = Ice.createTempClass()
-    class Initial(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Initial')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Initial')
+    def ice_id(self, current=None):
+        return '::Test::Initial'
 
-        def ice_id(self, current=None):
-            return '::Test::Initial'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Initial'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Initial'
+    def shutdown(self, current=None):
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def shutdown(self, current=None):
-            raise NotImplementedError("servant method 'shutdown' not implemented")
+    def iaop(self, current=None):
+        raise NotImplementedError("servant method 'iaop' not implemented")
 
-        def iaop(self, current=None):
-            raise NotImplementedError("servant method 'iaop' not implemented")
+    def ib1op(self, current=None):
+        raise NotImplementedError("servant method 'ib1op' not implemented")
 
-        def ib1op(self, current=None):
-            raise NotImplementedError("servant method 'ib1op' not implemented")
+    def ib2op(self, current=None):
+        raise NotImplementedError("servant method 'ib2op' not implemented")
 
-        def ib2op(self, current=None):
-            raise NotImplementedError("servant method 'ib2op' not implemented")
+    def icop(self, current=None):
+        raise NotImplementedError("servant method 'icop' not implemented")
 
-        def icop(self, current=None):
-            raise NotImplementedError("servant method 'icop' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_InitialDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_InitialDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
+Initial._ice_type = _M_Test._t_InitialDisp
 
-    _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
-    Initial._ice_type = _M_Test._t_InitialDisp
+Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+Initial._op_iaop = IcePy.Operation('iaop', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MA._t_IAPrx, False, 0), ())
+Initial._op_ib1op = IcePy.Operation('ib1op', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MB._t_IB1Prx, False, 0), ())
+Initial._op_ib2op = IcePy.Operation('ib2op', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MB._t_IB2Prx, False, 0), ())
+Initial._op_icop = IcePy.Operation('icop', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MA._t_ICPrx, False, 0), ())
 
-    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Initial._op_iaop = IcePy.Operation('iaop', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MA._t_IAPrx, False, 0), ())
-    Initial._op_ib1op = IcePy.Operation('ib1op', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MB._t_IB1Prx, False, 0), ())
-    Initial._op_ib2op = IcePy.Operation('ib2op', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MB._t_IB2Prx, False, 0), ())
-    Initial._op_icop = IcePy.Operation('icop', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MA._t_ICPrx, False, 0), ())
-
-    _M_Test.Initial = Initial
-    del Initial
+_M_Test.Initial = Initial
+del Initial
 
 # End of module Test

@@ -30,160 +30,156 @@ _M_IceLocatorDiscovery.__doc__ = """
 """
 
 _M_IceLocatorDiscovery._t_LookupReply = IcePy.defineValue('::IceLocatorDiscovery::LookupReply', Ice.Value, -1, (), True, None, ())
+_M_IceLocatorDiscovery.LookupReplyPrx = None
+class LookupReplyPrx(Ice.ObjectPrx):
 
-if 'LookupReplyPrx' not in _M_IceLocatorDiscovery.__dict__:
-    _M_IceLocatorDiscovery.LookupReplyPrx = Ice.createTempClass()
-    class LookupReplyPrx(Ice.ObjectPrx):
+    """
+     This method is called by the implementation of the Lookup interface to reply to a findLocator request.
+    Arguments:
+    prx -- The proxy of the locator.
+    context -- The request context for the invocation.
+    """
+    def foundLocator(self, prx, context=None):
+        return _M_IceLocatorDiscovery.LookupReply._op_foundLocator.invoke(self, ((prx, ), context))
 
+    """
+     This method is called by the implementation of the Lookup interface to reply to a findLocator request.
+    Arguments:
+    prx -- The proxy of the locator.
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def foundLocatorAsync(self, prx, context=None):
+        return _M_IceLocatorDiscovery.LookupReply._op_foundLocator.invokeAsync(self, ((prx, ), context))
+
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_IceLocatorDiscovery.LookupReplyPrx.ice_checkedCast(proxy, '::IceLocatorDiscovery::LookupReply', facetOrContext, context)
+
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_IceLocatorDiscovery.LookupReplyPrx.ice_uncheckedCast(proxy, facet)
+
+    @staticmethod
+    def ice_staticId():
+        return '::IceLocatorDiscovery::LookupReply'
+_M_IceLocatorDiscovery._t_LookupReplyPrx = IcePy.defineProxy('::IceLocatorDiscovery::LookupReply', LookupReplyPrx)
+
+_M_IceLocatorDiscovery.LookupReplyPrx = LookupReplyPrx
+del LookupReplyPrx
+
+_M_IceLocatorDiscovery.LookupReply = None
+class LookupReply(Ice.Object):
+
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::IceLocatorDiscovery::LookupReply')
+
+    def ice_id(self, current=None):
+        return '::IceLocatorDiscovery::LookupReply'
+
+    @staticmethod
+    def ice_staticId():
+        return '::IceLocatorDiscovery::LookupReply'
+
+    def foundLocator(self, prx, current=None):
         """
          This method is called by the implementation of the Lookup interface to reply to a findLocator request.
         Arguments:
         prx -- The proxy of the locator.
-        context -- The request context for the invocation.
-        """
-        def foundLocator(self, prx, context=None):
-            return _M_IceLocatorDiscovery.LookupReply._op_foundLocator.invoke(self, ((prx, ), context))
-
-        """
-         This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-        Arguments:
-        prx -- The proxy of the locator.
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
         Returns: A future object for the invocation.
         """
-        def foundLocatorAsync(self, prx, context=None):
-            return _M_IceLocatorDiscovery.LookupReply._op_foundLocator.invokeAsync(self, ((prx, ), context))
+        raise NotImplementedError("servant method 'foundLocator' not implemented")
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_IceLocatorDiscovery.LookupReplyPrx.ice_checkedCast(proxy, '::IceLocatorDiscovery::LookupReply', facetOrContext, context)
+    def __str__(self):
+        return IcePy.stringify(self, _M_IceLocatorDiscovery._t_LookupReplyDisp)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_IceLocatorDiscovery.LookupReplyPrx.ice_uncheckedCast(proxy, facet)
+    __repr__ = __str__
 
-        @staticmethod
-        def ice_staticId():
-            return '::IceLocatorDiscovery::LookupReply'
-    _M_IceLocatorDiscovery._t_LookupReplyPrx = IcePy.defineProxy('::IceLocatorDiscovery::LookupReply', LookupReplyPrx)
+_M_IceLocatorDiscovery._t_LookupReplyDisp = IcePy.defineClass('::IceLocatorDiscovery::LookupReply', LookupReply, (), None, ())
+LookupReply._ice_type = _M_IceLocatorDiscovery._t_LookupReplyDisp
 
-    _M_IceLocatorDiscovery.LookupReplyPrx = LookupReplyPrx
-    del LookupReplyPrx
+LookupReply._op_foundLocator = IcePy.Operation('foundLocator', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_LocatorPrx, False, 0),), (), None, ())
 
-    _M_IceLocatorDiscovery.LookupReply = Ice.createTempClass()
-    class LookupReply(Ice.Object):
-
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::IceLocatorDiscovery::LookupReply')
-
-        def ice_id(self, current=None):
-            return '::IceLocatorDiscovery::LookupReply'
-
-        @staticmethod
-        def ice_staticId():
-            return '::IceLocatorDiscovery::LookupReply'
-
-        def foundLocator(self, prx, current=None):
-            """
-             This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-            Arguments:
-            prx -- The proxy of the locator.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'foundLocator' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceLocatorDiscovery._t_LookupReplyDisp)
-
-        __repr__ = __str__
-
-    _M_IceLocatorDiscovery._t_LookupReplyDisp = IcePy.defineClass('::IceLocatorDiscovery::LookupReply', LookupReply, (), None, ())
-    LookupReply._ice_type = _M_IceLocatorDiscovery._t_LookupReplyDisp
-
-    LookupReply._op_foundLocator = IcePy.Operation('foundLocator', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_LocatorPrx, False, 0),), (), None, ())
-
-    _M_IceLocatorDiscovery.LookupReply = LookupReply
-    del LookupReply
+_M_IceLocatorDiscovery.LookupReply = LookupReply
+del LookupReply
 
 _M_IceLocatorDiscovery._t_Lookup = IcePy.defineValue('::IceLocatorDiscovery::Lookup', Ice.Value, -1, (), True, None, ())
+_M_IceLocatorDiscovery.LookupPrx = None
+class LookupPrx(Ice.ObjectPrx):
 
-if 'LookupPrx' not in _M_IceLocatorDiscovery.__dict__:
-    _M_IceLocatorDiscovery.LookupPrx = Ice.createTempClass()
-    class LookupPrx(Ice.ObjectPrx):
+    """
+     Find a locator proxy with the given instance name.
+    Arguments:
+    instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
+    reply -- The reply object to use to send the reply.
+    context -- The request context for the invocation.
+    """
+    def findLocator(self, instanceName, reply, context=None):
+        return _M_IceLocatorDiscovery.Lookup._op_findLocator.invoke(self, ((instanceName, reply), context))
 
+    """
+     Find a locator proxy with the given instance name.
+    Arguments:
+    instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
+    reply -- The reply object to use to send the reply.
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def findLocatorAsync(self, instanceName, reply, context=None):
+        return _M_IceLocatorDiscovery.Lookup._op_findLocator.invokeAsync(self, ((instanceName, reply), context))
+
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_IceLocatorDiscovery.LookupPrx.ice_checkedCast(proxy, '::IceLocatorDiscovery::Lookup', facetOrContext, context)
+
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_IceLocatorDiscovery.LookupPrx.ice_uncheckedCast(proxy, facet)
+
+    @staticmethod
+    def ice_staticId():
+        return '::IceLocatorDiscovery::Lookup'
+_M_IceLocatorDiscovery._t_LookupPrx = IcePy.defineProxy('::IceLocatorDiscovery::Lookup', LookupPrx)
+
+_M_IceLocatorDiscovery.LookupPrx = LookupPrx
+del LookupPrx
+
+_M_IceLocatorDiscovery.Lookup = None
+class Lookup(Ice.Object):
+
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::IceLocatorDiscovery::Lookup')
+
+    def ice_id(self, current=None):
+        return '::IceLocatorDiscovery::Lookup'
+
+    @staticmethod
+    def ice_staticId():
+        return '::IceLocatorDiscovery::Lookup'
+
+    def findLocator(self, instanceName, reply, current=None):
         """
          Find a locator proxy with the given instance name.
         Arguments:
         instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
         reply -- The reply object to use to send the reply.
-        context -- The request context for the invocation.
-        """
-        def findLocator(self, instanceName, reply, context=None):
-            return _M_IceLocatorDiscovery.Lookup._op_findLocator.invoke(self, ((instanceName, reply), context))
-
-        """
-         Find a locator proxy with the given instance name.
-        Arguments:
-        instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
-        reply -- The reply object to use to send the reply.
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
         Returns: A future object for the invocation.
         """
-        def findLocatorAsync(self, instanceName, reply, context=None):
-            return _M_IceLocatorDiscovery.Lookup._op_findLocator.invokeAsync(self, ((instanceName, reply), context))
+        raise NotImplementedError("servant method 'findLocator' not implemented")
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_IceLocatorDiscovery.LookupPrx.ice_checkedCast(proxy, '::IceLocatorDiscovery::Lookup', facetOrContext, context)
+    def __str__(self):
+        return IcePy.stringify(self, _M_IceLocatorDiscovery._t_LookupDisp)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_IceLocatorDiscovery.LookupPrx.ice_uncheckedCast(proxy, facet)
+    __repr__ = __str__
 
-        @staticmethod
-        def ice_staticId():
-            return '::IceLocatorDiscovery::Lookup'
-    _M_IceLocatorDiscovery._t_LookupPrx = IcePy.defineProxy('::IceLocatorDiscovery::Lookup', LookupPrx)
+_M_IceLocatorDiscovery._t_LookupDisp = IcePy.defineClass('::IceLocatorDiscovery::Lookup', Lookup, (), None, ())
+Lookup._ice_type = _M_IceLocatorDiscovery._t_LookupDisp
 
-    _M_IceLocatorDiscovery.LookupPrx = LookupPrx
-    del LookupPrx
+Lookup._op_findLocator = IcePy.Operation('findLocator', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_IceLocatorDiscovery._t_LookupReplyPrx, False, 0)), (), None, ())
 
-    _M_IceLocatorDiscovery.Lookup = Ice.createTempClass()
-    class Lookup(Ice.Object):
-
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::IceLocatorDiscovery::Lookup')
-
-        def ice_id(self, current=None):
-            return '::IceLocatorDiscovery::Lookup'
-
-        @staticmethod
-        def ice_staticId():
-            return '::IceLocatorDiscovery::Lookup'
-
-        def findLocator(self, instanceName, reply, current=None):
-            """
-             Find a locator proxy with the given instance name.
-            Arguments:
-            instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
-            reply -- The reply object to use to send the reply.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'findLocator' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceLocatorDiscovery._t_LookupDisp)
-
-        __repr__ = __str__
-
-    _M_IceLocatorDiscovery._t_LookupDisp = IcePy.defineClass('::IceLocatorDiscovery::Lookup', Lookup, (), None, ())
-    Lookup._ice_type = _M_IceLocatorDiscovery._t_LookupDisp
-
-    Lookup._op_findLocator = IcePy.Operation('findLocator', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_IceLocatorDiscovery._t_LookupReplyPrx, False, 0)), (), None, ())
-
-    _M_IceLocatorDiscovery.Lookup = Lookup
-    del Lookup
+_M_IceLocatorDiscovery.Lookup = Lookup
+del Lookup
 
 # End of module IceLocatorDiscovery

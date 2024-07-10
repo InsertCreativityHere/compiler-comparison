@@ -23,60 +23,58 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_Controller = IcePy.defineValue('::Test::Controller', Ice.Value, -1, (), True, None, ())
+_M_Test.ControllerPrx = None
+class ControllerPrx(Ice.ObjectPrx):
 
-if 'ControllerPrx' not in _M_Test.__dict__:
-    _M_Test.ControllerPrx = Ice.createTempClass()
-    class ControllerPrx(Ice.ObjectPrx):
+    def stop(self, context=None):
+        return _M_Test.Controller._op_stop.invoke(self, ((), context))
 
-        def stop(self, context=None):
-            return _M_Test.Controller._op_stop.invoke(self, ((), context))
+    def stopAsync(self, context=None):
+        return _M_Test.Controller._op_stop.invokeAsync(self, ((), context))
 
-        def stopAsync(self, context=None):
-            return _M_Test.Controller._op_stop.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.ControllerPrx.ice_checkedCast(proxy, '::Test::Controller', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.ControllerPrx.ice_checkedCast(proxy, '::Test::Controller', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.ControllerPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.ControllerPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Controller'
+_M_Test._t_ControllerPrx = IcePy.defineProxy('::Test::Controller', ControllerPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Controller'
-    _M_Test._t_ControllerPrx = IcePy.defineProxy('::Test::Controller', ControllerPrx)
+_M_Test.ControllerPrx = ControllerPrx
+del ControllerPrx
 
-    _M_Test.ControllerPrx = ControllerPrx
-    del ControllerPrx
+_M_Test.Controller = None
+class Controller(Ice.Object):
 
-    _M_Test.Controller = Ice.createTempClass()
-    class Controller(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Controller')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Controller')
+    def ice_id(self, current=None):
+        return '::Test::Controller'
 
-        def ice_id(self, current=None):
-            return '::Test::Controller'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Controller'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Controller'
+    def stop(self, current=None):
+        raise NotImplementedError("servant method 'stop' not implemented")
 
-        def stop(self, current=None):
-            raise NotImplementedError("servant method 'stop' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_ControllerDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_ControllerDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
+Controller._ice_type = _M_Test._t_ControllerDisp
 
-    _M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
-    Controller._ice_type = _M_Test._t_ControllerDisp
+Controller._op_stop = IcePy.Operation('stop', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    Controller._op_stop = IcePy.Operation('stop', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.Controller = Controller
-    del Controller
+_M_Test.Controller = Controller
+del Controller
 
 # End of module Test

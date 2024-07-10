@@ -25,66 +25,64 @@ _M_Ice = Ice.openModule('Ice')
 # Start of module Glacier2
 _M_Glacier2 = Ice.openModule('Glacier2')
 __name__ = 'Glacier2'
+_M_Glacier2.SSLInfo = None
+class SSLInfo(object):
+    """
+     Information taken from an SSL connection used for permissions verification.
+    Members:
+    remoteHost --  The remote host.
+    remotePort --  The remote port.
+    localHost --  The router's host.
+    localPort --  The router's port.
+    cipher --  The negotiated cipher suite.
+    certs --  The certificate chain.
+    """
+    def __init__(self, remoteHost='', remotePort=0, localHost='', localPort=0, cipher='', certs=None):
+        self.remoteHost = remoteHost
+        self.remotePort = remotePort
+        self.localHost = localHost
+        self.localPort = localPort
+        self.cipher = cipher
+        self.certs = certs
 
-if 'SSLInfo' not in _M_Glacier2.__dict__:
-    _M_Glacier2.SSLInfo = Ice.createTempClass()
-    class SSLInfo(object):
-        """
-         Information taken from an SSL connection used for permissions verification.
-        Members:
-        remoteHost --  The remote host.
-        remotePort --  The remote port.
-        localHost --  The router's host.
-        localPort --  The router's port.
-        cipher --  The negotiated cipher suite.
-        certs --  The certificate chain.
-        """
-        def __init__(self, remoteHost='', remotePort=0, localHost='', localPort=0, cipher='', certs=None):
-            self.remoteHost = remoteHost
-            self.remotePort = remotePort
-            self.localHost = localHost
-            self.localPort = localPort
-            self.cipher = cipher
-            self.certs = certs
-
-        def __eq__(self, other):
-            if other is None:
+    def __eq__(self, other):
+        if other is None:
+            return False
+        elif not isinstance(other, _M_Glacier2.SSLInfo):
+            return NotImplemented
+        else:
+            if self.remoteHost != other.remoteHost:
                 return False
-            elif not isinstance(other, _M_Glacier2.SSLInfo):
-                return NotImplemented
-            else:
-                if self.remoteHost != other.remoteHost:
-                    return False
-                if self.remotePort != other.remotePort:
-                    return False
-                if self.localHost != other.localHost:
-                    return False
-                if self.localPort != other.localPort:
-                    return False
-                if self.cipher != other.cipher:
-                    return False
-                if self.certs != other.certs:
-                    return False
-                return True
+            if self.remotePort != other.remotePort:
+                return False
+            if self.localHost != other.localHost:
+                return False
+            if self.localPort != other.localPort:
+                return False
+            if self.cipher != other.cipher:
+                return False
+            if self.certs != other.certs:
+                return False
+            return True
 
-        def __ne__(self, other):
-            return not self.__eq__(other)
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Glacier2._t_SSLInfo)
+    def __str__(self):
+        return IcePy.stringify(self, _M_Glacier2._t_SSLInfo)
 
-        __repr__ = __str__
+    __repr__ = __str__
 
-    _M_Glacier2._t_SSLInfo = IcePy.defineStruct('::Glacier2::SSLInfo', SSLInfo, (), (
-        ('remoteHost', (), IcePy._t_string),
-        ('remotePort', (), IcePy._t_int),
-        ('localHost', (), IcePy._t_string),
-        ('localPort', (), IcePy._t_int),
-        ('cipher', (), IcePy._t_string),
-        ('certs', (), _M_Ice._t_StringSeq)
-    ))
+_M_Glacier2._t_SSLInfo = IcePy.defineStruct('::Glacier2::SSLInfo', SSLInfo, (), (
+    ('remoteHost', (), IcePy._t_string),
+    ('remotePort', (), IcePy._t_int),
+    ('localHost', (), IcePy._t_string),
+    ('localPort', (), IcePy._t_int),
+    ('cipher', (), IcePy._t_string),
+    ('certs', (), _M_Ice._t_StringSeq)
+))
 
-    _M_Glacier2.SSLInfo = SSLInfo
-    del SSLInfo
+_M_Glacier2.SSLInfo = SSLInfo
+del SSLInfo
 
 # End of module Glacier2

@@ -23,147 +23,143 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
+_M_Test.TestIntfPrx = None
+class TestIntfPrx(Ice.ObjectPrx):
 
-if 'TestIntfPrx' not in _M_Test.__dict__:
-    _M_Test.TestIntfPrx = Ice.createTempClass()
-    class TestIntfPrx(Ice.ObjectPrx):
+    def shutdown(self, context=None):
+        return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
-        def shutdown(self, context=None):
-            return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
+    def shutdownAsync(self, context=None):
+        return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
 
-        def shutdownAsync(self, context=None):
-            return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
+    def abort(self, context=None):
+        return _M_Test.TestIntf._op_abort.invoke(self, ((), context))
 
-        def abort(self, context=None):
-            return _M_Test.TestIntf._op_abort.invoke(self, ((), context))
+    def abortAsync(self, context=None):
+        return _M_Test.TestIntf._op_abort.invokeAsync(self, ((), context))
 
-        def abortAsync(self, context=None):
-            return _M_Test.TestIntf._op_abort.invokeAsync(self, ((), context))
+    def idempotentAbort(self, context=None):
+        return _M_Test.TestIntf._op_idempotentAbort.invoke(self, ((), context))
 
-        def idempotentAbort(self, context=None):
-            return _M_Test.TestIntf._op_idempotentAbort.invoke(self, ((), context))
+    def idempotentAbortAsync(self, context=None):
+        return _M_Test.TestIntf._op_idempotentAbort.invokeAsync(self, ((), context))
 
-        def idempotentAbortAsync(self, context=None):
-            return _M_Test.TestIntf._op_idempotentAbort.invokeAsync(self, ((), context))
+    def pid(self, context=None):
+        return _M_Test.TestIntf._op_pid.invoke(self, ((), context))
 
-        def pid(self, context=None):
-            return _M_Test.TestIntf._op_pid.invoke(self, ((), context))
+    def pidAsync(self, context=None):
+        return _M_Test.TestIntf._op_pid.invokeAsync(self, ((), context))
 
-        def pidAsync(self, context=None):
-            return _M_Test.TestIntf._op_pid.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::TestIntf'
+_M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::TestIntf'
-    _M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
+_M_Test.TestIntfPrx = TestIntfPrx
+del TestIntfPrx
 
-    _M_Test.TestIntfPrx = TestIntfPrx
-    del TestIntfPrx
+_M_Test.TestIntf = None
+class TestIntf(Ice.Object):
 
-    _M_Test.TestIntf = Ice.createTempClass()
-    class TestIntf(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::TestIntf')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::TestIntf')
+    def ice_id(self, current=None):
+        return '::Test::TestIntf'
 
-        def ice_id(self, current=None):
-            return '::Test::TestIntf'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::TestIntf'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::TestIntf'
+    def shutdown(self, current=None):
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def shutdown(self, current=None):
-            raise NotImplementedError("servant method 'shutdown' not implemented")
+    def abort(self, current=None):
+        raise NotImplementedError("servant method 'abort' not implemented")
 
-        def abort(self, current=None):
-            raise NotImplementedError("servant method 'abort' not implemented")
+    def idempotentAbort(self, current=None):
+        raise NotImplementedError("servant method 'idempotentAbort' not implemented")
 
-        def idempotentAbort(self, current=None):
-            raise NotImplementedError("servant method 'idempotentAbort' not implemented")
+    def pid(self, current=None):
+        raise NotImplementedError("servant method 'pid' not implemented")
 
-        def pid(self, current=None):
-            raise NotImplementedError("servant method 'pid' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
+TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
+TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+TestIntf._op_abort = IcePy.Operation('abort', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+TestIntf._op_idempotentAbort = IcePy.Operation('idempotentAbort', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+TestIntf._op_pid = IcePy.Operation('pid', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
 
-    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_abort = IcePy.Operation('abort', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_idempotentAbort = IcePy.Operation('idempotentAbort', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
-    TestIntf._op_pid = IcePy.Operation('pid', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-
-    _M_Test.TestIntf = TestIntf
-    del TestIntf
+_M_Test.TestIntf = TestIntf
+del TestIntf
 
 _M_Test._t_Cleaner = IcePy.defineValue('::Test::Cleaner', Ice.Value, -1, (), True, None, ())
+_M_Test.CleanerPrx = None
+class CleanerPrx(Ice.ObjectPrx):
 
-if 'CleanerPrx' not in _M_Test.__dict__:
-    _M_Test.CleanerPrx = Ice.createTempClass()
-    class CleanerPrx(Ice.ObjectPrx):
+    def cleanup(self, context=None):
+        return _M_Test.Cleaner._op_cleanup.invoke(self, ((), context))
 
-        def cleanup(self, context=None):
-            return _M_Test.Cleaner._op_cleanup.invoke(self, ((), context))
+    def cleanupAsync(self, context=None):
+        return _M_Test.Cleaner._op_cleanup.invokeAsync(self, ((), context))
 
-        def cleanupAsync(self, context=None):
-            return _M_Test.Cleaner._op_cleanup.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.CleanerPrx.ice_checkedCast(proxy, '::Test::Cleaner', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.CleanerPrx.ice_checkedCast(proxy, '::Test::Cleaner', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.CleanerPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.CleanerPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Cleaner'
+_M_Test._t_CleanerPrx = IcePy.defineProxy('::Test::Cleaner', CleanerPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Cleaner'
-    _M_Test._t_CleanerPrx = IcePy.defineProxy('::Test::Cleaner', CleanerPrx)
+_M_Test.CleanerPrx = CleanerPrx
+del CleanerPrx
 
-    _M_Test.CleanerPrx = CleanerPrx
-    del CleanerPrx
+_M_Test.Cleaner = None
+class Cleaner(Ice.Object):
 
-    _M_Test.Cleaner = Ice.createTempClass()
-    class Cleaner(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Cleaner')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Cleaner')
+    def ice_id(self, current=None):
+        return '::Test::Cleaner'
 
-        def ice_id(self, current=None):
-            return '::Test::Cleaner'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Cleaner'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Cleaner'
+    def cleanup(self, current=None):
+        raise NotImplementedError("servant method 'cleanup' not implemented")
 
-        def cleanup(self, current=None):
-            raise NotImplementedError("servant method 'cleanup' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_CleanerDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_CleanerDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_CleanerDisp = IcePy.defineClass('::Test::Cleaner', Cleaner, (), None, ())
+Cleaner._ice_type = _M_Test._t_CleanerDisp
 
-    _M_Test._t_CleanerDisp = IcePy.defineClass('::Test::Cleaner', Cleaner, (), None, ())
-    Cleaner._ice_type = _M_Test._t_CleanerDisp
+Cleaner._op_cleanup = IcePy.Operation('cleanup', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    Cleaner._op_cleanup = IcePy.Operation('cleanup', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.Cleaner = Cleaner
-    del Cleaner
+_M_Test.Cleaner = Cleaner
+del Cleaner
 
 # End of module Test

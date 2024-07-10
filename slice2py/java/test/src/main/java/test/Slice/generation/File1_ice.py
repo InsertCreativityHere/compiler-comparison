@@ -23,90 +23,86 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_Interface1 = IcePy.defineValue('::Test::Interface1', Ice.Value, -1, (), True, None, ())
+_M_Test.Interface1Prx = None
+class Interface1Prx(Ice.ObjectPrx):
 
-if 'Interface1Prx' not in _M_Test.__dict__:
-    _M_Test.Interface1Prx = Ice.createTempClass()
-    class Interface1Prx(Ice.ObjectPrx):
+    def method(self, context=None):
+        return _M_Test.Interface1._op_method.invoke(self, ((), context))
 
-        def method(self, context=None):
-            return _M_Test.Interface1._op_method.invoke(self, ((), context))
+    def methodAsync(self, context=None):
+        return _M_Test.Interface1._op_method.invokeAsync(self, ((), context))
 
-        def methodAsync(self, context=None):
-            return _M_Test.Interface1._op_method.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.Interface1Prx.ice_checkedCast(proxy, '::Test::Interface1', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.Interface1Prx.ice_checkedCast(proxy, '::Test::Interface1', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.Interface1Prx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.Interface1Prx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Interface1'
+_M_Test._t_Interface1Prx = IcePy.defineProxy('::Test::Interface1', Interface1Prx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Interface1'
-    _M_Test._t_Interface1Prx = IcePy.defineProxy('::Test::Interface1', Interface1Prx)
+_M_Test.Interface1Prx = Interface1Prx
+del Interface1Prx
 
-    _M_Test.Interface1Prx = Interface1Prx
-    del Interface1Prx
+_M_Test.Interface1 = None
+class Interface1(Ice.Object):
 
-    _M_Test.Interface1 = Ice.createTempClass()
-    class Interface1(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Interface1')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Interface1')
+    def ice_id(self, current=None):
+        return '::Test::Interface1'
 
-        def ice_id(self, current=None):
-            return '::Test::Interface1'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Interface1'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Interface1'
+    def method(self, current=None):
+        raise NotImplementedError("servant method 'method' not implemented")
 
-        def method(self, current=None):
-            raise NotImplementedError("servant method 'method' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_Interface1Disp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Interface1Disp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_Interface1Disp = IcePy.defineClass('::Test::Interface1', Interface1, (), None, ())
+Interface1._ice_type = _M_Test._t_Interface1Disp
 
-    _M_Test._t_Interface1Disp = IcePy.defineClass('::Test::Interface1', Interface1, (), None, ())
-    Interface1._ice_type = _M_Test._t_Interface1Disp
+Interface1._op_method = IcePy.Operation('method', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    Interface1._op_method = IcePy.Operation('method', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.Interface1 = Interface1
-    del Interface1
+_M_Test.Interface1 = Interface1
+del Interface1
 
 # End of module Test
 
 # Start of module Test2
 _M_Test2 = Ice.openModule('Test2')
 __name__ = 'Test2'
+_M_Test2.Class1 = None
+class Class1(Ice.Value):
+    def __init__(self):
+        pass
 
-if 'Class1' not in _M_Test2.__dict__:
-    _M_Test2.Class1 = Ice.createTempClass()
-    class Class1(Ice.Value):
-        def __init__(self):
-            pass
+    def ice_id(self):
+        return '::Test2::Class1'
 
-        def ice_id(self):
-            return '::Test2::Class1'
+    @staticmethod
+    def ice_staticId():
+        return '::Test2::Class1'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test2::Class1'
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test2._t_Class1)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test2._t_Class1)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test2._t_Class1 = IcePy.defineValue('::Test2::Class1', Class1, -1, (), False, None, ())
+Class1._ice_type = _M_Test2._t_Class1
 
-    _M_Test2._t_Class1 = IcePy.defineValue('::Test2::Class1', Class1, -1, (), False, None, ())
-    Class1._ice_type = _M_Test2._t_Class1
-
-    _M_Test2.Class1 = Class1
-    del Class1
+_M_Test2.Class1 = Class1
+del Class1
 
 # End of module Test2

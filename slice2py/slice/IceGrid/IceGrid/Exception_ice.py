@@ -26,517 +26,477 @@ _M_Ice = Ice.openModule('Ice')
 # Start of module IceGrid
 _M_IceGrid = Ice.openModule('IceGrid')
 __name__ = 'IceGrid'
+_M_IceGrid.ApplicationNotExistException = None
+class ApplicationNotExistException(Ice.UserException):
+    """
+     This exception is raised if an application does not exist.
+    Members:
+    name --  The name of the application.
+    """
+    def __init__(self, name=''):
+        self.name = name
 
-if 'ApplicationNotExistException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.ApplicationNotExistException = Ice.createTempClass()
-    class ApplicationNotExistException(Ice.UserException):
-        """
-         This exception is raised if an application does not exist.
-        Members:
-        name --  The name of the application.
-        """
-        def __init__(self, name=''):
-            self.name = name
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    __repr__ = __str__
 
-        __repr__ = __str__
+    _ice_id = '::IceGrid::ApplicationNotExistException'
 
-        _ice_id = '::IceGrid::ApplicationNotExistException'
+_M_IceGrid._t_ApplicationNotExistException = IcePy.defineException('::IceGrid::ApplicationNotExistException', ApplicationNotExistException, (), None, (('name', (), IcePy._t_string, False, 0),))
+ApplicationNotExistException._ice_type = _M_IceGrid._t_ApplicationNotExistException
 
-    _M_IceGrid._t_ApplicationNotExistException = IcePy.defineException('::IceGrid::ApplicationNotExistException', ApplicationNotExistException, (), None, (('name', (), IcePy._t_string, False, 0),))
-    ApplicationNotExistException._ice_type = _M_IceGrid._t_ApplicationNotExistException
+_M_IceGrid.ApplicationNotExistException = ApplicationNotExistException
+del ApplicationNotExistException
+_M_IceGrid.ServerNotExistException = None
+class ServerNotExistException(Ice.UserException):
+    """
+     This exception is raised if a server does not exist.
+    Members:
+    id --  The identifier of the server.
+    """
+    def __init__(self, id=''):
+        self.id = id
 
-    _M_IceGrid.ApplicationNotExistException = ApplicationNotExistException
-    del ApplicationNotExistException
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-if 'ServerNotExistException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.ServerNotExistException = Ice.createTempClass()
-    class ServerNotExistException(Ice.UserException):
-        """
-         This exception is raised if a server does not exist.
-        Members:
-        id --  The identifier of the server.
-        """
-        def __init__(self, id=''):
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::ServerNotExistException'
+
+_M_IceGrid._t_ServerNotExistException = IcePy.defineException('::IceGrid::ServerNotExistException', ServerNotExistException, (), None, (('id', (), IcePy._t_string, False, 0),))
+ServerNotExistException._ice_type = _M_IceGrid._t_ServerNotExistException
+
+_M_IceGrid.ServerNotExistException = ServerNotExistException
+del ServerNotExistException
+_M_IceGrid.ServerStartException = None
+class ServerStartException(Ice.UserException):
+    """
+     This exception is raised if a server failed to start.
+    Members:
+    id --  The identifier of the server.
+    reason --  The reason for the failure.
+    """
+    def __init__(self, id='', reason=''):
+        self.id = id
+        self.reason = reason
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::ServerStartException'
+
+_M_IceGrid._t_ServerStartException = IcePy.defineException('::IceGrid::ServerStartException', ServerStartException, (), None, (
+    ('id', (), IcePy._t_string, False, 0),
+    ('reason', (), IcePy._t_string, False, 0)
+))
+ServerStartException._ice_type = _M_IceGrid._t_ServerStartException
+
+_M_IceGrid.ServerStartException = ServerStartException
+del ServerStartException
+_M_IceGrid.ServerStopException = None
+class ServerStopException(Ice.UserException):
+    """
+     This exception is raised if a server failed to stop.
+    Members:
+    id --  The identifier of the server.
+    reason --  The reason for the failure.
+    """
+    def __init__(self, id='', reason=''):
+        self.id = id
+        self.reason = reason
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::ServerStopException'
+
+_M_IceGrid._t_ServerStopException = IcePy.defineException('::IceGrid::ServerStopException', ServerStopException, (), None, (
+    ('id', (), IcePy._t_string, False, 0),
+    ('reason', (), IcePy._t_string, False, 0)
+))
+ServerStopException._ice_type = _M_IceGrid._t_ServerStopException
+
+_M_IceGrid.ServerStopException = ServerStopException
+del ServerStopException
+_M_IceGrid.AdapterNotExistException = None
+class AdapterNotExistException(Ice.UserException):
+    """
+     This exception is raised if an adapter does not exist.
+    Members:
+    id --  The id of the object adapter.
+    """
+    def __init__(self, id=''):
+        self.id = id
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::AdapterNotExistException'
+
+_M_IceGrid._t_AdapterNotExistException = IcePy.defineException('::IceGrid::AdapterNotExistException', AdapterNotExistException, (), None, (('id', (), IcePy._t_string, False, 0),))
+AdapterNotExistException._ice_type = _M_IceGrid._t_AdapterNotExistException
+
+_M_IceGrid.AdapterNotExistException = AdapterNotExistException
+del AdapterNotExistException
+_M_IceGrid.ObjectExistsException = None
+class ObjectExistsException(Ice.UserException):
+    """
+     This exception is raised if an object already exists.
+    Members:
+    id --  The identity of the object.
+    """
+    def __init__(self, id=Ice._struct_marker):
+        if id is Ice._struct_marker:
+            self.id = _M_Ice.Identity()
+        else:
             self.id = id
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-        __repr__ = __str__
+    __repr__ = __str__
 
-        _ice_id = '::IceGrid::ServerNotExistException'
+    _ice_id = '::IceGrid::ObjectExistsException'
 
-    _M_IceGrid._t_ServerNotExistException = IcePy.defineException('::IceGrid::ServerNotExistException', ServerNotExistException, (), None, (('id', (), IcePy._t_string, False, 0),))
-    ServerNotExistException._ice_type = _M_IceGrid._t_ServerNotExistException
+_M_IceGrid._t_ObjectExistsException = IcePy.defineException('::IceGrid::ObjectExistsException', ObjectExistsException, (), None, (('id', (), _M_Ice._t_Identity, False, 0),))
+ObjectExistsException._ice_type = _M_IceGrid._t_ObjectExistsException
 
-    _M_IceGrid.ServerNotExistException = ServerNotExistException
-    del ServerNotExistException
-
-if 'ServerStartException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.ServerStartException = Ice.createTempClass()
-    class ServerStartException(Ice.UserException):
-        """
-         This exception is raised if a server failed to start.
-        Members:
-        id --  The identifier of the server.
-        reason --  The reason for the failure.
-        """
-        def __init__(self, id='', reason=''):
-            self.id = id
-            self.reason = reason
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::ServerStartException'
-
-    _M_IceGrid._t_ServerStartException = IcePy.defineException('::IceGrid::ServerStartException', ServerStartException, (), None, (
-        ('id', (), IcePy._t_string, False, 0),
-        ('reason', (), IcePy._t_string, False, 0)
-    ))
-    ServerStartException._ice_type = _M_IceGrid._t_ServerStartException
-
-    _M_IceGrid.ServerStartException = ServerStartException
-    del ServerStartException
-
-if 'ServerStopException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.ServerStopException = Ice.createTempClass()
-    class ServerStopException(Ice.UserException):
-        """
-         This exception is raised if a server failed to stop.
-        Members:
-        id --  The identifier of the server.
-        reason --  The reason for the failure.
-        """
-        def __init__(self, id='', reason=''):
-            self.id = id
-            self.reason = reason
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::ServerStopException'
-
-    _M_IceGrid._t_ServerStopException = IcePy.defineException('::IceGrid::ServerStopException', ServerStopException, (), None, (
-        ('id', (), IcePy._t_string, False, 0),
-        ('reason', (), IcePy._t_string, False, 0)
-    ))
-    ServerStopException._ice_type = _M_IceGrid._t_ServerStopException
-
-    _M_IceGrid.ServerStopException = ServerStopException
-    del ServerStopException
-
-if 'AdapterNotExistException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.AdapterNotExistException = Ice.createTempClass()
-    class AdapterNotExistException(Ice.UserException):
-        """
-         This exception is raised if an adapter does not exist.
-        Members:
-        id --  The id of the object adapter.
-        """
-        def __init__(self, id=''):
+_M_IceGrid.ObjectExistsException = ObjectExistsException
+del ObjectExistsException
+_M_IceGrid.ObjectNotRegisteredException = None
+class ObjectNotRegisteredException(Ice.UserException):
+    """
+     This exception is raised if an object is not registered.
+    Members:
+    id --  The identity of the object.
+    """
+    def __init__(self, id=Ice._struct_marker):
+        if id is Ice._struct_marker:
+            self.id = _M_Ice.Identity()
+        else:
             self.id = id
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::AdapterNotExistException'
-
-    _M_IceGrid._t_AdapterNotExistException = IcePy.defineException('::IceGrid::AdapterNotExistException', AdapterNotExistException, (), None, (('id', (), IcePy._t_string, False, 0),))
-    AdapterNotExistException._ice_type = _M_IceGrid._t_AdapterNotExistException
-
-    _M_IceGrid.AdapterNotExistException = AdapterNotExistException
-    del AdapterNotExistException
-
-if 'ObjectExistsException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.ObjectExistsException = Ice.createTempClass()
-    class ObjectExistsException(Ice.UserException):
-        """
-         This exception is raised if an object already exists.
-        Members:
-        id --  The identity of the object.
-        """
-        def __init__(self, id=Ice._struct_marker):
-            if id is Ice._struct_marker:
-                self.id = _M_Ice.Identity()
-            else:
-                self.id = id
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::ObjectExistsException'
-
-    _M_IceGrid._t_ObjectExistsException = IcePy.defineException('::IceGrid::ObjectExistsException', ObjectExistsException, (), None, (('id', (), _M_Ice._t_Identity, False, 0),))
-    ObjectExistsException._ice_type = _M_IceGrid._t_ObjectExistsException
-
-    _M_IceGrid.ObjectExistsException = ObjectExistsException
-    del ObjectExistsException
-
-if 'ObjectNotRegisteredException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.ObjectNotRegisteredException = Ice.createTempClass()
-    class ObjectNotRegisteredException(Ice.UserException):
-        """
-         This exception is raised if an object is not registered.
-        Members:
-        id --  The identity of the object.
-        """
-        def __init__(self, id=Ice._struct_marker):
-            if id is Ice._struct_marker:
-                self.id = _M_Ice.Identity()
-            else:
-                self.id = id
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::ObjectNotRegisteredException'
-
-    _M_IceGrid._t_ObjectNotRegisteredException = IcePy.defineException('::IceGrid::ObjectNotRegisteredException', ObjectNotRegisteredException, (), None, (('id', (), _M_Ice._t_Identity, False, 0),))
-    ObjectNotRegisteredException._ice_type = _M_IceGrid._t_ObjectNotRegisteredException
-
-    _M_IceGrid.ObjectNotRegisteredException = ObjectNotRegisteredException
-    del ObjectNotRegisteredException
-
-if 'NodeNotExistException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.NodeNotExistException = Ice.createTempClass()
-    class NodeNotExistException(Ice.UserException):
-        """
-         This exception is raised if a node does not exist.
-        Members:
-        name --  The node name.
-        """
-        def __init__(self, name=''):
-            self.name = name
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::NodeNotExistException'
-
-    _M_IceGrid._t_NodeNotExistException = IcePy.defineException('::IceGrid::NodeNotExistException', NodeNotExistException, (), None, (('name', (), IcePy._t_string, False, 0),))
-    NodeNotExistException._ice_type = _M_IceGrid._t_NodeNotExistException
-
-    _M_IceGrid.NodeNotExistException = NodeNotExistException
-    del NodeNotExistException
-
-if 'RegistryNotExistException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.RegistryNotExistException = Ice.createTempClass()
-    class RegistryNotExistException(Ice.UserException):
-        """
-         This exception is raised if a registry does not exist.
-        Members:
-        name --  The registry name.
-        """
-        def __init__(self, name=''):
-            self.name = name
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::RegistryNotExistException'
-
-    _M_IceGrid._t_RegistryNotExistException = IcePy.defineException('::IceGrid::RegistryNotExistException', RegistryNotExistException, (), None, (('name', (), IcePy._t_string, False, 0),))
-    RegistryNotExistException._ice_type = _M_IceGrid._t_RegistryNotExistException
-
-    _M_IceGrid.RegistryNotExistException = RegistryNotExistException
-    del RegistryNotExistException
-
-if 'DeploymentException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.DeploymentException = Ice.createTempClass()
-    class DeploymentException(Ice.UserException):
-        """
-         An exception for deployment errors.
-        Members:
-        reason --  The reason for the failure.
-        """
-        def __init__(self, reason=''):
-            self.reason = reason
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::DeploymentException'
-
-    _M_IceGrid._t_DeploymentException = IcePy.defineException('::IceGrid::DeploymentException', DeploymentException, (), None, (('reason', (), IcePy._t_string, False, 0),))
-    DeploymentException._ice_type = _M_IceGrid._t_DeploymentException
-
-    _M_IceGrid.DeploymentException = DeploymentException
-    del DeploymentException
-
-if 'NodeUnreachableException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.NodeUnreachableException = Ice.createTempClass()
-    class NodeUnreachableException(Ice.UserException):
-        """
-         This exception is raised if a node could not be reached.
-        Members:
-        name --  The name of the node that is not reachable.
-        reason --  The reason why the node couldn't be reached.
-        """
-        def __init__(self, name='', reason=''):
-            self.name = name
-            self.reason = reason
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::NodeUnreachableException'
-
-    _M_IceGrid._t_NodeUnreachableException = IcePy.defineException('::IceGrid::NodeUnreachableException', NodeUnreachableException, (), None, (
-        ('name', (), IcePy._t_string, False, 0),
-        ('reason', (), IcePy._t_string, False, 0)
-    ))
-    NodeUnreachableException._ice_type = _M_IceGrid._t_NodeUnreachableException
-
-    _M_IceGrid.NodeUnreachableException = NodeUnreachableException
-    del NodeUnreachableException
-
-if 'ServerUnreachableException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.ServerUnreachableException = Ice.createTempClass()
-    class ServerUnreachableException(Ice.UserException):
-        """
-         This exception is raised if a server could not be reached.
-        Members:
-        name --  The id of the server that is not reachable.
-        reason --  The reason why the server couldn't be reached.
-        """
-        def __init__(self, name='', reason=''):
-            self.name = name
-            self.reason = reason
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::ServerUnreachableException'
-
-    _M_IceGrid._t_ServerUnreachableException = IcePy.defineException('::IceGrid::ServerUnreachableException', ServerUnreachableException, (), None, (
-        ('name', (), IcePy._t_string, False, 0),
-        ('reason', (), IcePy._t_string, False, 0)
-    ))
-    ServerUnreachableException._ice_type = _M_IceGrid._t_ServerUnreachableException
-
-    _M_IceGrid.ServerUnreachableException = ServerUnreachableException
-    del ServerUnreachableException
-
-if 'RegistryUnreachableException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.RegistryUnreachableException = Ice.createTempClass()
-    class RegistryUnreachableException(Ice.UserException):
-        """
-         This exception is raised if a registry could not be reached.
-        Members:
-        name --  The name of the registry that is not reachable.
-        reason --  The reason why the registry couldn't be reached.
-        """
-        def __init__(self, name='', reason=''):
-            self.name = name
-            self.reason = reason
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::RegistryUnreachableException'
-
-    _M_IceGrid._t_RegistryUnreachableException = IcePy.defineException('::IceGrid::RegistryUnreachableException', RegistryUnreachableException, (), None, (
-        ('name', (), IcePy._t_string, False, 0),
-        ('reason', (), IcePy._t_string, False, 0)
-    ))
-    RegistryUnreachableException._ice_type = _M_IceGrid._t_RegistryUnreachableException
-
-    _M_IceGrid.RegistryUnreachableException = RegistryUnreachableException
-    del RegistryUnreachableException
-
-if 'BadSignalException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.BadSignalException = Ice.createTempClass()
-    class BadSignalException(Ice.UserException):
-        """
-         This exception is raised if an unknown signal was sent to to a server.
-        Members:
-        reason --  The details of the unknown signal.
-        """
-        def __init__(self, reason=''):
-            self.reason = reason
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::BadSignalException'
-
-    _M_IceGrid._t_BadSignalException = IcePy.defineException('::IceGrid::BadSignalException', BadSignalException, (), None, (('reason', (), IcePy._t_string, False, 0),))
-    BadSignalException._ice_type = _M_IceGrid._t_BadSignalException
-
-    _M_IceGrid.BadSignalException = BadSignalException
-    del BadSignalException
-
-if 'AccessDeniedException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.AccessDeniedException = Ice.createTempClass()
-    class AccessDeniedException(Ice.UserException):
-        """
-         his exception is raised if a registry lock wasn't acquired or is already held by a session.
-        Members:
-        lockUserId --  The id of the user holding the lock (if any).
-        """
-        def __init__(self, lockUserId=''):
-            self.lockUserId = lockUserId
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::AccessDeniedException'
-
-    _M_IceGrid._t_AccessDeniedException = IcePy.defineException('::IceGrid::AccessDeniedException', AccessDeniedException, (), None, (('lockUserId', (), IcePy._t_string, False, 0),))
-    AccessDeniedException._ice_type = _M_IceGrid._t_AccessDeniedException
-
-    _M_IceGrid.AccessDeniedException = AccessDeniedException
-    del AccessDeniedException
-
-if 'AllocationException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.AllocationException = Ice.createTempClass()
-    class AllocationException(Ice.UserException):
-        """
-         This exception is raised if the allocation of an object failed.
-        Members:
-        reason --  The reason why the object couldn't be allocated.
-        """
-        def __init__(self, reason=''):
-            self.reason = reason
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::AllocationException'
-
-    _M_IceGrid._t_AllocationException = IcePy.defineException('::IceGrid::AllocationException', AllocationException, (), None, (('reason', (), IcePy._t_string, False, 0),))
-    AllocationException._ice_type = _M_IceGrid._t_AllocationException
-
-    _M_IceGrid.AllocationException = AllocationException
-    del AllocationException
-
-if 'AllocationTimeoutException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.AllocationTimeoutException = Ice.createTempClass()
-    class AllocationTimeoutException(_M_IceGrid.AllocationException):
-        """
-         This exception is raised if the request to allocate an object times out.
-        """
-        def __init__(self, reason=''):
-            _M_IceGrid.AllocationException.__init__(self, reason)
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::AllocationTimeoutException'
-
-    _M_IceGrid._t_AllocationTimeoutException = IcePy.defineException('::IceGrid::AllocationTimeoutException', AllocationTimeoutException, (), _M_IceGrid._t_AllocationException, ())
-    AllocationTimeoutException._ice_type = _M_IceGrid._t_AllocationTimeoutException
-
-    _M_IceGrid.AllocationTimeoutException = AllocationTimeoutException
-    del AllocationTimeoutException
-
-if 'PermissionDeniedException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.PermissionDeniedException = Ice.createTempClass()
-    class PermissionDeniedException(Ice.UserException):
-        """
-         This exception is raised if a client is denied the ability to create a session with IceGrid.
-        Members:
-        reason --  The reason why permission was denied.
-        """
-        def __init__(self, reason=''):
-            self.reason = reason
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::PermissionDeniedException'
-
-    _M_IceGrid._t_PermissionDeniedException = IcePy.defineException('::IceGrid::PermissionDeniedException', PermissionDeniedException, (), None, (('reason', (), IcePy._t_string, False, 0),))
-    PermissionDeniedException._ice_type = _M_IceGrid._t_PermissionDeniedException
-
-    _M_IceGrid.PermissionDeniedException = PermissionDeniedException
-    del PermissionDeniedException
-
-if 'ObserverAlreadyRegisteredException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.ObserverAlreadyRegisteredException = Ice.createTempClass()
-    class ObserverAlreadyRegisteredException(Ice.UserException):
-        """
-         This exception is raised if an observer is already registered with the registry.
-        Members:
-        id --  The identity of the observer.
-        """
-        def __init__(self, id=Ice._struct_marker):
-            if id is Ice._struct_marker:
-                self.id = _M_Ice.Identity()
-            else:
-                self.id = id
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::ObserverAlreadyRegisteredException'
-
-    _M_IceGrid._t_ObserverAlreadyRegisteredException = IcePy.defineException('::IceGrid::ObserverAlreadyRegisteredException', ObserverAlreadyRegisteredException, (), None, (('id', (), _M_Ice._t_Identity, False, 0),))
-    ObserverAlreadyRegisteredException._ice_type = _M_IceGrid._t_ObserverAlreadyRegisteredException
-
-    _M_IceGrid.ObserverAlreadyRegisteredException = ObserverAlreadyRegisteredException
-    del ObserverAlreadyRegisteredException
-
-if 'FileNotAvailableException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.FileNotAvailableException = Ice.createTempClass()
-    class FileNotAvailableException(Ice.UserException):
-        """
-         This exception is raised if a file is not available.
-        Members:
-        reason --  The reason for the failure.
-        """
-        def __init__(self, reason=''):
-            self.reason = reason
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::FileNotAvailableException'
-
-    _M_IceGrid._t_FileNotAvailableException = IcePy.defineException('::IceGrid::FileNotAvailableException', FileNotAvailableException, (), None, (('reason', (), IcePy._t_string, False, 0),))
-    FileNotAvailableException._ice_type = _M_IceGrid._t_FileNotAvailableException
-
-    _M_IceGrid.FileNotAvailableException = FileNotAvailableException
-    del FileNotAvailableException
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::ObjectNotRegisteredException'
+
+_M_IceGrid._t_ObjectNotRegisteredException = IcePy.defineException('::IceGrid::ObjectNotRegisteredException', ObjectNotRegisteredException, (), None, (('id', (), _M_Ice._t_Identity, False, 0),))
+ObjectNotRegisteredException._ice_type = _M_IceGrid._t_ObjectNotRegisteredException
+
+_M_IceGrid.ObjectNotRegisteredException = ObjectNotRegisteredException
+del ObjectNotRegisteredException
+_M_IceGrid.NodeNotExistException = None
+class NodeNotExistException(Ice.UserException):
+    """
+     This exception is raised if a node does not exist.
+    Members:
+    name --  The node name.
+    """
+    def __init__(self, name=''):
+        self.name = name
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::NodeNotExistException'
+
+_M_IceGrid._t_NodeNotExistException = IcePy.defineException('::IceGrid::NodeNotExistException', NodeNotExistException, (), None, (('name', (), IcePy._t_string, False, 0),))
+NodeNotExistException._ice_type = _M_IceGrid._t_NodeNotExistException
+
+_M_IceGrid.NodeNotExistException = NodeNotExistException
+del NodeNotExistException
+_M_IceGrid.RegistryNotExistException = None
+class RegistryNotExistException(Ice.UserException):
+    """
+     This exception is raised if a registry does not exist.
+    Members:
+    name --  The registry name.
+    """
+    def __init__(self, name=''):
+        self.name = name
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::RegistryNotExistException'
+
+_M_IceGrid._t_RegistryNotExistException = IcePy.defineException('::IceGrid::RegistryNotExistException', RegistryNotExistException, (), None, (('name', (), IcePy._t_string, False, 0),))
+RegistryNotExistException._ice_type = _M_IceGrid._t_RegistryNotExistException
+
+_M_IceGrid.RegistryNotExistException = RegistryNotExistException
+del RegistryNotExistException
+_M_IceGrid.DeploymentException = None
+class DeploymentException(Ice.UserException):
+    """
+     An exception for deployment errors.
+    Members:
+    reason --  The reason for the failure.
+    """
+    def __init__(self, reason=''):
+        self.reason = reason
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::DeploymentException'
+
+_M_IceGrid._t_DeploymentException = IcePy.defineException('::IceGrid::DeploymentException', DeploymentException, (), None, (('reason', (), IcePy._t_string, False, 0),))
+DeploymentException._ice_type = _M_IceGrid._t_DeploymentException
+
+_M_IceGrid.DeploymentException = DeploymentException
+del DeploymentException
+_M_IceGrid.NodeUnreachableException = None
+class NodeUnreachableException(Ice.UserException):
+    """
+     This exception is raised if a node could not be reached.
+    Members:
+    name --  The name of the node that is not reachable.
+    reason --  The reason why the node couldn't be reached.
+    """
+    def __init__(self, name='', reason=''):
+        self.name = name
+        self.reason = reason
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::NodeUnreachableException'
+
+_M_IceGrid._t_NodeUnreachableException = IcePy.defineException('::IceGrid::NodeUnreachableException', NodeUnreachableException, (), None, (
+    ('name', (), IcePy._t_string, False, 0),
+    ('reason', (), IcePy._t_string, False, 0)
+))
+NodeUnreachableException._ice_type = _M_IceGrid._t_NodeUnreachableException
+
+_M_IceGrid.NodeUnreachableException = NodeUnreachableException
+del NodeUnreachableException
+_M_IceGrid.ServerUnreachableException = None
+class ServerUnreachableException(Ice.UserException):
+    """
+     This exception is raised if a server could not be reached.
+    Members:
+    name --  The id of the server that is not reachable.
+    reason --  The reason why the server couldn't be reached.
+    """
+    def __init__(self, name='', reason=''):
+        self.name = name
+        self.reason = reason
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::ServerUnreachableException'
+
+_M_IceGrid._t_ServerUnreachableException = IcePy.defineException('::IceGrid::ServerUnreachableException', ServerUnreachableException, (), None, (
+    ('name', (), IcePy._t_string, False, 0),
+    ('reason', (), IcePy._t_string, False, 0)
+))
+ServerUnreachableException._ice_type = _M_IceGrid._t_ServerUnreachableException
+
+_M_IceGrid.ServerUnreachableException = ServerUnreachableException
+del ServerUnreachableException
+_M_IceGrid.RegistryUnreachableException = None
+class RegistryUnreachableException(Ice.UserException):
+    """
+     This exception is raised if a registry could not be reached.
+    Members:
+    name --  The name of the registry that is not reachable.
+    reason --  The reason why the registry couldn't be reached.
+    """
+    def __init__(self, name='', reason=''):
+        self.name = name
+        self.reason = reason
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::RegistryUnreachableException'
+
+_M_IceGrid._t_RegistryUnreachableException = IcePy.defineException('::IceGrid::RegistryUnreachableException', RegistryUnreachableException, (), None, (
+    ('name', (), IcePy._t_string, False, 0),
+    ('reason', (), IcePy._t_string, False, 0)
+))
+RegistryUnreachableException._ice_type = _M_IceGrid._t_RegistryUnreachableException
+
+_M_IceGrid.RegistryUnreachableException = RegistryUnreachableException
+del RegistryUnreachableException
+_M_IceGrid.BadSignalException = None
+class BadSignalException(Ice.UserException):
+    """
+     This exception is raised if an unknown signal was sent to to a server.
+    Members:
+    reason --  The details of the unknown signal.
+    """
+    def __init__(self, reason=''):
+        self.reason = reason
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::BadSignalException'
+
+_M_IceGrid._t_BadSignalException = IcePy.defineException('::IceGrid::BadSignalException', BadSignalException, (), None, (('reason', (), IcePy._t_string, False, 0),))
+BadSignalException._ice_type = _M_IceGrid._t_BadSignalException
+
+_M_IceGrid.BadSignalException = BadSignalException
+del BadSignalException
+_M_IceGrid.AccessDeniedException = None
+class AccessDeniedException(Ice.UserException):
+    """
+     his exception is raised if a registry lock wasn't acquired or is already held by a session.
+    Members:
+    lockUserId --  The id of the user holding the lock (if any).
+    """
+    def __init__(self, lockUserId=''):
+        self.lockUserId = lockUserId
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::AccessDeniedException'
+
+_M_IceGrid._t_AccessDeniedException = IcePy.defineException('::IceGrid::AccessDeniedException', AccessDeniedException, (), None, (('lockUserId', (), IcePy._t_string, False, 0),))
+AccessDeniedException._ice_type = _M_IceGrid._t_AccessDeniedException
+
+_M_IceGrid.AccessDeniedException = AccessDeniedException
+del AccessDeniedException
+_M_IceGrid.AllocationException = None
+class AllocationException(Ice.UserException):
+    """
+     This exception is raised if the allocation of an object failed.
+    Members:
+    reason --  The reason why the object couldn't be allocated.
+    """
+    def __init__(self, reason=''):
+        self.reason = reason
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::AllocationException'
+
+_M_IceGrid._t_AllocationException = IcePy.defineException('::IceGrid::AllocationException', AllocationException, (), None, (('reason', (), IcePy._t_string, False, 0),))
+AllocationException._ice_type = _M_IceGrid._t_AllocationException
+
+_M_IceGrid.AllocationException = AllocationException
+del AllocationException
+_M_IceGrid.AllocationTimeoutException = None
+class AllocationTimeoutException(_M_IceGrid.AllocationException):
+    """
+     This exception is raised if the request to allocate an object times out.
+    """
+    def __init__(self, reason=''):
+        _M_IceGrid.AllocationException.__init__(self, reason)
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::AllocationTimeoutException'
+
+_M_IceGrid._t_AllocationTimeoutException = IcePy.defineException('::IceGrid::AllocationTimeoutException', AllocationTimeoutException, (), _M_IceGrid._t_AllocationException, ())
+AllocationTimeoutException._ice_type = _M_IceGrid._t_AllocationTimeoutException
+
+_M_IceGrid.AllocationTimeoutException = AllocationTimeoutException
+del AllocationTimeoutException
+_M_IceGrid.PermissionDeniedException = None
+class PermissionDeniedException(Ice.UserException):
+    """
+     This exception is raised if a client is denied the ability to create a session with IceGrid.
+    Members:
+    reason --  The reason why permission was denied.
+    """
+    def __init__(self, reason=''):
+        self.reason = reason
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::PermissionDeniedException'
+
+_M_IceGrid._t_PermissionDeniedException = IcePy.defineException('::IceGrid::PermissionDeniedException', PermissionDeniedException, (), None, (('reason', (), IcePy._t_string, False, 0),))
+PermissionDeniedException._ice_type = _M_IceGrid._t_PermissionDeniedException
+
+_M_IceGrid.PermissionDeniedException = PermissionDeniedException
+del PermissionDeniedException
+_M_IceGrid.ObserverAlreadyRegisteredException = None
+class ObserverAlreadyRegisteredException(Ice.UserException):
+    """
+     This exception is raised if an observer is already registered with the registry.
+    Members:
+    id --  The identity of the observer.
+    """
+    def __init__(self, id=Ice._struct_marker):
+        if id is Ice._struct_marker:
+            self.id = _M_Ice.Identity()
+        else:
+            self.id = id
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::ObserverAlreadyRegisteredException'
+
+_M_IceGrid._t_ObserverAlreadyRegisteredException = IcePy.defineException('::IceGrid::ObserverAlreadyRegisteredException', ObserverAlreadyRegisteredException, (), None, (('id', (), _M_Ice._t_Identity, False, 0),))
+ObserverAlreadyRegisteredException._ice_type = _M_IceGrid._t_ObserverAlreadyRegisteredException
+
+_M_IceGrid.ObserverAlreadyRegisteredException = ObserverAlreadyRegisteredException
+del ObserverAlreadyRegisteredException
+_M_IceGrid.FileNotAvailableException = None
+class FileNotAvailableException(Ice.UserException):
+    """
+     This exception is raised if a file is not available.
+    Members:
+    reason --  The reason for the failure.
+    """
+    def __init__(self, reason=''):
+        self.reason = reason
+
+    def __str__(self):
+        return IcePy.stringifyException(self)
+
+    __repr__ = __str__
+
+    _ice_id = '::IceGrid::FileNotAvailableException'
+
+_M_IceGrid._t_FileNotAvailableException = IcePy.defineException('::IceGrid::FileNotAvailableException', FileNotAvailableException, (), None, (('reason', (), IcePy._t_string, False, 0),))
+FileNotAvailableException._ice_type = _M_IceGrid._t_FileNotAvailableException
+
+_M_IceGrid.FileNotAvailableException = FileNotAvailableException
+del FileNotAvailableException
 
 # End of module IceGrid

@@ -23,257 +23,253 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_Callback = IcePy.defineValue('::Test::Callback', Ice.Value, -1, (), True, None, ())
+_M_Test.CallbackPrx = None
+class CallbackPrx(Ice.ObjectPrx):
 
-if 'CallbackPrx' not in _M_Test.__dict__:
-    _M_Test.CallbackPrx = Ice.createTempClass()
-    class CallbackPrx(Ice.ObjectPrx):
+    def ping(self, context=None):
+        return _M_Test.Callback._op_ping.invoke(self, ((), context))
 
-        def ping(self, context=None):
-            return _M_Test.Callback._op_ping.invoke(self, ((), context))
+    def pingAsync(self, context=None):
+        return _M_Test.Callback._op_ping.invokeAsync(self, ((), context))
 
-        def pingAsync(self, context=None):
-            return _M_Test.Callback._op_ping.invokeAsync(self, ((), context))
+    def getCount(self, context=None):
+        return _M_Test.Callback._op_getCount.invoke(self, ((), context))
 
-        def getCount(self, context=None):
-            return _M_Test.Callback._op_getCount.invoke(self, ((), context))
+    def getCountAsync(self, context=None):
+        return _M_Test.Callback._op_getCount.invokeAsync(self, ((), context))
 
-        def getCountAsync(self, context=None):
-            return _M_Test.Callback._op_getCount.invokeAsync(self, ((), context))
+    def datagram(self, context=None):
+        return _M_Test.Callback._op_datagram.invoke(self, ((), context))
 
-        def datagram(self, context=None):
-            return _M_Test.Callback._op_datagram.invoke(self, ((), context))
+    def datagramAsync(self, context=None):
+        return _M_Test.Callback._op_datagram.invokeAsync(self, ((), context))
 
-        def datagramAsync(self, context=None):
-            return _M_Test.Callback._op_datagram.invokeAsync(self, ((), context))
+    def getDatagramCount(self, context=None):
+        return _M_Test.Callback._op_getDatagramCount.invoke(self, ((), context))
 
-        def getDatagramCount(self, context=None):
-            return _M_Test.Callback._op_getDatagramCount.invoke(self, ((), context))
+    def getDatagramCountAsync(self, context=None):
+        return _M_Test.Callback._op_getDatagramCount.invokeAsync(self, ((), context))
 
-        def getDatagramCountAsync(self, context=None):
-            return _M_Test.Callback._op_getDatagramCount.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.CallbackPrx.ice_checkedCast(proxy, '::Test::Callback', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.CallbackPrx.ice_checkedCast(proxy, '::Test::Callback', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.CallbackPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.CallbackPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Callback'
+_M_Test._t_CallbackPrx = IcePy.defineProxy('::Test::Callback', CallbackPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Callback'
-    _M_Test._t_CallbackPrx = IcePy.defineProxy('::Test::Callback', CallbackPrx)
+_M_Test.CallbackPrx = CallbackPrx
+del CallbackPrx
 
-    _M_Test.CallbackPrx = CallbackPrx
-    del CallbackPrx
+_M_Test.Callback = None
+class Callback(Ice.Object):
 
-    _M_Test.Callback = Ice.createTempClass()
-    class Callback(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Callback')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Callback')
+    def ice_id(self, current=None):
+        return '::Test::Callback'
 
-        def ice_id(self, current=None):
-            return '::Test::Callback'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Callback'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Callback'
+    def ping(self, current=None):
+        raise NotImplementedError("servant method 'ping' not implemented")
 
-        def ping(self, current=None):
-            raise NotImplementedError("servant method 'ping' not implemented")
+    def getCount(self, current=None):
+        raise NotImplementedError("servant method 'getCount' not implemented")
 
-        def getCount(self, current=None):
-            raise NotImplementedError("servant method 'getCount' not implemented")
+    def datagram(self, current=None):
+        raise NotImplementedError("servant method 'datagram' not implemented")
 
-        def datagram(self, current=None):
-            raise NotImplementedError("servant method 'datagram' not implemented")
+    def getDatagramCount(self, current=None):
+        raise NotImplementedError("servant method 'getDatagramCount' not implemented")
 
-        def getDatagramCount(self, current=None):
-            raise NotImplementedError("servant method 'getDatagramCount' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_CallbackDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_CallbackDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_CallbackDisp = IcePy.defineClass('::Test::Callback', Callback, (), None, ())
+Callback._ice_type = _M_Test._t_CallbackDisp
 
-    _M_Test._t_CallbackDisp = IcePy.defineClass('::Test::Callback', Callback, (), None, ())
-    Callback._ice_type = _M_Test._t_CallbackDisp
+Callback._op_ping = IcePy.Operation('ping', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+Callback._op_getCount = IcePy.Operation('getCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+Callback._op_datagram = IcePy.Operation('datagram', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+Callback._op_getDatagramCount = IcePy.Operation('getDatagramCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
 
-    Callback._op_ping = IcePy.Operation('ping', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Callback._op_getCount = IcePy.Operation('getCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    Callback._op_datagram = IcePy.Operation('datagram', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Callback._op_getDatagramCount = IcePy.Operation('getDatagramCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-
-    _M_Test.Callback = Callback
-    del Callback
+_M_Test.Callback = Callback
+del Callback
 
 _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
+_M_Test.MyClassPrx = None
+class MyClassPrx(Ice.ObjectPrx):
 
-if 'MyClassPrx' not in _M_Test.__dict__:
-    _M_Test.MyClassPrx = Ice.createTempClass()
-    class MyClassPrx(Ice.ObjectPrx):
+    def callCallback(self, context=None):
+        return _M_Test.MyClass._op_callCallback.invoke(self, ((), context))
 
-        def callCallback(self, context=None):
-            return _M_Test.MyClass._op_callCallback.invoke(self, ((), context))
+    def callCallbackAsync(self, context=None):
+        return _M_Test.MyClass._op_callCallback.invokeAsync(self, ((), context))
 
-        def callCallbackAsync(self, context=None):
-            return _M_Test.MyClass._op_callCallback.invokeAsync(self, ((), context))
+    def getCallbackCount(self, context=None):
+        return _M_Test.MyClass._op_getCallbackCount.invoke(self, ((), context))
 
-        def getCallbackCount(self, context=None):
-            return _M_Test.MyClass._op_getCallbackCount.invoke(self, ((), context))
+    def getCallbackCountAsync(self, context=None):
+        return _M_Test.MyClass._op_getCallbackCount.invokeAsync(self, ((), context))
 
-        def getCallbackCountAsync(self, context=None):
-            return _M_Test.MyClass._op_getCallbackCount.invokeAsync(self, ((), context))
+    def incCounter(self, expected, context=None):
+        return _M_Test.MyClass._op_incCounter.invoke(self, ((expected, ), context))
 
-        def incCounter(self, expected, context=None):
-            return _M_Test.MyClass._op_incCounter.invoke(self, ((expected, ), context))
+    def incCounterAsync(self, expected, context=None):
+        return _M_Test.MyClass._op_incCounter.invokeAsync(self, ((expected, ), context))
 
-        def incCounterAsync(self, expected, context=None):
-            return _M_Test.MyClass._op_incCounter.invokeAsync(self, ((expected, ), context))
+    def waitCounter(self, value, context=None):
+        return _M_Test.MyClass._op_waitCounter.invoke(self, ((value, ), context))
 
-        def waitCounter(self, value, context=None):
-            return _M_Test.MyClass._op_waitCounter.invoke(self, ((value, ), context))
+    def waitCounterAsync(self, value, context=None):
+        return _M_Test.MyClass._op_waitCounter.invokeAsync(self, ((value, ), context))
 
-        def waitCounterAsync(self, value, context=None):
-            return _M_Test.MyClass._op_waitCounter.invokeAsync(self, ((value, ), context))
+    def getConnectionCount(self, context=None):
+        return _M_Test.MyClass._op_getConnectionCount.invoke(self, ((), context))
 
-        def getConnectionCount(self, context=None):
-            return _M_Test.MyClass._op_getConnectionCount.invoke(self, ((), context))
+    def getConnectionCountAsync(self, context=None):
+        return _M_Test.MyClass._op_getConnectionCount.invokeAsync(self, ((), context))
 
-        def getConnectionCountAsync(self, context=None):
-            return _M_Test.MyClass._op_getConnectionCount.invokeAsync(self, ((), context))
+    def getConnectionInfo(self, context=None):
+        return _M_Test.MyClass._op_getConnectionInfo.invoke(self, ((), context))
 
-        def getConnectionInfo(self, context=None):
-            return _M_Test.MyClass._op_getConnectionInfo.invoke(self, ((), context))
+    def getConnectionInfoAsync(self, context=None):
+        return _M_Test.MyClass._op_getConnectionInfo.invokeAsync(self, ((), context))
 
-        def getConnectionInfoAsync(self, context=None):
-            return _M_Test.MyClass._op_getConnectionInfo.invokeAsync(self, ((), context))
+    def closeConnection(self, force, context=None):
+        return _M_Test.MyClass._op_closeConnection.invoke(self, ((force, ), context))
 
-        def closeConnection(self, force, context=None):
-            return _M_Test.MyClass._op_closeConnection.invoke(self, ((force, ), context))
+    def closeConnectionAsync(self, force, context=None):
+        return _M_Test.MyClass._op_closeConnection.invokeAsync(self, ((force, ), context))
 
-        def closeConnectionAsync(self, force, context=None):
-            return _M_Test.MyClass._op_closeConnection.invokeAsync(self, ((force, ), context))
+    def datagram(self, context=None):
+        return _M_Test.MyClass._op_datagram.invoke(self, ((), context))
 
-        def datagram(self, context=None):
-            return _M_Test.MyClass._op_datagram.invoke(self, ((), context))
+    def datagramAsync(self, context=None):
+        return _M_Test.MyClass._op_datagram.invokeAsync(self, ((), context))
 
-        def datagramAsync(self, context=None):
-            return _M_Test.MyClass._op_datagram.invokeAsync(self, ((), context))
+    def getDatagramCount(self, context=None):
+        return _M_Test.MyClass._op_getDatagramCount.invoke(self, ((), context))
 
-        def getDatagramCount(self, context=None):
-            return _M_Test.MyClass._op_getDatagramCount.invoke(self, ((), context))
+    def getDatagramCountAsync(self, context=None):
+        return _M_Test.MyClass._op_getDatagramCount.invokeAsync(self, ((), context))
 
-        def getDatagramCountAsync(self, context=None):
-            return _M_Test.MyClass._op_getDatagramCount.invokeAsync(self, ((), context))
+    def callDatagramCallback(self, context=None):
+        return _M_Test.MyClass._op_callDatagramCallback.invoke(self, ((), context))
 
-        def callDatagramCallback(self, context=None):
-            return _M_Test.MyClass._op_callDatagramCallback.invoke(self, ((), context))
+    def callDatagramCallbackAsync(self, context=None):
+        return _M_Test.MyClass._op_callDatagramCallback.invokeAsync(self, ((), context))
 
-        def callDatagramCallbackAsync(self, context=None):
-            return _M_Test.MyClass._op_callDatagramCallback.invokeAsync(self, ((), context))
+    def getCallbackDatagramCount(self, context=None):
+        return _M_Test.MyClass._op_getCallbackDatagramCount.invoke(self, ((), context))
 
-        def getCallbackDatagramCount(self, context=None):
-            return _M_Test.MyClass._op_getCallbackDatagramCount.invoke(self, ((), context))
+    def getCallbackDatagramCountAsync(self, context=None):
+        return _M_Test.MyClass._op_getCallbackDatagramCount.invokeAsync(self, ((), context))
 
-        def getCallbackDatagramCountAsync(self, context=None):
-            return _M_Test.MyClass._op_getCallbackDatagramCount.invokeAsync(self, ((), context))
+    def shutdown(self, context=None):
+        return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
 
-        def shutdown(self, context=None):
-            return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
+    def shutdownAsync(self, context=None):
+        return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
 
-        def shutdownAsync(self, context=None):
-            return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.MyClassPrx.ice_checkedCast(proxy, '::Test::MyClass', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.MyClassPrx.ice_checkedCast(proxy, '::Test::MyClass', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.MyClassPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.MyClassPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MyClass'
+_M_Test._t_MyClassPrx = IcePy.defineProxy('::Test::MyClass', MyClassPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MyClass'
-    _M_Test._t_MyClassPrx = IcePy.defineProxy('::Test::MyClass', MyClassPrx)
+_M_Test.MyClassPrx = MyClassPrx
+del MyClassPrx
 
-    _M_Test.MyClassPrx = MyClassPrx
-    del MyClassPrx
+_M_Test.MyClass = None
+class MyClass(Ice.Object):
 
-    _M_Test.MyClass = Ice.createTempClass()
-    class MyClass(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::MyClass')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::MyClass')
+    def ice_id(self, current=None):
+        return '::Test::MyClass'
 
-        def ice_id(self, current=None):
-            return '::Test::MyClass'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MyClass'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MyClass'
+    def callCallback(self, current=None):
+        raise NotImplementedError("servant method 'callCallback' not implemented")
 
-        def callCallback(self, current=None):
-            raise NotImplementedError("servant method 'callCallback' not implemented")
+    def getCallbackCount(self, current=None):
+        raise NotImplementedError("servant method 'getCallbackCount' not implemented")
 
-        def getCallbackCount(self, current=None):
-            raise NotImplementedError("servant method 'getCallbackCount' not implemented")
+    def incCounter(self, expected, current=None):
+        raise NotImplementedError("servant method 'incCounter' not implemented")
 
-        def incCounter(self, expected, current=None):
-            raise NotImplementedError("servant method 'incCounter' not implemented")
+    def waitCounter(self, value, current=None):
+        raise NotImplementedError("servant method 'waitCounter' not implemented")
 
-        def waitCounter(self, value, current=None):
-            raise NotImplementedError("servant method 'waitCounter' not implemented")
+    def getConnectionCount(self, current=None):
+        raise NotImplementedError("servant method 'getConnectionCount' not implemented")
 
-        def getConnectionCount(self, current=None):
-            raise NotImplementedError("servant method 'getConnectionCount' not implemented")
+    def getConnectionInfo(self, current=None):
+        raise NotImplementedError("servant method 'getConnectionInfo' not implemented")
 
-        def getConnectionInfo(self, current=None):
-            raise NotImplementedError("servant method 'getConnectionInfo' not implemented")
+    def closeConnection(self, force, current=None):
+        raise NotImplementedError("servant method 'closeConnection' not implemented")
 
-        def closeConnection(self, force, current=None):
-            raise NotImplementedError("servant method 'closeConnection' not implemented")
+    def datagram(self, current=None):
+        raise NotImplementedError("servant method 'datagram' not implemented")
 
-        def datagram(self, current=None):
-            raise NotImplementedError("servant method 'datagram' not implemented")
+    def getDatagramCount(self, current=None):
+        raise NotImplementedError("servant method 'getDatagramCount' not implemented")
 
-        def getDatagramCount(self, current=None):
-            raise NotImplementedError("servant method 'getDatagramCount' not implemented")
+    def callDatagramCallback(self, current=None):
+        raise NotImplementedError("servant method 'callDatagramCallback' not implemented")
 
-        def callDatagramCallback(self, current=None):
-            raise NotImplementedError("servant method 'callDatagramCallback' not implemented")
+    def getCallbackDatagramCount(self, current=None):
+        raise NotImplementedError("servant method 'getCallbackDatagramCount' not implemented")
 
-        def getCallbackDatagramCount(self, current=None):
-            raise NotImplementedError("servant method 'getCallbackDatagramCount' not implemented")
+    def shutdown(self, current=None):
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def shutdown(self, current=None):
-            raise NotImplementedError("servant method 'shutdown' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_MyClassDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_MyClassDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
+MyClass._ice_type = _M_Test._t_MyClassDisp
 
-    _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
-    MyClass._ice_type = _M_Test._t_MyClassDisp
+MyClass._op_callCallback = IcePy.Operation('callCallback', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
+MyClass._op_getCallbackCount = IcePy.Operation('getCallbackCount', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+MyClass._op_incCounter = IcePy.Operation('incCounter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+MyClass._op_waitCounter = IcePy.Operation('waitCounter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+MyClass._op_getConnectionCount = IcePy.Operation('getConnectionCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+MyClass._op_getConnectionInfo = IcePy.Operation('getConnectionInfo', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+MyClass._op_closeConnection = IcePy.Operation('closeConnection', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
+MyClass._op_datagram = IcePy.Operation('datagram', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+MyClass._op_getDatagramCount = IcePy.Operation('getDatagramCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+MyClass._op_callDatagramCallback = IcePy.Operation('callDatagramCallback', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+MyClass._op_getCallbackDatagramCount = IcePy.Operation('getCallbackDatagramCount', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    MyClass._op_callCallback = IcePy.Operation('callCallback', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
-    MyClass._op_getCallbackCount = IcePy.Operation('getCallbackCount', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    MyClass._op_incCounter = IcePy.Operation('incCounter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-    MyClass._op_waitCounter = IcePy.Operation('waitCounter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-    MyClass._op_getConnectionCount = IcePy.Operation('getConnectionCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    MyClass._op_getConnectionInfo = IcePy.Operation('getConnectionInfo', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
-    MyClass._op_closeConnection = IcePy.Operation('closeConnection', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
-    MyClass._op_datagram = IcePy.Operation('datagram', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    MyClass._op_getDatagramCount = IcePy.Operation('getDatagramCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    MyClass._op_callDatagramCallback = IcePy.Operation('callDatagramCallback', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    MyClass._op_getCallbackDatagramCount = IcePy.Operation('getCallbackDatagramCount', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.MyClass = MyClass
-    del MyClass
+_M_Test.MyClass = MyClass
+del MyClass
 
 # End of module Test

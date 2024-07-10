@@ -23,157 +23,153 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
+_M_Test.TestIntfPrx = None
+class TestIntfPrx(Ice.ObjectPrx):
 
-if 'TestIntfPrx' not in _M_Test.__dict__:
-    _M_Test.TestIntfPrx = Ice.createTempClass()
-    class TestIntfPrx(Ice.ObjectPrx):
+    def getAdapterId(self, context=None):
+        return _M_Test.TestIntf._op_getAdapterId.invoke(self, ((), context))
 
-        def getAdapterId(self, context=None):
-            return _M_Test.TestIntf._op_getAdapterId.invoke(self, ((), context))
+    def getAdapterIdAsync(self, context=None):
+        return _M_Test.TestIntf._op_getAdapterId.invokeAsync(self, ((), context))
 
-        def getAdapterIdAsync(self, context=None):
-            return _M_Test.TestIntf._op_getAdapterId.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::TestIntf'
+_M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::TestIntf'
-    _M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
+_M_Test.TestIntfPrx = TestIntfPrx
+del TestIntfPrx
 
-    _M_Test.TestIntfPrx = TestIntfPrx
-    del TestIntfPrx
+_M_Test.TestIntf = None
+class TestIntf(Ice.Object):
 
-    _M_Test.TestIntf = Ice.createTempClass()
-    class TestIntf(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::TestIntf')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::TestIntf')
+    def ice_id(self, current=None):
+        return '::Test::TestIntf'
 
-        def ice_id(self, current=None):
-            return '::Test::TestIntf'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::TestIntf'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::TestIntf'
+    def getAdapterId(self, current=None):
+        raise NotImplementedError("servant method 'getAdapterId' not implemented")
 
-        def getAdapterId(self, current=None):
-            raise NotImplementedError("servant method 'getAdapterId' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
+TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
+TestIntf._op_getAdapterId = IcePy.Operation('getAdapterId', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
-    TestIntf._op_getAdapterId = IcePy.Operation('getAdapterId', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
-
-    _M_Test.TestIntf = TestIntf
-    del TestIntf
+_M_Test.TestIntf = TestIntf
+del TestIntf
 
 _M_Test._t_Controller = IcePy.defineValue('::Test::Controller', Ice.Value, -1, (), True, None, ())
+_M_Test.ControllerPrx = None
+class ControllerPrx(Ice.ObjectPrx):
 
-if 'ControllerPrx' not in _M_Test.__dict__:
-    _M_Test.ControllerPrx = Ice.createTempClass()
-    class ControllerPrx(Ice.ObjectPrx):
+    def activateObjectAdapter(self, name, adapterId, replicaGroupId, context=None):
+        return _M_Test.Controller._op_activateObjectAdapter.invoke(self, ((name, adapterId, replicaGroupId), context))
 
-        def activateObjectAdapter(self, name, adapterId, replicaGroupId, context=None):
-            return _M_Test.Controller._op_activateObjectAdapter.invoke(self, ((name, adapterId, replicaGroupId), context))
+    def activateObjectAdapterAsync(self, name, adapterId, replicaGroupId, context=None):
+        return _M_Test.Controller._op_activateObjectAdapter.invokeAsync(self, ((name, adapterId, replicaGroupId), context))
 
-        def activateObjectAdapterAsync(self, name, adapterId, replicaGroupId, context=None):
-            return _M_Test.Controller._op_activateObjectAdapter.invokeAsync(self, ((name, adapterId, replicaGroupId), context))
+    def deactivateObjectAdapter(self, name, context=None):
+        return _M_Test.Controller._op_deactivateObjectAdapter.invoke(self, ((name, ), context))
 
-        def deactivateObjectAdapter(self, name, context=None):
-            return _M_Test.Controller._op_deactivateObjectAdapter.invoke(self, ((name, ), context))
+    def deactivateObjectAdapterAsync(self, name, context=None):
+        return _M_Test.Controller._op_deactivateObjectAdapter.invokeAsync(self, ((name, ), context))
 
-        def deactivateObjectAdapterAsync(self, name, context=None):
-            return _M_Test.Controller._op_deactivateObjectAdapter.invokeAsync(self, ((name, ), context))
+    def addObject(self, oaName, id, context=None):
+        return _M_Test.Controller._op_addObject.invoke(self, ((oaName, id), context))
 
-        def addObject(self, oaName, id, context=None):
-            return _M_Test.Controller._op_addObject.invoke(self, ((oaName, id), context))
+    def addObjectAsync(self, oaName, id, context=None):
+        return _M_Test.Controller._op_addObject.invokeAsync(self, ((oaName, id), context))
 
-        def addObjectAsync(self, oaName, id, context=None):
-            return _M_Test.Controller._op_addObject.invokeAsync(self, ((oaName, id), context))
+    def removeObject(self, oaName, id, context=None):
+        return _M_Test.Controller._op_removeObject.invoke(self, ((oaName, id), context))
 
-        def removeObject(self, oaName, id, context=None):
-            return _M_Test.Controller._op_removeObject.invoke(self, ((oaName, id), context))
+    def removeObjectAsync(self, oaName, id, context=None):
+        return _M_Test.Controller._op_removeObject.invokeAsync(self, ((oaName, id), context))
 
-        def removeObjectAsync(self, oaName, id, context=None):
-            return _M_Test.Controller._op_removeObject.invokeAsync(self, ((oaName, id), context))
+    def shutdown(self, context=None):
+        return _M_Test.Controller._op_shutdown.invoke(self, ((), context))
 
-        def shutdown(self, context=None):
-            return _M_Test.Controller._op_shutdown.invoke(self, ((), context))
+    def shutdownAsync(self, context=None):
+        return _M_Test.Controller._op_shutdown.invokeAsync(self, ((), context))
 
-        def shutdownAsync(self, context=None):
-            return _M_Test.Controller._op_shutdown.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.ControllerPrx.ice_checkedCast(proxy, '::Test::Controller', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.ControllerPrx.ice_checkedCast(proxy, '::Test::Controller', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.ControllerPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.ControllerPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Controller'
+_M_Test._t_ControllerPrx = IcePy.defineProxy('::Test::Controller', ControllerPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Controller'
-    _M_Test._t_ControllerPrx = IcePy.defineProxy('::Test::Controller', ControllerPrx)
+_M_Test.ControllerPrx = ControllerPrx
+del ControllerPrx
 
-    _M_Test.ControllerPrx = ControllerPrx
-    del ControllerPrx
+_M_Test.Controller = None
+class Controller(Ice.Object):
 
-    _M_Test.Controller = Ice.createTempClass()
-    class Controller(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Controller')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Controller')
+    def ice_id(self, current=None):
+        return '::Test::Controller'
 
-        def ice_id(self, current=None):
-            return '::Test::Controller'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Controller'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Controller'
+    def activateObjectAdapter(self, name, adapterId, replicaGroupId, current=None):
+        raise NotImplementedError("servant method 'activateObjectAdapter' not implemented")
 
-        def activateObjectAdapter(self, name, adapterId, replicaGroupId, current=None):
-            raise NotImplementedError("servant method 'activateObjectAdapter' not implemented")
+    def deactivateObjectAdapter(self, name, current=None):
+        raise NotImplementedError("servant method 'deactivateObjectAdapter' not implemented")
 
-        def deactivateObjectAdapter(self, name, current=None):
-            raise NotImplementedError("servant method 'deactivateObjectAdapter' not implemented")
+    def addObject(self, oaName, id, current=None):
+        raise NotImplementedError("servant method 'addObject' not implemented")
 
-        def addObject(self, oaName, id, current=None):
-            raise NotImplementedError("servant method 'addObject' not implemented")
+    def removeObject(self, oaName, id, current=None):
+        raise NotImplementedError("servant method 'removeObject' not implemented")
 
-        def removeObject(self, oaName, id, current=None):
-            raise NotImplementedError("servant method 'removeObject' not implemented")
+    def shutdown(self, current=None):
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def shutdown(self, current=None):
-            raise NotImplementedError("servant method 'shutdown' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_ControllerDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_ControllerDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
+Controller._ice_type = _M_Test._t_ControllerDisp
 
-    _M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
-    Controller._ice_type = _M_Test._t_ControllerDisp
+Controller._op_activateObjectAdapter = IcePy.Operation('activateObjectAdapter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
+Controller._op_deactivateObjectAdapter = IcePy.Operation('deactivateObjectAdapter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
+Controller._op_addObject = IcePy.Operation('addObject', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
+Controller._op_removeObject = IcePy.Operation('removeObject', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
+Controller._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    Controller._op_activateObjectAdapter = IcePy.Operation('activateObjectAdapter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
-    Controller._op_deactivateObjectAdapter = IcePy.Operation('deactivateObjectAdapter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
-    Controller._op_addObject = IcePy.Operation('addObject', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
-    Controller._op_removeObject = IcePy.Operation('removeObject', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
-    Controller._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.Controller = Controller
-    del Controller
+_M_Test.Controller = Controller
+del Controller
 
 # End of module Test

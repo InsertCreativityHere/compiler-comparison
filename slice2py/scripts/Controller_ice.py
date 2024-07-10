@@ -25,573 +25,547 @@ __name__ = 'Test'
 # Start of module Test.Common
 _M_Test.Common = Ice.openModule('Test.Common')
 __name__ = 'Test.Common'
+_M_Test.Common._t_BoolSeq = IcePy.defineSequence('::Test::Common::BoolSeq', (), IcePy._t_bool)
+_M_Test.Common._t_StringSeq = IcePy.defineSequence('::Test::Common::StringSeq', (), IcePy._t_string)
+_M_Test.Common.Config = None
+class Config(Ice.Value):
+    def __init__(self, protocol=Ice.Unset, mx=Ice.Unset, serialize=Ice.Unset, compress=Ice.Unset, ipv6=Ice.Unset, cprops=Ice.Unset, sprops=Ice.Unset):
+        self.protocol = protocol
+        self.mx = mx
+        self.serialize = serialize
+        self.compress = compress
+        self.ipv6 = ipv6
+        self.cprops = cprops
+        self.sprops = sprops
 
-if '_t_BoolSeq' not in _M_Test.Common.__dict__:
-    _M_Test.Common._t_BoolSeq = IcePy.defineSequence('::Test::Common::BoolSeq', (), IcePy._t_bool)
+    def ice_id(self):
+        return '::Test::Common::Config'
 
-if '_t_StringSeq' not in _M_Test.Common.__dict__:
-    _M_Test.Common._t_StringSeq = IcePy.defineSequence('::Test::Common::StringSeq', (), IcePy._t_string)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::Config'
 
-if 'Config' not in _M_Test.Common.__dict__:
-    _M_Test.Common.Config = Ice.createTempClass()
-    class Config(Ice.Value):
-        def __init__(self, protocol=Ice.Unset, mx=Ice.Unset, serialize=Ice.Unset, compress=Ice.Unset, ipv6=Ice.Unset, cprops=Ice.Unset, sprops=Ice.Unset):
-            self.protocol = protocol
-            self.mx = mx
-            self.serialize = serialize
-            self.compress = compress
-            self.ipv6 = ipv6
-            self.cprops = cprops
-            self.sprops = sprops
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test.Common._t_Config)
 
-        def ice_id(self):
-            return '::Test::Common::Config'
+    __repr__ = __str__
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::Config'
+_M_Test.Common._t_Config = IcePy.defineValue('::Test::Common::Config', Config, -1, (), False, None, (
+    ('protocol', (), IcePy._t_string, True, 1),
+    ('mx', (), IcePy._t_bool, True, 2),
+    ('serialize', (), IcePy._t_bool, True, 3),
+    ('compress', (), IcePy._t_bool, True, 4),
+    ('ipv6', (), IcePy._t_bool, True, 5),
+    ('cprops', (), _M_Test.Common._t_StringSeq, True, 6),
+    ('sprops', (), _M_Test.Common._t_StringSeq, True, 7)
+))
+Config._ice_type = _M_Test.Common._t_Config
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test.Common._t_Config)
+_M_Test.Common.Config = Config
+del Config
+_M_Test.Common.OptionOverrides = None
+class OptionOverrides(Ice.Value):
+    def __init__(self, protocol=Ice.Unset, mx=Ice.Unset, serialize=Ice.Unset, compress=Ice.Unset, ipv6=Ice.Unset):
+        self.protocol = protocol
+        self.mx = mx
+        self.serialize = serialize
+        self.compress = compress
+        self.ipv6 = ipv6
 
-        __repr__ = __str__
+    def ice_id(self):
+        return '::Test::Common::OptionOverrides'
 
-    _M_Test.Common._t_Config = IcePy.defineValue('::Test::Common::Config', Config, -1, (), False, None, (
-        ('protocol', (), IcePy._t_string, True, 1),
-        ('mx', (), IcePy._t_bool, True, 2),
-        ('serialize', (), IcePy._t_bool, True, 3),
-        ('compress', (), IcePy._t_bool, True, 4),
-        ('ipv6', (), IcePy._t_bool, True, 5),
-        ('cprops', (), _M_Test.Common._t_StringSeq, True, 6),
-        ('sprops', (), _M_Test.Common._t_StringSeq, True, 7)
-    ))
-    Config._ice_type = _M_Test.Common._t_Config
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::OptionOverrides'
 
-    _M_Test.Common.Config = Config
-    del Config
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test.Common._t_OptionOverrides)
 
-if 'OptionOverrides' not in _M_Test.Common.__dict__:
-    _M_Test.Common.OptionOverrides = Ice.createTempClass()
-    class OptionOverrides(Ice.Value):
-        def __init__(self, protocol=Ice.Unset, mx=Ice.Unset, serialize=Ice.Unset, compress=Ice.Unset, ipv6=Ice.Unset):
-            self.protocol = protocol
-            self.mx = mx
-            self.serialize = serialize
-            self.compress = compress
-            self.ipv6 = ipv6
+    __repr__ = __str__
 
-        def ice_id(self):
-            return '::Test::Common::OptionOverrides'
+_M_Test.Common._t_OptionOverrides = IcePy.defineValue('::Test::Common::OptionOverrides', OptionOverrides, -1, (), False, None, (
+    ('protocol', (), _M_Test.Common._t_StringSeq, True, 1),
+    ('mx', (), _M_Test.Common._t_BoolSeq, True, 2),
+    ('serialize', (), _M_Test.Common._t_BoolSeq, True, 3),
+    ('compress', (), _M_Test.Common._t_BoolSeq, True, 4),
+    ('ipv6', (), _M_Test.Common._t_BoolSeq, True, 5)
+))
+OptionOverrides._ice_type = _M_Test.Common._t_OptionOverrides
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::OptionOverrides'
+_M_Test.Common.OptionOverrides = OptionOverrides
+del OptionOverrides
+_M_Test.Common.TestCaseNotExistException = None
+class TestCaseNotExistException(Ice.UserException):
+    def __init__(self, reason=''):
+        self.reason = reason
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test.Common._t_OptionOverrides)
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-        __repr__ = __str__
+    __repr__ = __str__
 
-    _M_Test.Common._t_OptionOverrides = IcePy.defineValue('::Test::Common::OptionOverrides', OptionOverrides, -1, (), False, None, (
-        ('protocol', (), _M_Test.Common._t_StringSeq, True, 1),
-        ('mx', (), _M_Test.Common._t_BoolSeq, True, 2),
-        ('serialize', (), _M_Test.Common._t_BoolSeq, True, 3),
-        ('compress', (), _M_Test.Common._t_BoolSeq, True, 4),
-        ('ipv6', (), _M_Test.Common._t_BoolSeq, True, 5)
-    ))
-    OptionOverrides._ice_type = _M_Test.Common._t_OptionOverrides
+    _ice_id = '::Test::Common::TestCaseNotExistException'
 
-    _M_Test.Common.OptionOverrides = OptionOverrides
-    del OptionOverrides
+_M_Test.Common._t_TestCaseNotExistException = IcePy.defineException('::Test::Common::TestCaseNotExistException', TestCaseNotExistException, (), None, (('reason', (), IcePy._t_string, False, 0),))
+TestCaseNotExistException._ice_type = _M_Test.Common._t_TestCaseNotExistException
 
-if 'TestCaseNotExistException' not in _M_Test.Common.__dict__:
-    _M_Test.Common.TestCaseNotExistException = Ice.createTempClass()
-    class TestCaseNotExistException(Ice.UserException):
-        def __init__(self, reason=''):
-            self.reason = reason
+_M_Test.Common.TestCaseNotExistException = TestCaseNotExistException
+del TestCaseNotExistException
+_M_Test.Common.TestCaseFailedException = None
+class TestCaseFailedException(Ice.UserException):
+    def __init__(self, output=''):
+        self.output = output
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-        __repr__ = __str__
+    __repr__ = __str__
 
-        _ice_id = '::Test::Common::TestCaseNotExistException'
+    _ice_id = '::Test::Common::TestCaseFailedException'
 
-    _M_Test.Common._t_TestCaseNotExistException = IcePy.defineException('::Test::Common::TestCaseNotExistException', TestCaseNotExistException, (), None, (('reason', (), IcePy._t_string, False, 0),))
-    TestCaseNotExistException._ice_type = _M_Test.Common._t_TestCaseNotExistException
+_M_Test.Common._t_TestCaseFailedException = IcePy.defineException('::Test::Common::TestCaseFailedException', TestCaseFailedException, (), None, (('output', (), IcePy._t_string, False, 0),))
+TestCaseFailedException._ice_type = _M_Test.Common._t_TestCaseFailedException
 
-    _M_Test.Common.TestCaseNotExistException = TestCaseNotExistException
-    del TestCaseNotExistException
-
-if 'TestCaseFailedException' not in _M_Test.Common.__dict__:
-    _M_Test.Common.TestCaseFailedException = Ice.createTempClass()
-    class TestCaseFailedException(Ice.UserException):
-        def __init__(self, output=''):
-            self.output = output
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::Common::TestCaseFailedException'
-
-    _M_Test.Common._t_TestCaseFailedException = IcePy.defineException('::Test::Common::TestCaseFailedException', TestCaseFailedException, (), None, (('output', (), IcePy._t_string, False, 0),))
-    TestCaseFailedException._ice_type = _M_Test.Common._t_TestCaseFailedException
-
-    _M_Test.Common.TestCaseFailedException = TestCaseFailedException
-    del TestCaseFailedException
+_M_Test.Common.TestCaseFailedException = TestCaseFailedException
+del TestCaseFailedException
 
 _M_Test.Common._t_TestCase = IcePy.defineValue('::Test::Common::TestCase', Ice.Value, -1, (), True, None, ())
+_M_Test.Common.TestCasePrx = None
+class TestCasePrx(Ice.ObjectPrx):
 
-if 'TestCasePrx' not in _M_Test.Common.__dict__:
-    _M_Test.Common.TestCasePrx = Ice.createTempClass()
-    class TestCasePrx(Ice.ObjectPrx):
+    def startServerSide(self, config, context=None):
+        return _M_Test.Common.TestCase._op_startServerSide.invoke(self, ((config, ), context))
 
-        def startServerSide(self, config, context=None):
-            return _M_Test.Common.TestCase._op_startServerSide.invoke(self, ((config, ), context))
+    def startServerSideAsync(self, config, context=None):
+        return _M_Test.Common.TestCase._op_startServerSide.invokeAsync(self, ((config, ), context))
 
-        def startServerSideAsync(self, config, context=None):
-            return _M_Test.Common.TestCase._op_startServerSide.invokeAsync(self, ((config, ), context))
+    def stopServerSide(self, success, context=None):
+        return _M_Test.Common.TestCase._op_stopServerSide.invoke(self, ((success, ), context))
 
-        def stopServerSide(self, success, context=None):
-            return _M_Test.Common.TestCase._op_stopServerSide.invoke(self, ((success, ), context))
+    def stopServerSideAsync(self, success, context=None):
+        return _M_Test.Common.TestCase._op_stopServerSide.invokeAsync(self, ((success, ), context))
 
-        def stopServerSideAsync(self, success, context=None):
-            return _M_Test.Common.TestCase._op_stopServerSide.invokeAsync(self, ((success, ), context))
+    def runClientSide(self, host, config, context=None):
+        return _M_Test.Common.TestCase._op_runClientSide.invoke(self, ((host, config), context))
 
-        def runClientSide(self, host, config, context=None):
-            return _M_Test.Common.TestCase._op_runClientSide.invoke(self, ((host, config), context))
+    def runClientSideAsync(self, host, config, context=None):
+        return _M_Test.Common.TestCase._op_runClientSide.invokeAsync(self, ((host, config), context))
 
-        def runClientSideAsync(self, host, config, context=None):
-            return _M_Test.Common.TestCase._op_runClientSide.invokeAsync(self, ((host, config), context))
+    def destroy(self, context=None):
+        return _M_Test.Common.TestCase._op_destroy.invoke(self, ((), context))
 
-        def destroy(self, context=None):
-            return _M_Test.Common.TestCase._op_destroy.invoke(self, ((), context))
+    def destroyAsync(self, context=None):
+        return _M_Test.Common.TestCase._op_destroy.invokeAsync(self, ((), context))
 
-        def destroyAsync(self, context=None):
-            return _M_Test.Common.TestCase._op_destroy.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.Common.TestCasePrx.ice_checkedCast(proxy, '::Test::Common::TestCase', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.Common.TestCasePrx.ice_checkedCast(proxy, '::Test::Common::TestCase', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.Common.TestCasePrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.Common.TestCasePrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::TestCase'
+_M_Test.Common._t_TestCasePrx = IcePy.defineProxy('::Test::Common::TestCase', TestCasePrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::TestCase'
-    _M_Test.Common._t_TestCasePrx = IcePy.defineProxy('::Test::Common::TestCase', TestCasePrx)
+_M_Test.Common.TestCasePrx = TestCasePrx
+del TestCasePrx
 
-    _M_Test.Common.TestCasePrx = TestCasePrx
-    del TestCasePrx
+_M_Test.Common.TestCase = None
+class TestCase(Ice.Object):
 
-    _M_Test.Common.TestCase = Ice.createTempClass()
-    class TestCase(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Common::TestCase')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Common::TestCase')
+    def ice_id(self, current=None):
+        return '::Test::Common::TestCase'
 
-        def ice_id(self, current=None):
-            return '::Test::Common::TestCase'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::TestCase'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::TestCase'
+    def startServerSide(self, config, current=None):
+        raise NotImplementedError("servant method 'startServerSide' not implemented")
 
-        def startServerSide(self, config, current=None):
-            raise NotImplementedError("servant method 'startServerSide' not implemented")
+    def stopServerSide(self, success, current=None):
+        raise NotImplementedError("servant method 'stopServerSide' not implemented")
 
-        def stopServerSide(self, success, current=None):
-            raise NotImplementedError("servant method 'stopServerSide' not implemented")
+    def runClientSide(self, host, config, current=None):
+        raise NotImplementedError("servant method 'runClientSide' not implemented")
 
-        def runClientSide(self, host, config, current=None):
-            raise NotImplementedError("servant method 'runClientSide' not implemented")
+    def destroy(self, current=None):
+        raise NotImplementedError("servant method 'destroy' not implemented")
 
-        def destroy(self, current=None):
-            raise NotImplementedError("servant method 'destroy' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test.Common._t_TestCaseDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test.Common._t_TestCaseDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test.Common._t_TestCaseDisp = IcePy.defineClass('::Test::Common::TestCase', TestCase, (), None, ())
+TestCase._ice_type = _M_Test.Common._t_TestCaseDisp
 
-    _M_Test.Common._t_TestCaseDisp = IcePy.defineClass('::Test::Common::TestCase', TestCase, (), None, ())
-    TestCase._ice_type = _M_Test.Common._t_TestCaseDisp
+TestCase._op_startServerSide = IcePy.Operation('startServerSide', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Common._t_Config, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test.Common._t_TestCaseFailedException,))
+TestCase._op_stopServerSide = IcePy.Operation('stopServerSide', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test.Common._t_TestCaseFailedException,))
+TestCase._op_runClientSide = IcePy.Operation('runClientSide', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_Test.Common._t_Config, False, 0)), (), ((), IcePy._t_string, False, 0), (_M_Test.Common._t_TestCaseFailedException,))
+TestCase._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    TestCase._op_startServerSide = IcePy.Operation('startServerSide', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Common._t_Config, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test.Common._t_TestCaseFailedException,))
-    TestCase._op_stopServerSide = IcePy.Operation('stopServerSide', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test.Common._t_TestCaseFailedException,))
-    TestCase._op_runClientSide = IcePy.Operation('runClientSide', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_Test.Common._t_Config, False, 0)), (), ((), IcePy._t_string, False, 0), (_M_Test.Common._t_TestCaseFailedException,))
-    TestCase._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.Common.TestCase = TestCase
-    del TestCase
+_M_Test.Common.TestCase = TestCase
+del TestCase
 
 _M_Test.Common._t_Controller = IcePy.defineValue('::Test::Common::Controller', Ice.Value, -1, (), True, None, ())
+_M_Test.Common.ControllerPrx = None
+class ControllerPrx(Ice.ObjectPrx):
 
-if 'ControllerPrx' not in _M_Test.Common.__dict__:
-    _M_Test.Common.ControllerPrx = Ice.createTempClass()
-    class ControllerPrx(Ice.ObjectPrx):
+    def runTestCase(self, mapping, testsuite, testcase, cross, context=None):
+        return _M_Test.Common.Controller._op_runTestCase.invoke(self, ((mapping, testsuite, testcase, cross), context))
 
-        def runTestCase(self, mapping, testsuite, testcase, cross, context=None):
-            return _M_Test.Common.Controller._op_runTestCase.invoke(self, ((mapping, testsuite, testcase, cross), context))
+    def runTestCaseAsync(self, mapping, testsuite, testcase, cross, context=None):
+        return _M_Test.Common.Controller._op_runTestCase.invokeAsync(self, ((mapping, testsuite, testcase, cross), context))
 
-        def runTestCaseAsync(self, mapping, testsuite, testcase, cross, context=None):
-            return _M_Test.Common.Controller._op_runTestCase.invokeAsync(self, ((mapping, testsuite, testcase, cross), context))
+    def getOptionOverrides(self, context=None):
+        return _M_Test.Common.Controller._op_getOptionOverrides.invoke(self, ((), context))
 
-        def getOptionOverrides(self, context=None):
-            return _M_Test.Common.Controller._op_getOptionOverrides.invoke(self, ((), context))
+    def getOptionOverridesAsync(self, context=None):
+        return _M_Test.Common.Controller._op_getOptionOverrides.invokeAsync(self, ((), context))
 
-        def getOptionOverridesAsync(self, context=None):
-            return _M_Test.Common.Controller._op_getOptionOverrides.invokeAsync(self, ((), context))
+    def getTestSuites(self, mapping, context=None):
+        return _M_Test.Common.Controller._op_getTestSuites.invoke(self, ((mapping, ), context))
 
-        def getTestSuites(self, mapping, context=None):
-            return _M_Test.Common.Controller._op_getTestSuites.invoke(self, ((mapping, ), context))
+    def getTestSuitesAsync(self, mapping, context=None):
+        return _M_Test.Common.Controller._op_getTestSuites.invokeAsync(self, ((mapping, ), context))
 
-        def getTestSuitesAsync(self, mapping, context=None):
-            return _M_Test.Common.Controller._op_getTestSuites.invokeAsync(self, ((mapping, ), context))
+    def getHost(self, protocol, ipv6, context=None):
+        return _M_Test.Common.Controller._op_getHost.invoke(self, ((protocol, ipv6), context))
 
-        def getHost(self, protocol, ipv6, context=None):
-            return _M_Test.Common.Controller._op_getHost.invoke(self, ((protocol, ipv6), context))
+    def getHostAsync(self, protocol, ipv6, context=None):
+        return _M_Test.Common.Controller._op_getHost.invokeAsync(self, ((protocol, ipv6), context))
 
-        def getHostAsync(self, protocol, ipv6, context=None):
-            return _M_Test.Common.Controller._op_getHost.invokeAsync(self, ((protocol, ipv6), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.Common.ControllerPrx.ice_checkedCast(proxy, '::Test::Common::Controller', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.Common.ControllerPrx.ice_checkedCast(proxy, '::Test::Common::Controller', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.Common.ControllerPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.Common.ControllerPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::Controller'
+_M_Test.Common._t_ControllerPrx = IcePy.defineProxy('::Test::Common::Controller', ControllerPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::Controller'
-    _M_Test.Common._t_ControllerPrx = IcePy.defineProxy('::Test::Common::Controller', ControllerPrx)
+_M_Test.Common.ControllerPrx = ControllerPrx
+del ControllerPrx
 
-    _M_Test.Common.ControllerPrx = ControllerPrx
-    del ControllerPrx
+_M_Test.Common.Controller = None
+class Controller(Ice.Object):
 
-    _M_Test.Common.Controller = Ice.createTempClass()
-    class Controller(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Common::Controller')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Common::Controller')
+    def ice_id(self, current=None):
+        return '::Test::Common::Controller'
 
-        def ice_id(self, current=None):
-            return '::Test::Common::Controller'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::Controller'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::Controller'
+    def runTestCase(self, mapping, testsuite, testcase, cross, current=None):
+        raise NotImplementedError("servant method 'runTestCase' not implemented")
 
-        def runTestCase(self, mapping, testsuite, testcase, cross, current=None):
-            raise NotImplementedError("servant method 'runTestCase' not implemented")
+    def getOptionOverrides(self, current=None):
+        raise NotImplementedError("servant method 'getOptionOverrides' not implemented")
 
-        def getOptionOverrides(self, current=None):
-            raise NotImplementedError("servant method 'getOptionOverrides' not implemented")
+    def getTestSuites(self, mapping, current=None):
+        raise NotImplementedError("servant method 'getTestSuites' not implemented")
 
-        def getTestSuites(self, mapping, current=None):
-            raise NotImplementedError("servant method 'getTestSuites' not implemented")
+    def getHost(self, protocol, ipv6, current=None):
+        raise NotImplementedError("servant method 'getHost' not implemented")
 
-        def getHost(self, protocol, ipv6, current=None):
-            raise NotImplementedError("servant method 'getHost' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test.Common._t_ControllerDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test.Common._t_ControllerDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test.Common._t_ControllerDisp = IcePy.defineClass('::Test::Common::Controller', Controller, (), None, ())
+Controller._ice_type = _M_Test.Common._t_ControllerDisp
 
-    _M_Test.Common._t_ControllerDisp = IcePy.defineClass('::Test::Common::Controller', Controller, (), None, ())
-    Controller._ice_type = _M_Test.Common._t_ControllerDisp
+Controller._op_runTestCase = IcePy.Operation('runTestCase', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_Test.Common._t_TestCasePrx, False, 0), (_M_Test.Common._t_TestCaseNotExistException,))
+Controller._op_getOptionOverrides = IcePy.Operation('getOptionOverrides', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.Common._t_OptionOverrides, False, 0), ())
+Controller._op_getTestSuites = IcePy.Operation('getTestSuites', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_Test.Common._t_StringSeq, False, 0), ())
+Controller._op_getHost = IcePy.Operation('getHost', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_bool, False, 0)), (), ((), IcePy._t_string, False, 0), ())
 
-    Controller._op_runTestCase = IcePy.Operation('runTestCase', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_Test.Common._t_TestCasePrx, False, 0), (_M_Test.Common._t_TestCaseNotExistException,))
-    Controller._op_getOptionOverrides = IcePy.Operation('getOptionOverrides', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.Common._t_OptionOverrides, False, 0), ())
-    Controller._op_getTestSuites = IcePy.Operation('getTestSuites', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_Test.Common._t_StringSeq, False, 0), ())
-    Controller._op_getHost = IcePy.Operation('getHost', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_bool, False, 0)), (), ((), IcePy._t_string, False, 0), ())
+_M_Test.Common.Controller = Controller
+del Controller
+_M_Test.Common.ProcessFailedException = None
+class ProcessFailedException(Ice.UserException):
+    def __init__(self, reason=''):
+        self.reason = reason
 
-    _M_Test.Common.Controller = Controller
-    del Controller
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-if 'ProcessFailedException' not in _M_Test.Common.__dict__:
-    _M_Test.Common.ProcessFailedException = Ice.createTempClass()
-    class ProcessFailedException(Ice.UserException):
-        def __init__(self, reason=''):
-            self.reason = reason
+    __repr__ = __str__
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    _ice_id = '::Test::Common::ProcessFailedException'
 
-        __repr__ = __str__
+_M_Test.Common._t_ProcessFailedException = IcePy.defineException('::Test::Common::ProcessFailedException', ProcessFailedException, (), None, (('reason', (), IcePy._t_string, False, 0),))
+ProcessFailedException._ice_type = _M_Test.Common._t_ProcessFailedException
 
-        _ice_id = '::Test::Common::ProcessFailedException'
-
-    _M_Test.Common._t_ProcessFailedException = IcePy.defineException('::Test::Common::ProcessFailedException', ProcessFailedException, (), None, (('reason', (), IcePy._t_string, False, 0),))
-    ProcessFailedException._ice_type = _M_Test.Common._t_ProcessFailedException
-
-    _M_Test.Common.ProcessFailedException = ProcessFailedException
-    del ProcessFailedException
+_M_Test.Common.ProcessFailedException = ProcessFailedException
+del ProcessFailedException
 
 _M_Test.Common._t_Process = IcePy.defineValue('::Test::Common::Process', Ice.Value, -1, (), True, None, ())
+_M_Test.Common.ProcessPrx = None
+class ProcessPrx(Ice.ObjectPrx):
 
-if 'ProcessPrx' not in _M_Test.Common.__dict__:
-    _M_Test.Common.ProcessPrx = Ice.createTempClass()
-    class ProcessPrx(Ice.ObjectPrx):
+    def waitReady(self, timeout, context=None):
+        return _M_Test.Common.Process._op_waitReady.invoke(self, ((timeout, ), context))
 
-        def waitReady(self, timeout, context=None):
-            return _M_Test.Common.Process._op_waitReady.invoke(self, ((timeout, ), context))
+    def waitReadyAsync(self, timeout, context=None):
+        return _M_Test.Common.Process._op_waitReady.invokeAsync(self, ((timeout, ), context))
 
-        def waitReadyAsync(self, timeout, context=None):
-            return _M_Test.Common.Process._op_waitReady.invokeAsync(self, ((timeout, ), context))
+    def waitSuccess(self, timeout, context=None):
+        return _M_Test.Common.Process._op_waitSuccess.invoke(self, ((timeout, ), context))
 
-        def waitSuccess(self, timeout, context=None):
-            return _M_Test.Common.Process._op_waitSuccess.invoke(self, ((timeout, ), context))
+    def waitSuccessAsync(self, timeout, context=None):
+        return _M_Test.Common.Process._op_waitSuccess.invokeAsync(self, ((timeout, ), context))
 
-        def waitSuccessAsync(self, timeout, context=None):
-            return _M_Test.Common.Process._op_waitSuccess.invokeAsync(self, ((timeout, ), context))
+    def terminate(self, context=None):
+        return _M_Test.Common.Process._op_terminate.invoke(self, ((), context))
 
-        def terminate(self, context=None):
-            return _M_Test.Common.Process._op_terminate.invoke(self, ((), context))
+    def terminateAsync(self, context=None):
+        return _M_Test.Common.Process._op_terminate.invokeAsync(self, ((), context))
 
-        def terminateAsync(self, context=None):
-            return _M_Test.Common.Process._op_terminate.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.Common.ProcessPrx.ice_checkedCast(proxy, '::Test::Common::Process', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.Common.ProcessPrx.ice_checkedCast(proxy, '::Test::Common::Process', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.Common.ProcessPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.Common.ProcessPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::Process'
+_M_Test.Common._t_ProcessPrx = IcePy.defineProxy('::Test::Common::Process', ProcessPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::Process'
-    _M_Test.Common._t_ProcessPrx = IcePy.defineProxy('::Test::Common::Process', ProcessPrx)
+_M_Test.Common.ProcessPrx = ProcessPrx
+del ProcessPrx
 
-    _M_Test.Common.ProcessPrx = ProcessPrx
-    del ProcessPrx
+_M_Test.Common.Process = None
+class Process(Ice.Object):
 
-    _M_Test.Common.Process = Ice.createTempClass()
-    class Process(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Common::Process')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Common::Process')
+    def ice_id(self, current=None):
+        return '::Test::Common::Process'
 
-        def ice_id(self, current=None):
-            return '::Test::Common::Process'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::Process'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::Process'
+    def waitReady(self, timeout, current=None):
+        raise NotImplementedError("servant method 'waitReady' not implemented")
 
-        def waitReady(self, timeout, current=None):
-            raise NotImplementedError("servant method 'waitReady' not implemented")
+    def waitSuccess(self, timeout, current=None):
+        raise NotImplementedError("servant method 'waitSuccess' not implemented")
 
-        def waitSuccess(self, timeout, current=None):
-            raise NotImplementedError("servant method 'waitSuccess' not implemented")
+    def terminate(self, current=None):
+        raise NotImplementedError("servant method 'terminate' not implemented")
 
-        def terminate(self, current=None):
-            raise NotImplementedError("servant method 'terminate' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test.Common._t_ProcessDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test.Common._t_ProcessDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test.Common._t_ProcessDisp = IcePy.defineClass('::Test::Common::Process', Process, (), None, ())
+Process._ice_type = _M_Test.Common._t_ProcessDisp
 
-    _M_Test.Common._t_ProcessDisp = IcePy.defineClass('::Test::Common::Process', Process, (), None, ())
-    Process._ice_type = _M_Test.Common._t_ProcessDisp
+Process._op_waitReady = IcePy.Operation('waitReady', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, (_M_Test.Common._t_ProcessFailedException,))
+Process._op_waitSuccess = IcePy.Operation('waitSuccess', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), (_M_Test.Common._t_ProcessFailedException,))
+Process._op_terminate = IcePy.Operation('terminate', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
-    Process._op_waitReady = IcePy.Operation('waitReady', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, (_M_Test.Common._t_ProcessFailedException,))
-    Process._op_waitSuccess = IcePy.Operation('waitSuccess', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), (_M_Test.Common._t_ProcessFailedException,))
-    Process._op_terminate = IcePy.Operation('terminate', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
-
-    _M_Test.Common.Process = Process
-    del Process
+_M_Test.Common.Process = Process
+del Process
 
 _M_Test.Common._t_ProcessController = IcePy.defineValue('::Test::Common::ProcessController', Ice.Value, -1, (), True, None, ())
+_M_Test.Common.ProcessControllerPrx = None
+class ProcessControllerPrx(Ice.ObjectPrx):
 
-if 'ProcessControllerPrx' not in _M_Test.Common.__dict__:
-    _M_Test.Common.ProcessControllerPrx = Ice.createTempClass()
-    class ProcessControllerPrx(Ice.ObjectPrx):
+    def start(self, testsuite, exe, args, context=None):
+        return _M_Test.Common.ProcessController._op_start.invoke(self, ((testsuite, exe, args), context))
 
-        def start(self, testsuite, exe, args, context=None):
-            return _M_Test.Common.ProcessController._op_start.invoke(self, ((testsuite, exe, args), context))
+    def startAsync(self, testsuite, exe, args, context=None):
+        return _M_Test.Common.ProcessController._op_start.invokeAsync(self, ((testsuite, exe, args), context))
 
-        def startAsync(self, testsuite, exe, args, context=None):
-            return _M_Test.Common.ProcessController._op_start.invokeAsync(self, ((testsuite, exe, args), context))
+    def getHost(self, protocol, ipv6, context=None):
+        return _M_Test.Common.ProcessController._op_getHost.invoke(self, ((protocol, ipv6), context))
 
-        def getHost(self, protocol, ipv6, context=None):
-            return _M_Test.Common.ProcessController._op_getHost.invoke(self, ((protocol, ipv6), context))
+    def getHostAsync(self, protocol, ipv6, context=None):
+        return _M_Test.Common.ProcessController._op_getHost.invokeAsync(self, ((protocol, ipv6), context))
 
-        def getHostAsync(self, protocol, ipv6, context=None):
-            return _M_Test.Common.ProcessController._op_getHost.invokeAsync(self, ((protocol, ipv6), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.Common.ProcessControllerPrx.ice_checkedCast(proxy, '::Test::Common::ProcessController', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.Common.ProcessControllerPrx.ice_checkedCast(proxy, '::Test::Common::ProcessController', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.Common.ProcessControllerPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.Common.ProcessControllerPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::ProcessController'
+_M_Test.Common._t_ProcessControllerPrx = IcePy.defineProxy('::Test::Common::ProcessController', ProcessControllerPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::ProcessController'
-    _M_Test.Common._t_ProcessControllerPrx = IcePy.defineProxy('::Test::Common::ProcessController', ProcessControllerPrx)
+_M_Test.Common.ProcessControllerPrx = ProcessControllerPrx
+del ProcessControllerPrx
 
-    _M_Test.Common.ProcessControllerPrx = ProcessControllerPrx
-    del ProcessControllerPrx
+_M_Test.Common.ProcessController = None
+class ProcessController(Ice.Object):
 
-    _M_Test.Common.ProcessController = Ice.createTempClass()
-    class ProcessController(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Common::ProcessController')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Common::ProcessController')
+    def ice_id(self, current=None):
+        return '::Test::Common::ProcessController'
 
-        def ice_id(self, current=None):
-            return '::Test::Common::ProcessController'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::ProcessController'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::ProcessController'
+    def start(self, testsuite, exe, args, current=None):
+        raise NotImplementedError("servant method 'start' not implemented")
 
-        def start(self, testsuite, exe, args, current=None):
-            raise NotImplementedError("servant method 'start' not implemented")
+    def getHost(self, protocol, ipv6, current=None):
+        raise NotImplementedError("servant method 'getHost' not implemented")
 
-        def getHost(self, protocol, ipv6, current=None):
-            raise NotImplementedError("servant method 'getHost' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test.Common._t_ProcessControllerDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test.Common._t_ProcessControllerDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test.Common._t_ProcessControllerDisp = IcePy.defineClass('::Test::Common::ProcessController', ProcessController, (), None, ())
+ProcessController._ice_type = _M_Test.Common._t_ProcessControllerDisp
 
-    _M_Test.Common._t_ProcessControllerDisp = IcePy.defineClass('::Test::Common::ProcessController', ProcessController, (), None, ())
-    ProcessController._ice_type = _M_Test.Common._t_ProcessControllerDisp
+ProcessController._op_start = IcePy.Operation('start', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), _M_Test.Common._t_StringSeq, False, 0)), (), ((), _M_Test.Common._t_ProcessPrx, False, 0), (_M_Test.Common._t_ProcessFailedException,))
+ProcessController._op_getHost = IcePy.Operation('getHost', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_bool, False, 0)), (), ((), IcePy._t_string, False, 0), ())
 
-    ProcessController._op_start = IcePy.Operation('start', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), _M_Test.Common._t_StringSeq, False, 0)), (), ((), _M_Test.Common._t_ProcessPrx, False, 0), (_M_Test.Common._t_ProcessFailedException,))
-    ProcessController._op_getHost = IcePy.Operation('getHost', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_bool, False, 0)), (), ((), IcePy._t_string, False, 0), ())
-
-    _M_Test.Common.ProcessController = ProcessController
-    del ProcessController
+_M_Test.Common.ProcessController = ProcessController
+del ProcessController
 
 _M_Test.Common._t_BrowserProcessController = IcePy.defineValue('::Test::Common::BrowserProcessController', Ice.Value, -1, (), True, None, ())
+_M_Test.Common.BrowserProcessControllerPrx = None
+class BrowserProcessControllerPrx(_M_Test.Common.ProcessControllerPrx):
 
-if 'BrowserProcessControllerPrx' not in _M_Test.Common.__dict__:
-    _M_Test.Common.BrowserProcessControllerPrx = Ice.createTempClass()
-    class BrowserProcessControllerPrx(_M_Test.Common.ProcessControllerPrx):
+    def redirect(self, url, context=None):
+        return _M_Test.Common.BrowserProcessController._op_redirect.invoke(self, ((url, ), context))
 
-        def redirect(self, url, context=None):
-            return _M_Test.Common.BrowserProcessController._op_redirect.invoke(self, ((url, ), context))
+    def redirectAsync(self, url, context=None):
+        return _M_Test.Common.BrowserProcessController._op_redirect.invokeAsync(self, ((url, ), context))
 
-        def redirectAsync(self, url, context=None):
-            return _M_Test.Common.BrowserProcessController._op_redirect.invokeAsync(self, ((url, ), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.Common.BrowserProcessControllerPrx.ice_checkedCast(proxy, '::Test::Common::BrowserProcessController', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.Common.BrowserProcessControllerPrx.ice_checkedCast(proxy, '::Test::Common::BrowserProcessController', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.Common.BrowserProcessControllerPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.Common.BrowserProcessControllerPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::BrowserProcessController'
+_M_Test.Common._t_BrowserProcessControllerPrx = IcePy.defineProxy('::Test::Common::BrowserProcessController', BrowserProcessControllerPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::BrowserProcessController'
-    _M_Test.Common._t_BrowserProcessControllerPrx = IcePy.defineProxy('::Test::Common::BrowserProcessController', BrowserProcessControllerPrx)
+_M_Test.Common.BrowserProcessControllerPrx = BrowserProcessControllerPrx
+del BrowserProcessControllerPrx
 
-    _M_Test.Common.BrowserProcessControllerPrx = BrowserProcessControllerPrx
-    del BrowserProcessControllerPrx
+_M_Test.Common.BrowserProcessController = None
+class BrowserProcessController(_M_Test.Common.ProcessController):
 
-    _M_Test.Common.BrowserProcessController = Ice.createTempClass()
-    class BrowserProcessController(_M_Test.Common.ProcessController):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Common::BrowserProcessController', '::Test::Common::ProcessController')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Common::BrowserProcessController', '::Test::Common::ProcessController')
+    def ice_id(self, current=None):
+        return '::Test::Common::BrowserProcessController'
 
-        def ice_id(self, current=None):
-            return '::Test::Common::BrowserProcessController'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::BrowserProcessController'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::BrowserProcessController'
+    def redirect(self, url, current=None):
+        raise NotImplementedError("servant method 'redirect' not implemented")
 
-        def redirect(self, url, current=None):
-            raise NotImplementedError("servant method 'redirect' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test.Common._t_BrowserProcessControllerDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test.Common._t_BrowserProcessControllerDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test.Common._t_BrowserProcessControllerDisp = IcePy.defineClass('::Test::Common::BrowserProcessController', BrowserProcessController, (), None, (_M_Test.Common._t_ProcessControllerDisp,))
+BrowserProcessController._ice_type = _M_Test.Common._t_BrowserProcessControllerDisp
 
-    _M_Test.Common._t_BrowserProcessControllerDisp = IcePy.defineClass('::Test::Common::BrowserProcessController', BrowserProcessController, (), None, (_M_Test.Common._t_ProcessControllerDisp,))
-    BrowserProcessController._ice_type = _M_Test.Common._t_BrowserProcessControllerDisp
+BrowserProcessController._op_redirect = IcePy.Operation('redirect', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
 
-    BrowserProcessController._op_redirect = IcePy.Operation('redirect', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
-
-    _M_Test.Common.BrowserProcessController = BrowserProcessController
-    del BrowserProcessController
+_M_Test.Common.BrowserProcessController = BrowserProcessController
+del BrowserProcessController
 
 _M_Test.Common._t_ProcessControllerRegistry = IcePy.defineValue('::Test::Common::ProcessControllerRegistry', Ice.Value, -1, (), True, None, ())
+_M_Test.Common.ProcessControllerRegistryPrx = None
+class ProcessControllerRegistryPrx(Ice.ObjectPrx):
 
-if 'ProcessControllerRegistryPrx' not in _M_Test.Common.__dict__:
-    _M_Test.Common.ProcessControllerRegistryPrx = Ice.createTempClass()
-    class ProcessControllerRegistryPrx(Ice.ObjectPrx):
+    def setProcessController(self, controller, context=None):
+        return _M_Test.Common.ProcessControllerRegistry._op_setProcessController.invoke(self, ((controller, ), context))
 
-        def setProcessController(self, controller, context=None):
-            return _M_Test.Common.ProcessControllerRegistry._op_setProcessController.invoke(self, ((controller, ), context))
+    def setProcessControllerAsync(self, controller, context=None):
+        return _M_Test.Common.ProcessControllerRegistry._op_setProcessController.invokeAsync(self, ((controller, ), context))
 
-        def setProcessControllerAsync(self, controller, context=None):
-            return _M_Test.Common.ProcessControllerRegistry._op_setProcessController.invokeAsync(self, ((controller, ), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.Common.ProcessControllerRegistryPrx.ice_checkedCast(proxy, '::Test::Common::ProcessControllerRegistry', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.Common.ProcessControllerRegistryPrx.ice_checkedCast(proxy, '::Test::Common::ProcessControllerRegistry', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.Common.ProcessControllerRegistryPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.Common.ProcessControllerRegistryPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::ProcessControllerRegistry'
+_M_Test.Common._t_ProcessControllerRegistryPrx = IcePy.defineProxy('::Test::Common::ProcessControllerRegistry', ProcessControllerRegistryPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::ProcessControllerRegistry'
-    _M_Test.Common._t_ProcessControllerRegistryPrx = IcePy.defineProxy('::Test::Common::ProcessControllerRegistry', ProcessControllerRegistryPrx)
+_M_Test.Common.ProcessControllerRegistryPrx = ProcessControllerRegistryPrx
+del ProcessControllerRegistryPrx
 
-    _M_Test.Common.ProcessControllerRegistryPrx = ProcessControllerRegistryPrx
-    del ProcessControllerRegistryPrx
+_M_Test.Common.ProcessControllerRegistry = None
+class ProcessControllerRegistry(Ice.Object):
 
-    _M_Test.Common.ProcessControllerRegistry = Ice.createTempClass()
-    class ProcessControllerRegistry(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Common::ProcessControllerRegistry')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Common::ProcessControllerRegistry')
+    def ice_id(self, current=None):
+        return '::Test::Common::ProcessControllerRegistry'
 
-        def ice_id(self, current=None):
-            return '::Test::Common::ProcessControllerRegistry'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Common::ProcessControllerRegistry'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Common::ProcessControllerRegistry'
+    def setProcessController(self, controller, current=None):
+        raise NotImplementedError("servant method 'setProcessController' not implemented")
 
-        def setProcessController(self, controller, current=None):
-            raise NotImplementedError("servant method 'setProcessController' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test.Common._t_ProcessControllerRegistryDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test.Common._t_ProcessControllerRegistryDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test.Common._t_ProcessControllerRegistryDisp = IcePy.defineClass('::Test::Common::ProcessControllerRegistry', ProcessControllerRegistry, (), None, ())
+ProcessControllerRegistry._ice_type = _M_Test.Common._t_ProcessControllerRegistryDisp
 
-    _M_Test.Common._t_ProcessControllerRegistryDisp = IcePy.defineClass('::Test::Common::ProcessControllerRegistry', ProcessControllerRegistry, (), None, ())
-    ProcessControllerRegistry._ice_type = _M_Test.Common._t_ProcessControllerRegistryDisp
+ProcessControllerRegistry._op_setProcessController = IcePy.Operation('setProcessController', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Common._t_ProcessControllerPrx, False, 0),), (), None, ())
 
-    ProcessControllerRegistry._op_setProcessController = IcePy.Operation('setProcessController', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Common._t_ProcessControllerPrx, False, 0),), (), None, ())
-
-    _M_Test.Common.ProcessControllerRegistry = ProcessControllerRegistry
-    del ProcessControllerRegistry
+_M_Test.Common.ProcessControllerRegistry = ProcessControllerRegistry
+del ProcessControllerRegistry
 
 # End of module Test.Common
 

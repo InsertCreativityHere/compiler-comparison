@@ -27,70 +27,68 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
+_M_Test.TestIntfPrx = None
+class TestIntfPrx(Ice.ObjectPrx):
 
-if 'TestIntfPrx' not in _M_Test.__dict__:
-    _M_Test.TestIntfPrx = Ice.createTempClass()
-    class TestIntfPrx(Ice.ObjectPrx):
+    def getProperty(self, name, context=None):
+        return _M_Test.TestIntf._op_getProperty.invoke(self, ((name, ), context))
 
-        def getProperty(self, name, context=None):
-            return _M_Test.TestIntf._op_getProperty.invoke(self, ((name, ), context))
+    def getPropertyAsync(self, name, context=None):
+        return _M_Test.TestIntf._op_getProperty.invokeAsync(self, ((name, ), context))
 
-        def getPropertyAsync(self, name, context=None):
-            return _M_Test.TestIntf._op_getProperty.invokeAsync(self, ((name, ), context))
+    def getArgs(self, context=None):
+        return _M_Test.TestIntf._op_getArgs.invoke(self, ((), context))
 
-        def getArgs(self, context=None):
-            return _M_Test.TestIntf._op_getArgs.invoke(self, ((), context))
+    def getArgsAsync(self, context=None):
+        return _M_Test.TestIntf._op_getArgs.invokeAsync(self, ((), context))
 
-        def getArgsAsync(self, context=None):
-            return _M_Test.TestIntf._op_getArgs.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::TestIntf'
+_M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::TestIntf'
-    _M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
+_M_Test.TestIntfPrx = TestIntfPrx
+del TestIntfPrx
 
-    _M_Test.TestIntfPrx = TestIntfPrx
-    del TestIntfPrx
+_M_Test.TestIntf = None
+class TestIntf(Ice.Object):
 
-    _M_Test.TestIntf = Ice.createTempClass()
-    class TestIntf(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::TestIntf')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::TestIntf')
+    def ice_id(self, current=None):
+        return '::Test::TestIntf'
 
-        def ice_id(self, current=None):
-            return '::Test::TestIntf'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::TestIntf'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::TestIntf'
+    def getProperty(self, name, current=None):
+        raise NotImplementedError("servant method 'getProperty' not implemented")
 
-        def getProperty(self, name, current=None):
-            raise NotImplementedError("servant method 'getProperty' not implemented")
+    def getArgs(self, current=None):
+        raise NotImplementedError("servant method 'getArgs' not implemented")
 
-        def getArgs(self, current=None):
-            raise NotImplementedError("servant method 'getArgs' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
+TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
+TestIntf._op_getProperty = IcePy.Operation('getProperty', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
+TestIntf._op_getArgs = IcePy.Operation('getArgs', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
 
-    TestIntf._op_getProperty = IcePy.Operation('getProperty', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
-    TestIntf._op_getArgs = IcePy.Operation('getArgs', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
-
-    _M_Test.TestIntf = TestIntf
-    del TestIntf
+_M_Test.TestIntf = TestIntf
+del TestIntf
 
 # End of module Test

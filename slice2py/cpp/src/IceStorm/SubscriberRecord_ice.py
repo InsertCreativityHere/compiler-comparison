@@ -31,183 +31,177 @@ _M_IceStorm = Ice.openModule('IceStorm')
 
 # Start of module IceStorm
 __name__ = 'IceStorm'
+_M_IceStorm.SubscriberRecordKey = None
+class SubscriberRecordKey(object):
+    """
+     The key for persistent subscribers, or topics.
+     If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
+     otherwise the record holds a subscription record.
+    Members:
+    topic --  The topic identity.
+    id --  The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
+    """
+    def __init__(self, topic=Ice._struct_marker, id=Ice._struct_marker):
+        if topic is Ice._struct_marker:
+            self.topic = _M_Ice.Identity()
+        else:
+            self.topic = topic
+        if id is Ice._struct_marker:
+            self.id = _M_Ice.Identity()
+        else:
+            self.id = id
 
-if 'SubscriberRecordKey' not in _M_IceStorm.__dict__:
-    _M_IceStorm.SubscriberRecordKey = Ice.createTempClass()
-    class SubscriberRecordKey(object):
-        """
-         The key for persistent subscribers, or topics.
-         If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
-         otherwise the record holds a subscription record.
-        Members:
-        topic --  The topic identity.
-        id --  The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
-        """
-        def __init__(self, topic=Ice._struct_marker, id=Ice._struct_marker):
-            if topic is Ice._struct_marker:
-                self.topic = _M_Ice.Identity()
+    def __hash__(self):
+        _h = 0
+        _h = 5 * _h + _builtins.hash(self.topic)
+        _h = 5 * _h + _builtins.hash(self.id)
+        return _h % 0x7fffffff
+
+    def __compare(self, other):
+        if other is None:
+            return 1
+        elif not isinstance(other, _M_IceStorm.SubscriberRecordKey):
+            return NotImplemented
+        else:
+            if self.topic is None or other.topic is None:
+                if self.topic != other.topic:
+                    return (-1 if self.topic is None else 1)
             else:
-                self.topic = topic
-            if id is Ice._struct_marker:
-                self.id = _M_Ice.Identity()
-            else:
-                self.id = id
-
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + _builtins.hash(self.topic)
-            _h = 5 * _h + _builtins.hash(self.id)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
-            if other is None:
-                return 1
-            elif not isinstance(other, _M_IceStorm.SubscriberRecordKey):
-                return NotImplemented
-            else:
-                if self.topic is None or other.topic is None:
-                    if self.topic != other.topic:
-                        return (-1 if self.topic is None else 1)
-                else:
-                    if self.topic < other.topic:
-                        return -1
-                    elif self.topic > other.topic:
-                        return 1
-                if self.id is None or other.id is None:
-                    if self.id != other.id:
-                        return (-1 if self.id is None else 1)
-                else:
-                    if self.id < other.id:
-                        return -1
-                    elif self.id > other.id:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
-
-        def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceStorm._t_SubscriberRecordKey)
-
-        __repr__ = __str__
-
-    _M_IceStorm._t_SubscriberRecordKey = IcePy.defineStruct('::IceStorm::SubscriberRecordKey', SubscriberRecordKey, (), (
-        ('topic', (), _M_Ice._t_Identity),
-        ('id', (), _M_Ice._t_Identity)
-    ))
-
-    _M_IceStorm.SubscriberRecordKey = SubscriberRecordKey
-    del SubscriberRecordKey
-
-if 'SubscriberRecord' not in _M_IceStorm.__dict__:
-    _M_IceStorm.SubscriberRecord = Ice.createTempClass()
-    class SubscriberRecord(object):
-        """
-         Used to store persistent information for persistent subscribers.
-        Members:
-        topicName --  The name of the topic.
-        id --  The subscriber identity.
-        link --  Is this a link record, or a subscriber record?
-        obj --  The subscriber object.
-        theQoS --  The QoS.
-        cost --  The cost.
-        theTopic --  The linked topic.
-        """
-        def __init__(self, topicName='', id=Ice._struct_marker, link=False, obj=None, theQoS=None, cost=0, theTopic=None):
-            self.topicName = topicName
-            if id is Ice._struct_marker:
-                self.id = _M_Ice.Identity()
-            else:
-                self.id = id
-            self.link = link
-            self.obj = obj
-            self.theQoS = theQoS
-            self.cost = cost
-            self.theTopic = theTopic
-
-        def __eq__(self, other):
-            if other is None:
-                return False
-            elif not isinstance(other, _M_IceStorm.SubscriberRecord):
-                return NotImplemented
-            else:
-                if self.topicName != other.topicName:
-                    return False
+                if self.topic < other.topic:
+                    return -1
+                elif self.topic > other.topic:
+                    return 1
+            if self.id is None or other.id is None:
                 if self.id != other.id:
-                    return False
-                if self.link != other.link:
-                    return False
-                if self.obj != other.obj:
-                    return False
-                if self.theQoS != other.theQoS:
-                    return False
-                if self.cost != other.cost:
-                    return False
-                if self.theTopic != other.theTopic:
-                    return False
-                return True
+                    return (-1 if self.id is None else 1)
+            else:
+                if self.id < other.id:
+                    return -1
+                elif self.id > other.id:
+                    return 1
+            return 0
 
-        def __ne__(self, other):
-            return not self.__eq__(other)
+    def __lt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r < 0
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceStorm._t_SubscriberRecord)
+    def __le__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r <= 0
 
-        __repr__ = __str__
+    def __gt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r > 0
 
-    _M_IceStorm._t_SubscriberRecord = IcePy.defineStruct('::IceStorm::SubscriberRecord', SubscriberRecord, (), (
-        ('topicName', (), IcePy._t_string),
-        ('id', (), _M_Ice._t_Identity),
-        ('link', (), IcePy._t_bool),
-        ('obj', (), IcePy._t_ObjectPrx),
-        ('theQoS', (), _M_IceStorm._t_QoS),
-        ('cost', (), IcePy._t_int),
-        ('theTopic', (), _M_IceStorm._t_TopicPrx)
-    ))
+    def __ge__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r >= 0
 
-    _M_IceStorm.SubscriberRecord = SubscriberRecord
-    del SubscriberRecord
+    def __eq__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r == 0
 
-if '_t_SubscriberRecordSeq' not in _M_IceStorm.__dict__:
-    _M_IceStorm._t_SubscriberRecordSeq = IcePy.defineSequence('::IceStorm::SubscriberRecordSeq', (), _M_IceStorm._t_SubscriberRecord)
+    def __ne__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r != 0
+
+    def __str__(self):
+        return IcePy.stringify(self, _M_IceStorm._t_SubscriberRecordKey)
+
+    __repr__ = __str__
+
+_M_IceStorm._t_SubscriberRecordKey = IcePy.defineStruct('::IceStorm::SubscriberRecordKey', SubscriberRecordKey, (), (
+    ('topic', (), _M_Ice._t_Identity),
+    ('id', (), _M_Ice._t_Identity)
+))
+
+_M_IceStorm.SubscriberRecordKey = SubscriberRecordKey
+del SubscriberRecordKey
+_M_IceStorm.SubscriberRecord = None
+class SubscriberRecord(object):
+    """
+     Used to store persistent information for persistent subscribers.
+    Members:
+    topicName --  The name of the topic.
+    id --  The subscriber identity.
+    link --  Is this a link record, or a subscriber record?
+    obj --  The subscriber object.
+    theQoS --  The QoS.
+    cost --  The cost.
+    theTopic --  The linked topic.
+    """
+    def __init__(self, topicName='', id=Ice._struct_marker, link=False, obj=None, theQoS=None, cost=0, theTopic=None):
+        self.topicName = topicName
+        if id is Ice._struct_marker:
+            self.id = _M_Ice.Identity()
+        else:
+            self.id = id
+        self.link = link
+        self.obj = obj
+        self.theQoS = theQoS
+        self.cost = cost
+        self.theTopic = theTopic
+
+    def __eq__(self, other):
+        if other is None:
+            return False
+        elif not isinstance(other, _M_IceStorm.SubscriberRecord):
+            return NotImplemented
+        else:
+            if self.topicName != other.topicName:
+                return False
+            if self.id != other.id:
+                return False
+            if self.link != other.link:
+                return False
+            if self.obj != other.obj:
+                return False
+            if self.theQoS != other.theQoS:
+                return False
+            if self.cost != other.cost:
+                return False
+            if self.theTopic != other.theTopic:
+                return False
+            return True
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __str__(self):
+        return IcePy.stringify(self, _M_IceStorm._t_SubscriberRecord)
+
+    __repr__ = __str__
+
+_M_IceStorm._t_SubscriberRecord = IcePy.defineStruct('::IceStorm::SubscriberRecord', SubscriberRecord, (), (
+    ('topicName', (), IcePy._t_string),
+    ('id', (), _M_Ice._t_Identity),
+    ('link', (), IcePy._t_bool),
+    ('obj', (), IcePy._t_ObjectPrx),
+    ('theQoS', (), _M_IceStorm._t_QoS),
+    ('cost', (), IcePy._t_int),
+    ('theTopic', (), _M_IceStorm._t_TopicPrx)
+))
+
+_M_IceStorm.SubscriberRecord = SubscriberRecord
+del SubscriberRecord
+_M_IceStorm._t_SubscriberRecordSeq = IcePy.defineSequence('::IceStorm::SubscriberRecordSeq', (), _M_IceStorm._t_SubscriberRecord)
 
 # End of module IceStorm

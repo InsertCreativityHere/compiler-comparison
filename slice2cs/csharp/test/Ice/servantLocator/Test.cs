@@ -707,11 +707,11 @@ namespace Ice.servantLocator
                         {
                             throw ex;
                         }
-                        catch(TestImpossibleException)
+                        catch(TestIntfUserException)
                         {
                             throw;
                         }
-                        catch(TestIntfUserException)
+                        catch(TestImpossibleException)
                         {
                             throw;
                         }
@@ -757,11 +757,11 @@ namespace Ice.servantLocator
                         {
                             throw ex;
                         }
-                        catch(TestImpossibleException)
+                        catch(TestIntfUserException)
                         {
                             throw;
                         }
-                        catch(TestIntfUserException)
+                        catch(TestImpossibleException)
                         {
                             throw;
                         }
@@ -801,11 +801,11 @@ namespace Ice.servantLocator
                         {
                             throw ex;
                         }
-                        catch(TestImpossibleException)
+                        catch(TestIntfUserException)
                         {
                             throw;
                         }
-                        catch(TestIntfUserException)
+                        catch(TestImpossibleException)
                         {
                             throw;
                         }

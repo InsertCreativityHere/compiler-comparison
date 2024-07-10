@@ -21,8 +21,6 @@ import builtins as _builtins
 # Start of module Ice
 _M_Ice = Ice.openModule('Ice')
 __name__ = 'Ice'
-
-if '_t_PropertyDict' not in _M_Ice.__dict__:
-    _M_Ice._t_PropertyDict = IcePy.defineDictionary('::Ice::PropertyDict', (), IcePy._t_string, IcePy._t_string)
+_M_Ice._t_PropertyDict = IcePy.defineDictionary('::Ice::PropertyDict', (), IcePy._t_string, IcePy._t_string)
 
 # End of module Ice

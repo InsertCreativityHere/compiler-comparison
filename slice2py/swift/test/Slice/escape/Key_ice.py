@@ -21,425 +21,403 @@ import builtins as _builtins
 # Start of module _and
 _M__and = Ice.openModule('_and')
 __name__ = '_and'
+_M__and._continue = None
+class _continue(Ice.EnumBase):
 
-if '_continue' not in _M__and.__dict__:
-    _M__and._continue = Ice.createTempClass()
-    class _continue(Ice.EnumBase):
+    def __init__(self, _n, _v):
+        Ice.EnumBase.__init__(self, _n, _v)
 
-        def __init__(self, _n, _v):
-            Ice.EnumBase.__init__(self, _n, _v)
+    def valueOf(self, _n):
+        if _n in self._enumerators:
+            return self._enumerators[_n]
+        return None
+    valueOf = classmethod(valueOf)
 
-        def valueOf(self, _n):
-            if _n in self._enumerators:
-                return self._enumerators[_n]
-            return None
-        valueOf = classmethod(valueOf)
+_continue.let = _continue("let", 0)
+_continue.var = _continue("var", 1)
+_continue._enumerators = { 0:_continue.let, 1:_continue.var }
 
-    _continue.let = _continue("let", 0)
-    _continue.var = _continue("var", 1)
-    _continue._enumerators = { 0:_continue.let, 1:_continue.var }
+_M__and._t__continue = IcePy.defineEnum('::and::continue', _continue, (), _continue._enumerators)
 
-    _M__and._t__continue = IcePy.defineEnum('::and::continue', _continue, (), _continue._enumerators)
+_M__and._continue = _continue
+del _continue
+_M__and.guard = None
+class guard(object):
+    def __init__(self, default=0):
+        self.default = default
 
-    _M__and._continue = _continue
-    del _continue
+    def __hash__(self):
+        _h = 0
+        _h = 5 * _h + _builtins.hash(self.default)
+        return _h % 0x7fffffff
 
-if 'guard' not in _M__and.__dict__:
-    _M__and.guard = Ice.createTempClass()
-    class guard(object):
-        def __init__(self, default=0):
-            self.default = default
-
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + _builtins.hash(self.default)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
-            if other is None:
-                return 1
-            elif not isinstance(other, _M__and.guard):
-                return NotImplemented
+    def __compare(self, other):
+        if other is None:
+            return 1
+        elif not isinstance(other, _M__and.guard):
+            return NotImplemented
+        else:
+            if self.default is None or other.default is None:
+                if self.default != other.default:
+                    return (-1 if self.default is None else 1)
             else:
-                if self.default is None or other.default is None:
-                    if self.default != other.default:
-                        return (-1 if self.default is None else 1)
-                else:
-                    if self.default < other.default:
-                        return -1
-                    elif self.default > other.default:
-                        return 1
-                return 0
+                if self.default < other.default:
+                    return -1
+                elif self.default > other.default:
+                    return 1
+            return 0
 
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
+    def __lt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r < 0
+
+    def __le__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r <= 0
+
+    def __gt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r > 0
+
+    def __ge__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r >= 0
+
+    def __eq__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r == 0
+
+    def __ne__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r != 0
+
+    def __str__(self):
+        return IcePy.stringify(self, _M__and._t_guard)
+
+    __repr__ = __str__
+
+_M__and._t_guard = IcePy.defineStruct('::and::guard', guard, (), (('default', (), IcePy._t_int),))
+
+_M__and.guard = guard
+del guard
+_M__and.defer = None
+class defer(object):
+    def __init__(self, _else=''):
+        self._else = _else
+
+    def __hash__(self):
+        _h = 0
+        _h = 5 * _h + _builtins.hash(self._else)
+        return _h % 0x7fffffff
+
+    def __compare(self, other):
+        if other is None:
+            return 1
+        elif not isinstance(other, _M__and.defer):
+            return NotImplemented
+        else:
+            if self._else is None or other._else is None:
+                if self._else != other._else:
+                    return (-1 if self._else is None else 1)
             else:
-                return r < 0
+                if self._else < other._else:
+                    return -1
+                elif self._else > other._else:
+                    return 1
+            return 0
 
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
+    def __lt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r < 0
 
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
+    def __le__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r <= 0
 
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
+    def __gt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r > 0
 
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
+    def __ge__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r >= 0
 
-        def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
+    def __eq__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r == 0
 
-        def __str__(self):
-            return IcePy.stringify(self, _M__and._t_guard)
+    def __ne__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r != 0
 
-        __repr__ = __str__
+    def __str__(self):
+        return IcePy.stringify(self, _M__and._t_defer)
 
-    _M__and._t_guard = IcePy.defineStruct('::and::guard', guard, (), (('default', (), IcePy._t_int),))
+    __repr__ = __str__
 
-    _M__and.guard = guard
-    del guard
+_M__and._t_defer = IcePy.defineStruct('::and::defer', defer, (), (('_else', (), IcePy._t_string),))
 
-if 'defer' not in _M__and.__dict__:
-    _M__and.defer = Ice.createTempClass()
-    class defer(object):
-        def __init__(self, _else=''):
-            self._else = _else
-
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + _builtins.hash(self._else)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
-            if other is None:
-                return 1
-            elif not isinstance(other, _M__and.defer):
-                return NotImplemented
-            else:
-                if self._else is None or other._else is None:
-                    if self._else != other._else:
-                        return (-1 if self._else is None else 1)
-                else:
-                    if self._else < other._else:
-                        return -1
-                    elif self._else > other._else:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
-
-        def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
-
-        def __str__(self):
-            return IcePy.stringify(self, _M__and._t_defer)
-
-        __repr__ = __str__
-
-    _M__and._t_defer = IcePy.defineStruct('::and::defer', defer, (), (('_else', (), IcePy._t_string),))
-
-    _M__and.defer = defer
-    del defer
+_M__and.defer = defer
+del defer
 
 _M__and._t__break = IcePy.defineValue('::and::break', Ice.Value, -1, (), True, None, ())
+_M__and.breakPrx = None
+class breakPrx(Ice.ObjectPrx):
 
-if 'breakPrx' not in _M__and.__dict__:
-    _M__and.breakPrx = Ice.createTempClass()
-    class breakPrx(Ice.ObjectPrx):
+    def _case(self, catch, context=None):
+        return _M__and._break._op_case.invoke(self, ((catch, ), context))
 
-        def _case(self, catch, context=None):
-            return _M__and._break._op_case.invoke(self, ((catch, ), context))
+    def caseAsync(self, catch, context=None):
+        return _M__and._break._op_case.invokeAsync(self, ((catch, ), context))
 
-        def caseAsync(self, catch, context=None):
-            return _M__and._break._op_case.invokeAsync(self, ((catch, ), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M__and.breakPrx.ice_checkedCast(proxy, '::and::break', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M__and.breakPrx.ice_checkedCast(proxy, '::and::break', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M__and.breakPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M__and.breakPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::and::break'
+_M__and._t_breakPrx = IcePy.defineProxy('::and::break', breakPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::and::break'
-    _M__and._t_breakPrx = IcePy.defineProxy('::and::break', breakPrx)
+_M__and.breakPrx = breakPrx
+del breakPrx
 
-    _M__and.breakPrx = breakPrx
-    del breakPrx
+_M__and._break = None
+class _break(Ice.Object):
 
-    _M__and._break = Ice.createTempClass()
-    class _break(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::and::break')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::and::break')
+    def ice_id(self, current=None):
+        return '::and::break'
 
-        def ice_id(self, current=None):
-            return '::and::break'
+    @staticmethod
+    def ice_staticId():
+        return '::and::break'
 
-        @staticmethod
-        def ice_staticId():
-            return '::and::break'
+    def _case(self, catch, current=None):
+        raise NotImplementedError("servant method '_case' not implemented")
 
-        def _case(self, catch, current=None):
-            raise NotImplementedError("servant method '_case' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M__and._t_breakDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M__and._t_breakDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M__and._t_breakDisp = IcePy.defineClass('::and::break', _break, (), None, ())
+_break._ice_type = _M__and._t_breakDisp
 
-    _M__and._t_breakDisp = IcePy.defineClass('::and::break', _break, (), None, ())
-    _break._ice_type = _M__and._t_breakDisp
+_break._op_case = IcePy.Operation('case', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), None, ())
 
-    _break._op_case = IcePy.Operation('case', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), None, ())
-
-    _M__and._break = _break
-    del _break
+_M__and._break = _break
+del _break
 
 _M__and._t_func = IcePy.defineValue('::and::func', Ice.Value, -1, (), True, None, ())
+_M__and.funcPrx = None
+class funcPrx(Ice.ObjectPrx):
 
-if 'funcPrx' not in _M__and.__dict__:
-    _M__and.funcPrx = Ice.createTempClass()
-    class funcPrx(Ice.ObjectPrx):
+    def public(self, context=None):
+        return _M__and.func._op_public.invoke(self, ((), context))
 
-        def public(self, context=None):
-            return _M__and.func._op_public.invoke(self, ((), context))
+    def publicAsync(self, context=None):
+        return _M__and.func._op_public.invokeAsync(self, ((), context))
 
-        def publicAsync(self, context=None):
-            return _M__and.func._op_public.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M__and.funcPrx.ice_checkedCast(proxy, '::and::func', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M__and.funcPrx.ice_checkedCast(proxy, '::and::func', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M__and.funcPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M__and.funcPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::and::func'
+_M__and._t_funcPrx = IcePy.defineProxy('::and::func', funcPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::and::func'
-    _M__and._t_funcPrx = IcePy.defineProxy('::and::func', funcPrx)
+_M__and.funcPrx = funcPrx
+del funcPrx
 
-    _M__and.funcPrx = funcPrx
-    del funcPrx
+_M__and.func = None
+class func(Ice.Object):
 
-    _M__and.func = Ice.createTempClass()
-    class func(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::and::func')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::and::func')
+    def ice_id(self, current=None):
+        return '::and::func'
 
-        def ice_id(self, current=None):
-            return '::and::func'
+    @staticmethod
+    def ice_staticId():
+        return '::and::func'
 
-        @staticmethod
-        def ice_staticId():
-            return '::and::func'
+    def public(self, current=None):
+        raise NotImplementedError("servant method 'public' not implemented")
 
-        def public(self, current=None):
-            raise NotImplementedError("servant method 'public' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M__and._t_funcDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M__and._t_funcDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M__and._t_funcDisp = IcePy.defineClass('::and::func', func, (), None, ())
+func._ice_type = _M__and._t_funcDisp
 
-    _M__and._t_funcDisp = IcePy.defineClass('::and::func', func, (), None, ())
-    func._ice_type = _M__and._t_funcDisp
+func._op_public = IcePy.Operation('public', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    func._op_public = IcePy.Operation('public', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+_M__and.func = func
+del func
+_M__and.switch = None
+class switch(Ice.Value):
+    def __init__(self, _if=0, export=None, volatile=0):
+        self._if = _if
+        self.export = export
+        self.volatile = volatile
 
-    _M__and.func = func
-    del func
+    def ice_id(self):
+        return '::and::switch'
 
-if 'switch' not in _M__and.__dict__:
-    _M__and.switch = Ice.createTempClass()
-    class switch(Ice.Value):
-        def __init__(self, _if=0, export=None, volatile=0):
-            self._if = _if
-            self.export = export
-            self.volatile = volatile
+    @staticmethod
+    def ice_staticId():
+        return '::and::switch'
 
-        def ice_id(self):
-            return '::and::switch'
+    def __str__(self):
+        return IcePy.stringify(self, _M__and._t_switch)
 
-        @staticmethod
-        def ice_staticId():
-            return '::and::switch'
+    __repr__ = __str__
 
-        def __str__(self):
-            return IcePy.stringify(self, _M__and._t_switch)
+_M__and._t_switch = IcePy.defineValue('::and::switch', switch, -1, (), False, None, (
+    ('_if', (), IcePy._t_int, False, 0),
+    ('export', (), _M__and._t_funcPrx, False, 0),
+    ('volatile', (), IcePy._t_int, False, 0)
+))
+switch._ice_type = _M__and._t_switch
 
-        __repr__ = __str__
-
-    _M__and._t_switch = IcePy.defineValue('::and::switch', switch, -1, (), False, None, (
-        ('_if', (), IcePy._t_int, False, 0),
-        ('export', (), _M__and._t_funcPrx, False, 0),
-        ('volatile', (), IcePy._t_int, False, 0)
-    ))
-    switch._ice_type = _M__and._t_switch
-
-    _M__and.switch = switch
-    del switch
+_M__and.switch = switch
+del switch
 
 _M__and._t_do = IcePy.defineValue('::and::do', Ice.Value, -1, (), True, None, ())
+_M__and.doPrx = None
+class doPrx(_M__and.funcPrx, _M__and.breakPrx):
 
-if 'doPrx' not in _M__and.__dict__:
-    _M__and.doPrx = Ice.createTempClass()
-    class doPrx(_M__and.funcPrx, _M__and.breakPrx):
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M__and.doPrx.ice_checkedCast(proxy, '::and::do', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M__and.doPrx.ice_checkedCast(proxy, '::and::do', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M__and.doPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M__and.doPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::and::do'
+_M__and._t_doPrx = IcePy.defineProxy('::and::do', doPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::and::do'
-    _M__and._t_doPrx = IcePy.defineProxy('::and::do', doPrx)
+_M__and.doPrx = doPrx
+del doPrx
 
-    _M__and.doPrx = doPrx
-    del doPrx
+_M__and.do = None
+class do(_M__and.func, _M__and._break):
 
-    _M__and.do = Ice.createTempClass()
-    class do(_M__and.func, _M__and._break):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::and::break', '::and::do', '::and::func')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::and::break', '::and::do', '::and::func')
+    def ice_id(self, current=None):
+        return '::and::do'
 
-        def ice_id(self, current=None):
-            return '::and::do'
+    @staticmethod
+    def ice_staticId():
+        return '::and::do'
 
-        @staticmethod
-        def ice_staticId():
-            return '::and::do'
+    def __str__(self):
+        return IcePy.stringify(self, _M__and._t_doDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M__and._t_doDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M__and._t_doDisp = IcePy.defineClass('::and::do', do, (), None, (_M__and._t_funcDisp, _M__and._t_breakDisp))
+do._ice_type = _M__and._t_doDisp
 
-    _M__and._t_doDisp = IcePy.defineClass('::and::do', do, (), None, (_M__and._t_funcDisp, _M__and._t_breakDisp))
-    do._ice_type = _M__and._t_doDisp
+_M__and.do = do
+del do
+_M__and._t_fileprivate = IcePy.defineSequence('::and::fileprivate', (), _M__and._t_guard)
+_M__and._t__for = IcePy.defineDictionary('::and::for', (), IcePy._t_string, _M__and._t_guard)
+_M__and._return = None
+class _return(Ice.UserException):
+    def __init__(self, Int32=0):
+        self.Int32 = Int32
 
-    _M__and.do = do
-    del do
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-if '_t_fileprivate' not in _M__and.__dict__:
-    _M__and._t_fileprivate = IcePy.defineSequence('::and::fileprivate', (), _M__and._t_guard)
+    __repr__ = __str__
 
-if '_t__for' not in _M__and.__dict__:
-    _M__and._t__for = IcePy.defineDictionary('::and::for', (), IcePy._t_string, _M__and._t_guard)
+    _ice_id = '::and::return'
 
-if '_return' not in _M__and.__dict__:
-    _M__and._return = Ice.createTempClass()
-    class _return(Ice.UserException):
-        def __init__(self, Int32=0):
-            self.Int32 = Int32
+_M__and._t__return = IcePy.defineException('::and::return', _return, (), None, (('Int32', (), IcePy._t_int, False, 0),))
+_return._ice_type = _M__and._t__return
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+_M__and._return = _return
+del _return
+_M__and._as = None
+class _as(_M__and._return):
+    def __init__(self, Int32=0, static=0, switch=0):
+        _M__and._return.__init__(self, Int32)
+        self.static = static
+        self.switch = switch
 
-        __repr__ = __str__
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-        _ice_id = '::and::return'
+    __repr__ = __str__
 
-    _M__and._t__return = IcePy.defineException('::and::return', _return, (), None, (('Int32', (), IcePy._t_int, False, 0),))
-    _return._ice_type = _M__and._t__return
+    _ice_id = '::and::as'
 
-    _M__and._return = _return
-    del _return
+_M__and._t__as = IcePy.defineException('::and::as', _as, (), _M__and._t__return, (
+    ('static', (), IcePy._t_int, False, 0),
+    ('switch', (), IcePy._t_int, False, 0)
+))
+_as._ice_type = _M__and._t__as
 
-if '_as' not in _M__and.__dict__:
-    _M__and._as = Ice.createTempClass()
-    class _as(_M__and._return):
-        def __init__(self, Int32=0, static=0, switch=0):
-            _M__and._return.__init__(self, Int32)
-            self.static = static
-            self.switch = switch
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::and::as'
-
-    _M__and._t__as = IcePy.defineException('::and::as', _as, (), _M__and._t__return, (
-        ('static', (), IcePy._t_int, False, 0),
-        ('switch', (), IcePy._t_int, False, 0)
-    ))
-    _as._ice_type = _M__and._t__as
-
-    _M__and._as = _as
-    del _as
+_M__and._as = _as
+del _as
 
 _M__and._is = 0
 

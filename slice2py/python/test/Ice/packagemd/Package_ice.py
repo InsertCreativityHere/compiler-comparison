@@ -22,94 +22,86 @@ import builtins as _builtins
 _M_testpkg = Ice.openModule('testpkg')
 _M_testpkg.Test2 = Ice.openModule('testpkg.Test2')
 __name__ = 'testpkg.Test2'
+_M_testpkg.Test2.C1 = None
+class C1(Ice.Value):
+    def __init__(self, i=0):
+        self.i = i
 
-if 'C1' not in _M_testpkg.Test2.__dict__:
-    _M_testpkg.Test2.C1 = Ice.createTempClass()
-    class C1(Ice.Value):
-        def __init__(self, i=0):
-            self.i = i
+    def ice_id(self):
+        return '::Test2::C1'
 
-        def ice_id(self):
-            return '::Test2::C1'
+    @staticmethod
+    def ice_staticId():
+        return '::Test2::C1'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test2::C1'
+    def __str__(self):
+        return IcePy.stringify(self, _M_testpkg.Test2._t_C1)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_testpkg.Test2._t_C1)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_testpkg.Test2._t_C1 = IcePy.defineValue('::Test2::C1', C1, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
+C1._ice_type = _M_testpkg.Test2._t_C1
 
-    _M_testpkg.Test2._t_C1 = IcePy.defineValue('::Test2::C1', C1, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
-    C1._ice_type = _M_testpkg.Test2._t_C1
+_M_testpkg.Test2.C1 = C1
+del C1
+_M_testpkg.Test2.C2 = None
+class C2(_M_testpkg.Test2.C1):
+    def __init__(self, i=0, l=0):
+        _M_testpkg.Test2.C1.__init__(self, i)
+        self.l = l
 
-    _M_testpkg.Test2.C1 = C1
-    del C1
+    def ice_id(self):
+        return '::Test2::C2'
 
-if 'C2' not in _M_testpkg.Test2.__dict__:
-    _M_testpkg.Test2.C2 = Ice.createTempClass()
-    class C2(_M_testpkg.Test2.C1):
-        def __init__(self, i=0, l=0):
-            _M_testpkg.Test2.C1.__init__(self, i)
-            self.l = l
+    @staticmethod
+    def ice_staticId():
+        return '::Test2::C2'
 
-        def ice_id(self):
-            return '::Test2::C2'
+    def __str__(self):
+        return IcePy.stringify(self, _M_testpkg.Test2._t_C2)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test2::C2'
+    __repr__ = __str__
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_testpkg.Test2._t_C2)
+_M_testpkg.Test2._t_C2 = IcePy.defineValue('::Test2::C2', C2, -1, (), False, _M_testpkg.Test2._t_C1, (('l', (), IcePy._t_long, False, 0),))
+C2._ice_type = _M_testpkg.Test2._t_C2
 
-        __repr__ = __str__
+_M_testpkg.Test2.C2 = C2
+del C2
+_M_testpkg.Test2.E1 = None
+class E1(Ice.UserException):
+    def __init__(self, i=0):
+        self.i = i
 
-    _M_testpkg.Test2._t_C2 = IcePy.defineValue('::Test2::C2', C2, -1, (), False, _M_testpkg.Test2._t_C1, (('l', (), IcePy._t_long, False, 0),))
-    C2._ice_type = _M_testpkg.Test2._t_C2
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-    _M_testpkg.Test2.C2 = C2
-    del C2
+    __repr__ = __str__
 
-if 'E1' not in _M_testpkg.Test2.__dict__:
-    _M_testpkg.Test2.E1 = Ice.createTempClass()
-    class E1(Ice.UserException):
-        def __init__(self, i=0):
-            self.i = i
+    _ice_id = '::Test2::E1'
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+_M_testpkg.Test2._t_E1 = IcePy.defineException('::Test2::E1', E1, (), None, (('i', (), IcePy._t_int, False, 0),))
+E1._ice_type = _M_testpkg.Test2._t_E1
 
-        __repr__ = __str__
+_M_testpkg.Test2.E1 = E1
+del E1
+_M_testpkg.Test2.E2 = None
+class E2(_M_testpkg.Test2.E1):
+    def __init__(self, i=0, l=0):
+        _M_testpkg.Test2.E1.__init__(self, i)
+        self.l = l
 
-        _ice_id = '::Test2::E1'
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-    _M_testpkg.Test2._t_E1 = IcePy.defineException('::Test2::E1', E1, (), None, (('i', (), IcePy._t_int, False, 0),))
-    E1._ice_type = _M_testpkg.Test2._t_E1
+    __repr__ = __str__
 
-    _M_testpkg.Test2.E1 = E1
-    del E1
+    _ice_id = '::Test2::E2'
 
-if 'E2' not in _M_testpkg.Test2.__dict__:
-    _M_testpkg.Test2.E2 = Ice.createTempClass()
-    class E2(_M_testpkg.Test2.E1):
-        def __init__(self, i=0, l=0):
-            _M_testpkg.Test2.E1.__init__(self, i)
-            self.l = l
+_M_testpkg.Test2._t_E2 = IcePy.defineException('::Test2::E2', E2, (), _M_testpkg.Test2._t_E1, (('l', (), IcePy._t_long, False, 0),))
+E2._ice_type = _M_testpkg.Test2._t_E2
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test2::E2'
-
-    _M_testpkg.Test2._t_E2 = IcePy.defineException('::Test2::E2', E2, (), _M_testpkg.Test2._t_E1, (('l', (), IcePy._t_long, False, 0),))
-    E2._ice_type = _M_testpkg.Test2._t_E2
-
-    _M_testpkg.Test2.E2 = E2
-    del E2
+_M_testpkg.Test2.E2 = E2
+del E2
 
 # End of module testpkg.Test2
 
@@ -117,93 +109,85 @@ if 'E2' not in _M_testpkg.Test2.__dict__:
 _M_modpkg = Ice.openModule('modpkg')
 _M_modpkg.Test3 = Ice.openModule('modpkg.Test3')
 __name__ = 'modpkg.Test3'
+_M_modpkg.Test3.C1 = None
+class C1(Ice.Value):
+    def __init__(self, i=0):
+        self.i = i
 
-if 'C1' not in _M_modpkg.Test3.__dict__:
-    _M_modpkg.Test3.C1 = Ice.createTempClass()
-    class C1(Ice.Value):
-        def __init__(self, i=0):
-            self.i = i
+    def ice_id(self):
+        return '::Test3::C1'
 
-        def ice_id(self):
-            return '::Test3::C1'
+    @staticmethod
+    def ice_staticId():
+        return '::Test3::C1'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test3::C1'
+    def __str__(self):
+        return IcePy.stringify(self, _M_modpkg.Test3._t_C1)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_modpkg.Test3._t_C1)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_modpkg.Test3._t_C1 = IcePy.defineValue('::Test3::C1', C1, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
+C1._ice_type = _M_modpkg.Test3._t_C1
 
-    _M_modpkg.Test3._t_C1 = IcePy.defineValue('::Test3::C1', C1, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
-    C1._ice_type = _M_modpkg.Test3._t_C1
+_M_modpkg.Test3.C1 = C1
+del C1
+_M_modpkg.Test3.C2 = None
+class C2(_M_modpkg.Test3.C1):
+    def __init__(self, i=0, l=0):
+        _M_modpkg.Test3.C1.__init__(self, i)
+        self.l = l
 
-    _M_modpkg.Test3.C1 = C1
-    del C1
+    def ice_id(self):
+        return '::Test3::C2'
 
-if 'C2' not in _M_modpkg.Test3.__dict__:
-    _M_modpkg.Test3.C2 = Ice.createTempClass()
-    class C2(_M_modpkg.Test3.C1):
-        def __init__(self, i=0, l=0):
-            _M_modpkg.Test3.C1.__init__(self, i)
-            self.l = l
+    @staticmethod
+    def ice_staticId():
+        return '::Test3::C2'
 
-        def ice_id(self):
-            return '::Test3::C2'
+    def __str__(self):
+        return IcePy.stringify(self, _M_modpkg.Test3._t_C2)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test3::C2'
+    __repr__ = __str__
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_modpkg.Test3._t_C2)
+_M_modpkg.Test3._t_C2 = IcePy.defineValue('::Test3::C2', C2, -1, (), False, _M_modpkg.Test3._t_C1, (('l', (), IcePy._t_long, False, 0),))
+C2._ice_type = _M_modpkg.Test3._t_C2
 
-        __repr__ = __str__
+_M_modpkg.Test3.C2 = C2
+del C2
+_M_modpkg.Test3.E1 = None
+class E1(Ice.UserException):
+    def __init__(self, i=0):
+        self.i = i
 
-    _M_modpkg.Test3._t_C2 = IcePy.defineValue('::Test3::C2', C2, -1, (), False, _M_modpkg.Test3._t_C1, (('l', (), IcePy._t_long, False, 0),))
-    C2._ice_type = _M_modpkg.Test3._t_C2
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-    _M_modpkg.Test3.C2 = C2
-    del C2
+    __repr__ = __str__
 
-if 'E1' not in _M_modpkg.Test3.__dict__:
-    _M_modpkg.Test3.E1 = Ice.createTempClass()
-    class E1(Ice.UserException):
-        def __init__(self, i=0):
-            self.i = i
+    _ice_id = '::Test3::E1'
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+_M_modpkg.Test3._t_E1 = IcePy.defineException('::Test3::E1', E1, (), None, (('i', (), IcePy._t_int, False, 0),))
+E1._ice_type = _M_modpkg.Test3._t_E1
 
-        __repr__ = __str__
+_M_modpkg.Test3.E1 = E1
+del E1
+_M_modpkg.Test3.E2 = None
+class E2(_M_modpkg.Test3.E1):
+    def __init__(self, i=0, l=0):
+        _M_modpkg.Test3.E1.__init__(self, i)
+        self.l = l
 
-        _ice_id = '::Test3::E1'
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-    _M_modpkg.Test3._t_E1 = IcePy.defineException('::Test3::E1', E1, (), None, (('i', (), IcePy._t_int, False, 0),))
-    E1._ice_type = _M_modpkg.Test3._t_E1
+    __repr__ = __str__
 
-    _M_modpkg.Test3.E1 = E1
-    del E1
+    _ice_id = '::Test3::E2'
 
-if 'E2' not in _M_modpkg.Test3.__dict__:
-    _M_modpkg.Test3.E2 = Ice.createTempClass()
-    class E2(_M_modpkg.Test3.E1):
-        def __init__(self, i=0, l=0):
-            _M_modpkg.Test3.E1.__init__(self, i)
-            self.l = l
+_M_modpkg.Test3._t_E2 = IcePy.defineException('::Test3::E2', E2, (), _M_modpkg.Test3._t_E1, (('l', (), IcePy._t_long, False, 0),))
+E2._ice_type = _M_modpkg.Test3._t_E2
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test3::E2'
-
-    _M_modpkg.Test3._t_E2 = IcePy.defineException('::Test3::E2', E2, (), _M_modpkg.Test3._t_E1, (('l', (), IcePy._t_long, False, 0),))
-    E2._ice_type = _M_modpkg.Test3._t_E2
-
-    _M_modpkg.Test3.E2 = E2
-    del E2
+_M_modpkg.Test3.E2 = E2
+del E2
 
 # End of module modpkg.Test3

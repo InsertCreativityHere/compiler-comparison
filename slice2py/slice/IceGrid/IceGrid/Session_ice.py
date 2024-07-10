@@ -33,233 +33,231 @@ _M_IceGrid = Ice.openModule('IceGrid')
 __name__ = 'IceGrid'
 
 _M_IceGrid._t_Session = IcePy.defineValue('::IceGrid::Session', Ice.Value, -1, (), True, None, ())
+_M_IceGrid.SessionPrx = None
+class SessionPrx(_M_Glacier2.SessionPrx):
 
-if 'SessionPrx' not in _M_IceGrid.__dict__:
-    _M_IceGrid.SessionPrx = Ice.createTempClass()
-    class SessionPrx(_M_Glacier2.SessionPrx):
+    """
+     Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+     need to call this operation and its implementation does nothing.
+    Arguments:
+    context -- The request context for the invocation.
+    """
+    def keepAlive(self, context=None):
+        return _M_IceGrid.Session._op_keepAlive.invoke(self, ((), context))
 
+    """
+     Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+     need to call this operation and its implementation does nothing.
+    Arguments:
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def keepAliveAsync(self, context=None):
+        return _M_IceGrid.Session._op_keepAlive.invokeAsync(self, ((), context))
+
+    """
+     Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     available or until the timeout is reached.
+    Arguments:
+    id -- The identity of the object to allocate.
+    context -- The request context for the invocation.
+    Returns: The proxy of the allocated object. The returned proxy is never null.
+    Throws:
+    AllocationException -- Raised if the object can't be allocated.
+    ObjectNotRegisteredException -- Raised if the object with the given identity is not registered with the registry.
+    """
+    def allocateObjectById(self, id, context=None):
+        return _M_IceGrid.Session._op_allocateObjectById.invoke(self, ((id, ), context))
+
+    """
+     Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     available or until the timeout is reached.
+    Arguments:
+    id -- The identity of the object to allocate.
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def allocateObjectByIdAsync(self, id, context=None):
+        return _M_IceGrid.Session._op_allocateObjectById.invokeAsync(self, ((id, ), context))
+
+    """
+     Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     an object becomes available or until the timeout is reached.
+    Arguments:
+    type -- The type of the object.
+    context -- The request context for the invocation.
+    Returns: The proxy of the allocated object. The returned proxy is never null.
+    Throws:
+    AllocationException -- Raised if the object could not be allocated.
+    """
+    def allocateObjectByType(self, type, context=None):
+        return _M_IceGrid.Session._op_allocateObjectByType.invoke(self, ((type, ), context))
+
+    """
+     Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     an object becomes available or until the timeout is reached.
+    Arguments:
+    type -- The type of the object.
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def allocateObjectByTypeAsync(self, type, context=None):
+        return _M_IceGrid.Session._op_allocateObjectByType.invokeAsync(self, ((type, ), context))
+
+    """
+     Release an object that was allocated using allocateObjectById or
+     allocateObjectByType.
+    Arguments:
+    id -- The identity of the object to release.
+    context -- The request context for the invocation.
+    Throws:
+    AllocationException -- Raised if the given object can't be released. This might happen if the object isn't allocatable or isn't allocated by the session.
+    ObjectNotRegisteredException -- Raised if the object with the given identity is not registered with the registry.
+    """
+    def releaseObject(self, id, context=None):
+        return _M_IceGrid.Session._op_releaseObject.invoke(self, ((id, ), context))
+
+    """
+     Release an object that was allocated using allocateObjectById or
+     allocateObjectByType.
+    Arguments:
+    id -- The identity of the object to release.
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def releaseObjectAsync(self, id, context=None):
+        return _M_IceGrid.Session._op_releaseObject.invokeAsync(self, ((id, ), context))
+
+    """
+     Set the allocation timeout. If no objects are available for an allocation request, a call to
+     allocateObjectById or allocateObjectByType will block for the duration of this
+     timeout.
+    Arguments:
+    timeout -- The timeout in milliseconds.
+    context -- The request context for the invocation.
+    """
+    def setAllocationTimeout(self, timeout, context=None):
+        return _M_IceGrid.Session._op_setAllocationTimeout.invoke(self, ((timeout, ), context))
+
+    """
+     Set the allocation timeout. If no objects are available for an allocation request, a call to
+     allocateObjectById or allocateObjectByType will block for the duration of this
+     timeout.
+    Arguments:
+    timeout -- The timeout in milliseconds.
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def setAllocationTimeoutAsync(self, timeout, context=None):
+        return _M_IceGrid.Session._op_setAllocationTimeout.invokeAsync(self, ((timeout, ), context))
+
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_IceGrid.SessionPrx.ice_checkedCast(proxy, '::IceGrid::Session', facetOrContext, context)
+
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_IceGrid.SessionPrx.ice_uncheckedCast(proxy, facet)
+
+    @staticmethod
+    def ice_staticId():
+        return '::IceGrid::Session'
+_M_IceGrid._t_SessionPrx = IcePy.defineProxy('::IceGrid::Session', SessionPrx)
+
+_M_IceGrid.SessionPrx = SessionPrx
+del SessionPrx
+
+_M_IceGrid.Session = None
+class Session(_M_Glacier2.Session):
+
+    def ice_ids(self, current=None):
+        return ('::Glacier2::Session', '::Ice::Object', '::IceGrid::Session')
+
+    def ice_id(self, current=None):
+        return '::IceGrid::Session'
+
+    @staticmethod
+    def ice_staticId():
+        return '::IceGrid::Session'
+
+    def keepAlive(self, current=None):
         """
          Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
          need to call this operation and its implementation does nothing.
         Arguments:
-        context -- The request context for the invocation.
-        """
-        def keepAlive(self, context=None):
-            return _M_IceGrid.Session._op_keepAlive.invoke(self, ((), context))
-
-        """
-         Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-         need to call this operation and its implementation does nothing.
-        Arguments:
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
         Returns: A future object for the invocation.
         """
-        def keepAliveAsync(self, context=None):
-            return _M_IceGrid.Session._op_keepAlive.invokeAsync(self, ((), context))
+        raise NotImplementedError("servant method 'keepAlive' not implemented")
 
+    def allocateObjectById(self, id, current=None):
         """
          Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
          available or until the timeout is reached.
         Arguments:
         id -- The identity of the object to allocate.
-        context -- The request context for the invocation.
-        Returns: The proxy of the allocated object. The returned proxy is never null.
+        current -- The Current object for the invocation.
+        Returns: A future object for the invocation.
         Throws:
         AllocationException -- Raised if the object can't be allocated.
         ObjectNotRegisteredException -- Raised if the object with the given identity is not registered with the registry.
         """
-        def allocateObjectById(self, id, context=None):
-            return _M_IceGrid.Session._op_allocateObjectById.invoke(self, ((id, ), context))
+        raise NotImplementedError("servant method 'allocateObjectById' not implemented")
 
-        """
-         Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
-         available or until the timeout is reached.
-        Arguments:
-        id -- The identity of the object to allocate.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def allocateObjectByIdAsync(self, id, context=None):
-            return _M_IceGrid.Session._op_allocateObjectById.invokeAsync(self, ((id, ), context))
-
+    def allocateObjectByType(self, type, current=None):
         """
          Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
          an object becomes available or until the timeout is reached.
         Arguments:
         type -- The type of the object.
-        context -- The request context for the invocation.
-        Returns: The proxy of the allocated object. The returned proxy is never null.
+        current -- The Current object for the invocation.
+        Returns: A future object for the invocation.
         Throws:
         AllocationException -- Raised if the object could not be allocated.
         """
-        def allocateObjectByType(self, type, context=None):
-            return _M_IceGrid.Session._op_allocateObjectByType.invoke(self, ((type, ), context))
+        raise NotImplementedError("servant method 'allocateObjectByType' not implemented")
 
-        """
-         Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
-         an object becomes available or until the timeout is reached.
-        Arguments:
-        type -- The type of the object.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def allocateObjectByTypeAsync(self, type, context=None):
-            return _M_IceGrid.Session._op_allocateObjectByType.invokeAsync(self, ((type, ), context))
-
+    def releaseObject(self, id, current=None):
         """
          Release an object that was allocated using allocateObjectById or
          allocateObjectByType.
         Arguments:
         id -- The identity of the object to release.
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
+        Returns: A future object for the invocation.
         Throws:
         AllocationException -- Raised if the given object can't be released. This might happen if the object isn't allocatable or isn't allocated by the session.
         ObjectNotRegisteredException -- Raised if the object with the given identity is not registered with the registry.
         """
-        def releaseObject(self, id, context=None):
-            return _M_IceGrid.Session._op_releaseObject.invoke(self, ((id, ), context))
+        raise NotImplementedError("servant method 'releaseObject' not implemented")
 
-        """
-         Release an object that was allocated using allocateObjectById or
-         allocateObjectByType.
-        Arguments:
-        id -- The identity of the object to release.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def releaseObjectAsync(self, id, context=None):
-            return _M_IceGrid.Session._op_releaseObject.invokeAsync(self, ((id, ), context))
-
+    def setAllocationTimeout(self, timeout, current=None):
         """
          Set the allocation timeout. If no objects are available for an allocation request, a call to
          allocateObjectById or allocateObjectByType will block for the duration of this
          timeout.
         Arguments:
         timeout -- The timeout in milliseconds.
-        context -- The request context for the invocation.
-        """
-        def setAllocationTimeout(self, timeout, context=None):
-            return _M_IceGrid.Session._op_setAllocationTimeout.invoke(self, ((timeout, ), context))
-
-        """
-         Set the allocation timeout. If no objects are available for an allocation request, a call to
-         allocateObjectById or allocateObjectByType will block for the duration of this
-         timeout.
-        Arguments:
-        timeout -- The timeout in milliseconds.
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
         Returns: A future object for the invocation.
         """
-        def setAllocationTimeoutAsync(self, timeout, context=None):
-            return _M_IceGrid.Session._op_setAllocationTimeout.invokeAsync(self, ((timeout, ), context))
+        raise NotImplementedError("servant method 'setAllocationTimeout' not implemented")
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_IceGrid.SessionPrx.ice_checkedCast(proxy, '::IceGrid::Session', facetOrContext, context)
+    def __str__(self):
+        return IcePy.stringify(self, _M_IceGrid._t_SessionDisp)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_IceGrid.SessionPrx.ice_uncheckedCast(proxy, facet)
+    __repr__ = __str__
 
-        @staticmethod
-        def ice_staticId():
-            return '::IceGrid::Session'
-    _M_IceGrid._t_SessionPrx = IcePy.defineProxy('::IceGrid::Session', SessionPrx)
+_M_IceGrid._t_SessionDisp = IcePy.defineClass('::IceGrid::Session', Session, (), None, (_M_Glacier2._t_SessionDisp,))
+Session._ice_type = _M_IceGrid._t_SessionDisp
 
-    _M_IceGrid.SessionPrx = SessionPrx
-    del SessionPrx
+Session._op_keepAlive = IcePy.Operation('keepAlive', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+Session._op_allocateObjectById = IcePy.Operation('allocateObjectById', Ice.OperationMode.Normal, True, None, (), (((), _M_Ice._t_Identity, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceGrid._t_ObjectNotRegisteredException, _M_IceGrid._t_AllocationException))
+Session._op_allocateObjectByType = IcePy.Operation('allocateObjectByType', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceGrid._t_AllocationException,))
+Session._op_releaseObject = IcePy.Operation('releaseObject', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), None, (_M_IceGrid._t_ObjectNotRegisteredException, _M_IceGrid._t_AllocationException))
+Session._op_setAllocationTimeout = IcePy.Operation('setAllocationTimeout', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
 
-    _M_IceGrid.Session = Ice.createTempClass()
-    class Session(_M_Glacier2.Session):
-
-        def ice_ids(self, current=None):
-            return ('::Glacier2::Session', '::Ice::Object', '::IceGrid::Session')
-
-        def ice_id(self, current=None):
-            return '::IceGrid::Session'
-
-        @staticmethod
-        def ice_staticId():
-            return '::IceGrid::Session'
-
-        def keepAlive(self, current=None):
-            """
-             Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-             need to call this operation and its implementation does nothing.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'keepAlive' not implemented")
-
-        def allocateObjectById(self, id, current=None):
-            """
-             Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
-             available or until the timeout is reached.
-            Arguments:
-            id -- The identity of the object to allocate.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            AllocationException -- Raised if the object can't be allocated.
-            ObjectNotRegisteredException -- Raised if the object with the given identity is not registered with the registry.
-            """
-            raise NotImplementedError("servant method 'allocateObjectById' not implemented")
-
-        def allocateObjectByType(self, type, current=None):
-            """
-             Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
-             an object becomes available or until the timeout is reached.
-            Arguments:
-            type -- The type of the object.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            AllocationException -- Raised if the object could not be allocated.
-            """
-            raise NotImplementedError("servant method 'allocateObjectByType' not implemented")
-
-        def releaseObject(self, id, current=None):
-            """
-             Release an object that was allocated using allocateObjectById or
-             allocateObjectByType.
-            Arguments:
-            id -- The identity of the object to release.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            AllocationException -- Raised if the given object can't be released. This might happen if the object isn't allocatable or isn't allocated by the session.
-            ObjectNotRegisteredException -- Raised if the object with the given identity is not registered with the registry.
-            """
-            raise NotImplementedError("servant method 'releaseObject' not implemented")
-
-        def setAllocationTimeout(self, timeout, current=None):
-            """
-             Set the allocation timeout. If no objects are available for an allocation request, a call to
-             allocateObjectById or allocateObjectByType will block for the duration of this
-             timeout.
-            Arguments:
-            timeout -- The timeout in milliseconds.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'setAllocationTimeout' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceGrid._t_SessionDisp)
-
-        __repr__ = __str__
-
-    _M_IceGrid._t_SessionDisp = IcePy.defineClass('::IceGrid::Session', Session, (), None, (_M_Glacier2._t_SessionDisp,))
-    Session._ice_type = _M_IceGrid._t_SessionDisp
-
-    Session._op_keepAlive = IcePy.Operation('keepAlive', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
-    Session._op_allocateObjectById = IcePy.Operation('allocateObjectById', Ice.OperationMode.Normal, True, None, (), (((), _M_Ice._t_Identity, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceGrid._t_ObjectNotRegisteredException, _M_IceGrid._t_AllocationException))
-    Session._op_allocateObjectByType = IcePy.Operation('allocateObjectByType', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceGrid._t_AllocationException,))
-    Session._op_releaseObject = IcePy.Operation('releaseObject', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), None, (_M_IceGrid._t_ObjectNotRegisteredException, _M_IceGrid._t_AllocationException))
-    Session._op_setAllocationTimeout = IcePy.Operation('setAllocationTimeout', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-
-    _M_IceGrid.Session = Session
-    del Session
+_M_IceGrid.Session = Session
+del Session
 
 # End of module IceGrid

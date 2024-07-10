@@ -21,125 +21,119 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
+_M_Test.ConcreteClass = None
+class ConcreteClass(Ice.Value):
+    def __init__(self, i=0):
+        self.i = i
 
-if 'ConcreteClass' not in _M_Test.__dict__:
-    _M_Test.ConcreteClass = Ice.createTempClass()
-    class ConcreteClass(Ice.Value):
-        def __init__(self, i=0):
-            self.i = i
+    def ice_id(self):
+        return '::Test::ConcreteClass'
 
-        def ice_id(self):
-            return '::Test::ConcreteClass'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::ConcreteClass'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::ConcreteClass'
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_ConcreteClass)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_ConcreteClass)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_ConcreteClass = IcePy.defineValue('::Test::ConcreteClass', ConcreteClass, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
+ConcreteClass._ice_type = _M_Test._t_ConcreteClass
 
-    _M_Test._t_ConcreteClass = IcePy.defineValue('::Test::ConcreteClass', ConcreteClass, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
-    ConcreteClass._ice_type = _M_Test._t_ConcreteClass
+_M_Test.ConcreteClass = ConcreteClass
+del ConcreteClass
+_M_Test.E = None
+class E(Ice.UserException):
+    def __init__(self):
+        pass
 
-    _M_Test.ConcreteClass = ConcreteClass
-    del ConcreteClass
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-if 'E' not in _M_Test.__dict__:
-    _M_Test.E = Ice.createTempClass()
-    class E(Ice.UserException):
-        def __init__(self):
-            pass
+    __repr__ = __str__
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    _ice_id = '::Test::E'
 
-        __repr__ = __str__
+_M_Test._t_E = IcePy.defineException('::Test::E', E, (), None, ())
+E._ice_type = _M_Test._t_E
 
-        _ice_id = '::Test::E'
-
-    _M_Test._t_E = IcePy.defineException('::Test::E', E, (), None, ())
-    E._ice_type = _M_Test._t_E
-
-    _M_Test.E = E
-    del E
+_M_Test.E = E
+del E
 
 _M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
+_M_Test.InitialPrx = None
+class InitialPrx(Ice.ObjectPrx):
 
-if 'InitialPrx' not in _M_Test.__dict__:
-    _M_Test.InitialPrx = Ice.createTempClass()
-    class InitialPrx(Ice.ObjectPrx):
+    def getConcreteClass(self, context=None):
+        return _M_Test.Initial._op_getConcreteClass.invoke(self, ((), context))
 
-        def getConcreteClass(self, context=None):
-            return _M_Test.Initial._op_getConcreteClass.invoke(self, ((), context))
+    def getConcreteClassAsync(self, context=None):
+        return _M_Test.Initial._op_getConcreteClass.invokeAsync(self, ((), context))
 
-        def getConcreteClassAsync(self, context=None):
-            return _M_Test.Initial._op_getConcreteClass.invokeAsync(self, ((), context))
+    def throwException(self, context=None):
+        return _M_Test.Initial._op_throwException.invoke(self, ((), context))
 
-        def throwException(self, context=None):
-            return _M_Test.Initial._op_throwException.invoke(self, ((), context))
+    def throwExceptionAsync(self, context=None):
+        return _M_Test.Initial._op_throwException.invokeAsync(self, ((), context))
 
-        def throwExceptionAsync(self, context=None):
-            return _M_Test.Initial._op_throwException.invokeAsync(self, ((), context))
+    def shutdown(self, context=None):
+        return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
 
-        def shutdown(self, context=None):
-            return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
+    def shutdownAsync(self, context=None):
+        return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
 
-        def shutdownAsync(self, context=None):
-            return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.InitialPrx.ice_checkedCast(proxy, '::Test::Initial', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.InitialPrx.ice_checkedCast(proxy, '::Test::Initial', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.InitialPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.InitialPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Initial'
+_M_Test._t_InitialPrx = IcePy.defineProxy('::Test::Initial', InitialPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Initial'
-    _M_Test._t_InitialPrx = IcePy.defineProxy('::Test::Initial', InitialPrx)
+_M_Test.InitialPrx = InitialPrx
+del InitialPrx
 
-    _M_Test.InitialPrx = InitialPrx
-    del InitialPrx
+_M_Test.Initial = None
+class Initial(Ice.Object):
 
-    _M_Test.Initial = Ice.createTempClass()
-    class Initial(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Initial')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Initial')
+    def ice_id(self, current=None):
+        return '::Test::Initial'
 
-        def ice_id(self, current=None):
-            return '::Test::Initial'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Initial'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Initial'
+    def getConcreteClass(self, current=None):
+        raise NotImplementedError("servant method 'getConcreteClass' not implemented")
 
-        def getConcreteClass(self, current=None):
-            raise NotImplementedError("servant method 'getConcreteClass' not implemented")
+    def throwException(self, current=None):
+        raise NotImplementedError("servant method 'throwException' not implemented")
 
-        def throwException(self, current=None):
-            raise NotImplementedError("servant method 'throwException' not implemented")
+    def shutdown(self, current=None):
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def shutdown(self, current=None):
-            raise NotImplementedError("servant method 'shutdown' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_InitialDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_InitialDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
+Initial._ice_type = _M_Test._t_InitialDisp
 
-    _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
-    Initial._ice_type = _M_Test._t_InitialDisp
+Initial._op_getConcreteClass = IcePy.Operation('getConcreteClass', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ConcreteClass, False, 0), ())
+Initial._op_throwException = IcePy.Operation('throwException', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_E,))
+Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    Initial._op_getConcreteClass = IcePy.Operation('getConcreteClass', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ConcreteClass, False, 0), ())
-    Initial._op_throwException = IcePy.Operation('throwException', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_E,))
-    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.Initial = Initial
-    del Initial
+_M_Test.Initial = Initial
+del Initial
 
 # End of module Test

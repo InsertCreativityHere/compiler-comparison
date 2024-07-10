@@ -21,231 +21,223 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
+_M_Test.UserEx = None
+class UserEx(Ice.UserException):
+    def __init__(self):
+        pass
 
-if 'UserEx' not in _M_Test.__dict__:
-    _M_Test.UserEx = Ice.createTempClass()
-    class UserEx(Ice.UserException):
-        def __init__(self):
-            pass
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    __repr__ = __str__
 
-        __repr__ = __str__
+    _ice_id = '::Test::UserEx'
 
-        _ice_id = '::Test::UserEx'
+_M_Test._t_UserEx = IcePy.defineException('::Test::UserEx', UserEx, (), None, ())
+UserEx._ice_type = _M_Test._t_UserEx
 
-    _M_Test._t_UserEx = IcePy.defineException('::Test::UserEx', UserEx, (), None, ())
-    UserEx._ice_type = _M_Test._t_UserEx
-
-    _M_Test.UserEx = UserEx
-    del UserEx
-
-if '_t_ByteSeq' not in _M_Test.__dict__:
-    _M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
+_M_Test.UserEx = UserEx
+del UserEx
+_M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
 
 _M_Test._t_Metrics = IcePy.defineValue('::Test::Metrics', Ice.Value, -1, (), True, None, ())
+_M_Test.MetricsPrx = None
+class MetricsPrx(Ice.ObjectPrx):
 
-if 'MetricsPrx' not in _M_Test.__dict__:
-    _M_Test.MetricsPrx = Ice.createTempClass()
-    class MetricsPrx(Ice.ObjectPrx):
+    def op(self, context=None):
+        return _M_Test.Metrics._op_op.invoke(self, ((), context))
 
-        def op(self, context=None):
-            return _M_Test.Metrics._op_op.invoke(self, ((), context))
+    def opAsync(self, context=None):
+        return _M_Test.Metrics._op_op.invokeAsync(self, ((), context))
 
-        def opAsync(self, context=None):
-            return _M_Test.Metrics._op_op.invokeAsync(self, ((), context))
+    def fail(self, context=None):
+        return _M_Test.Metrics._op_fail.invoke(self, ((), context))
 
-        def fail(self, context=None):
-            return _M_Test.Metrics._op_fail.invoke(self, ((), context))
+    def failAsync(self, context=None):
+        return _M_Test.Metrics._op_fail.invokeAsync(self, ((), context))
 
-        def failAsync(self, context=None):
-            return _M_Test.Metrics._op_fail.invokeAsync(self, ((), context))
+    def opWithUserException(self, context=None):
+        return _M_Test.Metrics._op_opWithUserException.invoke(self, ((), context))
 
-        def opWithUserException(self, context=None):
-            return _M_Test.Metrics._op_opWithUserException.invoke(self, ((), context))
+    def opWithUserExceptionAsync(self, context=None):
+        return _M_Test.Metrics._op_opWithUserException.invokeAsync(self, ((), context))
 
-        def opWithUserExceptionAsync(self, context=None):
-            return _M_Test.Metrics._op_opWithUserException.invokeAsync(self, ((), context))
+    def opWithRequestFailedException(self, context=None):
+        return _M_Test.Metrics._op_opWithRequestFailedException.invoke(self, ((), context))
 
-        def opWithRequestFailedException(self, context=None):
-            return _M_Test.Metrics._op_opWithRequestFailedException.invoke(self, ((), context))
+    def opWithRequestFailedExceptionAsync(self, context=None):
+        return _M_Test.Metrics._op_opWithRequestFailedException.invokeAsync(self, ((), context))
 
-        def opWithRequestFailedExceptionAsync(self, context=None):
-            return _M_Test.Metrics._op_opWithRequestFailedException.invokeAsync(self, ((), context))
+    def opWithLocalException(self, context=None):
+        return _M_Test.Metrics._op_opWithLocalException.invoke(self, ((), context))
 
-        def opWithLocalException(self, context=None):
-            return _M_Test.Metrics._op_opWithLocalException.invoke(self, ((), context))
+    def opWithLocalExceptionAsync(self, context=None):
+        return _M_Test.Metrics._op_opWithLocalException.invokeAsync(self, ((), context))
 
-        def opWithLocalExceptionAsync(self, context=None):
-            return _M_Test.Metrics._op_opWithLocalException.invokeAsync(self, ((), context))
+    def opWithUnknownException(self, context=None):
+        return _M_Test.Metrics._op_opWithUnknownException.invoke(self, ((), context))
 
-        def opWithUnknownException(self, context=None):
-            return _M_Test.Metrics._op_opWithUnknownException.invoke(self, ((), context))
+    def opWithUnknownExceptionAsync(self, context=None):
+        return _M_Test.Metrics._op_opWithUnknownException.invokeAsync(self, ((), context))
 
-        def opWithUnknownExceptionAsync(self, context=None):
-            return _M_Test.Metrics._op_opWithUnknownException.invokeAsync(self, ((), context))
+    def opByteS(self, bs, context=None):
+        return _M_Test.Metrics._op_opByteS.invoke(self, ((bs, ), context))
 
-        def opByteS(self, bs, context=None):
-            return _M_Test.Metrics._op_opByteS.invoke(self, ((bs, ), context))
+    def opByteSAsync(self, bs, context=None):
+        return _M_Test.Metrics._op_opByteS.invokeAsync(self, ((bs, ), context))
 
-        def opByteSAsync(self, bs, context=None):
-            return _M_Test.Metrics._op_opByteS.invokeAsync(self, ((bs, ), context))
+    def getAdmin(self, context=None):
+        return _M_Test.Metrics._op_getAdmin.invoke(self, ((), context))
 
-        def getAdmin(self, context=None):
-            return _M_Test.Metrics._op_getAdmin.invoke(self, ((), context))
+    def getAdminAsync(self, context=None):
+        return _M_Test.Metrics._op_getAdmin.invokeAsync(self, ((), context))
 
-        def getAdminAsync(self, context=None):
-            return _M_Test.Metrics._op_getAdmin.invokeAsync(self, ((), context))
+    def shutdown(self, context=None):
+        return _M_Test.Metrics._op_shutdown.invoke(self, ((), context))
 
-        def shutdown(self, context=None):
-            return _M_Test.Metrics._op_shutdown.invoke(self, ((), context))
+    def shutdownAsync(self, context=None):
+        return _M_Test.Metrics._op_shutdown.invokeAsync(self, ((), context))
 
-        def shutdownAsync(self, context=None):
-            return _M_Test.Metrics._op_shutdown.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.MetricsPrx.ice_checkedCast(proxy, '::Test::Metrics', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.MetricsPrx.ice_checkedCast(proxy, '::Test::Metrics', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.MetricsPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.MetricsPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Metrics'
+_M_Test._t_MetricsPrx = IcePy.defineProxy('::Test::Metrics', MetricsPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Metrics'
-    _M_Test._t_MetricsPrx = IcePy.defineProxy('::Test::Metrics', MetricsPrx)
+_M_Test.MetricsPrx = MetricsPrx
+del MetricsPrx
 
-    _M_Test.MetricsPrx = MetricsPrx
-    del MetricsPrx
+_M_Test.Metrics = None
+class Metrics(Ice.Object):
 
-    _M_Test.Metrics = Ice.createTempClass()
-    class Metrics(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Metrics')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Metrics')
+    def ice_id(self, current=None):
+        return '::Test::Metrics'
 
-        def ice_id(self, current=None):
-            return '::Test::Metrics'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Metrics'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Metrics'
+    def op(self, current=None):
+        raise NotImplementedError("servant method 'op' not implemented")
 
-        def op(self, current=None):
-            raise NotImplementedError("servant method 'op' not implemented")
+    def fail(self, current=None):
+        raise NotImplementedError("servant method 'fail' not implemented")
 
-        def fail(self, current=None):
-            raise NotImplementedError("servant method 'fail' not implemented")
+    def opWithUserException(self, current=None):
+        raise NotImplementedError("servant method 'opWithUserException' not implemented")
 
-        def opWithUserException(self, current=None):
-            raise NotImplementedError("servant method 'opWithUserException' not implemented")
+    def opWithRequestFailedException(self, current=None):
+        raise NotImplementedError("servant method 'opWithRequestFailedException' not implemented")
 
-        def opWithRequestFailedException(self, current=None):
-            raise NotImplementedError("servant method 'opWithRequestFailedException' not implemented")
+    def opWithLocalException(self, current=None):
+        raise NotImplementedError("servant method 'opWithLocalException' not implemented")
 
-        def opWithLocalException(self, current=None):
-            raise NotImplementedError("servant method 'opWithLocalException' not implemented")
+    def opWithUnknownException(self, current=None):
+        raise NotImplementedError("servant method 'opWithUnknownException' not implemented")
 
-        def opWithUnknownException(self, current=None):
-            raise NotImplementedError("servant method 'opWithUnknownException' not implemented")
+    def opByteS(self, bs, current=None):
+        raise NotImplementedError("servant method 'opByteS' not implemented")
 
-        def opByteS(self, bs, current=None):
-            raise NotImplementedError("servant method 'opByteS' not implemented")
+    def getAdmin(self, current=None):
+        raise NotImplementedError("servant method 'getAdmin' not implemented")
 
-        def getAdmin(self, current=None):
-            raise NotImplementedError("servant method 'getAdmin' not implemented")
+    def shutdown(self, current=None):
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def shutdown(self, current=None):
-            raise NotImplementedError("servant method 'shutdown' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_MetricsDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_MetricsDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_MetricsDisp = IcePy.defineClass('::Test::Metrics', Metrics, (), None, ())
+Metrics._ice_type = _M_Test._t_MetricsDisp
 
-    _M_Test._t_MetricsDisp = IcePy.defineClass('::Test::Metrics', Metrics, (), None, ())
-    Metrics._ice_type = _M_Test._t_MetricsDisp
+Metrics._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+Metrics._op_fail = IcePy.Operation('fail', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+Metrics._op_opWithUserException = IcePy.Operation('opWithUserException', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_UserEx,))
+Metrics._op_opWithRequestFailedException = IcePy.Operation('opWithRequestFailedException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+Metrics._op_opWithLocalException = IcePy.Operation('opWithLocalException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+Metrics._op_opWithUnknownException = IcePy.Operation('opWithUnknownException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+Metrics._op_opByteS = IcePy.Operation('opByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (), None, ())
+Metrics._op_getAdmin = IcePy.Operation('getAdmin', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+Metrics._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    Metrics._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Metrics._op_fail = IcePy.Operation('fail', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
-    Metrics._op_opWithUserException = IcePy.Operation('opWithUserException', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_UserEx,))
-    Metrics._op_opWithRequestFailedException = IcePy.Operation('opWithRequestFailedException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Metrics._op_opWithLocalException = IcePy.Operation('opWithLocalException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Metrics._op_opWithUnknownException = IcePy.Operation('opWithUnknownException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Metrics._op_opByteS = IcePy.Operation('opByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (), None, ())
-    Metrics._op_getAdmin = IcePy.Operation('getAdmin', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-    Metrics._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.Metrics = Metrics
-    del Metrics
+_M_Test.Metrics = Metrics
+del Metrics
 
 _M_Test._t_Controller = IcePy.defineValue('::Test::Controller', Ice.Value, -1, (), True, None, ())
+_M_Test.ControllerPrx = None
+class ControllerPrx(Ice.ObjectPrx):
 
-if 'ControllerPrx' not in _M_Test.__dict__:
-    _M_Test.ControllerPrx = Ice.createTempClass()
-    class ControllerPrx(Ice.ObjectPrx):
+    def hold(self, context=None):
+        return _M_Test.Controller._op_hold.invoke(self, ((), context))
 
-        def hold(self, context=None):
-            return _M_Test.Controller._op_hold.invoke(self, ((), context))
+    def holdAsync(self, context=None):
+        return _M_Test.Controller._op_hold.invokeAsync(self, ((), context))
 
-        def holdAsync(self, context=None):
-            return _M_Test.Controller._op_hold.invokeAsync(self, ((), context))
+    def resume(self, context=None):
+        return _M_Test.Controller._op_resume.invoke(self, ((), context))
 
-        def resume(self, context=None):
-            return _M_Test.Controller._op_resume.invoke(self, ((), context))
+    def resumeAsync(self, context=None):
+        return _M_Test.Controller._op_resume.invokeAsync(self, ((), context))
 
-        def resumeAsync(self, context=None):
-            return _M_Test.Controller._op_resume.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.ControllerPrx.ice_checkedCast(proxy, '::Test::Controller', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.ControllerPrx.ice_checkedCast(proxy, '::Test::Controller', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.ControllerPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.ControllerPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Controller'
+_M_Test._t_ControllerPrx = IcePy.defineProxy('::Test::Controller', ControllerPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Controller'
-    _M_Test._t_ControllerPrx = IcePy.defineProxy('::Test::Controller', ControllerPrx)
+_M_Test.ControllerPrx = ControllerPrx
+del ControllerPrx
 
-    _M_Test.ControllerPrx = ControllerPrx
-    del ControllerPrx
+_M_Test.Controller = None
+class Controller(Ice.Object):
 
-    _M_Test.Controller = Ice.createTempClass()
-    class Controller(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Controller')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Controller')
+    def ice_id(self, current=None):
+        return '::Test::Controller'
 
-        def ice_id(self, current=None):
-            return '::Test::Controller'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Controller'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Controller'
+    def hold(self, current=None):
+        raise NotImplementedError("servant method 'hold' not implemented")
 
-        def hold(self, current=None):
-            raise NotImplementedError("servant method 'hold' not implemented")
+    def resume(self, current=None):
+        raise NotImplementedError("servant method 'resume' not implemented")
 
-        def resume(self, current=None):
-            raise NotImplementedError("servant method 'resume' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_ControllerDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_ControllerDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
+Controller._ice_type = _M_Test._t_ControllerDisp
 
-    _M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
-    Controller._ice_type = _M_Test._t_ControllerDisp
+Controller._op_hold = IcePy.Operation('hold', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+Controller._op_resume = IcePy.Operation('resume', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    Controller._op_hold = IcePy.Operation('hold', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Controller._op_resume = IcePy.Operation('resume', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.Controller = Controller
-    del Controller
+_M_Test.Controller = Controller
+del Controller
 
 # End of module Test

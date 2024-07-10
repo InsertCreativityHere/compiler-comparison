@@ -21,86 +21,82 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
+_M_Test.F1 = None
+class F1(Ice.Value):
+    def __init__(self, name=''):
+        self.name = name
 
-if 'F1' not in _M_Test.__dict__:
-    _M_Test.F1 = Ice.createTempClass()
-    class F1(Ice.Value):
-        def __init__(self, name=''):
-            self.name = name
+    def ice_id(self):
+        return '::Test::F1'
 
-        def ice_id(self):
-            return '::Test::F1'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::F1'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::F1'
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_F1)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_F1)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_F1 = IcePy.defineValue('::Test::F1', F1, -1, (), False, None, (('name', (), IcePy._t_string, False, 0),))
+F1._ice_type = _M_Test._t_F1
 
-    _M_Test._t_F1 = IcePy.defineValue('::Test::F1', F1, -1, (), False, None, (('name', (), IcePy._t_string, False, 0),))
-    F1._ice_type = _M_Test._t_F1
-
-    _M_Test.F1 = F1
-    del F1
+_M_Test.F1 = F1
+del F1
 
 _M_Test._t_F2 = IcePy.defineValue('::Test::F2', Ice.Value, -1, (), True, None, ())
+_M_Test.F2Prx = None
+class F2Prx(Ice.ObjectPrx):
 
-if 'F2Prx' not in _M_Test.__dict__:
-    _M_Test.F2Prx = Ice.createTempClass()
-    class F2Prx(Ice.ObjectPrx):
+    def op(self, context=None):
+        return _M_Test.F2._op_op.invoke(self, ((), context))
 
-        def op(self, context=None):
-            return _M_Test.F2._op_op.invoke(self, ((), context))
+    def opAsync(self, context=None):
+        return _M_Test.F2._op_op.invokeAsync(self, ((), context))
 
-        def opAsync(self, context=None):
-            return _M_Test.F2._op_op.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.F2Prx.ice_checkedCast(proxy, '::Test::F2', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.F2Prx.ice_checkedCast(proxy, '::Test::F2', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.F2Prx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.F2Prx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::F2'
+_M_Test._t_F2Prx = IcePy.defineProxy('::Test::F2', F2Prx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::F2'
-    _M_Test._t_F2Prx = IcePy.defineProxy('::Test::F2', F2Prx)
+_M_Test.F2Prx = F2Prx
+del F2Prx
 
-    _M_Test.F2Prx = F2Prx
-    del F2Prx
+_M_Test.F2 = None
+class F2(Ice.Object):
 
-    _M_Test.F2 = Ice.createTempClass()
-    class F2(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::F2')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::F2')
+    def ice_id(self, current=None):
+        return '::Test::F2'
 
-        def ice_id(self, current=None):
-            return '::Test::F2'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::F2'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::F2'
+    def op(self, current=None):
+        raise NotImplementedError("servant method 'op' not implemented")
 
-        def op(self, current=None):
-            raise NotImplementedError("servant method 'op' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_F2Disp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_F2Disp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_F2Disp = IcePy.defineClass('::Test::F2', F2, (), None, ())
+F2._ice_type = _M_Test._t_F2Disp
 
-    _M_Test._t_F2Disp = IcePy.defineClass('::Test::F2', F2, (), None, ())
-    F2._ice_type = _M_Test._t_F2Disp
+F2._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    F2._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.F2 = F2
-    del F2
+_M_Test.F2 = F2
+del F2
 
 # End of module Test

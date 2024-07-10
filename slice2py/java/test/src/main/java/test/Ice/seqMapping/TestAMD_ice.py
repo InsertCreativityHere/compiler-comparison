@@ -21,199 +21,177 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
-
-if '_t_SerialSmall' not in _M_Test.__dict__:
-    _M_Test._t_SerialSmall = IcePy.defineSequence('::Test::SerialSmall', (), IcePy._t_byte)
-
-if '_t_SerialLarge' not in _M_Test.__dict__:
-    _M_Test._t_SerialLarge = IcePy.defineSequence('::Test::SerialLarge', (), IcePy._t_byte)
-
-if '_t_SerialStruct' not in _M_Test.__dict__:
-    _M_Test._t_SerialStruct = IcePy.defineSequence('::Test::SerialStruct', (), IcePy._t_byte)
+_M_Test._t_SerialSmall = IcePy.defineSequence('::Test::SerialSmall', (), IcePy._t_byte)
+_M_Test._t_SerialLarge = IcePy.defineSequence('::Test::SerialLarge', (), IcePy._t_byte)
+_M_Test._t_SerialStruct = IcePy.defineSequence('::Test::SerialStruct', (), IcePy._t_byte)
 
 _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
+_M_Test.MyClassPrx = None
+class MyClassPrx(Ice.ObjectPrx):
 
-if 'MyClassPrx' not in _M_Test.__dict__:
-    _M_Test.MyClassPrx = Ice.createTempClass()
-    class MyClassPrx(Ice.ObjectPrx):
+    def shutdown(self, context=None):
+        return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
 
-        def shutdown(self, context=None):
-            return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
+    def shutdownAsync(self, context=None):
+        return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
 
-        def shutdownAsync(self, context=None):
-            return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
+    def opSerialSmallJava(self, i, context=None):
+        return _M_Test.MyClass._op_opSerialSmallJava.invoke(self, ((i, ), context))
 
-        def opSerialSmallJava(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialSmallJava.invoke(self, ((i, ), context))
+    def opSerialSmallJavaAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSerialSmallJava.invokeAsync(self, ((i, ), context))
 
-        def opSerialSmallJavaAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialSmallJava.invokeAsync(self, ((i, ), context))
+    def opSerialLargeJava(self, i, context=None):
+        return _M_Test.MyClass._op_opSerialLargeJava.invoke(self, ((i, ), context))
 
-        def opSerialLargeJava(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialLargeJava.invoke(self, ((i, ), context))
+    def opSerialLargeJavaAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSerialLargeJava.invokeAsync(self, ((i, ), context))
 
-        def opSerialLargeJavaAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialLargeJava.invokeAsync(self, ((i, ), context))
+    def opSerialStructJava(self, i, context=None):
+        return _M_Test.MyClass._op_opSerialStructJava.invoke(self, ((i, ), context))
 
-        def opSerialStructJava(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialStructJava.invoke(self, ((i, ), context))
+    def opSerialStructJavaAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSerialStructJava.invokeAsync(self, ((i, ), context))
 
-        def opSerialStructJavaAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialStructJava.invokeAsync(self, ((i, ), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.MyClassPrx.ice_checkedCast(proxy, '::Test::MyClass', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.MyClassPrx.ice_checkedCast(proxy, '::Test::MyClass', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.MyClassPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.MyClassPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MyClass'
+_M_Test._t_MyClassPrx = IcePy.defineProxy('::Test::MyClass', MyClassPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MyClass'
-    _M_Test._t_MyClassPrx = IcePy.defineProxy('::Test::MyClass', MyClassPrx)
+_M_Test.MyClassPrx = MyClassPrx
+del MyClassPrx
 
-    _M_Test.MyClassPrx = MyClassPrx
-    del MyClassPrx
+_M_Test.MyClass = None
+class MyClass(Ice.Object):
 
-    _M_Test.MyClass = Ice.createTempClass()
-    class MyClass(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::MyClass')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::MyClass')
+    def ice_id(self, current=None):
+        return '::Test::MyClass'
 
-        def ice_id(self, current=None):
-            return '::Test::MyClass'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MyClass'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MyClass'
+    def shutdown(self, current=None):
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def shutdown(self, current=None):
-            raise NotImplementedError("servant method 'shutdown' not implemented")
+    def opSerialSmallJava(self, i, current=None):
+        raise NotImplementedError("servant method 'opSerialSmallJava' not implemented")
 
-        def opSerialSmallJava(self, i, current=None):
-            raise NotImplementedError("servant method 'opSerialSmallJava' not implemented")
+    def opSerialLargeJava(self, i, current=None):
+        raise NotImplementedError("servant method 'opSerialLargeJava' not implemented")
 
-        def opSerialLargeJava(self, i, current=None):
-            raise NotImplementedError("servant method 'opSerialLargeJava' not implemented")
+    def opSerialStructJava(self, i, current=None):
+        raise NotImplementedError("servant method 'opSerialStructJava' not implemented")
 
-        def opSerialStructJava(self, i, current=None):
-            raise NotImplementedError("servant method 'opSerialStructJava' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_MyClassDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_MyClassDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
+MyClass._ice_type = _M_Test._t_MyClassDisp
 
-    _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
-    MyClass._ice_type = _M_Test._t_MyClassDisp
+MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
+MyClass._op_opSerialSmallJava = IcePy.Operation('opSerialSmallJava', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_SerialSmall, False, 0),), (((), _M_Test._t_SerialSmall, False, 0),), ((), _M_Test._t_SerialSmall, False, 0), ())
+MyClass._op_opSerialLargeJava = IcePy.Operation('opSerialLargeJava', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_SerialLarge, False, 0),), (((), _M_Test._t_SerialLarge, False, 0),), ((), _M_Test._t_SerialLarge, False, 0), ())
+MyClass._op_opSerialStructJava = IcePy.Operation('opSerialStructJava', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_SerialStruct, False, 0),), (((), _M_Test._t_SerialStruct, False, 0),), ((), _M_Test._t_SerialStruct, False, 0), ())
 
-    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
-    MyClass._op_opSerialSmallJava = IcePy.Operation('opSerialSmallJava', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_SerialSmall, False, 0),), (((), _M_Test._t_SerialSmall, False, 0),), ((), _M_Test._t_SerialSmall, False, 0), ())
-    MyClass._op_opSerialLargeJava = IcePy.Operation('opSerialLargeJava', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_SerialLarge, False, 0),), (((), _M_Test._t_SerialLarge, False, 0),), ((), _M_Test._t_SerialLarge, False, 0), ())
-    MyClass._op_opSerialStructJava = IcePy.Operation('opSerialStructJava', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_SerialStruct, False, 0),), (((), _M_Test._t_SerialStruct, False, 0),), ((), _M_Test._t_SerialStruct, False, 0), ())
+_M_Test.MyClass = MyClass
+del MyClass
+_M_Test._t_SLS = IcePy.defineSequence('::Test::SLS', (), _M_Test._t_SerialLarge)
+_M_Test._t_SLSS = IcePy.defineSequence('::Test::SLSS', (), _M_Test._t_SLS)
+_M_Test._t_SLD = IcePy.defineDictionary('::Test::SLD', (), IcePy._t_int, _M_Test._t_SerialLarge)
+_M_Test._t_SLSD = IcePy.defineDictionary('::Test::SLSD', (), IcePy._t_int, _M_Test._t_SLS)
+_M_Test.Foo = None
+class Foo(object):
+    def __init__(self, SLmem=None, SLSmem=None):
+        self.SLmem = SLmem
+        self.SLSmem = SLSmem
 
-    _M_Test.MyClass = MyClass
-    del MyClass
-
-if '_t_SLS' not in _M_Test.__dict__:
-    _M_Test._t_SLS = IcePy.defineSequence('::Test::SLS', (), _M_Test._t_SerialLarge)
-
-if '_t_SLSS' not in _M_Test.__dict__:
-    _M_Test._t_SLSS = IcePy.defineSequence('::Test::SLSS', (), _M_Test._t_SLS)
-
-if '_t_SLD' not in _M_Test.__dict__:
-    _M_Test._t_SLD = IcePy.defineDictionary('::Test::SLD', (), IcePy._t_int, _M_Test._t_SerialLarge)
-
-if '_t_SLSD' not in _M_Test.__dict__:
-    _M_Test._t_SLSD = IcePy.defineDictionary('::Test::SLSD', (), IcePy._t_int, _M_Test._t_SLS)
-
-if 'Foo' not in _M_Test.__dict__:
-    _M_Test.Foo = Ice.createTempClass()
-    class Foo(object):
-        def __init__(self, SLmem=None, SLSmem=None):
-            self.SLmem = SLmem
-            self.SLSmem = SLSmem
-
-        def __eq__(self, other):
-            if other is None:
+    def __eq__(self, other):
+        if other is None:
+            return False
+        elif not isinstance(other, _M_Test.Foo):
+            return NotImplemented
+        else:
+            if self.SLmem != other.SLmem:
                 return False
-            elif not isinstance(other, _M_Test.Foo):
-                return NotImplemented
-            else:
-                if self.SLmem != other.SLmem:
-                    return False
-                if self.SLSmem != other.SLSmem:
-                    return False
-                return True
+            if self.SLSmem != other.SLSmem:
+                return False
+            return True
 
-        def __ne__(self, other):
-            return not self.__eq__(other)
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Foo)
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_Foo)
 
-        __repr__ = __str__
+    __repr__ = __str__
 
-    _M_Test._t_Foo = IcePy.defineStruct('::Test::Foo', Foo, (), (
-        ('SLmem', (), _M_Test._t_SerialLarge),
-        ('SLSmem', (), _M_Test._t_SLS)
-    ))
+_M_Test._t_Foo = IcePy.defineStruct('::Test::Foo', Foo, (), (
+    ('SLmem', (), _M_Test._t_SerialLarge),
+    ('SLSmem', (), _M_Test._t_SLS)
+))
 
-    _M_Test.Foo = Foo
-    del Foo
+_M_Test.Foo = Foo
+del Foo
+_M_Test.Bar = None
+class Bar(Ice.UserException):
+    def __init__(self, SLmem=None, SLSmem=None):
+        self.SLmem = SLmem
+        self.SLSmem = SLSmem
 
-if 'Bar' not in _M_Test.__dict__:
-    _M_Test.Bar = Ice.createTempClass()
-    class Bar(Ice.UserException):
-        def __init__(self, SLmem=None, SLSmem=None):
-            self.SLmem = SLmem
-            self.SLSmem = SLSmem
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    __repr__ = __str__
 
-        __repr__ = __str__
+    _ice_id = '::Test::Bar'
 
-        _ice_id = '::Test::Bar'
+_M_Test._t_Bar = IcePy.defineException('::Test::Bar', Bar, (), None, (
+    ('SLmem', (), _M_Test._t_SerialLarge, False, 0),
+    ('SLSmem', (), _M_Test._t_SLS, False, 0)
+))
+Bar._ice_type = _M_Test._t_Bar
 
-    _M_Test._t_Bar = IcePy.defineException('::Test::Bar', Bar, (), None, (
-        ('SLmem', (), _M_Test._t_SerialLarge, False, 0),
-        ('SLSmem', (), _M_Test._t_SLS, False, 0)
-    ))
-    Bar._ice_type = _M_Test._t_Bar
+_M_Test.Bar = Bar
+del Bar
+_M_Test.Baz = None
+class Baz(Ice.Value):
+    def __init__(self, SLmem=None, SLSmem=None):
+        self.SLmem = SLmem
+        self.SLSmem = SLSmem
 
-    _M_Test.Bar = Bar
-    del Bar
+    def ice_id(self):
+        return '::Test::Baz'
 
-if 'Baz' not in _M_Test.__dict__:
-    _M_Test.Baz = Ice.createTempClass()
-    class Baz(Ice.Value):
-        def __init__(self, SLmem=None, SLSmem=None):
-            self.SLmem = SLmem
-            self.SLSmem = SLSmem
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Baz'
 
-        def ice_id(self):
-            return '::Test::Baz'
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_Baz)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Baz'
+    __repr__ = __str__
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Baz)
+_M_Test._t_Baz = IcePy.defineValue('::Test::Baz', Baz, -1, (), False, None, (
+    ('SLmem', (), _M_Test._t_SerialLarge, False, 0),
+    ('SLSmem', (), _M_Test._t_SLS, False, 0)
+))
+Baz._ice_type = _M_Test._t_Baz
 
-        __repr__ = __str__
-
-    _M_Test._t_Baz = IcePy.defineValue('::Test::Baz', Baz, -1, (), False, None, (
-        ('SLmem', (), _M_Test._t_SerialLarge, False, 0),
-        ('SLSmem', (), _M_Test._t_SLS, False, 0)
-    ))
-    Baz._ice_type = _M_Test._t_Baz
-
-    _M_Test.Baz = Baz
-    del Baz
+_M_Test.Baz = Baz
+del Baz
 
 # End of module Test

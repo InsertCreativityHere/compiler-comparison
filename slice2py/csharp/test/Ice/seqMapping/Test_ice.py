@@ -21,1359 +21,1165 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
+_M_Test._t_AByteS = IcePy.defineSequence('::Test::AByteS', (), IcePy._t_byte)
+_M_Test._t_LByteS = IcePy.defineSequence('::Test::LByteS', (), IcePy._t_byte)
+_M_Test._t_KByteS = IcePy.defineSequence('::Test::KByteS', (), IcePy._t_byte)
+_M_Test._t_QByteS = IcePy.defineSequence('::Test::QByteS', (), IcePy._t_byte)
+_M_Test._t_SByteS = IcePy.defineSequence('::Test::SByteS', (), IcePy._t_byte)
+_M_Test._t_CByteS = IcePy.defineSequence('::Test::CByteS', (), IcePy._t_byte)
+_M_Test._t_ABoolS = IcePy.defineSequence('::Test::ABoolS', (), IcePy._t_bool)
+_M_Test._t_LBoolS = IcePy.defineSequence('::Test::LBoolS', (), IcePy._t_bool)
+_M_Test._t_KBoolS = IcePy.defineSequence('::Test::KBoolS', (), IcePy._t_bool)
+_M_Test._t_QBoolS = IcePy.defineSequence('::Test::QBoolS', (), IcePy._t_bool)
+_M_Test._t_SBoolS = IcePy.defineSequence('::Test::SBoolS', (), IcePy._t_bool)
+_M_Test._t_CBoolS = IcePy.defineSequence('::Test::CBoolS', (), IcePy._t_bool)
+_M_Test._t_AShortS = IcePy.defineSequence('::Test::AShortS', (), IcePy._t_short)
+_M_Test._t_LShortS = IcePy.defineSequence('::Test::LShortS', (), IcePy._t_short)
+_M_Test._t_KShortS = IcePy.defineSequence('::Test::KShortS', (), IcePy._t_short)
+_M_Test._t_QShortS = IcePy.defineSequence('::Test::QShortS', (), IcePy._t_short)
+_M_Test._t_SShortS = IcePy.defineSequence('::Test::SShortS', (), IcePy._t_short)
+_M_Test._t_CShortS = IcePy.defineSequence('::Test::CShortS', (), IcePy._t_short)
+_M_Test._t_AIntS = IcePy.defineSequence('::Test::AIntS', (), IcePy._t_int)
+_M_Test._t_LIntS = IcePy.defineSequence('::Test::LIntS', (), IcePy._t_int)
+_M_Test._t_KIntS = IcePy.defineSequence('::Test::KIntS', (), IcePy._t_int)
+_M_Test._t_QIntS = IcePy.defineSequence('::Test::QIntS', (), IcePy._t_int)
+_M_Test._t_SIntS = IcePy.defineSequence('::Test::SIntS', (), IcePy._t_int)
+_M_Test._t_CIntS = IcePy.defineSequence('::Test::CIntS', (), IcePy._t_int)
+_M_Test._t_ALongS = IcePy.defineSequence('::Test::ALongS', (), IcePy._t_long)
+_M_Test._t_LLongS = IcePy.defineSequence('::Test::LLongS', (), IcePy._t_long)
+_M_Test._t_KLongS = IcePy.defineSequence('::Test::KLongS', (), IcePy._t_long)
+_M_Test._t_QLongS = IcePy.defineSequence('::Test::QLongS', (), IcePy._t_long)
+_M_Test._t_SLongS = IcePy.defineSequence('::Test::SLongS', (), IcePy._t_long)
+_M_Test._t_CLongS = IcePy.defineSequence('::Test::CLongS', (), IcePy._t_long)
+_M_Test._t_AFloatS = IcePy.defineSequence('::Test::AFloatS', (), IcePy._t_float)
+_M_Test._t_LFloatS = IcePy.defineSequence('::Test::LFloatS', (), IcePy._t_float)
+_M_Test._t_KFloatS = IcePy.defineSequence('::Test::KFloatS', (), IcePy._t_float)
+_M_Test._t_QFloatS = IcePy.defineSequence('::Test::QFloatS', (), IcePy._t_float)
+_M_Test._t_SFloatS = IcePy.defineSequence('::Test::SFloatS', (), IcePy._t_float)
+_M_Test._t_CFloatS = IcePy.defineSequence('::Test::CFloatS', (), IcePy._t_float)
+_M_Test._t_ADoubleS = IcePy.defineSequence('::Test::ADoubleS', (), IcePy._t_double)
+_M_Test._t_LDoubleS = IcePy.defineSequence('::Test::LDoubleS', (), IcePy._t_double)
+_M_Test._t_KDoubleS = IcePy.defineSequence('::Test::KDoubleS', (), IcePy._t_double)
+_M_Test._t_QDoubleS = IcePy.defineSequence('::Test::QDoubleS', (), IcePy._t_double)
+_M_Test._t_SDoubleS = IcePy.defineSequence('::Test::SDoubleS', (), IcePy._t_double)
+_M_Test._t_CDoubleS = IcePy.defineSequence('::Test::CDoubleS', (), IcePy._t_double)
+_M_Test._t_AStringS = IcePy.defineSequence('::Test::AStringS', (), IcePy._t_string)
+_M_Test._t_LStringS = IcePy.defineSequence('::Test::LStringS', (), IcePy._t_string)
+_M_Test._t_KStringS = IcePy.defineSequence('::Test::KStringS', (), IcePy._t_string)
+_M_Test._t_QStringS = IcePy.defineSequence('::Test::QStringS', (), IcePy._t_string)
+_M_Test._t_SStringS = IcePy.defineSequence('::Test::SStringS', (), IcePy._t_string)
+_M_Test._t_CStringS = IcePy.defineSequence('::Test::CStringS', (), IcePy._t_string)
+_M_Test._t_AObjectS = IcePy.defineSequence('::Test::AObjectS', (), IcePy._t_Value)
+_M_Test._t_LObjectS = IcePy.defineSequence('::Test::LObjectS', (), IcePy._t_Value)
+_M_Test._t_CObjectS = IcePy.defineSequence('::Test::CObjectS', (), IcePy._t_Value)
+_M_Test._t_AObjectPrxS = IcePy.defineSequence('::Test::AObjectPrxS', (), IcePy._t_ObjectPrx)
+_M_Test._t_LObjectPrxS = IcePy.defineSequence('::Test::LObjectPrxS', (), IcePy._t_ObjectPrx)
+_M_Test._t_KObjectPrxS = IcePy.defineSequence('::Test::KObjectPrxS', (), IcePy._t_ObjectPrx)
+_M_Test._t_QObjectPrxS = IcePy.defineSequence('::Test::QObjectPrxS', (), IcePy._t_ObjectPrx)
+_M_Test._t_SObjectPrxS = IcePy.defineSequence('::Test::SObjectPrxS', (), IcePy._t_ObjectPrx)
+_M_Test._t_CObjectPrxS = IcePy.defineSequence('::Test::CObjectPrxS', (), IcePy._t_ObjectPrx)
+_M_Test.S = None
+class S(object):
+    def __init__(self, i=0):
+        self.i = i
 
-if '_t_AByteS' not in _M_Test.__dict__:
-    _M_Test._t_AByteS = IcePy.defineSequence('::Test::AByteS', (), IcePy._t_byte)
+    def __hash__(self):
+        _h = 0
+        _h = 5 * _h + _builtins.hash(self.i)
+        return _h % 0x7fffffff
 
-if '_t_LByteS' not in _M_Test.__dict__:
-    _M_Test._t_LByteS = IcePy.defineSequence('::Test::LByteS', (), IcePy._t_byte)
-
-if '_t_KByteS' not in _M_Test.__dict__:
-    _M_Test._t_KByteS = IcePy.defineSequence('::Test::KByteS', (), IcePy._t_byte)
-
-if '_t_QByteS' not in _M_Test.__dict__:
-    _M_Test._t_QByteS = IcePy.defineSequence('::Test::QByteS', (), IcePy._t_byte)
-
-if '_t_SByteS' not in _M_Test.__dict__:
-    _M_Test._t_SByteS = IcePy.defineSequence('::Test::SByteS', (), IcePy._t_byte)
-
-if '_t_CByteS' not in _M_Test.__dict__:
-    _M_Test._t_CByteS = IcePy.defineSequence('::Test::CByteS', (), IcePy._t_byte)
-
-if '_t_ABoolS' not in _M_Test.__dict__:
-    _M_Test._t_ABoolS = IcePy.defineSequence('::Test::ABoolS', (), IcePy._t_bool)
-
-if '_t_LBoolS' not in _M_Test.__dict__:
-    _M_Test._t_LBoolS = IcePy.defineSequence('::Test::LBoolS', (), IcePy._t_bool)
-
-if '_t_KBoolS' not in _M_Test.__dict__:
-    _M_Test._t_KBoolS = IcePy.defineSequence('::Test::KBoolS', (), IcePy._t_bool)
-
-if '_t_QBoolS' not in _M_Test.__dict__:
-    _M_Test._t_QBoolS = IcePy.defineSequence('::Test::QBoolS', (), IcePy._t_bool)
-
-if '_t_SBoolS' not in _M_Test.__dict__:
-    _M_Test._t_SBoolS = IcePy.defineSequence('::Test::SBoolS', (), IcePy._t_bool)
-
-if '_t_CBoolS' not in _M_Test.__dict__:
-    _M_Test._t_CBoolS = IcePy.defineSequence('::Test::CBoolS', (), IcePy._t_bool)
-
-if '_t_AShortS' not in _M_Test.__dict__:
-    _M_Test._t_AShortS = IcePy.defineSequence('::Test::AShortS', (), IcePy._t_short)
-
-if '_t_LShortS' not in _M_Test.__dict__:
-    _M_Test._t_LShortS = IcePy.defineSequence('::Test::LShortS', (), IcePy._t_short)
-
-if '_t_KShortS' not in _M_Test.__dict__:
-    _M_Test._t_KShortS = IcePy.defineSequence('::Test::KShortS', (), IcePy._t_short)
-
-if '_t_QShortS' not in _M_Test.__dict__:
-    _M_Test._t_QShortS = IcePy.defineSequence('::Test::QShortS', (), IcePy._t_short)
-
-if '_t_SShortS' not in _M_Test.__dict__:
-    _M_Test._t_SShortS = IcePy.defineSequence('::Test::SShortS', (), IcePy._t_short)
-
-if '_t_CShortS' not in _M_Test.__dict__:
-    _M_Test._t_CShortS = IcePy.defineSequence('::Test::CShortS', (), IcePy._t_short)
-
-if '_t_AIntS' not in _M_Test.__dict__:
-    _M_Test._t_AIntS = IcePy.defineSequence('::Test::AIntS', (), IcePy._t_int)
-
-if '_t_LIntS' not in _M_Test.__dict__:
-    _M_Test._t_LIntS = IcePy.defineSequence('::Test::LIntS', (), IcePy._t_int)
-
-if '_t_KIntS' not in _M_Test.__dict__:
-    _M_Test._t_KIntS = IcePy.defineSequence('::Test::KIntS', (), IcePy._t_int)
-
-if '_t_QIntS' not in _M_Test.__dict__:
-    _M_Test._t_QIntS = IcePy.defineSequence('::Test::QIntS', (), IcePy._t_int)
-
-if '_t_SIntS' not in _M_Test.__dict__:
-    _M_Test._t_SIntS = IcePy.defineSequence('::Test::SIntS', (), IcePy._t_int)
-
-if '_t_CIntS' not in _M_Test.__dict__:
-    _M_Test._t_CIntS = IcePy.defineSequence('::Test::CIntS', (), IcePy._t_int)
-
-if '_t_ALongS' not in _M_Test.__dict__:
-    _M_Test._t_ALongS = IcePy.defineSequence('::Test::ALongS', (), IcePy._t_long)
-
-if '_t_LLongS' not in _M_Test.__dict__:
-    _M_Test._t_LLongS = IcePy.defineSequence('::Test::LLongS', (), IcePy._t_long)
-
-if '_t_KLongS' not in _M_Test.__dict__:
-    _M_Test._t_KLongS = IcePy.defineSequence('::Test::KLongS', (), IcePy._t_long)
-
-if '_t_QLongS' not in _M_Test.__dict__:
-    _M_Test._t_QLongS = IcePy.defineSequence('::Test::QLongS', (), IcePy._t_long)
-
-if '_t_SLongS' not in _M_Test.__dict__:
-    _M_Test._t_SLongS = IcePy.defineSequence('::Test::SLongS', (), IcePy._t_long)
-
-if '_t_CLongS' not in _M_Test.__dict__:
-    _M_Test._t_CLongS = IcePy.defineSequence('::Test::CLongS', (), IcePy._t_long)
-
-if '_t_AFloatS' not in _M_Test.__dict__:
-    _M_Test._t_AFloatS = IcePy.defineSequence('::Test::AFloatS', (), IcePy._t_float)
-
-if '_t_LFloatS' not in _M_Test.__dict__:
-    _M_Test._t_LFloatS = IcePy.defineSequence('::Test::LFloatS', (), IcePy._t_float)
-
-if '_t_KFloatS' not in _M_Test.__dict__:
-    _M_Test._t_KFloatS = IcePy.defineSequence('::Test::KFloatS', (), IcePy._t_float)
-
-if '_t_QFloatS' not in _M_Test.__dict__:
-    _M_Test._t_QFloatS = IcePy.defineSequence('::Test::QFloatS', (), IcePy._t_float)
-
-if '_t_SFloatS' not in _M_Test.__dict__:
-    _M_Test._t_SFloatS = IcePy.defineSequence('::Test::SFloatS', (), IcePy._t_float)
-
-if '_t_CFloatS' not in _M_Test.__dict__:
-    _M_Test._t_CFloatS = IcePy.defineSequence('::Test::CFloatS', (), IcePy._t_float)
-
-if '_t_ADoubleS' not in _M_Test.__dict__:
-    _M_Test._t_ADoubleS = IcePy.defineSequence('::Test::ADoubleS', (), IcePy._t_double)
-
-if '_t_LDoubleS' not in _M_Test.__dict__:
-    _M_Test._t_LDoubleS = IcePy.defineSequence('::Test::LDoubleS', (), IcePy._t_double)
-
-if '_t_KDoubleS' not in _M_Test.__dict__:
-    _M_Test._t_KDoubleS = IcePy.defineSequence('::Test::KDoubleS', (), IcePy._t_double)
-
-if '_t_QDoubleS' not in _M_Test.__dict__:
-    _M_Test._t_QDoubleS = IcePy.defineSequence('::Test::QDoubleS', (), IcePy._t_double)
-
-if '_t_SDoubleS' not in _M_Test.__dict__:
-    _M_Test._t_SDoubleS = IcePy.defineSequence('::Test::SDoubleS', (), IcePy._t_double)
-
-if '_t_CDoubleS' not in _M_Test.__dict__:
-    _M_Test._t_CDoubleS = IcePy.defineSequence('::Test::CDoubleS', (), IcePy._t_double)
-
-if '_t_AStringS' not in _M_Test.__dict__:
-    _M_Test._t_AStringS = IcePy.defineSequence('::Test::AStringS', (), IcePy._t_string)
-
-if '_t_LStringS' not in _M_Test.__dict__:
-    _M_Test._t_LStringS = IcePy.defineSequence('::Test::LStringS', (), IcePy._t_string)
-
-if '_t_KStringS' not in _M_Test.__dict__:
-    _M_Test._t_KStringS = IcePy.defineSequence('::Test::KStringS', (), IcePy._t_string)
-
-if '_t_QStringS' not in _M_Test.__dict__:
-    _M_Test._t_QStringS = IcePy.defineSequence('::Test::QStringS', (), IcePy._t_string)
-
-if '_t_SStringS' not in _M_Test.__dict__:
-    _M_Test._t_SStringS = IcePy.defineSequence('::Test::SStringS', (), IcePy._t_string)
-
-if '_t_CStringS' not in _M_Test.__dict__:
-    _M_Test._t_CStringS = IcePy.defineSequence('::Test::CStringS', (), IcePy._t_string)
-
-if '_t_AObjectS' not in _M_Test.__dict__:
-    _M_Test._t_AObjectS = IcePy.defineSequence('::Test::AObjectS', (), IcePy._t_Value)
-
-if '_t_LObjectS' not in _M_Test.__dict__:
-    _M_Test._t_LObjectS = IcePy.defineSequence('::Test::LObjectS', (), IcePy._t_Value)
-
-if '_t_CObjectS' not in _M_Test.__dict__:
-    _M_Test._t_CObjectS = IcePy.defineSequence('::Test::CObjectS', (), IcePy._t_Value)
-
-if '_t_AObjectPrxS' not in _M_Test.__dict__:
-    _M_Test._t_AObjectPrxS = IcePy.defineSequence('::Test::AObjectPrxS', (), IcePy._t_ObjectPrx)
-
-if '_t_LObjectPrxS' not in _M_Test.__dict__:
-    _M_Test._t_LObjectPrxS = IcePy.defineSequence('::Test::LObjectPrxS', (), IcePy._t_ObjectPrx)
-
-if '_t_KObjectPrxS' not in _M_Test.__dict__:
-    _M_Test._t_KObjectPrxS = IcePy.defineSequence('::Test::KObjectPrxS', (), IcePy._t_ObjectPrx)
-
-if '_t_QObjectPrxS' not in _M_Test.__dict__:
-    _M_Test._t_QObjectPrxS = IcePy.defineSequence('::Test::QObjectPrxS', (), IcePy._t_ObjectPrx)
-
-if '_t_SObjectPrxS' not in _M_Test.__dict__:
-    _M_Test._t_SObjectPrxS = IcePy.defineSequence('::Test::SObjectPrxS', (), IcePy._t_ObjectPrx)
-
-if '_t_CObjectPrxS' not in _M_Test.__dict__:
-    _M_Test._t_CObjectPrxS = IcePy.defineSequence('::Test::CObjectPrxS', (), IcePy._t_ObjectPrx)
-
-if 'S' not in _M_Test.__dict__:
-    _M_Test.S = Ice.createTempClass()
-    class S(object):
-        def __init__(self, i=0):
-            self.i = i
-
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + _builtins.hash(self.i)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
-            if other is None:
-                return 1
-            elif not isinstance(other, _M_Test.S):
-                return NotImplemented
+    def __compare(self, other):
+        if other is None:
+            return 1
+        elif not isinstance(other, _M_Test.S):
+            return NotImplemented
+        else:
+            if self.i is None or other.i is None:
+                if self.i != other.i:
+                    return (-1 if self.i is None else 1)
             else:
-                if self.i is None or other.i is None:
-                    if self.i != other.i:
-                        return (-1 if self.i is None else 1)
-                else:
-                    if self.i < other.i:
-                        return -1
-                    elif self.i > other.i:
-                        return 1
-                return 0
+                if self.i < other.i:
+                    return -1
+                elif self.i > other.i:
+                    return 1
+            return 0
 
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
+    def __lt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r < 0
+
+    def __le__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r <= 0
+
+    def __gt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r > 0
+
+    def __ge__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r >= 0
+
+    def __eq__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r == 0
+
+    def __ne__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r != 0
+
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_S)
+
+    __repr__ = __str__
+
+_M_Test._t_S = IcePy.defineStruct('::Test::S', S, (), (('i', (), IcePy._t_int),))
+
+_M_Test.S = S
+del S
+_M_Test._t_AStructS = IcePy.defineSequence('::Test::AStructS', (), _M_Test._t_S)
+_M_Test._t_LStructS = IcePy.defineSequence('::Test::LStructS', (), _M_Test._t_S)
+_M_Test._t_KStructS = IcePy.defineSequence('::Test::KStructS', (), _M_Test._t_S)
+_M_Test._t_QStructS = IcePy.defineSequence('::Test::QStructS', (), _M_Test._t_S)
+_M_Test._t_SStructS = IcePy.defineSequence('::Test::SStructS', (), _M_Test._t_S)
+_M_Test._t_CStructS = IcePy.defineSequence('::Test::CStructS', (), _M_Test._t_S)
+_M_Test.SD = None
+class SD(object):
+    def __init__(self, i=1):
+        self.i = i
+
+    def __hash__(self):
+        _h = 0
+        _h = 5 * _h + _builtins.hash(self.i)
+        return _h % 0x7fffffff
+
+    def __compare(self, other):
+        if other is None:
+            return 1
+        elif not isinstance(other, _M_Test.SD):
+            return NotImplemented
+        else:
+            if self.i is None or other.i is None:
+                if self.i != other.i:
+                    return (-1 if self.i is None else 1)
             else:
-                return r < 0
+                if self.i < other.i:
+                    return -1
+                elif self.i > other.i:
+                    return 1
+            return 0
 
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
+    def __lt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r < 0
 
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
+    def __le__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r <= 0
 
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
+    def __gt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r > 0
 
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
+    def __ge__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r >= 0
 
-        def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
+    def __eq__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r == 0
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_S)
+    def __ne__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r != 0
 
-        __repr__ = __str__
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_SD)
 
-    _M_Test._t_S = IcePy.defineStruct('::Test::S', S, (), (('i', (), IcePy._t_int),))
+    __repr__ = __str__
 
-    _M_Test.S = S
-    del S
+_M_Test._t_SD = IcePy.defineStruct('::Test::SD', SD, (), (('i', (), IcePy._t_int),))
 
-if '_t_AStructS' not in _M_Test.__dict__:
-    _M_Test._t_AStructS = IcePy.defineSequence('::Test::AStructS', (), _M_Test._t_S)
+_M_Test.SD = SD
+del SD
+_M_Test._t_AStructSD = IcePy.defineSequence('::Test::AStructSD', (), _M_Test._t_SD)
+_M_Test._t_LStructSD = IcePy.defineSequence('::Test::LStructSD', (), _M_Test._t_SD)
+_M_Test._t_KStructSD = IcePy.defineSequence('::Test::KStructSD', (), _M_Test._t_SD)
+_M_Test._t_QStructSD = IcePy.defineSequence('::Test::QStructSD', (), _M_Test._t_SD)
+_M_Test._t_SStructSD = IcePy.defineSequence('::Test::SStructSD', (), _M_Test._t_SD)
+_M_Test._t_CStructSD = IcePy.defineSequence('::Test::CStructSD', (), _M_Test._t_SD)
+_M_Test.CV = None
+class CV(Ice.Value):
+    def __init__(self, i=0):
+        self.i = i
 
-if '_t_LStructS' not in _M_Test.__dict__:
-    _M_Test._t_LStructS = IcePy.defineSequence('::Test::LStructS', (), _M_Test._t_S)
+    def ice_id(self):
+        return '::Test::CV'
 
-if '_t_KStructS' not in _M_Test.__dict__:
-    _M_Test._t_KStructS = IcePy.defineSequence('::Test::KStructS', (), _M_Test._t_S)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::CV'
 
-if '_t_QStructS' not in _M_Test.__dict__:
-    _M_Test._t_QStructS = IcePy.defineSequence('::Test::QStructS', (), _M_Test._t_S)
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_CV)
 
-if '_t_SStructS' not in _M_Test.__dict__:
-    _M_Test._t_SStructS = IcePy.defineSequence('::Test::SStructS', (), _M_Test._t_S)
+    __repr__ = __str__
 
-if '_t_CStructS' not in _M_Test.__dict__:
-    _M_Test._t_CStructS = IcePy.defineSequence('::Test::CStructS', (), _M_Test._t_S)
+_M_Test._t_CV = IcePy.defineValue('::Test::CV', CV, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
+CV._ice_type = _M_Test._t_CV
 
-if 'SD' not in _M_Test.__dict__:
-    _M_Test.SD = Ice.createTempClass()
-    class SD(object):
-        def __init__(self, i=1):
-            self.i = i
-
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + _builtins.hash(self.i)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
-            if other is None:
-                return 1
-            elif not isinstance(other, _M_Test.SD):
-                return NotImplemented
-            else:
-                if self.i is None or other.i is None:
-                    if self.i != other.i:
-                        return (-1 if self.i is None else 1)
-                else:
-                    if self.i < other.i:
-                        return -1
-                    elif self.i > other.i:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
-
-        def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_SD)
-
-        __repr__ = __str__
-
-    _M_Test._t_SD = IcePy.defineStruct('::Test::SD', SD, (), (('i', (), IcePy._t_int),))
-
-    _M_Test.SD = SD
-    del SD
-
-if '_t_AStructSD' not in _M_Test.__dict__:
-    _M_Test._t_AStructSD = IcePy.defineSequence('::Test::AStructSD', (), _M_Test._t_SD)
-
-if '_t_LStructSD' not in _M_Test.__dict__:
-    _M_Test._t_LStructSD = IcePy.defineSequence('::Test::LStructSD', (), _M_Test._t_SD)
-
-if '_t_KStructSD' not in _M_Test.__dict__:
-    _M_Test._t_KStructSD = IcePy.defineSequence('::Test::KStructSD', (), _M_Test._t_SD)
-
-if '_t_QStructSD' not in _M_Test.__dict__:
-    _M_Test._t_QStructSD = IcePy.defineSequence('::Test::QStructSD', (), _M_Test._t_SD)
-
-if '_t_SStructSD' not in _M_Test.__dict__:
-    _M_Test._t_SStructSD = IcePy.defineSequence('::Test::SStructSD', (), _M_Test._t_SD)
-
-if '_t_CStructSD' not in _M_Test.__dict__:
-    _M_Test._t_CStructSD = IcePy.defineSequence('::Test::CStructSD', (), _M_Test._t_SD)
-
-if 'CV' not in _M_Test.__dict__:
-    _M_Test.CV = Ice.createTempClass()
-    class CV(Ice.Value):
-        def __init__(self, i=0):
-            self.i = i
-
-        def ice_id(self):
-            return '::Test::CV'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::CV'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_CV)
-
-        __repr__ = __str__
-
-    _M_Test._t_CV = IcePy.defineValue('::Test::CV', CV, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
-    CV._ice_type = _M_Test._t_CV
-
-    _M_Test.CV = CV
-    del CV
-
-if '_t_ACVS' not in _M_Test.__dict__:
-    _M_Test._t_ACVS = IcePy.defineSequence('::Test::ACVS', (), _M_Test._t_CV)
-
-if '_t_LCVS' not in _M_Test.__dict__:
-    _M_Test._t_LCVS = IcePy.defineSequence('::Test::LCVS', (), _M_Test._t_CV)
+_M_Test.CV = CV
+del CV
+_M_Test._t_ACVS = IcePy.defineSequence('::Test::ACVS', (), _M_Test._t_CV)
+_M_Test._t_LCVS = IcePy.defineSequence('::Test::LCVS', (), _M_Test._t_CV)
 
 _M_Test._t_I = IcePy.defineValue('::Test::I', Ice.Value, -1, (), True, None, ())
+_M_Test.IPrx = None
+class IPrx(Ice.ObjectPrx):
 
-if 'IPrx' not in _M_Test.__dict__:
-    _M_Test.IPrx = Ice.createTempClass()
-    class IPrx(Ice.ObjectPrx):
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.IPrx.ice_checkedCast(proxy, '::Test::I', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.IPrx.ice_checkedCast(proxy, '::Test::I', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.IPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.IPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::I'
+_M_Test._t_IPrx = IcePy.defineProxy('::Test::I', IPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::I'
-    _M_Test._t_IPrx = IcePy.defineProxy('::Test::I', IPrx)
+_M_Test.IPrx = IPrx
+del IPrx
 
-    _M_Test.IPrx = IPrx
-    del IPrx
+_M_Test.I = None
+class I(Ice.Object):
 
-    _M_Test.I = Ice.createTempClass()
-    class I(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::I')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::I')
+    def ice_id(self, current=None):
+        return '::Test::I'
 
-        def ice_id(self, current=None):
-            return '::Test::I'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::I'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::I'
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_IDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_IDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_IDisp = IcePy.defineClass('::Test::I', I, (), None, ())
+I._ice_type = _M_Test._t_IDisp
 
-    _M_Test._t_IDisp = IcePy.defineClass('::Test::I', I, (), None, ())
-    I._ice_type = _M_Test._t_IDisp
+_M_Test.I = I
+del I
+_M_Test._t_AIPrxS = IcePy.defineSequence('::Test::AIPrxS', (), _M_Test._t_IPrx)
+_M_Test._t_LIPrxS = IcePy.defineSequence('::Test::LIPrxS', (), _M_Test._t_IPrx)
+_M_Test._t_KIPrxS = IcePy.defineSequence('::Test::KIPrxS', (), _M_Test._t_IPrx)
+_M_Test._t_QIPrxS = IcePy.defineSequence('::Test::QIPrxS', (), _M_Test._t_IPrx)
+_M_Test._t_SIPrxS = IcePy.defineSequence('::Test::SIPrxS', (), _M_Test._t_IPrx)
+_M_Test._t_CIPrxS = IcePy.defineSequence('::Test::CIPrxS', (), _M_Test._t_IPrx)
+_M_Test.CR = None
+class CR(Ice.Value):
+    def __init__(self, v=None):
+        self.v = v
 
-    _M_Test.I = I
-    del I
+    def ice_id(self):
+        return '::Test::CR'
 
-if '_t_AIPrxS' not in _M_Test.__dict__:
-    _M_Test._t_AIPrxS = IcePy.defineSequence('::Test::AIPrxS', (), _M_Test._t_IPrx)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::CR'
 
-if '_t_LIPrxS' not in _M_Test.__dict__:
-    _M_Test._t_LIPrxS = IcePy.defineSequence('::Test::LIPrxS', (), _M_Test._t_IPrx)
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_CR)
 
-if '_t_KIPrxS' not in _M_Test.__dict__:
-    _M_Test._t_KIPrxS = IcePy.defineSequence('::Test::KIPrxS', (), _M_Test._t_IPrx)
+    __repr__ = __str__
 
-if '_t_QIPrxS' not in _M_Test.__dict__:
-    _M_Test._t_QIPrxS = IcePy.defineSequence('::Test::QIPrxS', (), _M_Test._t_IPrx)
+_M_Test._t_CR = IcePy.declareValue('::Test::CR')
 
-if '_t_SIPrxS' not in _M_Test.__dict__:
-    _M_Test._t_SIPrxS = IcePy.defineSequence('::Test::SIPrxS', (), _M_Test._t_IPrx)
+_M_Test._t_CR = IcePy.defineValue('::Test::CR', CR, -1, (), False, None, (('v', (), _M_Test._t_CV, False, 0),))
+CR._ice_type = _M_Test._t_CR
 
-if '_t_CIPrxS' not in _M_Test.__dict__:
-    _M_Test._t_CIPrxS = IcePy.defineSequence('::Test::CIPrxS', (), _M_Test._t_IPrx)
+_M_Test.CR = CR
+del CR
+_M_Test._t_ACRS = IcePy.defineSequence('::Test::ACRS', (), _M_Test._t_CR)
+_M_Test._t_LCRS = IcePy.defineSequence('::Test::LCRS', (), _M_Test._t_CR)
+_M_Test._t_CCRS = IcePy.defineSequence('::Test::CCRS', (), _M_Test._t_CR)
+_M_Test.En = None
+class En(Ice.EnumBase):
 
-if 'CR' not in _M_Test.__dict__:
-    _M_Test.CR = Ice.createTempClass()
-    class CR(Ice.Value):
-        def __init__(self, v=None):
-            self.v = v
+    def __init__(self, _n, _v):
+        Ice.EnumBase.__init__(self, _n, _v)
 
-        def ice_id(self):
-            return '::Test::CR'
+    def valueOf(self, _n):
+        if _n in self._enumerators:
+            return self._enumerators[_n]
+        return None
+    valueOf = classmethod(valueOf)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::CR'
+En.A = En("A", 0)
+En.B = En("B", 1)
+En.C = En("C", 2)
+En._enumerators = { 0:En.A, 1:En.B, 2:En.C }
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_CR)
+_M_Test._t_En = IcePy.defineEnum('::Test::En', En, (), En._enumerators)
 
-        __repr__ = __str__
-
-    _M_Test._t_CR = IcePy.declareValue('::Test::CR')
-
-    _M_Test._t_CR = IcePy.defineValue('::Test::CR', CR, -1, (), False, None, (('v', (), _M_Test._t_CV, False, 0),))
-    CR._ice_type = _M_Test._t_CR
-
-    _M_Test.CR = CR
-    del CR
-
-if '_t_ACRS' not in _M_Test.__dict__:
-    _M_Test._t_ACRS = IcePy.defineSequence('::Test::ACRS', (), _M_Test._t_CR)
-
-if '_t_LCRS' not in _M_Test.__dict__:
-    _M_Test._t_LCRS = IcePy.defineSequence('::Test::LCRS', (), _M_Test._t_CR)
-
-if '_t_CCRS' not in _M_Test.__dict__:
-    _M_Test._t_CCRS = IcePy.defineSequence('::Test::CCRS', (), _M_Test._t_CR)
-
-if 'En' not in _M_Test.__dict__:
-    _M_Test.En = Ice.createTempClass()
-    class En(Ice.EnumBase):
-
-        def __init__(self, _n, _v):
-            Ice.EnumBase.__init__(self, _n, _v)
-
-        def valueOf(self, _n):
-            if _n in self._enumerators:
-                return self._enumerators[_n]
-            return None
-        valueOf = classmethod(valueOf)
-
-    En.A = En("A", 0)
-    En.B = En("B", 1)
-    En.C = En("C", 2)
-    En._enumerators = { 0:En.A, 1:En.B, 2:En.C }
-
-    _M_Test._t_En = IcePy.defineEnum('::Test::En', En, (), En._enumerators)
-
-    _M_Test.En = En
-    del En
-
-if '_t_AEnS' not in _M_Test.__dict__:
-    _M_Test._t_AEnS = IcePy.defineSequence('::Test::AEnS', (), _M_Test._t_En)
-
-if '_t_LEnS' not in _M_Test.__dict__:
-    _M_Test._t_LEnS = IcePy.defineSequence('::Test::LEnS', (), _M_Test._t_En)
-
-if '_t_KEnS' not in _M_Test.__dict__:
-    _M_Test._t_KEnS = IcePy.defineSequence('::Test::KEnS', (), _M_Test._t_En)
-
-if '_t_QEnS' not in _M_Test.__dict__:
-    _M_Test._t_QEnS = IcePy.defineSequence('::Test::QEnS', (), _M_Test._t_En)
-
-if '_t_SEnS' not in _M_Test.__dict__:
-    _M_Test._t_SEnS = IcePy.defineSequence('::Test::SEnS', (), _M_Test._t_En)
-
-if '_t_CEnS' not in _M_Test.__dict__:
-    _M_Test._t_CEnS = IcePy.defineSequence('::Test::CEnS', (), _M_Test._t_En)
-
-if '_t_CustomIntS' not in _M_Test.__dict__:
-    _M_Test._t_CustomIntS = IcePy.defineSequence('::Test::CustomIntS', (), IcePy._t_int)
-
-if '_t_CustomCVS' not in _M_Test.__dict__:
-    _M_Test._t_CustomCVS = IcePy.defineSequence('::Test::CustomCVS', (), _M_Test._t_CV)
-
-if '_t_CustomIntSS' not in _M_Test.__dict__:
-    _M_Test._t_CustomIntSS = IcePy.defineSequence('::Test::CustomIntSS', (), _M_Test._t_CustomIntS)
-
-if '_t_CustomCVSS' not in _M_Test.__dict__:
-    _M_Test._t_CustomCVSS = IcePy.defineSequence('::Test::CustomCVSS', (), _M_Test._t_CustomCVS)
+_M_Test.En = En
+del En
+_M_Test._t_AEnS = IcePy.defineSequence('::Test::AEnS', (), _M_Test._t_En)
+_M_Test._t_LEnS = IcePy.defineSequence('::Test::LEnS', (), _M_Test._t_En)
+_M_Test._t_KEnS = IcePy.defineSequence('::Test::KEnS', (), _M_Test._t_En)
+_M_Test._t_QEnS = IcePy.defineSequence('::Test::QEnS', (), _M_Test._t_En)
+_M_Test._t_SEnS = IcePy.defineSequence('::Test::SEnS', (), _M_Test._t_En)
+_M_Test._t_CEnS = IcePy.defineSequence('::Test::CEnS', (), _M_Test._t_En)
+_M_Test._t_CustomIntS = IcePy.defineSequence('::Test::CustomIntS', (), IcePy._t_int)
+_M_Test._t_CustomCVS = IcePy.defineSequence('::Test::CustomCVS', (), _M_Test._t_CV)
+_M_Test._t_CustomIntSS = IcePy.defineSequence('::Test::CustomIntSS', (), _M_Test._t_CustomIntS)
+_M_Test._t_CustomCVSS = IcePy.defineSequence('::Test::CustomCVSS', (), _M_Test._t_CustomCVS)
 
 _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
+_M_Test.MyClassPrx = None
+class MyClassPrx(Ice.ObjectPrx):
 
-if 'MyClassPrx' not in _M_Test.__dict__:
-    _M_Test.MyClassPrx = Ice.createTempClass()
-    class MyClassPrx(Ice.ObjectPrx):
+    def shutdown(self, context=None):
+        return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
 
-        def shutdown(self, context=None):
-            return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
+    def shutdownAsync(self, context=None):
+        return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
 
-        def shutdownAsync(self, context=None):
-            return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
+    def opAByteS(self, i, context=None):
+        return _M_Test.MyClass._op_opAByteS.invoke(self, ((i, ), context))
 
-        def opAByteS(self, i, context=None):
-            return _M_Test.MyClass._op_opAByteS.invoke(self, ((i, ), context))
+    def opAByteSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opAByteS.invokeAsync(self, ((i, ), context))
 
-        def opAByteSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opAByteS.invokeAsync(self, ((i, ), context))
+    def opLByteS(self, i, context=None):
+        return _M_Test.MyClass._op_opLByteS.invoke(self, ((i, ), context))
 
-        def opLByteS(self, i, context=None):
-            return _M_Test.MyClass._op_opLByteS.invoke(self, ((i, ), context))
+    def opLByteSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLByteS.invokeAsync(self, ((i, ), context))
 
-        def opLByteSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLByteS.invokeAsync(self, ((i, ), context))
+    def opKByteS(self, i, context=None):
+        return _M_Test.MyClass._op_opKByteS.invoke(self, ((i, ), context))
 
-        def opKByteS(self, i, context=None):
-            return _M_Test.MyClass._op_opKByteS.invoke(self, ((i, ), context))
+    def opKByteSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKByteS.invokeAsync(self, ((i, ), context))
 
-        def opKByteSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKByteS.invokeAsync(self, ((i, ), context))
+    def opQByteS(self, i, context=None):
+        return _M_Test.MyClass._op_opQByteS.invoke(self, ((i, ), context))
 
-        def opQByteS(self, i, context=None):
-            return _M_Test.MyClass._op_opQByteS.invoke(self, ((i, ), context))
+    def opQByteSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQByteS.invokeAsync(self, ((i, ), context))
 
-        def opQByteSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQByteS.invokeAsync(self, ((i, ), context))
+    def opSByteS(self, i, context=None):
+        return _M_Test.MyClass._op_opSByteS.invoke(self, ((i, ), context))
 
-        def opSByteS(self, i, context=None):
-            return _M_Test.MyClass._op_opSByteS.invoke(self, ((i, ), context))
+    def opSByteSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSByteS.invokeAsync(self, ((i, ), context))
 
-        def opSByteSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSByteS.invokeAsync(self, ((i, ), context))
+    def opABoolS(self, i, context=None):
+        return _M_Test.MyClass._op_opABoolS.invoke(self, ((i, ), context))
 
-        def opABoolS(self, i, context=None):
-            return _M_Test.MyClass._op_opABoolS.invoke(self, ((i, ), context))
+    def opABoolSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opABoolS.invokeAsync(self, ((i, ), context))
 
-        def opABoolSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opABoolS.invokeAsync(self, ((i, ), context))
+    def opLBoolS(self, i, context=None):
+        return _M_Test.MyClass._op_opLBoolS.invoke(self, ((i, ), context))
 
-        def opLBoolS(self, i, context=None):
-            return _M_Test.MyClass._op_opLBoolS.invoke(self, ((i, ), context))
+    def opLBoolSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLBoolS.invokeAsync(self, ((i, ), context))
 
-        def opLBoolSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLBoolS.invokeAsync(self, ((i, ), context))
+    def opKBoolS(self, i, context=None):
+        return _M_Test.MyClass._op_opKBoolS.invoke(self, ((i, ), context))
 
-        def opKBoolS(self, i, context=None):
-            return _M_Test.MyClass._op_opKBoolS.invoke(self, ((i, ), context))
+    def opKBoolSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKBoolS.invokeAsync(self, ((i, ), context))
 
-        def opKBoolSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKBoolS.invokeAsync(self, ((i, ), context))
+    def opQBoolS(self, i, context=None):
+        return _M_Test.MyClass._op_opQBoolS.invoke(self, ((i, ), context))
 
-        def opQBoolS(self, i, context=None):
-            return _M_Test.MyClass._op_opQBoolS.invoke(self, ((i, ), context))
+    def opQBoolSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQBoolS.invokeAsync(self, ((i, ), context))
 
-        def opQBoolSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQBoolS.invokeAsync(self, ((i, ), context))
+    def opSBoolS(self, i, context=None):
+        return _M_Test.MyClass._op_opSBoolS.invoke(self, ((i, ), context))
 
-        def opSBoolS(self, i, context=None):
-            return _M_Test.MyClass._op_opSBoolS.invoke(self, ((i, ), context))
+    def opSBoolSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSBoolS.invokeAsync(self, ((i, ), context))
 
-        def opSBoolSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSBoolS.invokeAsync(self, ((i, ), context))
+    def opAShortS(self, i, context=None):
+        return _M_Test.MyClass._op_opAShortS.invoke(self, ((i, ), context))
 
-        def opAShortS(self, i, context=None):
-            return _M_Test.MyClass._op_opAShortS.invoke(self, ((i, ), context))
+    def opAShortSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opAShortS.invokeAsync(self, ((i, ), context))
 
-        def opAShortSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opAShortS.invokeAsync(self, ((i, ), context))
+    def opLShortS(self, i, context=None):
+        return _M_Test.MyClass._op_opLShortS.invoke(self, ((i, ), context))
 
-        def opLShortS(self, i, context=None):
-            return _M_Test.MyClass._op_opLShortS.invoke(self, ((i, ), context))
+    def opLShortSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLShortS.invokeAsync(self, ((i, ), context))
 
-        def opLShortSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLShortS.invokeAsync(self, ((i, ), context))
+    def opKShortS(self, i, context=None):
+        return _M_Test.MyClass._op_opKShortS.invoke(self, ((i, ), context))
 
-        def opKShortS(self, i, context=None):
-            return _M_Test.MyClass._op_opKShortS.invoke(self, ((i, ), context))
+    def opKShortSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKShortS.invokeAsync(self, ((i, ), context))
 
-        def opKShortSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKShortS.invokeAsync(self, ((i, ), context))
+    def opQShortS(self, i, context=None):
+        return _M_Test.MyClass._op_opQShortS.invoke(self, ((i, ), context))
 
-        def opQShortS(self, i, context=None):
-            return _M_Test.MyClass._op_opQShortS.invoke(self, ((i, ), context))
+    def opQShortSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQShortS.invokeAsync(self, ((i, ), context))
 
-        def opQShortSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQShortS.invokeAsync(self, ((i, ), context))
+    def opSShortS(self, i, context=None):
+        return _M_Test.MyClass._op_opSShortS.invoke(self, ((i, ), context))
 
-        def opSShortS(self, i, context=None):
-            return _M_Test.MyClass._op_opSShortS.invoke(self, ((i, ), context))
+    def opSShortSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSShortS.invokeAsync(self, ((i, ), context))
 
-        def opSShortSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSShortS.invokeAsync(self, ((i, ), context))
+    def opAIntS(self, i, context=None):
+        return _M_Test.MyClass._op_opAIntS.invoke(self, ((i, ), context))
 
-        def opAIntS(self, i, context=None):
-            return _M_Test.MyClass._op_opAIntS.invoke(self, ((i, ), context))
+    def opAIntSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opAIntS.invokeAsync(self, ((i, ), context))
 
-        def opAIntSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opAIntS.invokeAsync(self, ((i, ), context))
+    def opLIntS(self, i, context=None):
+        return _M_Test.MyClass._op_opLIntS.invoke(self, ((i, ), context))
 
-        def opLIntS(self, i, context=None):
-            return _M_Test.MyClass._op_opLIntS.invoke(self, ((i, ), context))
+    def opLIntSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLIntS.invokeAsync(self, ((i, ), context))
 
-        def opLIntSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLIntS.invokeAsync(self, ((i, ), context))
+    def opKIntS(self, i, context=None):
+        return _M_Test.MyClass._op_opKIntS.invoke(self, ((i, ), context))
 
-        def opKIntS(self, i, context=None):
-            return _M_Test.MyClass._op_opKIntS.invoke(self, ((i, ), context))
+    def opKIntSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKIntS.invokeAsync(self, ((i, ), context))
 
-        def opKIntSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKIntS.invokeAsync(self, ((i, ), context))
+    def opQIntS(self, i, context=None):
+        return _M_Test.MyClass._op_opQIntS.invoke(self, ((i, ), context))
 
-        def opQIntS(self, i, context=None):
-            return _M_Test.MyClass._op_opQIntS.invoke(self, ((i, ), context))
+    def opQIntSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQIntS.invokeAsync(self, ((i, ), context))
 
-        def opQIntSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQIntS.invokeAsync(self, ((i, ), context))
+    def opSIntS(self, i, context=None):
+        return _M_Test.MyClass._op_opSIntS.invoke(self, ((i, ), context))
 
-        def opSIntS(self, i, context=None):
-            return _M_Test.MyClass._op_opSIntS.invoke(self, ((i, ), context))
+    def opSIntSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSIntS.invokeAsync(self, ((i, ), context))
 
-        def opSIntSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSIntS.invokeAsync(self, ((i, ), context))
+    def opALongS(self, i, context=None):
+        return _M_Test.MyClass._op_opALongS.invoke(self, ((i, ), context))
 
-        def opALongS(self, i, context=None):
-            return _M_Test.MyClass._op_opALongS.invoke(self, ((i, ), context))
+    def opALongSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opALongS.invokeAsync(self, ((i, ), context))
 
-        def opALongSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opALongS.invokeAsync(self, ((i, ), context))
+    def opLLongS(self, i, context=None):
+        return _M_Test.MyClass._op_opLLongS.invoke(self, ((i, ), context))
 
-        def opLLongS(self, i, context=None):
-            return _M_Test.MyClass._op_opLLongS.invoke(self, ((i, ), context))
+    def opLLongSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLLongS.invokeAsync(self, ((i, ), context))
 
-        def opLLongSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLLongS.invokeAsync(self, ((i, ), context))
+    def opKLongS(self, i, context=None):
+        return _M_Test.MyClass._op_opKLongS.invoke(self, ((i, ), context))
 
-        def opKLongS(self, i, context=None):
-            return _M_Test.MyClass._op_opKLongS.invoke(self, ((i, ), context))
+    def opKLongSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKLongS.invokeAsync(self, ((i, ), context))
 
-        def opKLongSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKLongS.invokeAsync(self, ((i, ), context))
+    def opQLongS(self, i, context=None):
+        return _M_Test.MyClass._op_opQLongS.invoke(self, ((i, ), context))
 
-        def opQLongS(self, i, context=None):
-            return _M_Test.MyClass._op_opQLongS.invoke(self, ((i, ), context))
+    def opQLongSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQLongS.invokeAsync(self, ((i, ), context))
 
-        def opQLongSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQLongS.invokeAsync(self, ((i, ), context))
+    def opSLongS(self, i, context=None):
+        return _M_Test.MyClass._op_opSLongS.invoke(self, ((i, ), context))
 
-        def opSLongS(self, i, context=None):
-            return _M_Test.MyClass._op_opSLongS.invoke(self, ((i, ), context))
+    def opSLongSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSLongS.invokeAsync(self, ((i, ), context))
 
-        def opSLongSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSLongS.invokeAsync(self, ((i, ), context))
+    def opAFloatS(self, i, context=None):
+        return _M_Test.MyClass._op_opAFloatS.invoke(self, ((i, ), context))
 
-        def opAFloatS(self, i, context=None):
-            return _M_Test.MyClass._op_opAFloatS.invoke(self, ((i, ), context))
+    def opAFloatSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opAFloatS.invokeAsync(self, ((i, ), context))
 
-        def opAFloatSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opAFloatS.invokeAsync(self, ((i, ), context))
+    def opLFloatS(self, i, context=None):
+        return _M_Test.MyClass._op_opLFloatS.invoke(self, ((i, ), context))
 
-        def opLFloatS(self, i, context=None):
-            return _M_Test.MyClass._op_opLFloatS.invoke(self, ((i, ), context))
+    def opLFloatSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLFloatS.invokeAsync(self, ((i, ), context))
 
-        def opLFloatSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLFloatS.invokeAsync(self, ((i, ), context))
+    def opKFloatS(self, i, context=None):
+        return _M_Test.MyClass._op_opKFloatS.invoke(self, ((i, ), context))
 
-        def opKFloatS(self, i, context=None):
-            return _M_Test.MyClass._op_opKFloatS.invoke(self, ((i, ), context))
+    def opKFloatSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKFloatS.invokeAsync(self, ((i, ), context))
 
-        def opKFloatSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKFloatS.invokeAsync(self, ((i, ), context))
+    def opQFloatS(self, i, context=None):
+        return _M_Test.MyClass._op_opQFloatS.invoke(self, ((i, ), context))
 
-        def opQFloatS(self, i, context=None):
-            return _M_Test.MyClass._op_opQFloatS.invoke(self, ((i, ), context))
+    def opQFloatSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQFloatS.invokeAsync(self, ((i, ), context))
 
-        def opQFloatSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQFloatS.invokeAsync(self, ((i, ), context))
+    def opSFloatS(self, i, context=None):
+        return _M_Test.MyClass._op_opSFloatS.invoke(self, ((i, ), context))
 
-        def opSFloatS(self, i, context=None):
-            return _M_Test.MyClass._op_opSFloatS.invoke(self, ((i, ), context))
+    def opSFloatSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSFloatS.invokeAsync(self, ((i, ), context))
 
-        def opSFloatSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSFloatS.invokeAsync(self, ((i, ), context))
+    def opADoubleS(self, i, context=None):
+        return _M_Test.MyClass._op_opADoubleS.invoke(self, ((i, ), context))
 
-        def opADoubleS(self, i, context=None):
-            return _M_Test.MyClass._op_opADoubleS.invoke(self, ((i, ), context))
+    def opADoubleSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opADoubleS.invokeAsync(self, ((i, ), context))
 
-        def opADoubleSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opADoubleS.invokeAsync(self, ((i, ), context))
+    def opLDoubleS(self, i, context=None):
+        return _M_Test.MyClass._op_opLDoubleS.invoke(self, ((i, ), context))
 
-        def opLDoubleS(self, i, context=None):
-            return _M_Test.MyClass._op_opLDoubleS.invoke(self, ((i, ), context))
+    def opLDoubleSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLDoubleS.invokeAsync(self, ((i, ), context))
 
-        def opLDoubleSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLDoubleS.invokeAsync(self, ((i, ), context))
+    def opKDoubleS(self, i, context=None):
+        return _M_Test.MyClass._op_opKDoubleS.invoke(self, ((i, ), context))
 
-        def opKDoubleS(self, i, context=None):
-            return _M_Test.MyClass._op_opKDoubleS.invoke(self, ((i, ), context))
+    def opKDoubleSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKDoubleS.invokeAsync(self, ((i, ), context))
 
-        def opKDoubleSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKDoubleS.invokeAsync(self, ((i, ), context))
+    def opQDoubleS(self, i, context=None):
+        return _M_Test.MyClass._op_opQDoubleS.invoke(self, ((i, ), context))
 
-        def opQDoubleS(self, i, context=None):
-            return _M_Test.MyClass._op_opQDoubleS.invoke(self, ((i, ), context))
+    def opQDoubleSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQDoubleS.invokeAsync(self, ((i, ), context))
 
-        def opQDoubleSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQDoubleS.invokeAsync(self, ((i, ), context))
+    def opSDoubleS(self, i, context=None):
+        return _M_Test.MyClass._op_opSDoubleS.invoke(self, ((i, ), context))
 
-        def opSDoubleS(self, i, context=None):
-            return _M_Test.MyClass._op_opSDoubleS.invoke(self, ((i, ), context))
+    def opSDoubleSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSDoubleS.invokeAsync(self, ((i, ), context))
 
-        def opSDoubleSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSDoubleS.invokeAsync(self, ((i, ), context))
+    def opAStringS(self, i, context=None):
+        return _M_Test.MyClass._op_opAStringS.invoke(self, ((i, ), context))
 
-        def opAStringS(self, i, context=None):
-            return _M_Test.MyClass._op_opAStringS.invoke(self, ((i, ), context))
+    def opAStringSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opAStringS.invokeAsync(self, ((i, ), context))
 
-        def opAStringSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opAStringS.invokeAsync(self, ((i, ), context))
+    def opLStringS(self, i, context=None):
+        return _M_Test.MyClass._op_opLStringS.invoke(self, ((i, ), context))
 
-        def opLStringS(self, i, context=None):
-            return _M_Test.MyClass._op_opLStringS.invoke(self, ((i, ), context))
+    def opLStringSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLStringS.invokeAsync(self, ((i, ), context))
 
-        def opLStringSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLStringS.invokeAsync(self, ((i, ), context))
+    def opKStringS(self, i, context=None):
+        return _M_Test.MyClass._op_opKStringS.invoke(self, ((i, ), context))
 
-        def opKStringS(self, i, context=None):
-            return _M_Test.MyClass._op_opKStringS.invoke(self, ((i, ), context))
+    def opKStringSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKStringS.invokeAsync(self, ((i, ), context))
 
-        def opKStringSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKStringS.invokeAsync(self, ((i, ), context))
+    def opQStringS(self, i, context=None):
+        return _M_Test.MyClass._op_opQStringS.invoke(self, ((i, ), context))
 
-        def opQStringS(self, i, context=None):
-            return _M_Test.MyClass._op_opQStringS.invoke(self, ((i, ), context))
+    def opQStringSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQStringS.invokeAsync(self, ((i, ), context))
 
-        def opQStringSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQStringS.invokeAsync(self, ((i, ), context))
+    def opSStringS(self, i, context=None):
+        return _M_Test.MyClass._op_opSStringS.invoke(self, ((i, ), context))
 
-        def opSStringS(self, i, context=None):
-            return _M_Test.MyClass._op_opSStringS.invoke(self, ((i, ), context))
+    def opSStringSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSStringS.invokeAsync(self, ((i, ), context))
 
-        def opSStringSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSStringS.invokeAsync(self, ((i, ), context))
+    def opAObjectS(self, i, context=None):
+        return _M_Test.MyClass._op_opAObjectS.invoke(self, ((i, ), context))
 
-        def opAObjectS(self, i, context=None):
-            return _M_Test.MyClass._op_opAObjectS.invoke(self, ((i, ), context))
+    def opAObjectSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opAObjectS.invokeAsync(self, ((i, ), context))
 
-        def opAObjectSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opAObjectS.invokeAsync(self, ((i, ), context))
+    def opLObjectS(self, i, context=None):
+        return _M_Test.MyClass._op_opLObjectS.invoke(self, ((i, ), context))
 
-        def opLObjectS(self, i, context=None):
-            return _M_Test.MyClass._op_opLObjectS.invoke(self, ((i, ), context))
+    def opLObjectSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLObjectS.invokeAsync(self, ((i, ), context))
 
-        def opLObjectSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLObjectS.invokeAsync(self, ((i, ), context))
+    def opAObjectPrxS(self, i, context=None):
+        return _M_Test.MyClass._op_opAObjectPrxS.invoke(self, ((i, ), context))
 
-        def opAObjectPrxS(self, i, context=None):
-            return _M_Test.MyClass._op_opAObjectPrxS.invoke(self, ((i, ), context))
+    def opAObjectPrxSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opAObjectPrxS.invokeAsync(self, ((i, ), context))
 
-        def opAObjectPrxSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opAObjectPrxS.invokeAsync(self, ((i, ), context))
+    def opLObjectPrxS(self, i, context=None):
+        return _M_Test.MyClass._op_opLObjectPrxS.invoke(self, ((i, ), context))
 
-        def opLObjectPrxS(self, i, context=None):
-            return _M_Test.MyClass._op_opLObjectPrxS.invoke(self, ((i, ), context))
+    def opLObjectPrxSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLObjectPrxS.invokeAsync(self, ((i, ), context))
 
-        def opLObjectPrxSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLObjectPrxS.invokeAsync(self, ((i, ), context))
+    def opKObjectPrxS(self, i, context=None):
+        return _M_Test.MyClass._op_opKObjectPrxS.invoke(self, ((i, ), context))
 
-        def opKObjectPrxS(self, i, context=None):
-            return _M_Test.MyClass._op_opKObjectPrxS.invoke(self, ((i, ), context))
+    def opKObjectPrxSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKObjectPrxS.invokeAsync(self, ((i, ), context))
 
-        def opKObjectPrxSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKObjectPrxS.invokeAsync(self, ((i, ), context))
+    def opQObjectPrxS(self, i, context=None):
+        return _M_Test.MyClass._op_opQObjectPrxS.invoke(self, ((i, ), context))
 
-        def opQObjectPrxS(self, i, context=None):
-            return _M_Test.MyClass._op_opQObjectPrxS.invoke(self, ((i, ), context))
+    def opQObjectPrxSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQObjectPrxS.invokeAsync(self, ((i, ), context))
 
-        def opQObjectPrxSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQObjectPrxS.invokeAsync(self, ((i, ), context))
+    def opSObjectPrxS(self, i, context=None):
+        return _M_Test.MyClass._op_opSObjectPrxS.invoke(self, ((i, ), context))
 
-        def opSObjectPrxS(self, i, context=None):
-            return _M_Test.MyClass._op_opSObjectPrxS.invoke(self, ((i, ), context))
+    def opSObjectPrxSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSObjectPrxS.invokeAsync(self, ((i, ), context))
 
-        def opSObjectPrxSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSObjectPrxS.invokeAsync(self, ((i, ), context))
+    def opAStructS(self, i, context=None):
+        return _M_Test.MyClass._op_opAStructS.invoke(self, ((i, ), context))
 
-        def opAStructS(self, i, context=None):
-            return _M_Test.MyClass._op_opAStructS.invoke(self, ((i, ), context))
+    def opAStructSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opAStructS.invokeAsync(self, ((i, ), context))
 
-        def opAStructSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opAStructS.invokeAsync(self, ((i, ), context))
+    def opLStructS(self, i, context=None):
+        return _M_Test.MyClass._op_opLStructS.invoke(self, ((i, ), context))
 
-        def opLStructS(self, i, context=None):
-            return _M_Test.MyClass._op_opLStructS.invoke(self, ((i, ), context))
+    def opLStructSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLStructS.invokeAsync(self, ((i, ), context))
 
-        def opLStructSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLStructS.invokeAsync(self, ((i, ), context))
+    def opKStructS(self, i, context=None):
+        return _M_Test.MyClass._op_opKStructS.invoke(self, ((i, ), context))
 
-        def opKStructS(self, i, context=None):
-            return _M_Test.MyClass._op_opKStructS.invoke(self, ((i, ), context))
+    def opKStructSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKStructS.invokeAsync(self, ((i, ), context))
 
-        def opKStructSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKStructS.invokeAsync(self, ((i, ), context))
+    def opQStructS(self, i, context=None):
+        return _M_Test.MyClass._op_opQStructS.invoke(self, ((i, ), context))
 
-        def opQStructS(self, i, context=None):
-            return _M_Test.MyClass._op_opQStructS.invoke(self, ((i, ), context))
+    def opQStructSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQStructS.invokeAsync(self, ((i, ), context))
 
-        def opQStructSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQStructS.invokeAsync(self, ((i, ), context))
+    def opSStructS(self, i, context=None):
+        return _M_Test.MyClass._op_opSStructS.invoke(self, ((i, ), context))
 
-        def opSStructS(self, i, context=None):
-            return _M_Test.MyClass._op_opSStructS.invoke(self, ((i, ), context))
+    def opSStructSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSStructS.invokeAsync(self, ((i, ), context))
 
-        def opSStructSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSStructS.invokeAsync(self, ((i, ), context))
+    def opAStructSD(self, i, context=None):
+        return _M_Test.MyClass._op_opAStructSD.invoke(self, ((i, ), context))
 
-        def opAStructSD(self, i, context=None):
-            return _M_Test.MyClass._op_opAStructSD.invoke(self, ((i, ), context))
+    def opAStructSDAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opAStructSD.invokeAsync(self, ((i, ), context))
 
-        def opAStructSDAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opAStructSD.invokeAsync(self, ((i, ), context))
+    def opLStructSD(self, i, context=None):
+        return _M_Test.MyClass._op_opLStructSD.invoke(self, ((i, ), context))
 
-        def opLStructSD(self, i, context=None):
-            return _M_Test.MyClass._op_opLStructSD.invoke(self, ((i, ), context))
+    def opLStructSDAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLStructSD.invokeAsync(self, ((i, ), context))
 
-        def opLStructSDAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLStructSD.invokeAsync(self, ((i, ), context))
+    def opKStructSD(self, i, context=None):
+        return _M_Test.MyClass._op_opKStructSD.invoke(self, ((i, ), context))
 
-        def opKStructSD(self, i, context=None):
-            return _M_Test.MyClass._op_opKStructSD.invoke(self, ((i, ), context))
+    def opKStructSDAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKStructSD.invokeAsync(self, ((i, ), context))
 
-        def opKStructSDAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKStructSD.invokeAsync(self, ((i, ), context))
+    def opQStructSD(self, i, context=None):
+        return _M_Test.MyClass._op_opQStructSD.invoke(self, ((i, ), context))
 
-        def opQStructSD(self, i, context=None):
-            return _M_Test.MyClass._op_opQStructSD.invoke(self, ((i, ), context))
+    def opQStructSDAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQStructSD.invokeAsync(self, ((i, ), context))
 
-        def opQStructSDAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQStructSD.invokeAsync(self, ((i, ), context))
+    def opSStructSD(self, i, context=None):
+        return _M_Test.MyClass._op_opSStructSD.invoke(self, ((i, ), context))
 
-        def opSStructSD(self, i, context=None):
-            return _M_Test.MyClass._op_opSStructSD.invoke(self, ((i, ), context))
+    def opSStructSDAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSStructSD.invokeAsync(self, ((i, ), context))
 
-        def opSStructSDAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSStructSD.invokeAsync(self, ((i, ), context))
+    def opACVS(self, i, context=None):
+        return _M_Test.MyClass._op_opACVS.invoke(self, ((i, ), context))
 
-        def opACVS(self, i, context=None):
-            return _M_Test.MyClass._op_opACVS.invoke(self, ((i, ), context))
+    def opACVSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opACVS.invokeAsync(self, ((i, ), context))
 
-        def opACVSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opACVS.invokeAsync(self, ((i, ), context))
+    def opLCVS(self, i, context=None):
+        return _M_Test.MyClass._op_opLCVS.invoke(self, ((i, ), context))
 
-        def opLCVS(self, i, context=None):
-            return _M_Test.MyClass._op_opLCVS.invoke(self, ((i, ), context))
+    def opLCVSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLCVS.invokeAsync(self, ((i, ), context))
 
-        def opLCVSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLCVS.invokeAsync(self, ((i, ), context))
+    def opACRS(self, i, context=None):
+        return _M_Test.MyClass._op_opACRS.invoke(self, ((i, ), context))
 
-        def opACRS(self, i, context=None):
-            return _M_Test.MyClass._op_opACRS.invoke(self, ((i, ), context))
+    def opACRSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opACRS.invokeAsync(self, ((i, ), context))
 
-        def opACRSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opACRS.invokeAsync(self, ((i, ), context))
+    def opLCRS(self, i, context=None):
+        return _M_Test.MyClass._op_opLCRS.invoke(self, ((i, ), context))
 
-        def opLCRS(self, i, context=None):
-            return _M_Test.MyClass._op_opLCRS.invoke(self, ((i, ), context))
+    def opLCRSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLCRS.invokeAsync(self, ((i, ), context))
 
-        def opLCRSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLCRS.invokeAsync(self, ((i, ), context))
+    def opAEnS(self, i, context=None):
+        return _M_Test.MyClass._op_opAEnS.invoke(self, ((i, ), context))
 
-        def opAEnS(self, i, context=None):
-            return _M_Test.MyClass._op_opAEnS.invoke(self, ((i, ), context))
+    def opAEnSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opAEnS.invokeAsync(self, ((i, ), context))
 
-        def opAEnSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opAEnS.invokeAsync(self, ((i, ), context))
+    def opLEnS(self, i, context=None):
+        return _M_Test.MyClass._op_opLEnS.invoke(self, ((i, ), context))
 
-        def opLEnS(self, i, context=None):
-            return _M_Test.MyClass._op_opLEnS.invoke(self, ((i, ), context))
+    def opLEnSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLEnS.invokeAsync(self, ((i, ), context))
 
-        def opLEnSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLEnS.invokeAsync(self, ((i, ), context))
+    def opKEnS(self, i, context=None):
+        return _M_Test.MyClass._op_opKEnS.invoke(self, ((i, ), context))
 
-        def opKEnS(self, i, context=None):
-            return _M_Test.MyClass._op_opKEnS.invoke(self, ((i, ), context))
+    def opKEnSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKEnS.invokeAsync(self, ((i, ), context))
 
-        def opKEnSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKEnS.invokeAsync(self, ((i, ), context))
+    def opQEnS(self, i, context=None):
+        return _M_Test.MyClass._op_opQEnS.invoke(self, ((i, ), context))
 
-        def opQEnS(self, i, context=None):
-            return _M_Test.MyClass._op_opQEnS.invoke(self, ((i, ), context))
+    def opQEnSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQEnS.invokeAsync(self, ((i, ), context))
 
-        def opQEnSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQEnS.invokeAsync(self, ((i, ), context))
+    def opSEnS(self, i, context=None):
+        return _M_Test.MyClass._op_opSEnS.invoke(self, ((i, ), context))
 
-        def opSEnS(self, i, context=None):
-            return _M_Test.MyClass._op_opSEnS.invoke(self, ((i, ), context))
+    def opSEnSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSEnS.invokeAsync(self, ((i, ), context))
 
-        def opSEnSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSEnS.invokeAsync(self, ((i, ), context))
+    def opAIPrxS(self, i, context=None):
+        return _M_Test.MyClass._op_opAIPrxS.invoke(self, ((i, ), context))
 
-        def opAIPrxS(self, i, context=None):
-            return _M_Test.MyClass._op_opAIPrxS.invoke(self, ((i, ), context))
+    def opAIPrxSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opAIPrxS.invokeAsync(self, ((i, ), context))
 
-        def opAIPrxSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opAIPrxS.invokeAsync(self, ((i, ), context))
+    def opLIPrxS(self, i, context=None):
+        return _M_Test.MyClass._op_opLIPrxS.invoke(self, ((i, ), context))
 
-        def opLIPrxS(self, i, context=None):
-            return _M_Test.MyClass._op_opLIPrxS.invoke(self, ((i, ), context))
+    def opLIPrxSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opLIPrxS.invokeAsync(self, ((i, ), context))
 
-        def opLIPrxSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opLIPrxS.invokeAsync(self, ((i, ), context))
+    def opKIPrxS(self, i, context=None):
+        return _M_Test.MyClass._op_opKIPrxS.invoke(self, ((i, ), context))
 
-        def opKIPrxS(self, i, context=None):
-            return _M_Test.MyClass._op_opKIPrxS.invoke(self, ((i, ), context))
+    def opKIPrxSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opKIPrxS.invokeAsync(self, ((i, ), context))
 
-        def opKIPrxSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opKIPrxS.invokeAsync(self, ((i, ), context))
+    def opQIPrxS(self, i, context=None):
+        return _M_Test.MyClass._op_opQIPrxS.invoke(self, ((i, ), context))
 
-        def opQIPrxS(self, i, context=None):
-            return _M_Test.MyClass._op_opQIPrxS.invoke(self, ((i, ), context))
+    def opQIPrxSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opQIPrxS.invokeAsync(self, ((i, ), context))
 
-        def opQIPrxSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opQIPrxS.invokeAsync(self, ((i, ), context))
+    def opSIPrxS(self, i, context=None):
+        return _M_Test.MyClass._op_opSIPrxS.invoke(self, ((i, ), context))
 
-        def opSIPrxS(self, i, context=None):
-            return _M_Test.MyClass._op_opSIPrxS.invoke(self, ((i, ), context))
+    def opSIPrxSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opSIPrxS.invokeAsync(self, ((i, ), context))
 
-        def opSIPrxSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSIPrxS.invokeAsync(self, ((i, ), context))
+    def opCustomIntS(self, i, context=None):
+        return _M_Test.MyClass._op_opCustomIntS.invoke(self, ((i, ), context))
 
-        def opCustomIntS(self, i, context=None):
-            return _M_Test.MyClass._op_opCustomIntS.invoke(self, ((i, ), context))
+    def opCustomIntSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opCustomIntS.invokeAsync(self, ((i, ), context))
 
-        def opCustomIntSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opCustomIntS.invokeAsync(self, ((i, ), context))
+    def opCustomCVS(self, i, context=None):
+        return _M_Test.MyClass._op_opCustomCVS.invoke(self, ((i, ), context))
 
-        def opCustomCVS(self, i, context=None):
-            return _M_Test.MyClass._op_opCustomCVS.invoke(self, ((i, ), context))
+    def opCustomCVSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opCustomCVS.invokeAsync(self, ((i, ), context))
 
-        def opCustomCVSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opCustomCVS.invokeAsync(self, ((i, ), context))
+    def opCustomIntSS(self, i, context=None):
+        return _M_Test.MyClass._op_opCustomIntSS.invoke(self, ((i, ), context))
 
-        def opCustomIntSS(self, i, context=None):
-            return _M_Test.MyClass._op_opCustomIntSS.invoke(self, ((i, ), context))
+    def opCustomIntSSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opCustomIntSS.invokeAsync(self, ((i, ), context))
 
-        def opCustomIntSSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opCustomIntSS.invokeAsync(self, ((i, ), context))
+    def opCustomCVSS(self, i, context=None):
+        return _M_Test.MyClass._op_opCustomCVSS.invoke(self, ((i, ), context))
 
-        def opCustomCVSS(self, i, context=None):
-            return _M_Test.MyClass._op_opCustomCVSS.invoke(self, ((i, ), context))
+    def opCustomCVSSAsync(self, i, context=None):
+        return _M_Test.MyClass._op_opCustomCVSS.invokeAsync(self, ((i, ), context))
 
-        def opCustomCVSSAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opCustomCVSS.invokeAsync(self, ((i, ), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.MyClassPrx.ice_checkedCast(proxy, '::Test::MyClass', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.MyClassPrx.ice_checkedCast(proxy, '::Test::MyClass', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.MyClassPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.MyClassPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MyClass'
+_M_Test._t_MyClassPrx = IcePy.defineProxy('::Test::MyClass', MyClassPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MyClass'
-    _M_Test._t_MyClassPrx = IcePy.defineProxy('::Test::MyClass', MyClassPrx)
+_M_Test.MyClassPrx = MyClassPrx
+del MyClassPrx
 
-    _M_Test.MyClassPrx = MyClassPrx
-    del MyClassPrx
+_M_Test.MyClass = None
+class MyClass(Ice.Object):
 
-    _M_Test.MyClass = Ice.createTempClass()
-    class MyClass(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::MyClass')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::MyClass')
+    def ice_id(self, current=None):
+        return '::Test::MyClass'
 
-        def ice_id(self, current=None):
-            return '::Test::MyClass'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MyClass'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MyClass'
+    def shutdown(self, current=None):
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def shutdown(self, current=None):
-            raise NotImplementedError("servant method 'shutdown' not implemented")
+    def opAByteS(self, i, current=None):
+        raise NotImplementedError("servant method 'opAByteS' not implemented")
 
-        def opAByteS(self, i, current=None):
-            raise NotImplementedError("servant method 'opAByteS' not implemented")
+    def opLByteS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLByteS' not implemented")
 
-        def opLByteS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLByteS' not implemented")
+    def opKByteS(self, i, current=None):
+        raise NotImplementedError("servant method 'opKByteS' not implemented")
 
-        def opKByteS(self, i, current=None):
-            raise NotImplementedError("servant method 'opKByteS' not implemented")
+    def opQByteS(self, i, current=None):
+        raise NotImplementedError("servant method 'opQByteS' not implemented")
 
-        def opQByteS(self, i, current=None):
-            raise NotImplementedError("servant method 'opQByteS' not implemented")
+    def opSByteS(self, i, current=None):
+        raise NotImplementedError("servant method 'opSByteS' not implemented")
 
-        def opSByteS(self, i, current=None):
-            raise NotImplementedError("servant method 'opSByteS' not implemented")
+    def opABoolS(self, i, current=None):
+        raise NotImplementedError("servant method 'opABoolS' not implemented")
 
-        def opABoolS(self, i, current=None):
-            raise NotImplementedError("servant method 'opABoolS' not implemented")
+    def opLBoolS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLBoolS' not implemented")
 
-        def opLBoolS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLBoolS' not implemented")
+    def opKBoolS(self, i, current=None):
+        raise NotImplementedError("servant method 'opKBoolS' not implemented")
 
-        def opKBoolS(self, i, current=None):
-            raise NotImplementedError("servant method 'opKBoolS' not implemented")
+    def opQBoolS(self, i, current=None):
+        raise NotImplementedError("servant method 'opQBoolS' not implemented")
 
-        def opQBoolS(self, i, current=None):
-            raise NotImplementedError("servant method 'opQBoolS' not implemented")
+    def opSBoolS(self, i, current=None):
+        raise NotImplementedError("servant method 'opSBoolS' not implemented")
 
-        def opSBoolS(self, i, current=None):
-            raise NotImplementedError("servant method 'opSBoolS' not implemented")
+    def opAShortS(self, i, current=None):
+        raise NotImplementedError("servant method 'opAShortS' not implemented")
 
-        def opAShortS(self, i, current=None):
-            raise NotImplementedError("servant method 'opAShortS' not implemented")
+    def opLShortS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLShortS' not implemented")
 
-        def opLShortS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLShortS' not implemented")
+    def opKShortS(self, i, current=None):
+        raise NotImplementedError("servant method 'opKShortS' not implemented")
 
-        def opKShortS(self, i, current=None):
-            raise NotImplementedError("servant method 'opKShortS' not implemented")
+    def opQShortS(self, i, current=None):
+        raise NotImplementedError("servant method 'opQShortS' not implemented")
 
-        def opQShortS(self, i, current=None):
-            raise NotImplementedError("servant method 'opQShortS' not implemented")
+    def opSShortS(self, i, current=None):
+        raise NotImplementedError("servant method 'opSShortS' not implemented")
 
-        def opSShortS(self, i, current=None):
-            raise NotImplementedError("servant method 'opSShortS' not implemented")
+    def opAIntS(self, i, current=None):
+        raise NotImplementedError("servant method 'opAIntS' not implemented")
 
-        def opAIntS(self, i, current=None):
-            raise NotImplementedError("servant method 'opAIntS' not implemented")
+    def opLIntS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLIntS' not implemented")
 
-        def opLIntS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLIntS' not implemented")
+    def opKIntS(self, i, current=None):
+        raise NotImplementedError("servant method 'opKIntS' not implemented")
 
-        def opKIntS(self, i, current=None):
-            raise NotImplementedError("servant method 'opKIntS' not implemented")
+    def opQIntS(self, i, current=None):
+        raise NotImplementedError("servant method 'opQIntS' not implemented")
 
-        def opQIntS(self, i, current=None):
-            raise NotImplementedError("servant method 'opQIntS' not implemented")
+    def opSIntS(self, i, current=None):
+        raise NotImplementedError("servant method 'opSIntS' not implemented")
 
-        def opSIntS(self, i, current=None):
-            raise NotImplementedError("servant method 'opSIntS' not implemented")
+    def opALongS(self, i, current=None):
+        raise NotImplementedError("servant method 'opALongS' not implemented")
 
-        def opALongS(self, i, current=None):
-            raise NotImplementedError("servant method 'opALongS' not implemented")
+    def opLLongS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLLongS' not implemented")
 
-        def opLLongS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLLongS' not implemented")
+    def opKLongS(self, i, current=None):
+        raise NotImplementedError("servant method 'opKLongS' not implemented")
 
-        def opKLongS(self, i, current=None):
-            raise NotImplementedError("servant method 'opKLongS' not implemented")
+    def opQLongS(self, i, current=None):
+        raise NotImplementedError("servant method 'opQLongS' not implemented")
 
-        def opQLongS(self, i, current=None):
-            raise NotImplementedError("servant method 'opQLongS' not implemented")
+    def opSLongS(self, i, current=None):
+        raise NotImplementedError("servant method 'opSLongS' not implemented")
 
-        def opSLongS(self, i, current=None):
-            raise NotImplementedError("servant method 'opSLongS' not implemented")
+    def opAFloatS(self, i, current=None):
+        raise NotImplementedError("servant method 'opAFloatS' not implemented")
 
-        def opAFloatS(self, i, current=None):
-            raise NotImplementedError("servant method 'opAFloatS' not implemented")
+    def opLFloatS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLFloatS' not implemented")
 
-        def opLFloatS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLFloatS' not implemented")
+    def opKFloatS(self, i, current=None):
+        raise NotImplementedError("servant method 'opKFloatS' not implemented")
 
-        def opKFloatS(self, i, current=None):
-            raise NotImplementedError("servant method 'opKFloatS' not implemented")
+    def opQFloatS(self, i, current=None):
+        raise NotImplementedError("servant method 'opQFloatS' not implemented")
 
-        def opQFloatS(self, i, current=None):
-            raise NotImplementedError("servant method 'opQFloatS' not implemented")
+    def opSFloatS(self, i, current=None):
+        raise NotImplementedError("servant method 'opSFloatS' not implemented")
 
-        def opSFloatS(self, i, current=None):
-            raise NotImplementedError("servant method 'opSFloatS' not implemented")
+    def opADoubleS(self, i, current=None):
+        raise NotImplementedError("servant method 'opADoubleS' not implemented")
 
-        def opADoubleS(self, i, current=None):
-            raise NotImplementedError("servant method 'opADoubleS' not implemented")
+    def opLDoubleS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLDoubleS' not implemented")
 
-        def opLDoubleS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLDoubleS' not implemented")
+    def opKDoubleS(self, i, current=None):
+        raise NotImplementedError("servant method 'opKDoubleS' not implemented")
 
-        def opKDoubleS(self, i, current=None):
-            raise NotImplementedError("servant method 'opKDoubleS' not implemented")
+    def opQDoubleS(self, i, current=None):
+        raise NotImplementedError("servant method 'opQDoubleS' not implemented")
 
-        def opQDoubleS(self, i, current=None):
-            raise NotImplementedError("servant method 'opQDoubleS' not implemented")
+    def opSDoubleS(self, i, current=None):
+        raise NotImplementedError("servant method 'opSDoubleS' not implemented")
 
-        def opSDoubleS(self, i, current=None):
-            raise NotImplementedError("servant method 'opSDoubleS' not implemented")
+    def opAStringS(self, i, current=None):
+        raise NotImplementedError("servant method 'opAStringS' not implemented")
 
-        def opAStringS(self, i, current=None):
-            raise NotImplementedError("servant method 'opAStringS' not implemented")
+    def opLStringS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLStringS' not implemented")
 
-        def opLStringS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLStringS' not implemented")
+    def opKStringS(self, i, current=None):
+        raise NotImplementedError("servant method 'opKStringS' not implemented")
 
-        def opKStringS(self, i, current=None):
-            raise NotImplementedError("servant method 'opKStringS' not implemented")
+    def opQStringS(self, i, current=None):
+        raise NotImplementedError("servant method 'opQStringS' not implemented")
 
-        def opQStringS(self, i, current=None):
-            raise NotImplementedError("servant method 'opQStringS' not implemented")
+    def opSStringS(self, i, current=None):
+        raise NotImplementedError("servant method 'opSStringS' not implemented")
 
-        def opSStringS(self, i, current=None):
-            raise NotImplementedError("servant method 'opSStringS' not implemented")
+    def opAObjectS(self, i, current=None):
+        raise NotImplementedError("servant method 'opAObjectS' not implemented")
 
-        def opAObjectS(self, i, current=None):
-            raise NotImplementedError("servant method 'opAObjectS' not implemented")
+    def opLObjectS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLObjectS' not implemented")
 
-        def opLObjectS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLObjectS' not implemented")
+    def opAObjectPrxS(self, i, current=None):
+        raise NotImplementedError("servant method 'opAObjectPrxS' not implemented")
 
-        def opAObjectPrxS(self, i, current=None):
-            raise NotImplementedError("servant method 'opAObjectPrxS' not implemented")
+    def opLObjectPrxS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLObjectPrxS' not implemented")
 
-        def opLObjectPrxS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLObjectPrxS' not implemented")
+    def opKObjectPrxS(self, i, current=None):
+        raise NotImplementedError("servant method 'opKObjectPrxS' not implemented")
 
-        def opKObjectPrxS(self, i, current=None):
-            raise NotImplementedError("servant method 'opKObjectPrxS' not implemented")
+    def opQObjectPrxS(self, i, current=None):
+        raise NotImplementedError("servant method 'opQObjectPrxS' not implemented")
 
-        def opQObjectPrxS(self, i, current=None):
-            raise NotImplementedError("servant method 'opQObjectPrxS' not implemented")
+    def opSObjectPrxS(self, i, current=None):
+        raise NotImplementedError("servant method 'opSObjectPrxS' not implemented")
 
-        def opSObjectPrxS(self, i, current=None):
-            raise NotImplementedError("servant method 'opSObjectPrxS' not implemented")
+    def opAStructS(self, i, current=None):
+        raise NotImplementedError("servant method 'opAStructS' not implemented")
 
-        def opAStructS(self, i, current=None):
-            raise NotImplementedError("servant method 'opAStructS' not implemented")
+    def opLStructS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLStructS' not implemented")
 
-        def opLStructS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLStructS' not implemented")
+    def opKStructS(self, i, current=None):
+        raise NotImplementedError("servant method 'opKStructS' not implemented")
 
-        def opKStructS(self, i, current=None):
-            raise NotImplementedError("servant method 'opKStructS' not implemented")
+    def opQStructS(self, i, current=None):
+        raise NotImplementedError("servant method 'opQStructS' not implemented")
 
-        def opQStructS(self, i, current=None):
-            raise NotImplementedError("servant method 'opQStructS' not implemented")
+    def opSStructS(self, i, current=None):
+        raise NotImplementedError("servant method 'opSStructS' not implemented")
 
-        def opSStructS(self, i, current=None):
-            raise NotImplementedError("servant method 'opSStructS' not implemented")
+    def opAStructSD(self, i, current=None):
+        raise NotImplementedError("servant method 'opAStructSD' not implemented")
 
-        def opAStructSD(self, i, current=None):
-            raise NotImplementedError("servant method 'opAStructSD' not implemented")
+    def opLStructSD(self, i, current=None):
+        raise NotImplementedError("servant method 'opLStructSD' not implemented")
 
-        def opLStructSD(self, i, current=None):
-            raise NotImplementedError("servant method 'opLStructSD' not implemented")
+    def opKStructSD(self, i, current=None):
+        raise NotImplementedError("servant method 'opKStructSD' not implemented")
 
-        def opKStructSD(self, i, current=None):
-            raise NotImplementedError("servant method 'opKStructSD' not implemented")
+    def opQStructSD(self, i, current=None):
+        raise NotImplementedError("servant method 'opQStructSD' not implemented")
 
-        def opQStructSD(self, i, current=None):
-            raise NotImplementedError("servant method 'opQStructSD' not implemented")
+    def opSStructSD(self, i, current=None):
+        raise NotImplementedError("servant method 'opSStructSD' not implemented")
 
-        def opSStructSD(self, i, current=None):
-            raise NotImplementedError("servant method 'opSStructSD' not implemented")
+    def opACVS(self, i, current=None):
+        raise NotImplementedError("servant method 'opACVS' not implemented")
 
-        def opACVS(self, i, current=None):
-            raise NotImplementedError("servant method 'opACVS' not implemented")
+    def opLCVS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLCVS' not implemented")
 
-        def opLCVS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLCVS' not implemented")
+    def opACRS(self, i, current=None):
+        raise NotImplementedError("servant method 'opACRS' not implemented")
 
-        def opACRS(self, i, current=None):
-            raise NotImplementedError("servant method 'opACRS' not implemented")
+    def opLCRS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLCRS' not implemented")
 
-        def opLCRS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLCRS' not implemented")
+    def opAEnS(self, i, current=None):
+        raise NotImplementedError("servant method 'opAEnS' not implemented")
 
-        def opAEnS(self, i, current=None):
-            raise NotImplementedError("servant method 'opAEnS' not implemented")
+    def opLEnS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLEnS' not implemented")
 
-        def opLEnS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLEnS' not implemented")
+    def opKEnS(self, i, current=None):
+        raise NotImplementedError("servant method 'opKEnS' not implemented")
 
-        def opKEnS(self, i, current=None):
-            raise NotImplementedError("servant method 'opKEnS' not implemented")
+    def opQEnS(self, i, current=None):
+        raise NotImplementedError("servant method 'opQEnS' not implemented")
 
-        def opQEnS(self, i, current=None):
-            raise NotImplementedError("servant method 'opQEnS' not implemented")
+    def opSEnS(self, i, current=None):
+        raise NotImplementedError("servant method 'opSEnS' not implemented")
 
-        def opSEnS(self, i, current=None):
-            raise NotImplementedError("servant method 'opSEnS' not implemented")
+    def opAIPrxS(self, i, current=None):
+        raise NotImplementedError("servant method 'opAIPrxS' not implemented")
 
-        def opAIPrxS(self, i, current=None):
-            raise NotImplementedError("servant method 'opAIPrxS' not implemented")
+    def opLIPrxS(self, i, current=None):
+        raise NotImplementedError("servant method 'opLIPrxS' not implemented")
 
-        def opLIPrxS(self, i, current=None):
-            raise NotImplementedError("servant method 'opLIPrxS' not implemented")
+    def opKIPrxS(self, i, current=None):
+        raise NotImplementedError("servant method 'opKIPrxS' not implemented")
 
-        def opKIPrxS(self, i, current=None):
-            raise NotImplementedError("servant method 'opKIPrxS' not implemented")
+    def opQIPrxS(self, i, current=None):
+        raise NotImplementedError("servant method 'opQIPrxS' not implemented")
 
-        def opQIPrxS(self, i, current=None):
-            raise NotImplementedError("servant method 'opQIPrxS' not implemented")
+    def opSIPrxS(self, i, current=None):
+        raise NotImplementedError("servant method 'opSIPrxS' not implemented")
 
-        def opSIPrxS(self, i, current=None):
-            raise NotImplementedError("servant method 'opSIPrxS' not implemented")
+    def opCustomIntS(self, i, current=None):
+        raise NotImplementedError("servant method 'opCustomIntS' not implemented")
 
-        def opCustomIntS(self, i, current=None):
-            raise NotImplementedError("servant method 'opCustomIntS' not implemented")
+    def opCustomCVS(self, i, current=None):
+        raise NotImplementedError("servant method 'opCustomCVS' not implemented")
 
-        def opCustomCVS(self, i, current=None):
-            raise NotImplementedError("servant method 'opCustomCVS' not implemented")
+    def opCustomIntSS(self, i, current=None):
+        raise NotImplementedError("servant method 'opCustomIntSS' not implemented")
 
-        def opCustomIntSS(self, i, current=None):
-            raise NotImplementedError("servant method 'opCustomIntSS' not implemented")
+    def opCustomCVSS(self, i, current=None):
+        raise NotImplementedError("servant method 'opCustomCVSS' not implemented")
 
-        def opCustomCVSS(self, i, current=None):
-            raise NotImplementedError("servant method 'opCustomCVSS' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_MyClassDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_MyClassDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
+MyClass._ice_type = _M_Test._t_MyClassDisp
 
-    _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
-    MyClass._ice_type = _M_Test._t_MyClassDisp
+MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+MyClass._op_opAByteS = IcePy.Operation('opAByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AByteS, False, 0),), (((), _M_Test._t_AByteS, False, 0),), ((), _M_Test._t_AByteS, False, 0), ())
+MyClass._op_opLByteS = IcePy.Operation('opLByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LByteS, False, 0),), (((), _M_Test._t_LByteS, False, 0),), ((), _M_Test._t_LByteS, False, 0), ())
+MyClass._op_opKByteS = IcePy.Operation('opKByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KByteS, False, 0),), (((), _M_Test._t_KByteS, False, 0),), ((), _M_Test._t_KByteS, False, 0), ())
+MyClass._op_opQByteS = IcePy.Operation('opQByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QByteS, False, 0),), (((), _M_Test._t_QByteS, False, 0),), ((), _M_Test._t_QByteS, False, 0), ())
+MyClass._op_opSByteS = IcePy.Operation('opSByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SByteS, False, 0),), (((), _M_Test._t_SByteS, False, 0),), ((), _M_Test._t_SByteS, False, 0), ())
+MyClass._op_opABoolS = IcePy.Operation('opABoolS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ABoolS, False, 0),), (((), _M_Test._t_ABoolS, False, 0),), ((), _M_Test._t_ABoolS, False, 0), ())
+MyClass._op_opLBoolS = IcePy.Operation('opLBoolS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LBoolS, False, 0),), (((), _M_Test._t_LBoolS, False, 0),), ((), _M_Test._t_LBoolS, False, 0), ())
+MyClass._op_opKBoolS = IcePy.Operation('opKBoolS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KBoolS, False, 0),), (((), _M_Test._t_KBoolS, False, 0),), ((), _M_Test._t_KBoolS, False, 0), ())
+MyClass._op_opQBoolS = IcePy.Operation('opQBoolS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QBoolS, False, 0),), (((), _M_Test._t_QBoolS, False, 0),), ((), _M_Test._t_QBoolS, False, 0), ())
+MyClass._op_opSBoolS = IcePy.Operation('opSBoolS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SBoolS, False, 0),), (((), _M_Test._t_SBoolS, False, 0),), ((), _M_Test._t_SBoolS, False, 0), ())
+MyClass._op_opAShortS = IcePy.Operation('opAShortS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AShortS, False, 0),), (((), _M_Test._t_AShortS, False, 0),), ((), _M_Test._t_AShortS, False, 0), ())
+MyClass._op_opLShortS = IcePy.Operation('opLShortS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LShortS, False, 0),), (((), _M_Test._t_LShortS, False, 0),), ((), _M_Test._t_LShortS, False, 0), ())
+MyClass._op_opKShortS = IcePy.Operation('opKShortS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KShortS, False, 0),), (((), _M_Test._t_KShortS, False, 0),), ((), _M_Test._t_KShortS, False, 0), ())
+MyClass._op_opQShortS = IcePy.Operation('opQShortS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QShortS, False, 0),), (((), _M_Test._t_QShortS, False, 0),), ((), _M_Test._t_QShortS, False, 0), ())
+MyClass._op_opSShortS = IcePy.Operation('opSShortS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SShortS, False, 0),), (((), _M_Test._t_SShortS, False, 0),), ((), _M_Test._t_SShortS, False, 0), ())
+MyClass._op_opAIntS = IcePy.Operation('opAIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AIntS, False, 0),), (((), _M_Test._t_AIntS, False, 0),), ((), _M_Test._t_AIntS, False, 0), ())
+MyClass._op_opLIntS = IcePy.Operation('opLIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LIntS, False, 0),), (((), _M_Test._t_LIntS, False, 0),), ((), _M_Test._t_LIntS, False, 0), ())
+MyClass._op_opKIntS = IcePy.Operation('opKIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KIntS, False, 0),), (((), _M_Test._t_KIntS, False, 0),), ((), _M_Test._t_KIntS, False, 0), ())
+MyClass._op_opQIntS = IcePy.Operation('opQIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QIntS, False, 0),), (((), _M_Test._t_QIntS, False, 0),), ((), _M_Test._t_QIntS, False, 0), ())
+MyClass._op_opSIntS = IcePy.Operation('opSIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SIntS, False, 0),), (((), _M_Test._t_SIntS, False, 0),), ((), _M_Test._t_SIntS, False, 0), ())
+MyClass._op_opALongS = IcePy.Operation('opALongS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ALongS, False, 0),), (((), _M_Test._t_ALongS, False, 0),), ((), _M_Test._t_ALongS, False, 0), ())
+MyClass._op_opLLongS = IcePy.Operation('opLLongS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LLongS, False, 0),), (((), _M_Test._t_LLongS, False, 0),), ((), _M_Test._t_LLongS, False, 0), ())
+MyClass._op_opKLongS = IcePy.Operation('opKLongS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KLongS, False, 0),), (((), _M_Test._t_KLongS, False, 0),), ((), _M_Test._t_KLongS, False, 0), ())
+MyClass._op_opQLongS = IcePy.Operation('opQLongS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QLongS, False, 0),), (((), _M_Test._t_QLongS, False, 0),), ((), _M_Test._t_QLongS, False, 0), ())
+MyClass._op_opSLongS = IcePy.Operation('opSLongS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SLongS, False, 0),), (((), _M_Test._t_SLongS, False, 0),), ((), _M_Test._t_SLongS, False, 0), ())
+MyClass._op_opAFloatS = IcePy.Operation('opAFloatS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AFloatS, False, 0),), (((), _M_Test._t_AFloatS, False, 0),), ((), _M_Test._t_AFloatS, False, 0), ())
+MyClass._op_opLFloatS = IcePy.Operation('opLFloatS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LFloatS, False, 0),), (((), _M_Test._t_LFloatS, False, 0),), ((), _M_Test._t_LFloatS, False, 0), ())
+MyClass._op_opKFloatS = IcePy.Operation('opKFloatS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KFloatS, False, 0),), (((), _M_Test._t_KFloatS, False, 0),), ((), _M_Test._t_KFloatS, False, 0), ())
+MyClass._op_opQFloatS = IcePy.Operation('opQFloatS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QFloatS, False, 0),), (((), _M_Test._t_QFloatS, False, 0),), ((), _M_Test._t_QFloatS, False, 0), ())
+MyClass._op_opSFloatS = IcePy.Operation('opSFloatS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SFloatS, False, 0),), (((), _M_Test._t_SFloatS, False, 0),), ((), _M_Test._t_SFloatS, False, 0), ())
+MyClass._op_opADoubleS = IcePy.Operation('opADoubleS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ADoubleS, False, 0),), (((), _M_Test._t_ADoubleS, False, 0),), ((), _M_Test._t_ADoubleS, False, 0), ())
+MyClass._op_opLDoubleS = IcePy.Operation('opLDoubleS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LDoubleS, False, 0),), (((), _M_Test._t_LDoubleS, False, 0),), ((), _M_Test._t_LDoubleS, False, 0), ())
+MyClass._op_opKDoubleS = IcePy.Operation('opKDoubleS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KDoubleS, False, 0),), (((), _M_Test._t_KDoubleS, False, 0),), ((), _M_Test._t_KDoubleS, False, 0), ())
+MyClass._op_opQDoubleS = IcePy.Operation('opQDoubleS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QDoubleS, False, 0),), (((), _M_Test._t_QDoubleS, False, 0),), ((), _M_Test._t_QDoubleS, False, 0), ())
+MyClass._op_opSDoubleS = IcePy.Operation('opSDoubleS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SDoubleS, False, 0),), (((), _M_Test._t_SDoubleS, False, 0),), ((), _M_Test._t_SDoubleS, False, 0), ())
+MyClass._op_opAStringS = IcePy.Operation('opAStringS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AStringS, False, 0),), (((), _M_Test._t_AStringS, False, 0),), ((), _M_Test._t_AStringS, False, 0), ())
+MyClass._op_opLStringS = IcePy.Operation('opLStringS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LStringS, False, 0),), (((), _M_Test._t_LStringS, False, 0),), ((), _M_Test._t_LStringS, False, 0), ())
+MyClass._op_opKStringS = IcePy.Operation('opKStringS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KStringS, False, 0),), (((), _M_Test._t_KStringS, False, 0),), ((), _M_Test._t_KStringS, False, 0), ())
+MyClass._op_opQStringS = IcePy.Operation('opQStringS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QStringS, False, 0),), (((), _M_Test._t_QStringS, False, 0),), ((), _M_Test._t_QStringS, False, 0), ())
+MyClass._op_opSStringS = IcePy.Operation('opSStringS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SStringS, False, 0),), (((), _M_Test._t_SStringS, False, 0),), ((), _M_Test._t_SStringS, False, 0), ())
+MyClass._op_opAObjectS = IcePy.Operation('opAObjectS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AObjectS, False, 0),), (((), _M_Test._t_AObjectS, False, 0),), ((), _M_Test._t_AObjectS, False, 0), ())
+MyClass._op_opLObjectS = IcePy.Operation('opLObjectS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LObjectS, False, 0),), (((), _M_Test._t_LObjectS, False, 0),), ((), _M_Test._t_LObjectS, False, 0), ())
+MyClass._op_opAObjectPrxS = IcePy.Operation('opAObjectPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AObjectPrxS, False, 0),), (((), _M_Test._t_AObjectPrxS, False, 0),), ((), _M_Test._t_AObjectPrxS, False, 0), ())
+MyClass._op_opLObjectPrxS = IcePy.Operation('opLObjectPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LObjectPrxS, False, 0),), (((), _M_Test._t_LObjectPrxS, False, 0),), ((), _M_Test._t_LObjectPrxS, False, 0), ())
+MyClass._op_opKObjectPrxS = IcePy.Operation('opKObjectPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KObjectPrxS, False, 0),), (((), _M_Test._t_KObjectPrxS, False, 0),), ((), _M_Test._t_KObjectPrxS, False, 0), ())
+MyClass._op_opQObjectPrxS = IcePy.Operation('opQObjectPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QObjectPrxS, False, 0),), (((), _M_Test._t_QObjectPrxS, False, 0),), ((), _M_Test._t_QObjectPrxS, False, 0), ())
+MyClass._op_opSObjectPrxS = IcePy.Operation('opSObjectPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SObjectPrxS, False, 0),), (((), _M_Test._t_SObjectPrxS, False, 0),), ((), _M_Test._t_SObjectPrxS, False, 0), ())
+MyClass._op_opAStructS = IcePy.Operation('opAStructS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AStructS, False, 0),), (((), _M_Test._t_AStructS, False, 0),), ((), _M_Test._t_AStructS, False, 0), ())
+MyClass._op_opLStructS = IcePy.Operation('opLStructS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LStructS, False, 0),), (((), _M_Test._t_LStructS, False, 0),), ((), _M_Test._t_LStructS, False, 0), ())
+MyClass._op_opKStructS = IcePy.Operation('opKStructS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KStructS, False, 0),), (((), _M_Test._t_KStructS, False, 0),), ((), _M_Test._t_KStructS, False, 0), ())
+MyClass._op_opQStructS = IcePy.Operation('opQStructS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QStructS, False, 0),), (((), _M_Test._t_QStructS, False, 0),), ((), _M_Test._t_QStructS, False, 0), ())
+MyClass._op_opSStructS = IcePy.Operation('opSStructS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SStructS, False, 0),), (((), _M_Test._t_SStructS, False, 0),), ((), _M_Test._t_SStructS, False, 0), ())
+MyClass._op_opAStructSD = IcePy.Operation('opAStructSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AStructSD, False, 0),), (((), _M_Test._t_AStructSD, False, 0),), ((), _M_Test._t_AStructSD, False, 0), ())
+MyClass._op_opLStructSD = IcePy.Operation('opLStructSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LStructSD, False, 0),), (((), _M_Test._t_LStructSD, False, 0),), ((), _M_Test._t_LStructSD, False, 0), ())
+MyClass._op_opKStructSD = IcePy.Operation('opKStructSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KStructSD, False, 0),), (((), _M_Test._t_KStructSD, False, 0),), ((), _M_Test._t_KStructSD, False, 0), ())
+MyClass._op_opQStructSD = IcePy.Operation('opQStructSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QStructSD, False, 0),), (((), _M_Test._t_QStructSD, False, 0),), ((), _M_Test._t_QStructSD, False, 0), ())
+MyClass._op_opSStructSD = IcePy.Operation('opSStructSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SStructSD, False, 0),), (((), _M_Test._t_SStructSD, False, 0),), ((), _M_Test._t_SStructSD, False, 0), ())
+MyClass._op_opACVS = IcePy.Operation('opACVS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ACVS, False, 0),), (((), _M_Test._t_ACVS, False, 0),), ((), _M_Test._t_ACVS, False, 0), ())
+MyClass._op_opLCVS = IcePy.Operation('opLCVS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LCVS, False, 0),), (((), _M_Test._t_LCVS, False, 0),), ((), _M_Test._t_LCVS, False, 0), ())
+MyClass._op_opACRS = IcePy.Operation('opACRS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ACRS, False, 0),), (((), _M_Test._t_ACRS, False, 0),), ((), _M_Test._t_ACRS, False, 0), ())
+MyClass._op_opLCRS = IcePy.Operation('opLCRS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LCRS, False, 0),), (((), _M_Test._t_LCRS, False, 0),), ((), _M_Test._t_LCRS, False, 0), ())
+MyClass._op_opAEnS = IcePy.Operation('opAEnS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AEnS, False, 0),), (((), _M_Test._t_AEnS, False, 0),), ((), _M_Test._t_AEnS, False, 0), ())
+MyClass._op_opLEnS = IcePy.Operation('opLEnS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LEnS, False, 0),), (((), _M_Test._t_LEnS, False, 0),), ((), _M_Test._t_LEnS, False, 0), ())
+MyClass._op_opKEnS = IcePy.Operation('opKEnS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KEnS, False, 0),), (((), _M_Test._t_KEnS, False, 0),), ((), _M_Test._t_KEnS, False, 0), ())
+MyClass._op_opQEnS = IcePy.Operation('opQEnS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QEnS, False, 0),), (((), _M_Test._t_QEnS, False, 0),), ((), _M_Test._t_QEnS, False, 0), ())
+MyClass._op_opSEnS = IcePy.Operation('opSEnS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SEnS, False, 0),), (((), _M_Test._t_SEnS, False, 0),), ((), _M_Test._t_SEnS, False, 0), ())
+MyClass._op_opAIPrxS = IcePy.Operation('opAIPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AIPrxS, False, 0),), (((), _M_Test._t_AIPrxS, False, 0),), ((), _M_Test._t_AIPrxS, False, 0), ())
+MyClass._op_opLIPrxS = IcePy.Operation('opLIPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LIPrxS, False, 0),), (((), _M_Test._t_LIPrxS, False, 0),), ((), _M_Test._t_LIPrxS, False, 0), ())
+MyClass._op_opKIPrxS = IcePy.Operation('opKIPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KIPrxS, False, 0),), (((), _M_Test._t_KIPrxS, False, 0),), ((), _M_Test._t_KIPrxS, False, 0), ())
+MyClass._op_opQIPrxS = IcePy.Operation('opQIPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QIPrxS, False, 0),), (((), _M_Test._t_QIPrxS, False, 0),), ((), _M_Test._t_QIPrxS, False, 0), ())
+MyClass._op_opSIPrxS = IcePy.Operation('opSIPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SIPrxS, False, 0),), (((), _M_Test._t_SIPrxS, False, 0),), ((), _M_Test._t_SIPrxS, False, 0), ())
+MyClass._op_opCustomIntS = IcePy.Operation('opCustomIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CustomIntS, False, 0),), (((), _M_Test._t_CustomIntS, False, 0),), ((), _M_Test._t_CustomIntS, False, 0), ())
+MyClass._op_opCustomCVS = IcePy.Operation('opCustomCVS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CustomCVS, False, 0),), (((), _M_Test._t_CustomCVS, False, 0),), ((), _M_Test._t_CustomCVS, False, 0), ())
+MyClass._op_opCustomIntSS = IcePy.Operation('opCustomIntSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CustomIntSS, False, 0),), (((), _M_Test._t_CustomIntSS, False, 0),), ((), _M_Test._t_CustomIntSS, False, 0), ())
+MyClass._op_opCustomCVSS = IcePy.Operation('opCustomCVSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CustomCVSS, False, 0),), (((), _M_Test._t_CustomCVSS, False, 0),), ((), _M_Test._t_CustomCVSS, False, 0), ())
 
-    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    MyClass._op_opAByteS = IcePy.Operation('opAByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AByteS, False, 0),), (((), _M_Test._t_AByteS, False, 0),), ((), _M_Test._t_AByteS, False, 0), ())
-    MyClass._op_opLByteS = IcePy.Operation('opLByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LByteS, False, 0),), (((), _M_Test._t_LByteS, False, 0),), ((), _M_Test._t_LByteS, False, 0), ())
-    MyClass._op_opKByteS = IcePy.Operation('opKByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KByteS, False, 0),), (((), _M_Test._t_KByteS, False, 0),), ((), _M_Test._t_KByteS, False, 0), ())
-    MyClass._op_opQByteS = IcePy.Operation('opQByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QByteS, False, 0),), (((), _M_Test._t_QByteS, False, 0),), ((), _M_Test._t_QByteS, False, 0), ())
-    MyClass._op_opSByteS = IcePy.Operation('opSByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SByteS, False, 0),), (((), _M_Test._t_SByteS, False, 0),), ((), _M_Test._t_SByteS, False, 0), ())
-    MyClass._op_opABoolS = IcePy.Operation('opABoolS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ABoolS, False, 0),), (((), _M_Test._t_ABoolS, False, 0),), ((), _M_Test._t_ABoolS, False, 0), ())
-    MyClass._op_opLBoolS = IcePy.Operation('opLBoolS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LBoolS, False, 0),), (((), _M_Test._t_LBoolS, False, 0),), ((), _M_Test._t_LBoolS, False, 0), ())
-    MyClass._op_opKBoolS = IcePy.Operation('opKBoolS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KBoolS, False, 0),), (((), _M_Test._t_KBoolS, False, 0),), ((), _M_Test._t_KBoolS, False, 0), ())
-    MyClass._op_opQBoolS = IcePy.Operation('opQBoolS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QBoolS, False, 0),), (((), _M_Test._t_QBoolS, False, 0),), ((), _M_Test._t_QBoolS, False, 0), ())
-    MyClass._op_opSBoolS = IcePy.Operation('opSBoolS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SBoolS, False, 0),), (((), _M_Test._t_SBoolS, False, 0),), ((), _M_Test._t_SBoolS, False, 0), ())
-    MyClass._op_opAShortS = IcePy.Operation('opAShortS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AShortS, False, 0),), (((), _M_Test._t_AShortS, False, 0),), ((), _M_Test._t_AShortS, False, 0), ())
-    MyClass._op_opLShortS = IcePy.Operation('opLShortS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LShortS, False, 0),), (((), _M_Test._t_LShortS, False, 0),), ((), _M_Test._t_LShortS, False, 0), ())
-    MyClass._op_opKShortS = IcePy.Operation('opKShortS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KShortS, False, 0),), (((), _M_Test._t_KShortS, False, 0),), ((), _M_Test._t_KShortS, False, 0), ())
-    MyClass._op_opQShortS = IcePy.Operation('opQShortS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QShortS, False, 0),), (((), _M_Test._t_QShortS, False, 0),), ((), _M_Test._t_QShortS, False, 0), ())
-    MyClass._op_opSShortS = IcePy.Operation('opSShortS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SShortS, False, 0),), (((), _M_Test._t_SShortS, False, 0),), ((), _M_Test._t_SShortS, False, 0), ())
-    MyClass._op_opAIntS = IcePy.Operation('opAIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AIntS, False, 0),), (((), _M_Test._t_AIntS, False, 0),), ((), _M_Test._t_AIntS, False, 0), ())
-    MyClass._op_opLIntS = IcePy.Operation('opLIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LIntS, False, 0),), (((), _M_Test._t_LIntS, False, 0),), ((), _M_Test._t_LIntS, False, 0), ())
-    MyClass._op_opKIntS = IcePy.Operation('opKIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KIntS, False, 0),), (((), _M_Test._t_KIntS, False, 0),), ((), _M_Test._t_KIntS, False, 0), ())
-    MyClass._op_opQIntS = IcePy.Operation('opQIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QIntS, False, 0),), (((), _M_Test._t_QIntS, False, 0),), ((), _M_Test._t_QIntS, False, 0), ())
-    MyClass._op_opSIntS = IcePy.Operation('opSIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SIntS, False, 0),), (((), _M_Test._t_SIntS, False, 0),), ((), _M_Test._t_SIntS, False, 0), ())
-    MyClass._op_opALongS = IcePy.Operation('opALongS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ALongS, False, 0),), (((), _M_Test._t_ALongS, False, 0),), ((), _M_Test._t_ALongS, False, 0), ())
-    MyClass._op_opLLongS = IcePy.Operation('opLLongS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LLongS, False, 0),), (((), _M_Test._t_LLongS, False, 0),), ((), _M_Test._t_LLongS, False, 0), ())
-    MyClass._op_opKLongS = IcePy.Operation('opKLongS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KLongS, False, 0),), (((), _M_Test._t_KLongS, False, 0),), ((), _M_Test._t_KLongS, False, 0), ())
-    MyClass._op_opQLongS = IcePy.Operation('opQLongS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QLongS, False, 0),), (((), _M_Test._t_QLongS, False, 0),), ((), _M_Test._t_QLongS, False, 0), ())
-    MyClass._op_opSLongS = IcePy.Operation('opSLongS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SLongS, False, 0),), (((), _M_Test._t_SLongS, False, 0),), ((), _M_Test._t_SLongS, False, 0), ())
-    MyClass._op_opAFloatS = IcePy.Operation('opAFloatS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AFloatS, False, 0),), (((), _M_Test._t_AFloatS, False, 0),), ((), _M_Test._t_AFloatS, False, 0), ())
-    MyClass._op_opLFloatS = IcePy.Operation('opLFloatS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LFloatS, False, 0),), (((), _M_Test._t_LFloatS, False, 0),), ((), _M_Test._t_LFloatS, False, 0), ())
-    MyClass._op_opKFloatS = IcePy.Operation('opKFloatS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KFloatS, False, 0),), (((), _M_Test._t_KFloatS, False, 0),), ((), _M_Test._t_KFloatS, False, 0), ())
-    MyClass._op_opQFloatS = IcePy.Operation('opQFloatS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QFloatS, False, 0),), (((), _M_Test._t_QFloatS, False, 0),), ((), _M_Test._t_QFloatS, False, 0), ())
-    MyClass._op_opSFloatS = IcePy.Operation('opSFloatS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SFloatS, False, 0),), (((), _M_Test._t_SFloatS, False, 0),), ((), _M_Test._t_SFloatS, False, 0), ())
-    MyClass._op_opADoubleS = IcePy.Operation('opADoubleS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ADoubleS, False, 0),), (((), _M_Test._t_ADoubleS, False, 0),), ((), _M_Test._t_ADoubleS, False, 0), ())
-    MyClass._op_opLDoubleS = IcePy.Operation('opLDoubleS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LDoubleS, False, 0),), (((), _M_Test._t_LDoubleS, False, 0),), ((), _M_Test._t_LDoubleS, False, 0), ())
-    MyClass._op_opKDoubleS = IcePy.Operation('opKDoubleS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KDoubleS, False, 0),), (((), _M_Test._t_KDoubleS, False, 0),), ((), _M_Test._t_KDoubleS, False, 0), ())
-    MyClass._op_opQDoubleS = IcePy.Operation('opQDoubleS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QDoubleS, False, 0),), (((), _M_Test._t_QDoubleS, False, 0),), ((), _M_Test._t_QDoubleS, False, 0), ())
-    MyClass._op_opSDoubleS = IcePy.Operation('opSDoubleS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SDoubleS, False, 0),), (((), _M_Test._t_SDoubleS, False, 0),), ((), _M_Test._t_SDoubleS, False, 0), ())
-    MyClass._op_opAStringS = IcePy.Operation('opAStringS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AStringS, False, 0),), (((), _M_Test._t_AStringS, False, 0),), ((), _M_Test._t_AStringS, False, 0), ())
-    MyClass._op_opLStringS = IcePy.Operation('opLStringS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LStringS, False, 0),), (((), _M_Test._t_LStringS, False, 0),), ((), _M_Test._t_LStringS, False, 0), ())
-    MyClass._op_opKStringS = IcePy.Operation('opKStringS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KStringS, False, 0),), (((), _M_Test._t_KStringS, False, 0),), ((), _M_Test._t_KStringS, False, 0), ())
-    MyClass._op_opQStringS = IcePy.Operation('opQStringS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QStringS, False, 0),), (((), _M_Test._t_QStringS, False, 0),), ((), _M_Test._t_QStringS, False, 0), ())
-    MyClass._op_opSStringS = IcePy.Operation('opSStringS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SStringS, False, 0),), (((), _M_Test._t_SStringS, False, 0),), ((), _M_Test._t_SStringS, False, 0), ())
-    MyClass._op_opAObjectS = IcePy.Operation('opAObjectS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AObjectS, False, 0),), (((), _M_Test._t_AObjectS, False, 0),), ((), _M_Test._t_AObjectS, False, 0), ())
-    MyClass._op_opLObjectS = IcePy.Operation('opLObjectS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LObjectS, False, 0),), (((), _M_Test._t_LObjectS, False, 0),), ((), _M_Test._t_LObjectS, False, 0), ())
-    MyClass._op_opAObjectPrxS = IcePy.Operation('opAObjectPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AObjectPrxS, False, 0),), (((), _M_Test._t_AObjectPrxS, False, 0),), ((), _M_Test._t_AObjectPrxS, False, 0), ())
-    MyClass._op_opLObjectPrxS = IcePy.Operation('opLObjectPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LObjectPrxS, False, 0),), (((), _M_Test._t_LObjectPrxS, False, 0),), ((), _M_Test._t_LObjectPrxS, False, 0), ())
-    MyClass._op_opKObjectPrxS = IcePy.Operation('opKObjectPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KObjectPrxS, False, 0),), (((), _M_Test._t_KObjectPrxS, False, 0),), ((), _M_Test._t_KObjectPrxS, False, 0), ())
-    MyClass._op_opQObjectPrxS = IcePy.Operation('opQObjectPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QObjectPrxS, False, 0),), (((), _M_Test._t_QObjectPrxS, False, 0),), ((), _M_Test._t_QObjectPrxS, False, 0), ())
-    MyClass._op_opSObjectPrxS = IcePy.Operation('opSObjectPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SObjectPrxS, False, 0),), (((), _M_Test._t_SObjectPrxS, False, 0),), ((), _M_Test._t_SObjectPrxS, False, 0), ())
-    MyClass._op_opAStructS = IcePy.Operation('opAStructS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AStructS, False, 0),), (((), _M_Test._t_AStructS, False, 0),), ((), _M_Test._t_AStructS, False, 0), ())
-    MyClass._op_opLStructS = IcePy.Operation('opLStructS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LStructS, False, 0),), (((), _M_Test._t_LStructS, False, 0),), ((), _M_Test._t_LStructS, False, 0), ())
-    MyClass._op_opKStructS = IcePy.Operation('opKStructS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KStructS, False, 0),), (((), _M_Test._t_KStructS, False, 0),), ((), _M_Test._t_KStructS, False, 0), ())
-    MyClass._op_opQStructS = IcePy.Operation('opQStructS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QStructS, False, 0),), (((), _M_Test._t_QStructS, False, 0),), ((), _M_Test._t_QStructS, False, 0), ())
-    MyClass._op_opSStructS = IcePy.Operation('opSStructS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SStructS, False, 0),), (((), _M_Test._t_SStructS, False, 0),), ((), _M_Test._t_SStructS, False, 0), ())
-    MyClass._op_opAStructSD = IcePy.Operation('opAStructSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AStructSD, False, 0),), (((), _M_Test._t_AStructSD, False, 0),), ((), _M_Test._t_AStructSD, False, 0), ())
-    MyClass._op_opLStructSD = IcePy.Operation('opLStructSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LStructSD, False, 0),), (((), _M_Test._t_LStructSD, False, 0),), ((), _M_Test._t_LStructSD, False, 0), ())
-    MyClass._op_opKStructSD = IcePy.Operation('opKStructSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KStructSD, False, 0),), (((), _M_Test._t_KStructSD, False, 0),), ((), _M_Test._t_KStructSD, False, 0), ())
-    MyClass._op_opQStructSD = IcePy.Operation('opQStructSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QStructSD, False, 0),), (((), _M_Test._t_QStructSD, False, 0),), ((), _M_Test._t_QStructSD, False, 0), ())
-    MyClass._op_opSStructSD = IcePy.Operation('opSStructSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SStructSD, False, 0),), (((), _M_Test._t_SStructSD, False, 0),), ((), _M_Test._t_SStructSD, False, 0), ())
-    MyClass._op_opACVS = IcePy.Operation('opACVS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ACVS, False, 0),), (((), _M_Test._t_ACVS, False, 0),), ((), _M_Test._t_ACVS, False, 0), ())
-    MyClass._op_opLCVS = IcePy.Operation('opLCVS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LCVS, False, 0),), (((), _M_Test._t_LCVS, False, 0),), ((), _M_Test._t_LCVS, False, 0), ())
-    MyClass._op_opACRS = IcePy.Operation('opACRS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ACRS, False, 0),), (((), _M_Test._t_ACRS, False, 0),), ((), _M_Test._t_ACRS, False, 0), ())
-    MyClass._op_opLCRS = IcePy.Operation('opLCRS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LCRS, False, 0),), (((), _M_Test._t_LCRS, False, 0),), ((), _M_Test._t_LCRS, False, 0), ())
-    MyClass._op_opAEnS = IcePy.Operation('opAEnS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AEnS, False, 0),), (((), _M_Test._t_AEnS, False, 0),), ((), _M_Test._t_AEnS, False, 0), ())
-    MyClass._op_opLEnS = IcePy.Operation('opLEnS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LEnS, False, 0),), (((), _M_Test._t_LEnS, False, 0),), ((), _M_Test._t_LEnS, False, 0), ())
-    MyClass._op_opKEnS = IcePy.Operation('opKEnS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KEnS, False, 0),), (((), _M_Test._t_KEnS, False, 0),), ((), _M_Test._t_KEnS, False, 0), ())
-    MyClass._op_opQEnS = IcePy.Operation('opQEnS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QEnS, False, 0),), (((), _M_Test._t_QEnS, False, 0),), ((), _M_Test._t_QEnS, False, 0), ())
-    MyClass._op_opSEnS = IcePy.Operation('opSEnS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SEnS, False, 0),), (((), _M_Test._t_SEnS, False, 0),), ((), _M_Test._t_SEnS, False, 0), ())
-    MyClass._op_opAIPrxS = IcePy.Operation('opAIPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AIPrxS, False, 0),), (((), _M_Test._t_AIPrxS, False, 0),), ((), _M_Test._t_AIPrxS, False, 0), ())
-    MyClass._op_opLIPrxS = IcePy.Operation('opLIPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LIPrxS, False, 0),), (((), _M_Test._t_LIPrxS, False, 0),), ((), _M_Test._t_LIPrxS, False, 0), ())
-    MyClass._op_opKIPrxS = IcePy.Operation('opKIPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_KIPrxS, False, 0),), (((), _M_Test._t_KIPrxS, False, 0),), ((), _M_Test._t_KIPrxS, False, 0), ())
-    MyClass._op_opQIPrxS = IcePy.Operation('opQIPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_QIPrxS, False, 0),), (((), _M_Test._t_QIPrxS, False, 0),), ((), _M_Test._t_QIPrxS, False, 0), ())
-    MyClass._op_opSIPrxS = IcePy.Operation('opSIPrxS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SIPrxS, False, 0),), (((), _M_Test._t_SIPrxS, False, 0),), ((), _M_Test._t_SIPrxS, False, 0), ())
-    MyClass._op_opCustomIntS = IcePy.Operation('opCustomIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CustomIntS, False, 0),), (((), _M_Test._t_CustomIntS, False, 0),), ((), _M_Test._t_CustomIntS, False, 0), ())
-    MyClass._op_opCustomCVS = IcePy.Operation('opCustomCVS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CustomCVS, False, 0),), (((), _M_Test._t_CustomCVS, False, 0),), ((), _M_Test._t_CustomCVS, False, 0), ())
-    MyClass._op_opCustomIntSS = IcePy.Operation('opCustomIntSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CustomIntSS, False, 0),), (((), _M_Test._t_CustomIntSS, False, 0),), ((), _M_Test._t_CustomIntSS, False, 0), ())
-    MyClass._op_opCustomCVSS = IcePy.Operation('opCustomCVSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CustomCVSS, False, 0),), (((), _M_Test._t_CustomCVSS, False, 0),), ((), _M_Test._t_CustomCVSS, False, 0), ())
-
-    _M_Test.MyClass = MyClass
-    del MyClass
+_M_Test.MyClass = MyClass
+del MyClass
 
 # End of module Test

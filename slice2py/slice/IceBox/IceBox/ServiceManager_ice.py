@@ -29,354 +29,344 @@ _M_IceBox.__doc__ = """
  IceBox is an application server specifically for Ice applications. IceBox can easily run and administer Ice
  services that are dynamically loaded as a DLL, shared library, or Java class.
 """
+_M_IceBox.AlreadyStartedException = None
+class AlreadyStartedException(Ice.UserException):
+    """
+     This exception is thrown if an attempt is made to start an already-started service.
+    """
+    def __init__(self):
+        pass
 
-if 'AlreadyStartedException' not in _M_IceBox.__dict__:
-    _M_IceBox.AlreadyStartedException = Ice.createTempClass()
-    class AlreadyStartedException(Ice.UserException):
-        """
-         This exception is thrown if an attempt is made to start an already-started service.
-        """
-        def __init__(self):
-            pass
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    __repr__ = __str__
 
-        __repr__ = __str__
+    _ice_id = '::IceBox::AlreadyStartedException'
 
-        _ice_id = '::IceBox::AlreadyStartedException'
+_M_IceBox._t_AlreadyStartedException = IcePy.defineException('::IceBox::AlreadyStartedException', AlreadyStartedException, (), None, ())
+AlreadyStartedException._ice_type = _M_IceBox._t_AlreadyStartedException
 
-    _M_IceBox._t_AlreadyStartedException = IcePy.defineException('::IceBox::AlreadyStartedException', AlreadyStartedException, (), None, ())
-    AlreadyStartedException._ice_type = _M_IceBox._t_AlreadyStartedException
+_M_IceBox.AlreadyStartedException = AlreadyStartedException
+del AlreadyStartedException
+_M_IceBox.AlreadyStoppedException = None
+class AlreadyStoppedException(Ice.UserException):
+    """
+     This exception is thrown if an attempt is made to stop an already-stopped service.
+    """
+    def __init__(self):
+        pass
 
-    _M_IceBox.AlreadyStartedException = AlreadyStartedException
-    del AlreadyStartedException
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-if 'AlreadyStoppedException' not in _M_IceBox.__dict__:
-    _M_IceBox.AlreadyStoppedException = Ice.createTempClass()
-    class AlreadyStoppedException(Ice.UserException):
-        """
-         This exception is thrown if an attempt is made to stop an already-stopped service.
-        """
-        def __init__(self):
-            pass
+    __repr__ = __str__
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    _ice_id = '::IceBox::AlreadyStoppedException'
 
-        __repr__ = __str__
+_M_IceBox._t_AlreadyStoppedException = IcePy.defineException('::IceBox::AlreadyStoppedException', AlreadyStoppedException, (), None, ())
+AlreadyStoppedException._ice_type = _M_IceBox._t_AlreadyStoppedException
 
-        _ice_id = '::IceBox::AlreadyStoppedException'
+_M_IceBox.AlreadyStoppedException = AlreadyStoppedException
+del AlreadyStoppedException
+_M_IceBox.NoSuchServiceException = None
+class NoSuchServiceException(Ice.UserException):
+    """
+     This exception is thrown if a service name does not refer to an existing service.
+    """
+    def __init__(self):
+        pass
 
-    _M_IceBox._t_AlreadyStoppedException = IcePy.defineException('::IceBox::AlreadyStoppedException', AlreadyStoppedException, (), None, ())
-    AlreadyStoppedException._ice_type = _M_IceBox._t_AlreadyStoppedException
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-    _M_IceBox.AlreadyStoppedException = AlreadyStoppedException
-    del AlreadyStoppedException
+    __repr__ = __str__
 
-if 'NoSuchServiceException' not in _M_IceBox.__dict__:
-    _M_IceBox.NoSuchServiceException = Ice.createTempClass()
-    class NoSuchServiceException(Ice.UserException):
-        """
-         This exception is thrown if a service name does not refer to an existing service.
-        """
-        def __init__(self):
-            pass
+    _ice_id = '::IceBox::NoSuchServiceException'
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+_M_IceBox._t_NoSuchServiceException = IcePy.defineException('::IceBox::NoSuchServiceException', NoSuchServiceException, (), None, ())
+NoSuchServiceException._ice_type = _M_IceBox._t_NoSuchServiceException
 
-        __repr__ = __str__
-
-        _ice_id = '::IceBox::NoSuchServiceException'
-
-    _M_IceBox._t_NoSuchServiceException = IcePy.defineException('::IceBox::NoSuchServiceException', NoSuchServiceException, (), None, ())
-    NoSuchServiceException._ice_type = _M_IceBox._t_NoSuchServiceException
-
-    _M_IceBox.NoSuchServiceException = NoSuchServiceException
-    del NoSuchServiceException
+_M_IceBox.NoSuchServiceException = NoSuchServiceException
+del NoSuchServiceException
 
 _M_IceBox._t_ServiceObserver = IcePy.defineValue('::IceBox::ServiceObserver', Ice.Value, -1, (), True, None, ())
+_M_IceBox.ServiceObserverPrx = None
+class ServiceObserverPrx(Ice.ObjectPrx):
 
-if 'ServiceObserverPrx' not in _M_IceBox.__dict__:
-    _M_IceBox.ServiceObserverPrx = Ice.createTempClass()
-    class ServiceObserverPrx(Ice.ObjectPrx):
+    """
+     Receives the names of the services that were started.
+    Arguments:
+    services -- The names of the services.
+    context -- The request context for the invocation.
+    """
+    def servicesStarted(self, services, context=None):
+        return _M_IceBox.ServiceObserver._op_servicesStarted.invoke(self, ((services, ), context))
 
+    """
+     Receives the names of the services that were started.
+    Arguments:
+    services -- The names of the services.
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def servicesStartedAsync(self, services, context=None):
+        return _M_IceBox.ServiceObserver._op_servicesStarted.invokeAsync(self, ((services, ), context))
+
+    """
+     Receives the names of the services that were stopped.
+    Arguments:
+    services -- The names of the services.
+    context -- The request context for the invocation.
+    """
+    def servicesStopped(self, services, context=None):
+        return _M_IceBox.ServiceObserver._op_servicesStopped.invoke(self, ((services, ), context))
+
+    """
+     Receives the names of the services that were stopped.
+    Arguments:
+    services -- The names of the services.
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def servicesStoppedAsync(self, services, context=None):
+        return _M_IceBox.ServiceObserver._op_servicesStopped.invokeAsync(self, ((services, ), context))
+
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_IceBox.ServiceObserverPrx.ice_checkedCast(proxy, '::IceBox::ServiceObserver', facetOrContext, context)
+
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_IceBox.ServiceObserverPrx.ice_uncheckedCast(proxy, facet)
+
+    @staticmethod
+    def ice_staticId():
+        return '::IceBox::ServiceObserver'
+_M_IceBox._t_ServiceObserverPrx = IcePy.defineProxy('::IceBox::ServiceObserver', ServiceObserverPrx)
+
+_M_IceBox.ServiceObserverPrx = ServiceObserverPrx
+del ServiceObserverPrx
+
+_M_IceBox.ServiceObserver = None
+class ServiceObserver(Ice.Object):
+
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::IceBox::ServiceObserver')
+
+    def ice_id(self, current=None):
+        return '::IceBox::ServiceObserver'
+
+    @staticmethod
+    def ice_staticId():
+        return '::IceBox::ServiceObserver'
+
+    def servicesStarted(self, services, current=None):
         """
          Receives the names of the services that were started.
         Arguments:
         services -- The names of the services.
-        context -- The request context for the invocation.
-        """
-        def servicesStarted(self, services, context=None):
-            return _M_IceBox.ServiceObserver._op_servicesStarted.invoke(self, ((services, ), context))
-
-        """
-         Receives the names of the services that were started.
-        Arguments:
-        services -- The names of the services.
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
         Returns: A future object for the invocation.
         """
-        def servicesStartedAsync(self, services, context=None):
-            return _M_IceBox.ServiceObserver._op_servicesStarted.invokeAsync(self, ((services, ), context))
+        raise NotImplementedError("servant method 'servicesStarted' not implemented")
 
+    def servicesStopped(self, services, current=None):
         """
          Receives the names of the services that were stopped.
         Arguments:
         services -- The names of the services.
-        context -- The request context for the invocation.
-        """
-        def servicesStopped(self, services, context=None):
-            return _M_IceBox.ServiceObserver._op_servicesStopped.invoke(self, ((services, ), context))
-
-        """
-         Receives the names of the services that were stopped.
-        Arguments:
-        services -- The names of the services.
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
         Returns: A future object for the invocation.
         """
-        def servicesStoppedAsync(self, services, context=None):
-            return _M_IceBox.ServiceObserver._op_servicesStopped.invokeAsync(self, ((services, ), context))
+        raise NotImplementedError("servant method 'servicesStopped' not implemented")
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_IceBox.ServiceObserverPrx.ice_checkedCast(proxy, '::IceBox::ServiceObserver', facetOrContext, context)
+    def __str__(self):
+        return IcePy.stringify(self, _M_IceBox._t_ServiceObserverDisp)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_IceBox.ServiceObserverPrx.ice_uncheckedCast(proxy, facet)
+    __repr__ = __str__
 
-        @staticmethod
-        def ice_staticId():
-            return '::IceBox::ServiceObserver'
-    _M_IceBox._t_ServiceObserverPrx = IcePy.defineProxy('::IceBox::ServiceObserver', ServiceObserverPrx)
+_M_IceBox._t_ServiceObserverDisp = IcePy.defineClass('::IceBox::ServiceObserver', ServiceObserver, (), None, ())
+ServiceObserver._ice_type = _M_IceBox._t_ServiceObserverDisp
 
-    _M_IceBox.ServiceObserverPrx = ServiceObserverPrx
-    del ServiceObserverPrx
+ServiceObserver._op_servicesStarted = IcePy.Operation('servicesStarted', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
+ServiceObserver._op_servicesStopped = IcePy.Operation('servicesStopped', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
 
-    _M_IceBox.ServiceObserver = Ice.createTempClass()
-    class ServiceObserver(Ice.Object):
-
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::IceBox::ServiceObserver')
-
-        def ice_id(self, current=None):
-            return '::IceBox::ServiceObserver'
-
-        @staticmethod
-        def ice_staticId():
-            return '::IceBox::ServiceObserver'
-
-        def servicesStarted(self, services, current=None):
-            """
-             Receives the names of the services that were started.
-            Arguments:
-            services -- The names of the services.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'servicesStarted' not implemented")
-
-        def servicesStopped(self, services, current=None):
-            """
-             Receives the names of the services that were stopped.
-            Arguments:
-            services -- The names of the services.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'servicesStopped' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceBox._t_ServiceObserverDisp)
-
-        __repr__ = __str__
-
-    _M_IceBox._t_ServiceObserverDisp = IcePy.defineClass('::IceBox::ServiceObserver', ServiceObserver, (), None, ())
-    ServiceObserver._ice_type = _M_IceBox._t_ServiceObserverDisp
-
-    ServiceObserver._op_servicesStarted = IcePy.Operation('servicesStarted', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
-    ServiceObserver._op_servicesStopped = IcePy.Operation('servicesStopped', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
-
-    _M_IceBox.ServiceObserver = ServiceObserver
-    del ServiceObserver
+_M_IceBox.ServiceObserver = ServiceObserver
+del ServiceObserver
 
 _M_IceBox._t_ServiceManager = IcePy.defineValue('::IceBox::ServiceManager', Ice.Value, -1, (), True, None, ())
+_M_IceBox.ServiceManagerPrx = None
+class ServiceManagerPrx(Ice.ObjectPrx):
 
-if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
-    _M_IceBox.ServiceManagerPrx = Ice.createTempClass()
-    class ServiceManagerPrx(Ice.ObjectPrx):
+    """
+     Start an individual service.
+    Arguments:
+    service -- The service name.
+    context -- The request context for the invocation.
+    Throws:
+    AlreadyStartedException -- If the service is already running.
+    NoSuchServiceException -- If no service could be found with the given name.
+    """
+    def startService(self, service, context=None):
+        return _M_IceBox.ServiceManager._op_startService.invoke(self, ((service, ), context))
 
+    """
+     Start an individual service.
+    Arguments:
+    service -- The service name.
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def startServiceAsync(self, service, context=None):
+        return _M_IceBox.ServiceManager._op_startService.invokeAsync(self, ((service, ), context))
+
+    """
+     Stop an individual service.
+    Arguments:
+    service -- The service name.
+    context -- The request context for the invocation.
+    Throws:
+    AlreadyStoppedException -- If the service is already stopped.
+    NoSuchServiceException -- If no service could be found with the given name.
+    """
+    def stopService(self, service, context=None):
+        return _M_IceBox.ServiceManager._op_stopService.invoke(self, ((service, ), context))
+
+    """
+     Stop an individual service.
+    Arguments:
+    service -- The service name.
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def stopServiceAsync(self, service, context=None):
+        return _M_IceBox.ServiceManager._op_stopService.invokeAsync(self, ((service, ), context))
+
+    """
+     Registers a new observer with the ServiceManager.
+    Arguments:
+    observer -- The new observer
+    context -- The request context for the invocation.
+    """
+    def addObserver(self, observer, context=None):
+        return _M_IceBox.ServiceManager._op_addObserver.invoke(self, ((observer, ), context))
+
+    """
+     Registers a new observer with the ServiceManager.
+    Arguments:
+    observer -- The new observer
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def addObserverAsync(self, observer, context=None):
+        return _M_IceBox.ServiceManager._op_addObserver.invokeAsync(self, ((observer, ), context))
+
+    """
+     Shut down all services. This causes stop to be invoked on all configured services.
+    Arguments:
+    context -- The request context for the invocation.
+    """
+    def shutdown(self, context=None):
+        return _M_IceBox.ServiceManager._op_shutdown.invoke(self, ((), context))
+
+    """
+     Shut down all services. This causes stop to be invoked on all configured services.
+    Arguments:
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def shutdownAsync(self, context=None):
+        return _M_IceBox.ServiceManager._op_shutdown.invokeAsync(self, ((), context))
+
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_IceBox.ServiceManagerPrx.ice_checkedCast(proxy, '::IceBox::ServiceManager', facetOrContext, context)
+
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_IceBox.ServiceManagerPrx.ice_uncheckedCast(proxy, facet)
+
+    @staticmethod
+    def ice_staticId():
+        return '::IceBox::ServiceManager'
+_M_IceBox._t_ServiceManagerPrx = IcePy.defineProxy('::IceBox::ServiceManager', ServiceManagerPrx)
+
+_M_IceBox.ServiceManagerPrx = ServiceManagerPrx
+del ServiceManagerPrx
+
+_M_IceBox.ServiceManager = None
+class ServiceManager(Ice.Object):
+
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::IceBox::ServiceManager')
+
+    def ice_id(self, current=None):
+        return '::IceBox::ServiceManager'
+
+    @staticmethod
+    def ice_staticId():
+        return '::IceBox::ServiceManager'
+
+    def startService(self, service, current=None):
         """
          Start an individual service.
         Arguments:
         service -- The service name.
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
+        Returns: A future object for the invocation.
         Throws:
         AlreadyStartedException -- If the service is already running.
         NoSuchServiceException -- If no service could be found with the given name.
         """
-        def startService(self, service, context=None):
-            return _M_IceBox.ServiceManager._op_startService.invoke(self, ((service, ), context))
+        raise NotImplementedError("servant method 'startService' not implemented")
 
-        """
-         Start an individual service.
-        Arguments:
-        service -- The service name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def startServiceAsync(self, service, context=None):
-            return _M_IceBox.ServiceManager._op_startService.invokeAsync(self, ((service, ), context))
-
+    def stopService(self, service, current=None):
         """
          Stop an individual service.
         Arguments:
         service -- The service name.
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
+        Returns: A future object for the invocation.
         Throws:
         AlreadyStoppedException -- If the service is already stopped.
         NoSuchServiceException -- If no service could be found with the given name.
         """
-        def stopService(self, service, context=None):
-            return _M_IceBox.ServiceManager._op_stopService.invoke(self, ((service, ), context))
+        raise NotImplementedError("servant method 'stopService' not implemented")
 
-        """
-         Stop an individual service.
-        Arguments:
-        service -- The service name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def stopServiceAsync(self, service, context=None):
-            return _M_IceBox.ServiceManager._op_stopService.invokeAsync(self, ((service, ), context))
-
+    def addObserver(self, observer, current=None):
         """
          Registers a new observer with the ServiceManager.
         Arguments:
         observer -- The new observer
-        context -- The request context for the invocation.
-        """
-        def addObserver(self, observer, context=None):
-            return _M_IceBox.ServiceManager._op_addObserver.invoke(self, ((observer, ), context))
-
-        """
-         Registers a new observer with the ServiceManager.
-        Arguments:
-        observer -- The new observer
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
         Returns: A future object for the invocation.
         """
-        def addObserverAsync(self, observer, context=None):
-            return _M_IceBox.ServiceManager._op_addObserver.invokeAsync(self, ((observer, ), context))
+        raise NotImplementedError("servant method 'addObserver' not implemented")
 
+    def shutdown(self, current=None):
         """
          Shut down all services. This causes stop to be invoked on all configured services.
         Arguments:
-        context -- The request context for the invocation.
-        """
-        def shutdown(self, context=None):
-            return _M_IceBox.ServiceManager._op_shutdown.invoke(self, ((), context))
-
-        """
-         Shut down all services. This causes stop to be invoked on all configured services.
-        Arguments:
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
         Returns: A future object for the invocation.
         """
-        def shutdownAsync(self, context=None):
-            return _M_IceBox.ServiceManager._op_shutdown.invokeAsync(self, ((), context))
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_IceBox.ServiceManagerPrx.ice_checkedCast(proxy, '::IceBox::ServiceManager', facetOrContext, context)
+    def __str__(self):
+        return IcePy.stringify(self, _M_IceBox._t_ServiceManagerDisp)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_IceBox.ServiceManagerPrx.ice_uncheckedCast(proxy, facet)
+    __repr__ = __str__
 
-        @staticmethod
-        def ice_staticId():
-            return '::IceBox::ServiceManager'
-    _M_IceBox._t_ServiceManagerPrx = IcePy.defineProxy('::IceBox::ServiceManager', ServiceManagerPrx)
+_M_IceBox._t_ServiceManagerDisp = IcePy.defineClass('::IceBox::ServiceManager', ServiceManager, (), None, ())
+ServiceManager._ice_type = _M_IceBox._t_ServiceManagerDisp
 
-    _M_IceBox.ServiceManagerPrx = ServiceManagerPrx
-    del ServiceManagerPrx
+ServiceManager._op_startService = IcePy.Operation('startService', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceBox._t_AlreadyStartedException, _M_IceBox._t_NoSuchServiceException))
+ServiceManager._op_stopService = IcePy.Operation('stopService', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceBox._t_AlreadyStoppedException, _M_IceBox._t_NoSuchServiceException))
+ServiceManager._op_addObserver = IcePy.Operation('addObserver', Ice.OperationMode.Normal, False, None, (), (((), _M_IceBox._t_ServiceObserverPrx, False, 0),), (), None, ())
+ServiceManager._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    _M_IceBox.ServiceManager = Ice.createTempClass()
-    class ServiceManager(Ice.Object):
-
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::IceBox::ServiceManager')
-
-        def ice_id(self, current=None):
-            return '::IceBox::ServiceManager'
-
-        @staticmethod
-        def ice_staticId():
-            return '::IceBox::ServiceManager'
-
-        def startService(self, service, current=None):
-            """
-             Start an individual service.
-            Arguments:
-            service -- The service name.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            AlreadyStartedException -- If the service is already running.
-            NoSuchServiceException -- If no service could be found with the given name.
-            """
-            raise NotImplementedError("servant method 'startService' not implemented")
-
-        def stopService(self, service, current=None):
-            """
-             Stop an individual service.
-            Arguments:
-            service -- The service name.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            AlreadyStoppedException -- If the service is already stopped.
-            NoSuchServiceException -- If no service could be found with the given name.
-            """
-            raise NotImplementedError("servant method 'stopService' not implemented")
-
-        def addObserver(self, observer, current=None):
-            """
-             Registers a new observer with the ServiceManager.
-            Arguments:
-            observer -- The new observer
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'addObserver' not implemented")
-
-        def shutdown(self, current=None):
-            """
-             Shut down all services. This causes stop to be invoked on all configured services.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'shutdown' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceBox._t_ServiceManagerDisp)
-
-        __repr__ = __str__
-
-    _M_IceBox._t_ServiceManagerDisp = IcePy.defineClass('::IceBox::ServiceManager', ServiceManager, (), None, ())
-    ServiceManager._ice_type = _M_IceBox._t_ServiceManagerDisp
-
-    ServiceManager._op_startService = IcePy.Operation('startService', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceBox._t_AlreadyStartedException, _M_IceBox._t_NoSuchServiceException))
-    ServiceManager._op_stopService = IcePy.Operation('stopService', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceBox._t_AlreadyStoppedException, _M_IceBox._t_NoSuchServiceException))
-    ServiceManager._op_addObserver = IcePy.Operation('addObserver', Ice.OperationMode.Normal, False, None, (), (((), _M_IceBox._t_ServiceObserverPrx, False, 0),), (), None, ())
-    ServiceManager._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_IceBox.ServiceManager = ServiceManager
-    del ServiceManager
+_M_IceBox.ServiceManager = ServiceManager
+del ServiceManager
 
 # End of module IceBox

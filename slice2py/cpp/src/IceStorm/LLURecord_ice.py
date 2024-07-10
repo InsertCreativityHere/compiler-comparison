@@ -21,103 +21,101 @@ import builtins as _builtins
 # Start of module IceStormElection
 _M_IceStormElection = Ice.openModule('IceStormElection')
 __name__ = 'IceStormElection'
+_M_IceStormElection.LogUpdate = None
+class LogUpdate(object):
+    """
+     A struct used for marking the last log update.
+    Members:
+    generation --  The generation.
+    iteration --  The iteration within this generation.
+    """
+    def __init__(self, generation=0, iteration=0):
+        self.generation = generation
+        self.iteration = iteration
 
-if 'LogUpdate' not in _M_IceStormElection.__dict__:
-    _M_IceStormElection.LogUpdate = Ice.createTempClass()
-    class LogUpdate(object):
-        """
-         A struct used for marking the last log update.
-        Members:
-        generation --  The generation.
-        iteration --  The iteration within this generation.
-        """
-        def __init__(self, generation=0, iteration=0):
-            self.generation = generation
-            self.iteration = iteration
+    def __hash__(self):
+        _h = 0
+        _h = 5 * _h + _builtins.hash(self.generation)
+        _h = 5 * _h + _builtins.hash(self.iteration)
+        return _h % 0x7fffffff
 
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + _builtins.hash(self.generation)
-            _h = 5 * _h + _builtins.hash(self.iteration)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
-            if other is None:
-                return 1
-            elif not isinstance(other, _M_IceStormElection.LogUpdate):
-                return NotImplemented
+    def __compare(self, other):
+        if other is None:
+            return 1
+        elif not isinstance(other, _M_IceStormElection.LogUpdate):
+            return NotImplemented
+        else:
+            if self.generation is None or other.generation is None:
+                if self.generation != other.generation:
+                    return (-1 if self.generation is None else 1)
             else:
-                if self.generation is None or other.generation is None:
-                    if self.generation != other.generation:
-                        return (-1 if self.generation is None else 1)
-                else:
-                    if self.generation < other.generation:
-                        return -1
-                    elif self.generation > other.generation:
-                        return 1
-                if self.iteration is None or other.iteration is None:
-                    if self.iteration != other.iteration:
-                        return (-1 if self.iteration is None else 1)
-                else:
-                    if self.iteration < other.iteration:
-                        return -1
-                    elif self.iteration > other.iteration:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
+                if self.generation < other.generation:
+                    return -1
+                elif self.generation > other.generation:
+                    return 1
+            if self.iteration is None or other.iteration is None:
+                if self.iteration != other.iteration:
+                    return (-1 if self.iteration is None else 1)
             else:
-                return r < 0
+                if self.iteration < other.iteration:
+                    return -1
+                elif self.iteration > other.iteration:
+                    return 1
+            return 0
 
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
+    def __lt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r < 0
 
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
+    def __le__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r <= 0
 
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
+    def __gt__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r > 0
 
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
+    def __ge__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r >= 0
 
-        def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
+    def __eq__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r == 0
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceStormElection._t_LogUpdate)
+    def __ne__(self, other):
+        r = self.__compare(other)
+        if r is NotImplemented:
+            return r
+        else:
+            return r != 0
 
-        __repr__ = __str__
+    def __str__(self):
+        return IcePy.stringify(self, _M_IceStormElection._t_LogUpdate)
 
-    _M_IceStormElection._t_LogUpdate = IcePy.defineStruct('::IceStormElection::LogUpdate', LogUpdate, (), (
-        ('generation', (), IcePy._t_long),
-        ('iteration', (), IcePy._t_long)
-    ))
+    __repr__ = __str__
 
-    _M_IceStormElection.LogUpdate = LogUpdate
-    del LogUpdate
+_M_IceStormElection._t_LogUpdate = IcePy.defineStruct('::IceStormElection::LogUpdate', LogUpdate, (), (
+    ('generation', (), IcePy._t_long),
+    ('iteration', (), IcePy._t_long)
+))
+
+_M_IceStormElection.LogUpdate = LogUpdate
+del LogUpdate
 
 # End of module IceStormElection

@@ -27,60 +27,58 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_TestFacet = IcePy.defineValue('::Test::TestFacet', Ice.Value, -1, (), True, None, ())
+_M_Test.TestFacetPrx = None
+class TestFacetPrx(Ice.ObjectPrx):
 
-if 'TestFacetPrx' not in _M_Test.__dict__:
-    _M_Test.TestFacetPrx = Ice.createTempClass()
-    class TestFacetPrx(Ice.ObjectPrx):
+    def getChanges(self, context=None):
+        return _M_Test.TestFacet._op_getChanges.invoke(self, ((), context))
 
-        def getChanges(self, context=None):
-            return _M_Test.TestFacet._op_getChanges.invoke(self, ((), context))
+    def getChangesAsync(self, context=None):
+        return _M_Test.TestFacet._op_getChanges.invokeAsync(self, ((), context))
 
-        def getChangesAsync(self, context=None):
-            return _M_Test.TestFacet._op_getChanges.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.TestFacetPrx.ice_checkedCast(proxy, '::Test::TestFacet', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.TestFacetPrx.ice_checkedCast(proxy, '::Test::TestFacet', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.TestFacetPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.TestFacetPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::TestFacet'
+_M_Test._t_TestFacetPrx = IcePy.defineProxy('::Test::TestFacet', TestFacetPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::TestFacet'
-    _M_Test._t_TestFacetPrx = IcePy.defineProxy('::Test::TestFacet', TestFacetPrx)
+_M_Test.TestFacetPrx = TestFacetPrx
+del TestFacetPrx
 
-    _M_Test.TestFacetPrx = TestFacetPrx
-    del TestFacetPrx
+_M_Test.TestFacet = None
+class TestFacet(Ice.Object):
 
-    _M_Test.TestFacet = Ice.createTempClass()
-    class TestFacet(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::TestFacet')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::TestFacet')
+    def ice_id(self, current=None):
+        return '::Test::TestFacet'
 
-        def ice_id(self, current=None):
-            return '::Test::TestFacet'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::TestFacet'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::TestFacet'
+    def getChanges(self, current=None):
+        raise NotImplementedError("servant method 'getChanges' not implemented")
 
-        def getChanges(self, current=None):
-            raise NotImplementedError("servant method 'getChanges' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_TestFacetDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_TestFacetDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_TestFacetDisp = IcePy.defineClass('::Test::TestFacet', TestFacet, (), None, ())
+TestFacet._ice_type = _M_Test._t_TestFacetDisp
 
-    _M_Test._t_TestFacetDisp = IcePy.defineClass('::Test::TestFacet', TestFacet, (), None, ())
-    TestFacet._ice_type = _M_Test._t_TestFacetDisp
+TestFacet._op_getChanges = IcePy.Operation('getChanges', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_PropertyDict, False, 0), ())
 
-    TestFacet._op_getChanges = IcePy.Operation('getChanges', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_PropertyDict, False, 0), ())
-
-    _M_Test.TestFacet = TestFacet
-    del TestFacet
+_M_Test.TestFacet = TestFacet
+del TestFacet
 
 # End of module Test

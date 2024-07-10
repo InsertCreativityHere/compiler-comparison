@@ -26,220 +26,216 @@ _M_Ice = Ice.openModule('Ice')
 __name__ = 'Ice'
 
 _M_Ice._t_Router = IcePy.defineValue('::Ice::Router', Ice.Value, -1, (), True, None, ())
+_M_Ice.RouterPrx = None
+class RouterPrx(Ice.ObjectPrx):
 
-if 'RouterPrx' not in _M_Ice.__dict__:
-    _M_Ice.RouterPrx = Ice.createTempClass()
-    class RouterPrx(Ice.ObjectPrx):
+    """
+     Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     If a null proxy is returned, the client will forward requests to the router's endpoints.
+    Arguments:
+    context -- The request context for the invocation.
+    Returns a tuple containing the following:
+    _retval -- The router's client proxy.
+    hasRoutingTable -- Indicates whether or not the router supports a routing table. If it is supported, the Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting with Ice 3.7. The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
+    """
+    def getClientProxy(self, context=None):
+        return _M_Ice.Router._op_getClientProxy.invoke(self, ((), context))
 
+    """
+     Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     If a null proxy is returned, the client will forward requests to the router's endpoints.
+    Arguments:
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def getClientProxyAsync(self, context=None):
+        return _M_Ice.Router._op_getClientProxy.invokeAsync(self, ((), context))
+
+    """
+     Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
+    Arguments:
+    context -- The request context for the invocation.
+    Returns: The router's server proxy.
+    """
+    def getServerProxy(self, context=None):
+        return _M_Ice.Router._op_getServerProxy.invoke(self, ((), context))
+
+    """
+     Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
+    Arguments:
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def getServerProxyAsync(self, context=None):
+        return _M_Ice.Router._op_getServerProxy.invokeAsync(self, ((), context))
+
+    """
+     Add new proxy information to the router's routing table.
+    Arguments:
+    proxies -- The proxies to add. Adding a null proxy is an error.
+    context -- The request context for the invocation.
+    Returns: Proxies discarded by the router. These proxies are all non-null.
+    """
+    def addProxies(self, proxies, context=None):
+        return _M_Ice.Router._op_addProxies.invoke(self, ((proxies, ), context))
+
+    """
+     Add new proxy information to the router's routing table.
+    Arguments:
+    proxies -- The proxies to add. Adding a null proxy is an error.
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def addProxiesAsync(self, proxies, context=None):
+        return _M_Ice.Router._op_addProxies.invokeAsync(self, ((proxies, ), context))
+
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Ice.RouterPrx.ice_checkedCast(proxy, '::Ice::Router', facetOrContext, context)
+
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Ice.RouterPrx.ice_uncheckedCast(proxy, facet)
+
+    @staticmethod
+    def ice_staticId():
+        return '::Ice::Router'
+_M_Ice._t_RouterPrx = IcePy.defineProxy('::Ice::Router', RouterPrx)
+
+_M_Ice.RouterPrx = RouterPrx
+del RouterPrx
+
+_M_Ice.Router = None
+class Router(Ice.Object):
+
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Ice::Router')
+
+    def ice_id(self, current=None):
+        return '::Ice::Router'
+
+    @staticmethod
+    def ice_staticId():
+        return '::Ice::Router'
+
+    def getClientProxy(self, current=None):
         """
          Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
          If a null proxy is returned, the client will forward requests to the router's endpoints.
         Arguments:
-        context -- The request context for the invocation.
-        Returns a tuple containing the following:
-        _retval -- The router's client proxy.
-        hasRoutingTable -- Indicates whether or not the router supports a routing table. If it is supported, the Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting with Ice 3.7. The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
-        """
-        def getClientProxy(self, context=None):
-            return _M_Ice.Router._op_getClientProxy.invoke(self, ((), context))
-
-        """
-         Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-         If a null proxy is returned, the client will forward requests to the router's endpoints.
-        Arguments:
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
         Returns: A future object for the invocation.
         """
-        def getClientProxyAsync(self, context=None):
-            return _M_Ice.Router._op_getClientProxy.invokeAsync(self, ((), context))
+        raise NotImplementedError("servant method 'getClientProxy' not implemented")
 
+    def getServerProxy(self, current=None):
         """
          Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
         Arguments:
-        context -- The request context for the invocation.
-        Returns: The router's server proxy.
-        """
-        def getServerProxy(self, context=None):
-            return _M_Ice.Router._op_getServerProxy.invoke(self, ((), context))
-
-        """
-         Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-        Arguments:
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
         Returns: A future object for the invocation.
         """
-        def getServerProxyAsync(self, context=None):
-            return _M_Ice.Router._op_getServerProxy.invokeAsync(self, ((), context))
+        raise NotImplementedError("servant method 'getServerProxy' not implemented")
 
+    def addProxies(self, proxies, current=None):
         """
          Add new proxy information to the router's routing table.
         Arguments:
         proxies -- The proxies to add. Adding a null proxy is an error.
-        context -- The request context for the invocation.
-        Returns: Proxies discarded by the router. These proxies are all non-null.
-        """
-        def addProxies(self, proxies, context=None):
-            return _M_Ice.Router._op_addProxies.invoke(self, ((proxies, ), context))
-
-        """
-         Add new proxy information to the router's routing table.
-        Arguments:
-        proxies -- The proxies to add. Adding a null proxy is an error.
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
         Returns: A future object for the invocation.
         """
-        def addProxiesAsync(self, proxies, context=None):
-            return _M_Ice.Router._op_addProxies.invokeAsync(self, ((proxies, ), context))
+        raise NotImplementedError("servant method 'addProxies' not implemented")
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Ice.RouterPrx.ice_checkedCast(proxy, '::Ice::Router', facetOrContext, context)
+    def __str__(self):
+        return IcePy.stringify(self, _M_Ice._t_RouterDisp)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Ice.RouterPrx.ice_uncheckedCast(proxy, facet)
+    __repr__ = __str__
 
-        @staticmethod
-        def ice_staticId():
-            return '::Ice::Router'
-    _M_Ice._t_RouterPrx = IcePy.defineProxy('::Ice::Router', RouterPrx)
+_M_Ice._t_RouterDisp = IcePy.defineClass('::Ice::Router', Router, (), None, ())
+Router._ice_type = _M_Ice._t_RouterDisp
 
-    _M_Ice.RouterPrx = RouterPrx
-    del RouterPrx
+Router._op_getClientProxy = IcePy.Operation('getClientProxy', Ice.OperationMode.Idempotent, False, None, (), (), (((), IcePy._t_bool, True, 1),), ((), IcePy._t_ObjectPrx, False, 0), ())
+Router._op_getServerProxy = IcePy.Operation('getServerProxy', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+Router._op_addProxies = IcePy.Operation('addProxies', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_ObjectProxySeq, False, 0),), (), ((), _M_Ice._t_ObjectProxySeq, False, 0), ())
 
-    _M_Ice.Router = Ice.createTempClass()
-    class Router(Ice.Object):
-
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Ice::Router')
-
-        def ice_id(self, current=None):
-            return '::Ice::Router'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Ice::Router'
-
-        def getClientProxy(self, current=None):
-            """
-             Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-             If a null proxy is returned, the client will forward requests to the router's endpoints.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'getClientProxy' not implemented")
-
-        def getServerProxy(self, current=None):
-            """
-             Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'getServerProxy' not implemented")
-
-        def addProxies(self, proxies, current=None):
-            """
-             Add new proxy information to the router's routing table.
-            Arguments:
-            proxies -- The proxies to add. Adding a null proxy is an error.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'addProxies' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Ice._t_RouterDisp)
-
-        __repr__ = __str__
-
-    _M_Ice._t_RouterDisp = IcePy.defineClass('::Ice::Router', Router, (), None, ())
-    Router._ice_type = _M_Ice._t_RouterDisp
-
-    Router._op_getClientProxy = IcePy.Operation('getClientProxy', Ice.OperationMode.Idempotent, False, None, (), (), (((), IcePy._t_bool, True, 1),), ((), IcePy._t_ObjectPrx, False, 0), ())
-    Router._op_getServerProxy = IcePy.Operation('getServerProxy', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-    Router._op_addProxies = IcePy.Operation('addProxies', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_ObjectProxySeq, False, 0),), (), ((), _M_Ice._t_ObjectProxySeq, False, 0), ())
-
-    _M_Ice.Router = Router
-    del Router
+_M_Ice.Router = Router
+del Router
 
 _M_Ice._t_RouterFinder = IcePy.defineValue('::Ice::RouterFinder', Ice.Value, -1, (), True, None, ())
+_M_Ice.RouterFinderPrx = None
+class RouterFinderPrx(Ice.ObjectPrx):
 
-if 'RouterFinderPrx' not in _M_Ice.__dict__:
-    _M_Ice.RouterFinderPrx = Ice.createTempClass()
-    class RouterFinderPrx(Ice.ObjectPrx):
+    """
+     Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     replicas. This proxy is never null.
+    Arguments:
+    context -- The request context for the invocation.
+    Returns: The router proxy.
+    """
+    def getRouter(self, context=None):
+        return _M_Ice.RouterFinder._op_getRouter.invoke(self, ((), context))
 
+    """
+     Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     replicas. This proxy is never null.
+    Arguments:
+    context -- The request context for the invocation.
+    Returns: A future object for the invocation.
+    """
+    def getRouterAsync(self, context=None):
+        return _M_Ice.RouterFinder._op_getRouter.invokeAsync(self, ((), context))
+
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Ice.RouterFinderPrx.ice_checkedCast(proxy, '::Ice::RouterFinder', facetOrContext, context)
+
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Ice.RouterFinderPrx.ice_uncheckedCast(proxy, facet)
+
+    @staticmethod
+    def ice_staticId():
+        return '::Ice::RouterFinder'
+_M_Ice._t_RouterFinderPrx = IcePy.defineProxy('::Ice::RouterFinder', RouterFinderPrx)
+
+_M_Ice.RouterFinderPrx = RouterFinderPrx
+del RouterFinderPrx
+
+_M_Ice.RouterFinder = None
+class RouterFinder(Ice.Object):
+
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Ice::RouterFinder')
+
+    def ice_id(self, current=None):
+        return '::Ice::RouterFinder'
+
+    @staticmethod
+    def ice_staticId():
+        return '::Ice::RouterFinder'
+
+    def getRouter(self, current=None):
         """
          Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
          replicas. This proxy is never null.
         Arguments:
-        context -- The request context for the invocation.
-        Returns: The router proxy.
-        """
-        def getRouter(self, context=None):
-            return _M_Ice.RouterFinder._op_getRouter.invoke(self, ((), context))
-
-        """
-         Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-         replicas. This proxy is never null.
-        Arguments:
-        context -- The request context for the invocation.
+        current -- The Current object for the invocation.
         Returns: A future object for the invocation.
         """
-        def getRouterAsync(self, context=None):
-            return _M_Ice.RouterFinder._op_getRouter.invokeAsync(self, ((), context))
+        raise NotImplementedError("servant method 'getRouter' not implemented")
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Ice.RouterFinderPrx.ice_checkedCast(proxy, '::Ice::RouterFinder', facetOrContext, context)
+    def __str__(self):
+        return IcePy.stringify(self, _M_Ice._t_RouterFinderDisp)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Ice.RouterFinderPrx.ice_uncheckedCast(proxy, facet)
+    __repr__ = __str__
 
-        @staticmethod
-        def ice_staticId():
-            return '::Ice::RouterFinder'
-    _M_Ice._t_RouterFinderPrx = IcePy.defineProxy('::Ice::RouterFinder', RouterFinderPrx)
+_M_Ice._t_RouterFinderDisp = IcePy.defineClass('::Ice::RouterFinder', RouterFinder, (), None, ())
+RouterFinder._ice_type = _M_Ice._t_RouterFinderDisp
 
-    _M_Ice.RouterFinderPrx = RouterFinderPrx
-    del RouterFinderPrx
+RouterFinder._op_getRouter = IcePy.Operation('getRouter', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_RouterPrx, False, 0), ())
 
-    _M_Ice.RouterFinder = Ice.createTempClass()
-    class RouterFinder(Ice.Object):
-
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Ice::RouterFinder')
-
-        def ice_id(self, current=None):
-            return '::Ice::RouterFinder'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Ice::RouterFinder'
-
-        def getRouter(self, current=None):
-            """
-             Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-             replicas. This proxy is never null.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'getRouter' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Ice._t_RouterFinderDisp)
-
-        __repr__ = __str__
-
-    _M_Ice._t_RouterFinderDisp = IcePy.defineClass('::Ice::RouterFinder', RouterFinder, (), None, ())
-    RouterFinder._ice_type = _M_Ice._t_RouterFinderDisp
-
-    RouterFinder._op_getRouter = IcePy.Operation('getRouter', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_RouterPrx, False, 0), ())
-
-    _M_Ice.RouterFinder = RouterFinder
-    del RouterFinder
+_M_Ice.RouterFinder = RouterFinder
+del RouterFinder
 
 # End of module Ice

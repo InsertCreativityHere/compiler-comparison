@@ -21,315 +21,283 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
+_M_Test.MyEnum = None
+class MyEnum(Ice.EnumBase):
 
-if 'MyEnum' not in _M_Test.__dict__:
-    _M_Test.MyEnum = Ice.createTempClass()
-    class MyEnum(Ice.EnumBase):
+    def __init__(self, _n, _v):
+        Ice.EnumBase.__init__(self, _n, _v)
 
-        def __init__(self, _n, _v):
-            Ice.EnumBase.__init__(self, _n, _v)
+    def valueOf(self, _n):
+        if _n in self._enumerators:
+            return self._enumerators[_n]
+        return None
+    valueOf = classmethod(valueOf)
 
-        def valueOf(self, _n):
-            if _n in self._enumerators:
-                return self._enumerators[_n]
-            return None
-        valueOf = classmethod(valueOf)
+MyEnum.enum1 = MyEnum("enum1", 0)
+MyEnum.enum2 = MyEnum("enum2", 1)
+MyEnum.enum3 = MyEnum("enum3", 2)
+MyEnum._enumerators = { 0:MyEnum.enum1, 1:MyEnum.enum2, 2:MyEnum.enum3 }
 
-    MyEnum.enum1 = MyEnum("enum1", 0)
-    MyEnum.enum2 = MyEnum("enum2", 1)
-    MyEnum.enum3 = MyEnum("enum3", 2)
-    MyEnum._enumerators = { 0:MyEnum.enum1, 1:MyEnum.enum2, 2:MyEnum.enum3 }
+_M_Test._t_MyEnum = IcePy.defineEnum('::Test::MyEnum', MyEnum, (), MyEnum._enumerators)
 
-    _M_Test._t_MyEnum = IcePy.defineEnum('::Test::MyEnum', MyEnum, (), MyEnum._enumerators)
+_M_Test.MyEnum = MyEnum
+del MyEnum
+_M_Test._t_InitialDisp = IcePy.declareClass('::Test::Initial')
+_M_Test._t_InitialPrx = IcePy.declareProxy('::Test::Initial')
+_M_Test._t_Base = IcePy.declareValue('::Test::Base')
+_M_Test.Struct1 = None
+class Struct1(object):
+    def __init__(self, bo=False, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=_M_Test.MyEnum.enum1, p=None):
+        self.bo = bo
+        self.by = by
+        self.sh = sh
+        self.i = i
+        self.l = l
+        self.f = f
+        self.d = d
+        self.str = str
+        self.e = e
+        self.p = p
 
-    _M_Test.MyEnum = MyEnum
-    del MyEnum
-
-if 'Initial' not in _M_Test.__dict__:
-    _M_Test._t_InitialDisp = IcePy.declareClass('::Test::Initial')
-    _M_Test._t_InitialPrx = IcePy.declareProxy('::Test::Initial')
-
-if 'Base' not in _M_Test.__dict__:
-    _M_Test._t_Base = IcePy.declareValue('::Test::Base')
-
-if 'Struct1' not in _M_Test.__dict__:
-    _M_Test.Struct1 = Ice.createTempClass()
-    class Struct1(object):
-        def __init__(self, bo=False, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=_M_Test.MyEnum.enum1, p=None):
-            self.bo = bo
-            self.by = by
-            self.sh = sh
-            self.i = i
-            self.l = l
-            self.f = f
-            self.d = d
-            self.str = str
-            self.e = e
-            self.p = p
-
-        def __eq__(self, other):
-            if other is None:
+    def __eq__(self, other):
+        if other is None:
+            return False
+        elif not isinstance(other, _M_Test.Struct1):
+            return NotImplemented
+        else:
+            if self.bo != other.bo:
                 return False
-            elif not isinstance(other, _M_Test.Struct1):
-                return NotImplemented
-            else:
-                if self.bo != other.bo:
-                    return False
-                if self.by != other.by:
-                    return False
-                if self.sh != other.sh:
-                    return False
-                if self.i != other.i:
-                    return False
-                if self.l != other.l:
-                    return False
-                if self.f != other.f:
-                    return False
-                if self.d != other.d:
-                    return False
-                if self.str != other.str:
-                    return False
-                if self.e != other.e:
-                    return False
-                if self.p != other.p:
-                    return False
-                return True
+            if self.by != other.by:
+                return False
+            if self.sh != other.sh:
+                return False
+            if self.i != other.i:
+                return False
+            if self.l != other.l:
+                return False
+            if self.f != other.f:
+                return False
+            if self.d != other.d:
+                return False
+            if self.str != other.str:
+                return False
+            if self.e != other.e:
+                return False
+            if self.p != other.p:
+                return False
+            return True
 
-        def __ne__(self, other):
-            return not self.__eq__(other)
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Struct1)
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_Struct1)
 
-        __repr__ = __str__
+    __repr__ = __str__
 
-    _M_Test._t_Struct1 = IcePy.defineStruct('::Test::Struct1', Struct1, (), (
-        ('bo', (), IcePy._t_bool),
-        ('by', (), IcePy._t_byte),
-        ('sh', (), IcePy._t_short),
-        ('i', (), IcePy._t_int),
-        ('l', (), IcePy._t_long),
-        ('f', (), IcePy._t_float),
-        ('d', (), IcePy._t_double),
-        ('str', (), IcePy._t_string),
-        ('e', (), _M_Test._t_MyEnum),
-        ('p', (), _M_Test._t_InitialPrx)
-    ))
+_M_Test._t_Struct1 = IcePy.defineStruct('::Test::Struct1', Struct1, (), (
+    ('bo', (), IcePy._t_bool),
+    ('by', (), IcePy._t_byte),
+    ('sh', (), IcePy._t_short),
+    ('i', (), IcePy._t_int),
+    ('l', (), IcePy._t_long),
+    ('f', (), IcePy._t_float),
+    ('d', (), IcePy._t_double),
+    ('str', (), IcePy._t_string),
+    ('e', (), _M_Test._t_MyEnum),
+    ('p', (), _M_Test._t_InitialPrx)
+))
 
-    _M_Test.Struct1 = Struct1
-    del Struct1
+_M_Test.Struct1 = Struct1
+del Struct1
+_M_Test._t_ByteS = IcePy.defineSequence('::Test::ByteS', (), IcePy._t_byte)
+_M_Test._t_IntS = IcePy.defineSequence('::Test::IntS', (), IcePy._t_int)
+_M_Test._t_MyEnumS = IcePy.defineSequence('::Test::MyEnumS', (), _M_Test._t_MyEnum)
+_M_Test._t_BaseS = IcePy.defineSequence('::Test::BaseS', (), _M_Test._t_Base)
+_M_Test._t_ByteBoolD = IcePy.defineDictionary('::Test::ByteBoolD', (), IcePy._t_byte, IcePy._t_bool)
+_M_Test._t_ShortIntD = IcePy.defineDictionary('::Test::ShortIntD', (), IcePy._t_short, IcePy._t_int)
+_M_Test._t_StringMyEnumD = IcePy.defineDictionary('::Test::StringMyEnumD', (), IcePy._t_string, _M_Test._t_MyEnum)
+_M_Test._t_StringBaseD = IcePy.defineDictionary('::Test::StringBaseD', (), IcePy._t_string, _M_Test._t_Base)
+_M_Test.Base = None
+class Base(Ice.Value):
+    def __init__(self, b=None, o=None, s=Ice._struct_marker, seq1=None, seq2=None, seq3=None, seq4=None, d1=None, d2=None, d3=None, d4=None):
+        self.b = b
+        self.o = o
+        if s is Ice._struct_marker:
+            self.s = _M_Test.Struct1()
+        else:
+            self.s = s
+        self.seq1 = seq1
+        self.seq2 = seq2
+        self.seq3 = seq3
+        self.seq4 = seq4
+        self.d1 = d1
+        self.d2 = d2
+        self.d3 = d3
+        self.d4 = d4
 
-if '_t_ByteS' not in _M_Test.__dict__:
-    _M_Test._t_ByteS = IcePy.defineSequence('::Test::ByteS', (), IcePy._t_byte)
+    def ice_id(self):
+        return '::Test::Base'
 
-if '_t_IntS' not in _M_Test.__dict__:
-    _M_Test._t_IntS = IcePy.defineSequence('::Test::IntS', (), IcePy._t_int)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Base'
 
-if '_t_MyEnumS' not in _M_Test.__dict__:
-    _M_Test._t_MyEnumS = IcePy.defineSequence('::Test::MyEnumS', (), _M_Test._t_MyEnum)
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_Base)
 
-if '_t_BaseS' not in _M_Test.__dict__:
-    _M_Test._t_BaseS = IcePy.defineSequence('::Test::BaseS', (), _M_Test._t_Base)
+    __repr__ = __str__
 
-if '_t_ByteBoolD' not in _M_Test.__dict__:
-    _M_Test._t_ByteBoolD = IcePy.defineDictionary('::Test::ByteBoolD', (), IcePy._t_byte, IcePy._t_bool)
+_M_Test._t_Base = IcePy.defineValue('::Test::Base', Base, -1, (), False, None, (
+    ('b', (), _M_Test._t_Base, False, 0),
+    ('o', (), IcePy._t_Value, False, 0),
+    ('s', (), _M_Test._t_Struct1, False, 0),
+    ('seq1', (), _M_Test._t_ByteS, False, 0),
+    ('seq2', (), _M_Test._t_IntS, False, 0),
+    ('seq3', (), _M_Test._t_MyEnumS, False, 0),
+    ('seq4', (), _M_Test._t_BaseS, False, 0),
+    ('d1', (), _M_Test._t_ByteBoolD, False, 0),
+    ('d2', (), _M_Test._t_ShortIntD, False, 0),
+    ('d3', (), _M_Test._t_StringMyEnumD, False, 0),
+    ('d4', (), _M_Test._t_StringBaseD, False, 0)
+))
+Base._ice_type = _M_Test._t_Base
 
-if '_t_ShortIntD' not in _M_Test.__dict__:
-    _M_Test._t_ShortIntD = IcePy.defineDictionary('::Test::ShortIntD', (), IcePy._t_short, IcePy._t_int)
+_M_Test.Base = Base
+del Base
+_M_Test.Derived = None
+class Derived(_M_Test.Base):
+    def __init__(self, b=None, o=None, s=Ice._struct_marker, seq1=None, seq2=None, seq3=None, seq4=None, d1=None, d2=None, d3=None, d4=None, p=None):
+        _M_Test.Base.__init__(self, b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
+        self.p = p
 
-if '_t_StringMyEnumD' not in _M_Test.__dict__:
-    _M_Test._t_StringMyEnumD = IcePy.defineDictionary('::Test::StringMyEnumD', (), IcePy._t_string, _M_Test._t_MyEnum)
+    def ice_id(self):
+        return '::Test::Derived'
 
-if '_t_StringBaseD' not in _M_Test.__dict__:
-    _M_Test._t_StringBaseD = IcePy.defineDictionary('::Test::StringBaseD', (), IcePy._t_string, _M_Test._t_Base)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Derived'
 
-if 'Base' not in _M_Test.__dict__:
-    _M_Test.Base = Ice.createTempClass()
-    class Base(Ice.Value):
-        def __init__(self, b=None, o=None, s=Ice._struct_marker, seq1=None, seq2=None, seq3=None, seq4=None, d1=None, d2=None, d3=None, d4=None):
-            self.b = b
-            self.o = o
-            if s is Ice._struct_marker:
-                self.s = _M_Test.Struct1()
-            else:
-                self.s = s
-            self.seq1 = seq1
-            self.seq2 = seq2
-            self.seq3 = seq3
-            self.seq4 = seq4
-            self.d1 = d1
-            self.d2 = d2
-            self.d3 = d3
-            self.d4 = d4
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_Derived)
 
-        def ice_id(self):
-            return '::Test::Base'
+    __repr__ = __str__
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Base'
+_M_Test._t_Derived = IcePy.declareValue('::Test::Derived')
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Base)
+_M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, _M_Test._t_Base, (('p', (), IcePy._t_ObjectPrx, False, 0),))
+Derived._ice_type = _M_Test._t_Derived
 
-        __repr__ = __str__
+_M_Test.Derived = Derived
+del Derived
+_M_Test.Ex = None
+class Ex(Ice.UserException):
+    def __init__(self, s=Ice._struct_marker, b=None):
+        if s is Ice._struct_marker:
+            self.s = _M_Test.Struct1()
+        else:
+            self.s = s
+        self.b = b
 
-    _M_Test._t_Base = IcePy.defineValue('::Test::Base', Base, -1, (), False, None, (
-        ('b', (), _M_Test._t_Base, False, 0),
-        ('o', (), IcePy._t_Value, False, 0),
-        ('s', (), _M_Test._t_Struct1, False, 0),
-        ('seq1', (), _M_Test._t_ByteS, False, 0),
-        ('seq2', (), _M_Test._t_IntS, False, 0),
-        ('seq3', (), _M_Test._t_MyEnumS, False, 0),
-        ('seq4', (), _M_Test._t_BaseS, False, 0),
-        ('d1', (), _M_Test._t_ByteBoolD, False, 0),
-        ('d2', (), _M_Test._t_ShortIntD, False, 0),
-        ('d3', (), _M_Test._t_StringMyEnumD, False, 0),
-        ('d4', (), _M_Test._t_StringBaseD, False, 0)
-    ))
-    Base._ice_type = _M_Test._t_Base
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-    _M_Test.Base = Base
-    del Base
+    __repr__ = __str__
 
-if 'Derived' not in _M_Test.__dict__:
-    _M_Test.Derived = Ice.createTempClass()
-    class Derived(_M_Test.Base):
-        def __init__(self, b=None, o=None, s=Ice._struct_marker, seq1=None, seq2=None, seq3=None, seq4=None, d1=None, d2=None, d3=None, d4=None, p=None):
-            _M_Test.Base.__init__(self, b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
-            self.p = p
+    _ice_id = '::Test::Ex'
 
-        def ice_id(self):
-            return '::Test::Derived'
+_M_Test._t_Ex = IcePy.defineException('::Test::Ex', Ex, (), None, (
+    ('s', (), _M_Test._t_Struct1, False, 0),
+    ('b', (), _M_Test._t_Base, False, 0)
+))
+Ex._ice_type = _M_Test._t_Ex
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Derived'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Derived)
-
-        __repr__ = __str__
-
-    _M_Test._t_Derived = IcePy.declareValue('::Test::Derived')
-
-    _M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, _M_Test._t_Base, (('p', (), IcePy._t_ObjectPrx, False, 0),))
-    Derived._ice_type = _M_Test._t_Derived
-
-    _M_Test.Derived = Derived
-    del Derived
-
-if 'Ex' not in _M_Test.__dict__:
-    _M_Test.Ex = Ice.createTempClass()
-    class Ex(Ice.UserException):
-        def __init__(self, s=Ice._struct_marker, b=None):
-            if s is Ice._struct_marker:
-                self.s = _M_Test.Struct1()
-            else:
-                self.s = s
-            self.b = b
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::Ex'
-
-    _M_Test._t_Ex = IcePy.defineException('::Test::Ex', Ex, (), None, (
-        ('s', (), _M_Test._t_Struct1, False, 0),
-        ('b', (), _M_Test._t_Base, False, 0)
-    ))
-    Ex._ice_type = _M_Test._t_Ex
-
-    _M_Test.Ex = Ex
-    del Ex
+_M_Test.Ex = Ex
+del Ex
 
 _M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
+_M_Test.InitialPrx = None
+class InitialPrx(Ice.ObjectPrx):
 
-if 'InitialPrx' not in _M_Test.__dict__:
-    _M_Test.InitialPrx = Ice.createTempClass()
-    class InitialPrx(Ice.ObjectPrx):
+    def getStruct1(self, context=None):
+        return _M_Test.Initial._op_getStruct1.invoke(self, ((), context))
 
-        def getStruct1(self, context=None):
-            return _M_Test.Initial._op_getStruct1.invoke(self, ((), context))
+    def getStruct1Async(self, context=None):
+        return _M_Test.Initial._op_getStruct1.invokeAsync(self, ((), context))
 
-        def getStruct1Async(self, context=None):
-            return _M_Test.Initial._op_getStruct1.invokeAsync(self, ((), context))
+    def getBase(self, context=None):
+        return _M_Test.Initial._op_getBase.invoke(self, ((), context))
 
-        def getBase(self, context=None):
-            return _M_Test.Initial._op_getBase.invoke(self, ((), context))
+    def getBaseAsync(self, context=None):
+        return _M_Test.Initial._op_getBase.invokeAsync(self, ((), context))
 
-        def getBaseAsync(self, context=None):
-            return _M_Test.Initial._op_getBase.invokeAsync(self, ((), context))
+    def getEx(self, context=None):
+        return _M_Test.Initial._op_getEx.invoke(self, ((), context))
 
-        def getEx(self, context=None):
-            return _M_Test.Initial._op_getEx.invoke(self, ((), context))
+    def getExAsync(self, context=None):
+        return _M_Test.Initial._op_getEx.invokeAsync(self, ((), context))
 
-        def getExAsync(self, context=None):
-            return _M_Test.Initial._op_getEx.invokeAsync(self, ((), context))
+    def shutdown(self, context=None):
+        return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
 
-        def shutdown(self, context=None):
-            return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
+    def shutdownAsync(self, context=None):
+        return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
 
-        def shutdownAsync(self, context=None):
-            return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.InitialPrx.ice_checkedCast(proxy, '::Test::Initial', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.InitialPrx.ice_checkedCast(proxy, '::Test::Initial', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.InitialPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.InitialPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Initial'
+_M_Test._t_InitialPrx = IcePy.defineProxy('::Test::Initial', InitialPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Initial'
-    _M_Test._t_InitialPrx = IcePy.defineProxy('::Test::Initial', InitialPrx)
+_M_Test.InitialPrx = InitialPrx
+del InitialPrx
 
-    _M_Test.InitialPrx = InitialPrx
-    del InitialPrx
+_M_Test.Initial = None
+class Initial(Ice.Object):
 
-    _M_Test.Initial = Ice.createTempClass()
-    class Initial(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Initial')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Initial')
+    def ice_id(self, current=None):
+        return '::Test::Initial'
 
-        def ice_id(self, current=None):
-            return '::Test::Initial'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Initial'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Initial'
+    def getStruct1(self, current=None):
+        raise NotImplementedError("servant method 'getStruct1' not implemented")
 
-        def getStruct1(self, current=None):
-            raise NotImplementedError("servant method 'getStruct1' not implemented")
+    def getBase(self, current=None):
+        raise NotImplementedError("servant method 'getBase' not implemented")
 
-        def getBase(self, current=None):
-            raise NotImplementedError("servant method 'getBase' not implemented")
+    def getEx(self, current=None):
+        raise NotImplementedError("servant method 'getEx' not implemented")
 
-        def getEx(self, current=None):
-            raise NotImplementedError("servant method 'getEx' not implemented")
+    def shutdown(self, current=None):
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def shutdown(self, current=None):
-            raise NotImplementedError("servant method 'shutdown' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_InitialDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_InitialDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
+Initial._ice_type = _M_Test._t_InitialDisp
 
-    _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
-    Initial._ice_type = _M_Test._t_InitialDisp
+Initial._op_getStruct1 = IcePy.Operation('getStruct1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
+Initial._op_getBase = IcePy.Operation('getBase', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
+Initial._op_getEx = IcePy.Operation('getEx', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
+Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    Initial._op_getStruct1 = IcePy.Operation('getStruct1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
-    Initial._op_getBase = IcePy.Operation('getBase', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
-    Initial._op_getEx = IcePy.Operation('getEx', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
-    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.Initial = Initial
-    del Initial
+_M_Test.Initial = Initial
+del Initial
 
 # End of module Test

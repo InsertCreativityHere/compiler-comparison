@@ -27,127 +27,123 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
+_M_Test.MyClassPrx = None
+class MyClassPrx(Ice.ObjectPrx):
 
-if 'MyClassPrx' not in _M_Test.__dict__:
-    _M_Test.MyClassPrx = Ice.createTempClass()
-    class MyClassPrx(Ice.ObjectPrx):
+    def shutdown(self, context=None):
+        return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
 
-        def shutdown(self, context=None):
-            return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
+    def shutdownAsync(self, context=None):
+        return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
 
-        def shutdownAsync(self, context=None):
-            return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
+    def getContext(self, context=None):
+        return _M_Test.MyClass._op_getContext.invoke(self, ((), context))
 
-        def getContext(self, context=None):
-            return _M_Test.MyClass._op_getContext.invoke(self, ((), context))
+    def getContextAsync(self, context=None):
+        return _M_Test.MyClass._op_getContext.invokeAsync(self, ((), context))
 
-        def getContextAsync(self, context=None):
-            return _M_Test.MyClass._op_getContext.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.MyClassPrx.ice_checkedCast(proxy, '::Test::MyClass', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.MyClassPrx.ice_checkedCast(proxy, '::Test::MyClass', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.MyClassPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.MyClassPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MyClass'
+_M_Test._t_MyClassPrx = IcePy.defineProxy('::Test::MyClass', MyClassPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MyClass'
-    _M_Test._t_MyClassPrx = IcePy.defineProxy('::Test::MyClass', MyClassPrx)
+_M_Test.MyClassPrx = MyClassPrx
+del MyClassPrx
 
-    _M_Test.MyClassPrx = MyClassPrx
-    del MyClassPrx
+_M_Test.MyClass = None
+class MyClass(Ice.Object):
 
-    _M_Test.MyClass = Ice.createTempClass()
-    class MyClass(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::MyClass')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::MyClass')
+    def ice_id(self, current=None):
+        return '::Test::MyClass'
 
-        def ice_id(self, current=None):
-            return '::Test::MyClass'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MyClass'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MyClass'
+    def shutdown(self, current=None):
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def shutdown(self, current=None):
-            raise NotImplementedError("servant method 'shutdown' not implemented")
+    def getContext(self, current=None):
+        raise NotImplementedError("servant method 'getContext' not implemented")
 
-        def getContext(self, current=None):
-            raise NotImplementedError("servant method 'getContext' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_MyClassDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_MyClassDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
+MyClass._ice_type = _M_Test._t_MyClassDisp
 
-    _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
-    MyClass._ice_type = _M_Test._t_MyClassDisp
+MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+MyClass._op_getContext = IcePy.Operation('getContext', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_Context, False, 0), ())
 
-    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    MyClass._op_getContext = IcePy.Operation('getContext', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_Context, False, 0), ())
-
-    _M_Test.MyClass = MyClass
-    del MyClass
+_M_Test.MyClass = MyClass
+del MyClass
 
 _M_Test._t_MyDerivedClass = IcePy.defineValue('::Test::MyDerivedClass', Ice.Value, -1, (), True, None, ())
+_M_Test.MyDerivedClassPrx = None
+class MyDerivedClassPrx(_M_Test.MyClassPrx):
 
-if 'MyDerivedClassPrx' not in _M_Test.__dict__:
-    _M_Test.MyDerivedClassPrx = Ice.createTempClass()
-    class MyDerivedClassPrx(_M_Test.MyClassPrx):
+    def echo(self, obj, context=None):
+        return _M_Test.MyDerivedClass._op_echo.invoke(self, ((obj, ), context))
 
-        def echo(self, obj, context=None):
-            return _M_Test.MyDerivedClass._op_echo.invoke(self, ((obj, ), context))
+    def echoAsync(self, obj, context=None):
+        return _M_Test.MyDerivedClass._op_echo.invokeAsync(self, ((obj, ), context))
 
-        def echoAsync(self, obj, context=None):
-            return _M_Test.MyDerivedClass._op_echo.invokeAsync(self, ((obj, ), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.MyDerivedClassPrx.ice_checkedCast(proxy, '::Test::MyDerivedClass', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.MyDerivedClassPrx.ice_checkedCast(proxy, '::Test::MyDerivedClass', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.MyDerivedClassPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.MyDerivedClassPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MyDerivedClass'
+_M_Test._t_MyDerivedClassPrx = IcePy.defineProxy('::Test::MyDerivedClass', MyDerivedClassPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MyDerivedClass'
-    _M_Test._t_MyDerivedClassPrx = IcePy.defineProxy('::Test::MyDerivedClass', MyDerivedClassPrx)
+_M_Test.MyDerivedClassPrx = MyDerivedClassPrx
+del MyDerivedClassPrx
 
-    _M_Test.MyDerivedClassPrx = MyDerivedClassPrx
-    del MyDerivedClassPrx
+_M_Test.MyDerivedClass = None
+class MyDerivedClass(_M_Test.MyClass):
 
-    _M_Test.MyDerivedClass = Ice.createTempClass()
-    class MyDerivedClass(_M_Test.MyClass):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::MyClass', '::Test::MyDerivedClass')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::MyClass', '::Test::MyDerivedClass')
+    def ice_id(self, current=None):
+        return '::Test::MyDerivedClass'
 
-        def ice_id(self, current=None):
-            return '::Test::MyDerivedClass'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::MyDerivedClass'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::MyDerivedClass'
+    def echo(self, obj, current=None):
+        raise NotImplementedError("servant method 'echo' not implemented")
 
-        def echo(self, obj, current=None):
-            raise NotImplementedError("servant method 'echo' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_MyDerivedClassDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_MyDerivedClassDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_MyDerivedClassDisp = IcePy.defineClass('::Test::MyDerivedClass', MyDerivedClass, (), None, (_M_Test._t_MyClassDisp,))
+MyDerivedClass._ice_type = _M_Test._t_MyDerivedClassDisp
 
-    _M_Test._t_MyDerivedClassDisp = IcePy.defineClass('::Test::MyDerivedClass', MyDerivedClass, (), None, (_M_Test._t_MyClassDisp,))
-    MyDerivedClass._ice_type = _M_Test._t_MyDerivedClassDisp
+MyDerivedClass._op_echo = IcePy.Operation('echo', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
 
-    MyDerivedClass._op_echo = IcePy.Operation('echo', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-
-    _M_Test.MyDerivedClass = MyDerivedClass
-    del MyDerivedClass
+_M_Test.MyDerivedClass = MyDerivedClass
+del MyDerivedClass
 
 # End of module Test

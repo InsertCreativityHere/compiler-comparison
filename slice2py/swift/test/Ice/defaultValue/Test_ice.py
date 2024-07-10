@@ -21,175 +21,169 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
+_M_Test.Color = None
+class Color(Ice.EnumBase):
 
-if 'Color' not in _M_Test.__dict__:
-    _M_Test.Color = Ice.createTempClass()
-    class Color(Ice.EnumBase):
+    def __init__(self, _n, _v):
+        Ice.EnumBase.__init__(self, _n, _v)
 
-        def __init__(self, _n, _v):
-            Ice.EnumBase.__init__(self, _n, _v)
+    def valueOf(self, _n):
+        if _n in self._enumerators:
+            return self._enumerators[_n]
+        return None
+    valueOf = classmethod(valueOf)
 
-        def valueOf(self, _n):
-            if _n in self._enumerators:
-                return self._enumerators[_n]
-            return None
-        valueOf = classmethod(valueOf)
+Color.red = Color("red", 0)
+Color.green = Color("green", 1)
+Color.blue = Color("blue", 2)
+Color._enumerators = { 0:Color.red, 1:Color.green, 2:Color.blue }
 
-    Color.red = Color("red", 0)
-    Color.green = Color("green", 1)
-    Color.blue = Color("blue", 2)
-    Color._enumerators = { 0:Color.red, 1:Color.green, 2:Color.blue }
+_M_Test._t_Color = IcePy.defineEnum('::Test::Color', Color, (), Color._enumerators)
 
-    _M_Test._t_Color = IcePy.defineEnum('::Test::Color', Color, (), Color._enumerators)
-
-    _M_Test.Color = Color
-    del Color
+_M_Test.Color = Color
+del Color
 
 # Start of module Test.Nested
 _M_Test.Nested = Ice.openModule('Test.Nested')
 __name__ = 'Test.Nested'
+_M_Test.Nested.Color = None
+class Color(Ice.EnumBase):
 
-if 'Color' not in _M_Test.Nested.__dict__:
-    _M_Test.Nested.Color = Ice.createTempClass()
-    class Color(Ice.EnumBase):
+    def __init__(self, _n, _v):
+        Ice.EnumBase.__init__(self, _n, _v)
 
-        def __init__(self, _n, _v):
-            Ice.EnumBase.__init__(self, _n, _v)
+    def valueOf(self, _n):
+        if _n in self._enumerators:
+            return self._enumerators[_n]
+        return None
+    valueOf = classmethod(valueOf)
 
-        def valueOf(self, _n):
-            if _n in self._enumerators:
-                return self._enumerators[_n]
-            return None
-        valueOf = classmethod(valueOf)
+Color.red = Color("red", 0)
+Color.green = Color("green", 1)
+Color.blue = Color("blue", 2)
+Color._enumerators = { 0:Color.red, 1:Color.green, 2:Color.blue }
 
-    Color.red = Color("red", 0)
-    Color.green = Color("green", 1)
-    Color.blue = Color("blue", 2)
-    Color._enumerators = { 0:Color.red, 1:Color.green, 2:Color.blue }
+_M_Test.Nested._t_Color = IcePy.defineEnum('::Test::Nested::Color', Color, (), Color._enumerators)
 
-    _M_Test.Nested._t_Color = IcePy.defineEnum('::Test::Nested::Color', Color, (), Color._enumerators)
-
-    _M_Test.Nested.Color = Color
-    del Color
+_M_Test.Nested.Color = Color
+del Color
 
 # End of module Test.Nested
 
 __name__ = 'Test'
+_M_Test.Struct1 = None
+class Struct1(object):
+    def __init__(self, boolFalse=False, boolTrue=True, b=254, s=16000, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", c1=_M_Test.Color.red, c2=_M_Test.Color.green, c3=_M_Test.Color.blue, nc1=_M_Test.Nested.Color.red, nc2=_M_Test.Nested.Color.green, nc3=_M_Test.Nested.Color.blue, noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0):
+        self.boolFalse = boolFalse
+        self.boolTrue = boolTrue
+        self.b = b
+        self.s = s
+        self.i = i
+        self.l = l
+        self.f = f
+        self.d = d
+        self.str = str
+        self.c1 = c1
+        self.c2 = c2
+        self.c3 = c3
+        self.nc1 = nc1
+        self.nc2 = nc2
+        self.nc3 = nc3
+        self.noDefault = noDefault
+        self.zeroI = zeroI
+        self.zeroL = zeroL
+        self.zeroF = zeroF
+        self.zeroDotF = zeroDotF
+        self.zeroD = zeroD
+        self.zeroDotD = zeroDotD
 
-if 'Struct1' not in _M_Test.__dict__:
-    _M_Test.Struct1 = Ice.createTempClass()
-    class Struct1(object):
-        def __init__(self, boolFalse=False, boolTrue=True, b=254, s=16000, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", c1=_M_Test.Color.red, c2=_M_Test.Color.green, c3=_M_Test.Color.blue, nc1=_M_Test.Nested.Color.red, nc2=_M_Test.Nested.Color.green, nc3=_M_Test.Nested.Color.blue, noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0):
-            self.boolFalse = boolFalse
-            self.boolTrue = boolTrue
-            self.b = b
-            self.s = s
-            self.i = i
-            self.l = l
-            self.f = f
-            self.d = d
-            self.str = str
-            self.c1 = c1
-            self.c2 = c2
-            self.c3 = c3
-            self.nc1 = nc1
-            self.nc2 = nc2
-            self.nc3 = nc3
-            self.noDefault = noDefault
-            self.zeroI = zeroI
-            self.zeroL = zeroL
-            self.zeroF = zeroF
-            self.zeroDotF = zeroDotF
-            self.zeroD = zeroD
-            self.zeroDotD = zeroDotD
-
-        def __eq__(self, other):
-            if other is None:
+    def __eq__(self, other):
+        if other is None:
+            return False
+        elif not isinstance(other, _M_Test.Struct1):
+            return NotImplemented
+        else:
+            if self.boolFalse != other.boolFalse:
                 return False
-            elif not isinstance(other, _M_Test.Struct1):
-                return NotImplemented
-            else:
-                if self.boolFalse != other.boolFalse:
-                    return False
-                if self.boolTrue != other.boolTrue:
-                    return False
-                if self.b != other.b:
-                    return False
-                if self.s != other.s:
-                    return False
-                if self.i != other.i:
-                    return False
-                if self.l != other.l:
-                    return False
-                if self.f != other.f:
-                    return False
-                if self.d != other.d:
-                    return False
-                if self.str != other.str:
-                    return False
-                if self.c1 != other.c1:
-                    return False
-                if self.c2 != other.c2:
-                    return False
-                if self.c3 != other.c3:
-                    return False
-                if self.nc1 != other.nc1:
-                    return False
-                if self.nc2 != other.nc2:
-                    return False
-                if self.nc3 != other.nc3:
-                    return False
-                if self.noDefault != other.noDefault:
-                    return False
-                if self.zeroI != other.zeroI:
-                    return False
-                if self.zeroL != other.zeroL:
-                    return False
-                if self.zeroF != other.zeroF:
-                    return False
-                if self.zeroDotF != other.zeroDotF:
-                    return False
-                if self.zeroD != other.zeroD:
-                    return False
-                if self.zeroDotD != other.zeroDotD:
-                    return False
-                return True
+            if self.boolTrue != other.boolTrue:
+                return False
+            if self.b != other.b:
+                return False
+            if self.s != other.s:
+                return False
+            if self.i != other.i:
+                return False
+            if self.l != other.l:
+                return False
+            if self.f != other.f:
+                return False
+            if self.d != other.d:
+                return False
+            if self.str != other.str:
+                return False
+            if self.c1 != other.c1:
+                return False
+            if self.c2 != other.c2:
+                return False
+            if self.c3 != other.c3:
+                return False
+            if self.nc1 != other.nc1:
+                return False
+            if self.nc2 != other.nc2:
+                return False
+            if self.nc3 != other.nc3:
+                return False
+            if self.noDefault != other.noDefault:
+                return False
+            if self.zeroI != other.zeroI:
+                return False
+            if self.zeroL != other.zeroL:
+                return False
+            if self.zeroF != other.zeroF:
+                return False
+            if self.zeroDotF != other.zeroDotF:
+                return False
+            if self.zeroD != other.zeroD:
+                return False
+            if self.zeroDotD != other.zeroDotD:
+                return False
+            return True
 
-        def __ne__(self, other):
-            return not self.__eq__(other)
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Struct1)
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_Struct1)
 
-        __repr__ = __str__
+    __repr__ = __str__
 
-    _M_Test._t_Struct1 = IcePy.defineStruct('::Test::Struct1', Struct1, (), (
-        ('boolFalse', (), IcePy._t_bool),
-        ('boolTrue', (), IcePy._t_bool),
-        ('b', (), IcePy._t_byte),
-        ('s', (), IcePy._t_short),
-        ('i', (), IcePy._t_int),
-        ('l', (), IcePy._t_long),
-        ('f', (), IcePy._t_float),
-        ('d', (), IcePy._t_double),
-        ('str', (), IcePy._t_string),
-        ('c1', (), _M_Test._t_Color),
-        ('c2', (), _M_Test._t_Color),
-        ('c3', (), _M_Test._t_Color),
-        ('nc1', (), _M_Test.Nested._t_Color),
-        ('nc2', (), _M_Test.Nested._t_Color),
-        ('nc3', (), _M_Test.Nested._t_Color),
-        ('noDefault', (), IcePy._t_string),
-        ('zeroI', (), IcePy._t_int),
-        ('zeroL', (), IcePy._t_long),
-        ('zeroF', (), IcePy._t_float),
-        ('zeroDotF', (), IcePy._t_float),
-        ('zeroD', (), IcePy._t_double),
-        ('zeroDotD', (), IcePy._t_double)
-    ))
+_M_Test._t_Struct1 = IcePy.defineStruct('::Test::Struct1', Struct1, (), (
+    ('boolFalse', (), IcePy._t_bool),
+    ('boolTrue', (), IcePy._t_bool),
+    ('b', (), IcePy._t_byte),
+    ('s', (), IcePy._t_short),
+    ('i', (), IcePy._t_int),
+    ('l', (), IcePy._t_long),
+    ('f', (), IcePy._t_float),
+    ('d', (), IcePy._t_double),
+    ('str', (), IcePy._t_string),
+    ('c1', (), _M_Test._t_Color),
+    ('c2', (), _M_Test._t_Color),
+    ('c3', (), _M_Test._t_Color),
+    ('nc1', (), _M_Test.Nested._t_Color),
+    ('nc2', (), _M_Test.Nested._t_Color),
+    ('nc3', (), _M_Test.Nested._t_Color),
+    ('noDefault', (), IcePy._t_string),
+    ('zeroI', (), IcePy._t_int),
+    ('zeroL', (), IcePy._t_long),
+    ('zeroF', (), IcePy._t_float),
+    ('zeroDotF', (), IcePy._t_float),
+    ('zeroD', (), IcePy._t_double),
+    ('zeroDotD', (), IcePy._t_double)
+))
 
-    _M_Test.Struct1 = Struct1
-    del Struct1
+_M_Test.Struct1 = Struct1
+del Struct1
 
 _M_Test.ConstBool = True
 
@@ -230,403 +224,391 @@ _M_Test.ConstZeroDotF = 0
 _M_Test.ConstZeroD = 0
 
 _M_Test.ConstZeroDotD = 0
+_M_Test.Struct2 = None
+class Struct2(object):
+    def __init__(self, boolTrue=_M_Test.ConstBool, b=_M_Test.ConstByte, s=_M_Test.ConstShort, i=_M_Test.ConstInt, l=_M_Test.ConstLong, f=_M_Test.ConstFloat, d=_M_Test.ConstDouble, str=_M_Test.ConstString, c1=_M_Test.ConstColor1, c2=_M_Test.ConstColor2, c3=_M_Test.ConstColor3, nc1=_M_Test.ConstNestedColor1, nc2=_M_Test.ConstNestedColor2, nc3=_M_Test.ConstNestedColor3, zeroI=_M_Test.ConstZeroI, zeroL=_M_Test.ConstZeroL, zeroF=_M_Test.ConstZeroF, zeroDotF=_M_Test.ConstZeroDotF, zeroD=_M_Test.ConstZeroD, zeroDotD=_M_Test.ConstZeroDotD):
+        self.boolTrue = boolTrue
+        self.b = b
+        self.s = s
+        self.i = i
+        self.l = l
+        self.f = f
+        self.d = d
+        self.str = str
+        self.c1 = c1
+        self.c2 = c2
+        self.c3 = c3
+        self.nc1 = nc1
+        self.nc2 = nc2
+        self.nc3 = nc3
+        self.zeroI = zeroI
+        self.zeroL = zeroL
+        self.zeroF = zeroF
+        self.zeroDotF = zeroDotF
+        self.zeroD = zeroD
+        self.zeroDotD = zeroDotD
 
-if 'Struct2' not in _M_Test.__dict__:
-    _M_Test.Struct2 = Ice.createTempClass()
-    class Struct2(object):
-        def __init__(self, boolTrue=_M_Test.ConstBool, b=_M_Test.ConstByte, s=_M_Test.ConstShort, i=_M_Test.ConstInt, l=_M_Test.ConstLong, f=_M_Test.ConstFloat, d=_M_Test.ConstDouble, str=_M_Test.ConstString, c1=_M_Test.ConstColor1, c2=_M_Test.ConstColor2, c3=_M_Test.ConstColor3, nc1=_M_Test.ConstNestedColor1, nc2=_M_Test.ConstNestedColor2, nc3=_M_Test.ConstNestedColor3, zeroI=_M_Test.ConstZeroI, zeroL=_M_Test.ConstZeroL, zeroF=_M_Test.ConstZeroF, zeroDotF=_M_Test.ConstZeroDotF, zeroD=_M_Test.ConstZeroD, zeroDotD=_M_Test.ConstZeroDotD):
-            self.boolTrue = boolTrue
-            self.b = b
-            self.s = s
-            self.i = i
-            self.l = l
-            self.f = f
-            self.d = d
-            self.str = str
-            self.c1 = c1
-            self.c2 = c2
-            self.c3 = c3
-            self.nc1 = nc1
-            self.nc2 = nc2
-            self.nc3 = nc3
-            self.zeroI = zeroI
-            self.zeroL = zeroL
-            self.zeroF = zeroF
-            self.zeroDotF = zeroDotF
-            self.zeroD = zeroD
-            self.zeroDotD = zeroDotD
-
-        def __eq__(self, other):
-            if other is None:
+    def __eq__(self, other):
+        if other is None:
+            return False
+        elif not isinstance(other, _M_Test.Struct2):
+            return NotImplemented
+        else:
+            if self.boolTrue != other.boolTrue:
                 return False
-            elif not isinstance(other, _M_Test.Struct2):
-                return NotImplemented
-            else:
-                if self.boolTrue != other.boolTrue:
-                    return False
-                if self.b != other.b:
-                    return False
-                if self.s != other.s:
-                    return False
-                if self.i != other.i:
-                    return False
-                if self.l != other.l:
-                    return False
-                if self.f != other.f:
-                    return False
-                if self.d != other.d:
-                    return False
-                if self.str != other.str:
-                    return False
-                if self.c1 != other.c1:
-                    return False
-                if self.c2 != other.c2:
-                    return False
-                if self.c3 != other.c3:
-                    return False
-                if self.nc1 != other.nc1:
-                    return False
-                if self.nc2 != other.nc2:
-                    return False
-                if self.nc3 != other.nc3:
-                    return False
-                if self.zeroI != other.zeroI:
-                    return False
-                if self.zeroL != other.zeroL:
-                    return False
-                if self.zeroF != other.zeroF:
-                    return False
-                if self.zeroDotF != other.zeroDotF:
-                    return False
-                if self.zeroD != other.zeroD:
-                    return False
-                if self.zeroDotD != other.zeroDotD:
-                    return False
-                return True
-
-        def __ne__(self, other):
-            return not self.__eq__(other)
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Struct2)
-
-        __repr__ = __str__
-
-    _M_Test._t_Struct2 = IcePy.defineStruct('::Test::Struct2', Struct2, (), (
-        ('boolTrue', (), IcePy._t_bool),
-        ('b', (), IcePy._t_byte),
-        ('s', (), IcePy._t_short),
-        ('i', (), IcePy._t_int),
-        ('l', (), IcePy._t_long),
-        ('f', (), IcePy._t_float),
-        ('d', (), IcePy._t_double),
-        ('str', (), IcePy._t_string),
-        ('c1', (), _M_Test._t_Color),
-        ('c2', (), _M_Test._t_Color),
-        ('c3', (), _M_Test._t_Color),
-        ('nc1', (), _M_Test.Nested._t_Color),
-        ('nc2', (), _M_Test.Nested._t_Color),
-        ('nc3', (), _M_Test.Nested._t_Color),
-        ('zeroI', (), IcePy._t_int),
-        ('zeroL', (), IcePy._t_long),
-        ('zeroF', (), IcePy._t_float),
-        ('zeroDotF', (), IcePy._t_float),
-        ('zeroD', (), IcePy._t_double),
-        ('zeroDotD', (), IcePy._t_double)
-    ))
-
-    _M_Test.Struct2 = Struct2
-    del Struct2
-
-if 'Struct3' not in _M_Test.__dict__:
-    _M_Test.Struct3 = Ice.createTempClass()
-    class Struct3(object):
-        def __init__(self, boolFalse=False, boolTrue=True, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", c1=_M_Test.Color.red, c2=_M_Test.Color.green, c3=_M_Test.Color.blue, nc1=_M_Test.Nested.Color.red, nc2=_M_Test.Nested.Color.green, nc3=_M_Test.Nested.Color.blue, noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0):
-            self.boolFalse = boolFalse
-            self.boolTrue = boolTrue
-            self.b = b
-            self.s = s
-            self.i = i
-            self.l = l
-            self.f = f
-            self.d = d
-            self.str = str
-            self.c1 = c1
-            self.c2 = c2
-            self.c3 = c3
-            self.nc1 = nc1
-            self.nc2 = nc2
-            self.nc3 = nc3
-            self.noDefault = noDefault
-            self.zeroI = zeroI
-            self.zeroL = zeroL
-            self.zeroF = zeroF
-            self.zeroDotF = zeroDotF
-            self.zeroD = zeroD
-            self.zeroDotD = zeroDotD
-
-        def __eq__(self, other):
-            if other is None:
+            if self.b != other.b:
                 return False
-            elif not isinstance(other, _M_Test.Struct3):
-                return NotImplemented
-            else:
-                if self.boolFalse != other.boolFalse:
-                    return False
-                if self.boolTrue != other.boolTrue:
-                    return False
-                if self.b != other.b:
-                    return False
-                if self.s != other.s:
-                    return False
-                if self.i != other.i:
-                    return False
-                if self.l != other.l:
-                    return False
-                if self.f != other.f:
-                    return False
-                if self.d != other.d:
-                    return False
-                if self.str != other.str:
-                    return False
-                if self.c1 != other.c1:
-                    return False
-                if self.c2 != other.c2:
-                    return False
-                if self.c3 != other.c3:
-                    return False
-                if self.nc1 != other.nc1:
-                    return False
-                if self.nc2 != other.nc2:
-                    return False
-                if self.nc3 != other.nc3:
-                    return False
-                if self.noDefault != other.noDefault:
-                    return False
-                if self.zeroI != other.zeroI:
-                    return False
-                if self.zeroL != other.zeroL:
-                    return False
-                if self.zeroF != other.zeroF:
-                    return False
-                if self.zeroDotF != other.zeroDotF:
-                    return False
-                if self.zeroD != other.zeroD:
-                    return False
-                if self.zeroDotD != other.zeroDotD:
-                    return False
-                return True
+            if self.s != other.s:
+                return False
+            if self.i != other.i:
+                return False
+            if self.l != other.l:
+                return False
+            if self.f != other.f:
+                return False
+            if self.d != other.d:
+                return False
+            if self.str != other.str:
+                return False
+            if self.c1 != other.c1:
+                return False
+            if self.c2 != other.c2:
+                return False
+            if self.c3 != other.c3:
+                return False
+            if self.nc1 != other.nc1:
+                return False
+            if self.nc2 != other.nc2:
+                return False
+            if self.nc3 != other.nc3:
+                return False
+            if self.zeroI != other.zeroI:
+                return False
+            if self.zeroL != other.zeroL:
+                return False
+            if self.zeroF != other.zeroF:
+                return False
+            if self.zeroDotF != other.zeroDotF:
+                return False
+            if self.zeroD != other.zeroD:
+                return False
+            if self.zeroDotD != other.zeroDotD:
+                return False
+            return True
 
-        def __ne__(self, other):
-            return not self.__eq__(other)
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Struct3)
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_Struct2)
 
-        __repr__ = __str__
+    __repr__ = __str__
 
-    _M_Test._t_Struct3 = IcePy.defineStruct('::Test::Struct3', Struct3, (), (
-        ('boolFalse', (), IcePy._t_bool),
-        ('boolTrue', (), IcePy._t_bool),
-        ('b', (), IcePy._t_byte),
-        ('s', (), IcePy._t_short),
-        ('i', (), IcePy._t_int),
-        ('l', (), IcePy._t_long),
-        ('f', (), IcePy._t_float),
-        ('d', (), IcePy._t_double),
-        ('str', (), IcePy._t_string),
-        ('c1', (), _M_Test._t_Color),
-        ('c2', (), _M_Test._t_Color),
-        ('c3', (), _M_Test._t_Color),
-        ('nc1', (), _M_Test.Nested._t_Color),
-        ('nc2', (), _M_Test.Nested._t_Color),
-        ('nc3', (), _M_Test.Nested._t_Color),
-        ('noDefault', (), IcePy._t_string),
-        ('zeroI', (), IcePy._t_int),
-        ('zeroL', (), IcePy._t_long),
-        ('zeroF', (), IcePy._t_float),
-        ('zeroDotF', (), IcePy._t_float),
-        ('zeroD', (), IcePy._t_double),
-        ('zeroDotD', (), IcePy._t_double)
-    ))
+_M_Test._t_Struct2 = IcePy.defineStruct('::Test::Struct2', Struct2, (), (
+    ('boolTrue', (), IcePy._t_bool),
+    ('b', (), IcePy._t_byte),
+    ('s', (), IcePy._t_short),
+    ('i', (), IcePy._t_int),
+    ('l', (), IcePy._t_long),
+    ('f', (), IcePy._t_float),
+    ('d', (), IcePy._t_double),
+    ('str', (), IcePy._t_string),
+    ('c1', (), _M_Test._t_Color),
+    ('c2', (), _M_Test._t_Color),
+    ('c3', (), _M_Test._t_Color),
+    ('nc1', (), _M_Test.Nested._t_Color),
+    ('nc2', (), _M_Test.Nested._t_Color),
+    ('nc3', (), _M_Test.Nested._t_Color),
+    ('zeroI', (), IcePy._t_int),
+    ('zeroL', (), IcePy._t_long),
+    ('zeroF', (), IcePy._t_float),
+    ('zeroDotF', (), IcePy._t_float),
+    ('zeroD', (), IcePy._t_double),
+    ('zeroDotD', (), IcePy._t_double)
+))
 
-    _M_Test.Struct3 = Struct3
-    del Struct3
+_M_Test.Struct2 = Struct2
+del Struct2
+_M_Test.Struct3 = None
+class Struct3(object):
+    def __init__(self, boolFalse=False, boolTrue=True, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", c1=_M_Test.Color.red, c2=_M_Test.Color.green, c3=_M_Test.Color.blue, nc1=_M_Test.Nested.Color.red, nc2=_M_Test.Nested.Color.green, nc3=_M_Test.Nested.Color.blue, noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0):
+        self.boolFalse = boolFalse
+        self.boolTrue = boolTrue
+        self.b = b
+        self.s = s
+        self.i = i
+        self.l = l
+        self.f = f
+        self.d = d
+        self.str = str
+        self.c1 = c1
+        self.c2 = c2
+        self.c3 = c3
+        self.nc1 = nc1
+        self.nc2 = nc2
+        self.nc3 = nc3
+        self.noDefault = noDefault
+        self.zeroI = zeroI
+        self.zeroL = zeroL
+        self.zeroF = zeroF
+        self.zeroDotF = zeroDotF
+        self.zeroD = zeroD
+        self.zeroDotD = zeroDotD
 
-if 'Base' not in _M_Test.__dict__:
-    _M_Test.Base = Ice.createTempClass()
-    class Base(Ice.Value):
-        def __init__(self, boolFalse=False, boolTrue=True, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0):
-            self.boolFalse = boolFalse
-            self.boolTrue = boolTrue
-            self.b = b
-            self.s = s
-            self.i = i
-            self.l = l
-            self.f = f
-            self.d = d
-            self.str = str
-            self.noDefault = noDefault
-            self.zeroI = zeroI
-            self.zeroL = zeroL
-            self.zeroF = zeroF
-            self.zeroDotF = zeroDotF
-            self.zeroD = zeroD
-            self.zeroDotD = zeroDotD
+    def __eq__(self, other):
+        if other is None:
+            return False
+        elif not isinstance(other, _M_Test.Struct3):
+            return NotImplemented
+        else:
+            if self.boolFalse != other.boolFalse:
+                return False
+            if self.boolTrue != other.boolTrue:
+                return False
+            if self.b != other.b:
+                return False
+            if self.s != other.s:
+                return False
+            if self.i != other.i:
+                return False
+            if self.l != other.l:
+                return False
+            if self.f != other.f:
+                return False
+            if self.d != other.d:
+                return False
+            if self.str != other.str:
+                return False
+            if self.c1 != other.c1:
+                return False
+            if self.c2 != other.c2:
+                return False
+            if self.c3 != other.c3:
+                return False
+            if self.nc1 != other.nc1:
+                return False
+            if self.nc2 != other.nc2:
+                return False
+            if self.nc3 != other.nc3:
+                return False
+            if self.noDefault != other.noDefault:
+                return False
+            if self.zeroI != other.zeroI:
+                return False
+            if self.zeroL != other.zeroL:
+                return False
+            if self.zeroF != other.zeroF:
+                return False
+            if self.zeroDotF != other.zeroDotF:
+                return False
+            if self.zeroD != other.zeroD:
+                return False
+            if self.zeroDotD != other.zeroDotD:
+                return False
+            return True
 
-        def ice_id(self):
-            return '::Test::Base'
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Base'
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_Struct3)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Base)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_Struct3 = IcePy.defineStruct('::Test::Struct3', Struct3, (), (
+    ('boolFalse', (), IcePy._t_bool),
+    ('boolTrue', (), IcePy._t_bool),
+    ('b', (), IcePy._t_byte),
+    ('s', (), IcePy._t_short),
+    ('i', (), IcePy._t_int),
+    ('l', (), IcePy._t_long),
+    ('f', (), IcePy._t_float),
+    ('d', (), IcePy._t_double),
+    ('str', (), IcePy._t_string),
+    ('c1', (), _M_Test._t_Color),
+    ('c2', (), _M_Test._t_Color),
+    ('c3', (), _M_Test._t_Color),
+    ('nc1', (), _M_Test.Nested._t_Color),
+    ('nc2', (), _M_Test.Nested._t_Color),
+    ('nc3', (), _M_Test.Nested._t_Color),
+    ('noDefault', (), IcePy._t_string),
+    ('zeroI', (), IcePy._t_int),
+    ('zeroL', (), IcePy._t_long),
+    ('zeroF', (), IcePy._t_float),
+    ('zeroDotF', (), IcePy._t_float),
+    ('zeroD', (), IcePy._t_double),
+    ('zeroDotD', (), IcePy._t_double)
+))
 
-    _M_Test._t_Base = IcePy.defineValue('::Test::Base', Base, -1, (), False, None, (
-        ('boolFalse', (), IcePy._t_bool, False, 0),
-        ('boolTrue', (), IcePy._t_bool, False, 0),
-        ('b', (), IcePy._t_byte, False, 0),
-        ('s', (), IcePy._t_short, False, 0),
-        ('i', (), IcePy._t_int, False, 0),
-        ('l', (), IcePy._t_long, False, 0),
-        ('f', (), IcePy._t_float, False, 0),
-        ('d', (), IcePy._t_double, False, 0),
-        ('str', (), IcePy._t_string, False, 0),
-        ('noDefault', (), IcePy._t_string, False, 0),
-        ('zeroI', (), IcePy._t_int, False, 0),
-        ('zeroL', (), IcePy._t_long, False, 0),
-        ('zeroF', (), IcePy._t_float, False, 0),
-        ('zeroDotF', (), IcePy._t_float, False, 0),
-        ('zeroD', (), IcePy._t_double, False, 0),
-        ('zeroDotD', (), IcePy._t_double, False, 0)
-    ))
-    Base._ice_type = _M_Test._t_Base
+_M_Test.Struct3 = Struct3
+del Struct3
+_M_Test.Base = None
+class Base(Ice.Value):
+    def __init__(self, boolFalse=False, boolTrue=True, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0):
+        self.boolFalse = boolFalse
+        self.boolTrue = boolTrue
+        self.b = b
+        self.s = s
+        self.i = i
+        self.l = l
+        self.f = f
+        self.d = d
+        self.str = str
+        self.noDefault = noDefault
+        self.zeroI = zeroI
+        self.zeroL = zeroL
+        self.zeroF = zeroF
+        self.zeroDotF = zeroDotF
+        self.zeroD = zeroD
+        self.zeroDotD = zeroDotD
 
-    _M_Test.Base = Base
-    del Base
+    def ice_id(self):
+        return '::Test::Base'
 
-if 'Derived' not in _M_Test.__dict__:
-    _M_Test.Derived = Ice.createTempClass()
-    class Derived(_M_Test.Base):
-        def __init__(self, boolFalse=False, boolTrue=True, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0, c1=_M_Test.Color.red, c2=_M_Test.Color.green, c3=_M_Test.Color.blue, nc1=_M_Test.Nested.Color.red, nc2=_M_Test.Nested.Color.green, nc3=_M_Test.Nested.Color.blue):
-            _M_Test.Base.__init__(self, boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
-            self.c1 = c1
-            self.c2 = c2
-            self.c3 = c3
-            self.nc1 = nc1
-            self.nc2 = nc2
-            self.nc3 = nc3
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Base'
 
-        def ice_id(self):
-            return '::Test::Derived'
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_Base)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Derived'
+    __repr__ = __str__
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Derived)
+_M_Test._t_Base = IcePy.defineValue('::Test::Base', Base, -1, (), False, None, (
+    ('boolFalse', (), IcePy._t_bool, False, 0),
+    ('boolTrue', (), IcePy._t_bool, False, 0),
+    ('b', (), IcePy._t_byte, False, 0),
+    ('s', (), IcePy._t_short, False, 0),
+    ('i', (), IcePy._t_int, False, 0),
+    ('l', (), IcePy._t_long, False, 0),
+    ('f', (), IcePy._t_float, False, 0),
+    ('d', (), IcePy._t_double, False, 0),
+    ('str', (), IcePy._t_string, False, 0),
+    ('noDefault', (), IcePy._t_string, False, 0),
+    ('zeroI', (), IcePy._t_int, False, 0),
+    ('zeroL', (), IcePy._t_long, False, 0),
+    ('zeroF', (), IcePy._t_float, False, 0),
+    ('zeroDotF', (), IcePy._t_float, False, 0),
+    ('zeroD', (), IcePy._t_double, False, 0),
+    ('zeroDotD', (), IcePy._t_double, False, 0)
+))
+Base._ice_type = _M_Test._t_Base
 
-        __repr__ = __str__
+_M_Test.Base = Base
+del Base
+_M_Test.Derived = None
+class Derived(_M_Test.Base):
+    def __init__(self, boolFalse=False, boolTrue=True, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0, c1=_M_Test.Color.red, c2=_M_Test.Color.green, c3=_M_Test.Color.blue, nc1=_M_Test.Nested.Color.red, nc2=_M_Test.Nested.Color.green, nc3=_M_Test.Nested.Color.blue):
+        _M_Test.Base.__init__(self, boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
+        self.c1 = c1
+        self.c2 = c2
+        self.c3 = c3
+        self.nc1 = nc1
+        self.nc2 = nc2
+        self.nc3 = nc3
 
-    _M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, _M_Test._t_Base, (
-        ('c1', (), _M_Test._t_Color, False, 0),
-        ('c2', (), _M_Test._t_Color, False, 0),
-        ('c3', (), _M_Test._t_Color, False, 0),
-        ('nc1', (), _M_Test.Nested._t_Color, False, 0),
-        ('nc2', (), _M_Test.Nested._t_Color, False, 0),
-        ('nc3', (), _M_Test.Nested._t_Color, False, 0)
-    ))
-    Derived._ice_type = _M_Test._t_Derived
+    def ice_id(self):
+        return '::Test::Derived'
 
-    _M_Test.Derived = Derived
-    del Derived
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Derived'
 
-if 'BaseEx' not in _M_Test.__dict__:
-    _M_Test.BaseEx = Ice.createTempClass()
-    class BaseEx(Ice.UserException):
-        def __init__(self, boolFalse=False, boolTrue=True, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0):
-            self.boolFalse = boolFalse
-            self.boolTrue = boolTrue
-            self.b = b
-            self.s = s
-            self.i = i
-            self.l = l
-            self.f = f
-            self.d = d
-            self.str = str
-            self.noDefault = noDefault
-            self.zeroI = zeroI
-            self.zeroL = zeroL
-            self.zeroF = zeroF
-            self.zeroDotF = zeroDotF
-            self.zeroD = zeroD
-            self.zeroDotD = zeroDotD
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_Derived)
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, _M_Test._t_Base, (
+    ('c1', (), _M_Test._t_Color, False, 0),
+    ('c2', (), _M_Test._t_Color, False, 0),
+    ('c3', (), _M_Test._t_Color, False, 0),
+    ('nc1', (), _M_Test.Nested._t_Color, False, 0),
+    ('nc2', (), _M_Test.Nested._t_Color, False, 0),
+    ('nc3', (), _M_Test.Nested._t_Color, False, 0)
+))
+Derived._ice_type = _M_Test._t_Derived
 
-        _ice_id = '::Test::BaseEx'
+_M_Test.Derived = Derived
+del Derived
+_M_Test.BaseEx = None
+class BaseEx(Ice.UserException):
+    def __init__(self, boolFalse=False, boolTrue=True, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0):
+        self.boolFalse = boolFalse
+        self.boolTrue = boolTrue
+        self.b = b
+        self.s = s
+        self.i = i
+        self.l = l
+        self.f = f
+        self.d = d
+        self.str = str
+        self.noDefault = noDefault
+        self.zeroI = zeroI
+        self.zeroL = zeroL
+        self.zeroF = zeroF
+        self.zeroDotF = zeroDotF
+        self.zeroD = zeroD
+        self.zeroDotD = zeroDotD
 
-    _M_Test._t_BaseEx = IcePy.defineException('::Test::BaseEx', BaseEx, (), None, (
-        ('boolFalse', (), IcePy._t_bool, False, 0),
-        ('boolTrue', (), IcePy._t_bool, False, 0),
-        ('b', (), IcePy._t_byte, False, 0),
-        ('s', (), IcePy._t_short, False, 0),
-        ('i', (), IcePy._t_int, False, 0),
-        ('l', (), IcePy._t_long, False, 0),
-        ('f', (), IcePy._t_float, False, 0),
-        ('d', (), IcePy._t_double, False, 0),
-        ('str', (), IcePy._t_string, False, 0),
-        ('noDefault', (), IcePy._t_string, False, 0),
-        ('zeroI', (), IcePy._t_int, False, 0),
-        ('zeroL', (), IcePy._t_long, False, 0),
-        ('zeroF', (), IcePy._t_float, False, 0),
-        ('zeroDotF', (), IcePy._t_float, False, 0),
-        ('zeroD', (), IcePy._t_double, False, 0),
-        ('zeroDotD', (), IcePy._t_double, False, 0)
-    ))
-    BaseEx._ice_type = _M_Test._t_BaseEx
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-    _M_Test.BaseEx = BaseEx
-    del BaseEx
+    __repr__ = __str__
 
-if 'DerivedEx' not in _M_Test.__dict__:
-    _M_Test.DerivedEx = Ice.createTempClass()
-    class DerivedEx(_M_Test.BaseEx):
-        def __init__(self, boolFalse=False, boolTrue=True, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0, c1=_M_Test.ConstColor1, c2=_M_Test.ConstColor2, c3=_M_Test.ConstColor3, nc1=_M_Test.ConstNestedColor1, nc2=_M_Test.ConstNestedColor2, nc3=_M_Test.ConstNestedColor3):
-            _M_Test.BaseEx.__init__(self, boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
-            self.c1 = c1
-            self.c2 = c2
-            self.c3 = c3
-            self.nc1 = nc1
-            self.nc2 = nc2
-            self.nc3 = nc3
+    _ice_id = '::Test::BaseEx'
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+_M_Test._t_BaseEx = IcePy.defineException('::Test::BaseEx', BaseEx, (), None, (
+    ('boolFalse', (), IcePy._t_bool, False, 0),
+    ('boolTrue', (), IcePy._t_bool, False, 0),
+    ('b', (), IcePy._t_byte, False, 0),
+    ('s', (), IcePy._t_short, False, 0),
+    ('i', (), IcePy._t_int, False, 0),
+    ('l', (), IcePy._t_long, False, 0),
+    ('f', (), IcePy._t_float, False, 0),
+    ('d', (), IcePy._t_double, False, 0),
+    ('str', (), IcePy._t_string, False, 0),
+    ('noDefault', (), IcePy._t_string, False, 0),
+    ('zeroI', (), IcePy._t_int, False, 0),
+    ('zeroL', (), IcePy._t_long, False, 0),
+    ('zeroF', (), IcePy._t_float, False, 0),
+    ('zeroDotF', (), IcePy._t_float, False, 0),
+    ('zeroD', (), IcePy._t_double, False, 0),
+    ('zeroDotD', (), IcePy._t_double, False, 0)
+))
+BaseEx._ice_type = _M_Test._t_BaseEx
 
-        __repr__ = __str__
+_M_Test.BaseEx = BaseEx
+del BaseEx
+_M_Test.DerivedEx = None
+class DerivedEx(_M_Test.BaseEx):
+    def __init__(self, boolFalse=False, boolTrue=True, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0, c1=_M_Test.ConstColor1, c2=_M_Test.ConstColor2, c3=_M_Test.ConstColor3, nc1=_M_Test.ConstNestedColor1, nc2=_M_Test.ConstNestedColor2, nc3=_M_Test.ConstNestedColor3):
+        _M_Test.BaseEx.__init__(self, boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
+        self.c1 = c1
+        self.c2 = c2
+        self.c3 = c3
+        self.nc1 = nc1
+        self.nc2 = nc2
+        self.nc3 = nc3
 
-        _ice_id = '::Test::DerivedEx'
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-    _M_Test._t_DerivedEx = IcePy.defineException('::Test::DerivedEx', DerivedEx, (), _M_Test._t_BaseEx, (
-        ('c1', (), _M_Test._t_Color, False, 0),
-        ('c2', (), _M_Test._t_Color, False, 0),
-        ('c3', (), _M_Test._t_Color, False, 0),
-        ('nc1', (), _M_Test.Nested._t_Color, False, 0),
-        ('nc2', (), _M_Test.Nested._t_Color, False, 0),
-        ('nc3', (), _M_Test.Nested._t_Color, False, 0)
-    ))
-    DerivedEx._ice_type = _M_Test._t_DerivedEx
+    __repr__ = __str__
 
-    _M_Test.DerivedEx = DerivedEx
-    del DerivedEx
+    _ice_id = '::Test::DerivedEx'
+
+_M_Test._t_DerivedEx = IcePy.defineException('::Test::DerivedEx', DerivedEx, (), _M_Test._t_BaseEx, (
+    ('c1', (), _M_Test._t_Color, False, 0),
+    ('c2', (), _M_Test._t_Color, False, 0),
+    ('c3', (), _M_Test._t_Color, False, 0),
+    ('nc1', (), _M_Test.Nested._t_Color, False, 0),
+    ('nc2', (), _M_Test.Nested._t_Color, False, 0),
+    ('nc3', (), _M_Test.Nested._t_Color, False, 0)
+))
+DerivedEx._ice_type = _M_Test._t_DerivedEx
+
+_M_Test.DerivedEx = DerivedEx
+del DerivedEx
 
 # End of module Test

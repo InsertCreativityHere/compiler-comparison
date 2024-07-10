@@ -21,172 +21,166 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
+_M_Test.CallbackException = None
+class CallbackException(Ice.UserException):
+    def __init__(self, someValue=0.0, someString=''):
+        self.someValue = someValue
+        self.someString = someString
 
-if 'CallbackException' not in _M_Test.__dict__:
-    _M_Test.CallbackException = Ice.createTempClass()
-    class CallbackException(Ice.UserException):
-        def __init__(self, someValue=0.0, someString=''):
-            self.someValue = someValue
-            self.someString = someString
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    __repr__ = __str__
 
-        __repr__ = __str__
+    _ice_id = '::Test::CallbackException'
 
-        _ice_id = '::Test::CallbackException'
+_M_Test._t_CallbackException = IcePy.defineException('::Test::CallbackException', CallbackException, (), None, (
+    ('someValue', (), IcePy._t_double, False, 0),
+    ('someString', (), IcePy._t_string, False, 0)
+))
+CallbackException._ice_type = _M_Test._t_CallbackException
 
-    _M_Test._t_CallbackException = IcePy.defineException('::Test::CallbackException', CallbackException, (), None, (
-        ('someValue', (), IcePy._t_double, False, 0),
-        ('someString', (), IcePy._t_string, False, 0)
-    ))
-    CallbackException._ice_type = _M_Test._t_CallbackException
-
-    _M_Test.CallbackException = CallbackException
-    del CallbackException
+_M_Test.CallbackException = CallbackException
+del CallbackException
 
 _M_Test._t_CallbackReceiver = IcePy.defineValue('::Test::CallbackReceiver', Ice.Value, -1, (), True, None, ())
+_M_Test.CallbackReceiverPrx = None
+class CallbackReceiverPrx(Ice.ObjectPrx):
 
-if 'CallbackReceiverPrx' not in _M_Test.__dict__:
-    _M_Test.CallbackReceiverPrx = Ice.createTempClass()
-    class CallbackReceiverPrx(Ice.ObjectPrx):
+    def callback(self, context=None):
+        return _M_Test.CallbackReceiver._op_callback.invoke(self, ((), context))
 
-        def callback(self, context=None):
-            return _M_Test.CallbackReceiver._op_callback.invoke(self, ((), context))
+    def callbackAsync(self, context=None):
+        return _M_Test.CallbackReceiver._op_callback.invokeAsync(self, ((), context))
 
-        def callbackAsync(self, context=None):
-            return _M_Test.CallbackReceiver._op_callback.invokeAsync(self, ((), context))
+    def callbackEx(self, context=None):
+        return _M_Test.CallbackReceiver._op_callbackEx.invoke(self, ((), context))
 
-        def callbackEx(self, context=None):
-            return _M_Test.CallbackReceiver._op_callbackEx.invoke(self, ((), context))
+    def callbackExAsync(self, context=None):
+        return _M_Test.CallbackReceiver._op_callbackEx.invokeAsync(self, ((), context))
 
-        def callbackExAsync(self, context=None):
-            return _M_Test.CallbackReceiver._op_callbackEx.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.CallbackReceiverPrx.ice_checkedCast(proxy, '::Test::CallbackReceiver', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.CallbackReceiverPrx.ice_checkedCast(proxy, '::Test::CallbackReceiver', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.CallbackReceiverPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.CallbackReceiverPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::CallbackReceiver'
+_M_Test._t_CallbackReceiverPrx = IcePy.defineProxy('::Test::CallbackReceiver', CallbackReceiverPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::CallbackReceiver'
-    _M_Test._t_CallbackReceiverPrx = IcePy.defineProxy('::Test::CallbackReceiver', CallbackReceiverPrx)
+_M_Test.CallbackReceiverPrx = CallbackReceiverPrx
+del CallbackReceiverPrx
 
-    _M_Test.CallbackReceiverPrx = CallbackReceiverPrx
-    del CallbackReceiverPrx
+_M_Test.CallbackReceiver = None
+class CallbackReceiver(Ice.Object):
 
-    _M_Test.CallbackReceiver = Ice.createTempClass()
-    class CallbackReceiver(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::CallbackReceiver')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::CallbackReceiver')
+    def ice_id(self, current=None):
+        return '::Test::CallbackReceiver'
 
-        def ice_id(self, current=None):
-            return '::Test::CallbackReceiver'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::CallbackReceiver'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::CallbackReceiver'
+    def callback(self, current=None):
+        raise NotImplementedError("servant method 'callback' not implemented")
 
-        def callback(self, current=None):
-            raise NotImplementedError("servant method 'callback' not implemented")
+    def callbackEx(self, current=None):
+        raise NotImplementedError("servant method 'callbackEx' not implemented")
 
-        def callbackEx(self, current=None):
-            raise NotImplementedError("servant method 'callbackEx' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_CallbackReceiverDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_CallbackReceiverDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_CallbackReceiverDisp = IcePy.defineClass('::Test::CallbackReceiver', CallbackReceiver, (), None, ())
+CallbackReceiver._ice_type = _M_Test._t_CallbackReceiverDisp
 
-    _M_Test._t_CallbackReceiverDisp = IcePy.defineClass('::Test::CallbackReceiver', CallbackReceiver, (), None, ())
-    CallbackReceiver._ice_type = _M_Test._t_CallbackReceiverDisp
+CallbackReceiver._op_callback = IcePy.Operation('callback', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+CallbackReceiver._op_callbackEx = IcePy.Operation('callbackEx', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_CallbackException,))
 
-    CallbackReceiver._op_callback = IcePy.Operation('callback', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    CallbackReceiver._op_callbackEx = IcePy.Operation('callbackEx', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_CallbackException,))
-
-    _M_Test.CallbackReceiver = CallbackReceiver
-    del CallbackReceiver
+_M_Test.CallbackReceiver = CallbackReceiver
+del CallbackReceiver
 
 _M_Test._t_Callback = IcePy.defineValue('::Test::Callback', Ice.Value, -1, (), True, None, ())
+_M_Test.CallbackPrx = None
+class CallbackPrx(Ice.ObjectPrx):
 
-if 'CallbackPrx' not in _M_Test.__dict__:
-    _M_Test.CallbackPrx = Ice.createTempClass()
-    class CallbackPrx(Ice.ObjectPrx):
+    def initiateCallback(self, proxy, context=None):
+        return _M_Test.Callback._op_initiateCallback.invoke(self, ((proxy, ), context))
 
-        def initiateCallback(self, proxy, context=None):
-            return _M_Test.Callback._op_initiateCallback.invoke(self, ((proxy, ), context))
+    def initiateCallbackAsync(self, proxy, context=None):
+        return _M_Test.Callback._op_initiateCallback.invokeAsync(self, ((proxy, ), context))
 
-        def initiateCallbackAsync(self, proxy, context=None):
-            return _M_Test.Callback._op_initiateCallback.invokeAsync(self, ((proxy, ), context))
+    def initiateCallbackEx(self, proxy, context=None):
+        return _M_Test.Callback._op_initiateCallbackEx.invoke(self, ((proxy, ), context))
 
-        def initiateCallbackEx(self, proxy, context=None):
-            return _M_Test.Callback._op_initiateCallbackEx.invoke(self, ((proxy, ), context))
+    def initiateCallbackExAsync(self, proxy, context=None):
+        return _M_Test.Callback._op_initiateCallbackEx.invokeAsync(self, ((proxy, ), context))
 
-        def initiateCallbackExAsync(self, proxy, context=None):
-            return _M_Test.Callback._op_initiateCallbackEx.invokeAsync(self, ((proxy, ), context))
+    def shutdown(self, context=None):
+        return _M_Test.Callback._op_shutdown.invoke(self, ((), context))
 
-        def shutdown(self, context=None):
-            return _M_Test.Callback._op_shutdown.invoke(self, ((), context))
+    def shutdownAsync(self, context=None):
+        return _M_Test.Callback._op_shutdown.invokeAsync(self, ((), context))
 
-        def shutdownAsync(self, context=None):
-            return _M_Test.Callback._op_shutdown.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.CallbackPrx.ice_checkedCast(proxy, '::Test::Callback', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.CallbackPrx.ice_checkedCast(proxy, '::Test::Callback', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.CallbackPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.CallbackPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Callback'
+_M_Test._t_CallbackPrx = IcePy.defineProxy('::Test::Callback', CallbackPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Callback'
-    _M_Test._t_CallbackPrx = IcePy.defineProxy('::Test::Callback', CallbackPrx)
+_M_Test.CallbackPrx = CallbackPrx
+del CallbackPrx
 
-    _M_Test.CallbackPrx = CallbackPrx
-    del CallbackPrx
+_M_Test.Callback = None
+class Callback(Ice.Object):
 
-    _M_Test.Callback = Ice.createTempClass()
-    class Callback(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::Callback')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Callback')
+    def ice_id(self, current=None):
+        return '::Test::Callback'
 
-        def ice_id(self, current=None):
-            return '::Test::Callback'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::Callback'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Callback'
+    def initiateCallback(self, proxy, current=None):
+        raise NotImplementedError("servant method 'initiateCallback' not implemented")
 
-        def initiateCallback(self, proxy, current=None):
-            raise NotImplementedError("servant method 'initiateCallback' not implemented")
+    def initiateCallbackEx(self, proxy, current=None):
+        raise NotImplementedError("servant method 'initiateCallbackEx' not implemented")
 
-        def initiateCallbackEx(self, proxy, current=None):
-            raise NotImplementedError("servant method 'initiateCallbackEx' not implemented")
+    def shutdown(self, current=None):
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def shutdown(self, current=None):
-            raise NotImplementedError("servant method 'shutdown' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_CallbackDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_CallbackDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_CallbackDisp = IcePy.defineClass('::Test::Callback', Callback, (), None, ())
+Callback._ice_type = _M_Test._t_CallbackDisp
 
-    _M_Test._t_CallbackDisp = IcePy.defineClass('::Test::Callback', Callback, (), None, ())
-    Callback._ice_type = _M_Test._t_CallbackDisp
+Callback._op_initiateCallback = IcePy.Operation('initiateCallback', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, ())
+Callback._op_initiateCallbackEx = IcePy.Operation('initiateCallbackEx', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, (_M_Test._t_CallbackException,))
+Callback._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    Callback._op_initiateCallback = IcePy.Operation('initiateCallback', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, ())
-    Callback._op_initiateCallbackEx = IcePy.Operation('initiateCallbackEx', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, (_M_Test._t_CallbackException,))
-    Callback._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.Callback = Callback
-    del Callback
+_M_Test.Callback = Callback
+del Callback
 
 # End of module Test

@@ -24,85 +24,77 @@ _M_Test = Ice.openModule('Test')
 
 # Start of module Test
 __name__ = 'Test'
+_M_Test.UnknownDerived = None
+class UnknownDerived(_M_Test.Base):
+    def __init__(self, b='', ud=''):
+        _M_Test.Base.__init__(self, b)
+        self.ud = ud
 
-if 'UnknownDerived' not in _M_Test.__dict__:
-    _M_Test.UnknownDerived = Ice.createTempClass()
-    class UnknownDerived(_M_Test.Base):
-        def __init__(self, b='', ud=''):
-            _M_Test.Base.__init__(self, b)
-            self.ud = ud
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    __repr__ = __str__
 
-        __repr__ = __str__
+    _ice_id = '::Test::UnknownDerived'
 
-        _ice_id = '::Test::UnknownDerived'
+_M_Test._t_UnknownDerived = IcePy.defineException('::Test::UnknownDerived', UnknownDerived, (), _M_Test._t_Base, (('ud', (), IcePy._t_string, False, 0),))
+UnknownDerived._ice_type = _M_Test._t_UnknownDerived
 
-    _M_Test._t_UnknownDerived = IcePy.defineException('::Test::UnknownDerived', UnknownDerived, (), _M_Test._t_Base, (('ud', (), IcePy._t_string, False, 0),))
-    UnknownDerived._ice_type = _M_Test._t_UnknownDerived
+_M_Test.UnknownDerived = UnknownDerived
+del UnknownDerived
+_M_Test.UnknownIntermediate = None
+class UnknownIntermediate(_M_Test.Base):
+    def __init__(self, b='', ui=''):
+        _M_Test.Base.__init__(self, b)
+        self.ui = ui
 
-    _M_Test.UnknownDerived = UnknownDerived
-    del UnknownDerived
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-if 'UnknownIntermediate' not in _M_Test.__dict__:
-    _M_Test.UnknownIntermediate = Ice.createTempClass()
-    class UnknownIntermediate(_M_Test.Base):
-        def __init__(self, b='', ui=''):
-            _M_Test.Base.__init__(self, b)
-            self.ui = ui
+    __repr__ = __str__
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    _ice_id = '::Test::UnknownIntermediate'
 
-        __repr__ = __str__
+_M_Test._t_UnknownIntermediate = IcePy.defineException('::Test::UnknownIntermediate', UnknownIntermediate, (), _M_Test._t_Base, (('ui', (), IcePy._t_string, False, 0),))
+UnknownIntermediate._ice_type = _M_Test._t_UnknownIntermediate
 
-        _ice_id = '::Test::UnknownIntermediate'
+_M_Test.UnknownIntermediate = UnknownIntermediate
+del UnknownIntermediate
+_M_Test.UnknownMostDerived1 = None
+class UnknownMostDerived1(_M_Test.KnownIntermediate):
+    def __init__(self, b='', ki='', umd1=''):
+        _M_Test.KnownIntermediate.__init__(self, b, ki)
+        self.umd1 = umd1
 
-    _M_Test._t_UnknownIntermediate = IcePy.defineException('::Test::UnknownIntermediate', UnknownIntermediate, (), _M_Test._t_Base, (('ui', (), IcePy._t_string, False, 0),))
-    UnknownIntermediate._ice_type = _M_Test._t_UnknownIntermediate
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-    _M_Test.UnknownIntermediate = UnknownIntermediate
-    del UnknownIntermediate
+    __repr__ = __str__
 
-if 'UnknownMostDerived1' not in _M_Test.__dict__:
-    _M_Test.UnknownMostDerived1 = Ice.createTempClass()
-    class UnknownMostDerived1(_M_Test.KnownIntermediate):
-        def __init__(self, b='', ki='', umd1=''):
-            _M_Test.KnownIntermediate.__init__(self, b, ki)
-            self.umd1 = umd1
+    _ice_id = '::Test::UnknownMostDerived1'
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+_M_Test._t_UnknownMostDerived1 = IcePy.defineException('::Test::UnknownMostDerived1', UnknownMostDerived1, (), _M_Test._t_KnownIntermediate, (('umd1', (), IcePy._t_string, False, 0),))
+UnknownMostDerived1._ice_type = _M_Test._t_UnknownMostDerived1
 
-        __repr__ = __str__
+_M_Test.UnknownMostDerived1 = UnknownMostDerived1
+del UnknownMostDerived1
+_M_Test.UnknownMostDerived2 = None
+class UnknownMostDerived2(_M_Test.UnknownIntermediate):
+    def __init__(self, b='', ui='', umd2=''):
+        _M_Test.UnknownIntermediate.__init__(self, b, ui)
+        self.umd2 = umd2
 
-        _ice_id = '::Test::UnknownMostDerived1'
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-    _M_Test._t_UnknownMostDerived1 = IcePy.defineException('::Test::UnknownMostDerived1', UnknownMostDerived1, (), _M_Test._t_KnownIntermediate, (('umd1', (), IcePy._t_string, False, 0),))
-    UnknownMostDerived1._ice_type = _M_Test._t_UnknownMostDerived1
+    __repr__ = __str__
 
-    _M_Test.UnknownMostDerived1 = UnknownMostDerived1
-    del UnknownMostDerived1
+    _ice_id = '::Test::UnknownMostDerived2'
 
-if 'UnknownMostDerived2' not in _M_Test.__dict__:
-    _M_Test.UnknownMostDerived2 = Ice.createTempClass()
-    class UnknownMostDerived2(_M_Test.UnknownIntermediate):
-        def __init__(self, b='', ui='', umd2=''):
-            _M_Test.UnknownIntermediate.__init__(self, b, ui)
-            self.umd2 = umd2
+_M_Test._t_UnknownMostDerived2 = IcePy.defineException('::Test::UnknownMostDerived2', UnknownMostDerived2, (), _M_Test._t_UnknownIntermediate, (('umd2', (), IcePy._t_string, False, 0),))
+UnknownMostDerived2._ice_type = _M_Test._t_UnknownMostDerived2
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::UnknownMostDerived2'
-
-    _M_Test._t_UnknownMostDerived2 = IcePy.defineException('::Test::UnknownMostDerived2', UnknownMostDerived2, (), _M_Test._t_UnknownIntermediate, (('umd2', (), IcePy._t_string, False, 0),))
-    UnknownMostDerived2._ice_type = _M_Test._t_UnknownMostDerived2
-
-    _M_Test.UnknownMostDerived2 = UnknownMostDerived2
-    del UnknownMostDerived2
+_M_Test.UnknownMostDerived2 = UnknownMostDerived2
+del UnknownMostDerived2
 
 # End of module Test

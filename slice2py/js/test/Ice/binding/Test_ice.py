@@ -23,204 +23,198 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
+_M_Test.TestIntfPrx = None
+class TestIntfPrx(Ice.ObjectPrx):
 
-if 'TestIntfPrx' not in _M_Test.__dict__:
-    _M_Test.TestIntfPrx = Ice.createTempClass()
-    class TestIntfPrx(Ice.ObjectPrx):
+    def getAdapterName(self, context=None):
+        return _M_Test.TestIntf._op_getAdapterName.invoke(self, ((), context))
 
-        def getAdapterName(self, context=None):
-            return _M_Test.TestIntf._op_getAdapterName.invoke(self, ((), context))
+    def getAdapterNameAsync(self, context=None):
+        return _M_Test.TestIntf._op_getAdapterName.invokeAsync(self, ((), context))
 
-        def getAdapterNameAsync(self, context=None):
-            return _M_Test.TestIntf._op_getAdapterName.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::TestIntf'
+_M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::TestIntf'
-    _M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
+_M_Test.TestIntfPrx = TestIntfPrx
+del TestIntfPrx
 
-    _M_Test.TestIntfPrx = TestIntfPrx
-    del TestIntfPrx
+_M_Test.TestIntf = None
+class TestIntf(Ice.Object):
 
-    _M_Test.TestIntf = Ice.createTempClass()
-    class TestIntf(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::TestIntf')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::TestIntf')
+    def ice_id(self, current=None):
+        return '::Test::TestIntf'
 
-        def ice_id(self, current=None):
-            return '::Test::TestIntf'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::TestIntf'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::TestIntf'
+    def getAdapterName(self, current=None):
+        raise NotImplementedError("servant method 'getAdapterName' not implemented")
 
-        def getAdapterName(self, current=None):
-            raise NotImplementedError("servant method 'getAdapterName' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
+TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
+TestIntf._op_getAdapterName = IcePy.Operation('getAdapterName', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
-    TestIntf._op_getAdapterName = IcePy.Operation('getAdapterName', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
-
-    _M_Test.TestIntf = TestIntf
-    del TestIntf
+_M_Test.TestIntf = TestIntf
+del TestIntf
 
 _M_Test._t_RemoteObjectAdapter = IcePy.defineValue('::Test::RemoteObjectAdapter', Ice.Value, -1, (), True, None, ())
+_M_Test.RemoteObjectAdapterPrx = None
+class RemoteObjectAdapterPrx(Ice.ObjectPrx):
 
-if 'RemoteObjectAdapterPrx' not in _M_Test.__dict__:
-    _M_Test.RemoteObjectAdapterPrx = Ice.createTempClass()
-    class RemoteObjectAdapterPrx(Ice.ObjectPrx):
+    def getTestIntf(self, context=None):
+        return _M_Test.RemoteObjectAdapter._op_getTestIntf.invoke(self, ((), context))
 
-        def getTestIntf(self, context=None):
-            return _M_Test.RemoteObjectAdapter._op_getTestIntf.invoke(self, ((), context))
+    def getTestIntfAsync(self, context=None):
+        return _M_Test.RemoteObjectAdapter._op_getTestIntf.invokeAsync(self, ((), context))
 
-        def getTestIntfAsync(self, context=None):
-            return _M_Test.RemoteObjectAdapter._op_getTestIntf.invokeAsync(self, ((), context))
+    def deactivate(self, context=None):
+        return _M_Test.RemoteObjectAdapter._op_deactivate.invoke(self, ((), context))
 
-        def deactivate(self, context=None):
-            return _M_Test.RemoteObjectAdapter._op_deactivate.invoke(self, ((), context))
+    def deactivateAsync(self, context=None):
+        return _M_Test.RemoteObjectAdapter._op_deactivate.invokeAsync(self, ((), context))
 
-        def deactivateAsync(self, context=None):
-            return _M_Test.RemoteObjectAdapter._op_deactivate.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.RemoteObjectAdapterPrx.ice_checkedCast(proxy, '::Test::RemoteObjectAdapter', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.RemoteObjectAdapterPrx.ice_checkedCast(proxy, '::Test::RemoteObjectAdapter', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.RemoteObjectAdapterPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.RemoteObjectAdapterPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::RemoteObjectAdapter'
+_M_Test._t_RemoteObjectAdapterPrx = IcePy.defineProxy('::Test::RemoteObjectAdapter', RemoteObjectAdapterPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::RemoteObjectAdapter'
-    _M_Test._t_RemoteObjectAdapterPrx = IcePy.defineProxy('::Test::RemoteObjectAdapter', RemoteObjectAdapterPrx)
+_M_Test.RemoteObjectAdapterPrx = RemoteObjectAdapterPrx
+del RemoteObjectAdapterPrx
 
-    _M_Test.RemoteObjectAdapterPrx = RemoteObjectAdapterPrx
-    del RemoteObjectAdapterPrx
+_M_Test.RemoteObjectAdapter = None
+class RemoteObjectAdapter(Ice.Object):
 
-    _M_Test.RemoteObjectAdapter = Ice.createTempClass()
-    class RemoteObjectAdapter(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::RemoteObjectAdapter')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::RemoteObjectAdapter')
+    def ice_id(self, current=None):
+        return '::Test::RemoteObjectAdapter'
 
-        def ice_id(self, current=None):
-            return '::Test::RemoteObjectAdapter'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::RemoteObjectAdapter'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::RemoteObjectAdapter'
+    def getTestIntf(self, current=None):
+        raise NotImplementedError("servant method 'getTestIntf' not implemented")
 
-        def getTestIntf(self, current=None):
-            raise NotImplementedError("servant method 'getTestIntf' not implemented")
+    def deactivate(self, current=None):
+        raise NotImplementedError("servant method 'deactivate' not implemented")
 
-        def deactivate(self, current=None):
-            raise NotImplementedError("servant method 'deactivate' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_RemoteObjectAdapterDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_RemoteObjectAdapterDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_RemoteObjectAdapterDisp = IcePy.defineClass('::Test::RemoteObjectAdapter', RemoteObjectAdapter, (), None, ())
+RemoteObjectAdapter._ice_type = _M_Test._t_RemoteObjectAdapterDisp
 
-    _M_Test._t_RemoteObjectAdapterDisp = IcePy.defineClass('::Test::RemoteObjectAdapter', RemoteObjectAdapter, (), None, ())
-    RemoteObjectAdapter._ice_type = _M_Test._t_RemoteObjectAdapterDisp
+RemoteObjectAdapter._op_getTestIntf = IcePy.Operation('getTestIntf', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_TestIntfPrx, False, 0), ())
+RemoteObjectAdapter._op_deactivate = IcePy.Operation('deactivate', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    RemoteObjectAdapter._op_getTestIntf = IcePy.Operation('getTestIntf', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_TestIntfPrx, False, 0), ())
-    RemoteObjectAdapter._op_deactivate = IcePy.Operation('deactivate', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.RemoteObjectAdapter = RemoteObjectAdapter
-    del RemoteObjectAdapter
+_M_Test.RemoteObjectAdapter = RemoteObjectAdapter
+del RemoteObjectAdapter
 
 _M_Test._t_RemoteCommunicator = IcePy.defineValue('::Test::RemoteCommunicator', Ice.Value, -1, (), True, None, ())
+_M_Test.RemoteCommunicatorPrx = None
+class RemoteCommunicatorPrx(Ice.ObjectPrx):
 
-if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
-    _M_Test.RemoteCommunicatorPrx = Ice.createTempClass()
-    class RemoteCommunicatorPrx(Ice.ObjectPrx):
+    def createObjectAdapter(self, name, endpoints, context=None):
+        return _M_Test.RemoteCommunicator._op_createObjectAdapter.invoke(self, ((name, endpoints), context))
 
-        def createObjectAdapter(self, name, endpoints, context=None):
-            return _M_Test.RemoteCommunicator._op_createObjectAdapter.invoke(self, ((name, endpoints), context))
+    def createObjectAdapterAsync(self, name, endpoints, context=None):
+        return _M_Test.RemoteCommunicator._op_createObjectAdapter.invokeAsync(self, ((name, endpoints), context))
 
-        def createObjectAdapterAsync(self, name, endpoints, context=None):
-            return _M_Test.RemoteCommunicator._op_createObjectAdapter.invokeAsync(self, ((name, endpoints), context))
+    def deactivateObjectAdapter(self, adapter, context=None):
+        return _M_Test.RemoteCommunicator._op_deactivateObjectAdapter.invoke(self, ((adapter, ), context))
 
-        def deactivateObjectAdapter(self, adapter, context=None):
-            return _M_Test.RemoteCommunicator._op_deactivateObjectAdapter.invoke(self, ((adapter, ), context))
+    def deactivateObjectAdapterAsync(self, adapter, context=None):
+        return _M_Test.RemoteCommunicator._op_deactivateObjectAdapter.invokeAsync(self, ((adapter, ), context))
 
-        def deactivateObjectAdapterAsync(self, adapter, context=None):
-            return _M_Test.RemoteCommunicator._op_deactivateObjectAdapter.invokeAsync(self, ((adapter, ), context))
+    def shutdown(self, context=None):
+        return _M_Test.RemoteCommunicator._op_shutdown.invoke(self, ((), context))
 
-        def shutdown(self, context=None):
-            return _M_Test.RemoteCommunicator._op_shutdown.invoke(self, ((), context))
+    def shutdownAsync(self, context=None):
+        return _M_Test.RemoteCommunicator._op_shutdown.invokeAsync(self, ((), context))
 
-        def shutdownAsync(self, context=None):
-            return _M_Test.RemoteCommunicator._op_shutdown.invokeAsync(self, ((), context))
+    @staticmethod
+    def checkedCast(proxy, facetOrContext=None, context=None):
+        return _M_Test.RemoteCommunicatorPrx.ice_checkedCast(proxy, '::Test::RemoteCommunicator', facetOrContext, context)
 
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.RemoteCommunicatorPrx.ice_checkedCast(proxy, '::Test::RemoteCommunicator', facetOrContext, context)
+    @staticmethod
+    def uncheckedCast(proxy, facet=None):
+        return _M_Test.RemoteCommunicatorPrx.ice_uncheckedCast(proxy, facet)
 
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.RemoteCommunicatorPrx.ice_uncheckedCast(proxy, facet)
+    @staticmethod
+    def ice_staticId():
+        return '::Test::RemoteCommunicator'
+_M_Test._t_RemoteCommunicatorPrx = IcePy.defineProxy('::Test::RemoteCommunicator', RemoteCommunicatorPrx)
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::RemoteCommunicator'
-    _M_Test._t_RemoteCommunicatorPrx = IcePy.defineProxy('::Test::RemoteCommunicator', RemoteCommunicatorPrx)
+_M_Test.RemoteCommunicatorPrx = RemoteCommunicatorPrx
+del RemoteCommunicatorPrx
 
-    _M_Test.RemoteCommunicatorPrx = RemoteCommunicatorPrx
-    del RemoteCommunicatorPrx
+_M_Test.RemoteCommunicator = None
+class RemoteCommunicator(Ice.Object):
 
-    _M_Test.RemoteCommunicator = Ice.createTempClass()
-    class RemoteCommunicator(Ice.Object):
+    def ice_ids(self, current=None):
+        return ('::Ice::Object', '::Test::RemoteCommunicator')
 
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::RemoteCommunicator')
+    def ice_id(self, current=None):
+        return '::Test::RemoteCommunicator'
 
-        def ice_id(self, current=None):
-            return '::Test::RemoteCommunicator'
+    @staticmethod
+    def ice_staticId():
+        return '::Test::RemoteCommunicator'
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::RemoteCommunicator'
+    def createObjectAdapter(self, name, endpoints, current=None):
+        raise NotImplementedError("servant method 'createObjectAdapter' not implemented")
 
-        def createObjectAdapter(self, name, endpoints, current=None):
-            raise NotImplementedError("servant method 'createObjectAdapter' not implemented")
+    def deactivateObjectAdapter(self, adapter, current=None):
+        raise NotImplementedError("servant method 'deactivateObjectAdapter' not implemented")
 
-        def deactivateObjectAdapter(self, adapter, current=None):
-            raise NotImplementedError("servant method 'deactivateObjectAdapter' not implemented")
+    def shutdown(self, current=None):
+        raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def shutdown(self, current=None):
-            raise NotImplementedError("servant method 'shutdown' not implemented")
+    def __str__(self):
+        return IcePy.stringify(self, _M_Test._t_RemoteCommunicatorDisp)
 
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_RemoteCommunicatorDisp)
+    __repr__ = __str__
 
-        __repr__ = __str__
+_M_Test._t_RemoteCommunicatorDisp = IcePy.defineClass('::Test::RemoteCommunicator', RemoteCommunicator, (), None, ())
+RemoteCommunicator._ice_type = _M_Test._t_RemoteCommunicatorDisp
 
-    _M_Test._t_RemoteCommunicatorDisp = IcePy.defineClass('::Test::RemoteCommunicator', RemoteCommunicator, (), None, ())
-    RemoteCommunicator._ice_type = _M_Test._t_RemoteCommunicatorDisp
+RemoteCommunicator._op_createObjectAdapter = IcePy.Operation('createObjectAdapter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_Test._t_RemoteObjectAdapterPrx, False, 0), ())
+RemoteCommunicator._op_deactivateObjectAdapter = IcePy.Operation('deactivateObjectAdapter', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_RemoteObjectAdapterPrx, False, 0),), (), None, ())
+RemoteCommunicator._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    RemoteCommunicator._op_createObjectAdapter = IcePy.Operation('createObjectAdapter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_Test._t_RemoteObjectAdapterPrx, False, 0), ())
-    RemoteCommunicator._op_deactivateObjectAdapter = IcePy.Operation('deactivateObjectAdapter', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_RemoteObjectAdapterPrx, False, 0),), (), None, ())
-    RemoteCommunicator._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.RemoteCommunicator = RemoteCommunicator
-    del RemoteCommunicator
+_M_Test.RemoteCommunicator = RemoteCommunicator
+del RemoteCommunicator
 
 # End of module Test

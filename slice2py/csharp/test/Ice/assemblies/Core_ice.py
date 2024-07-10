@@ -21,24 +21,22 @@ import builtins as _builtins
 # Start of module Core
 _M_Core = Ice.openModule('Core')
 __name__ = 'Core'
+_M_Core.ArgumentException = None
+class ArgumentException(Ice.UserException):
+    def __init__(self):
+        pass
 
-if 'ArgumentException' not in _M_Core.__dict__:
-    _M_Core.ArgumentException = Ice.createTempClass()
-    class ArgumentException(Ice.UserException):
-        def __init__(self):
-            pass
+    def __str__(self):
+        return IcePy.stringifyException(self)
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+    __repr__ = __str__
 
-        __repr__ = __str__
+    _ice_id = '::Core::ArgumentException'
 
-        _ice_id = '::Core::ArgumentException'
+_M_Core._t_ArgumentException = IcePy.defineException('::Core::ArgumentException', ArgumentException, (), None, ())
+ArgumentException._ice_type = _M_Core._t_ArgumentException
 
-    _M_Core._t_ArgumentException = IcePy.defineException('::Core::ArgumentException', ArgumentException, (), None, ())
-    ArgumentException._ice_type = _M_Core._t_ArgumentException
-
-    _M_Core.ArgumentException = ArgumentException
-    del ArgumentException
+_M_Core.ArgumentException = ArgumentException
+del ArgumentException
 
 # End of module Core
