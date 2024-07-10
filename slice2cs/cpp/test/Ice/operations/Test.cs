@@ -14006,12 +14006,6 @@ namespace Test
 
         public abstract MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, Ice.Current current);
 
-        public abstract void shutdown(Ice.Current current);
-
-        public abstract bool supportsCompress(Ice.Current current);
-
-        public abstract void opVoid(Ice.Current current);
-
         public abstract byte opByte(byte p1, byte p2, out byte p3, Ice.Current current);
 
         public abstract bool opBool(bool p1, bool p2, out bool p3, Ice.Current current);
@@ -14039,6 +14033,12 @@ namespace Test
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
 
         public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
+
+        public abstract void shutdown(Ice.Current current);
+
+        public abstract bool supportsCompress(Ice.Current current);
+
+        public abstract void opVoid(Ice.Current current);
 
         public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
 
@@ -14241,12 +14241,6 @@ namespace Test2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
-        public abstract void shutdown(Ice.Current current);
-
-        public abstract bool supportsCompress(Ice.Current current);
-
-        public abstract void opVoid(Ice.Current current);
-
         public abstract byte opByte(byte p1, byte p2, out byte p3, Ice.Current current);
 
         public abstract bool opBool(bool p1, bool p2, out bool p3, Ice.Current current);
@@ -14274,6 +14268,12 @@ namespace Test2
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
 
         public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
+
+        public abstract void shutdown(Ice.Current current);
+
+        public abstract bool supportsCompress(Ice.Current current);
+
+        public abstract void opVoid(Ice.Current current);
 
         public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
 
