@@ -198,11 +198,6 @@ module ::Clash
 
     if not defined?(::Clash::Ex)
         class Ex < Ice::UserException
-            def initialize(istr=0, ostr=0)
-                @istr = istr
-                @ostr = ostr
-            end
-
             def to_s
                 '::Clash::Ex'
             end

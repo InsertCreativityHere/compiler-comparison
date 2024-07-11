@@ -20,9 +20,6 @@ module ::Core
 
     if not defined?(::Core::ArgumentException)
         class ArgumentException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Core::ArgumentException'
             end

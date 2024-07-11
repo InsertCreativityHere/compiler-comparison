@@ -468,83 +468,6 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::BaseEx)
-        class BaseEx < Ice::UserException
-            def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0)
-                @boolFalse = boolFalse
-                @boolTrue = boolTrue
-                @b = b
-                @s = s
-                @i = i
-                @l = l
-                @f = f
-                @d = d
-                @str = str
-                @noDefault = noDefault
-                @zeroI = zeroI
-                @zeroL = zeroL
-                @zeroF = zeroF
-                @zeroDotF = zeroDotF
-                @zeroD = zeroD
-                @zeroDotD = zeroDotD
-            end
-
-            def to_s
-                '::Test::BaseEx'
-            end
-
-            attr_accessor :boolFalse, :boolTrue, :b, :s, :i, :l, :f, :d, :str, :noDefault, :zeroI, :zeroL, :zeroF, :zeroDotF, :zeroD, :zeroDotD
-        end
-
-        T_BaseEx = ::Ice::__defineException('::Test::BaseEx', BaseEx, nil, [
-            ["boolFalse", ::Ice::T_bool, false, 0],
-            ["boolTrue", ::Ice::T_bool, false, 0],
-            ["b", ::Ice::T_byte, false, 0],
-            ["s", ::Ice::T_short, false, 0],
-            ["i", ::Ice::T_int, false, 0],
-            ["l", ::Ice::T_long, false, 0],
-            ["f", ::Ice::T_float, false, 0],
-            ["d", ::Ice::T_double, false, 0],
-            ["str", ::Ice::T_string, false, 0],
-            ["noDefault", ::Ice::T_string, false, 0],
-            ["zeroI", ::Ice::T_int, false, 0],
-            ["zeroL", ::Ice::T_long, false, 0],
-            ["zeroF", ::Ice::T_float, false, 0],
-            ["zeroDotF", ::Ice::T_float, false, 0],
-            ["zeroD", ::Ice::T_double, false, 0],
-            ["zeroDotD", ::Ice::T_double, false, 0]
-        ])
-    end
-
-    if not defined?(::Test::DerivedEx)
-        class DerivedEx < ::Test::BaseEx
-            def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0, c1=::Test::ConstColor1, c2=::Test::ConstColor2, c3=::Test::ConstColor3, nc1=::Test::ConstNestedColor1, nc2=::Test::ConstNestedColor2, nc3=::Test::ConstNestedColor3)
-                super(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
-                @c1 = c1
-                @c2 = c2
-                @c3 = c3
-                @nc1 = nc1
-                @nc2 = nc2
-                @nc3 = nc3
-            end
-
-            def to_s
-                '::Test::DerivedEx'
-            end
-
-            attr_accessor :c1, :c2, :c3, :nc1, :nc2, :nc3
-        end
-
-        T_DerivedEx = ::Ice::__defineException('::Test::DerivedEx', DerivedEx, ::Test::T_BaseEx, [
-            ["c1", ::Test::T_Color, false, 0],
-            ["c2", ::Test::T_Color, false, 0],
-            ["c3", ::Test::T_Color, false, 0],
-            ["nc1", ::Test::Nested::T_Color, false, 0],
-            ["nc2", ::Test::Nested::T_Color, false, 0],
-            ["nc3", ::Test::Nested::T_Color, false, 0]
-        ])
-    end
-
     if not defined?(::Test::T_ByteSeq)
         T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
     end
@@ -662,49 +585,6 @@ module ::Test
             ["is", ::Test::T_IntSeq],
             ["dict", ::Test::T_IntStringDict],
             ["st", ::Test::T_InnerStruct]
-        ])
-    end
-
-    if not defined?(::Test::ExceptionNoDefaultsBase)
-        class ExceptionNoDefaultsBase < Ice::UserException
-            def initialize(str='', c1=::Test::Color::Red, bs=nil)
-                @str = str
-                @c1 = c1
-                @bs = bs
-            end
-
-            def to_s
-                '::Test::ExceptionNoDefaultsBase'
-            end
-
-            attr_accessor :str, :c1, :bs
-        end
-
-        T_ExceptionNoDefaultsBase = ::Ice::__defineException('::Test::ExceptionNoDefaultsBase', ExceptionNoDefaultsBase, nil, [
-            ["str", ::Ice::T_string, false, 0],
-            ["c1", ::Test::T_Color, false, 0],
-            ["bs", ::Test::T_ByteSeq, false, 0]
-        ])
-    end
-
-    if not defined?(::Test::ExceptionNoDefaults)
-        class ExceptionNoDefaults < ::Test::ExceptionNoDefaultsBase
-            def initialize(str='', c1=::Test::Color::Red, bs=nil, st=::Test::InnerStruct.new, dict=nil)
-                super(str, c1, bs)
-                @st = st
-                @dict = dict
-            end
-
-            def to_s
-                '::Test::ExceptionNoDefaults'
-            end
-
-            attr_accessor :st, :dict
-        end
-
-        T_ExceptionNoDefaults = ::Ice::__defineException('::Test::ExceptionNoDefaults', ExceptionNoDefaults, ::Test::T_ExceptionNoDefaultsBase, [
-            ["st", ::Test::T_InnerStruct, false, 0],
-            ["dict", ::Test::T_IntStringDict, false, 0]
         ])
     end
 

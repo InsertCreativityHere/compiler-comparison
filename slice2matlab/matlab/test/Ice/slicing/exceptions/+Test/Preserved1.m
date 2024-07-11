@@ -11,21 +11,14 @@ classdef Preserved1 < Test.KnownPreservedDerived
         p1
     end
     methods
-        function obj = Preserved1(ice_exid, ice_exmsg, b, kp, kpd, p1)
-            if nargin <= 2
-                b = '';
-                kp = '';
-                kpd = '';
-                p1 = [];
+        function obj = Preserved1(errID, msg)
+            if nargin == 0
+                errID = 'Test:Preserved1';
+                msg = 'Test.Preserved1';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:Preserved1';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.Preserved1';
-            end
-            obj = obj@Test.KnownPreservedDerived(ice_exid, ice_exmsg, b, kp, kpd);
-            obj.p1 = p1;
+            obj = obj@Test.KnownPreservedDerived(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::Preserved1';

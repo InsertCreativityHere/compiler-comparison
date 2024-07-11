@@ -15,22 +15,14 @@ classdef OptionalException < Ice.UserException
         b
     end
     methods
-        function obj = OptionalException(ice_exid, ice_exmsg, req, a, b)
-            if nargin <= 2
-                req = false;
-                a = 5;
-                b = IceInternal.UnsetI.Instance;
+        function obj = OptionalException(errID, msg)
+            if nargin == 0
+                errID = 'Test:OptionalException';
+                msg = 'Test.OptionalException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:OptionalException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.OptionalException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.req = req;
-            obj.a = a;
-            obj.b = b;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::OptionalException';

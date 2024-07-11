@@ -25,9 +25,6 @@ module ::Ice
 
     if not defined?(::Ice::AdapterNotFoundException)
         class AdapterNotFoundException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Ice::AdapterNotFoundException'
             end
@@ -38,9 +35,6 @@ module ::Ice
 
     if not defined?(::Ice::InvalidReplicaGroupIdException)
         class InvalidReplicaGroupIdException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Ice::InvalidReplicaGroupIdException'
             end
@@ -51,9 +45,6 @@ module ::Ice
 
     if not defined?(::Ice::AdapterAlreadyActiveException)
         class AdapterAlreadyActiveException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Ice::AdapterAlreadyActiveException'
             end
@@ -64,9 +55,6 @@ module ::Ice
 
     if not defined?(::Ice::ObjectNotFoundException)
         class ObjectNotFoundException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Ice::ObjectNotFoundException'
             end
@@ -77,9 +65,6 @@ module ::Ice
 
     if not defined?(::Ice::ServerNotFoundException)
         class ServerNotFoundException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Ice::ServerNotFoundException'
             end

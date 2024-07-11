@@ -11,18 +11,14 @@ classdef is < Ice.UserException
         lambda int32
     end
     methods
-        function obj = is(ice_exid, ice_exmsg, lambda)
-            if nargin <= 2
-                lambda = 0;
+        function obj = is(errID, msg)
+            if nargin == 0
+                errID = 'and:is';
+                msg = 'and.is';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'and:is';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'and.is';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.lambda = lambda;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::and::is';

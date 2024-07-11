@@ -11,20 +11,14 @@ classdef KnownMostDerived < Test.KnownIntermediate
         kmd char
     end
     methods
-        function obj = KnownMostDerived(ice_exid, ice_exmsg, b, ki, kmd)
-            if nargin <= 2
-                b = '';
-                ki = '';
-                kmd = '';
+        function obj = KnownMostDerived(errID, msg)
+            if nargin == 0
+                errID = 'Test:KnownMostDerived';
+                msg = 'Test.KnownMostDerived';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:KnownMostDerived';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.KnownMostDerived';
-            end
-            obj = obj@Test.KnownIntermediate(ice_exid, ice_exmsg, b, ki);
-            obj.kmd = kmd;
+            obj = obj@Test.KnownIntermediate(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::KnownMostDerived';

@@ -239,10 +239,6 @@ namespace IceGrid
     global $IceGrid__t_AdapterActiveException;
     class AdapterActiveException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::IceGrid::AdapterActiveException';
@@ -263,11 +259,6 @@ namespace IceGrid
     global $IceGrid__t_AdapterNotActiveException;
     class AdapterNotActiveException extends \Ice\UserException
     {
-        public function __construct($activatable=false)
-        {
-            $this->activatable = $activatable;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::AdapterNotActiveException';
@@ -324,11 +315,6 @@ namespace IceGrid
     global $IceGrid__t_AdapterExistsException;
     class AdapterExistsException extends \Ice\UserException
     {
-        public function __construct($id='')
-        {
-            $this->id = $id;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::AdapterExistsException';
@@ -555,10 +541,6 @@ namespace IceGrid
     global $IceGrid__t_NodeActiveException;
     class NodeActiveException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::IceGrid::NodeActiveException';
@@ -621,10 +603,6 @@ namespace IceGrid
     global $IceGrid__t_ReplicaActiveException;
     class ReplicaActiveException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::IceGrid::ReplicaActiveException';

@@ -5,36 +5,25 @@
 
 classdef PreservedException < Ice.UserException
     methods
-        function obj = PreservedException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:PreservedException';
+        function obj = PreservedException(errID, msg)
+            if nargin == 0
+                errID = 'Test:PreservedException';
+                msg = 'Test.PreservedException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.PreservedException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::PreservedException';
         end
-        function r = ice_getSlicedData(obj)
-            r = obj.iceSlicedData_;
-        end
     end
     methods(Hidden=true)
-        function obj = iceRead(obj, is)
-            is.startException();
-            obj = obj.iceReadImpl(is);
-            obj.iceSlicedData_ = is.endException(true);
-        end
     end
     methods(Access=protected)
         function obj = iceReadImpl(obj, is)
             is.startSlice();
             is.endSlice();
         end
-    end
-    properties(Access=protected)
-        iceSlicedData_
     end
 end

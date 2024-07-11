@@ -25,12 +25,6 @@ namespace Test
     global $Test__t_UnknownDerived;
     class UnknownDerived extends \Test\Base
     {
-        public function __construct($b='', $ud='')
-        {
-            parent::__construct($b);
-            $this->ud = $ud;
-        }
-
         public function ice_id()
         {
             return '::Test::UnknownDerived';
@@ -55,12 +49,6 @@ namespace Test
     global $Test__t_UnknownIntermediate;
     class UnknownIntermediate extends \Test\Base
     {
-        public function __construct($b='', $ui='')
-        {
-            parent::__construct($b);
-            $this->ui = $ui;
-        }
-
         public function ice_id()
         {
             return '::Test::UnknownIntermediate';
@@ -85,12 +73,6 @@ namespace Test
     global $Test__t_UnknownMostDerived1;
     class UnknownMostDerived1 extends \Test\KnownIntermediate
     {
-        public function __construct($b='', $ki='', $umd1='')
-        {
-            parent::__construct($b, $ki);
-            $this->umd1 = $umd1;
-        }
-
         public function ice_id()
         {
             return '::Test::UnknownMostDerived1';
@@ -115,12 +97,6 @@ namespace Test
     global $Test__t_UnknownMostDerived2;
     class UnknownMostDerived2 extends \Test\UnknownIntermediate
     {
-        public function __construct($b='', $ui='', $umd2='')
-        {
-            parent::__construct($b, $ui);
-            $this->umd2 = $umd2;
-        }
-
         public function ice_id()
         {
             return '::Test::UnknownMostDerived2';

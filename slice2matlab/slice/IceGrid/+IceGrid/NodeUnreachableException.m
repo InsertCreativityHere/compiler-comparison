@@ -17,20 +17,14 @@ classdef NodeUnreachableException < Ice.UserException
         reason char
     end
     methods
-        function obj = NodeUnreachableException(ice_exid, ice_exmsg, name, reason)
-            if nargin <= 2
-                name = '';
-                reason = '';
+        function obj = NodeUnreachableException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:NodeUnreachableException';
+                msg = 'IceGrid.NodeUnreachableException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:NodeUnreachableException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.NodeUnreachableException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.name = name;
-            obj.reason = reason;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::NodeUnreachableException';

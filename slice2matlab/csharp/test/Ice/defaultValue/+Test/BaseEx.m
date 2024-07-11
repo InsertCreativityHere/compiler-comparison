@@ -41,48 +41,14 @@ classdef BaseEx < Ice.UserException
         zeroDotD double
     end
     methods
-        function obj = BaseEx(ice_exid, ice_exmsg, boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
-            if nargin <= 2
-                boolFalse = false;
-                boolTrue = true;
-                b = 1;
-                s = 2;
-                i = 3;
-                l = 4;
-                f = 5.1;
-                d = 6.2;
-                str = sprintf('foo \\ "bar\n \r\n\t\v\f\a\b? \a \a');
-                noDefault = '';
-                zeroI = 0;
-                zeroL = 0;
-                zeroF = 0;
-                zeroDotF = 0;
-                zeroD = 0;
-                zeroDotD = 0;
+        function obj = BaseEx(errID, msg)
+            if nargin == 0
+                errID = 'Test:BaseEx';
+                msg = 'Test.BaseEx';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:BaseEx';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.BaseEx';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.boolFalse = boolFalse;
-            obj.boolTrue = boolTrue;
-            obj.b = b;
-            obj.s = s;
-            obj.i = i;
-            obj.l = l;
-            obj.f = f;
-            obj.d = d;
-            obj.str = str;
-            obj.noDefault = noDefault;
-            obj.zeroI = zeroI;
-            obj.zeroL = zeroL;
-            obj.zeroF = zeroF;
-            obj.zeroDotF = zeroDotF;
-            obj.zeroD = zeroD;
-            obj.zeroDotD = zeroDotD;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::BaseEx';

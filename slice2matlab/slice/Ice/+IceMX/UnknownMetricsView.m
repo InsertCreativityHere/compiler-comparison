@@ -7,14 +7,14 @@
 
 classdef UnknownMetricsView < Ice.UserException
     methods
-        function obj = UnknownMetricsView(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceMX:UnknownMetricsView';
+        function obj = UnknownMetricsView(errID, msg)
+            if nargin == 0
+                errID = 'IceMX:UnknownMetricsView';
+                msg = 'IceMX.UnknownMetricsView';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceMX.UnknownMetricsView';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceMX::UnknownMetricsView';

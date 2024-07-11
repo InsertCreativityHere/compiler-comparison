@@ -124,11 +124,6 @@ module ::Test
 
     if not defined?(::Test::Bar)
         class Bar < Ice::UserException
-            def initialize(sLmem=nil, sLSmem=nil)
-                @SLmem = sLmem
-                @SLSmem = sLSmem
-            end
-
             def to_s
                 '::Test::Bar'
             end

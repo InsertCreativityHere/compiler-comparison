@@ -14,18 +14,14 @@ classdef NodeNotExistException < Ice.UserException
         name char
     end
     methods
-        function obj = NodeNotExistException(ice_exid, ice_exmsg, name)
-            if nargin <= 2
-                name = '';
+        function obj = NodeNotExistException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:NodeNotExistException';
+                msg = 'IceGrid.NodeNotExistException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:NodeNotExistException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.NodeNotExistException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.name = name;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::NodeNotExistException';

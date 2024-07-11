@@ -13,23 +13,14 @@ classdef ExceptionNoDefaults < Test.ExceptionNoDefaultsBase
         dict containers.Map
     end
     methods
-        function obj = ExceptionNoDefaults(ice_exid, ice_exmsg, str, c1, bs, st, dict)
-            if nargin <= 2
-                str = '';
-                c1 = Test.Color.red;
-                bs = [];
-                st = Test.InnerStruct();
-                dict = containers.Map('KeyType', 'int32', 'ValueType', 'char');
+        function obj = ExceptionNoDefaults(errID, msg)
+            if nargin == 0
+                errID = 'Test:ExceptionNoDefaults';
+                msg = 'Test.ExceptionNoDefaults';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:ExceptionNoDefaults';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.ExceptionNoDefaults';
-            end
-            obj = obj@Test.ExceptionNoDefaultsBase(ice_exid, ice_exmsg, str, c1, bs);
-            obj.st = st;
-            obj.dict = dict;
+            obj = obj@Test.ExceptionNoDefaultsBase(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::ExceptionNoDefaults';

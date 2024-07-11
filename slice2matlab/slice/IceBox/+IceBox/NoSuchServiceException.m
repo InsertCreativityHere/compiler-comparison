@@ -7,14 +7,14 @@
 
 classdef NoSuchServiceException < Ice.UserException
     methods
-        function obj = NoSuchServiceException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceBox:NoSuchServiceException';
+        function obj = NoSuchServiceException(errID, msg)
+            if nargin == 0
+                errID = 'IceBox:NoSuchServiceException';
+                msg = 'IceBox.NoSuchServiceException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceBox.NoSuchServiceException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceBox::NoSuchServiceException';

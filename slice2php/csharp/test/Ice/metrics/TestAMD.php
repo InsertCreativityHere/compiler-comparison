@@ -20,10 +20,6 @@ namespace Test
     global $Test__t_UserEx;
     class UserEx extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Test::UserEx';

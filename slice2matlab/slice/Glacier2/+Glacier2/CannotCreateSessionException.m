@@ -14,18 +14,14 @@ classdef CannotCreateSessionException < Ice.UserException
         reason char
     end
     methods
-        function obj = CannotCreateSessionException(ice_exid, ice_exmsg, reason)
-            if nargin <= 2
-                reason = '';
+        function obj = CannotCreateSessionException(errID, msg)
+            if nargin == 0
+                errID = 'Glacier2:CannotCreateSessionException';
+                msg = 'Glacier2.CannotCreateSessionException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Glacier2:CannotCreateSessionException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Glacier2.CannotCreateSessionException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.reason = reason;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Glacier2::CannotCreateSessionException';

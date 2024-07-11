@@ -231,11 +231,6 @@ namespace _and
     global $and__t_return;
     class _return extends \Ice\UserException
     {
-        public function __construct($Int32=0)
-        {
-            $this->Int32 = $Int32;
-        }
-
         public function ice_id()
         {
             return '::and::return';
@@ -260,13 +255,6 @@ namespace _and
     global $and__t_as;
     class _as extends \_and\_return
     {
-        public function __construct($Int32=0, $_static=0, $_switch=0)
-        {
-            parent::__construct($Int32);
-            $this->_static = $_static;
-            $this->_switch = $_switch;
-        }
-
         public function ice_id()
         {
             return '::and::as';

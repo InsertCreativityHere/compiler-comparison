@@ -13,20 +13,14 @@ classdef BaseException < Ice.UserException
         pb
     end
     methods
-        function obj = BaseException(ice_exid, ice_exmsg, sbe, pb)
-            if nargin <= 2
-                sbe = '';
-                pb = [];
+        function obj = BaseException(errID, msg)
+            if nargin == 0
+                errID = 'Test:BaseException';
+                msg = 'Test.BaseException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:BaseException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.BaseException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.sbe = sbe;
-            obj.pb = pb;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::BaseException';

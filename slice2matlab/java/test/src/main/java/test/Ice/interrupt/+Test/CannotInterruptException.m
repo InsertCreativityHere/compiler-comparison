@@ -5,14 +5,14 @@
 
 classdef CannotInterruptException < Ice.UserException
     methods
-        function obj = CannotInterruptException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:CannotInterruptException';
+        function obj = CannotInterruptException(errID, msg)
+            if nargin == 0
+                errID = 'Test:CannotInterruptException';
+                msg = 'Test.CannotInterruptException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.CannotInterruptException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::CannotInterruptException';

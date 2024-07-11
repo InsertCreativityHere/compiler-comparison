@@ -36,10 +36,6 @@ namespace Ice
     global $Ice__t_AdapterNotFoundException;
     class AdapterNotFoundException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Ice::AdapterNotFoundException';
@@ -60,10 +56,6 @@ namespace Ice
     global $Ice__t_InvalidReplicaGroupIdException;
     class InvalidReplicaGroupIdException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Ice::InvalidReplicaGroupIdException';
@@ -84,10 +76,6 @@ namespace Ice
     global $Ice__t_AdapterAlreadyActiveException;
     class AdapterAlreadyActiveException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Ice::AdapterAlreadyActiveException';
@@ -108,10 +96,6 @@ namespace Ice
     global $Ice__t_ObjectNotFoundException;
     class ObjectNotFoundException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Ice::ObjectNotFoundException';
@@ -132,10 +116,6 @@ namespace Ice
     global $Ice__t_ServerNotFoundException;
     class ServerNotFoundException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Ice::ServerNotFoundException';

@@ -11,18 +11,14 @@ classdef UserError < Ice.UserException
         message_ char
     end
     methods
-        function obj = UserError(ice_exid, ice_exmsg, message_)
-            if nargin <= 2
-                message_ = '';
+        function obj = UserError(errID, msg)
+            if nargin == 0
+                errID = 'Test:UserError';
+                msg = 'Test.UserError';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:UserError';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.UserError';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.message_ = message_;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::UserError';

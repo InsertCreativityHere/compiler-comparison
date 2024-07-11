@@ -11,20 +11,14 @@ classdef KnownPreservedDerived < Test.KnownPreserved
         kpd char
     end
     methods
-        function obj = KnownPreservedDerived(ice_exid, ice_exmsg, b, kp, kpd)
-            if nargin <= 2
-                b = '';
-                kp = '';
-                kpd = '';
+        function obj = KnownPreservedDerived(errID, msg)
+            if nargin == 0
+                errID = 'Test:KnownPreservedDerived';
+                msg = 'Test.KnownPreservedDerived';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:KnownPreservedDerived';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.KnownPreservedDerived';
-            end
-            obj = obj@Test.KnownPreserved(ice_exid, ice_exmsg, b, kp);
-            obj.kpd = kpd;
+            obj = obj@Test.KnownPreserved(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::KnownPreservedDerived';

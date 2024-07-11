@@ -263,11 +263,6 @@ namespace _and
     global $and__t_endif;
     class _endif extends \Ice\UserException
     {
-        public function __construct($_endswitch=0)
-        {
-            $this->_endswitch = $_endswitch;
-        }
-
         public function ice_id()
         {
             return '::and::endif';
@@ -292,13 +287,6 @@ namespace _and
     global $and__t_endwhile;
     class _endwhile extends \_and\_endif
     {
-        public function __construct($_endswitch=0, $_eval=0, $_exit=0)
-        {
-            parent::__construct($_endswitch);
-            $this->_eval = $_eval;
-            $this->_exit = $_exit;
-        }
-
         public function ice_id()
         {
             return '::and::endwhile';

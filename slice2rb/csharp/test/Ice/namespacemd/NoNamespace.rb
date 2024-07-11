@@ -61,10 +61,6 @@ module ::NoNamespace
 
     if not defined?(::NoNamespace::E1)
         class E1 < Ice::UserException
-            def initialize(i=0)
-                @i = i
-            end
-
             def to_s
                 '::NoNamespace::E1'
             end
@@ -77,11 +73,6 @@ module ::NoNamespace
 
     if not defined?(::NoNamespace::E2)
         class E2 < ::NoNamespace::E1
-            def initialize(i=0, l=0)
-                super(i)
-                @l = l
-            end
-
             def to_s
                 '::NoNamespace::E2'
             end
@@ -94,10 +85,6 @@ module ::NoNamespace
 
     if not defined?(::NoNamespace::Notify)
         class Notify < Ice::UserException
-            def initialize(i=0)
-                @i = i
-            end
-
             def to_s
                 '::NoNamespace::notify'
             end

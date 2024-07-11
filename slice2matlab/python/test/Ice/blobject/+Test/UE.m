@@ -5,14 +5,14 @@
 
 classdef UE < Ice.UserException
     methods
-        function obj = UE(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:UE';
+        function obj = UE(errID, msg)
+            if nargin == 0
+                errID = 'Test:UE';
+                msg = 'Test.UE';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.UE';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::UE';

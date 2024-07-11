@@ -5,14 +5,14 @@
 
 classdef BadEncodingException < Ice.UserException
     methods
-        function obj = BadEncodingException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:BadEncodingException';
+        function obj = BadEncodingException(errID, msg)
+            if nargin == 0
+                errID = 'Test:BadEncodingException';
+                msg = 'Test.BadEncodingException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.BadEncodingException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::BadEncodingException';

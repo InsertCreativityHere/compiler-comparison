@@ -21,28 +21,14 @@ classdef persistent_ < Ice.UserException
         end_
     end
     methods
-        function obj = persistent_(ice_exid, ice_exmsg, identifier_, message_, stack_, cause_, type_, end_)
-            if nargin <= 2
-                identifier_ = sprintf('1');
-                message_ = sprintf('2');
-                stack_ = sprintf('3');
-                cause_ = sprintf('4');
-                type_ = sprintf('5');
-                end_ = [];
+        function obj = persistent_(errID, msg)
+            if nargin == 0
+                errID = 'classdef_:break_:persistent_';
+                msg = 'classdef_.break_.persistent_';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'classdef_:break_:persistent_';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'classdef_.break_.persistent_';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.identifier_ = identifier_;
-            obj.message_ = message_;
-            obj.stack_ = stack_;
-            obj.cause_ = cause_;
-            obj.type_ = type_;
-            obj.end_ = end_;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::classdef::break::persistent';

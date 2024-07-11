@@ -15,22 +15,14 @@ classdef ExceptionNoDefaultsBase < Ice.UserException
         bs
     end
     methods
-        function obj = ExceptionNoDefaultsBase(ice_exid, ice_exmsg, str, c1, bs)
-            if nargin <= 2
-                str = '';
-                c1 = Test.Color.red;
-                bs = [];
+        function obj = ExceptionNoDefaultsBase(errID, msg)
+            if nargin == 0
+                errID = 'Test:ExceptionNoDefaultsBase';
+                msg = 'Test.ExceptionNoDefaultsBase';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:ExceptionNoDefaultsBase';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.ExceptionNoDefaultsBase';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.str = str;
-            obj.c1 = c1;
-            obj.bs = bs;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::ExceptionNoDefaultsBase';

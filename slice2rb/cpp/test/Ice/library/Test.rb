@@ -20,10 +20,6 @@ module ::Test
 
     if not defined?(::Test::UserError)
         class UserError < Ice::UserException
-            def initialize(message='')
-                @message = message
-            end
-
             def to_s
                 '::Test::UserError'
             end

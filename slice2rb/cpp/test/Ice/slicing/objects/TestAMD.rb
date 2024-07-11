@@ -193,11 +193,6 @@ module ::Test
 
     if not defined?(::Test::BaseException)
         class BaseException < Ice::UserException
-            def initialize(sbe='', pb=nil)
-                @sbe = sbe
-                @pb = pb
-            end
-
             def to_s
                 '::Test::BaseException'
             end
@@ -213,12 +208,6 @@ module ::Test
 
     if not defined?(::Test::DerivedException)
         class DerivedException < ::Test::BaseException
-            def initialize(sbe='', pb=nil, sde='', pd1=nil)
-                super(sbe, pb)
-                @sde = sde
-                @pd1 = pd1
-            end
-
             def to_s
                 '::Test::DerivedException'
             end

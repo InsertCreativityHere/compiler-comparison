@@ -21,9 +21,6 @@ module ::IceBox
 
     if not defined?(::IceBox::AlreadyStartedException)
         class AlreadyStartedException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::IceBox::AlreadyStartedException'
             end
@@ -34,9 +31,6 @@ module ::IceBox
 
     if not defined?(::IceBox::AlreadyStoppedException)
         class AlreadyStoppedException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::IceBox::AlreadyStoppedException'
             end
@@ -47,9 +41,6 @@ module ::IceBox
 
     if not defined?(::IceBox::NoSuchServiceException)
         class NoSuchServiceException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::IceBox::NoSuchServiceException'
             end

@@ -92,11 +92,6 @@ namespace IceStorm
     global $IceStorm__t_LinkExists;
     class LinkExists extends \Ice\UserException
     {
-        public function __construct($name='')
-        {
-            $this->name = $name;
-        }
-
         public function ice_id()
         {
             return '::IceStorm::LinkExists';
@@ -121,11 +116,6 @@ namespace IceStorm
     global $IceStorm__t_NoSuchLink;
     class NoSuchLink extends \Ice\UserException
     {
-        public function __construct($name='')
-        {
-            $this->name = $name;
-        }
-
         public function ice_id()
         {
             return '::IceStorm::NoSuchLink';
@@ -150,10 +140,6 @@ namespace IceStorm
     global $IceStorm__t_AlreadySubscribed;
     class AlreadySubscribed extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::IceStorm::AlreadySubscribed';
@@ -174,11 +160,6 @@ namespace IceStorm
     global $IceStorm__t_InvalidSubscriber;
     class InvalidSubscriber extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceStorm::InvalidSubscriber';
@@ -203,11 +184,6 @@ namespace IceStorm
     global $IceStorm__t_BadQoS;
     class BadQoS extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceStorm::BadQoS';
@@ -289,11 +265,6 @@ namespace IceStorm
     global $IceStorm__t_TopicExists;
     class TopicExists extends \Ice\UserException
     {
-        public function __construct($name='')
-        {
-            $this->name = $name;
-        }
-
         public function ice_id()
         {
             return '::IceStorm::TopicExists';
@@ -318,11 +289,6 @@ namespace IceStorm
     global $IceStorm__t_NoSuchTopic;
     class NoSuchTopic extends \Ice\UserException
     {
-        public function __construct($name='')
-        {
-            $this->name = $name;
-        }
-
         public function ice_id()
         {
             return '::IceStorm::NoSuchTopic';

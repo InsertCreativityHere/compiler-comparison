@@ -20,9 +20,6 @@ module ::Test
 
     if not defined?(::Test::UE)
         class UE < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Test::UE'
             end

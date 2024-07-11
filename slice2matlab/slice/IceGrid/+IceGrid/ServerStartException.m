@@ -17,20 +17,14 @@ classdef ServerStartException < Ice.UserException
         reason char
     end
     methods
-        function obj = ServerStartException(ice_exid, ice_exmsg, id, reason)
-            if nargin <= 2
-                id = '';
-                reason = '';
+        function obj = ServerStartException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:ServerStartException';
+                msg = 'IceGrid.ServerStartException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:ServerStartException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.ServerStartException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.id = id;
-            obj.reason = reason;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::ServerStartException';

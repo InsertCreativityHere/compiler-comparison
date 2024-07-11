@@ -11,18 +11,14 @@ classdef Ex < Ice.UserException
         reason char
     end
     methods
-        function obj = Ex(ice_exid, ice_exmsg, reason)
-            if nargin <= 2
-                reason = '';
+        function obj = Ex(errID, msg)
+            if nargin == 0
+                errID = 'Test:Inner:Sub:Ex';
+                msg = 'Test.Inner.Sub.Ex';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:Inner:Sub:Ex';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.Inner.Sub.Ex';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.reason = reason;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::Inner::Sub::Ex';

@@ -15,22 +15,14 @@ classdef Ex < Ice.UserException
         cause_ char
     end
     methods
-        function obj = Ex(ice_exid, ice_exmsg, istr, ostr, cause_)
-            if nargin <= 2
-                istr = 0;
-                ostr = 0;
-                cause_ = '';
+        function obj = Ex(errID, msg)
+            if nargin == 0
+                errID = 'Clash:Ex';
+                msg = 'Clash.Ex';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Clash:Ex';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Clash.Ex';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.istr = istr;
-            obj.ostr = ostr;
-            obj.cause_ = cause_;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Clash::Ex';

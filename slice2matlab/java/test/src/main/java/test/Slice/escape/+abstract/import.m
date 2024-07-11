@@ -13,21 +13,14 @@ classdef import < abstract.hashCode
         native int32
     end
     methods
-        function obj = import(ice_exid, ice_exmsg, if_, instanceof, native)
-            if nargin <= 2
-                if_ = 0;
-                instanceof = 0;
-                native = 0;
+        function obj = import(errID, msg)
+            if nargin == 0
+                errID = 'abstract:import';
+                msg = 'abstract.import';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'abstract:import';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'abstract.import';
-            end
-            obj = obj@abstract.hashCode(ice_exid, ice_exmsg, if_);
-            obj.instanceof = instanceof;
-            obj.native = native;
+            obj = obj@abstract.hashCode(errID, msg);
         end
         function id = ice_id(~)
             id = '::abstract::import';

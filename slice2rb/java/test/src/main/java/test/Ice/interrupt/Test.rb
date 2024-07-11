@@ -21,9 +21,6 @@ module ::Test
 
     if not defined?(::Test::InterruptedException)
         class InterruptedException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Test::InterruptedException'
             end
@@ -80,9 +77,6 @@ module ::Test
 
     if not defined?(::Test::CannotInterruptException)
         class CannotInterruptException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Test::CannotInterruptException'
             end

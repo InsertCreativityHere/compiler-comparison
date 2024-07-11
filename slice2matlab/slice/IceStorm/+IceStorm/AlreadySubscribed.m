@@ -7,14 +7,14 @@
 
 classdef AlreadySubscribed < Ice.UserException
     methods
-        function obj = AlreadySubscribed(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceStorm:AlreadySubscribed';
+        function obj = AlreadySubscribed(errID, msg)
+            if nargin == 0
+                errID = 'IceStorm:AlreadySubscribed';
+                msg = 'IceStorm.AlreadySubscribed';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceStorm.AlreadySubscribed';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceStorm::AlreadySubscribed';

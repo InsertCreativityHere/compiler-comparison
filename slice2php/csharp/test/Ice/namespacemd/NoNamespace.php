@@ -91,11 +91,6 @@ namespace NoNamespace
     global $NoNamespace__t_E1;
     class E1 extends \Ice\UserException
     {
-        public function __construct($i=0)
-        {
-            $this->i = $i;
-        }
-
         public function ice_id()
         {
             return '::NoNamespace::E1';
@@ -120,12 +115,6 @@ namespace NoNamespace
     global $NoNamespace__t_E2;
     class E2 extends \NoNamespace\E1
     {
-        public function __construct($i=0, $l=0)
-        {
-            parent::__construct($i);
-            $this->l = $l;
-        }
-
         public function ice_id()
         {
             return '::NoNamespace::E2';
@@ -150,11 +139,6 @@ namespace NoNamespace
     global $NoNamespace__t_notify;
     class notify extends \Ice\UserException
     {
-        public function __construct($i=0)
-        {
-            $this->i = $i;
-        }
-
         public function ice_id()
         {
             return '::NoNamespace::notify';

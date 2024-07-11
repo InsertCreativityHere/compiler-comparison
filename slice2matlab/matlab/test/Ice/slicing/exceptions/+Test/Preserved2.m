@@ -11,22 +11,14 @@ classdef Preserved2 < Test.Preserved1
         p2
     end
     methods
-        function obj = Preserved2(ice_exid, ice_exmsg, b, kp, kpd, p1, p2)
-            if nargin <= 2
-                b = '';
-                kp = '';
-                kpd = '';
-                p1 = [];
-                p2 = [];
+        function obj = Preserved2(errID, msg)
+            if nargin == 0
+                errID = 'Test:Preserved2';
+                msg = 'Test.Preserved2';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:Preserved2';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.Preserved2';
-            end
-            obj = obj@Test.Preserved1(ice_exid, ice_exmsg, b, kp, kpd, p1);
-            obj.p2 = p2;
+            obj = obj@Test.Preserved1(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::Preserved2';

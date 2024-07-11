@@ -206,11 +206,6 @@ namespace _abstract
     global $abstract__t_hashCode;
     class hashCode extends \Ice\UserException
     {
-        public function __construct($_if=0)
-        {
-            $this->_if = $_if;
-        }
-
         public function ice_id()
         {
             return '::abstract::hashCode';
@@ -235,13 +230,6 @@ namespace _abstract
     global $abstract__t_import;
     class import extends \_abstract\hashCode
     {
-        public function __construct($_if=0, $_instanceof=0, $native=0)
-        {
-            parent::__construct($_if);
-            $this->_instanceof = $_instanceof;
-            $this->native = $native;
-        }
-
         public function ice_id()
         {
             return '::abstract::import';

@@ -20,10 +20,6 @@ module ::Test
 
     if not defined?(::Test::Base)
         class Base < Ice::UserException
-            def initialize(b='')
-                @b = b
-            end
-
             def to_s
                 '::Test::Base'
             end
@@ -36,11 +32,6 @@ module ::Test
 
     if not defined?(::Test::KnownDerived)
         class KnownDerived < ::Test::Base
-            def initialize(b='', kd='')
-                super(b)
-                @kd = kd
-            end
-
             def to_s
                 '::Test::KnownDerived'
             end
@@ -53,11 +44,6 @@ module ::Test
 
     if not defined?(::Test::KnownIntermediate)
         class KnownIntermediate < ::Test::Base
-            def initialize(b='', ki='')
-                super(b)
-                @ki = ki
-            end
-
             def to_s
                 '::Test::KnownIntermediate'
             end
@@ -70,11 +56,6 @@ module ::Test
 
     if not defined?(::Test::KnownMostDerived)
         class KnownMostDerived < ::Test::KnownIntermediate
-            def initialize(b='', ki='', kmd='')
-                super(b, ki)
-                @kmd = kmd
-            end
-
             def to_s
                 '::Test::KnownMostDerived'
             end
@@ -178,11 +159,6 @@ module ::Test
 
     if not defined?(::Test::UnknownDerived)
         class UnknownDerived < ::Test::Base
-            def initialize(b='', ud='')
-                super(b)
-                @ud = ud
-            end
-
             def to_s
                 '::Test::UnknownDerived'
             end
@@ -195,11 +171,6 @@ module ::Test
 
     if not defined?(::Test::UnknownIntermediate)
         class UnknownIntermediate < ::Test::Base
-            def initialize(b='', ui='')
-                super(b)
-                @ui = ui
-            end
-
             def to_s
                 '::Test::UnknownIntermediate'
             end
@@ -212,11 +183,6 @@ module ::Test
 
     if not defined?(::Test::UnknownMostDerived1)
         class UnknownMostDerived1 < ::Test::KnownIntermediate
-            def initialize(b='', ki='', umd1='')
-                super(b, ki)
-                @umd1 = umd1
-            end
-
             def to_s
                 '::Test::UnknownMostDerived1'
             end
@@ -229,11 +195,6 @@ module ::Test
 
     if not defined?(::Test::UnknownMostDerived2)
         class UnknownMostDerived2 < ::Test::UnknownIntermediate
-            def initialize(b='', ui='', umd2='')
-                super(b, ui)
-                @umd2 = umd2
-            end
-
             def to_s
                 '::Test::UnknownMostDerived2'
             end

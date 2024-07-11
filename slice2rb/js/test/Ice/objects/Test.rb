@@ -361,11 +361,6 @@ module ::Test
 
     if not defined?(::Test::EBase)
         class EBase < Ice::UserException
-            def initialize(a1=nil, a2=nil)
-                @a1 = a1
-                @a2 = a2
-            end
-
             def to_s
                 '::Test::EBase'
             end
@@ -381,12 +376,6 @@ module ::Test
 
     if not defined?(::Test::EDerived)
         class EDerived < ::Test::EBase
-            def initialize(a1=nil, a2=nil, a3=nil, a4=nil)
-                super(a1, a2)
-                @a3 = a3
-                @a4 = a4
-            end
-
             def to_s
                 '::Test::EDerived'
             end
@@ -424,10 +413,6 @@ module ::Test
 
         if not defined?(::Test::Inner::Ex)
             class Ex < Ice::UserException
-                def initialize(reason='')
-                    @reason = reason
-                end
-
                 def to_s
                     '::Test::Inner::Ex'
                 end
@@ -462,10 +447,6 @@ module ::Test
 
             if not defined?(::Test::Inner::Sub::Ex)
                 class Ex < Ice::UserException
-                    def initialize(reason='')
-                        @reason = reason
-                    end
-
                     def to_s
                         '::Test::Inner::Sub::Ex'
                     end
@@ -913,10 +894,6 @@ module ::Test
 
     if not defined?(::Test::EOneMember)
         class EOneMember < Ice::UserException
-            def initialize(e=nil)
-                @e = e
-            end
-
             def to_s
                 '::Test::EOneMember'
             end
@@ -929,11 +906,6 @@ module ::Test
 
     if not defined?(::Test::ETwoMembers)
         class ETwoMembers < Ice::UserException
-            def initialize(e1=nil, e2=nil)
-                @e1 = e1
-                @e2 = e2
-            end
-
             def to_s
                 '::Test::ETwoMembers'
             end

@@ -7,14 +7,14 @@
 
 classdef RemoteLoggerAlreadyAttachedException < Ice.UserException
     methods
-        function obj = RemoteLoggerAlreadyAttachedException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Ice:RemoteLoggerAlreadyAttachedException';
+        function obj = RemoteLoggerAlreadyAttachedException(errID, msg)
+            if nargin == 0
+                errID = 'Ice:RemoteLoggerAlreadyAttachedException';
+                msg = 'Ice.RemoteLoggerAlreadyAttachedException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Ice.RemoteLoggerAlreadyAttachedException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Ice::RemoteLoggerAlreadyAttachedException';

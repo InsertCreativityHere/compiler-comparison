@@ -317,12 +317,6 @@ namespace Test
     global $Test__t_Ex;
     class Ex extends \Ice\UserException
     {
-        public function __construct($s=null, $b=null)
-        {
-            $this->s = is_null($s) ? new \Test\Struct1 : $s;
-            $this->b = $b;
-        }
-
         public function ice_id()
         {
             return '::Test::Ex';

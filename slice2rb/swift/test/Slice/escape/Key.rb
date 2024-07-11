@@ -235,10 +235,6 @@ module ::And
 
     if not defined?(::And::Return)
         class Return < Ice::UserException
-            def initialize(int32=0)
-                @Int32 = int32
-            end
-
             def to_s
                 '::and::return'
             end
@@ -251,12 +247,6 @@ module ::And
 
     if not defined?(::And::As)
         class As < ::And::Return
-            def initialize(int32=0, static=0, switch=0)
-                super(int32)
-                @static = static
-                @switch = switch
-            end
-
             def to_s
                 '::and::as'
             end

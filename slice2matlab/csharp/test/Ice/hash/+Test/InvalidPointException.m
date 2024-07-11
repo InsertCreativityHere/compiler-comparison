@@ -11,18 +11,14 @@ classdef InvalidPointException < Test.BaseException
         index int32
     end
     methods
-        function obj = InvalidPointException(ice_exid, ice_exmsg, index)
-            if nargin <= 2
-                index = 0;
+        function obj = InvalidPointException(errID, msg)
+            if nargin == 0
+                errID = 'Test:InvalidPointException';
+                msg = 'Test.InvalidPointException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:InvalidPointException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.InvalidPointException';
-            end
-            obj = obj@Test.BaseException(ice_exid, ice_exmsg);
-            obj.index = index;
+            obj = obj@Test.BaseException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::InvalidPointException';

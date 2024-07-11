@@ -116,12 +116,6 @@ module ::Test
 
     if not defined?(::Test::UnknownDerivedException)
         class UnknownDerivedException < ::Test::BaseException
-            def initialize(sbe='', pb=nil, sude='', pd2=nil)
-                super(sbe, pb)
-                @sude = sude
-                @pd2 = pd2
-            end
-
             def to_s
                 '::Test::UnknownDerivedException'
             end
@@ -205,10 +199,6 @@ module ::Test
 
     if not defined?(::Test::PSUnknownException)
         class PSUnknownException < ::Test::PreservedException
-            def initialize(p=nil)
-                @p = p
-            end
-
             def to_s
                 '::Test::PSUnknownException'
             end

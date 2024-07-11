@@ -25,10 +25,6 @@ namespace IceBox
     global $IceBox__t_AlreadyStartedException;
     class AlreadyStartedException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::IceBox::AlreadyStartedException';
@@ -49,10 +45,6 @@ namespace IceBox
     global $IceBox__t_AlreadyStoppedException;
     class AlreadyStoppedException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::IceBox::AlreadyStoppedException';
@@ -73,10 +65,6 @@ namespace IceBox
     global $IceBox__t_NoSuchServiceException;
     class NoSuchServiceException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::IceBox::NoSuchServiceException';

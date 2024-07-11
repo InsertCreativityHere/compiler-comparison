@@ -176,12 +176,6 @@ namespace Clash
     global $Clash__t_Ex;
     class Ex extends \Ice\UserException
     {
-        public function __construct($istr=0, $ostr=0)
-        {
-            $this->istr = $istr;
-            $this->ostr = $ostr;
-        }
-
         public function ice_id()
         {
             return '::Clash::Ex';

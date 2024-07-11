@@ -492,11 +492,6 @@ namespace Test
     global $Test__t_MyException;
     class MyException extends \Ice\UserException
     {
-        public function __construct($c=null)
-        {
-            $this->c = $c;
-        }
-
         public function ice_id()
         {
             return '::Test::MyException';
@@ -590,11 +585,6 @@ namespace Test\Sub
     global $Test_Sub__t_NestedException;
     class NestedException extends \Ice\UserException
     {
-        public function __construct($str='')
-        {
-            $this->str = $str;
-        }
-
         public function ice_id()
         {
             return '::Test::Sub::NestedException';
@@ -688,11 +678,6 @@ namespace Test2\Sub2
     global $Test2_Sub2__t_NestedException2;
     class NestedException2 extends \Ice\UserException
     {
-        public function __construct($str='')
-        {
-            $this->str = $str;
-        }
-
         public function ice_id()
         {
             return '::Test2::Sub2::NestedException2';

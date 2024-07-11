@@ -585,25 +585,6 @@ module ::Test
 
     if not defined?(::Test::BaseEx)
         class BaseEx < Ice::UserException
-            def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0)
-                @boolFalse = boolFalse
-                @boolTrue = boolTrue
-                @b = b
-                @s = s
-                @i = i
-                @l = l
-                @f = f
-                @d = d
-                @str = str
-                @noDefault = noDefault
-                @zeroI = zeroI
-                @zeroL = zeroL
-                @zeroF = zeroF
-                @zeroDotF = zeroDotF
-                @zeroD = zeroD
-                @zeroDotD = zeroDotD
-            end
-
             def to_s
                 '::Test::BaseEx'
             end
@@ -633,16 +614,6 @@ module ::Test
 
     if not defined?(::Test::DerivedEx)
         class DerivedEx < ::Test::BaseEx
-            def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0, c1=::Test::ConstColor1, c2=::Test::ConstColor2, c3=::Test::ConstColor3, nc1=::Test::ConstNestedColor1, nc2=::Test::ConstNestedColor2, nc3=::Test::ConstNestedColor3)
-                super(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
-                @c1 = c1
-                @c2 = c2
-                @c3 = c3
-                @nc1 = nc1
-                @nc2 = nc2
-                @nc3 = nc3
-            end
-
             def to_s
                 '::Test::DerivedEx'
             end

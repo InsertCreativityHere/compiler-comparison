@@ -17,20 +17,14 @@ classdef ServerUnreachableException < Ice.UserException
         reason char
     end
     methods
-        function obj = ServerUnreachableException(ice_exid, ice_exmsg, name, reason)
-            if nargin <= 2
-                name = '';
-                reason = '';
+        function obj = ServerUnreachableException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:ServerUnreachableException';
+                msg = 'IceGrid.ServerUnreachableException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:ServerUnreachableException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.ServerUnreachableException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.name = name;
-            obj.reason = reason;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::ServerUnreachableException';

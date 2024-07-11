@@ -21,44 +21,14 @@ classdef DerivedEx < Test.BaseEx
         nc3 Test.Nested.Color
     end
     methods
-        function obj = DerivedEx(ice_exid, ice_exmsg, boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3)
-            if nargin <= 2
-                boolFalse = false;
-                boolTrue = true;
-                b = 1;
-                s = 2;
-                i = 3;
-                l = 4;
-                f = 5.1;
-                d = 6.2;
-                str = sprintf('foo \\ "bar\n \r\n\t\v\f\a\b?');
-                noDefault = '';
-                zeroI = 0;
-                zeroL = 0;
-                zeroF = 0;
-                zeroDotF = 0;
-                zeroD = 0;
-                zeroDotD = 0;
-                c1 = Test.ConstColor1.value;
-                c2 = Test.ConstColor2.value;
-                c3 = Test.ConstColor3.value;
-                nc1 = Test.ConstNestedColor1.value;
-                nc2 = Test.ConstNestedColor2.value;
-                nc3 = Test.ConstNestedColor3.value;
+        function obj = DerivedEx(errID, msg)
+            if nargin == 0
+                errID = 'Test:DerivedEx';
+                msg = 'Test.DerivedEx';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:DerivedEx';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.DerivedEx';
-            end
-            obj = obj@Test.BaseEx(ice_exid, ice_exmsg, boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
-            obj.c1 = c1;
-            obj.c2 = c2;
-            obj.c3 = c3;
-            obj.nc1 = nc1;
-            obj.nc2 = nc2;
-            obj.nc3 = nc3;
+            obj = obj@Test.BaseEx(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::DerivedEx';

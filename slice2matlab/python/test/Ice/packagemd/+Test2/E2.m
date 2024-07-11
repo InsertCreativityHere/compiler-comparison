@@ -11,19 +11,14 @@ classdef E2 < Test2.E1
         l int64
     end
     methods
-        function obj = E2(ice_exid, ice_exmsg, i, l)
-            if nargin <= 2
-                i = 0;
-                l = 0;
+        function obj = E2(errID, msg)
+            if nargin == 0
+                errID = 'Test2:E2';
+                msg = 'Test2.E2';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test2:E2';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test2.E2';
-            end
-            obj = obj@Test2.E1(ice_exid, ice_exmsg, i);
-            obj.l = l;
+            obj = obj@Test2.E1(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test2::E2';

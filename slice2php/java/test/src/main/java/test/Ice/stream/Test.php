@@ -525,11 +525,6 @@ namespace Test
     global $Test__t_MyException;
     class MyException extends \Ice\UserException
     {
-        public function __construct($c=null)
-        {
-            $this->c = $c;
-        }
-
         public function ice_id()
         {
             return '::Test::MyException';

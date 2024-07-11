@@ -5,17 +5,14 @@
 
 classdef DerivedEx < Test.BaseEx
     methods
-        function obj = DerivedEx(ice_exid, ice_exmsg, reason)
-            if nargin <= 2
-                reason = '';
+        function obj = DerivedEx(errID, msg)
+            if nargin == 0
+                errID = 'Test:DerivedEx';
+                msg = 'Test.DerivedEx';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:DerivedEx';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.DerivedEx';
-            end
-            obj = obj@Test.BaseEx(ice_exid, ice_exmsg, reason);
+            obj = obj@Test.BaseEx(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::DerivedEx';

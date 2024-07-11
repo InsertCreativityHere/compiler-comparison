@@ -13,22 +13,14 @@ classdef DerivedException < Test.BaseException
         pd1
     end
     methods
-        function obj = DerivedException(ice_exid, ice_exmsg, sbe, pb, sde, pd1)
-            if nargin <= 2
-                sbe = '';
-                pb = [];
-                sde = '';
-                pd1 = [];
+        function obj = DerivedException(errID, msg)
+            if nargin == 0
+                errID = 'Test:DerivedException';
+                msg = 'Test.DerivedException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:DerivedException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.DerivedException';
-            end
-            obj = obj@Test.BaseException(ice_exid, ice_exmsg, sbe, pb);
-            obj.sde = sde;
-            obj.pd1 = pd1;
+            obj = obj@Test.BaseException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::DerivedException';

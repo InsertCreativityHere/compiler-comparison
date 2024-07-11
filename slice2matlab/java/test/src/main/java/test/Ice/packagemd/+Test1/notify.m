@@ -13,18 +13,14 @@ classdef notify < Ice.UserException
         i int32
     end
     methods
-        function obj = notify(ice_exid, ice_exmsg, i)
-            if nargin <= 2
-                i = 0;
+        function obj = notify(errID, msg)
+            if nargin == 0
+                errID = 'Test1:notify';
+                msg = 'Test1.notify';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test1:notify';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test1.notify';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.i = i;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test1::notify';

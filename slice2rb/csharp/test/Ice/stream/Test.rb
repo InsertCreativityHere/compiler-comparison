@@ -378,10 +378,6 @@ module ::Test
 
     if not defined?(::Test::MyException)
         class MyException < Ice::UserException
-            def initialize(c=nil)
-                @c = c
-            end
-
             def to_s
                 '::Test::MyException'
             end

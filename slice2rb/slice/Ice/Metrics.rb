@@ -102,9 +102,6 @@ module ::IceMX
 
     if not defined?(::IceMX::UnknownMetricsView)
         class UnknownMetricsView < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::IceMX::UnknownMetricsView'
             end

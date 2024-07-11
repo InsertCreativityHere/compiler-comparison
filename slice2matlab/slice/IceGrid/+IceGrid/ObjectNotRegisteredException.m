@@ -14,18 +14,14 @@ classdef ObjectNotRegisteredException < Ice.UserException
         id Ice.Identity
     end
     methods
-        function obj = ObjectNotRegisteredException(ice_exid, ice_exmsg, id)
-            if nargin <= 2
-                id = Ice.Identity();
+        function obj = ObjectNotRegisteredException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:ObjectNotRegisteredException';
+                msg = 'IceGrid.ObjectNotRegisteredException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:ObjectNotRegisteredException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.ObjectNotRegisteredException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.id = id;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::ObjectNotRegisteredException';

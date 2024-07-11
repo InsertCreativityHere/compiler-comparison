@@ -7,14 +7,14 @@
 
 classdef ServerNotFoundException < Ice.UserException
     methods
-        function obj = ServerNotFoundException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Ice:ServerNotFoundException';
+        function obj = ServerNotFoundException(errID, msg)
+            if nargin == 0
+                errID = 'Ice:ServerNotFoundException';
+                msg = 'Ice.ServerNotFoundException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Ice.ServerNotFoundException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Ice::ServerNotFoundException';

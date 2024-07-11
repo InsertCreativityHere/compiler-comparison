@@ -11,18 +11,14 @@ classdef PSUnknownException < Test.PreservedException
         p
     end
     methods
-        function obj = PSUnknownException(ice_exid, ice_exmsg, p)
-            if nargin <= 2
-                p = [];
+        function obj = PSUnknownException(errID, msg)
+            if nargin == 0
+                errID = 'Test:PSUnknownException';
+                msg = 'Test.PSUnknownException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:PSUnknownException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.PSUnknownException';
-            end
-            obj = obj@Test.PreservedException(ice_exid, ice_exmsg);
-            obj.p = p;
+            obj = obj@Test.PreservedException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::PSUnknownException';

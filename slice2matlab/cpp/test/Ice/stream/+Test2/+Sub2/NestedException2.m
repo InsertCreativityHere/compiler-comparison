@@ -11,18 +11,14 @@ classdef NestedException2 < Ice.UserException
         str char
     end
     methods
-        function obj = NestedException2(ice_exid, ice_exmsg, str)
-            if nargin <= 2
-                str = '';
+        function obj = NestedException2(errID, msg)
+            if nargin == 0
+                errID = 'Test2:Sub2:NestedException2';
+                msg = 'Test2.Sub2.NestedException2';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test2:Sub2:NestedException2';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test2.Sub2.NestedException2';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.str = str;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test2::Sub2::NestedException2';

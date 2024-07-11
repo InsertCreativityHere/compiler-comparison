@@ -13,22 +13,14 @@ classdef UnknownDerivedException < Test.BaseException
         pd2
     end
     methods
-        function obj = UnknownDerivedException(ice_exid, ice_exmsg, sbe, pb, sude, pd2)
-            if nargin <= 2
-                sbe = '';
-                pb = [];
-                sude = '';
-                pd2 = [];
+        function obj = UnknownDerivedException(errID, msg)
+            if nargin == 0
+                errID = 'Test:UnknownDerivedException';
+                msg = 'Test.UnknownDerivedException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:UnknownDerivedException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.UnknownDerivedException';
-            end
-            obj = obj@Test.BaseException(ice_exid, ice_exmsg, sbe, pb);
-            obj.sude = sude;
-            obj.pd2 = pd2;
+            obj = obj@Test.BaseException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::UnknownDerivedException';

@@ -73,10 +73,6 @@ module ::IceStorm
 
     if not defined?(::IceStorm::LinkExists)
         class LinkExists < Ice::UserException
-            def initialize(name='')
-                @name = name
-            end
-
             def to_s
                 '::IceStorm::LinkExists'
             end
@@ -89,10 +85,6 @@ module ::IceStorm
 
     if not defined?(::IceStorm::NoSuchLink)
         class NoSuchLink < Ice::UserException
-            def initialize(name='')
-                @name = name
-            end
-
             def to_s
                 '::IceStorm::NoSuchLink'
             end
@@ -105,9 +97,6 @@ module ::IceStorm
 
     if not defined?(::IceStorm::AlreadySubscribed)
         class AlreadySubscribed < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::IceStorm::AlreadySubscribed'
             end
@@ -118,10 +107,6 @@ module ::IceStorm
 
     if not defined?(::IceStorm::InvalidSubscriber)
         class InvalidSubscriber < Ice::UserException
-            def initialize(reason='')
-                @reason = reason
-            end
-
             def to_s
                 '::IceStorm::InvalidSubscriber'
             end
@@ -134,10 +119,6 @@ module ::IceStorm
 
     if not defined?(::IceStorm::BadQoS)
         class BadQoS < Ice::UserException
-            def initialize(reason='')
-                @reason = reason
-            end
-
             def to_s
                 '::IceStorm::BadQoS'
             end
@@ -225,10 +206,6 @@ module ::IceStorm
 
     if not defined?(::IceStorm::TopicExists)
         class TopicExists < Ice::UserException
-            def initialize(name='')
-                @name = name
-            end
-
             def to_s
                 '::IceStorm::TopicExists'
             end
@@ -241,10 +218,6 @@ module ::IceStorm
 
     if not defined?(::IceStorm::NoSuchTopic)
         class NoSuchTopic < Ice::UserException
-            def initialize(name='')
-                @name = name
-            end
-
             def to_s
                 '::IceStorm::NoSuchTopic'
             end

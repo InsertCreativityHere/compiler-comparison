@@ -17,20 +17,14 @@ classdef ServerStopException < Ice.UserException
         reason char
     end
     methods
-        function obj = ServerStopException(ice_exid, ice_exmsg, id, reason)
-            if nargin <= 2
-                id = '';
-                reason = '';
+        function obj = ServerStopException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:ServerStopException';
+                msg = 'IceGrid.ServerStopException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:ServerStopException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.ServerStopException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.id = id;
-            obj.reason = reason;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::ServerStopException';

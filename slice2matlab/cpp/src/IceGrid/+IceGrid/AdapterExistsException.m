@@ -13,18 +13,14 @@ classdef AdapterExistsException < Ice.UserException
         id char
     end
     methods
-        function obj = AdapterExistsException(ice_exid, ice_exmsg, id)
-            if nargin <= 2
-                id = '';
+        function obj = AdapterExistsException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:AdapterExistsException';
+                msg = 'IceGrid.AdapterExistsException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:AdapterExistsException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.AdapterExistsException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.id = id;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::AdapterExistsException';

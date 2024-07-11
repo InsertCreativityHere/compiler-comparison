@@ -144,9 +144,6 @@ module ::IceGrid
 
     if not defined?(::IceGrid::AdapterActiveException)
         class AdapterActiveException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::IceGrid::AdapterActiveException'
             end
@@ -157,10 +154,6 @@ module ::IceGrid
 
     if not defined?(::IceGrid::AdapterNotActiveException)
         class AdapterNotActiveException < Ice::UserException
-            def initialize(activatable=false)
-                @activatable = activatable
-            end
-
             def to_s
                 '::IceGrid::AdapterNotActiveException'
             end
@@ -209,10 +202,6 @@ module ::IceGrid
 
     if not defined?(::IceGrid::AdapterExistsException)
         class AdapterExistsException < Ice::UserException
-            def initialize(id='')
-                @id = id
-            end
-
             def to_s
                 '::IceGrid::AdapterExistsException'
             end
@@ -453,9 +442,6 @@ module ::IceGrid
 
     if not defined?(::IceGrid::NodeActiveException)
         class NodeActiveException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::IceGrid::NodeActiveException'
             end
@@ -527,9 +513,6 @@ module ::IceGrid
 
     if not defined?(::IceGrid::ReplicaActiveException)
         class ReplicaActiveException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::IceGrid::ReplicaActiveException'
             end

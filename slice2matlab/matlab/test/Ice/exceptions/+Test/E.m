@@ -11,18 +11,14 @@ classdef E < Ice.UserException
         data char
     end
     methods
-        function obj = E(ice_exid, ice_exmsg, data)
-            if nargin <= 2
-                data = '';
+        function obj = E(errID, msg)
+            if nargin == 0
+                errID = 'Test:E';
+                msg = 'Test.E';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:E';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.E';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.data = data;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::E';

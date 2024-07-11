@@ -11,18 +11,14 @@ classdef hashCode < Ice.UserException
         if_ int32
     end
     methods
-        function obj = hashCode(ice_exid, ice_exmsg, if_)
-            if nargin <= 2
-                if_ = 0;
+        function obj = hashCode(errID, msg)
+            if nargin == 0
+                errID = 'abstract:hashCode';
+                msg = 'abstract.hashCode';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'abstract:hashCode';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'abstract.hashCode';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.if_ = if_;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::abstract::hashCode';

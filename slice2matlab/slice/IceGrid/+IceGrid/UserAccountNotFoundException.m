@@ -7,14 +7,14 @@
 
 classdef UserAccountNotFoundException < Ice.UserException
     methods
-        function obj = UserAccountNotFoundException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:UserAccountNotFoundException';
+        function obj = UserAccountNotFoundException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:UserAccountNotFoundException';
+                msg = 'IceGrid.UserAccountNotFoundException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.UserAccountNotFoundException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::UserAccountNotFoundException';

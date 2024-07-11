@@ -13,21 +13,14 @@ classdef not < and.is
         pass int32
     end
     methods
-        function obj = not(ice_exid, ice_exmsg, lambda, or, pass)
-            if nargin <= 2
-                lambda = 0;
-                or = 0;
-                pass = 0;
+        function obj = not(errID, msg)
+            if nargin == 0
+                errID = 'and:not';
+                msg = 'and.not';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'and:not';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'and.not';
-            end
-            obj = obj@and.is(ice_exid, ice_exmsg, lambda);
-            obj.or = or;
-            obj.pass = pass;
+            obj = obj@and.is(errID, msg);
         end
         function id = ice_id(~)
             id = '::and::not';

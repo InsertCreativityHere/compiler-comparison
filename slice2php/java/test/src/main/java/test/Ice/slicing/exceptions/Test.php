@@ -20,11 +20,6 @@ namespace Test
     global $Test__t_Base;
     class Base extends \Ice\UserException
     {
-        public function __construct($b='')
-        {
-            $this->b = $b;
-        }
-
         public function ice_id()
         {
             return '::Test::Base';
@@ -49,12 +44,6 @@ namespace Test
     global $Test__t_KnownDerived;
     class KnownDerived extends \Test\Base
     {
-        public function __construct($b='', $kd='')
-        {
-            parent::__construct($b);
-            $this->kd = $kd;
-        }
-
         public function ice_id()
         {
             return '::Test::KnownDerived';
@@ -79,12 +68,6 @@ namespace Test
     global $Test__t_KnownIntermediate;
     class KnownIntermediate extends \Test\Base
     {
-        public function __construct($b='', $ki='')
-        {
-            parent::__construct($b);
-            $this->ki = $ki;
-        }
-
         public function ice_id()
         {
             return '::Test::KnownIntermediate';
@@ -109,12 +92,6 @@ namespace Test
     global $Test__t_KnownMostDerived;
     class KnownMostDerived extends \Test\KnownIntermediate
     {
-        public function __construct($b='', $ki='', $kmd='')
-        {
-            parent::__construct($b, $ki);
-            $this->kmd = $kmd;
-        }
-
         public function ice_id()
         {
             return '::Test::KnownMostDerived';
@@ -139,12 +116,6 @@ namespace Test
     global $Test__t_KnownPreserved;
     class KnownPreserved extends \Test\Base
     {
-        public function __construct($b='', $kp='')
-        {
-            parent::__construct($b);
-            $this->kp = $kp;
-        }
-
         public function ice_id()
         {
             return '::Test::KnownPreserved';
@@ -169,12 +140,6 @@ namespace Test
     global $Test__t_KnownPreservedDerived;
     class KnownPreservedDerived extends \Test\KnownPreserved
     {
-        public function __construct($b='', $kp='', $kpd='')
-        {
-            parent::__construct($b, $kp);
-            $this->kpd = $kpd;
-        }
-
         public function ice_id()
         {
             return '::Test::KnownPreservedDerived';

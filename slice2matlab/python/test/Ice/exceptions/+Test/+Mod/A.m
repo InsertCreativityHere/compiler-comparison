@@ -11,19 +11,14 @@ classdef A < Test.A
         a2Mem int32
     end
     methods
-        function obj = A(ice_exid, ice_exmsg, aMem, a2Mem)
-            if nargin <= 2
-                aMem = 0;
-                a2Mem = 0;
+        function obj = A(errID, msg)
+            if nargin == 0
+                errID = 'Test:Mod:A';
+                msg = 'Test.Mod.A';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:Mod:A';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.Mod.A';
-            end
-            obj = obj@Test.A(ice_exid, ice_exmsg, aMem);
-            obj.a2Mem = a2Mem;
+            obj = obj@Test.A(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::Mod::A';

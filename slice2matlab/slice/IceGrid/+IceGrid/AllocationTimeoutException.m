@@ -7,17 +7,14 @@
 
 classdef AllocationTimeoutException < IceGrid.AllocationException
     methods
-        function obj = AllocationTimeoutException(ice_exid, ice_exmsg, reason)
-            if nargin <= 2
-                reason = '';
+        function obj = AllocationTimeoutException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:AllocationTimeoutException';
+                msg = 'IceGrid.AllocationTimeoutException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:AllocationTimeoutException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.AllocationTimeoutException';
-            end
-            obj = obj@IceGrid.AllocationException(ice_exid, ice_exmsg, reason);
+            obj = obj@IceGrid.AllocationException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::AllocationTimeoutException';

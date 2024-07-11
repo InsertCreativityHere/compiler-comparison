@@ -63,10 +63,6 @@ module ::IceStormElection
 
     if not defined?(::IceStormElection::ObserverInconsistencyException)
         class ObserverInconsistencyException < Ice::UserException
-            def initialize(reason='')
-                @reason = reason
-            end
-
             def to_s
                 '::IceStormElection::ObserverInconsistencyException'
             end

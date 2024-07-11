@@ -20,10 +20,6 @@ namespace Test
     global $Test__t_BaseException;
     class BaseException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Test::BaseException';
@@ -44,12 +40,6 @@ namespace Test
     global $Test__t_InvalidPointException;
     class InvalidPointException extends \Test\BaseException
     {
-        public function __construct($index=0)
-        {
-            parent::__construct();
-            $this->index = $index;
-        }
-
         public function ice_id()
         {
             return '::Test::InvalidPointException';
@@ -74,12 +64,6 @@ namespace Test
     global $Test__t_InvalidLengthException;
     class InvalidLengthException extends \Test\BaseException
     {
-        public function __construct($length=0)
-        {
-            parent::__construct();
-            $this->length = $length;
-        }
-
         public function ice_id()
         {
             return '::Test::InvalidLengthException';
@@ -104,14 +88,6 @@ namespace Test
     global $Test__t_OtherException;
     class OtherException extends \Ice\UserException
     {
-        public function __construct($x=0, $y=0, $z=0, $b=false)
-        {
-            $this->x = $x;
-            $this->y = $y;
-            $this->z = $z;
-            $this->b = $b;
-        }
-
         public function ice_id()
         {
             return '::Test::OtherException';

@@ -13,21 +13,14 @@ classdef nil < BEGIN.next
         or int32
     end
     methods
-        function obj = nil(ice_exid, ice_exmsg, new, not, or)
-            if nargin <= 2
-                new = 0;
-                not = 0;
-                or = 0;
+        function obj = nil(errID, msg)
+            if nargin == 0
+                errID = 'BEGIN:nil';
+                msg = 'BEGIN.nil';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'BEGIN:nil';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'BEGIN.nil';
-            end
-            obj = obj@BEGIN.next(ice_exid, ice_exmsg, new);
-            obj.not = not;
-            obj.or = or;
+            obj = obj@BEGIN.next(errID, msg);
         end
         function id = ice_id(~)
             id = '::BEGIN::nil';

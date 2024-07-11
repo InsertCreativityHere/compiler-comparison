@@ -267,10 +267,6 @@ module ::And
 
     if not defined?(::And::Endif)
         class Endif < Ice::UserException
-            def initialize(endswitch=0)
-                @endswitch = endswitch
-            end
-
             def to_s
                 '::and::endif'
             end
@@ -283,12 +279,6 @@ module ::And
 
     if not defined?(::And::Endwhile)
         class Endwhile < ::And::Endif
-            def initialize(endswitch=0, eval=0, exit=0)
-                super(endswitch)
-                @eval = eval
-                @exit = exit
-            end
-
             def to_s
                 '::and::endwhile'
             end

@@ -298,12 +298,6 @@ namespace Test
     global $Test__t_BaseException;
     class BaseException extends \Ice\UserException
     {
-        public function __construct($sbe='', $pb=null)
-        {
-            $this->sbe = $sbe;
-            $this->pb = $pb;
-        }
-
         public function ice_id()
         {
             return '::Test::BaseException';
@@ -331,13 +325,6 @@ namespace Test
     global $Test__t_DerivedException;
     class DerivedException extends \Test\BaseException
     {
-        public function __construct($sbe='', $pb=null, $sde='', $pd1=null)
-        {
-            parent::__construct($sbe, $pb);
-            $this->sde = $sde;
-            $this->pd1 = $pd1;
-        }
-
         public function ice_id()
         {
             return '::Test::DerivedException';
@@ -569,10 +556,6 @@ namespace Test
     global $Test__t_PreservedException;
     class PreservedException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Test::PreservedException';

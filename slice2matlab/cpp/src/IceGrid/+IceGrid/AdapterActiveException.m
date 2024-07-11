@@ -7,14 +7,14 @@
 
 classdef AdapterActiveException < Ice.UserException
     methods
-        function obj = AdapterActiveException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:AdapterActiveException';
+        function obj = AdapterActiveException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:AdapterActiveException';
+                msg = 'IceGrid.AdapterActiveException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.AdapterActiveException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::AdapterActiveException';

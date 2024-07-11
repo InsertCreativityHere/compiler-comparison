@@ -13,20 +13,14 @@ classdef Ex < Ice.UserException
         b
     end
     methods
-        function obj = Ex(ice_exid, ice_exmsg, s, b)
-            if nargin <= 2
-                s = Test.Struct1();
-                b = [];
+        function obj = Ex(errID, msg)
+            if nargin == 0
+                errID = 'Test:Ex';
+                msg = 'Test.Ex';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:Ex';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.Ex';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.s = s;
-            obj.b = b;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::Ex';

@@ -465,12 +465,6 @@ module ::Test
 
     if not defined?(::Test::OptionalException)
         class OptionalException < Ice::UserException
-            def initialize(req=false, a=5, b=::Ice::Unset)
-                @req = req
-                @a = a
-                @b = b
-            end
-
             def to_s
                 '::Test::OptionalException'
             end
@@ -487,13 +481,6 @@ module ::Test
 
     if not defined?(::Test::DerivedException)
         class DerivedException < ::Test::OptionalException
-            def initialize(req=false, a=5, b=::Ice::Unset, d1='', ss="test", d2='')
-                super(req, a, b)
-                @d1 = d1
-                @ss = ss
-                @d2 = d2
-            end
-
             def to_s
                 '::Test::DerivedException'
             end
@@ -510,11 +497,6 @@ module ::Test
 
     if not defined?(::Test::RequiredException)
         class RequiredException < ::Test::OptionalException
-            def initialize(req=false, a=5, b=::Ice::Unset, ss="test")
-                super(req, a, b)
-                @ss = ss
-            end
-
             def to_s
                 '::Test::RequiredException'
             end

@@ -20,11 +20,6 @@ namespace Test
     global $Test__t_UserError;
     class UserError extends \Ice\UserException
     {
-        public function __construct($message='')
-        {
-            $this->message = $message;
-        }
-
         public function ice_id()
         {
             return '::Test::UserError';

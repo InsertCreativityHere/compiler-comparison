@@ -12,18 +12,14 @@ classdef AdapterNotActiveException < Ice.UserException
         activatable logical
     end
     methods
-        function obj = AdapterNotActiveException(ice_exid, ice_exmsg, activatable)
-            if nargin <= 2
-                activatable = false;
+        function obj = AdapterNotActiveException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:AdapterNotActiveException';
+                msg = 'IceGrid.AdapterNotActiveException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:AdapterNotActiveException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.AdapterNotActiveException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.activatable = activatable;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::AdapterNotActiveException';

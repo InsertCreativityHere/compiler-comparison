@@ -5,14 +5,14 @@
 
 classdef InterruptedException < Ice.UserException
     methods
-        function obj = InterruptedException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:InterruptedException';
+        function obj = InterruptedException(errID, msg)
+            if nargin == 0
+                errID = 'Test:InterruptedException';
+                msg = 'Test.InterruptedException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.InterruptedException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::InterruptedException';

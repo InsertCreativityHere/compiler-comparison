@@ -94,10 +94,6 @@ module ::Test
 
         if not defined?(::Test::Common::TestCaseNotExistException)
             class TestCaseNotExistException < Ice::UserException
-                def initialize(reason='')
-                    @reason = reason
-                end
-
                 def to_s
                     '::Test::Common::TestCaseNotExistException'
                 end
@@ -110,10 +106,6 @@ module ::Test
 
         if not defined?(::Test::Common::TestCaseFailedException)
             class TestCaseFailedException < Ice::UserException
-                def initialize(output='')
-                    @output = output
-                end
-
                 def to_s
                     '::Test::Common::TestCaseFailedException'
                 end
@@ -208,10 +200,6 @@ module ::Test
 
         if not defined?(::Test::Common::ProcessFailedException)
             class ProcessFailedException < Ice::UserException
-                def initialize(reason='')
-                    @reason = reason
-                end
-
                 def to_s
                     '::Test::Common::ProcessFailedException'
                 end

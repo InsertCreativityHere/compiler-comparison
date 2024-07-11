@@ -25,10 +25,6 @@ module ::Test
 
     if not defined?(::Test::A)
         class A < Ice::UserException
-            def initialize(aMem=0)
-                @aMem = aMem
-            end
-
             def to_s
                 '::Test::A'
             end
@@ -41,11 +37,6 @@ module ::Test
 
     if not defined?(::Test::B)
         class B < ::Test::A
-            def initialize(aMem=0, bMem=0)
-                super(aMem)
-                @bMem = bMem
-            end
-
             def to_s
                 '::Test::B'
             end
@@ -58,11 +49,6 @@ module ::Test
 
     if not defined?(::Test::C)
         class C < ::Test::B
-            def initialize(aMem=0, bMem=0, cMem=0)
-                super(aMem, bMem)
-                @cMem = cMem
-            end
-
             def to_s
                 '::Test::C'
             end
@@ -75,10 +61,6 @@ module ::Test
 
     if not defined?(::Test::D)
         class D < Ice::UserException
-            def initialize(dMem=0)
-                @dMem = dMem
-            end
-
             def to_s
                 '::Test::D'
             end

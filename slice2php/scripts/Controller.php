@@ -145,11 +145,6 @@ namespace Test\Common
     global $Test_Common__t_TestCaseNotExistException;
     class TestCaseNotExistException extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::Test::Common::TestCaseNotExistException';
@@ -174,11 +169,6 @@ namespace Test\Common
     global $Test_Common__t_TestCaseFailedException;
     class TestCaseFailedException extends \Ice\UserException
     {
-        public function __construct($output='')
-        {
-            $this->output = $output;
-        }
-
         public function ice_id()
         {
             return '::Test::Common::TestCaseFailedException';
@@ -275,11 +265,6 @@ namespace Test\Common
     global $Test_Common__t_ProcessFailedException;
     class ProcessFailedException extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::Test::Common::ProcessFailedException';

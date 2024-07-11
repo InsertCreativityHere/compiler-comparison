@@ -647,12 +647,6 @@ namespace Test
     global $Test__t_EBase;
     class EBase extends \Ice\UserException
     {
-        public function __construct($a1=null, $a2=null)
-        {
-            $this->a1 = $a1;
-            $this->a2 = $a2;
-        }
-
         public function ice_id()
         {
             return '::Test::EBase';
@@ -679,13 +673,6 @@ namespace Test
     global $Test__t_EDerived;
     class EDerived extends \Test\EBase
     {
-        public function __construct($a1=null, $a2=null, $a3=null, $a4=null)
-        {
-            parent::__construct($a1, $a2);
-            $this->a3 = $a3;
-            $this->a4 = $a4;
-        }
-
         public function ice_id()
         {
             return '::Test::EDerived';
@@ -1143,11 +1130,6 @@ namespace Test
     global $Test__t_EOneMember;
     class EOneMember extends \Ice\UserException
     {
-        public function __construct($e=null)
-        {
-            $this->e = $e;
-        }
-
         public function ice_id()
         {
             return '::Test::EOneMember';
@@ -1172,12 +1154,6 @@ namespace Test
     global $Test__t_ETwoMembers;
     class ETwoMembers extends \Ice\UserException
     {
-        public function __construct($e1=null, $e2=null)
-        {
-            $this->e1 = $e1;
-            $this->e2 = $e2;
-        }
-
         public function ice_id()
         {
             return '::Test::ETwoMembers';

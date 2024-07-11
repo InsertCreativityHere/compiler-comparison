@@ -11,19 +11,14 @@ classdef KnownDerived < Test.Base
         kd char
     end
     methods
-        function obj = KnownDerived(ice_exid, ice_exmsg, b, kd)
-            if nargin <= 2
-                b = '';
-                kd = '';
+        function obj = KnownDerived(errID, msg)
+            if nargin == 0
+                errID = 'Test:KnownDerived';
+                msg = 'Test.KnownDerived';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:KnownDerived';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.KnownDerived';
-            end
-            obj = obj@Test.Base(ice_exid, ice_exmsg, b);
-            obj.kd = kd;
+            obj = obj@Test.Base(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::KnownDerived';

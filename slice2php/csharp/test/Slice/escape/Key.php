@@ -283,11 +283,6 @@ namespace _abstract
     global $abstract__t_fixed;
     class fixed extends \Ice\UserException
     {
-        public function __construct($_for=0)
-        {
-            $this->_for = $_for;
-        }
-
         public function ice_id()
         {
             return '::abstract::fixed';
@@ -312,13 +307,6 @@ namespace _abstract
     global $abstract__t_foreach;
     class _foreach extends \_abstract\fixed
     {
-        public function __construct($_for=0, $_goto=0, $_if=0)
-        {
-            parent::__construct($_for);
-            $this->_goto = $_goto;
-            $this->_if = $_if;
-        }
-
         public function ice_id()
         {
             return '::abstract::foreach';
@@ -345,25 +333,6 @@ namespace _abstract
     global $abstract__t_BaseMethods;
     class BaseMethods extends \Ice\UserException
     {
-        public function __construct($Data=0, $HelpLink=0, $InnerException=0, $Message=0, $Source=0, $StackTrace=0, $TargetSite=0, $HResult=0, $Equals=0, $GetBaseException=0, $GetHashCode=0, $GetObjectData=0, $GetType=0, $ReferenceEquals=0, $ToString=0)
-        {
-            $this->Data = $Data;
-            $this->HelpLink = $HelpLink;
-            $this->InnerException = $InnerException;
-            $this->Message = $Message;
-            $this->Source = $Source;
-            $this->StackTrace = $StackTrace;
-            $this->TargetSite = $TargetSite;
-            $this->HResult = $HResult;
-            $this->Equals = $Equals;
-            $this->GetBaseException = $GetBaseException;
-            $this->GetHashCode = $GetHashCode;
-            $this->GetObjectData = $GetObjectData;
-            $this->GetType = $GetType;
-            $this->ReferenceEquals = $ReferenceEquals;
-            $this->ToString = $ToString;
-        }
-
         public function ice_id()
         {
             return '::abstract::BaseMethods';

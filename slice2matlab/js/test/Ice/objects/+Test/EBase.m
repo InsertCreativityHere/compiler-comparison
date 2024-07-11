@@ -13,20 +13,14 @@ classdef EBase < Ice.UserException
         a2
     end
     methods
-        function obj = EBase(ice_exid, ice_exmsg, a1, a2)
-            if nargin <= 2
-                a1 = [];
-                a2 = [];
+        function obj = EBase(errID, msg)
+            if nargin == 0
+                errID = 'Test:EBase';
+                msg = 'Test.EBase';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:EBase';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.EBase';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.a1 = a1;
-            obj.a2 = a2;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::EBase';

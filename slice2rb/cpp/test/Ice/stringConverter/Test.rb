@@ -20,9 +20,6 @@ module ::Test
 
     if not defined?(::Test::BadEncodingException)
         class BadEncodingException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Test::BadEncodingException'
             end

@@ -14,18 +14,14 @@ classdef BadSignalException < Ice.UserException
         reason char
     end
     methods
-        function obj = BadSignalException(ice_exid, ice_exmsg, reason)
-            if nargin <= 2
-                reason = '';
+        function obj = BadSignalException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:BadSignalException';
+                msg = 'IceGrid.BadSignalException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:BadSignalException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.BadSignalException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.reason = reason;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::BadSignalException';

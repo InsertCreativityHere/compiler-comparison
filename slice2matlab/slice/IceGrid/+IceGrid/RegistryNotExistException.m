@@ -14,18 +14,14 @@ classdef RegistryNotExistException < Ice.UserException
         name char
     end
     methods
-        function obj = RegistryNotExistException(ice_exid, ice_exmsg, name)
-            if nargin <= 2
-                name = '';
+        function obj = RegistryNotExistException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:RegistryNotExistException';
+                msg = 'IceGrid.RegistryNotExistException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:RegistryNotExistException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.RegistryNotExistException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.name = name;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::RegistryNotExistException';

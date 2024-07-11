@@ -206,11 +206,6 @@ namespace _and
     global $and__t_is;
     class is extends \Ice\UserException
     {
-        public function __construct($lambda=0)
-        {
-            $this->lambda = $lambda;
-        }
-
         public function ice_id()
         {
             return '::and::is';
@@ -235,13 +230,6 @@ namespace _and
     global $and__t_not;
     class not extends \_and\is
     {
-        public function __construct($lambda=0, $_or=0, $pass=0)
-        {
-            parent::__construct($lambda);
-            $this->_or = $_or;
-            $this->pass = $pass;
-        }
-
         public function ice_id()
         {
             return '::and::not';

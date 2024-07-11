@@ -11,19 +11,14 @@ classdef UnknownDerived < Test.Base
         ud char
     end
     methods
-        function obj = UnknownDerived(ice_exid, ice_exmsg, b, ud)
-            if nargin <= 2
-                b = '';
-                ud = '';
+        function obj = UnknownDerived(errID, msg)
+            if nargin == 0
+                errID = 'Test:UnknownDerived';
+                msg = 'Test.UnknownDerived';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:UnknownDerived';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.UnknownDerived';
-            end
-            obj = obj@Test.Base(ice_exid, ice_exmsg, b);
-            obj.ud = ud;
+            obj = obj@Test.Base(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::UnknownDerived';

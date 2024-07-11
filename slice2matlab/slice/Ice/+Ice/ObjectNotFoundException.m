@@ -7,14 +7,14 @@
 
 classdef ObjectNotFoundException < Ice.UserException
     methods
-        function obj = ObjectNotFoundException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Ice:ObjectNotFoundException';
+        function obj = ObjectNotFoundException(errID, msg)
+            if nargin == 0
+                errID = 'Ice:ObjectNotFoundException';
+                msg = 'Ice.ObjectNotFoundException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Ice.ObjectNotFoundException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Ice::ObjectNotFoundException';

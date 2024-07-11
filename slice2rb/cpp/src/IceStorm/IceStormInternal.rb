@@ -97,9 +97,6 @@ module ::IceStorm
 
     if not defined?(::IceStorm::ReapWouldBlock)
         class ReapWouldBlock < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::IceStorm::ReapWouldBlock'
             end

@@ -57,10 +57,6 @@ module ::Test1
 
     if not defined?(::Test1::WstringException)
         class WstringException < Ice::UserException
-            def initialize(reason='')
-                @reason = reason
-            end
-
             def to_s
                 '::Test1::WstringException'
             end
@@ -149,10 +145,6 @@ module ::Test2
 
     if not defined?(::Test2::WstringException)
         class WstringException < Ice::UserException
-            def initialize(reason='')
-                @reason = reason
-            end
-
             def to_s
                 '::Test2::WstringException'
             end

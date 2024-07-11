@@ -61,10 +61,6 @@ module ::WithNamespace
 
     if not defined?(::WithNamespace::E1)
         class E1 < Ice::UserException
-            def initialize(i=0)
-                @i = i
-            end
-
             def to_s
                 '::WithNamespace::E1'
             end
@@ -77,11 +73,6 @@ module ::WithNamespace
 
     if not defined?(::WithNamespace::E2)
         class E2 < ::WithNamespace::E1
-            def initialize(i=0, l=0)
-                super(i)
-                @l = l
-            end
-
             def to_s
                 '::WithNamespace::E2'
             end

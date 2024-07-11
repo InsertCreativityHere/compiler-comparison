@@ -55,10 +55,6 @@ namespace Test
     global $Test__t_E;
     class E extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Test::E';

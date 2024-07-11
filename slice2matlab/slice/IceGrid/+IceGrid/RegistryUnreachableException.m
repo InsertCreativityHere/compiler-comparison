@@ -17,20 +17,14 @@ classdef RegistryUnreachableException < Ice.UserException
         reason char
     end
     methods
-        function obj = RegistryUnreachableException(ice_exid, ice_exmsg, name, reason)
-            if nargin <= 2
-                name = '';
-                reason = '';
+        function obj = RegistryUnreachableException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:RegistryUnreachableException';
+                msg = 'IceGrid.RegistryUnreachableException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:RegistryUnreachableException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.RegistryUnreachableException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.name = name;
-            obj.reason = reason;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::RegistryUnreachableException';

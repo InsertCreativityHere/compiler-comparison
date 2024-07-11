@@ -14,18 +14,14 @@ classdef AccessDeniedException < Ice.UserException
         lockUserId char
     end
     methods
-        function obj = AccessDeniedException(ice_exid, ice_exmsg, lockUserId)
-            if nargin <= 2
-                lockUserId = '';
+        function obj = AccessDeniedException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:AccessDeniedException';
+                msg = 'IceGrid.AccessDeniedException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:AccessDeniedException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.AccessDeniedException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.lockUserId = lockUserId;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::AccessDeniedException';

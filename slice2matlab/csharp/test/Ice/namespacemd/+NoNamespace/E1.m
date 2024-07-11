@@ -11,18 +11,14 @@ classdef E1 < Ice.UserException
         i int32
     end
     methods
-        function obj = E1(ice_exid, ice_exmsg, i)
-            if nargin <= 2
-                i = 0;
+        function obj = E1(errID, msg)
+            if nargin == 0
+                errID = 'NoNamespace:E1';
+                msg = 'NoNamespace.E1';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'NoNamespace:E1';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'NoNamespace.E1';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.i = i;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::NoNamespace::E1';

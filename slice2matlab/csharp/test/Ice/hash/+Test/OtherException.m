@@ -17,24 +17,14 @@ classdef OtherException < Ice.UserException
         b logical
     end
     methods
-        function obj = OtherException(ice_exid, ice_exmsg, x, y, z, b)
-            if nargin <= 2
-                x = 0;
-                y = 0;
-                z = 0;
-                b = false;
+        function obj = OtherException(errID, msg)
+            if nargin == 0
+                errID = 'Test:OtherException';
+                msg = 'Test.OtherException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:OtherException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.OtherException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.x = x;
-            obj.y = y;
-            obj.z = z;
-            obj.b = b;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::OtherException';

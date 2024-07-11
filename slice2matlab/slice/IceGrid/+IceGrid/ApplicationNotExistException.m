@@ -14,18 +14,14 @@ classdef ApplicationNotExistException < Ice.UserException
         name char
     end
     methods
-        function obj = ApplicationNotExistException(ice_exid, ice_exmsg, name)
-            if nargin <= 2
-                name = '';
+        function obj = ApplicationNotExistException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:ApplicationNotExistException';
+                msg = 'IceGrid.ApplicationNotExistException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:ApplicationNotExistException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.ApplicationNotExistException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.name = name;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::ApplicationNotExistException';

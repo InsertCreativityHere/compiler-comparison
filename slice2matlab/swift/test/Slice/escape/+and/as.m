@@ -13,21 +13,14 @@ classdef as < and.return_
         switch_ int32
     end
     methods
-        function obj = as(ice_exid, ice_exmsg, Int32, static, switch_)
-            if nargin <= 2
-                Int32 = 0;
-                static = 0;
-                switch_ = 0;
+        function obj = as(errID, msg)
+            if nargin == 0
+                errID = 'and:as';
+                msg = 'and.as';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'and:as';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'and.as';
-            end
-            obj = obj@and.return_(ice_exid, ice_exmsg, Int32);
-            obj.static = static;
-            obj.switch_ = switch_;
+            obj = obj@and.return_(errID, msg);
         end
         function id = ice_id(~)
             id = '::and::as';

@@ -300,10 +300,6 @@ module ::Await
 
     if not defined?(::Await::Fixed)
         class Fixed < Ice::UserException
-            def initialize(_for=0)
-                @_for = _for
-            end
-
             def to_s
                 '::await::fixed'
             end
@@ -316,12 +312,6 @@ module ::Await
 
     if not defined?(::Await::Foreach)
         class Foreach < ::Await::Fixed
-            def initialize(_for=0, goto=0, _if=0)
-                super(_for)
-                @goto = goto
-                @_if = _if
-            end
-
             def to_s
                 '::await::foreach'
             end
@@ -337,24 +327,6 @@ module ::Await
 
     if not defined?(::Await::BaseMethods)
         class BaseMethods < Ice::UserException
-            def initialize(data=0, helpLink=0, innerException=0, message=0, source=0, stackTrace=0, targetSite=0, hResult=0, equals=0, getBaseException=0, getHashCode=0, getObjectData=0, getType=0, referenceEquals=0, toString=0)
-                @Data = data
-                @HelpLink = helpLink
-                @InnerException = innerException
-                @Message = message
-                @Source = source
-                @StackTrace = stackTrace
-                @TargetSite = targetSite
-                @HResult = hResult
-                @Equals = equals
-                @GetBaseException = getBaseException
-                @GetHashCode = getHashCode
-                @GetObjectData = getObjectData
-                @GetType = getType
-                @ReferenceEquals = referenceEquals
-                @ToString = toString
-            end
-
             def to_s
                 '::await::BaseMethods'
             end

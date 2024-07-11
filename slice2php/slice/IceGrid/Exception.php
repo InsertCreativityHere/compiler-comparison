@@ -26,11 +26,6 @@ namespace IceGrid
     global $IceGrid__t_ApplicationNotExistException;
     class ApplicationNotExistException extends \Ice\UserException
     {
-        public function __construct($name='')
-        {
-            $this->name = $name;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::ApplicationNotExistException';
@@ -55,11 +50,6 @@ namespace IceGrid
     global $IceGrid__t_ServerNotExistException;
     class ServerNotExistException extends \Ice\UserException
     {
-        public function __construct($id='')
-        {
-            $this->id = $id;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::ServerNotExistException';
@@ -84,12 +74,6 @@ namespace IceGrid
     global $IceGrid__t_ServerStartException;
     class ServerStartException extends \Ice\UserException
     {
-        public function __construct($id='', $reason='')
-        {
-            $this->id = $id;
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::ServerStartException';
@@ -116,12 +100,6 @@ namespace IceGrid
     global $IceGrid__t_ServerStopException;
     class ServerStopException extends \Ice\UserException
     {
-        public function __construct($id='', $reason='')
-        {
-            $this->id = $id;
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::ServerStopException';
@@ -148,11 +126,6 @@ namespace IceGrid
     global $IceGrid__t_AdapterNotExistException;
     class AdapterNotExistException extends \Ice\UserException
     {
-        public function __construct($id='')
-        {
-            $this->id = $id;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::AdapterNotExistException';
@@ -177,11 +150,6 @@ namespace IceGrid
     global $IceGrid__t_ObjectExistsException;
     class ObjectExistsException extends \Ice\UserException
     {
-        public function __construct($id=null)
-        {
-            $this->id = is_null($id) ? new \Ice\Identity : $id;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::ObjectExistsException';
@@ -206,11 +174,6 @@ namespace IceGrid
     global $IceGrid__t_ObjectNotRegisteredException;
     class ObjectNotRegisteredException extends \Ice\UserException
     {
-        public function __construct($id=null)
-        {
-            $this->id = is_null($id) ? new \Ice\Identity : $id;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::ObjectNotRegisteredException';
@@ -235,11 +198,6 @@ namespace IceGrid
     global $IceGrid__t_NodeNotExistException;
     class NodeNotExistException extends \Ice\UserException
     {
-        public function __construct($name='')
-        {
-            $this->name = $name;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::NodeNotExistException';
@@ -264,11 +222,6 @@ namespace IceGrid
     global $IceGrid__t_RegistryNotExistException;
     class RegistryNotExistException extends \Ice\UserException
     {
-        public function __construct($name='')
-        {
-            $this->name = $name;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::RegistryNotExistException';
@@ -293,11 +246,6 @@ namespace IceGrid
     global $IceGrid__t_DeploymentException;
     class DeploymentException extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::DeploymentException';
@@ -322,12 +270,6 @@ namespace IceGrid
     global $IceGrid__t_NodeUnreachableException;
     class NodeUnreachableException extends \Ice\UserException
     {
-        public function __construct($name='', $reason='')
-        {
-            $this->name = $name;
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::NodeUnreachableException';
@@ -354,12 +296,6 @@ namespace IceGrid
     global $IceGrid__t_ServerUnreachableException;
     class ServerUnreachableException extends \Ice\UserException
     {
-        public function __construct($name='', $reason='')
-        {
-            $this->name = $name;
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::ServerUnreachableException';
@@ -386,12 +322,6 @@ namespace IceGrid
     global $IceGrid__t_RegistryUnreachableException;
     class RegistryUnreachableException extends \Ice\UserException
     {
-        public function __construct($name='', $reason='')
-        {
-            $this->name = $name;
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::RegistryUnreachableException';
@@ -418,11 +348,6 @@ namespace IceGrid
     global $IceGrid__t_BadSignalException;
     class BadSignalException extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::BadSignalException';
@@ -447,11 +372,6 @@ namespace IceGrid
     global $IceGrid__t_AccessDeniedException;
     class AccessDeniedException extends \Ice\UserException
     {
-        public function __construct($lockUserId='')
-        {
-            $this->lockUserId = $lockUserId;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::AccessDeniedException';
@@ -476,11 +396,6 @@ namespace IceGrid
     global $IceGrid__t_AllocationException;
     class AllocationException extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::AllocationException';
@@ -505,11 +420,6 @@ namespace IceGrid
     global $IceGrid__t_AllocationTimeoutException;
     class AllocationTimeoutException extends \IceGrid\AllocationException
     {
-        public function __construct($reason='')
-        {
-            parent::__construct($reason);
-        }
-
         public function ice_id()
         {
             return '::IceGrid::AllocationTimeoutException';
@@ -530,11 +440,6 @@ namespace IceGrid
     global $IceGrid__t_PermissionDeniedException;
     class PermissionDeniedException extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::PermissionDeniedException';
@@ -559,11 +464,6 @@ namespace IceGrid
     global $IceGrid__t_ObserverAlreadyRegisteredException;
     class ObserverAlreadyRegisteredException extends \Ice\UserException
     {
-        public function __construct($id=null)
-        {
-            $this->id = is_null($id) ? new \Ice\Identity : $id;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::ObserverAlreadyRegisteredException';
@@ -588,11 +488,6 @@ namespace IceGrid
     global $IceGrid__t_FileNotAvailableException;
     class FileNotAvailableException extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::FileNotAvailableException';

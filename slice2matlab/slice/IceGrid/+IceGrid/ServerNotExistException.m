@@ -14,18 +14,14 @@ classdef ServerNotExistException < Ice.UserException
         id char
     end
     methods
-        function obj = ServerNotExistException(ice_exid, ice_exmsg, id)
-            if nargin <= 2
-                id = '';
+        function obj = ServerNotExistException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:ServerNotExistException';
+                msg = 'IceGrid.ServerNotExistException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:ServerNotExistException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.ServerNotExistException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.id = id;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::ServerNotExistException';

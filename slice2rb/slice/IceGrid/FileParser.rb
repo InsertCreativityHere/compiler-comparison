@@ -21,10 +21,6 @@ module ::IceGrid
 
     if not defined?(::IceGrid::ParseException)
         class ParseException < Ice::UserException
-            def initialize(reason='')
-                @reason = reason
-            end
-
             def to_s
                 '::IceGrid::ParseException'
             end

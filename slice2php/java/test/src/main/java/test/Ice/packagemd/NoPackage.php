@@ -91,11 +91,6 @@ namespace Test1
     global $Test1__t_E1;
     class E1 extends \Ice\UserException
     {
-        public function __construct($i=0)
-        {
-            $this->i = $i;
-        }
-
         public function ice_id()
         {
             return '::Test1::E1';
@@ -120,12 +115,6 @@ namespace Test1
     global $Test1__t_E2;
     class E2 extends \Test1\E1
     {
-        public function __construct($i=0, $l=0)
-        {
-            parent::__construct($i);
-            $this->l = $l;
-        }
-
         public function ice_id()
         {
             return '::Test1::E2';
@@ -150,11 +139,6 @@ namespace Test1
     global $Test1__t_notify;
     class notify extends \Ice\UserException
     {
-        public function __construct($i=0)
-        {
-            $this->i = $i;
-        }
-
         public function ice_id()
         {
             return '::Test1::notify';

@@ -20,9 +20,6 @@ module ::Test
 
     if not defined?(::Test::UserEx)
         class UserEx < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Test::UserEx'
             end

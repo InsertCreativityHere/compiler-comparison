@@ -358,9 +358,6 @@ module ::Test
 
     if not defined?(::Test::SomeException)
         class SomeException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Test::SomeException'
             end

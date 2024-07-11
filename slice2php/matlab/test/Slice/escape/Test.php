@@ -286,16 +286,6 @@ namespace classdef\break
     global $classdef_break__t_persistent;
     class persistent extends \Ice\UserException
     {
-        public function __construct($identifier="1", $message="2", $stack="3", $cause="4", $type="5", $end=null)
-        {
-            $this->identifier = $identifier;
-            $this->message = $message;
-            $this->stack = $stack;
-            $this->cause = $cause;
-            $this->type = $type;
-            $this->end = $end;
-        }
-
         public function ice_id()
         {
             return '::classdef::break::persistent';
@@ -331,12 +321,6 @@ namespace classdef\break
     global $classdef_break__t_global;
     class _global extends \classdef\_break\persistent
     {
-        public function __construct($identifier="1", $message="2", $stack="3", $cause="4", $type="5", $end=null, $enumeration=1)
-        {
-            parent::__construct($identifier, $message, $stack, $cause, $type, $end);
-            $this->enumeration = $enumeration;
-        }
-
         public function ice_id()
         {
             return '::classdef::break::global';

@@ -11,18 +11,14 @@ classdef fixed < Ice.UserException
         for_ int32
     end
     methods
-        function obj = fixed(ice_exid, ice_exmsg, for_)
-            if nargin <= 2
-                for_ = 0;
+        function obj = fixed(errID, msg)
+            if nargin == 0
+                errID = 'await:fixed';
+                msg = 'await.fixed';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'await:fixed';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'await.fixed';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.for_ = for_;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::await::fixed';

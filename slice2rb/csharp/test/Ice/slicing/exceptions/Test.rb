@@ -20,10 +20,6 @@ module ::Test
 
     if not defined?(::Test::Base)
         class Base < Ice::UserException
-            def initialize(b='')
-                @b = b
-            end
-
             def to_s
                 '::Test::Base'
             end
@@ -36,11 +32,6 @@ module ::Test
 
     if not defined?(::Test::KnownDerived)
         class KnownDerived < ::Test::Base
-            def initialize(b='', kd='')
-                super(b)
-                @kd = kd
-            end
-
             def to_s
                 '::Test::KnownDerived'
             end
@@ -53,11 +44,6 @@ module ::Test
 
     if not defined?(::Test::KnownIntermediate)
         class KnownIntermediate < ::Test::Base
-            def initialize(b='', ki='')
-                super(b)
-                @ki = ki
-            end
-
             def to_s
                 '::Test::KnownIntermediate'
             end
@@ -70,11 +56,6 @@ module ::Test
 
     if not defined?(::Test::KnownMostDerived)
         class KnownMostDerived < ::Test::KnownIntermediate
-            def initialize(b='', ki='', kmd='')
-                super(b, ki)
-                @kmd = kmd
-            end
-
             def to_s
                 '::Test::KnownMostDerived'
             end

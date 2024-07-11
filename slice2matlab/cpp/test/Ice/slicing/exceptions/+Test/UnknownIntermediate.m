@@ -11,19 +11,14 @@ classdef UnknownIntermediate < Test.Base
         ui char
     end
     methods
-        function obj = UnknownIntermediate(ice_exid, ice_exmsg, b, ui)
-            if nargin <= 2
-                b = '';
-                ui = '';
+        function obj = UnknownIntermediate(errID, msg)
+            if nargin == 0
+                errID = 'Test:UnknownIntermediate';
+                msg = 'Test.UnknownIntermediate';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:UnknownIntermediate';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.UnknownIntermediate';
-            end
-            obj = obj@Test.Base(ice_exid, ice_exmsg, b);
-            obj.ui = ui;
+            obj = obj@Test.Base(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::UnknownIntermediate';

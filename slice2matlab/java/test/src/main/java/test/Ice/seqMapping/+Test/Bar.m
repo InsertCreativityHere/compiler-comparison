@@ -13,20 +13,14 @@ classdef Bar < Ice.UserException
         SLSmem
     end
     methods
-        function obj = Bar(ice_exid, ice_exmsg, SLmem, SLSmem)
-            if nargin <= 2
-                SLmem = [];
-                SLSmem = [];
+        function obj = Bar(errID, msg)
+            if nargin == 0
+                errID = 'Test:Bar';
+                msg = 'Test.Bar';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:Bar';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.Bar';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.SLmem = SLmem;
-            obj.SLSmem = SLSmem;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::Bar';

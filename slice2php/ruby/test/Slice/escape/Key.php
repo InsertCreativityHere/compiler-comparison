@@ -183,11 +183,6 @@ namespace BEGIN
     global $BEGIN__t_next;
     class next extends \Ice\UserException
     {
-        public function __construct($_new=0)
-        {
-            $this->_new = $_new;
-        }
-
         public function ice_id()
         {
             return '::BEGIN::next';
@@ -212,13 +207,6 @@ namespace BEGIN
     global $BEGIN__t_nil;
     class nil extends \BEGIN\next
     {
-        public function __construct($_new=0, $not=0, $_or=0)
-        {
-            parent::__construct($_new);
-            $this->not = $not;
-            $this->_or = $_or;
-        }
-
         public function ice_id()
         {
             return '::BEGIN::nil';

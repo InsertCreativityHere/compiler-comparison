@@ -40,9 +40,6 @@ module ::Test
 
     if not defined?(::Test::E)
         class E < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Test::E'
             end

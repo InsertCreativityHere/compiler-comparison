@@ -11,18 +11,14 @@ classdef A < Ice.UserException
         aMem int32
     end
     methods
-        function obj = A(ice_exid, ice_exmsg, aMem)
-            if nargin <= 2
-                aMem = 0;
+        function obj = A(errID, msg)
+            if nargin == 0
+                errID = 'Test:A';
+                msg = 'Test.A';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:A';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.A';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.aMem = aMem;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::A';

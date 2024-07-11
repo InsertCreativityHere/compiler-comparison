@@ -20,11 +20,6 @@ module ::Test
 
     if not defined?(::Test::CallbackException)
         class CallbackException < Ice::UserException
-            def initialize(someValue=0.0, someString='')
-                @someValue = someValue
-                @someString = someString
-            end
-
             def to_s
                 '::Test::CallbackException'
             end

@@ -63,11 +63,6 @@ namespace Test
     global $Test__t_A;
     class A extends \Ice\UserException
     {
-        public function __construct($aMem=0)
-        {
-            $this->aMem = $aMem;
-        }
-
         public function ice_id()
         {
             return '::Test::A';
@@ -92,12 +87,6 @@ namespace Test
     global $Test__t_B;
     class B extends \Test\A
     {
-        public function __construct($aMem=0, $bMem=0)
-        {
-            parent::__construct($aMem);
-            $this->bMem = $bMem;
-        }
-
         public function ice_id()
         {
             return '::Test::B';
@@ -122,12 +111,6 @@ namespace Test
     global $Test__t_C;
     class C extends \Test\B
     {
-        public function __construct($aMem=0, $bMem=0, $cMem=0)
-        {
-            parent::__construct($aMem, $bMem);
-            $this->cMem = $cMem;
-        }
-
         public function ice_id()
         {
             return '::Test::C';
@@ -152,11 +135,6 @@ namespace Test
     global $Test__t_D;
     class D extends \Ice\UserException
     {
-        public function __construct($dMem=0)
-        {
-            $this->dMem = $dMem;
-        }
-
         public function ice_id()
         {
             return '::Test::D';
@@ -181,11 +159,6 @@ namespace Test
     global $Test__t_E;
     class E extends \Ice\UserException
     {
-        public function __construct($data='')
-        {
-            $this->data = $data;
-        }
-
         public function ice_id()
         {
             return '::Test::E';
@@ -210,11 +183,6 @@ namespace Test
     global $Test__t_F;
     class F extends \Ice\UserException
     {
-        public function __construct($data='')
-        {
-            $this->data = $data;
-        }
-
         public function ice_id()
         {
             return '::Test::F';
@@ -239,12 +207,6 @@ namespace Test\Mod
     global $Test_Mod__t_A;
     class A extends \Test\A
     {
-        public function __construct($aMem=0, $a2Mem=0)
-        {
-            parent::__construct($aMem);
-            $this->a2Mem = $a2Mem;
-        }
-
         public function ice_id()
         {
             return '::Test::Mod::A';

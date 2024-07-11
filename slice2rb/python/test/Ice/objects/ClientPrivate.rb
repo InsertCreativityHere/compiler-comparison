@@ -118,10 +118,6 @@ module ::Test
 
     if not defined?(::Test::EOneMember)
         class EOneMember < Ice::UserException
-            def initialize(e=nil)
-                @e = e
-            end
-
             def to_s
                 '::Test::EOneMember'
             end
@@ -134,11 +130,6 @@ module ::Test
 
     if not defined?(::Test::ETwoMembers)
         class ETwoMembers < Ice::UserException
-            def initialize(e1=nil, e2=nil)
-                @e1 = e1
-                @e2 = e2
-            end
-
             def to_s
                 '::Test::ETwoMembers'
             end

@@ -25,11 +25,6 @@ namespace Glacier2
     global $Glacier2__t_PermissionDeniedException;
     class PermissionDeniedException extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::Glacier2::PermissionDeniedException';

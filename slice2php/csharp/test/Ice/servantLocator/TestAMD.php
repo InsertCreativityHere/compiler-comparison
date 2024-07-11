@@ -20,10 +20,6 @@ namespace Test
     global $Test__t_TestIntfUserException;
     class TestIntfUserException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Test::TestIntfUserException';
@@ -44,10 +40,6 @@ namespace Test
     global $Test__t_TestImpossibleException;
     class TestImpossibleException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Test::TestImpossibleException';

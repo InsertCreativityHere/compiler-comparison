@@ -205,10 +205,6 @@ module ::And
 
     if not defined?(::And::Is)
         class Is < Ice::UserException
-            def initialize(lambda=0)
-                @lambda = lambda
-            end
-
             def to_s
                 '::and::is'
             end
@@ -221,12 +217,6 @@ module ::And
 
     if not defined?(::And::Not)
         class Not < ::And::Is
-            def initialize(lambda=0, _or=0, pass=0)
-                super(lambda)
-                @_or = _or
-                @pass = pass
-            end
-
             def to_s
                 '::and::not'
             end

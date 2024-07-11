@@ -14,18 +14,14 @@ classdef ObjectExistsException < Ice.UserException
         id Ice.Identity
     end
     methods
-        function obj = ObjectExistsException(ice_exid, ice_exmsg, id)
-            if nargin <= 2
-                id = Ice.Identity();
+        function obj = ObjectExistsException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:ObjectExistsException';
+                msg = 'IceGrid.ObjectExistsException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:ObjectExistsException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.ObjectExistsException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.id = id;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::ObjectExistsException';

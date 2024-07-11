@@ -11,24 +11,14 @@ classdef global_ < classdef_.break_.persistent_
         enumeration_ int32
     end
     methods
-        function obj = global_(ice_exid, ice_exmsg, identifier_, message_, stack_, cause_, type_, end_, enumeration_)
-            if nargin <= 2
-                identifier_ = sprintf('1');
-                message_ = sprintf('2');
-                stack_ = sprintf('3');
-                cause_ = sprintf('4');
-                type_ = sprintf('5');
-                end_ = [];
-                enumeration_ = 1;
+        function obj = global_(errID, msg)
+            if nargin == 0
+                errID = 'classdef_:break_:global_';
+                msg = 'classdef_.break_.global_';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'classdef_:break_:global_';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'classdef_.break_.global_';
-            end
-            obj = obj@classdef_.break_.persistent_(ice_exid, ice_exmsg, identifier_, message_, stack_, cause_, type_, end_);
-            obj.enumeration_ = enumeration_;
+            obj = obj@classdef_.break_.persistent_(errID, msg);
         end
         function id = ice_id(~)
             id = '::classdef::break::global';

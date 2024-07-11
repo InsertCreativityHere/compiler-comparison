@@ -11,18 +11,14 @@ classdef EOneMember < Ice.UserException
         e
     end
     methods
-        function obj = EOneMember(ice_exid, ice_exmsg, e)
-            if nargin <= 2
-                e = [];
+        function obj = EOneMember(errID, msg)
+            if nargin == 0
+                errID = 'Test:EOneMember';
+                msg = 'Test.EOneMember';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:EOneMember';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.EOneMember';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.e = e;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::EOneMember';

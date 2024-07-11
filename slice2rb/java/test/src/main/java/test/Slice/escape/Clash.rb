@@ -206,12 +206,6 @@ module ::Clash
 
     if not defined?(::Clash::Ex)
         class Ex < Ice::UserException
-            def initialize(istr=0, ostr=0, cause='')
-                @istr = istr
-                @ostr = ostr
-                @cause = cause
-            end
-
             def to_s
                 '::Clash::Ex'
             end

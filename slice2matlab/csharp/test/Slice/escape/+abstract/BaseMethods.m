@@ -39,46 +39,14 @@ classdef BaseMethods < Ice.UserException
         ToString int32
     end
     methods
-        function obj = BaseMethods(ice_exid, ice_exmsg, Data, HelpLink, InnerException, Message, Source, StackTrace, TargetSite, HResult, Equals, GetBaseException, GetHashCode, GetObjectData, GetType, ReferenceEquals, ToString)
-            if nargin <= 2
-                Data = 0;
-                HelpLink = 0;
-                InnerException = 0;
-                Message = 0;
-                Source = 0;
-                StackTrace = 0;
-                TargetSite = 0;
-                HResult = 0;
-                Equals = 0;
-                GetBaseException = 0;
-                GetHashCode = 0;
-                GetObjectData = 0;
-                GetType = 0;
-                ReferenceEquals = 0;
-                ToString = 0;
+        function obj = BaseMethods(errID, msg)
+            if nargin == 0
+                errID = 'abstract:BaseMethods';
+                msg = 'abstract.BaseMethods';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'abstract:BaseMethods';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'abstract.BaseMethods';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.Data = Data;
-            obj.HelpLink = HelpLink;
-            obj.InnerException = InnerException;
-            obj.Message = Message;
-            obj.Source = Source;
-            obj.StackTrace = StackTrace;
-            obj.TargetSite = TargetSite;
-            obj.HResult = HResult;
-            obj.Equals = Equals;
-            obj.GetBaseException = GetBaseException;
-            obj.GetHashCode = GetHashCode;
-            obj.GetObjectData = GetObjectData;
-            obj.GetType = GetType;
-            obj.ReferenceEquals = ReferenceEquals;
-            obj.ToString = ToString;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::abstract::BaseMethods';

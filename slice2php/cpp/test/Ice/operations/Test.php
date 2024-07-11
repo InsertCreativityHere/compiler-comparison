@@ -643,10 +643,6 @@ namespace Test
     global $Test__t_SomeException;
     class SomeException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Test::SomeException';

@@ -154,9 +154,6 @@ module ::Ice
 
     if not defined?(::Ice::RemoteLoggerAlreadyAttachedException)
         class RemoteLoggerAlreadyAttachedException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Ice::RemoteLoggerAlreadyAttachedException'
             end

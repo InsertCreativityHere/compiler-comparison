@@ -22,9 +22,6 @@ module ::Test
 
     if not defined?(::Test::TestIntfException)
         class TestIntfException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Test::TestIntfException'
             end

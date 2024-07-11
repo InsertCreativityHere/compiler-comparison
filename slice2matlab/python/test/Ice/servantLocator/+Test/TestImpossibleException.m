@@ -5,14 +5,14 @@
 
 classdef TestImpossibleException < Ice.UserException
     methods
-        function obj = TestImpossibleException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:TestImpossibleException';
+        function obj = TestImpossibleException(errID, msg)
+            if nargin == 0
+                errID = 'Test:TestImpossibleException';
+                msg = 'Test.TestImpossibleException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.TestImpossibleException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::TestImpossibleException';

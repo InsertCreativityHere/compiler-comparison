@@ -11,18 +11,14 @@ classdef return_ < Ice.UserException
         Int32 int32
     end
     methods
-        function obj = return_(ice_exid, ice_exmsg, Int32)
-            if nargin <= 2
-                Int32 = 0;
+        function obj = return_(errID, msg)
+            if nargin == 0
+                errID = 'and:return_';
+                msg = 'and.return_';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'and:return_';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'and.return_';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.Int32 = Int32;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::and::return';

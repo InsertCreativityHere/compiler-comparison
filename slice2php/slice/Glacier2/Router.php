@@ -27,10 +27,6 @@ namespace Glacier2
     global $Glacier2__t_SessionNotExistException;
     class SessionNotExistException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Glacier2::SessionNotExistException';

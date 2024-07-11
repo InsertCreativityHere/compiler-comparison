@@ -67,11 +67,6 @@ namespace Test1
     global $Test1__t_WstringException;
     class WstringException extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::Test1::WstringException';
@@ -176,11 +171,6 @@ namespace Test2
     global $Test2__t_WstringException;
     class WstringException extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::Test2::WstringException';

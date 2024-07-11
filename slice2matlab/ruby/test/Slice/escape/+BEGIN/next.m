@@ -11,18 +11,14 @@ classdef next < Ice.UserException
         new int32
     end
     methods
-        function obj = next(ice_exid, ice_exmsg, new)
-            if nargin <= 2
-                new = 0;
+        function obj = next(errID, msg)
+            if nargin == 0
+                errID = 'BEGIN:next';
+                msg = 'BEGIN.next';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'BEGIN:next';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'BEGIN.next';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.new = new;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::BEGIN::next';

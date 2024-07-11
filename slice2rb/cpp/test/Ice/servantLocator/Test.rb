@@ -20,9 +20,6 @@ module ::Test
 
     if not defined?(::Test::TestIntfUserException)
         class TestIntfUserException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Test::TestIntfUserException'
             end
@@ -33,9 +30,6 @@ module ::Test
 
     if not defined?(::Test::TestImpossibleException)
         class TestImpossibleException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Test::TestImpossibleException'
             end

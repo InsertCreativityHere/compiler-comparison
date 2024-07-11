@@ -148,10 +148,6 @@ namespace IceMX
     global $IceMX__t_UnknownMetricsView;
     class UnknownMetricsView extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::IceMX::UnknownMetricsView';

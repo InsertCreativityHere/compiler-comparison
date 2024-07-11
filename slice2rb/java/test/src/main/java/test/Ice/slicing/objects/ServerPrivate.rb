@@ -193,11 +193,6 @@ module ::Test
 
     if not defined?(::Test::BaseException)
         class BaseException < Ice::UserException
-            def initialize(sbe='', pb=nil)
-                @sbe = sbe
-                @pb = pb
-            end
-
             def to_s
                 '::Test::BaseException'
             end
@@ -213,12 +208,6 @@ module ::Test
 
     if not defined?(::Test::DerivedException)
         class DerivedException < ::Test::BaseException
-            def initialize(sbe='', pb=nil, sde='', pd1=nil)
-                super(sbe, pb)
-                @sde = sde
-                @pd1 = pd1
-            end
-
             def to_s
                 '::Test::DerivedException'
             end
@@ -345,9 +334,6 @@ module ::Test
 
     if not defined?(::Test::PreservedException)
         class PreservedException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Test::PreservedException'
             end
@@ -659,12 +645,6 @@ module ::Test
 
     if not defined?(::Test::UnknownDerivedException)
         class UnknownDerivedException < ::Test::BaseException
-            def initialize(sbe='', pb=nil, sude='', pd2=nil)
-                super(sbe, pb)
-                @sude = sude
-                @pd2 = pd2
-            end
-
             def to_s
                 '::Test::UnknownDerivedException'
             end
@@ -748,10 +728,6 @@ module ::Test
 
     if not defined?(::Test::PSUnknownException)
         class PSUnknownException < ::Test::PreservedException
-            def initialize(p=nil)
-                @p = p
-            end
-
             def to_s
                 '::Test::PSUnknownException'
             end

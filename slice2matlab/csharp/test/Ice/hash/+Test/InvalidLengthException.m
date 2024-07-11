@@ -11,18 +11,14 @@ classdef InvalidLengthException < Test.BaseException
         length int32
     end
     methods
-        function obj = InvalidLengthException(ice_exid, ice_exmsg, length)
-            if nargin <= 2
-                length = 0;
+        function obj = InvalidLengthException(errID, msg)
+            if nargin == 0
+                errID = 'Test:InvalidLengthException';
+                msg = 'Test.InvalidLengthException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:InvalidLengthException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.InvalidLengthException';
-            end
-            obj = obj@Test.BaseException(ice_exid, ice_exmsg);
-            obj.length = length;
+            obj = obj@Test.BaseException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::InvalidLengthException';

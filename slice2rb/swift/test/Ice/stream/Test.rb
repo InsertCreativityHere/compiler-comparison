@@ -318,10 +318,6 @@ module ::Test
 
     if not defined?(::Test::MyException)
         class MyException < Ice::UserException
-            def initialize(c=nil)
-                @c = c
-            end
-
             def to_s
                 '::Test::MyException'
             end
@@ -449,10 +445,6 @@ module ::Test
 
         if not defined?(::Test::Sub::NestedException)
             class NestedException < Ice::UserException
-                def initialize(str='')
-                    @str = str
-                end
-
                 def to_s
                     '::Test::Sub::NestedException'
                 end
@@ -584,10 +576,6 @@ module ::Test2
 
         if not defined?(::Test2::Sub2::NestedException2)
             class NestedException2 < Ice::UserException
-                def initialize(str='')
-                    @str = str
-                end
-
                 def to_s
                     '::Test2::Sub2::NestedException2'
                 end

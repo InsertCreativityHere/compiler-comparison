@@ -11,21 +11,14 @@ classdef RequiredException < Test.OptionalException
         ss char
     end
     methods
-        function obj = RequiredException(ice_exid, ice_exmsg, req, a, b, ss)
-            if nargin <= 2
-                req = false;
-                a = 5;
-                b = IceInternal.UnsetI.Instance;
-                ss = sprintf('test');
+        function obj = RequiredException(errID, msg)
+            if nargin == 0
+                errID = 'Test:RequiredException';
+                msg = 'Test.RequiredException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:RequiredException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.RequiredException';
-            end
-            obj = obj@Test.OptionalException(ice_exid, ice_exmsg, req, a, b);
-            obj.ss = ss;
+            obj = obj@Test.OptionalException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::RequiredException';

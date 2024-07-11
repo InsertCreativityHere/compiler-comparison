@@ -531,26 +531,6 @@ namespace Test
     global $Test__t_BaseEx;
     class BaseEx extends \Ice\UserException
     {
-        public function __construct($boolFalse=false, $boolTrue=true, $b=1, $s=2, $i=3, $l=4, $f=5.1, $d=6.2, $str="foo \\ \"bar\n \r\n\t\v\f\007\010? \007 \007", $noDefault='', $zeroI=0, $zeroL=0, $zeroF=0, $zeroDotF=0, $zeroD=0, $zeroDotD=0)
-        {
-            $this->boolFalse = $boolFalse;
-            $this->boolTrue = $boolTrue;
-            $this->b = $b;
-            $this->s = $s;
-            $this->i = $i;
-            $this->l = $l;
-            $this->f = $f;
-            $this->d = $d;
-            $this->str = $str;
-            $this->noDefault = $noDefault;
-            $this->zeroI = $zeroI;
-            $this->zeroL = $zeroL;
-            $this->zeroF = $zeroF;
-            $this->zeroDotF = $zeroDotF;
-            $this->zeroD = $zeroD;
-            $this->zeroDotD = $zeroDotD;
-        }
-
         public function ice_id()
         {
             return '::Test::BaseEx';
@@ -612,17 +592,6 @@ namespace Test
     global $Test__t_DerivedEx;
     class DerivedEx extends \Test\BaseEx
     {
-        public function __construct($boolFalse=false, $boolTrue=true, $b=1, $s=2, $i=3, $l=4, $f=5.1, $d=6.2, $str="foo \\ \"bar\n \r\n\t\v\f\007\010? \007 \007", $noDefault='', $zeroI=0, $zeroL=0, $zeroF=0, $zeroDotF=0, $zeroD=0, $zeroDotD=0, $c1=\Test\ConstColor1, $c2=\Test\ConstColor2, $c3=\Test\ConstColor3, $nc1=\Test\ConstNestedColor1, $nc2=\Test\ConstNestedColor2, $nc3=\Test\ConstNestedColor3)
-        {
-            parent::__construct($boolFalse, $boolTrue, $b, $s, $i, $l, $f, $d, $str, $noDefault, $zeroI, $zeroL, $zeroF, $zeroDotF, $zeroD, $zeroDotD);
-            $this->c1 = $c1;
-            $this->c2 = $c2;
-            $this->c3 = $c3;
-            $this->nc1 = $nc1;
-            $this->nc2 = $nc2;
-            $this->nc3 = $nc3;
-        }
-
         public function ice_id()
         {
             return '::Test::DerivedEx';
@@ -788,13 +757,6 @@ namespace Test
     global $Test__t_ExceptionNoDefaultsBase;
     class ExceptionNoDefaultsBase extends \Ice\UserException
     {
-        public function __construct($str='', $c1=\Test\Color::red, $bs=null)
-        {
-            $this->str = $str;
-            $this->c1 = $c1;
-            $this->bs = $bs;
-        }
-
         public function ice_id()
         {
             return '::Test::ExceptionNoDefaultsBase';
@@ -825,13 +787,6 @@ namespace Test
     global $Test__t_ExceptionNoDefaults;
     class ExceptionNoDefaults extends \Test\ExceptionNoDefaultsBase
     {
-        public function __construct($str='', $c1=\Test\Color::red, $bs=null, $st=null, $dict=null)
-        {
-            parent::__construct($str, $c1, $bs);
-            $this->st = is_null($st) ? new \Test\InnerStruct : $st;
-            $this->dict = $dict;
-        }
-
         public function ice_id()
         {
             return '::Test::ExceptionNoDefaults';

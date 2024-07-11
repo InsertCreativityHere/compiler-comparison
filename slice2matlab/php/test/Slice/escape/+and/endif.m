@@ -11,18 +11,14 @@ classdef endif < Ice.UserException
         endswitch int32
     end
     methods
-        function obj = endif(ice_exid, ice_exmsg, endswitch)
-            if nargin <= 2
-                endswitch = 0;
+        function obj = endif(errID, msg)
+            if nargin == 0
+                errID = 'and:endif';
+                msg = 'and.endif';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'and:endif';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'and.endif';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.endswitch = endswitch;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::and::endif';

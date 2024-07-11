@@ -20,10 +20,6 @@ namespace Core
     global $Core__t_ArgumentException;
     class ArgumentException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Core::ArgumentException';

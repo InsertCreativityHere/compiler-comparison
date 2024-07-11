@@ -13,20 +13,14 @@ classdef CallbackException < Ice.UserException
         someString char
     end
     methods
-        function obj = CallbackException(ice_exid, ice_exmsg, someValue, someString)
-            if nargin <= 2
-                someValue = 0;
-                someString = '';
+        function obj = CallbackException(errID, msg)
+            if nargin == 0
+                errID = 'Test:CallbackException';
+                msg = 'Test.CallbackException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:CallbackException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.CallbackException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.someValue = someValue;
-            obj.someString = someString;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::CallbackException';

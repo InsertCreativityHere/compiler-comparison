@@ -240,11 +240,6 @@ module ::Test
 
     if not defined?(::Test::Ex)
         class Ex < Ice::UserException
-            def initialize(s=::Test::Struct1.new, b=nil)
-                @s = s
-                @b = b
-            end
-
             def to_s
                 '::Test::Ex'
             end

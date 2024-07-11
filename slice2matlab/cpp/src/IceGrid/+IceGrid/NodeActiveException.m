@@ -7,14 +7,14 @@
 
 classdef NodeActiveException < Ice.UserException
     methods
-        function obj = NodeActiveException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:NodeActiveException';
+        function obj = NodeActiveException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:NodeActiveException';
+                msg = 'IceGrid.NodeActiveException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.NodeActiveException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::NodeActiveException';

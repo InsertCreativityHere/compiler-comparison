@@ -25,11 +25,6 @@ namespace IceGrid
     global $IceGrid__t_ParseException;
     class ParseException extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceGrid::ParseException';

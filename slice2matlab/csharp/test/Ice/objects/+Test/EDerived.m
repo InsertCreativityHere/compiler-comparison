@@ -13,22 +13,14 @@ classdef EDerived < Test.EBase
         a4
     end
     methods
-        function obj = EDerived(ice_exid, ice_exmsg, a1, a2, a3, a4)
-            if nargin <= 2
-                a1 = [];
-                a2 = [];
-                a3 = [];
-                a4 = [];
+        function obj = EDerived(errID, msg)
+            if nargin == 0
+                errID = 'Test:EDerived';
+                msg = 'Test.EDerived';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:EDerived';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.EDerived';
-            end
-            obj = obj@Test.EBase(ice_exid, ice_exmsg, a1, a2);
-            obj.a3 = a3;
-            obj.a4 = a4;
+            obj = obj@Test.EBase(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::EDerived';

@@ -162,12 +162,6 @@ namespace Test
     global $Test__t_Bar;
     class Bar extends \Ice\UserException
     {
-        public function __construct($SLmem=null, $SLSmem=null)
-        {
-            $this->SLmem = $SLmem;
-            $this->SLSmem = $SLSmem;
-        }
-
         public function ice_id()
         {
             return '::Test::Bar';

@@ -7,14 +7,14 @@
 
 classdef AlreadyStoppedException < Ice.UserException
     methods
-        function obj = AlreadyStoppedException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceBox:AlreadyStoppedException';
+        function obj = AlreadyStoppedException(errID, msg)
+            if nargin == 0
+                errID = 'IceBox:AlreadyStoppedException';
+                msg = 'IceBox.AlreadyStoppedException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceBox.AlreadyStoppedException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceBox::AlreadyStoppedException';

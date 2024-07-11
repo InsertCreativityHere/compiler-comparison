@@ -13,21 +13,14 @@ classdef foreach < abstract.fixed
         if_ int32
     end
     methods
-        function obj = foreach(ice_exid, ice_exmsg, for_, goto, if_)
-            if nargin <= 2
-                for_ = 0;
-                goto = 0;
-                if_ = 0;
+        function obj = foreach(errID, msg)
+            if nargin == 0
+                errID = 'abstract:foreach';
+                msg = 'abstract.foreach';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'abstract:foreach';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'abstract.foreach';
-            end
-            obj = obj@abstract.fixed(ice_exid, ice_exmsg, for_);
-            obj.goto = goto;
-            obj.if_ = if_;
+            obj = obj@abstract.fixed(errID, msg);
         end
         function id = ice_id(~)
             id = '::abstract::foreach';

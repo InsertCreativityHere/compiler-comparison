@@ -183,13 +183,6 @@ namespace Test
     global $Test__t_UnknownDerivedException;
     class UnknownDerivedException extends \Test\BaseException
     {
-        public function __construct($sbe='', $pb=null, $sude='', $pd2=null)
-        {
-            parent::__construct($sbe, $pb);
-            $this->sude = $sude;
-            $this->pd2 = $pd2;
-        }
-
         public function ice_id()
         {
             return '::Test::UnknownDerivedException';
@@ -336,12 +329,6 @@ namespace Test
     global $Test__t_PSUnknownException;
     class PSUnknownException extends \Test\PreservedException
     {
-        public function __construct($p=null)
-        {
-            parent::__construct();
-            $this->p = $p;
-        }
-
         public function ice_id()
         {
             return '::Test::PSUnknownException';

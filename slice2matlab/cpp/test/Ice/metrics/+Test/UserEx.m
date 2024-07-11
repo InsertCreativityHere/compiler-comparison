@@ -5,14 +5,14 @@
 
 classdef UserEx < Ice.UserException
     methods
-        function obj = UserEx(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:UserEx';
+        function obj = UserEx(errID, msg)
+            if nargin == 0
+                errID = 'Test:UserEx';
+                msg = 'Test.UserEx';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.UserEx';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::UserEx';

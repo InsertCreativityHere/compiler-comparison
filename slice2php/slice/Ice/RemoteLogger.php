@@ -129,10 +129,6 @@ namespace Ice
     global $Ice__t_RemoteLoggerAlreadyAttachedException;
     class RemoteLoggerAlreadyAttachedException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::Ice::RemoteLoggerAlreadyAttachedException';

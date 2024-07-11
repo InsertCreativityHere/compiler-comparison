@@ -22,10 +22,6 @@ module ::Test
 
     if not defined?(::Test::DerivedEx)
         class DerivedEx < ::Test::BaseEx
-            def initialize(reason='')
-                super(reason)
-            end
-
             def to_s
                 '::Test::DerivedEx'
             end

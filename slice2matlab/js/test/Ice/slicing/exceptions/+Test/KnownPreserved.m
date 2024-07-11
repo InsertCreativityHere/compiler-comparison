@@ -11,19 +11,14 @@ classdef KnownPreserved < Test.Base
         kp char
     end
     methods
-        function obj = KnownPreserved(ice_exid, ice_exmsg, b, kp)
-            if nargin <= 2
-                b = '';
-                kp = '';
+        function obj = KnownPreserved(errID, msg)
+            if nargin == 0
+                errID = 'Test:KnownPreserved';
+                msg = 'Test.KnownPreserved';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:KnownPreserved';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.KnownPreserved';
-            end
-            obj = obj@Test.Base(ice_exid, ice_exmsg, b);
-            obj.kp = kp;
+            obj = obj@Test.Base(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::KnownPreserved';

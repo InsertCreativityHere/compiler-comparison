@@ -13,20 +13,14 @@ classdef ETwoMembers < Ice.UserException
         e2
     end
     methods
-        function obj = ETwoMembers(ice_exid, ice_exmsg, e1, e2)
-            if nargin <= 2
-                e1 = [];
-                e2 = [];
+        function obj = ETwoMembers(errID, msg)
+            if nargin == 0
+                errID = 'Test:ETwoMembers';
+                msg = 'Test.ETwoMembers';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:ETwoMembers';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.ETwoMembers';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.e1 = e1;
-            obj.e2 = e2;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::ETwoMembers';

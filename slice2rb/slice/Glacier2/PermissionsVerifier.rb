@@ -21,10 +21,6 @@ module ::Glacier2
 
     if not defined?(::Glacier2::PermissionDeniedException)
         class PermissionDeniedException < Ice::UserException
-            def initialize(reason='')
-                @reason = reason
-            end
-
             def to_s
                 '::Glacier2::PermissionDeniedException'
             end

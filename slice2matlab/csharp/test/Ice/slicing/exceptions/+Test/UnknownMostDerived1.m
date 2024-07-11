@@ -11,20 +11,14 @@ classdef UnknownMostDerived1 < Test.KnownIntermediate
         umd1 char
     end
     methods
-        function obj = UnknownMostDerived1(ice_exid, ice_exmsg, b, ki, umd1)
-            if nargin <= 2
-                b = '';
-                ki = '';
-                umd1 = '';
+        function obj = UnknownMostDerived1(errID, msg)
+            if nargin == 0
+                errID = 'Test:UnknownMostDerived1';
+                msg = 'Test.UnknownMostDerived1';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:UnknownMostDerived1';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.UnknownMostDerived1';
-            end
-            obj = obj@Test.KnownIntermediate(ice_exid, ice_exmsg, b, ki);
-            obj.umd1 = umd1;
+            obj = obj@Test.KnownIntermediate(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::UnknownMostDerived1';

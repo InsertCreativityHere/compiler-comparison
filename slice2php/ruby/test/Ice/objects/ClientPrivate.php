@@ -187,11 +187,6 @@ namespace Test
     global $Test__t_EOneMember;
     class EOneMember extends \Ice\UserException
     {
-        public function __construct($e=null)
-        {
-            $this->e = $e;
-        }
-
         public function ice_id()
         {
             return '::Test::EOneMember';
@@ -216,12 +211,6 @@ namespace Test
     global $Test__t_ETwoMembers;
     class ETwoMembers extends \Ice\UserException
     {
-        public function __construct($e1=null, $e2=null)
-        {
-            $this->e1 = $e1;
-            $this->e2 = $e2;
-        }
-
         public function ice_id()
         {
             return '::Test::ETwoMembers';

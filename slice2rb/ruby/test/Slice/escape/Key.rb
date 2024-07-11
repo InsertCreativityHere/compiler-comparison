@@ -195,10 +195,6 @@ module ::BEGIN_
 
     if not defined?(::BEGIN_::Next)
         class Next < Ice::UserException
-            def initialize(_new=0)
-                @_new = _new
-            end
-
             def to_s
                 '::BEGIN::next'
             end
@@ -211,12 +207,6 @@ module ::BEGIN_
 
     if not defined?(::BEGIN_::Nil)
         class Nil < ::BEGIN_::Next
-            def initialize(_new=0, _not=0, _or=0)
-                super(_new)
-                @_not = _not
-                @_or = _or
-            end
-
             def to_s
                 '::BEGIN::nil'
             end

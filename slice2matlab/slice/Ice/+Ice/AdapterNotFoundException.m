@@ -7,14 +7,14 @@
 
 classdef AdapterNotFoundException < Ice.UserException
     methods
-        function obj = AdapterNotFoundException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Ice:AdapterNotFoundException';
+        function obj = AdapterNotFoundException(errID, msg)
+            if nargin == 0
+                errID = 'Ice:AdapterNotFoundException';
+                msg = 'Ice.AdapterNotFoundException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Ice.AdapterNotFoundException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Ice::AdapterNotFoundException';

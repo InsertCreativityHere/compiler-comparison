@@ -11,18 +11,14 @@ classdef Base < Ice.UserException
         b char
     end
     methods
-        function obj = Base(ice_exid, ice_exmsg, b)
-            if nargin <= 2
-                b = '';
+        function obj = Base(errID, msg)
+            if nargin == 0
+                errID = 'Test:Base';
+                msg = 'Test.Base';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:Base';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.Base';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.b = b;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::Base';

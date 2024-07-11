@@ -11,18 +11,14 @@ classdef ProcessFailedException < Ice.UserException
         reason char
     end
     methods
-        function obj = ProcessFailedException(ice_exid, ice_exmsg, reason)
-            if nargin <= 2
-                reason = '';
+        function obj = ProcessFailedException(errID, msg)
+            if nargin == 0
+                errID = 'Test:Common:ProcessFailedException';
+                msg = 'Test.Common.ProcessFailedException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:Common:ProcessFailedException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.Common.ProcessFailedException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
-            obj.reason = reason;
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::Common::ProcessFailedException';

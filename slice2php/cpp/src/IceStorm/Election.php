@@ -67,11 +67,6 @@ namespace IceStormElection
     global $IceStormElection__t_ObserverInconsistencyException;
     class ObserverInconsistencyException extends \Ice\UserException
     {
-        public function __construct($reason='')
-        {
-            $this->reason = $reason;
-        }
-
         public function ice_id()
         {
             return '::IceStormElection::ObserverInconsistencyException';

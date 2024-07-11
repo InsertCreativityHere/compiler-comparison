@@ -15,25 +15,14 @@ classdef DerivedException < Test.OptionalException
         d2 char
     end
     methods
-        function obj = DerivedException(ice_exid, ice_exmsg, req, a, b, d1, ss, d2)
-            if nargin <= 2
-                req = false;
-                a = 5;
-                b = IceInternal.UnsetI.Instance;
-                d1 = '';
-                ss = sprintf('test');
-                d2 = '';
+        function obj = DerivedException(errID, msg)
+            if nargin == 0
+                errID = 'Test:DerivedException';
+                msg = 'Test.DerivedException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Test:DerivedException';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Test.DerivedException';
-            end
-            obj = obj@Test.OptionalException(ice_exid, ice_exmsg, req, a, b);
-            obj.d1 = d1;
-            obj.ss = ss;
-            obj.d2 = d2;
+            obj = obj@Test.OptionalException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Test::DerivedException';

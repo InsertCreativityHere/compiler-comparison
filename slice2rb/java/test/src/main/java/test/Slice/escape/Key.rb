@@ -205,10 +205,6 @@ module ::Abstract
 
     if not defined?(::Abstract::HashCode)
         class HashCode < Ice::UserException
-            def initialize(_if=0)
-                @_if = _if
-            end
-
             def to_s
                 '::abstract::hashCode'
             end
@@ -221,12 +217,6 @@ module ::Abstract
 
     if not defined?(::Abstract::Import)
         class Import < ::Abstract::HashCode
-            def initialize(_if=0, instanceof=0, native=0)
-                super(_if)
-                @instanceof = instanceof
-                @native = native
-            end
-
             def to_s
                 '::abstract::import'
             end

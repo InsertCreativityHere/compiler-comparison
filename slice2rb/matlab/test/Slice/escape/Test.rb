@@ -252,15 +252,6 @@ module ::Classdef
 
         if not defined?(::Classdef::Break::Persistent)
             class Persistent < Ice::UserException
-                def initialize(identifier="1", message="2", stack="3", cause="4", type="5", _end=nil)
-                    @identifier = identifier
-                    @message = message
-                    @stack = stack
-                    @cause = cause
-                    @type = type
-                    @_end = _end
-                end
-
                 def to_s
                     '::classdef::break::persistent'
                 end
@@ -280,11 +271,6 @@ module ::Classdef
 
         if not defined?(::Classdef::Break::Global)
             class Global < ::Classdef::Break::Persistent
-                def initialize(identifier="1", message="2", stack="3", cause="4", type="5", _end=nil, enumeration=1)
-                    super(identifier, message, stack, cause, type, _end)
-                    @enumeration = enumeration
-                end
-
                 def to_s
                     '::classdef::break::global'
                 end

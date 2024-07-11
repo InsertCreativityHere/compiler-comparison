@@ -715,13 +715,6 @@ namespace Test
     global $Test__t_OptionalException;
     class OptionalException extends \Ice\UserException
     {
-        public function __construct($req=false, $a=5, $b=\Ice\None)
-        {
-            $this->req = $req;
-            $this->a = $a;
-            $this->b = $b;
-        }
-
         public function ice_id()
         {
             return '::Test::OptionalException';
@@ -752,14 +745,6 @@ namespace Test
     global $Test__t_DerivedException;
     class DerivedException extends \Test\OptionalException
     {
-        public function __construct($req=false, $a=5, $b=\Ice\None, $d1='', $ss="test", $d2='')
-        {
-            parent::__construct($req, $a, $b);
-            $this->d1 = $d1;
-            $this->ss = $ss;
-            $this->d2 = $d2;
-        }
-
         public function ice_id()
         {
             return '::Test::DerivedException';
@@ -788,12 +773,6 @@ namespace Test
     global $Test__t_RequiredException;
     class RequiredException extends \Test\OptionalException
     {
-        public function __construct($req=false, $a=5, $b=\Ice\None, $ss="test")
-        {
-            parent::__construct($req, $a, $b);
-            $this->ss = $ss;
-        }
-
         public function ice_id()
         {
             return '::Test::RequiredException';

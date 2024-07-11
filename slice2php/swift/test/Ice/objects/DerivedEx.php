@@ -25,11 +25,6 @@ namespace Test
     global $Test__t_DerivedEx;
     class DerivedEx extends \Test\BaseEx
     {
-        public function __construct($reason='')
-        {
-            parent::__construct($reason);
-        }
-
         public function ice_id()
         {
             return '::Test::DerivedEx';

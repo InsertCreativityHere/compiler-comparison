@@ -23,9 +23,6 @@ module ::Glacier2
 
     if not defined?(::Glacier2::SessionNotExistException)
         class SessionNotExistException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Glacier2::SessionNotExistException'
             end

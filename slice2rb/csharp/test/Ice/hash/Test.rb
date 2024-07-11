@@ -20,9 +20,6 @@ module ::Test
 
     if not defined?(::Test::BaseException)
         class BaseException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::Test::BaseException'
             end
@@ -33,10 +30,6 @@ module ::Test
 
     if not defined?(::Test::InvalidPointException)
         class InvalidPointException < ::Test::BaseException
-            def initialize(index=0)
-                @index = index
-            end
-
             def to_s
                 '::Test::InvalidPointException'
             end
@@ -49,10 +42,6 @@ module ::Test
 
     if not defined?(::Test::InvalidLengthException)
         class InvalidLengthException < ::Test::BaseException
-            def initialize(length=0)
-                @length = length
-            end
-
             def to_s
                 '::Test::InvalidLengthException'
             end
@@ -65,13 +54,6 @@ module ::Test
 
     if not defined?(::Test::OtherException)
         class OtherException < Ice::UserException
-            def initialize(x=0, y=0, z=0, b=false)
-                @x = x
-                @y = y
-                @z = z
-                @b = b
-            end
-
             def to_s
                 '::Test::OtherException'
             end

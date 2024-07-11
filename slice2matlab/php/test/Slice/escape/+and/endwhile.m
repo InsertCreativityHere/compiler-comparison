@@ -13,21 +13,14 @@ classdef endwhile < and.endif
         exit int32
     end
     methods
-        function obj = endwhile(ice_exid, ice_exmsg, endswitch, eval, exit)
-            if nargin <= 2
-                endswitch = 0;
-                eval = 0;
-                exit = 0;
+        function obj = endwhile(errID, msg)
+            if nargin == 0
+                errID = 'and:endwhile';
+                msg = 'and.endwhile';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'and:endwhile';
-            end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'and.endwhile';
-            end
-            obj = obj@and.endif(ice_exid, ice_exmsg, endswitch);
-            obj.eval = eval;
-            obj.exit = exit;
+            obj = obj@and.endif(errID, msg);
         end
         function id = ice_id(~)
             id = '::and::endwhile';

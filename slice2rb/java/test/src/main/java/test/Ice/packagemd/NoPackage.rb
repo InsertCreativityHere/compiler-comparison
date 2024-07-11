@@ -61,10 +61,6 @@ module ::Test1
 
     if not defined?(::Test1::E1)
         class E1 < Ice::UserException
-            def initialize(i=0)
-                @i = i
-            end
-
             def to_s
                 '::Test1::E1'
             end
@@ -77,11 +73,6 @@ module ::Test1
 
     if not defined?(::Test1::E2)
         class E2 < ::Test1::E1
-            def initialize(i=0, l=0)
-                super(i)
-                @l = l
-            end
-
             def to_s
                 '::Test1::E2'
             end
@@ -94,10 +85,6 @@ module ::Test1
 
     if not defined?(::Test1::Notify)
         class Notify < Ice::UserException
-            def initialize(i=0)
-                @i = i
-            end
-
             def to_s
                 '::Test1::notify'
             end

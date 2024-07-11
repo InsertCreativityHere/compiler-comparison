@@ -7,14 +7,14 @@
 
 classdef ReplicaActiveException < Ice.UserException
     methods
-        function obj = ReplicaActiveException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'IceGrid:ReplicaActiveException';
+        function obj = ReplicaActiveException(errID, msg)
+            if nargin == 0
+                errID = 'IceGrid:ReplicaActiveException';
+                msg = 'IceGrid.ReplicaActiveException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'IceGrid.ReplicaActiveException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::IceGrid::ReplicaActiveException';

@@ -10,14 +10,14 @@
 
 classdef SessionNotExistException < Ice.UserException
     methods
-        function obj = SessionNotExistException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Glacier2:SessionNotExistException';
+        function obj = SessionNotExistException(errID, msg)
+            if nargin == 0
+                errID = 'Glacier2:SessionNotExistException';
+                msg = 'Glacier2.SessionNotExistException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Glacier2.SessionNotExistException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Glacier2::SessionNotExistException';

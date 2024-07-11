@@ -5,14 +5,14 @@
 
 classdef ArgumentException < Ice.UserException
     methods
-        function obj = ArgumentException(ice_exid, ice_exmsg)
-            if nargin == 0 || isempty(ice_exid)
-                ice_exid = 'Core:ArgumentException';
+        function obj = ArgumentException(errID, msg)
+            if nargin == 0
+                errID = 'Core:ArgumentException';
+                msg = 'Core.ArgumentException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
             end
-            if nargin < 2 || isempty(ice_exmsg)
-                ice_exmsg = 'Core.ArgumentException';
-            end
-            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+            obj = obj@Ice.UserException(errID, msg);
         end
         function id = ice_id(~)
             id = '::Core::ArgumentException';

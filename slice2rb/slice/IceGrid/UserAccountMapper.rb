@@ -20,9 +20,6 @@ module ::IceGrid
 
     if not defined?(::IceGrid::UserAccountNotFoundException)
         class UserAccountNotFoundException < Ice::UserException
-            def initialize
-            end
-
             def to_s
                 '::IceGrid::UserAccountNotFoundException'
             end

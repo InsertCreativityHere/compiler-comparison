@@ -20,10 +20,6 @@ namespace IceGrid
     global $IceGrid__t_UserAccountNotFoundException;
     class UserAccountNotFoundException extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::IceGrid::UserAccountNotFoundException';

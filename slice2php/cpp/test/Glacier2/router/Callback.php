@@ -25,12 +25,6 @@ namespace Test
     global $Test__t_CallbackException;
     class CallbackException extends \Ice\UserException
     {
-        public function __construct($someValue=0.0, $someString='')
-        {
-            $this->someValue = $someValue;
-            $this->someString = $someString;
-        }
-
         public function ice_id()
         {
             return '::Test::CallbackException';

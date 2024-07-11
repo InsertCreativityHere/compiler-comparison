@@ -105,10 +105,6 @@ namespace IceStorm
     global $IceStorm__t_ReapWouldBlock;
     class ReapWouldBlock extends \Ice\UserException
     {
-        public function __construct()
-        {
-        }
-
         public function ice_id()
         {
             return '::IceStorm::ReapWouldBlock';
