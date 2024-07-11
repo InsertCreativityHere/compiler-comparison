@@ -138,10 +138,7 @@ if 'Structure' not in _M_Test.__dict__:
         def __init__(self, p=None, e=_M_Test.MyEnum.enum1, s=None):
             self.p = p
             self.e = e
-            if s is None:
-                self.s = _M_Test.AnotherStruct()
-            else:
-                self.s = s
+            self.s = s if s is not None else _M_Test.AnotherStruct()
 
         def __eq__(self, other):
             if other is None:

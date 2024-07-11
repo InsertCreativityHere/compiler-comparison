@@ -187,10 +187,7 @@ if 'ObjectDescriptor' not in _M_IceGrid.__dict__:
          the proxy options specified on the object adapter or replica group.
         """
         def __init__(self, id=None, type='', proxyOptions=''):
-            if id is None:
-                self.id = _M_Ice.Identity()
-            else:
-                self.id = id
+            self.id = id if id is not None else _M_Ice.Identity()
             self.type = type
             self.proxyOptions = proxyOptions
 
@@ -387,10 +384,7 @@ if 'CommunicatorDescriptor' not in _M_IceGrid.__dict__:
         """
         def __init__(self, adapters=None, propertySet=None, logs=None, description=''):
             self.adapters = adapters
-            if propertySet is None:
-                self.propertySet = _M_IceGrid.PropertySetDescriptor()
-            else:
-                self.propertySet = propertySet
+            self.propertySet = propertySet if propertySet is not None else _M_IceGrid.PropertySetDescriptor()
             self.logs = logs
             self.description = description
 
@@ -494,10 +488,7 @@ if 'ServerDescriptor' not in _M_IceGrid.__dict__:
             self.activationTimeout = activationTimeout
             self.deactivationTimeout = deactivationTimeout
             self.applicationDistrib = applicationDistrib
-            if distrib is None:
-                self.distrib = _M_IceGrid.DistributionDescriptor()
-            else:
-                self.distrib = distrib
+            self.distrib = distrib if distrib is not None else _M_IceGrid.DistributionDescriptor()
             self.allocatable = allocatable
             self.user = user
 
@@ -589,10 +580,7 @@ if 'ServerInstanceDescriptor' not in _M_IceGrid.__dict__:
         def __init__(self, template='', parameterValues=None, propertySet=None, servicePropertySets=None):
             self.template = template
             self.parameterValues = parameterValues
-            if propertySet is None:
-                self.propertySet = _M_IceGrid.PropertySetDescriptor()
-            else:
-                self.propertySet = propertySet
+            self.propertySet = propertySet if propertySet is not None else _M_IceGrid.PropertySetDescriptor()
             self.servicePropertySets = servicePropertySets
 
         def __eq__(self, other):
@@ -696,10 +684,7 @@ if 'ServiceInstanceDescriptor' not in _M_IceGrid.__dict__:
             self.template = template
             self.parameterValues = parameterValues
             self.descriptor = descriptor
-            if propertySet is None:
-                self.propertySet = _M_IceGrid.PropertySetDescriptor()
-            else:
-                self.propertySet = propertySet
+            self.propertySet = propertySet if propertySet is not None else _M_IceGrid.PropertySetDescriptor()
 
         def __eq__(self, other):
             if other is None:
@@ -1062,10 +1047,7 @@ if 'ApplicationDescriptor' not in _M_IceGrid.__dict__:
             self.serverTemplates = serverTemplates
             self.serviceTemplates = serviceTemplates
             self.nodes = nodes
-            if distrib is None:
-                self.distrib = _M_IceGrid.DistributionDescriptor()
-            else:
-                self.distrib = distrib
+            self.distrib = distrib if distrib is not None else _M_IceGrid.DistributionDescriptor()
             self.description = description
             self.propertySets = propertySets
 
@@ -1243,10 +1225,7 @@ if 'BoxedDistributionDescriptor' not in _M_IceGrid.__dict__:
         value --  The value of the boxed distribution descriptor.
         """
         def __init__(self, value=None):
-            if value is None:
-                self.value = _M_IceGrid.DistributionDescriptor()
-            else:
-                self.value = value
+            self.value = value if value is not None else _M_IceGrid.DistributionDescriptor()
 
         def ice_id(self):
             return '::IceGrid::BoxedDistributionDescriptor'

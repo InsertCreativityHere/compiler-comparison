@@ -375,10 +375,7 @@ if 'Pen' not in _M_Test.__dict__:
     class Pen(Ice.Value):
         def __init__(self, thickness=0, color=None):
             self.thickness = thickness
-            if color is None:
-                self.color = _M_Test.Color()
-            else:
-                self.color = color
+            self.color = color if color is not None else _M_Test.Color()
 
         def ice_id(self):
             return '::Test::Pen'
@@ -405,10 +402,7 @@ if 'Draw' not in _M_Test.__dict__:
     _M_Test.Draw = None
     class Draw(object):
         def __init__(self, backgroundColor=None, pen=None, shared=False):
-            if backgroundColor is None:
-                self.backgroundColor = _M_Test.Color()
-            else:
-                self.backgroundColor = backgroundColor
+            self.backgroundColor = backgroundColor if backgroundColor is not None else _M_Test.Color()
             self.pen = pen
             self.shared = shared
 

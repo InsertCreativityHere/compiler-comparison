@@ -47,10 +47,7 @@ if 'TopicContent' not in _M_IceStormElection.__dict__:
         records --  The topic subscribers.
         """
         def __init__(self, id=None, records=None):
-            if id is None:
-                self.id = _M_Ice.Identity()
-            else:
-                self.id = id
+            self.id = id if id is not None else _M_Ice.Identity()
             self.records = records
 
         def __eq__(self, other):
@@ -514,10 +511,7 @@ if 'GroupInfo' not in _M_IceStormElection.__dict__:
         """
         def __init__(self, id=0, llu=None):
             self.id = id
-            if llu is None:
-                self.llu = _M_IceStormElection.LogUpdate()
-            else:
-                self.llu = llu
+            self.llu = llu if llu is not None else _M_IceStormElection.LogUpdate()
 
         def __hash__(self):
             _h = 0

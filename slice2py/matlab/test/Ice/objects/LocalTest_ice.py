@@ -97,10 +97,7 @@ if 'S2' not in _M_LocalTest.__dict__:
     _M_LocalTest.S2 = None
     class S2(object):
         def __init__(self, s1=None):
-            if s1 is None:
-                self.s1 = _M_LocalTest.S1()
-            else:
-                self.s1 = s1
+            self.s1 = s1 if s1 is not None else _M_LocalTest.S1()
 
         def __eq__(self, other):
             if other is None:
@@ -303,10 +300,7 @@ if 'CB1' not in _M_LocalTest.__dict__:
     _M_LocalTest.CB1 = None
     class CB1(Ice.Value):
         def __init__(self, s1=None):
-            if s1 is None:
-                self.s1 = _M_LocalTest.S1()
-            else:
-                self.s1 = s1
+            self.s1 = s1 if s1 is not None else _M_LocalTest.S1()
 
         def ice_id(self):
             return '::LocalTest::CB1'
@@ -488,10 +482,7 @@ if 'CB8' not in _M_LocalTest.__dict__:
     _M_LocalTest.CB8 = None
     class CB8(Ice.Value):
         def __init__(self, s1=None, c1seq=None, s1dict=None):
-            if s1 is None:
-                self.s1 = _M_LocalTest.S1()
-            else:
-                self.s1 = s1
+            self.s1 = s1 if s1 is not None else _M_LocalTest.S1()
             self.c1seq = c1seq
             self.s1dict = s1dict
 

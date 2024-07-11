@@ -330,10 +330,7 @@ if 'MyClass' not in _M_Test.__dict__:
             self.c = c
             self.prx = prx
             self.o = o
-            if s is None:
-                self.s = _M_Test.LargeStruct()
-            else:
-                self.s = s
+            self.s = s if s is not None else _M_Test.LargeStruct()
             self.seq1 = seq1
             self.seq2 = seq2
             self.seq3 = seq3

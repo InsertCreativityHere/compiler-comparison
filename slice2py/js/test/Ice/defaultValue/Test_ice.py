@@ -732,10 +732,7 @@ if 'StructNoDefaults' not in _M_Test.__dict__:
             self.c1 = c1
             self.bs = bs
             self._is = _is
-            if st is None:
-                self.st = _M_Test.InnerStruct()
-            else:
-                self.st = st
+            self.st = st if st is not None else _M_Test.InnerStruct()
             self.dict = dict
 
         def __eq__(self, other):
@@ -829,10 +826,7 @@ if 'ExceptionNoDefaults' not in _M_Test.__dict__:
     class ExceptionNoDefaults(_M_Test.ExceptionNoDefaultsBase):
         def __init__(self, str='', c1=_M_Test.Color.red, bs=None, st=None, dict=None):
             _M_Test.ExceptionNoDefaultsBase.__init__(self, str, c1, bs)
-            if st is None:
-                self.st = _M_Test.InnerStruct()
-            else:
-                self.st = st
+            self.st = st if st is not None else _M_Test.InnerStruct()
             self.dict = dict
 
         def __str__(self):
@@ -886,10 +880,7 @@ if 'ClassNoDefaults' not in _M_Test.__dict__:
     class ClassNoDefaults(_M_Test.ClassNoDefaultsBase):
         def __init__(self, str='', c1=_M_Test.Color.red, bs=None, st=None, dict=None):
             _M_Test.ClassNoDefaultsBase.__init__(self, str, c1, bs)
-            if st is None:
-                self.st = _M_Test.InnerStruct()
-            else:
-                self.st = st
+            self.st = st if st is not None else _M_Test.InnerStruct()
             self.dict = dict
 
         def ice_id(self):

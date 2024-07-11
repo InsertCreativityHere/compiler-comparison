@@ -166,10 +166,7 @@ if 'ObjectExistsException' not in _M_IceGrid.__dict__:
         id --  The identity of the object.
         """
         def __init__(self, id=None):
-            if id is None:
-                self.id = _M_Ice.Identity()
-            else:
-                self.id = id
+            self.id = id if id is not None else _M_Ice.Identity()
 
         def __str__(self):
             return IcePy.stringifyException(self)
@@ -193,10 +190,7 @@ if 'ObjectNotRegisteredException' not in _M_IceGrid.__dict__:
         id --  The identity of the object.
         """
         def __init__(self, id=None):
-            if id is None:
-                self.id = _M_Ice.Identity()
-            else:
-                self.id = id
+            self.id = id if id is not None else _M_Ice.Identity()
 
         def __str__(self):
             return IcePy.stringifyException(self)
@@ -497,10 +491,7 @@ if 'ObserverAlreadyRegisteredException' not in _M_IceGrid.__dict__:
         id --  The identity of the observer.
         """
         def __init__(self, id=None):
-            if id is None:
-                self.id = _M_Ice.Identity()
-            else:
-                self.id = id
+            self.id = id if id is not None else _M_Ice.Identity()
 
         def __str__(self):
             return IcePy.stringifyException(self)

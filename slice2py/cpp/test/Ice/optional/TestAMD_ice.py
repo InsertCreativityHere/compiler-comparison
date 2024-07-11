@@ -729,10 +729,7 @@ if 'E' not in _M_Test.__dict__:
     _M_Test.E = None
     class E(Ice.Value):
         def __init__(self, fse=None):
-            if fse is None:
-                self.fse = _M_Test.FixedStruct()
-            else:
-                self.fse = fse
+            self.fse = fse if fse is not None else _M_Test.FixedStruct()
 
         def ice_id(self):
             return '::Test::E'
@@ -940,15 +937,9 @@ if 'G' not in _M_Test.__dict__:
     class G(Ice.Value):
         def __init__(self, gg1Opt=Ice.Unset, gg2=None, gg2Opt=Ice.Unset, gg1=None):
             self.gg1Opt = gg1Opt
-            if gg2 is None:
-                self.gg2 = _M_Test.G2()
-            else:
-                self.gg2 = gg2
+            self.gg2 = gg2 if gg2 is not None else _M_Test.G2()
             self.gg2Opt = gg2Opt
-            if gg1 is None:
-                self.gg1 = _M_Test.G1()
-            else:
-                self.gg1 = gg1
+            self.gg1 = gg1 if gg1 is not None else _M_Test.G1()
 
         def ice_id(self):
             return '::Test::G'

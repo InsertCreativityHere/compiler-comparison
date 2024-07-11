@@ -149,10 +149,7 @@ if 'Base' not in _M_Test.__dict__:
         def __init__(self, b=None, o=None, s=None, seq1=None, seq2=None, seq3=None, seq4=None, d1=None, d2=None, d3=None, d4=None):
             self.b = b
             self.o = o
-            if s is None:
-                self.s = _M_Test.Struct1()
-            else:
-                self.s = s
+            self.s = s if s is not None else _M_Test.Struct1()
             self.seq1 = seq1
             self.seq2 = seq2
             self.seq3 = seq3
@@ -223,10 +220,7 @@ if 'Ex' not in _M_Test.__dict__:
     _M_Test.Ex = None
     class Ex(Ice.UserException):
         def __init__(self, s=None, b=None):
-            if s is None:
-                self.s = _M_Test.Struct1()
-            else:
-                self.s = s
+            self.s = s if s is not None else _M_Test.Struct1()
             self.b = b
 
         def __str__(self):

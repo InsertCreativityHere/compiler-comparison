@@ -44,14 +44,8 @@ if 'SubscriberRecordKey' not in _M_IceStorm.__dict__:
         id --  The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
         """
         def __init__(self, topic=None, id=None):
-            if topic is None:
-                self.topic = _M_Ice.Identity()
-            else:
-                self.topic = topic
-            if id is None:
-                self.id = _M_Ice.Identity()
-            else:
-                self.id = id
+            self.topic = topic if topic is not None else _M_Ice.Identity()
+            self.id = id if id is not None else _M_Ice.Identity()
 
         def __hash__(self):
             _h = 0
@@ -154,10 +148,7 @@ if 'SubscriberRecord' not in _M_IceStorm.__dict__:
         """
         def __init__(self, topicName='', id=None, link=False, obj=None, theQoS=None, cost=0, theTopic=None):
             self.topicName = topicName
-            if id is None:
-                self.id = _M_Ice.Identity()
-            else:
-                self.id = id
+            self.id = id if id is not None else _M_Ice.Identity()
             self.link = link
             self.obj = obj
             self.theQoS = theQoS

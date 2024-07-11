@@ -118,10 +118,7 @@ if 'S2' not in _M_Test.__dict__:
             self.l = l
             self.str = str
             self.seq = seq
-            if s is None:
-                self.s = _M_Test.S1()
-            else:
-                self.s = s
+            self.s = s if s is not None else _M_Test.S1()
 
         def __eq__(self, other):
             if other is None:

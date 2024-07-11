@@ -197,10 +197,7 @@ if 'logical' not in _M_classdef._break.__dict__:
     class logical(Ice.Value):
         def __init__(self, _else=_M_classdef._break.bitand.enumeration, _for=None, int64=True):
             self._else = _else
-            if _for is None:
-                self._for = _M_classdef._break.bitor()
-            else:
-                self._for = _for
+            self._for = _for if _for is not None else _M_classdef._break.bitor()
             self.int64 = int64
 
         def ice_id(self):

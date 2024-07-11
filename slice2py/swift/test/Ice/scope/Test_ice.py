@@ -111,10 +111,7 @@ if 'C' not in _M_Test.__dict__:
     _M_Test.C = None
     class C(Ice.Value):
         def __init__(self, s=None):
-            if s is None:
-                self.s = _M_Test.S()
-            else:
-                self.s = s
+            self.s = s if s is not None else _M_Test.S()
 
         def ice_id(self):
             return '::Test::C'
@@ -277,10 +274,7 @@ if 'S2' not in _M_Test.__dict__:
     class S2(object):
         def __init__(self, E1=_M_Test.E1.v1, S1=None, C1=None, S1Seq=None, S1Map=None):
             self.E1 = E1
-            if S1 is None:
-                self.S1 = _M_Test.S1()
-            else:
-                self.S1 = S1
+            self.S1 = S1 if S1 is not None else _M_Test.S1()
             self.C1 = C1
             self.S1Seq = S1Seq
             self.S1Map = S1Map
@@ -327,10 +321,7 @@ if 'C2' not in _M_Test.__dict__:
     class C2(Ice.Value):
         def __init__(self, E1=_M_Test.E1.v1, S1=None, C1=None, S1Seq=None, S1Map=None):
             self.E1 = E1
-            if S1 is None:
-                self.S1 = _M_Test.S1()
-            else:
-                self.S1 = S1
+            self.S1 = S1 if S1 is not None else _M_Test.S1()
             self.C1 = C1
             self.S1Seq = S1Seq
             self.S1Map = S1Map
@@ -710,10 +701,7 @@ if 'C' not in _M_Test.Inner.Inner2.__dict__:
     _M_Test.Inner.Inner2.C = None
     class C(Ice.Value):
         def __init__(self, s=None):
-            if s is None:
-                self.s = _M_Test.Inner.Inner2.S()
-            else:
-                self.s = s
+            self.s = s if s is not None else _M_Test.Inner.Inner2.S()
 
         def ice_id(self):
             return '::Test::Inner::Inner2::C'
@@ -870,10 +858,7 @@ if 'C' not in _M_Test.Inner.__dict__:
     _M_Test.Inner.C = None
     class C(Ice.Value):
         def __init__(self, s=None):
-            if s is None:
-                self.s = _M_Test.Inner.S()
-            else:
-                self.s = s
+            self.s = s if s is not None else _M_Test.Inner.S()
 
         def ice_id(self):
             return '::Test::Inner::C'

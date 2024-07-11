@@ -570,10 +570,7 @@ if 'ApplicationInfo' not in _M_IceGrid.__dict__:
             self.updateTime = updateTime
             self.updateUser = updateUser
             self.revision = revision
-            if descriptor is None:
-                self.descriptor = _M_IceGrid.ApplicationDescriptor()
-            else:
-                self.descriptor = descriptor
+            self.descriptor = descriptor if descriptor is not None else _M_IceGrid.ApplicationDescriptor()
 
         def __eq__(self, other):
             if other is None:
@@ -636,10 +633,7 @@ if 'ApplicationUpdateInfo' not in _M_IceGrid.__dict__:
             self.updateTime = updateTime
             self.updateUser = updateUser
             self.revision = revision
-            if descriptor is None:
-                self.descriptor = _M_IceGrid.ApplicationUpdateDescriptor()
-            else:
-                self.descriptor = descriptor
+            self.descriptor = descriptor if descriptor is not None else _M_IceGrid.ApplicationUpdateDescriptor()
 
         def __eq__(self, other):
             if other is None:
@@ -2656,10 +2650,7 @@ if 'NodeDynamicInfo' not in _M_IceGrid.__dict__:
         adapters --  The dynamic information of the adapters deployed on this node.
         """
         def __init__(self, info=None, servers=None, adapters=None):
-            if info is None:
-                self.info = _M_IceGrid.NodeInfo()
-            else:
-                self.info = info
+            self.info = info if info is not None else _M_IceGrid.NodeInfo()
             self.servers = servers
             self.adapters = adapters
 

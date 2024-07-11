@@ -297,10 +297,7 @@ if 'MyClass' not in _M_Test.__dict__:
         def __init__(self, c=None, o=None, s=None, seq1=None, seq2=None, seq3=None, seq4=None, seq5=None, seq6=None, seq7=None, seq8=None, seq9=None, seq10=None, d=None):
             self.c = c
             self.o = o
-            if s is None:
-                self.s = _M_Test.LargeStruct()
-            else:
-                self.s = s
+            self.s = s if s is not None else _M_Test.LargeStruct()
             self.seq1 = seq1
             self.seq2 = seq2
             self.seq3 = seq3

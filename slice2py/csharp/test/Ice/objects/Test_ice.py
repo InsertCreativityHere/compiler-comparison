@@ -105,10 +105,7 @@ if 'Base' not in _M_Test.__dict__:
     _M_Test.Base = None
     class Base(Ice.Value):
         def __init__(self, theS=None, str=''):
-            if theS is None:
-                self.theS = _M_Test.S()
-            else:
-                self.theS = theS
+            self.theS = theS if theS is not None else _M_Test.S()
             self.str = str
 
         def ice_id(self):
