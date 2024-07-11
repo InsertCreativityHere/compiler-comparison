@@ -69,5 +69,5 @@ public class global extends persistent
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 2421485917778302616L;
+    private static final long serialVersionUID = 2421486704196913919L;
 }
