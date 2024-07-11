@@ -21,6 +21,8 @@ import builtins as _builtins
 # Start of module Ice
 _M_Ice = Ice.openModule('Ice')
 __name__ = 'Ice'
-_M_Ice._t_Context = IcePy.defineDictionary('::Ice::Context', (), IcePy._t_string, IcePy._t_string)
+
+if '_t_Context' not in _M_Ice.__dict__:
+    _M_Ice._t_Context = IcePy.defineDictionary('::Ice::Context', (), IcePy._t_string, IcePy._t_string)
 
 # End of module Ice

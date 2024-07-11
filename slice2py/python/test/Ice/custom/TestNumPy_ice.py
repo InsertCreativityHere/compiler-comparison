@@ -25,282 +25,316 @@ __name__ = 'Test'
 # Start of module Test.NumPy
 _M_Test.NumPy = Ice.openModule('Test.NumPy')
 __name__ = 'Test.NumPy'
-_M_Test.NumPy._t_BoolSeq1 = IcePy.defineSequence('::Test::NumPy::BoolSeq1', ('python:numpy.ndarray',), IcePy._t_bool)
-_M_Test.NumPy._t_BoolSeq2 = IcePy.defineSequence('::Test::NumPy::BoolSeq2', ('python:memoryview:Custom.myNumPyBoolSeq',), IcePy._t_bool)
-_M_Test.NumPy._t_ByteSeq1 = IcePy.defineSequence('::Test::NumPy::ByteSeq1', ('python:numpy.ndarray',), IcePy._t_byte)
-_M_Test.NumPy._t_ByteSeq2 = IcePy.defineSequence('::Test::NumPy::ByteSeq2', ('python:memoryview:Custom.myNumPyByteSeq',), IcePy._t_byte)
-_M_Test.NumPy._t_ShortSeq1 = IcePy.defineSequence('::Test::NumPy::ShortSeq1', ('python:numpy.ndarray',), IcePy._t_short)
-_M_Test.NumPy._t_ShortSeq2 = IcePy.defineSequence('::Test::NumPy::ShortSeq2', ('python:memoryview:Custom.myNumPyShortSeq',), IcePy._t_short)
-_M_Test.NumPy._t_IntSeq1 = IcePy.defineSequence('::Test::NumPy::IntSeq1', ('python:numpy.ndarray',), IcePy._t_int)
-_M_Test.NumPy._t_IntSeq2 = IcePy.defineSequence('::Test::NumPy::IntSeq2', ('python:memoryview:Custom.myNumPyIntSeq',), IcePy._t_int)
-_M_Test.NumPy._t_LongSeq1 = IcePy.defineSequence('::Test::NumPy::LongSeq1', ('python:numpy.ndarray',), IcePy._t_long)
-_M_Test.NumPy._t_LongSeq2 = IcePy.defineSequence('::Test::NumPy::LongSeq2', ('python:memoryview:Custom.myNumPyLongSeq',), IcePy._t_long)
-_M_Test.NumPy._t_FloatSeq1 = IcePy.defineSequence('::Test::NumPy::FloatSeq1', ('python:numpy.ndarray',), IcePy._t_float)
-_M_Test.NumPy._t_FloatSeq2 = IcePy.defineSequence('::Test::NumPy::FloatSeq2', ('python:memoryview:Custom.myNumPyFloatSeq',), IcePy._t_float)
-_M_Test.NumPy._t_DoubleSeq1 = IcePy.defineSequence('::Test::NumPy::DoubleSeq1', ('python:numpy.ndarray',), IcePy._t_double)
-_M_Test.NumPy._t_DoubleSeq2 = IcePy.defineSequence('::Test::NumPy::DoubleSeq2', ('python:memoryview:Custom.myNumPyDoubleSeq',), IcePy._t_double)
-_M_Test.NumPy._t_Complex128Seq = IcePy.defineSequence('::Test::NumPy::Complex128Seq', ('python:memoryview:Custom.myNumPyComplex128Seq',), IcePy._t_byte)
-_M_Test.NumPy.D = None
-class D(Ice.Value):
-    def __init__(self, boolSeq=Ice.Unset, byteSeq=Ice.Unset, shortSeq=Ice.Unset, intSeq=Ice.Unset, longSeq=Ice.Unset, floatSeq=Ice.Unset, doubleSeq=Ice.Unset):
-        self.boolSeq = boolSeq
-        self.byteSeq = byteSeq
-        self.shortSeq = shortSeq
-        self.intSeq = intSeq
-        self.longSeq = longSeq
-        self.floatSeq = floatSeq
-        self.doubleSeq = doubleSeq
 
-    def ice_id(self):
-        return '::Test::NumPy::D'
+if '_t_BoolSeq1' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_BoolSeq1 = IcePy.defineSequence('::Test::NumPy::BoolSeq1', ('python:numpy.ndarray',), IcePy._t_bool)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::NumPy::D'
+if '_t_BoolSeq2' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_BoolSeq2 = IcePy.defineSequence('::Test::NumPy::BoolSeq2', ('python:memoryview:Custom.myNumPyBoolSeq',), IcePy._t_bool)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test.NumPy._t_D)
+if '_t_ByteSeq1' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_ByteSeq1 = IcePy.defineSequence('::Test::NumPy::ByteSeq1', ('python:numpy.ndarray',), IcePy._t_byte)
 
-    __repr__ = __str__
+if '_t_ByteSeq2' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_ByteSeq2 = IcePy.defineSequence('::Test::NumPy::ByteSeq2', ('python:memoryview:Custom.myNumPyByteSeq',), IcePy._t_byte)
 
-_M_Test.NumPy._t_D = IcePy.defineValue('::Test::NumPy::D', D, -1, (), False, None, (
-    ('boolSeq', (), _M_Test.NumPy._t_BoolSeq1, True, 1),
-    ('byteSeq', (), _M_Test.NumPy._t_ByteSeq1, True, 2),
-    ('shortSeq', (), _M_Test.NumPy._t_ShortSeq1, True, 3),
-    ('intSeq', (), _M_Test.NumPy._t_IntSeq1, True, 4),
-    ('longSeq', (), _M_Test.NumPy._t_LongSeq1, True, 5),
-    ('floatSeq', (), _M_Test.NumPy._t_FloatSeq1, True, 6),
-    ('doubleSeq', (), _M_Test.NumPy._t_DoubleSeq1, True, 7)
-))
-D._ice_type = _M_Test.NumPy._t_D
+if '_t_ShortSeq1' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_ShortSeq1 = IcePy.defineSequence('::Test::NumPy::ShortSeq1', ('python:numpy.ndarray',), IcePy._t_short)
 
-_M_Test.NumPy.D = D
-del D
+if '_t_ShortSeq2' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_ShortSeq2 = IcePy.defineSequence('::Test::NumPy::ShortSeq2', ('python:memoryview:Custom.myNumPyShortSeq',), IcePy._t_short)
+
+if '_t_IntSeq1' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_IntSeq1 = IcePy.defineSequence('::Test::NumPy::IntSeq1', ('python:numpy.ndarray',), IcePy._t_int)
+
+if '_t_IntSeq2' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_IntSeq2 = IcePy.defineSequence('::Test::NumPy::IntSeq2', ('python:memoryview:Custom.myNumPyIntSeq',), IcePy._t_int)
+
+if '_t_LongSeq1' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_LongSeq1 = IcePy.defineSequence('::Test::NumPy::LongSeq1', ('python:numpy.ndarray',), IcePy._t_long)
+
+if '_t_LongSeq2' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_LongSeq2 = IcePy.defineSequence('::Test::NumPy::LongSeq2', ('python:memoryview:Custom.myNumPyLongSeq',), IcePy._t_long)
+
+if '_t_FloatSeq1' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_FloatSeq1 = IcePy.defineSequence('::Test::NumPy::FloatSeq1', ('python:numpy.ndarray',), IcePy._t_float)
+
+if '_t_FloatSeq2' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_FloatSeq2 = IcePy.defineSequence('::Test::NumPy::FloatSeq2', ('python:memoryview:Custom.myNumPyFloatSeq',), IcePy._t_float)
+
+if '_t_DoubleSeq1' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_DoubleSeq1 = IcePy.defineSequence('::Test::NumPy::DoubleSeq1', ('python:numpy.ndarray',), IcePy._t_double)
+
+if '_t_DoubleSeq2' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_DoubleSeq2 = IcePy.defineSequence('::Test::NumPy::DoubleSeq2', ('python:memoryview:Custom.myNumPyDoubleSeq',), IcePy._t_double)
+
+if '_t_Complex128Seq' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_Complex128Seq = IcePy.defineSequence('::Test::NumPy::Complex128Seq', ('python:memoryview:Custom.myNumPyComplex128Seq',), IcePy._t_byte)
+
+if 'D' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy.D = None
+    class D(Ice.Value):
+        def __init__(self, boolSeq=Ice.Unset, byteSeq=Ice.Unset, shortSeq=Ice.Unset, intSeq=Ice.Unset, longSeq=Ice.Unset, floatSeq=Ice.Unset, doubleSeq=Ice.Unset):
+            self.boolSeq = boolSeq
+            self.byteSeq = byteSeq
+            self.shortSeq = shortSeq
+            self.intSeq = intSeq
+            self.longSeq = longSeq
+            self.floatSeq = floatSeq
+            self.doubleSeq = doubleSeq
+
+        def ice_id(self):
+            return '::Test::NumPy::D'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::NumPy::D'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test.NumPy._t_D)
+
+        __repr__ = __str__
+
+    _M_Test.NumPy._t_D = IcePy.defineValue('::Test::NumPy::D', D, -1, (), False, None, (
+        ('boolSeq', (), _M_Test.NumPy._t_BoolSeq1, True, 1),
+        ('byteSeq', (), _M_Test.NumPy._t_ByteSeq1, True, 2),
+        ('shortSeq', (), _M_Test.NumPy._t_ShortSeq1, True, 3),
+        ('intSeq', (), _M_Test.NumPy._t_IntSeq1, True, 4),
+        ('longSeq', (), _M_Test.NumPy._t_LongSeq1, True, 5),
+        ('floatSeq', (), _M_Test.NumPy._t_FloatSeq1, True, 6),
+        ('doubleSeq', (), _M_Test.NumPy._t_DoubleSeq1, True, 7)
+    ))
+    D._ice_type = _M_Test.NumPy._t_D
+
+    _M_Test.NumPy.D = D
+    del D
 
 _M_Test.NumPy._t_Custom = IcePy.defineValue('::Test::NumPy::Custom', Ice.Value, -1, (), True, None, ())
-_M_Test.NumPy.CustomPrx = None
-class CustomPrx(Ice.ObjectPrx):
 
-    def opBoolSeq(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opBoolSeq.invoke(self, ((v1, ), context))
+if 'CustomPrx' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy.CustomPrx = None
+    class CustomPrx(Ice.ObjectPrx):
 
-    def opBoolSeqAsync(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opBoolSeq.invokeAsync(self, ((v1, ), context))
+        def opBoolSeq(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opBoolSeq.invoke(self, ((v1, ), context))
 
-    def opByteSeq(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opByteSeq.invoke(self, ((v1, ), context))
+        def opBoolSeqAsync(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opBoolSeq.invokeAsync(self, ((v1, ), context))
 
-    def opByteSeqAsync(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opByteSeq.invokeAsync(self, ((v1, ), context))
+        def opByteSeq(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opByteSeq.invoke(self, ((v1, ), context))
 
-    def opShortSeq(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opShortSeq.invoke(self, ((v1, ), context))
+        def opByteSeqAsync(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opByteSeq.invokeAsync(self, ((v1, ), context))
 
-    def opShortSeqAsync(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opShortSeq.invokeAsync(self, ((v1, ), context))
+        def opShortSeq(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opShortSeq.invoke(self, ((v1, ), context))
 
-    def opIntSeq(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opIntSeq.invoke(self, ((v1, ), context))
+        def opShortSeqAsync(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opShortSeq.invokeAsync(self, ((v1, ), context))
 
-    def opIntSeqAsync(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opIntSeq.invokeAsync(self, ((v1, ), context))
+        def opIntSeq(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opIntSeq.invoke(self, ((v1, ), context))
 
-    def opLongSeq(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opLongSeq.invoke(self, ((v1, ), context))
+        def opIntSeqAsync(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opIntSeq.invokeAsync(self, ((v1, ), context))
 
-    def opLongSeqAsync(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opLongSeq.invokeAsync(self, ((v1, ), context))
+        def opLongSeq(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opLongSeq.invoke(self, ((v1, ), context))
 
-    def opFloatSeq(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opFloatSeq.invoke(self, ((v1, ), context))
+        def opLongSeqAsync(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opLongSeq.invokeAsync(self, ((v1, ), context))
 
-    def opFloatSeqAsync(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opFloatSeq.invokeAsync(self, ((v1, ), context))
+        def opFloatSeq(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opFloatSeq.invoke(self, ((v1, ), context))
 
-    def opDoubleSeq(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opDoubleSeq.invoke(self, ((v1, ), context))
+        def opFloatSeqAsync(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opFloatSeq.invokeAsync(self, ((v1, ), context))
 
-    def opDoubleSeqAsync(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opDoubleSeq.invokeAsync(self, ((v1, ), context))
+        def opDoubleSeq(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opDoubleSeq.invoke(self, ((v1, ), context))
 
-    def opComplex128Seq(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opComplex128Seq.invoke(self, ((v1, ), context))
+        def opDoubleSeqAsync(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opDoubleSeq.invokeAsync(self, ((v1, ), context))
 
-    def opComplex128SeqAsync(self, v1, context=None):
-        return _M_Test.NumPy.Custom._op_opComplex128Seq.invokeAsync(self, ((v1, ), context))
+        def opComplex128Seq(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opComplex128Seq.invoke(self, ((v1, ), context))
 
-    def opBoolMatrix(self, context=None):
-        return _M_Test.NumPy.Custom._op_opBoolMatrix.invoke(self, ((), context))
+        def opComplex128SeqAsync(self, v1, context=None):
+            return _M_Test.NumPy.Custom._op_opComplex128Seq.invokeAsync(self, ((v1, ), context))
 
-    def opBoolMatrixAsync(self, context=None):
-        return _M_Test.NumPy.Custom._op_opBoolMatrix.invokeAsync(self, ((), context))
+        def opBoolMatrix(self, context=None):
+            return _M_Test.NumPy.Custom._op_opBoolMatrix.invoke(self, ((), context))
 
-    def opByteMatrix(self, context=None):
-        return _M_Test.NumPy.Custom._op_opByteMatrix.invoke(self, ((), context))
+        def opBoolMatrixAsync(self, context=None):
+            return _M_Test.NumPy.Custom._op_opBoolMatrix.invokeAsync(self, ((), context))
 
-    def opByteMatrixAsync(self, context=None):
-        return _M_Test.NumPy.Custom._op_opByteMatrix.invokeAsync(self, ((), context))
+        def opByteMatrix(self, context=None):
+            return _M_Test.NumPy.Custom._op_opByteMatrix.invoke(self, ((), context))
 
-    def opShortMatrix(self, context=None):
-        return _M_Test.NumPy.Custom._op_opShortMatrix.invoke(self, ((), context))
+        def opByteMatrixAsync(self, context=None):
+            return _M_Test.NumPy.Custom._op_opByteMatrix.invokeAsync(self, ((), context))
 
-    def opShortMatrixAsync(self, context=None):
-        return _M_Test.NumPy.Custom._op_opShortMatrix.invokeAsync(self, ((), context))
+        def opShortMatrix(self, context=None):
+            return _M_Test.NumPy.Custom._op_opShortMatrix.invoke(self, ((), context))
 
-    def opIntMatrix(self, context=None):
-        return _M_Test.NumPy.Custom._op_opIntMatrix.invoke(self, ((), context))
+        def opShortMatrixAsync(self, context=None):
+            return _M_Test.NumPy.Custom._op_opShortMatrix.invokeAsync(self, ((), context))
 
-    def opIntMatrixAsync(self, context=None):
-        return _M_Test.NumPy.Custom._op_opIntMatrix.invokeAsync(self, ((), context))
+        def opIntMatrix(self, context=None):
+            return _M_Test.NumPy.Custom._op_opIntMatrix.invoke(self, ((), context))
 
-    def opLongMatrix(self, context=None):
-        return _M_Test.NumPy.Custom._op_opLongMatrix.invoke(self, ((), context))
+        def opIntMatrixAsync(self, context=None):
+            return _M_Test.NumPy.Custom._op_opIntMatrix.invokeAsync(self, ((), context))
 
-    def opLongMatrixAsync(self, context=None):
-        return _M_Test.NumPy.Custom._op_opLongMatrix.invokeAsync(self, ((), context))
+        def opLongMatrix(self, context=None):
+            return _M_Test.NumPy.Custom._op_opLongMatrix.invoke(self, ((), context))
 
-    def opFloatMatrix(self, context=None):
-        return _M_Test.NumPy.Custom._op_opFloatMatrix.invoke(self, ((), context))
+        def opLongMatrixAsync(self, context=None):
+            return _M_Test.NumPy.Custom._op_opLongMatrix.invokeAsync(self, ((), context))
 
-    def opFloatMatrixAsync(self, context=None):
-        return _M_Test.NumPy.Custom._op_opFloatMatrix.invokeAsync(self, ((), context))
+        def opFloatMatrix(self, context=None):
+            return _M_Test.NumPy.Custom._op_opFloatMatrix.invoke(self, ((), context))
 
-    def opDoubleMatrix(self, context=None):
-        return _M_Test.NumPy.Custom._op_opDoubleMatrix.invoke(self, ((), context))
+        def opFloatMatrixAsync(self, context=None):
+            return _M_Test.NumPy.Custom._op_opFloatMatrix.invokeAsync(self, ((), context))
 
-    def opDoubleMatrixAsync(self, context=None):
-        return _M_Test.NumPy.Custom._op_opDoubleMatrix.invokeAsync(self, ((), context))
+        def opDoubleMatrix(self, context=None):
+            return _M_Test.NumPy.Custom._op_opDoubleMatrix.invoke(self, ((), context))
 
-    def opBogusNumpyArrayType(self, context=None):
-        return _M_Test.NumPy.Custom._op_opBogusNumpyArrayType.invoke(self, ((), context))
+        def opDoubleMatrixAsync(self, context=None):
+            return _M_Test.NumPy.Custom._op_opDoubleMatrix.invokeAsync(self, ((), context))
 
-    def opBogusNumpyArrayTypeAsync(self, context=None):
-        return _M_Test.NumPy.Custom._op_opBogusNumpyArrayType.invokeAsync(self, ((), context))
+        def opBogusNumpyArrayType(self, context=None):
+            return _M_Test.NumPy.Custom._op_opBogusNumpyArrayType.invoke(self, ((), context))
 
-    def opD(self, d, context=None):
-        return _M_Test.NumPy.Custom._op_opD.invoke(self, ((d, ), context))
+        def opBogusNumpyArrayTypeAsync(self, context=None):
+            return _M_Test.NumPy.Custom._op_opBogusNumpyArrayType.invokeAsync(self, ((), context))
 
-    def opDAsync(self, d, context=None):
-        return _M_Test.NumPy.Custom._op_opD.invokeAsync(self, ((d, ), context))
+        def opD(self, d, context=None):
+            return _M_Test.NumPy.Custom._op_opD.invoke(self, ((d, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.NumPy.Custom._op_shutdown.invoke(self, ((), context))
+        def opDAsync(self, d, context=None):
+            return _M_Test.NumPy.Custom._op_opD.invokeAsync(self, ((d, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.NumPy.Custom._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.NumPy.Custom._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.NumPy.CustomPrx.ice_checkedCast(proxy, '::Test::NumPy::Custom', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.NumPy.Custom._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.NumPy.CustomPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.NumPy.CustomPrx.ice_checkedCast(proxy, '::Test::NumPy::Custom', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::NumPy::Custom'
-_M_Test.NumPy._t_CustomPrx = IcePy.defineProxy('::Test::NumPy::Custom', CustomPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.NumPy.CustomPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.NumPy.CustomPrx = CustomPrx
-del CustomPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::NumPy::Custom'
+    _M_Test.NumPy._t_CustomPrx = IcePy.defineProxy('::Test::NumPy::Custom', CustomPrx)
 
-_M_Test.NumPy.Custom = None
-class Custom(Ice.Object):
+    _M_Test.NumPy.CustomPrx = CustomPrx
+    del CustomPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::NumPy::Custom')
+    _M_Test.NumPy.Custom = None
+    class Custom(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::NumPy::Custom'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::NumPy::Custom')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::NumPy::Custom'
+        def ice_id(self, current=None):
+            return '::Test::NumPy::Custom'
 
-    def opBoolSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opBoolSeq' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::NumPy::Custom'
 
-    def opByteSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opByteSeq' not implemented")
+        def opBoolSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opBoolSeq' not implemented")
 
-    def opShortSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opShortSeq' not implemented")
+        def opByteSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opByteSeq' not implemented")
 
-    def opIntSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opIntSeq' not implemented")
+        def opShortSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opShortSeq' not implemented")
 
-    def opLongSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opLongSeq' not implemented")
+        def opIntSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opIntSeq' not implemented")
 
-    def opFloatSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opFloatSeq' not implemented")
+        def opLongSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opLongSeq' not implemented")
 
-    def opDoubleSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opDoubleSeq' not implemented")
+        def opFloatSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opFloatSeq' not implemented")
 
-    def opComplex128Seq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opComplex128Seq' not implemented")
+        def opDoubleSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opDoubleSeq' not implemented")
 
-    def opBoolMatrix(self, current=None):
-        raise NotImplementedError("servant method 'opBoolMatrix' not implemented")
+        def opComplex128Seq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opComplex128Seq' not implemented")
 
-    def opByteMatrix(self, current=None):
-        raise NotImplementedError("servant method 'opByteMatrix' not implemented")
+        def opBoolMatrix(self, current=None):
+            raise NotImplementedError("servant method 'opBoolMatrix' not implemented")
 
-    def opShortMatrix(self, current=None):
-        raise NotImplementedError("servant method 'opShortMatrix' not implemented")
+        def opByteMatrix(self, current=None):
+            raise NotImplementedError("servant method 'opByteMatrix' not implemented")
 
-    def opIntMatrix(self, current=None):
-        raise NotImplementedError("servant method 'opIntMatrix' not implemented")
+        def opShortMatrix(self, current=None):
+            raise NotImplementedError("servant method 'opShortMatrix' not implemented")
 
-    def opLongMatrix(self, current=None):
-        raise NotImplementedError("servant method 'opLongMatrix' not implemented")
+        def opIntMatrix(self, current=None):
+            raise NotImplementedError("servant method 'opIntMatrix' not implemented")
 
-    def opFloatMatrix(self, current=None):
-        raise NotImplementedError("servant method 'opFloatMatrix' not implemented")
+        def opLongMatrix(self, current=None):
+            raise NotImplementedError("servant method 'opLongMatrix' not implemented")
 
-    def opDoubleMatrix(self, current=None):
-        raise NotImplementedError("servant method 'opDoubleMatrix' not implemented")
+        def opFloatMatrix(self, current=None):
+            raise NotImplementedError("servant method 'opFloatMatrix' not implemented")
 
-    def opBogusNumpyArrayType(self, current=None):
-        raise NotImplementedError("servant method 'opBogusNumpyArrayType' not implemented")
+        def opDoubleMatrix(self, current=None):
+            raise NotImplementedError("servant method 'opDoubleMatrix' not implemented")
 
-    def opD(self, d, current=None):
-        raise NotImplementedError("servant method 'opD' not implemented")
+        def opBogusNumpyArrayType(self, current=None):
+            raise NotImplementedError("servant method 'opBogusNumpyArrayType' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def opD(self, d, current=None):
+            raise NotImplementedError("servant method 'opD' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test.NumPy._t_CustomDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test.NumPy._t_CustomDisp)
 
-_M_Test.NumPy._t_CustomDisp = IcePy.defineClass('::Test::NumPy::Custom', Custom, (), None, ())
-Custom._ice_type = _M_Test.NumPy._t_CustomDisp
+        __repr__ = __str__
 
-Custom._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_BoolSeq1, False, 0),), (((), _M_Test.NumPy._t_BoolSeq2, False, 0),), ((), _M_Test.NumPy._t_BoolSeq1, False, 0), ())
-Custom._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_ByteSeq1, False, 0),), (((), _M_Test.NumPy._t_ByteSeq2, False, 0),), ((), _M_Test.NumPy._t_ByteSeq1, False, 0), ())
-Custom._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_ShortSeq1, False, 0),), (((), _M_Test.NumPy._t_ShortSeq2, False, 0),), ((), _M_Test.NumPy._t_ShortSeq1, False, 0), ())
-Custom._op_opIntSeq = IcePy.Operation('opIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_IntSeq1, False, 0),), (((), _M_Test.NumPy._t_IntSeq2, False, 0),), ((), _M_Test.NumPy._t_IntSeq1, False, 0), ())
-Custom._op_opLongSeq = IcePy.Operation('opLongSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_LongSeq1, False, 0),), (((), _M_Test.NumPy._t_LongSeq2, False, 0),), ((), _M_Test.NumPy._t_LongSeq1, False, 0), ())
-Custom._op_opFloatSeq = IcePy.Operation('opFloatSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_FloatSeq1, False, 0),), (((), _M_Test.NumPy._t_FloatSeq2, False, 0),), ((), _M_Test.NumPy._t_FloatSeq1, False, 0), ())
-Custom._op_opDoubleSeq = IcePy.Operation('opDoubleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_DoubleSeq1, False, 0),), (((), _M_Test.NumPy._t_DoubleSeq2, False, 0),), ((), _M_Test.NumPy._t_DoubleSeq1, False, 0), ())
-Custom._op_opComplex128Seq = IcePy.Operation('opComplex128Seq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_Complex128Seq, False, 0),), (), ((), _M_Test.NumPy._t_Complex128Seq, False, 0), ())
-Custom._op_opBoolMatrix = IcePy.Operation('opBoolMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_BoolSeq1, False, 0), ())
-Custom._op_opByteMatrix = IcePy.Operation('opByteMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_ByteSeq1, False, 0), ())
-Custom._op_opShortMatrix = IcePy.Operation('opShortMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_ShortSeq1, False, 0), ())
-Custom._op_opIntMatrix = IcePy.Operation('opIntMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_IntSeq1, False, 0), ())
-Custom._op_opLongMatrix = IcePy.Operation('opLongMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_LongSeq1, False, 0), ())
-Custom._op_opFloatMatrix = IcePy.Operation('opFloatMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_FloatSeq1, False, 0), ())
-Custom._op_opDoubleMatrix = IcePy.Operation('opDoubleMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_DoubleSeq1, False, 0), ())
-Custom._op_opBogusNumpyArrayType = IcePy.Operation('opBogusNumpyArrayType', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myBogusNumpyArrayType',), (), (), ((), _M_Test.NumPy._t_BoolSeq1, False, 0), ())
-Custom._op_opD = IcePy.Operation('opD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_D, False, 0),), (), ((), _M_Test.NumPy._t_D, False, 0), ())
-Custom._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test.NumPy._t_CustomDisp = IcePy.defineClass('::Test::NumPy::Custom', Custom, (), None, ())
+    Custom._ice_type = _M_Test.NumPy._t_CustomDisp
 
-_M_Test.NumPy.Custom = Custom
-del Custom
+    Custom._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_BoolSeq1, False, 0),), (((), _M_Test.NumPy._t_BoolSeq2, False, 0),), ((), _M_Test.NumPy._t_BoolSeq1, False, 0), ())
+    Custom._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_ByteSeq1, False, 0),), (((), _M_Test.NumPy._t_ByteSeq2, False, 0),), ((), _M_Test.NumPy._t_ByteSeq1, False, 0), ())
+    Custom._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_ShortSeq1, False, 0),), (((), _M_Test.NumPy._t_ShortSeq2, False, 0),), ((), _M_Test.NumPy._t_ShortSeq1, False, 0), ())
+    Custom._op_opIntSeq = IcePy.Operation('opIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_IntSeq1, False, 0),), (((), _M_Test.NumPy._t_IntSeq2, False, 0),), ((), _M_Test.NumPy._t_IntSeq1, False, 0), ())
+    Custom._op_opLongSeq = IcePy.Operation('opLongSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_LongSeq1, False, 0),), (((), _M_Test.NumPy._t_LongSeq2, False, 0),), ((), _M_Test.NumPy._t_LongSeq1, False, 0), ())
+    Custom._op_opFloatSeq = IcePy.Operation('opFloatSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_FloatSeq1, False, 0),), (((), _M_Test.NumPy._t_FloatSeq2, False, 0),), ((), _M_Test.NumPy._t_FloatSeq1, False, 0), ())
+    Custom._op_opDoubleSeq = IcePy.Operation('opDoubleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_DoubleSeq1, False, 0),), (((), _M_Test.NumPy._t_DoubleSeq2, False, 0),), ((), _M_Test.NumPy._t_DoubleSeq1, False, 0), ())
+    Custom._op_opComplex128Seq = IcePy.Operation('opComplex128Seq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_Complex128Seq, False, 0),), (), ((), _M_Test.NumPy._t_Complex128Seq, False, 0), ())
+    Custom._op_opBoolMatrix = IcePy.Operation('opBoolMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_BoolSeq1, False, 0), ())
+    Custom._op_opByteMatrix = IcePy.Operation('opByteMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_ByteSeq1, False, 0), ())
+    Custom._op_opShortMatrix = IcePy.Operation('opShortMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_ShortSeq1, False, 0), ())
+    Custom._op_opIntMatrix = IcePy.Operation('opIntMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_IntSeq1, False, 0), ())
+    Custom._op_opLongMatrix = IcePy.Operation('opLongMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_LongSeq1, False, 0), ())
+    Custom._op_opFloatMatrix = IcePy.Operation('opFloatMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_FloatSeq1, False, 0), ())
+    Custom._op_opDoubleMatrix = IcePy.Operation('opDoubleMatrix', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNumPyMatrix3x3',), (), (), ((), _M_Test.NumPy._t_DoubleSeq1, False, 0), ())
+    Custom._op_opBogusNumpyArrayType = IcePy.Operation('opBogusNumpyArrayType', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myBogusNumpyArrayType',), (), (), ((), _M_Test.NumPy._t_BoolSeq1, False, 0), ())
+    Custom._op_opD = IcePy.Operation('opD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_D, False, 0),), (), ((), _M_Test.NumPy._t_D, False, 0), ())
+    Custom._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.NumPy.Custom = Custom
+    del Custom
 
 # End of module Test.NumPy
 

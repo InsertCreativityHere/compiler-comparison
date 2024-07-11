@@ -23,58 +23,60 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_Clock = IcePy.defineValue('::Test::Clock', Ice.Value, -1, (), True, None, ())
-_M_Test.ClockPrx = None
-class ClockPrx(Ice.ObjectPrx):
 
-    def tick(self, time, context=None):
-        return _M_Test.Clock._op_tick.invoke(self, ((time, ), context))
+if 'ClockPrx' not in _M_Test.__dict__:
+    _M_Test.ClockPrx = None
+    class ClockPrx(Ice.ObjectPrx):
 
-    def tickAsync(self, time, context=None):
-        return _M_Test.Clock._op_tick.invokeAsync(self, ((time, ), context))
+        def tick(self, time, context=None):
+            return _M_Test.Clock._op_tick.invoke(self, ((time, ), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.ClockPrx.ice_checkedCast(proxy, '::Test::Clock', facetOrContext, context)
+        def tickAsync(self, time, context=None):
+            return _M_Test.Clock._op_tick.invokeAsync(self, ((time, ), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.ClockPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.ClockPrx.ice_checkedCast(proxy, '::Test::Clock', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Clock'
-_M_Test._t_ClockPrx = IcePy.defineProxy('::Test::Clock', ClockPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.ClockPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.ClockPrx = ClockPrx
-del ClockPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Clock'
+    _M_Test._t_ClockPrx = IcePy.defineProxy('::Test::Clock', ClockPrx)
 
-_M_Test.Clock = None
-class Clock(Ice.Object):
+    _M_Test.ClockPrx = ClockPrx
+    del ClockPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Clock')
+    _M_Test.Clock = None
+    class Clock(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Clock'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Clock')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Clock'
+        def ice_id(self, current=None):
+            return '::Test::Clock'
 
-    def tick(self, time, current=None):
-        raise NotImplementedError("servant method 'tick' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Clock'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_ClockDisp)
+        def tick(self, time, current=None):
+            raise NotImplementedError("servant method 'tick' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_ClockDisp)
 
-_M_Test._t_ClockDisp = IcePy.defineClass('::Test::Clock', Clock, (), None, ())
-Clock._ice_type = _M_Test._t_ClockDisp
+        __repr__ = __str__
 
-Clock._op_tick = IcePy.Operation('tick', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
+    _M_Test._t_ClockDisp = IcePy.defineClass('::Test::Clock', Clock, (), None, ())
+    Clock._ice_type = _M_Test._t_ClockDisp
 
-_M_Test.Clock = Clock
-del Clock
+    Clock._op_tick = IcePy.Operation('tick', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
+
+    _M_Test.Clock = Clock
+    del Clock
 
 # End of module Test

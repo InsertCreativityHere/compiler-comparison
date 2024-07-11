@@ -27,218 +27,224 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_RemoteCommunicator = IcePy.defineValue('::Test::RemoteCommunicator', Ice.Value, -1, (), True, None, ())
-_M_Test.RemoteCommunicatorPrx = None
-class RemoteCommunicatorPrx(Ice.ObjectPrx):
 
-    def getAdmin(self, context=None):
-        return _M_Test.RemoteCommunicator._op_getAdmin.invoke(self, ((), context))
+if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
+    _M_Test.RemoteCommunicatorPrx = None
+    class RemoteCommunicatorPrx(Ice.ObjectPrx):
 
-    def getAdminAsync(self, context=None):
-        return _M_Test.RemoteCommunicator._op_getAdmin.invokeAsync(self, ((), context))
+        def getAdmin(self, context=None):
+            return _M_Test.RemoteCommunicator._op_getAdmin.invoke(self, ((), context))
 
-    def getChanges(self, context=None):
-        return _M_Test.RemoteCommunicator._op_getChanges.invoke(self, ((), context))
+        def getAdminAsync(self, context=None):
+            return _M_Test.RemoteCommunicator._op_getAdmin.invokeAsync(self, ((), context))
 
-    def getChangesAsync(self, context=None):
-        return _M_Test.RemoteCommunicator._op_getChanges.invokeAsync(self, ((), context))
+        def getChanges(self, context=None):
+            return _M_Test.RemoteCommunicator._op_getChanges.invoke(self, ((), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.RemoteCommunicator._op_shutdown.invoke(self, ((), context))
+        def getChangesAsync(self, context=None):
+            return _M_Test.RemoteCommunicator._op_getChanges.invokeAsync(self, ((), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.RemoteCommunicator._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.RemoteCommunicator._op_shutdown.invoke(self, ((), context))
 
-    def waitForShutdown(self, context=None):
-        return _M_Test.RemoteCommunicator._op_waitForShutdown.invoke(self, ((), context))
+        def shutdownAsync(self, context=None):
+            return _M_Test.RemoteCommunicator._op_shutdown.invokeAsync(self, ((), context))
 
-    def waitForShutdownAsync(self, context=None):
-        return _M_Test.RemoteCommunicator._op_waitForShutdown.invokeAsync(self, ((), context))
+        def waitForShutdown(self, context=None):
+            return _M_Test.RemoteCommunicator._op_waitForShutdown.invoke(self, ((), context))
 
-    def destroy(self, context=None):
-        return _M_Test.RemoteCommunicator._op_destroy.invoke(self, ((), context))
+        def waitForShutdownAsync(self, context=None):
+            return _M_Test.RemoteCommunicator._op_waitForShutdown.invokeAsync(self, ((), context))
 
-    def destroyAsync(self, context=None):
-        return _M_Test.RemoteCommunicator._op_destroy.invokeAsync(self, ((), context))
+        def destroy(self, context=None):
+            return _M_Test.RemoteCommunicator._op_destroy.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.RemoteCommunicatorPrx.ice_checkedCast(proxy, '::Test::RemoteCommunicator', facetOrContext, context)
+        def destroyAsync(self, context=None):
+            return _M_Test.RemoteCommunicator._op_destroy.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.RemoteCommunicatorPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.RemoteCommunicatorPrx.ice_checkedCast(proxy, '::Test::RemoteCommunicator', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::RemoteCommunicator'
-_M_Test._t_RemoteCommunicatorPrx = IcePy.defineProxy('::Test::RemoteCommunicator', RemoteCommunicatorPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.RemoteCommunicatorPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.RemoteCommunicatorPrx = RemoteCommunicatorPrx
-del RemoteCommunicatorPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::RemoteCommunicator'
+    _M_Test._t_RemoteCommunicatorPrx = IcePy.defineProxy('::Test::RemoteCommunicator', RemoteCommunicatorPrx)
 
-_M_Test.RemoteCommunicator = None
-class RemoteCommunicator(Ice.Object):
+    _M_Test.RemoteCommunicatorPrx = RemoteCommunicatorPrx
+    del RemoteCommunicatorPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::RemoteCommunicator')
+    _M_Test.RemoteCommunicator = None
+    class RemoteCommunicator(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::RemoteCommunicator'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::RemoteCommunicator')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::RemoteCommunicator'
+        def ice_id(self, current=None):
+            return '::Test::RemoteCommunicator'
 
-    def getAdmin(self, current=None):
-        raise NotImplementedError("servant method 'getAdmin' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::RemoteCommunicator'
 
-    def getChanges(self, current=None):
-        raise NotImplementedError("servant method 'getChanges' not implemented")
+        def getAdmin(self, current=None):
+            raise NotImplementedError("servant method 'getAdmin' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def getChanges(self, current=None):
+            raise NotImplementedError("servant method 'getChanges' not implemented")
 
-    def waitForShutdown(self, current=None):
-        raise NotImplementedError("servant method 'waitForShutdown' not implemented")
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    def destroy(self, current=None):
-        raise NotImplementedError("servant method 'destroy' not implemented")
+        def waitForShutdown(self, current=None):
+            raise NotImplementedError("servant method 'waitForShutdown' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_RemoteCommunicatorDisp)
+        def destroy(self, current=None):
+            raise NotImplementedError("servant method 'destroy' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_RemoteCommunicatorDisp)
 
-_M_Test._t_RemoteCommunicatorDisp = IcePy.defineClass('::Test::RemoteCommunicator', RemoteCommunicator, (), None, ())
-RemoteCommunicator._ice_type = _M_Test._t_RemoteCommunicatorDisp
+        __repr__ = __str__
 
-RemoteCommunicator._op_getAdmin = IcePy.Operation('getAdmin', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-RemoteCommunicator._op_getChanges = IcePy.Operation('getChanges', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_PropertyDict, False, 0), ())
-RemoteCommunicator._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-RemoteCommunicator._op_waitForShutdown = IcePy.Operation('waitForShutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-RemoteCommunicator._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_RemoteCommunicatorDisp = IcePy.defineClass('::Test::RemoteCommunicator', RemoteCommunicator, (), None, ())
+    RemoteCommunicator._ice_type = _M_Test._t_RemoteCommunicatorDisp
 
-_M_Test.RemoteCommunicator = RemoteCommunicator
-del RemoteCommunicator
+    RemoteCommunicator._op_getAdmin = IcePy.Operation('getAdmin', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    RemoteCommunicator._op_getChanges = IcePy.Operation('getChanges', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_PropertyDict, False, 0), ())
+    RemoteCommunicator._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    RemoteCommunicator._op_waitForShutdown = IcePy.Operation('waitForShutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    RemoteCommunicator._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.RemoteCommunicator = RemoteCommunicator
+    del RemoteCommunicator
 
 _M_Test._t_RemoteCommunicatorFactory = IcePy.defineValue('::Test::RemoteCommunicatorFactory', Ice.Value, -1, (), True, None, ())
-_M_Test.RemoteCommunicatorFactoryPrx = None
-class RemoteCommunicatorFactoryPrx(Ice.ObjectPrx):
 
-    def createCommunicator(self, props, context=None):
-        return _M_Test.RemoteCommunicatorFactory._op_createCommunicator.invoke(self, ((props, ), context))
+if 'RemoteCommunicatorFactoryPrx' not in _M_Test.__dict__:
+    _M_Test.RemoteCommunicatorFactoryPrx = None
+    class RemoteCommunicatorFactoryPrx(Ice.ObjectPrx):
 
-    def createCommunicatorAsync(self, props, context=None):
-        return _M_Test.RemoteCommunicatorFactory._op_createCommunicator.invokeAsync(self, ((props, ), context))
+        def createCommunicator(self, props, context=None):
+            return _M_Test.RemoteCommunicatorFactory._op_createCommunicator.invoke(self, ((props, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.RemoteCommunicatorFactory._op_shutdown.invoke(self, ((), context))
+        def createCommunicatorAsync(self, props, context=None):
+            return _M_Test.RemoteCommunicatorFactory._op_createCommunicator.invokeAsync(self, ((props, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.RemoteCommunicatorFactory._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.RemoteCommunicatorFactory._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.RemoteCommunicatorFactoryPrx.ice_checkedCast(proxy, '::Test::RemoteCommunicatorFactory', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.RemoteCommunicatorFactory._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.RemoteCommunicatorFactoryPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.RemoteCommunicatorFactoryPrx.ice_checkedCast(proxy, '::Test::RemoteCommunicatorFactory', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::RemoteCommunicatorFactory'
-_M_Test._t_RemoteCommunicatorFactoryPrx = IcePy.defineProxy('::Test::RemoteCommunicatorFactory', RemoteCommunicatorFactoryPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.RemoteCommunicatorFactoryPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.RemoteCommunicatorFactoryPrx = RemoteCommunicatorFactoryPrx
-del RemoteCommunicatorFactoryPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::RemoteCommunicatorFactory'
+    _M_Test._t_RemoteCommunicatorFactoryPrx = IcePy.defineProxy('::Test::RemoteCommunicatorFactory', RemoteCommunicatorFactoryPrx)
 
-_M_Test.RemoteCommunicatorFactory = None
-class RemoteCommunicatorFactory(Ice.Object):
+    _M_Test.RemoteCommunicatorFactoryPrx = RemoteCommunicatorFactoryPrx
+    del RemoteCommunicatorFactoryPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::RemoteCommunicatorFactory')
+    _M_Test.RemoteCommunicatorFactory = None
+    class RemoteCommunicatorFactory(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::RemoteCommunicatorFactory'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::RemoteCommunicatorFactory')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::RemoteCommunicatorFactory'
+        def ice_id(self, current=None):
+            return '::Test::RemoteCommunicatorFactory'
 
-    def createCommunicator(self, props, current=None):
-        raise NotImplementedError("servant method 'createCommunicator' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::RemoteCommunicatorFactory'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def createCommunicator(self, props, current=None):
+            raise NotImplementedError("servant method 'createCommunicator' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_RemoteCommunicatorFactoryDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_RemoteCommunicatorFactoryDisp)
 
-_M_Test._t_RemoteCommunicatorFactoryDisp = IcePy.defineClass('::Test::RemoteCommunicatorFactory', RemoteCommunicatorFactory, (), None, ())
-RemoteCommunicatorFactory._ice_type = _M_Test._t_RemoteCommunicatorFactoryDisp
+        __repr__ = __str__
 
-RemoteCommunicatorFactory._op_createCommunicator = IcePy.Operation('createCommunicator', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_PropertyDict, False, 0),), (), ((), _M_Test._t_RemoteCommunicatorPrx, False, 0), ())
-RemoteCommunicatorFactory._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_RemoteCommunicatorFactoryDisp = IcePy.defineClass('::Test::RemoteCommunicatorFactory', RemoteCommunicatorFactory, (), None, ())
+    RemoteCommunicatorFactory._ice_type = _M_Test._t_RemoteCommunicatorFactoryDisp
 
-_M_Test.RemoteCommunicatorFactory = RemoteCommunicatorFactory
-del RemoteCommunicatorFactory
+    RemoteCommunicatorFactory._op_createCommunicator = IcePy.Operation('createCommunicator', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_PropertyDict, False, 0),), (), ((), _M_Test._t_RemoteCommunicatorPrx, False, 0), ())
+    RemoteCommunicatorFactory._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.RemoteCommunicatorFactory = RemoteCommunicatorFactory
+    del RemoteCommunicatorFactory
 
 _M_Test._t_TestFacet = IcePy.defineValue('::Test::TestFacet', Ice.Value, -1, (), True, None, ())
-_M_Test.TestFacetPrx = None
-class TestFacetPrx(Ice.ObjectPrx):
 
-    def op(self, context=None):
-        return _M_Test.TestFacet._op_op.invoke(self, ((), context))
+if 'TestFacetPrx' not in _M_Test.__dict__:
+    _M_Test.TestFacetPrx = None
+    class TestFacetPrx(Ice.ObjectPrx):
 
-    def opAsync(self, context=None):
-        return _M_Test.TestFacet._op_op.invokeAsync(self, ((), context))
+        def op(self, context=None):
+            return _M_Test.TestFacet._op_op.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestFacetPrx.ice_checkedCast(proxy, '::Test::TestFacet', facetOrContext, context)
+        def opAsync(self, context=None):
+            return _M_Test.TestFacet._op_op.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestFacetPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestFacetPrx.ice_checkedCast(proxy, '::Test::TestFacet', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestFacet'
-_M_Test._t_TestFacetPrx = IcePy.defineProxy('::Test::TestFacet', TestFacetPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestFacetPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestFacetPrx = TestFacetPrx
-del TestFacetPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestFacet'
+    _M_Test._t_TestFacetPrx = IcePy.defineProxy('::Test::TestFacet', TestFacetPrx)
 
-_M_Test.TestFacet = None
-class TestFacet(Ice.Object):
+    _M_Test.TestFacetPrx = TestFacetPrx
+    del TestFacetPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::TestFacet')
+    _M_Test.TestFacet = None
+    class TestFacet(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::TestFacet'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::TestFacet')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestFacet'
+        def ice_id(self, current=None):
+            return '::Test::TestFacet'
 
-    def op(self, current=None):
-        raise NotImplementedError("servant method 'op' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestFacet'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestFacetDisp)
+        def op(self, current=None):
+            raise NotImplementedError("servant method 'op' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestFacetDisp)
 
-_M_Test._t_TestFacetDisp = IcePy.defineClass('::Test::TestFacet', TestFacet, (), None, ())
-TestFacet._ice_type = _M_Test._t_TestFacetDisp
+        __repr__ = __str__
 
-TestFacet._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_TestFacetDisp = IcePy.defineClass('::Test::TestFacet', TestFacet, (), None, ())
+    TestFacet._ice_type = _M_Test._t_TestFacetDisp
 
-_M_Test.TestFacet = TestFacet
-del TestFacet
+    TestFacet._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.TestFacet = TestFacet
+    del TestFacet
 
 # End of module Test

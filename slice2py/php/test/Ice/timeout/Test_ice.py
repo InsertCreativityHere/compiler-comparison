@@ -21,156 +21,162 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
-_M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
+
+if '_t_ByteSeq' not in _M_Test.__dict__:
+    _M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
 
 _M_Test._t_Timeout = IcePy.defineValue('::Test::Timeout', Ice.Value, -1, (), True, None, ())
-_M_Test.TimeoutPrx = None
-class TimeoutPrx(Ice.ObjectPrx):
 
-    def op(self, context=None):
-        return _M_Test.Timeout._op_op.invoke(self, ((), context))
+if 'TimeoutPrx' not in _M_Test.__dict__:
+    _M_Test.TimeoutPrx = None
+    class TimeoutPrx(Ice.ObjectPrx):
 
-    def opAsync(self, context=None):
-        return _M_Test.Timeout._op_op.invokeAsync(self, ((), context))
+        def op(self, context=None):
+            return _M_Test.Timeout._op_op.invoke(self, ((), context))
 
-    def sendData(self, seq, context=None):
-        return _M_Test.Timeout._op_sendData.invoke(self, ((seq, ), context))
+        def opAsync(self, context=None):
+            return _M_Test.Timeout._op_op.invokeAsync(self, ((), context))
 
-    def sendDataAsync(self, seq, context=None):
-        return _M_Test.Timeout._op_sendData.invokeAsync(self, ((seq, ), context))
+        def sendData(self, seq, context=None):
+            return _M_Test.Timeout._op_sendData.invoke(self, ((seq, ), context))
 
-    def sleep(self, to, context=None):
-        return _M_Test.Timeout._op_sleep.invoke(self, ((to, ), context))
+        def sendDataAsync(self, seq, context=None):
+            return _M_Test.Timeout._op_sendData.invokeAsync(self, ((seq, ), context))
 
-    def sleepAsync(self, to, context=None):
-        return _M_Test.Timeout._op_sleep.invokeAsync(self, ((to, ), context))
+        def sleep(self, to, context=None):
+            return _M_Test.Timeout._op_sleep.invoke(self, ((to, ), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TimeoutPrx.ice_checkedCast(proxy, '::Test::Timeout', facetOrContext, context)
+        def sleepAsync(self, to, context=None):
+            return _M_Test.Timeout._op_sleep.invokeAsync(self, ((to, ), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TimeoutPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TimeoutPrx.ice_checkedCast(proxy, '::Test::Timeout', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Timeout'
-_M_Test._t_TimeoutPrx = IcePy.defineProxy('::Test::Timeout', TimeoutPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TimeoutPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TimeoutPrx = TimeoutPrx
-del TimeoutPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Timeout'
+    _M_Test._t_TimeoutPrx = IcePy.defineProxy('::Test::Timeout', TimeoutPrx)
 
-_M_Test.Timeout = None
-class Timeout(Ice.Object):
+    _M_Test.TimeoutPrx = TimeoutPrx
+    del TimeoutPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Timeout')
+    _M_Test.Timeout = None
+    class Timeout(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Timeout'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Timeout')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Timeout'
+        def ice_id(self, current=None):
+            return '::Test::Timeout'
 
-    def op(self, current=None):
-        raise NotImplementedError("servant method 'op' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Timeout'
 
-    def sendData(self, seq, current=None):
-        raise NotImplementedError("servant method 'sendData' not implemented")
+        def op(self, current=None):
+            raise NotImplementedError("servant method 'op' not implemented")
 
-    def sleep(self, to, current=None):
-        raise NotImplementedError("servant method 'sleep' not implemented")
+        def sendData(self, seq, current=None):
+            raise NotImplementedError("servant method 'sendData' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TimeoutDisp)
+        def sleep(self, to, current=None):
+            raise NotImplementedError("servant method 'sleep' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TimeoutDisp)
 
-_M_Test._t_TimeoutDisp = IcePy.defineClass('::Test::Timeout', Timeout, (), None, ())
-Timeout._ice_type = _M_Test._t_TimeoutDisp
+        __repr__ = __str__
 
-Timeout._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Timeout._op_sendData = IcePy.Operation('sendData', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (), None, ())
-Timeout._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    _M_Test._t_TimeoutDisp = IcePy.defineClass('::Test::Timeout', Timeout, (), None, ())
+    Timeout._ice_type = _M_Test._t_TimeoutDisp
 
-_M_Test.Timeout = Timeout
-del Timeout
+    Timeout._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Timeout._op_sendData = IcePy.Operation('sendData', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (), None, ())
+    Timeout._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+
+    _M_Test.Timeout = Timeout
+    del Timeout
 
 _M_Test._t_Controller = IcePy.defineValue('::Test::Controller', Ice.Value, -1, (), True, None, ())
-_M_Test.ControllerPrx = None
-class ControllerPrx(Ice.ObjectPrx):
 
-    def holdAdapter(self, to, context=None):
-        return _M_Test.Controller._op_holdAdapter.invoke(self, ((to, ), context))
+if 'ControllerPrx' not in _M_Test.__dict__:
+    _M_Test.ControllerPrx = None
+    class ControllerPrx(Ice.ObjectPrx):
 
-    def holdAdapterAsync(self, to, context=None):
-        return _M_Test.Controller._op_holdAdapter.invokeAsync(self, ((to, ), context))
+        def holdAdapter(self, to, context=None):
+            return _M_Test.Controller._op_holdAdapter.invoke(self, ((to, ), context))
 
-    def resumeAdapter(self, context=None):
-        return _M_Test.Controller._op_resumeAdapter.invoke(self, ((), context))
+        def holdAdapterAsync(self, to, context=None):
+            return _M_Test.Controller._op_holdAdapter.invokeAsync(self, ((to, ), context))
 
-    def resumeAdapterAsync(self, context=None):
-        return _M_Test.Controller._op_resumeAdapter.invokeAsync(self, ((), context))
+        def resumeAdapter(self, context=None):
+            return _M_Test.Controller._op_resumeAdapter.invoke(self, ((), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.Controller._op_shutdown.invoke(self, ((), context))
+        def resumeAdapterAsync(self, context=None):
+            return _M_Test.Controller._op_resumeAdapter.invokeAsync(self, ((), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.Controller._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.Controller._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.ControllerPrx.ice_checkedCast(proxy, '::Test::Controller', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.Controller._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.ControllerPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.ControllerPrx.ice_checkedCast(proxy, '::Test::Controller', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Controller'
-_M_Test._t_ControllerPrx = IcePy.defineProxy('::Test::Controller', ControllerPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.ControllerPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.ControllerPrx = ControllerPrx
-del ControllerPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Controller'
+    _M_Test._t_ControllerPrx = IcePy.defineProxy('::Test::Controller', ControllerPrx)
 
-_M_Test.Controller = None
-class Controller(Ice.Object):
+    _M_Test.ControllerPrx = ControllerPrx
+    del ControllerPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Controller')
+    _M_Test.Controller = None
+    class Controller(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Controller'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Controller')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Controller'
+        def ice_id(self, current=None):
+            return '::Test::Controller'
 
-    def holdAdapter(self, to, current=None):
-        raise NotImplementedError("servant method 'holdAdapter' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Controller'
 
-    def resumeAdapter(self, current=None):
-        raise NotImplementedError("servant method 'resumeAdapter' not implemented")
+        def holdAdapter(self, to, current=None):
+            raise NotImplementedError("servant method 'holdAdapter' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def resumeAdapter(self, current=None):
+            raise NotImplementedError("servant method 'resumeAdapter' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_ControllerDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_ControllerDisp)
 
-_M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
-Controller._ice_type = _M_Test._t_ControllerDisp
+        __repr__ = __str__
 
-Controller._op_holdAdapter = IcePy.Operation('holdAdapter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-Controller._op_resumeAdapter = IcePy.Operation('resumeAdapter', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Controller._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
+    Controller._ice_type = _M_Test._t_ControllerDisp
 
-_M_Test.Controller = Controller
-del Controller
+    Controller._op_holdAdapter = IcePy.Operation('holdAdapter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    Controller._op_resumeAdapter = IcePy.Operation('resumeAdapter', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Controller._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.Controller = Controller
+    del Controller
 
 # End of module Test

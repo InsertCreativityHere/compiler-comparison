@@ -21,910 +21,974 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
-_M_Test.S = None
-class S(object):
-    def __init__(self, v=0):
-        self.v = v
 
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.v)
-        return _h % 0x7fffffff
+if 'S' not in _M_Test.__dict__:
+    _M_Test.S = None
+    class S(object):
+        def __init__(self, v=0):
+            self.v = v
 
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.S):
-            return NotImplemented
-        else:
-            if self.v is None or other.v is None:
-                if self.v != other.v:
-                    return (-1 if self.v is None else 1)
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.v)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.S):
+                return NotImplemented
             else:
-                if self.v < other.v:
-                    return -1
-                elif self.v > other.v:
-                    return 1
-            return 0
+                if self.v is None or other.v is None:
+                    if self.v != other.v:
+                        return (-1 if self.v is None else 1)
+                else:
+                    if self.v < other.v:
+                        return -1
+                    elif self.v > other.v:
+                        return 1
+                return 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_S)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_S)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test._t_S = IcePy.defineStruct('::Test::S', S, (), (('v', (), IcePy._t_int),))
+    _M_Test._t_S = IcePy.defineStruct('::Test::S', S, (), (('v', (), IcePy._t_int),))
 
-_M_Test.S = S
-del S
-_M_Test._t_SMap = IcePy.defineDictionary('::Test::SMap', (), IcePy._t_string, _M_Test._t_S)
-_M_Test._t_SSeq = IcePy.defineSequence('::Test::SSeq', (), _M_Test._t_S)
-_M_Test.C = None
-class C(Ice.Value):
-    def __init__(self, s=None):
-        if s is None:
-            self.s = _M_Test.S()
-        else:
+    _M_Test.S = S
+    del S
+
+if '_t_SMap' not in _M_Test.__dict__:
+    _M_Test._t_SMap = IcePy.defineDictionary('::Test::SMap', (), IcePy._t_string, _M_Test._t_S)
+
+if '_t_SSeq' not in _M_Test.__dict__:
+    _M_Test._t_SSeq = IcePy.defineSequence('::Test::SSeq', (), _M_Test._t_S)
+
+if 'C' not in _M_Test.__dict__:
+    _M_Test.C = None
+    class C(Ice.Value):
+        def __init__(self, s=None):
+            if s is None:
+                self.s = _M_Test.S()
+            else:
+                self.s = s
+
+        def ice_id(self):
+            return '::Test::C'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::C'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_C)
+
+        __repr__ = __str__
+
+    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, (('s', (), _M_Test._t_S, False, 0),))
+    C._ice_type = _M_Test._t_C
+
+    _M_Test.C = C
+    del C
+
+if '_t_CMap' not in _M_Test.__dict__:
+    _M_Test._t_CMap = IcePy.defineDictionary('::Test::CMap', (), IcePy._t_string, _M_Test._t_C)
+
+if '_t_CSeq' not in _M_Test.__dict__:
+    _M_Test._t_CSeq = IcePy.defineSequence('::Test::CSeq', (), _M_Test._t_C)
+
+if 'E1' not in _M_Test.__dict__:
+    _M_Test.E1 = None
+    class E1(Ice.EnumBase):
+
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
+
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
+
+    E1.v1 = E1("v1", 0)
+    E1.v2 = E1("v2", 1)
+    E1.v3 = E1("v3", 2)
+    E1._enumerators = { 0:E1.v1, 1:E1.v2, 2:E1.v3 }
+
+    _M_Test._t_E1 = IcePy.defineEnum('::Test::E1', E1, (), E1._enumerators)
+
+    _M_Test.E1 = E1
+    del E1
+
+if 'S1' not in _M_Test.__dict__:
+    _M_Test.S1 = None
+    class S1(object):
+        def __init__(self, s=''):
             self.s = s
 
-    def ice_id(self):
-        return '::Test::C'
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.s)
+            return _h % 0x7fffffff
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::C'
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_C)
-
-    __repr__ = __str__
-
-_M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, (('s', (), _M_Test._t_S, False, 0),))
-C._ice_type = _M_Test._t_C
-
-_M_Test.C = C
-del C
-_M_Test._t_CMap = IcePy.defineDictionary('::Test::CMap', (), IcePy._t_string, _M_Test._t_C)
-_M_Test._t_CSeq = IcePy.defineSequence('::Test::CSeq', (), _M_Test._t_C)
-_M_Test.E1 = None
-class E1(Ice.EnumBase):
-
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
-
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
-
-E1.v1 = E1("v1", 0)
-E1.v2 = E1("v2", 1)
-E1.v3 = E1("v3", 2)
-E1._enumerators = { 0:E1.v1, 1:E1.v2, 2:E1.v3 }
-
-_M_Test._t_E1 = IcePy.defineEnum('::Test::E1', E1, (), E1._enumerators)
-
-_M_Test.E1 = E1
-del E1
-_M_Test.S1 = None
-class S1(object):
-    def __init__(self, s=''):
-        self.s = s
-
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.s)
-        return _h % 0x7fffffff
-
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.S1):
-            return NotImplemented
-        else:
-            if self.s is None or other.s is None:
-                if self.s != other.s:
-                    return (-1 if self.s is None else 1)
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.S1):
+                return NotImplemented
             else:
-                if self.s < other.s:
-                    return -1
-                elif self.s > other.s:
-                    return 1
-            return 0
+                if self.s is None or other.s is None:
+                    if self.s != other.s:
+                        return (-1 if self.s is None else 1)
+                else:
+                    if self.s < other.s:
+                        return -1
+                    elif self.s > other.s:
+                        return 1
+                return 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_S1)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_S1)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test._t_S1 = IcePy.defineStruct('::Test::S1', S1, (), (('s', (), IcePy._t_string),))
+    _M_Test._t_S1 = IcePy.defineStruct('::Test::S1', S1, (), (('s', (), IcePy._t_string),))
 
-_M_Test.S1 = S1
-del S1
-_M_Test.C1 = None
-class C1(Ice.Value):
-    def __init__(self, s=''):
-        self.s = s
+    _M_Test.S1 = S1
+    del S1
 
-    def ice_id(self):
-        return '::Test::C1'
+if 'C1' not in _M_Test.__dict__:
+    _M_Test.C1 = None
+    class C1(Ice.Value):
+        def __init__(self, s=''):
+            self.s = s
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::C1'
+        def ice_id(self):
+            return '::Test::C1'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_C1)
+        @staticmethod
+        def ice_staticId():
+            return '::Test::C1'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_C1)
 
-_M_Test._t_C1 = IcePy.defineValue('::Test::C1', C1, -1, (), False, None, (('s', (), IcePy._t_string, False, 0),))
-C1._ice_type = _M_Test._t_C1
+        __repr__ = __str__
 
-_M_Test.C1 = C1
-del C1
-_M_Test.S2 = None
-class S2(object):
-    def __init__(self, E1=_M_Test.E1.v1, S1=None, C1=None):
-        self.E1 = E1
-        if S1 is None:
-            self.S1 = _M_Test.S1()
-        else:
-            self.S1 = S1
-        self.C1 = C1
+    _M_Test._t_C1 = IcePy.defineValue('::Test::C1', C1, -1, (), False, None, (('s', (), IcePy._t_string, False, 0),))
+    C1._ice_type = _M_Test._t_C1
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_Test.S2):
-            return NotImplemented
-        else:
-            if self.E1 != other.E1:
+    _M_Test.C1 = C1
+    del C1
+
+if 'S2' not in _M_Test.__dict__:
+    _M_Test.S2 = None
+    class S2(object):
+        def __init__(self, E1=_M_Test.E1.v1, S1=None, C1=None):
+            self.E1 = E1
+            if S1 is None:
+                self.S1 = _M_Test.S1()
+            else:
+                self.S1 = S1
+            self.C1 = C1
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.S1 != other.S1:
-                return False
-            if self.C1 != other.C1:
-                return False
-            return True
+            elif not isinstance(other, _M_Test.S2):
+                return NotImplemented
+            else:
+                if self.E1 != other.E1:
+                    return False
+                if self.S1 != other.S1:
+                    return False
+                if self.C1 != other.C1:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_S2)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_S2)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test._t_S2 = IcePy.defineStruct('::Test::S2', S2, (), (
-    ('E1', (), _M_Test._t_E1),
-    ('S1', (), _M_Test._t_S1),
-    ('C1', (), _M_Test._t_C1)
-))
+    _M_Test._t_S2 = IcePy.defineStruct('::Test::S2', S2, (), (
+        ('E1', (), _M_Test._t_E1),
+        ('S1', (), _M_Test._t_S1),
+        ('C1', (), _M_Test._t_C1)
+    ))
 
-_M_Test.S2 = S2
-del S2
-_M_Test.C2 = None
-class C2(Ice.Value):
-    def __init__(self, E1=_M_Test.E1.v1, S1=None, C1=None):
-        self.E1 = E1
-        if S1 is None:
-            self.S1 = _M_Test.S1()
-        else:
-            self.S1 = S1
-        self.C1 = C1
+    _M_Test.S2 = S2
+    del S2
 
-    def ice_id(self):
-        return '::Test::C2'
+if 'C2' not in _M_Test.__dict__:
+    _M_Test.C2 = None
+    class C2(Ice.Value):
+        def __init__(self, E1=_M_Test.E1.v1, S1=None, C1=None):
+            self.E1 = E1
+            if S1 is None:
+                self.S1 = _M_Test.S1()
+            else:
+                self.S1 = S1
+            self.C1 = C1
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::C2'
+        def ice_id(self):
+            return '::Test::C2'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_C2)
+        @staticmethod
+        def ice_staticId():
+            return '::Test::C2'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_C2)
 
-_M_Test._t_C2 = IcePy.declareValue('::Test::C2')
+        __repr__ = __str__
 
-_M_Test._t_C2 = IcePy.defineValue('::Test::C2', C2, -1, (), False, None, (
-    ('E1', (), _M_Test._t_E1, False, 0),
-    ('S1', (), _M_Test._t_S1, False, 0),
-    ('C1', (), _M_Test._t_C1, False, 0)
-))
-C2._ice_type = _M_Test._t_C2
+    _M_Test._t_C2 = IcePy.declareValue('::Test::C2')
 
-_M_Test.C2 = C2
-del C2
+    _M_Test._t_C2 = IcePy.defineValue('::Test::C2', C2, -1, (), False, None, (
+        ('E1', (), _M_Test._t_E1, False, 0),
+        ('S1', (), _M_Test._t_S1, False, 0),
+        ('C1', (), _M_Test._t_C1, False, 0)
+    ))
+    C2._ice_type = _M_Test._t_C2
+
+    _M_Test.C2 = C2
+    del C2
 
 _M_Test._t_I = IcePy.defineValue('::Test::I', Ice.Value, -1, (), True, None, ())
-_M_Test.IPrx = None
-class IPrx(Ice.ObjectPrx):
 
-    def opS(self, s1, context=None):
-        return _M_Test.I._op_opS.invoke(self, ((s1, ), context))
+if 'IPrx' not in _M_Test.__dict__:
+    _M_Test.IPrx = None
+    class IPrx(Ice.ObjectPrx):
 
-    def opSAsync(self, s1, context=None):
-        return _M_Test.I._op_opS.invokeAsync(self, ((s1, ), context))
+        def opS(self, s1, context=None):
+            return _M_Test.I._op_opS.invoke(self, ((s1, ), context))
 
-    def opSSeq(self, s1, context=None):
-        return _M_Test.I._op_opSSeq.invoke(self, ((s1, ), context))
+        def opSAsync(self, s1, context=None):
+            return _M_Test.I._op_opS.invokeAsync(self, ((s1, ), context))
 
-    def opSSeqAsync(self, s1, context=None):
-        return _M_Test.I._op_opSSeq.invokeAsync(self, ((s1, ), context))
+        def opSSeq(self, s1, context=None):
+            return _M_Test.I._op_opSSeq.invoke(self, ((s1, ), context))
 
-    def opSMap(self, s1, context=None):
-        return _M_Test.I._op_opSMap.invoke(self, ((s1, ), context))
+        def opSSeqAsync(self, s1, context=None):
+            return _M_Test.I._op_opSSeq.invokeAsync(self, ((s1, ), context))
 
-    def opSMapAsync(self, s1, context=None):
-        return _M_Test.I._op_opSMap.invokeAsync(self, ((s1, ), context))
+        def opSMap(self, s1, context=None):
+            return _M_Test.I._op_opSMap.invoke(self, ((s1, ), context))
 
-    def opC(self, c1, context=None):
-        return _M_Test.I._op_opC.invoke(self, ((c1, ), context))
+        def opSMapAsync(self, s1, context=None):
+            return _M_Test.I._op_opSMap.invokeAsync(self, ((s1, ), context))
 
-    def opCAsync(self, c1, context=None):
-        return _M_Test.I._op_opC.invokeAsync(self, ((c1, ), context))
+        def opC(self, c1, context=None):
+            return _M_Test.I._op_opC.invoke(self, ((c1, ), context))
 
-    def opCSeq(self, s1, context=None):
-        return _M_Test.I._op_opCSeq.invoke(self, ((s1, ), context))
+        def opCAsync(self, c1, context=None):
+            return _M_Test.I._op_opC.invokeAsync(self, ((c1, ), context))
 
-    def opCSeqAsync(self, s1, context=None):
-        return _M_Test.I._op_opCSeq.invokeAsync(self, ((s1, ), context))
+        def opCSeq(self, s1, context=None):
+            return _M_Test.I._op_opCSeq.invoke(self, ((s1, ), context))
 
-    def opCMap(self, c1, context=None):
-        return _M_Test.I._op_opCMap.invoke(self, ((c1, ), context))
+        def opCSeqAsync(self, s1, context=None):
+            return _M_Test.I._op_opCSeq.invokeAsync(self, ((s1, ), context))
 
-    def opCMapAsync(self, c1, context=None):
-        return _M_Test.I._op_opCMap.invokeAsync(self, ((c1, ), context))
+        def opCMap(self, c1, context=None):
+            return _M_Test.I._op_opCMap.invoke(self, ((c1, ), context))
 
-    def opE1(self, E1, context=None):
-        return _M_Test.I._op_opE1.invoke(self, ((E1, ), context))
+        def opCMapAsync(self, c1, context=None):
+            return _M_Test.I._op_opCMap.invokeAsync(self, ((c1, ), context))
 
-    def opE1Async(self, E1, context=None):
-        return _M_Test.I._op_opE1.invokeAsync(self, ((E1, ), context))
+        def opE1(self, E1, context=None):
+            return _M_Test.I._op_opE1.invoke(self, ((E1, ), context))
 
-    def opS1(self, S1, context=None):
-        return _M_Test.I._op_opS1.invoke(self, ((S1, ), context))
+        def opE1Async(self, E1, context=None):
+            return _M_Test.I._op_opE1.invokeAsync(self, ((E1, ), context))
 
-    def opS1Async(self, S1, context=None):
-        return _M_Test.I._op_opS1.invokeAsync(self, ((S1, ), context))
+        def opS1(self, S1, context=None):
+            return _M_Test.I._op_opS1.invoke(self, ((S1, ), context))
 
-    def opC1(self, C1, context=None):
-        return _M_Test.I._op_opC1.invoke(self, ((C1, ), context))
+        def opS1Async(self, S1, context=None):
+            return _M_Test.I._op_opS1.invokeAsync(self, ((S1, ), context))
 
-    def opC1Async(self, C1, context=None):
-        return _M_Test.I._op_opC1.invokeAsync(self, ((C1, ), context))
+        def opC1(self, C1, context=None):
+            return _M_Test.I._op_opC1.invoke(self, ((C1, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.I._op_shutdown.invoke(self, ((), context))
+        def opC1Async(self, C1, context=None):
+            return _M_Test.I._op_opC1.invokeAsync(self, ((C1, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.I._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.I._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.IPrx.ice_checkedCast(proxy, '::Test::I', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.I._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.IPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.IPrx.ice_checkedCast(proxy, '::Test::I', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::I'
-_M_Test._t_IPrx = IcePy.defineProxy('::Test::I', IPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.IPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.IPrx = IPrx
-del IPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::I'
+    _M_Test._t_IPrx = IcePy.defineProxy('::Test::I', IPrx)
 
-_M_Test.I = None
-class I(Ice.Object):
+    _M_Test.IPrx = IPrx
+    del IPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::I')
+    _M_Test.I = None
+    class I(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::I'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::I')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::I'
+        def ice_id(self, current=None):
+            return '::Test::I'
 
-    def opS(self, s1, current=None):
-        raise NotImplementedError("servant method 'opS' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::I'
 
-    def opSSeq(self, s1, current=None):
-        raise NotImplementedError("servant method 'opSSeq' not implemented")
+        def opS(self, s1, current=None):
+            raise NotImplementedError("servant method 'opS' not implemented")
 
-    def opSMap(self, s1, current=None):
-        raise NotImplementedError("servant method 'opSMap' not implemented")
+        def opSSeq(self, s1, current=None):
+            raise NotImplementedError("servant method 'opSSeq' not implemented")
 
-    def opC(self, c1, current=None):
-        raise NotImplementedError("servant method 'opC' not implemented")
+        def opSMap(self, s1, current=None):
+            raise NotImplementedError("servant method 'opSMap' not implemented")
 
-    def opCSeq(self, s1, current=None):
-        raise NotImplementedError("servant method 'opCSeq' not implemented")
+        def opC(self, c1, current=None):
+            raise NotImplementedError("servant method 'opC' not implemented")
 
-    def opCMap(self, c1, current=None):
-        raise NotImplementedError("servant method 'opCMap' not implemented")
+        def opCSeq(self, s1, current=None):
+            raise NotImplementedError("servant method 'opCSeq' not implemented")
 
-    def opE1(self, E1, current=None):
-        raise NotImplementedError("servant method 'opE1' not implemented")
+        def opCMap(self, c1, current=None):
+            raise NotImplementedError("servant method 'opCMap' not implemented")
 
-    def opS1(self, S1, current=None):
-        raise NotImplementedError("servant method 'opS1' not implemented")
+        def opE1(self, E1, current=None):
+            raise NotImplementedError("servant method 'opE1' not implemented")
 
-    def opC1(self, C1, current=None):
-        raise NotImplementedError("servant method 'opC1' not implemented")
+        def opS1(self, S1, current=None):
+            raise NotImplementedError("servant method 'opS1' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def opC1(self, C1, current=None):
+            raise NotImplementedError("servant method 'opC1' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_IDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_IDisp)
 
-_M_Test._t_IDisp = IcePy.defineClass('::Test::I', I, (), None, ())
-I._ice_type = _M_Test._t_IDisp
+        __repr__ = __str__
 
-I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S, False, 0),), (((), _M_Test._t_S, False, 0),), ((), _M_Test._t_S, False, 0), ())
-I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, False, 0),), (((), _M_Test._t_SSeq, False, 0),), ((), _M_Test._t_SSeq, False, 0), ())
-I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SMap, False, 0),), (((), _M_Test._t_SMap, False, 0),), ((), _M_Test._t_SMap, False, 0), ())
-I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C, False, 0),), (((), _M_Test._t_C, False, 0),), ((), _M_Test._t_C, False, 0), ())
-I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CSeq, False, 0),), (((), _M_Test._t_CSeq, False, 0),), ((), _M_Test._t_CSeq, False, 0), ())
-I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CMap, False, 0),), (((), _M_Test._t_CMap, False, 0),), ((), _M_Test._t_CMap, False, 0), ())
-I._op_opE1 = IcePy.Operation('opE1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_E1, False, 0),), (), ((), _M_Test._t_E1, False, 0), ())
-I._op_opS1 = IcePy.Operation('opS1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S1, False, 0),), (), ((), _M_Test._t_S1, False, 0), ())
-I._op_opC1 = IcePy.Operation('opC1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C1, False, 0),), (), ((), _M_Test._t_C1, False, 0), ())
-I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_IDisp = IcePy.defineClass('::Test::I', I, (), None, ())
+    I._ice_type = _M_Test._t_IDisp
 
-_M_Test.I = I
-del I
-_M_Test._t_IMap = IcePy.defineDictionary('::Test::IMap', (), IcePy._t_string, _M_Test._t_IPrx)
-_M_Test._t_ISeq = IcePy.defineSequence('::Test::ISeq', (), _M_Test._t_IPrx)
+    I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S, False, 0),), (((), _M_Test._t_S, False, 0),), ((), _M_Test._t_S, False, 0), ())
+    I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, False, 0),), (((), _M_Test._t_SSeq, False, 0),), ((), _M_Test._t_SSeq, False, 0), ())
+    I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SMap, False, 0),), (((), _M_Test._t_SMap, False, 0),), ((), _M_Test._t_SMap, False, 0), ())
+    I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C, False, 0),), (((), _M_Test._t_C, False, 0),), ((), _M_Test._t_C, False, 0), ())
+    I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CSeq, False, 0),), (((), _M_Test._t_CSeq, False, 0),), ((), _M_Test._t_CSeq, False, 0), ())
+    I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CMap, False, 0),), (((), _M_Test._t_CMap, False, 0),), ((), _M_Test._t_CMap, False, 0), ())
+    I._op_opE1 = IcePy.Operation('opE1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_E1, False, 0),), (), ((), _M_Test._t_E1, False, 0), ())
+    I._op_opS1 = IcePy.Operation('opS1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S1, False, 0),), (), ((), _M_Test._t_S1, False, 0), ())
+    I._op_opC1 = IcePy.Operation('opC1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C1, False, 0),), (), ((), _M_Test._t_C1, False, 0), ())
+    I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.I = I
+    del I
+
+if '_t_IMap' not in _M_Test.__dict__:
+    _M_Test._t_IMap = IcePy.defineDictionary('::Test::IMap', (), IcePy._t_string, _M_Test._t_IPrx)
+
+if '_t_ISeq' not in _M_Test.__dict__:
+    _M_Test._t_ISeq = IcePy.defineSequence('::Test::ISeq', (), _M_Test._t_IPrx)
 
 # Start of module Test.Inner
 _M_Test.Inner = Ice.openModule('Test.Inner')
 __name__ = 'Test.Inner'
-_M_Test.Inner.S = None
-class S(object):
-    def __init__(self, v=0):
-        self.v = v
 
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.v)
-        return _h % 0x7fffffff
+if 'S' not in _M_Test.Inner.__dict__:
+    _M_Test.Inner.S = None
+    class S(object):
+        def __init__(self, v=0):
+            self.v = v
 
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.Inner.S):
-            return NotImplemented
-        else:
-            if self.v is None or other.v is None:
-                if self.v != other.v:
-                    return (-1 if self.v is None else 1)
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.v)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.Inner.S):
+                return NotImplemented
             else:
-                if self.v < other.v:
-                    return -1
-                elif self.v > other.v:
-                    return 1
-            return 0
+                if self.v is None or other.v is None:
+                    if self.v != other.v:
+                        return (-1 if self.v is None else 1)
+                else:
+                    if self.v < other.v:
+                        return -1
+                    elif self.v > other.v:
+                        return 1
+                return 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test.Inner._t_S)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test.Inner._t_S)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test.Inner._t_S = IcePy.defineStruct('::Test::Inner::S', S, (), (('v', (), IcePy._t_int),))
+    _M_Test.Inner._t_S = IcePy.defineStruct('::Test::Inner::S', S, (), (('v', (), IcePy._t_int),))
 
-_M_Test.Inner.S = S
-del S
+    _M_Test.Inner.S = S
+    del S
 
 # Start of module Test.Inner.Inner2
 _M_Test.Inner.Inner2 = Ice.openModule('Test.Inner.Inner2')
 __name__ = 'Test.Inner.Inner2'
-_M_Test.Inner.Inner2.S = None
-class S(object):
-    def __init__(self, v=0):
-        self.v = v
 
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.v)
-        return _h % 0x7fffffff
+if 'S' not in _M_Test.Inner.Inner2.__dict__:
+    _M_Test.Inner.Inner2.S = None
+    class S(object):
+        def __init__(self, v=0):
+            self.v = v
 
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.Inner.Inner2.S):
-            return NotImplemented
-        else:
-            if self.v is None or other.v is None:
-                if self.v != other.v:
-                    return (-1 if self.v is None else 1)
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.v)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.Inner.Inner2.S):
+                return NotImplemented
             else:
-                if self.v < other.v:
-                    return -1
-                elif self.v > other.v:
-                    return 1
-            return 0
+                if self.v is None or other.v is None:
+                    if self.v != other.v:
+                        return (-1 if self.v is None else 1)
+                else:
+                    if self.v < other.v:
+                        return -1
+                    elif self.v > other.v:
+                        return 1
+                return 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test.Inner.Inner2._t_S)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test.Inner.Inner2._t_S)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test.Inner.Inner2._t_S = IcePy.defineStruct('::Test::Inner::Inner2::S', S, (), (('v', (), IcePy._t_int),))
+    _M_Test.Inner.Inner2._t_S = IcePy.defineStruct('::Test::Inner::Inner2::S', S, (), (('v', (), IcePy._t_int),))
 
-_M_Test.Inner.Inner2.S = S
-del S
-_M_Test.Inner.Inner2._t_SMap = IcePy.defineDictionary('::Test::Inner::Inner2::SMap', (), IcePy._t_string, _M_Test.Inner.Inner2._t_S)
-_M_Test.Inner.Inner2._t_SSeq = IcePy.defineSequence('::Test::Inner::Inner2::SSeq', (), _M_Test.Inner.Inner2._t_S)
-_M_Test.Inner.Inner2.C = None
-class C(Ice.Value):
-    def __init__(self, s=None):
-        if s is None:
-            self.s = _M_Test.Inner.Inner2.S()
-        else:
-            self.s = s
+    _M_Test.Inner.Inner2.S = S
+    del S
 
-    def ice_id(self):
-        return '::Test::Inner::Inner2::C'
+if '_t_SMap' not in _M_Test.Inner.Inner2.__dict__:
+    _M_Test.Inner.Inner2._t_SMap = IcePy.defineDictionary('::Test::Inner::Inner2::SMap', (), IcePy._t_string, _M_Test.Inner.Inner2._t_S)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Inner::Inner2::C'
+if '_t_SSeq' not in _M_Test.Inner.Inner2.__dict__:
+    _M_Test.Inner.Inner2._t_SSeq = IcePy.defineSequence('::Test::Inner::Inner2::SSeq', (), _M_Test.Inner.Inner2._t_S)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test.Inner.Inner2._t_C)
+if 'C' not in _M_Test.Inner.Inner2.__dict__:
+    _M_Test.Inner.Inner2.C = None
+    class C(Ice.Value):
+        def __init__(self, s=None):
+            if s is None:
+                self.s = _M_Test.Inner.Inner2.S()
+            else:
+                self.s = s
 
-    __repr__ = __str__
+        def ice_id(self):
+            return '::Test::Inner::Inner2::C'
 
-_M_Test.Inner.Inner2._t_C = IcePy.defineValue('::Test::Inner::Inner2::C', C, -1, (), False, None, (('s', (), _M_Test.Inner.Inner2._t_S, False, 0),))
-C._ice_type = _M_Test.Inner.Inner2._t_C
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Inner::Inner2::C'
 
-_M_Test.Inner.Inner2.C = C
-del C
-_M_Test.Inner.Inner2._t_CMap = IcePy.defineDictionary('::Test::Inner::Inner2::CMap', (), IcePy._t_string, _M_Test.Inner.Inner2._t_C)
-_M_Test.Inner.Inner2._t_CSeq = IcePy.defineSequence('::Test::Inner::Inner2::CSeq', (), _M_Test.Inner.Inner2._t_C)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test.Inner.Inner2._t_C)
+
+        __repr__ = __str__
+
+    _M_Test.Inner.Inner2._t_C = IcePy.defineValue('::Test::Inner::Inner2::C', C, -1, (), False, None, (('s', (), _M_Test.Inner.Inner2._t_S, False, 0),))
+    C._ice_type = _M_Test.Inner.Inner2._t_C
+
+    _M_Test.Inner.Inner2.C = C
+    del C
+
+if '_t_CMap' not in _M_Test.Inner.Inner2.__dict__:
+    _M_Test.Inner.Inner2._t_CMap = IcePy.defineDictionary('::Test::Inner::Inner2::CMap', (), IcePy._t_string, _M_Test.Inner.Inner2._t_C)
+
+if '_t_CSeq' not in _M_Test.Inner.Inner2.__dict__:
+    _M_Test.Inner.Inner2._t_CSeq = IcePy.defineSequence('::Test::Inner::Inner2::CSeq', (), _M_Test.Inner.Inner2._t_C)
 
 _M_Test.Inner.Inner2._t_I = IcePy.defineValue('::Test::Inner::Inner2::I', Ice.Value, -1, (), True, None, ())
-_M_Test.Inner.Inner2.IPrx = None
-class IPrx(Ice.ObjectPrx):
 
-    def opS(self, s1, context=None):
-        return _M_Test.Inner.Inner2.I._op_opS.invoke(self, ((s1, ), context))
+if 'IPrx' not in _M_Test.Inner.Inner2.__dict__:
+    _M_Test.Inner.Inner2.IPrx = None
+    class IPrx(Ice.ObjectPrx):
 
-    def opSAsync(self, s1, context=None):
-        return _M_Test.Inner.Inner2.I._op_opS.invokeAsync(self, ((s1, ), context))
+        def opS(self, s1, context=None):
+            return _M_Test.Inner.Inner2.I._op_opS.invoke(self, ((s1, ), context))
 
-    def opSSeq(self, s1, context=None):
-        return _M_Test.Inner.Inner2.I._op_opSSeq.invoke(self, ((s1, ), context))
+        def opSAsync(self, s1, context=None):
+            return _M_Test.Inner.Inner2.I._op_opS.invokeAsync(self, ((s1, ), context))
 
-    def opSSeqAsync(self, s1, context=None):
-        return _M_Test.Inner.Inner2.I._op_opSSeq.invokeAsync(self, ((s1, ), context))
+        def opSSeq(self, s1, context=None):
+            return _M_Test.Inner.Inner2.I._op_opSSeq.invoke(self, ((s1, ), context))
 
-    def opSMap(self, s1, context=None):
-        return _M_Test.Inner.Inner2.I._op_opSMap.invoke(self, ((s1, ), context))
+        def opSSeqAsync(self, s1, context=None):
+            return _M_Test.Inner.Inner2.I._op_opSSeq.invokeAsync(self, ((s1, ), context))
 
-    def opSMapAsync(self, s1, context=None):
-        return _M_Test.Inner.Inner2.I._op_opSMap.invokeAsync(self, ((s1, ), context))
+        def opSMap(self, s1, context=None):
+            return _M_Test.Inner.Inner2.I._op_opSMap.invoke(self, ((s1, ), context))
 
-    def opC(self, c1, context=None):
-        return _M_Test.Inner.Inner2.I._op_opC.invoke(self, ((c1, ), context))
+        def opSMapAsync(self, s1, context=None):
+            return _M_Test.Inner.Inner2.I._op_opSMap.invokeAsync(self, ((s1, ), context))
 
-    def opCAsync(self, c1, context=None):
-        return _M_Test.Inner.Inner2.I._op_opC.invokeAsync(self, ((c1, ), context))
+        def opC(self, c1, context=None):
+            return _M_Test.Inner.Inner2.I._op_opC.invoke(self, ((c1, ), context))
 
-    def opCSeq(self, c1, context=None):
-        return _M_Test.Inner.Inner2.I._op_opCSeq.invoke(self, ((c1, ), context))
+        def opCAsync(self, c1, context=None):
+            return _M_Test.Inner.Inner2.I._op_opC.invokeAsync(self, ((c1, ), context))
 
-    def opCSeqAsync(self, c1, context=None):
-        return _M_Test.Inner.Inner2.I._op_opCSeq.invokeAsync(self, ((c1, ), context))
+        def opCSeq(self, c1, context=None):
+            return _M_Test.Inner.Inner2.I._op_opCSeq.invoke(self, ((c1, ), context))
 
-    def opCMap(self, c1, context=None):
-        return _M_Test.Inner.Inner2.I._op_opCMap.invoke(self, ((c1, ), context))
+        def opCSeqAsync(self, c1, context=None):
+            return _M_Test.Inner.Inner2.I._op_opCSeq.invokeAsync(self, ((c1, ), context))
 
-    def opCMapAsync(self, c1, context=None):
-        return _M_Test.Inner.Inner2.I._op_opCMap.invokeAsync(self, ((c1, ), context))
+        def opCMap(self, c1, context=None):
+            return _M_Test.Inner.Inner2.I._op_opCMap.invoke(self, ((c1, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.Inner.Inner2.I._op_shutdown.invoke(self, ((), context))
+        def opCMapAsync(self, c1, context=None):
+            return _M_Test.Inner.Inner2.I._op_opCMap.invokeAsync(self, ((c1, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.Inner.Inner2.I._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.Inner.Inner2.I._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.Inner.Inner2.IPrx.ice_checkedCast(proxy, '::Test::Inner::Inner2::I', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.Inner.Inner2.I._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.Inner.Inner2.IPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.Inner.Inner2.IPrx.ice_checkedCast(proxy, '::Test::Inner::Inner2::I', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Inner::Inner2::I'
-_M_Test.Inner.Inner2._t_IPrx = IcePy.defineProxy('::Test::Inner::Inner2::I', IPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.Inner.Inner2.IPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.Inner.Inner2.IPrx = IPrx
-del IPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Inner::Inner2::I'
+    _M_Test.Inner.Inner2._t_IPrx = IcePy.defineProxy('::Test::Inner::Inner2::I', IPrx)
 
-_M_Test.Inner.Inner2.I = None
-class I(Ice.Object):
+    _M_Test.Inner.Inner2.IPrx = IPrx
+    del IPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Inner::Inner2::I')
+    _M_Test.Inner.Inner2.I = None
+    class I(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Inner::Inner2::I'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Inner::Inner2::I')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Inner::Inner2::I'
+        def ice_id(self, current=None):
+            return '::Test::Inner::Inner2::I'
 
-    def opS(self, s1, current=None):
-        raise NotImplementedError("servant method 'opS' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Inner::Inner2::I'
 
-    def opSSeq(self, s1, current=None):
-        raise NotImplementedError("servant method 'opSSeq' not implemented")
+        def opS(self, s1, current=None):
+            raise NotImplementedError("servant method 'opS' not implemented")
 
-    def opSMap(self, s1, current=None):
-        raise NotImplementedError("servant method 'opSMap' not implemented")
+        def opSSeq(self, s1, current=None):
+            raise NotImplementedError("servant method 'opSSeq' not implemented")
 
-    def opC(self, c1, current=None):
-        raise NotImplementedError("servant method 'opC' not implemented")
+        def opSMap(self, s1, current=None):
+            raise NotImplementedError("servant method 'opSMap' not implemented")
 
-    def opCSeq(self, c1, current=None):
-        raise NotImplementedError("servant method 'opCSeq' not implemented")
+        def opC(self, c1, current=None):
+            raise NotImplementedError("servant method 'opC' not implemented")
 
-    def opCMap(self, c1, current=None):
-        raise NotImplementedError("servant method 'opCMap' not implemented")
+        def opCSeq(self, c1, current=None):
+            raise NotImplementedError("servant method 'opCSeq' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def opCMap(self, c1, current=None):
+            raise NotImplementedError("servant method 'opCMap' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test.Inner.Inner2._t_IDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test.Inner.Inner2._t_IDisp)
 
-_M_Test.Inner.Inner2._t_IDisp = IcePy.defineClass('::Test::Inner::Inner2::I', I, (), None, ())
-I._ice_type = _M_Test.Inner.Inner2._t_IDisp
+        __repr__ = __str__
 
-I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_S, False, 0),), (((), _M_Test.Inner.Inner2._t_S, False, 0),), ((), _M_Test.Inner.Inner2._t_S, False, 0), ())
-I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_SSeq, False, 0), ())
-I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), ((), _M_Test.Inner.Inner2._t_SMap, False, 0), ())
-I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_C, False, 0),), (((), _M_Test.Inner.Inner2._t_C, False, 0),), ((), _M_Test.Inner.Inner2._t_C, False, 0), ())
-I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_CSeq, False, 0), ())
-I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), ((), _M_Test.Inner.Inner2._t_CMap, False, 0), ())
-I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test.Inner.Inner2._t_IDisp = IcePy.defineClass('::Test::Inner::Inner2::I', I, (), None, ())
+    I._ice_type = _M_Test.Inner.Inner2._t_IDisp
 
-_M_Test.Inner.Inner2.I = I
-del I
-_M_Test.Inner.Inner2._t_IMap = IcePy.defineDictionary('::Test::Inner::Inner2::IMap', (), IcePy._t_string, _M_Test.Inner.Inner2._t_IPrx)
-_M_Test.Inner.Inner2._t_ISeq = IcePy.defineSequence('::Test::Inner::Inner2::ISeq', (), _M_Test.Inner.Inner2._t_IPrx)
+    I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_S, False, 0),), (((), _M_Test.Inner.Inner2._t_S, False, 0),), ((), _M_Test.Inner.Inner2._t_S, False, 0), ())
+    I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_SSeq, False, 0), ())
+    I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), ((), _M_Test.Inner.Inner2._t_SMap, False, 0), ())
+    I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_C, False, 0),), (((), _M_Test.Inner.Inner2._t_C, False, 0),), ((), _M_Test.Inner.Inner2._t_C, False, 0), ())
+    I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_CSeq, False, 0), ())
+    I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), ((), _M_Test.Inner.Inner2._t_CMap, False, 0), ())
+    I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.Inner.Inner2.I = I
+    del I
+
+if '_t_IMap' not in _M_Test.Inner.Inner2.__dict__:
+    _M_Test.Inner.Inner2._t_IMap = IcePy.defineDictionary('::Test::Inner::Inner2::IMap', (), IcePy._t_string, _M_Test.Inner.Inner2._t_IPrx)
+
+if '_t_ISeq' not in _M_Test.Inner.Inner2.__dict__:
+    _M_Test.Inner.Inner2._t_ISeq = IcePy.defineSequence('::Test::Inner::Inner2::ISeq', (), _M_Test.Inner.Inner2._t_IPrx)
 
 # End of module Test.Inner.Inner2
 
 __name__ = 'Test.Inner'
-_M_Test.Inner.C = None
-class C(Ice.Value):
-    def __init__(self, s=None):
-        if s is None:
-            self.s = _M_Test.Inner.S()
-        else:
-            self.s = s
 
-    def ice_id(self):
-        return '::Test::Inner::C'
+if 'C' not in _M_Test.Inner.__dict__:
+    _M_Test.Inner.C = None
+    class C(Ice.Value):
+        def __init__(self, s=None):
+            if s is None:
+                self.s = _M_Test.Inner.S()
+            else:
+                self.s = s
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Inner::C'
+        def ice_id(self):
+            return '::Test::Inner::C'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test.Inner._t_C)
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Inner::C'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test.Inner._t_C)
 
-_M_Test.Inner._t_C = IcePy.defineValue('::Test::Inner::C', C, -1, (), False, None, (('s', (), _M_Test.Inner._t_S, False, 0),))
-C._ice_type = _M_Test.Inner._t_C
+        __repr__ = __str__
 
-_M_Test.Inner.C = C
-del C
-_M_Test.Inner._t_SSeq = IcePy.defineSequence('::Test::Inner::SSeq', (), _M_Test.Inner.Inner2._t_S)
-_M_Test.Inner._t_SMap = IcePy.defineDictionary('::Test::Inner::SMap', (), IcePy._t_string, _M_Test.Inner.Inner2._t_S)
-_M_Test.Inner._t_CMap = IcePy.defineDictionary('::Test::Inner::CMap', (), IcePy._t_string, _M_Test.Inner.Inner2._t_C)
-_M_Test.Inner._t_CSeq = IcePy.defineSequence('::Test::Inner::CSeq', (), _M_Test.Inner.Inner2._t_C)
+    _M_Test.Inner._t_C = IcePy.defineValue('::Test::Inner::C', C, -1, (), False, None, (('s', (), _M_Test.Inner._t_S, False, 0),))
+    C._ice_type = _M_Test.Inner._t_C
+
+    _M_Test.Inner.C = C
+    del C
+
+if '_t_SSeq' not in _M_Test.Inner.__dict__:
+    _M_Test.Inner._t_SSeq = IcePy.defineSequence('::Test::Inner::SSeq', (), _M_Test.Inner.Inner2._t_S)
+
+if '_t_SMap' not in _M_Test.Inner.__dict__:
+    _M_Test.Inner._t_SMap = IcePy.defineDictionary('::Test::Inner::SMap', (), IcePy._t_string, _M_Test.Inner.Inner2._t_S)
+
+if '_t_CMap' not in _M_Test.Inner.__dict__:
+    _M_Test.Inner._t_CMap = IcePy.defineDictionary('::Test::Inner::CMap', (), IcePy._t_string, _M_Test.Inner.Inner2._t_C)
+
+if '_t_CSeq' not in _M_Test.Inner.__dict__:
+    _M_Test.Inner._t_CSeq = IcePy.defineSequence('::Test::Inner::CSeq', (), _M_Test.Inner.Inner2._t_C)
 
 _M_Test.Inner._t_I = IcePy.defineValue('::Test::Inner::I', Ice.Value, -1, (), True, None, ())
-_M_Test.Inner.IPrx = None
-class IPrx(Ice.ObjectPrx):
 
-    def opS(self, s1, context=None):
-        return _M_Test.Inner.I._op_opS.invoke(self, ((s1, ), context))
+if 'IPrx' not in _M_Test.Inner.__dict__:
+    _M_Test.Inner.IPrx = None
+    class IPrx(Ice.ObjectPrx):
 
-    def opSAsync(self, s1, context=None):
-        return _M_Test.Inner.I._op_opS.invokeAsync(self, ((s1, ), context))
+        def opS(self, s1, context=None):
+            return _M_Test.Inner.I._op_opS.invoke(self, ((s1, ), context))
 
-    def opSSeq(self, s1, context=None):
-        return _M_Test.Inner.I._op_opSSeq.invoke(self, ((s1, ), context))
+        def opSAsync(self, s1, context=None):
+            return _M_Test.Inner.I._op_opS.invokeAsync(self, ((s1, ), context))
 
-    def opSSeqAsync(self, s1, context=None):
-        return _M_Test.Inner.I._op_opSSeq.invokeAsync(self, ((s1, ), context))
+        def opSSeq(self, s1, context=None):
+            return _M_Test.Inner.I._op_opSSeq.invoke(self, ((s1, ), context))
 
-    def opSMap(self, s1, context=None):
-        return _M_Test.Inner.I._op_opSMap.invoke(self, ((s1, ), context))
+        def opSSeqAsync(self, s1, context=None):
+            return _M_Test.Inner.I._op_opSSeq.invokeAsync(self, ((s1, ), context))
 
-    def opSMapAsync(self, s1, context=None):
-        return _M_Test.Inner.I._op_opSMap.invokeAsync(self, ((s1, ), context))
+        def opSMap(self, s1, context=None):
+            return _M_Test.Inner.I._op_opSMap.invoke(self, ((s1, ), context))
 
-    def opC(self, c1, context=None):
-        return _M_Test.Inner.I._op_opC.invoke(self, ((c1, ), context))
+        def opSMapAsync(self, s1, context=None):
+            return _M_Test.Inner.I._op_opSMap.invokeAsync(self, ((s1, ), context))
 
-    def opCAsync(self, c1, context=None):
-        return _M_Test.Inner.I._op_opC.invokeAsync(self, ((c1, ), context))
+        def opC(self, c1, context=None):
+            return _M_Test.Inner.I._op_opC.invoke(self, ((c1, ), context))
 
-    def opCSeq(self, c1, context=None):
-        return _M_Test.Inner.I._op_opCSeq.invoke(self, ((c1, ), context))
+        def opCAsync(self, c1, context=None):
+            return _M_Test.Inner.I._op_opC.invokeAsync(self, ((c1, ), context))
 
-    def opCSeqAsync(self, c1, context=None):
-        return _M_Test.Inner.I._op_opCSeq.invokeAsync(self, ((c1, ), context))
+        def opCSeq(self, c1, context=None):
+            return _M_Test.Inner.I._op_opCSeq.invoke(self, ((c1, ), context))
 
-    def opCMap(self, c1, context=None):
-        return _M_Test.Inner.I._op_opCMap.invoke(self, ((c1, ), context))
+        def opCSeqAsync(self, c1, context=None):
+            return _M_Test.Inner.I._op_opCSeq.invokeAsync(self, ((c1, ), context))
 
-    def opCMapAsync(self, c1, context=None):
-        return _M_Test.Inner.I._op_opCMap.invokeAsync(self, ((c1, ), context))
+        def opCMap(self, c1, context=None):
+            return _M_Test.Inner.I._op_opCMap.invoke(self, ((c1, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.Inner.I._op_shutdown.invoke(self, ((), context))
+        def opCMapAsync(self, c1, context=None):
+            return _M_Test.Inner.I._op_opCMap.invokeAsync(self, ((c1, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.Inner.I._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.Inner.I._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.Inner.IPrx.ice_checkedCast(proxy, '::Test::Inner::I', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.Inner.I._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.Inner.IPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.Inner.IPrx.ice_checkedCast(proxy, '::Test::Inner::I', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Inner::I'
-_M_Test.Inner._t_IPrx = IcePy.defineProxy('::Test::Inner::I', IPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.Inner.IPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.Inner.IPrx = IPrx
-del IPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Inner::I'
+    _M_Test.Inner._t_IPrx = IcePy.defineProxy('::Test::Inner::I', IPrx)
 
-_M_Test.Inner.I = None
-class I(Ice.Object):
+    _M_Test.Inner.IPrx = IPrx
+    del IPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Inner::I')
+    _M_Test.Inner.I = None
+    class I(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Inner::I'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Inner::I')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Inner::I'
+        def ice_id(self, current=None):
+            return '::Test::Inner::I'
 
-    def opS(self, s1, current=None):
-        raise NotImplementedError("servant method 'opS' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Inner::I'
 
-    def opSSeq(self, s1, current=None):
-        raise NotImplementedError("servant method 'opSSeq' not implemented")
+        def opS(self, s1, current=None):
+            raise NotImplementedError("servant method 'opS' not implemented")
 
-    def opSMap(self, s1, current=None):
-        raise NotImplementedError("servant method 'opSMap' not implemented")
+        def opSSeq(self, s1, current=None):
+            raise NotImplementedError("servant method 'opSSeq' not implemented")
 
-    def opC(self, c1, current=None):
-        raise NotImplementedError("servant method 'opC' not implemented")
+        def opSMap(self, s1, current=None):
+            raise NotImplementedError("servant method 'opSMap' not implemented")
 
-    def opCSeq(self, c1, current=None):
-        raise NotImplementedError("servant method 'opCSeq' not implemented")
+        def opC(self, c1, current=None):
+            raise NotImplementedError("servant method 'opC' not implemented")
 
-    def opCMap(self, c1, current=None):
-        raise NotImplementedError("servant method 'opCMap' not implemented")
+        def opCSeq(self, c1, current=None):
+            raise NotImplementedError("servant method 'opCSeq' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def opCMap(self, c1, current=None):
+            raise NotImplementedError("servant method 'opCMap' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test.Inner._t_IDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test.Inner._t_IDisp)
 
-_M_Test.Inner._t_IDisp = IcePy.defineClass('::Test::Inner::I', I, (), None, ())
-I._ice_type = _M_Test.Inner._t_IDisp
+        __repr__ = __str__
 
-I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_S, False, 0),), (((), _M_Test.Inner.Inner2._t_S, False, 0),), ((), _M_Test.Inner.Inner2._t_S, False, 0), ())
-I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_SSeq, False, 0), ())
-I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), ((), _M_Test.Inner.Inner2._t_SMap, False, 0), ())
-I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_C, False, 0),), (((), _M_Test.Inner.Inner2._t_C, False, 0),), ((), _M_Test.Inner.Inner2._t_C, False, 0), ())
-I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_CSeq, False, 0), ())
-I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), ((), _M_Test.Inner.Inner2._t_CMap, False, 0), ())
-I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test.Inner._t_IDisp = IcePy.defineClass('::Test::Inner::I', I, (), None, ())
+    I._ice_type = _M_Test.Inner._t_IDisp
 
-_M_Test.Inner.I = I
-del I
-_M_Test.Inner._t_IMap = IcePy.defineDictionary('::Test::Inner::IMap', (), IcePy._t_string, _M_Test.Inner._t_IPrx)
-_M_Test.Inner._t_ISeq = IcePy.defineSequence('::Test::Inner::ISeq', (), _M_Test.Inner._t_IPrx)
+    I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_S, False, 0),), (((), _M_Test.Inner.Inner2._t_S, False, 0),), ((), _M_Test.Inner.Inner2._t_S, False, 0), ())
+    I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_SSeq, False, 0), ())
+    I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), ((), _M_Test.Inner.Inner2._t_SMap, False, 0), ())
+    I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_C, False, 0),), (((), _M_Test.Inner.Inner2._t_C, False, 0),), ((), _M_Test.Inner.Inner2._t_C, False, 0), ())
+    I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_CSeq, False, 0), ())
+    I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), ((), _M_Test.Inner.Inner2._t_CMap, False, 0), ())
+    I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.Inner.I = I
+    del I
+
+if '_t_IMap' not in _M_Test.Inner.__dict__:
+    _M_Test.Inner._t_IMap = IcePy.defineDictionary('::Test::Inner::IMap', (), IcePy._t_string, _M_Test.Inner._t_IPrx)
+
+if '_t_ISeq' not in _M_Test.Inner.__dict__:
+    _M_Test.Inner._t_ISeq = IcePy.defineSequence('::Test::Inner::ISeq', (), _M_Test.Inner._t_IPrx)
 
 # End of module Test.Inner
 
@@ -945,119 +1009,121 @@ _M_Inner.Test.Inner2 = Ice.openModule('Inner.Test.Inner2')
 __name__ = 'Inner.Test.Inner2'
 
 _M_Inner.Test.Inner2._t_I = IcePy.defineValue('::Inner::Test::Inner2::I', Ice.Value, -1, (), True, None, ())
-_M_Inner.Test.Inner2.IPrx = None
-class IPrx(Ice.ObjectPrx):
 
-    def opS(self, s1, context=None):
-        return _M_Inner.Test.Inner2.I._op_opS.invoke(self, ((s1, ), context))
+if 'IPrx' not in _M_Inner.Test.Inner2.__dict__:
+    _M_Inner.Test.Inner2.IPrx = None
+    class IPrx(Ice.ObjectPrx):
 
-    def opSAsync(self, s1, context=None):
-        return _M_Inner.Test.Inner2.I._op_opS.invokeAsync(self, ((s1, ), context))
+        def opS(self, s1, context=None):
+            return _M_Inner.Test.Inner2.I._op_opS.invoke(self, ((s1, ), context))
 
-    def opSSeq(self, s1, context=None):
-        return _M_Inner.Test.Inner2.I._op_opSSeq.invoke(self, ((s1, ), context))
+        def opSAsync(self, s1, context=None):
+            return _M_Inner.Test.Inner2.I._op_opS.invokeAsync(self, ((s1, ), context))
 
-    def opSSeqAsync(self, s1, context=None):
-        return _M_Inner.Test.Inner2.I._op_opSSeq.invokeAsync(self, ((s1, ), context))
+        def opSSeq(self, s1, context=None):
+            return _M_Inner.Test.Inner2.I._op_opSSeq.invoke(self, ((s1, ), context))
 
-    def opSMap(self, s1, context=None):
-        return _M_Inner.Test.Inner2.I._op_opSMap.invoke(self, ((s1, ), context))
+        def opSSeqAsync(self, s1, context=None):
+            return _M_Inner.Test.Inner2.I._op_opSSeq.invokeAsync(self, ((s1, ), context))
 
-    def opSMapAsync(self, s1, context=None):
-        return _M_Inner.Test.Inner2.I._op_opSMap.invokeAsync(self, ((s1, ), context))
+        def opSMap(self, s1, context=None):
+            return _M_Inner.Test.Inner2.I._op_opSMap.invoke(self, ((s1, ), context))
 
-    def opC(self, c1, context=None):
-        return _M_Inner.Test.Inner2.I._op_opC.invoke(self, ((c1, ), context))
+        def opSMapAsync(self, s1, context=None):
+            return _M_Inner.Test.Inner2.I._op_opSMap.invokeAsync(self, ((s1, ), context))
 
-    def opCAsync(self, c1, context=None):
-        return _M_Inner.Test.Inner2.I._op_opC.invokeAsync(self, ((c1, ), context))
+        def opC(self, c1, context=None):
+            return _M_Inner.Test.Inner2.I._op_opC.invoke(self, ((c1, ), context))
 
-    def opCSeq(self, c1, context=None):
-        return _M_Inner.Test.Inner2.I._op_opCSeq.invoke(self, ((c1, ), context))
+        def opCAsync(self, c1, context=None):
+            return _M_Inner.Test.Inner2.I._op_opC.invokeAsync(self, ((c1, ), context))
 
-    def opCSeqAsync(self, c1, context=None):
-        return _M_Inner.Test.Inner2.I._op_opCSeq.invokeAsync(self, ((c1, ), context))
+        def opCSeq(self, c1, context=None):
+            return _M_Inner.Test.Inner2.I._op_opCSeq.invoke(self, ((c1, ), context))
 
-    def opCMap(self, c1, context=None):
-        return _M_Inner.Test.Inner2.I._op_opCMap.invoke(self, ((c1, ), context))
+        def opCSeqAsync(self, c1, context=None):
+            return _M_Inner.Test.Inner2.I._op_opCSeq.invokeAsync(self, ((c1, ), context))
 
-    def opCMapAsync(self, c1, context=None):
-        return _M_Inner.Test.Inner2.I._op_opCMap.invokeAsync(self, ((c1, ), context))
+        def opCMap(self, c1, context=None):
+            return _M_Inner.Test.Inner2.I._op_opCMap.invoke(self, ((c1, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Inner.Test.Inner2.I._op_shutdown.invoke(self, ((), context))
+        def opCMapAsync(self, c1, context=None):
+            return _M_Inner.Test.Inner2.I._op_opCMap.invokeAsync(self, ((c1, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Inner.Test.Inner2.I._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Inner.Test.Inner2.I._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Inner.Test.Inner2.IPrx.ice_checkedCast(proxy, '::Inner::Test::Inner2::I', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Inner.Test.Inner2.I._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Inner.Test.Inner2.IPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Inner.Test.Inner2.IPrx.ice_checkedCast(proxy, '::Inner::Test::Inner2::I', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Inner::Test::Inner2::I'
-_M_Inner.Test.Inner2._t_IPrx = IcePy.defineProxy('::Inner::Test::Inner2::I', IPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Inner.Test.Inner2.IPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Inner.Test.Inner2.IPrx = IPrx
-del IPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Inner::Test::Inner2::I'
+    _M_Inner.Test.Inner2._t_IPrx = IcePy.defineProxy('::Inner::Test::Inner2::I', IPrx)
 
-_M_Inner.Test.Inner2.I = None
-class I(Ice.Object):
+    _M_Inner.Test.Inner2.IPrx = IPrx
+    del IPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Inner::Test::Inner2::I')
+    _M_Inner.Test.Inner2.I = None
+    class I(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Inner::Test::Inner2::I'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Inner::Test::Inner2::I')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Inner::Test::Inner2::I'
+        def ice_id(self, current=None):
+            return '::Inner::Test::Inner2::I'
 
-    def opS(self, s1, current=None):
-        raise NotImplementedError("servant method 'opS' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Inner::Test::Inner2::I'
 
-    def opSSeq(self, s1, current=None):
-        raise NotImplementedError("servant method 'opSSeq' not implemented")
+        def opS(self, s1, current=None):
+            raise NotImplementedError("servant method 'opS' not implemented")
 
-    def opSMap(self, s1, current=None):
-        raise NotImplementedError("servant method 'opSMap' not implemented")
+        def opSSeq(self, s1, current=None):
+            raise NotImplementedError("servant method 'opSSeq' not implemented")
 
-    def opC(self, c1, current=None):
-        raise NotImplementedError("servant method 'opC' not implemented")
+        def opSMap(self, s1, current=None):
+            raise NotImplementedError("servant method 'opSMap' not implemented")
 
-    def opCSeq(self, c1, current=None):
-        raise NotImplementedError("servant method 'opCSeq' not implemented")
+        def opC(self, c1, current=None):
+            raise NotImplementedError("servant method 'opC' not implemented")
 
-    def opCMap(self, c1, current=None):
-        raise NotImplementedError("servant method 'opCMap' not implemented")
+        def opCSeq(self, c1, current=None):
+            raise NotImplementedError("servant method 'opCSeq' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def opCMap(self, c1, current=None):
+            raise NotImplementedError("servant method 'opCMap' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Inner.Test.Inner2._t_IDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Inner.Test.Inner2._t_IDisp)
 
-_M_Inner.Test.Inner2._t_IDisp = IcePy.defineClass('::Inner::Test::Inner2::I', I, (), None, ())
-I._ice_type = _M_Inner.Test.Inner2._t_IDisp
+        __repr__ = __str__
 
-I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S, False, 0),), (((), _M_Test._t_S, False, 0),), ((), _M_Test._t_S, False, 0), ())
-I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, False, 0),), (((), _M_Test._t_SSeq, False, 0),), ((), _M_Test._t_SSeq, False, 0), ())
-I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SMap, False, 0),), (((), _M_Test._t_SMap, False, 0),), ((), _M_Test._t_SMap, False, 0), ())
-I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C, False, 0),), (((), _M_Test._t_C, False, 0),), ((), _M_Test._t_C, False, 0), ())
-I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CSeq, False, 0),), (((), _M_Test._t_CSeq, False, 0),), ((), _M_Test._t_CSeq, False, 0), ())
-I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CMap, False, 0),), (((), _M_Test._t_CMap, False, 0),), ((), _M_Test._t_CMap, False, 0), ())
-I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Inner.Test.Inner2._t_IDisp = IcePy.defineClass('::Inner::Test::Inner2::I', I, (), None, ())
+    I._ice_type = _M_Inner.Test.Inner2._t_IDisp
 
-_M_Inner.Test.Inner2.I = I
-del I
+    I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S, False, 0),), (((), _M_Test._t_S, False, 0),), ((), _M_Test._t_S, False, 0), ())
+    I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, False, 0),), (((), _M_Test._t_SSeq, False, 0),), ((), _M_Test._t_SSeq, False, 0), ())
+    I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SMap, False, 0),), (((), _M_Test._t_SMap, False, 0),), ((), _M_Test._t_SMap, False, 0), ())
+    I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C, False, 0),), (((), _M_Test._t_C, False, 0),), ((), _M_Test._t_C, False, 0), ())
+    I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CSeq, False, 0),), (((), _M_Test._t_CSeq, False, 0),), ((), _M_Test._t_CSeq, False, 0), ())
+    I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CMap, False, 0),), (((), _M_Test._t_CMap, False, 0),), ((), _M_Test._t_CMap, False, 0), ())
+    I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Inner.Test.Inner2.I = I
+    del I
 
 # End of module Inner.Test.Inner2
 

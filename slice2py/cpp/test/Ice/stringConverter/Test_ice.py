@@ -21,97 +21,101 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
-_M_Test.BadEncodingException = None
-class BadEncodingException(Ice.UserException):
-    def __init__(self):
-        pass
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+if 'BadEncodingException' not in _M_Test.__dict__:
+    _M_Test.BadEncodingException = None
+    class BadEncodingException(Ice.UserException):
+        def __init__(self):
+            pass
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    _ice_id = '::Test::BadEncodingException'
+        __repr__ = __str__
 
-_M_Test._t_BadEncodingException = IcePy.defineException('::Test::BadEncodingException', BadEncodingException, (), None, ())
-BadEncodingException._ice_type = _M_Test._t_BadEncodingException
+        _ice_id = '::Test::BadEncodingException'
 
-_M_Test.BadEncodingException = BadEncodingException
-del BadEncodingException
+    _M_Test._t_BadEncodingException = IcePy.defineException('::Test::BadEncodingException', BadEncodingException, (), None, ())
+    BadEncodingException._ice_type = _M_Test._t_BadEncodingException
+
+    _M_Test.BadEncodingException = BadEncodingException
+    del BadEncodingException
 
 _M_Test._t_MyObject = IcePy.defineValue('::Test::MyObject', Ice.Value, -1, (), True, None, ())
-_M_Test.MyObjectPrx = None
-class MyObjectPrx(Ice.ObjectPrx):
 
-    def widen(self, msg, context=None):
-        return _M_Test.MyObject._op_widen.invoke(self, ((msg, ), context))
+if 'MyObjectPrx' not in _M_Test.__dict__:
+    _M_Test.MyObjectPrx = None
+    class MyObjectPrx(Ice.ObjectPrx):
 
-    def widenAsync(self, msg, context=None):
-        return _M_Test.MyObject._op_widen.invokeAsync(self, ((msg, ), context))
+        def widen(self, msg, context=None):
+            return _M_Test.MyObject._op_widen.invoke(self, ((msg, ), context))
 
-    def narrow(self, wmsg, context=None):
-        return _M_Test.MyObject._op_narrow.invoke(self, ((wmsg, ), context))
+        def widenAsync(self, msg, context=None):
+            return _M_Test.MyObject._op_widen.invokeAsync(self, ((msg, ), context))
 
-    def narrowAsync(self, wmsg, context=None):
-        return _M_Test.MyObject._op_narrow.invokeAsync(self, ((wmsg, ), context))
+        def narrow(self, wmsg, context=None):
+            return _M_Test.MyObject._op_narrow.invoke(self, ((wmsg, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.MyObject._op_shutdown.invoke(self, ((), context))
+        def narrowAsync(self, wmsg, context=None):
+            return _M_Test.MyObject._op_narrow.invokeAsync(self, ((wmsg, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.MyObject._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.MyObject._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.MyObjectPrx.ice_checkedCast(proxy, '::Test::MyObject', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.MyObject._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.MyObjectPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.MyObjectPrx.ice_checkedCast(proxy, '::Test::MyObject', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::MyObject'
-_M_Test._t_MyObjectPrx = IcePy.defineProxy('::Test::MyObject', MyObjectPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.MyObjectPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.MyObjectPrx = MyObjectPrx
-del MyObjectPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyObject'
+    _M_Test._t_MyObjectPrx = IcePy.defineProxy('::Test::MyObject', MyObjectPrx)
 
-_M_Test.MyObject = None
-class MyObject(Ice.Object):
+    _M_Test.MyObjectPrx = MyObjectPrx
+    del MyObjectPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::MyObject')
+    _M_Test.MyObject = None
+    class MyObject(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::MyObject'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::MyObject')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::MyObject'
+        def ice_id(self, current=None):
+            return '::Test::MyObject'
 
-    def widen(self, msg, current=None):
-        raise NotImplementedError("servant method 'widen' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyObject'
 
-    def narrow(self, wmsg, current=None):
-        raise NotImplementedError("servant method 'narrow' not implemented")
+        def widen(self, msg, current=None):
+            raise NotImplementedError("servant method 'widen' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def narrow(self, wmsg, current=None):
+            raise NotImplementedError("servant method 'narrow' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_MyObjectDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_MyObjectDisp)
 
-_M_Test._t_MyObjectDisp = IcePy.defineClass('::Test::MyObject', MyObject, (), None, ())
-MyObject._ice_type = _M_Test._t_MyObjectDisp
+        __repr__ = __str__
 
-MyObject._op_widen = IcePy.Operation('widen', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test._t_BadEncodingException,))
-MyObject._op_narrow = IcePy.Operation('narrow', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
-MyObject._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_MyObjectDisp = IcePy.defineClass('::Test::MyObject', MyObject, (), None, ())
+    MyObject._ice_type = _M_Test._t_MyObjectDisp
 
-_M_Test.MyObject = MyObject
-del MyObject
+    MyObject._op_widen = IcePy.Operation('widen', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test._t_BadEncodingException,))
+    MyObject._op_narrow = IcePy.Operation('narrow', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
+    MyObject._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.MyObject = MyObject
+    del MyObject
 
 # End of module Test

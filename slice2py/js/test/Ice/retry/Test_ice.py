@@ -23,88 +23,90 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_Retry = IcePy.defineValue('::Test::Retry', Ice.Value, -1, (), True, None, ())
-_M_Test.RetryPrx = None
-class RetryPrx(Ice.ObjectPrx):
 
-    def op(self, kill, context=None):
-        return _M_Test.Retry._op_op.invoke(self, ((kill, ), context))
+if 'RetryPrx' not in _M_Test.__dict__:
+    _M_Test.RetryPrx = None
+    class RetryPrx(Ice.ObjectPrx):
 
-    def opAsync(self, kill, context=None):
-        return _M_Test.Retry._op_op.invokeAsync(self, ((kill, ), context))
+        def op(self, kill, context=None):
+            return _M_Test.Retry._op_op.invoke(self, ((kill, ), context))
 
-    def opIdempotent(self, c, context=None):
-        return _M_Test.Retry._op_opIdempotent.invoke(self, ((c, ), context))
+        def opAsync(self, kill, context=None):
+            return _M_Test.Retry._op_op.invokeAsync(self, ((kill, ), context))
 
-    def opIdempotentAsync(self, c, context=None):
-        return _M_Test.Retry._op_opIdempotent.invokeAsync(self, ((c, ), context))
+        def opIdempotent(self, c, context=None):
+            return _M_Test.Retry._op_opIdempotent.invoke(self, ((c, ), context))
 
-    def opNotIdempotent(self, context=None):
-        return _M_Test.Retry._op_opNotIdempotent.invoke(self, ((), context))
+        def opIdempotentAsync(self, c, context=None):
+            return _M_Test.Retry._op_opIdempotent.invokeAsync(self, ((c, ), context))
 
-    def opNotIdempotentAsync(self, context=None):
-        return _M_Test.Retry._op_opNotIdempotent.invokeAsync(self, ((), context))
+        def opNotIdempotent(self, context=None):
+            return _M_Test.Retry._op_opNotIdempotent.invoke(self, ((), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.Retry._op_shutdown.invoke(self, ((), context))
+        def opNotIdempotentAsync(self, context=None):
+            return _M_Test.Retry._op_opNotIdempotent.invokeAsync(self, ((), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.Retry._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.Retry._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.RetryPrx.ice_checkedCast(proxy, '::Test::Retry', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.Retry._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.RetryPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.RetryPrx.ice_checkedCast(proxy, '::Test::Retry', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Retry'
-_M_Test._t_RetryPrx = IcePy.defineProxy('::Test::Retry', RetryPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.RetryPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.RetryPrx = RetryPrx
-del RetryPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Retry'
+    _M_Test._t_RetryPrx = IcePy.defineProxy('::Test::Retry', RetryPrx)
 
-_M_Test.Retry = None
-class Retry(Ice.Object):
+    _M_Test.RetryPrx = RetryPrx
+    del RetryPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Retry')
+    _M_Test.Retry = None
+    class Retry(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Retry'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Retry')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Retry'
+        def ice_id(self, current=None):
+            return '::Test::Retry'
 
-    def op(self, kill, current=None):
-        raise NotImplementedError("servant method 'op' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Retry'
 
-    def opIdempotent(self, c, current=None):
-        raise NotImplementedError("servant method 'opIdempotent' not implemented")
+        def op(self, kill, current=None):
+            raise NotImplementedError("servant method 'op' not implemented")
 
-    def opNotIdempotent(self, current=None):
-        raise NotImplementedError("servant method 'opNotIdempotent' not implemented")
+        def opIdempotent(self, c, current=None):
+            raise NotImplementedError("servant method 'opIdempotent' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def opNotIdempotent(self, current=None):
+            raise NotImplementedError("servant method 'opNotIdempotent' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_RetryDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_RetryDisp)
 
-_M_Test._t_RetryDisp = IcePy.defineClass('::Test::Retry', Retry, (), None, ())
-Retry._ice_type = _M_Test._t_RetryDisp
+        __repr__ = __str__
 
-Retry._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
-Retry._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), ())
-Retry._op_opNotIdempotent = IcePy.Operation('opNotIdempotent', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Retry._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    _M_Test._t_RetryDisp = IcePy.defineClass('::Test::Retry', Retry, (), None, ())
+    Retry._ice_type = _M_Test._t_RetryDisp
 
-_M_Test.Retry = Retry
-del Retry
+    Retry._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
+    Retry._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), ())
+    Retry._op_opNotIdempotent = IcePy.Operation('opNotIdempotent', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Retry._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+
+    _M_Test.Retry = Retry
+    del Retry
 
 # End of module Test

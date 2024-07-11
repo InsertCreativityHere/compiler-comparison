@@ -25,82 +25,86 @@ _M_Core = Ice.openModule('Core')
 # Start of module User
 _M_User = Ice.openModule('User')
 __name__ = 'User'
-_M_User.UserInfo = None
-class UserInfo(Ice.Value):
-    def __init__(self):
-        pass
 
-    def ice_id(self):
-        return '::User::UserInfo'
+if 'UserInfo' not in _M_User.__dict__:
+    _M_User.UserInfo = None
+    class UserInfo(Ice.Value):
+        def __init__(self):
+            pass
 
-    @staticmethod
-    def ice_staticId():
-        return '::User::UserInfo'
+        def ice_id(self):
+            return '::User::UserInfo'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_User._t_UserInfo)
+        @staticmethod
+        def ice_staticId():
+            return '::User::UserInfo'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_User._t_UserInfo)
 
-_M_User._t_UserInfo = IcePy.defineValue('::User::UserInfo', UserInfo, -1, (), False, None, ())
-UserInfo._ice_type = _M_User._t_UserInfo
+        __repr__ = __str__
 
-_M_User.UserInfo = UserInfo
-del UserInfo
+    _M_User._t_UserInfo = IcePy.defineValue('::User::UserInfo', UserInfo, -1, (), False, None, ())
+    UserInfo._ice_type = _M_User._t_UserInfo
+
+    _M_User.UserInfo = UserInfo
+    del UserInfo
 
 _M_User._t_Registry = IcePy.defineValue('::User::Registry', Ice.Value, -1, (), True, None, ())
-_M_User.RegistryPrx = None
-class RegistryPrx(Ice.ObjectPrx):
 
-    def getUserInfo(self, id, context=None):
-        return _M_User.Registry._op_getUserInfo.invoke(self, ((id, ), context))
+if 'RegistryPrx' not in _M_User.__dict__:
+    _M_User.RegistryPrx = None
+    class RegistryPrx(Ice.ObjectPrx):
 
-    def getUserInfoAsync(self, id, context=None):
-        return _M_User.Registry._op_getUserInfo.invokeAsync(self, ((id, ), context))
+        def getUserInfo(self, id, context=None):
+            return _M_User.Registry._op_getUserInfo.invoke(self, ((id, ), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_User.RegistryPrx.ice_checkedCast(proxy, '::User::Registry', facetOrContext, context)
+        def getUserInfoAsync(self, id, context=None):
+            return _M_User.Registry._op_getUserInfo.invokeAsync(self, ((id, ), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_User.RegistryPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_User.RegistryPrx.ice_checkedCast(proxy, '::User::Registry', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::User::Registry'
-_M_User._t_RegistryPrx = IcePy.defineProxy('::User::Registry', RegistryPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_User.RegistryPrx.ice_uncheckedCast(proxy, facet)
 
-_M_User.RegistryPrx = RegistryPrx
-del RegistryPrx
+        @staticmethod
+        def ice_staticId():
+            return '::User::Registry'
+    _M_User._t_RegistryPrx = IcePy.defineProxy('::User::Registry', RegistryPrx)
 
-_M_User.Registry = None
-class Registry(Ice.Object):
+    _M_User.RegistryPrx = RegistryPrx
+    del RegistryPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::User::Registry')
+    _M_User.Registry = None
+    class Registry(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::User::Registry'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::User::Registry')
 
-    @staticmethod
-    def ice_staticId():
-        return '::User::Registry'
+        def ice_id(self, current=None):
+            return '::User::Registry'
 
-    def getUserInfo(self, id, current=None):
-        raise NotImplementedError("servant method 'getUserInfo' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::User::Registry'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_User._t_RegistryDisp)
+        def getUserInfo(self, id, current=None):
+            raise NotImplementedError("servant method 'getUserInfo' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_User._t_RegistryDisp)
 
-_M_User._t_RegistryDisp = IcePy.defineClass('::User::Registry', Registry, (), None, ())
-Registry._ice_type = _M_User._t_RegistryDisp
+        __repr__ = __str__
 
-Registry._op_getUserInfo = IcePy.Operation('getUserInfo', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_User._t_UserInfo, False, 0), (_M_Core._t_ArgumentException,))
+    _M_User._t_RegistryDisp = IcePy.defineClass('::User::Registry', Registry, (), None, ())
+    Registry._ice_type = _M_User._t_RegistryDisp
 
-_M_User.Registry = Registry
-del Registry
+    Registry._op_getUserInfo = IcePy.Operation('getUserInfo', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_User._t_UserInfo, False, 0), (_M_Core._t_ArgumentException,))
+
+    _M_User.Registry = Registry
+    del Registry
 
 # End of module User

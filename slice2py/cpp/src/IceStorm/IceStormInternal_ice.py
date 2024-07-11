@@ -36,330 +36,342 @@ _M_IceStormElection = Ice.openModule('IceStormElection')
 
 # Start of module IceStorm
 __name__ = 'IceStorm'
-_M_IceStorm.EventData = None
-class EventData(object):
-    """
-     The event data.
-    Members:
-    op --  The operation name.
-    mode --  The operation mode.
-    data --  The encoded data for the operation's input parameters.
-    context --  The Ice::Current::Context data from the originating request.
-    """
-    def __init__(self, op='', mode=_M_Ice.OperationMode.Normal, data=None, context=None):
-        self.op = op
-        self.mode = mode
-        self.data = data
-        self.context = context
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_IceStorm.EventData):
-            return NotImplemented
-        else:
-            if self.op != other.op:
+if 'EventData' not in _M_IceStorm.__dict__:
+    _M_IceStorm.EventData = None
+    class EventData(object):
+        """
+         The event data.
+        Members:
+        op --  The operation name.
+        mode --  The operation mode.
+        data --  The encoded data for the operation's input parameters.
+        context --  The Ice::Current::Context data from the originating request.
+        """
+        def __init__(self, op='', mode=_M_Ice.OperationMode.Normal, data=None, context=None):
+            self.op = op
+            self.mode = mode
+            self.data = data
+            self.context = context
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.mode != other.mode:
-                return False
-            if self.data != other.data:
-                return False
-            if self.context != other.context:
-                return False
-            return True
+            elif not isinstance(other, _M_IceStorm.EventData):
+                return NotImplemented
+            else:
+                if self.op != other.op:
+                    return False
+                if self.mode != other.mode:
+                    return False
+                if self.data != other.data:
+                    return False
+                if self.context != other.context:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceStorm._t_EventData)
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStorm._t_EventData)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_IceStorm._t_EventData = IcePy.defineStruct('::IceStorm::EventData', EventData, (), (
-    ('op', (), IcePy._t_string),
-    ('mode', (), _M_Ice._t_OperationMode),
-    ('data', (), _M_Ice._t_ByteSeq),
-    ('context', (), _M_Ice._t_Context)
-))
+    _M_IceStorm._t_EventData = IcePy.defineStruct('::IceStorm::EventData', EventData, (), (
+        ('op', (), IcePy._t_string),
+        ('mode', (), _M_Ice._t_OperationMode),
+        ('data', (), _M_Ice._t_ByteSeq),
+        ('context', (), _M_Ice._t_Context)
+    ))
 
-_M_IceStorm.EventData = EventData
-del EventData
-_M_IceStorm._t_EventDataSeq = IcePy.defineSequence('::IceStorm::EventDataSeq', (), _M_IceStorm._t_EventData)
+    _M_IceStorm.EventData = EventData
+    del EventData
+
+if '_t_EventDataSeq' not in _M_IceStorm.__dict__:
+    _M_IceStorm._t_EventDataSeq = IcePy.defineSequence('::IceStorm::EventDataSeq', (), _M_IceStorm._t_EventData)
 
 _M_IceStorm._t_TopicLink = IcePy.defineValue('::IceStorm::TopicLink', Ice.Value, -1, (), True, None, ())
-_M_IceStorm.TopicLinkPrx = None
-class TopicLinkPrx(Ice.ObjectPrx):
 
-    """
-     Forward a sequence of events.
-    Arguments:
-    events -- The events to forward.
-    context -- The request context for the invocation.
-    """
-    def forward(self, events, context=None):
-        return _M_IceStorm.TopicLink._op_forward.invoke(self, ((events, ), context))
+if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
+    _M_IceStorm.TopicLinkPrx = None
+    class TopicLinkPrx(Ice.ObjectPrx):
 
-    """
-     Forward a sequence of events.
-    Arguments:
-    events -- The events to forward.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def forwardAsync(self, events, context=None):
-        return _M_IceStorm.TopicLink._op_forward.invokeAsync(self, ((events, ), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_IceStorm.TopicLinkPrx.ice_checkedCast(proxy, '::IceStorm::TopicLink', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_IceStorm.TopicLinkPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceStorm::TopicLink'
-_M_IceStorm._t_TopicLinkPrx = IcePy.defineProxy('::IceStorm::TopicLink', TopicLinkPrx)
-
-_M_IceStorm.TopicLinkPrx = TopicLinkPrx
-del TopicLinkPrx
-
-_M_IceStorm.TopicLink = None
-class TopicLink(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::IceStorm::TopicLink')
-
-    def ice_id(self, current=None):
-        return '::IceStorm::TopicLink'
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceStorm::TopicLink'
-
-    def forward(self, events, current=None):
         """
          Forward a sequence of events.
         Arguments:
         events -- The events to forward.
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        """
+        def forward(self, events, context=None):
+            return _M_IceStorm.TopicLink._op_forward.invoke(self, ((events, ), context))
+
+        """
+         Forward a sequence of events.
+        Arguments:
+        events -- The events to forward.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'forward' not implemented")
+        def forwardAsync(self, events, context=None):
+            return _M_IceStorm.TopicLink._op_forward.invokeAsync(self, ((events, ), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceStorm._t_TopicLinkDisp)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceStorm.TopicLinkPrx.ice_checkedCast(proxy, '::IceStorm::TopicLink', facetOrContext, context)
 
-    __repr__ = __str__
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceStorm.TopicLinkPrx.ice_uncheckedCast(proxy, facet)
 
-_M_IceStorm._t_TopicLinkDisp = IcePy.defineClass('::IceStorm::TopicLink', TopicLink, (), None, ())
-TopicLink._ice_type = _M_IceStorm._t_TopicLinkDisp
+        @staticmethod
+        def ice_staticId():
+            return '::IceStorm::TopicLink'
+    _M_IceStorm._t_TopicLinkPrx = IcePy.defineProxy('::IceStorm::TopicLink', TopicLinkPrx)
 
-TopicLink._op_forward = IcePy.Operation('forward', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStorm._t_EventDataSeq, False, 0),), (), None, ())
+    _M_IceStorm.TopicLinkPrx = TopicLinkPrx
+    del TopicLinkPrx
 
-_M_IceStorm.TopicLink = TopicLink
-del TopicLink
-_M_IceStorm.ReapWouldBlock = None
-class ReapWouldBlock(Ice.UserException):
-    """
-     Thrown if the reap call would block.
-    """
-    def __init__(self):
-        pass
+    _M_IceStorm.TopicLink = None
+    class TopicLink(Ice.Object):
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceStorm::TopicLink')
 
-    __repr__ = __str__
+        def ice_id(self, current=None):
+            return '::IceStorm::TopicLink'
 
-    _ice_id = '::IceStorm::ReapWouldBlock'
+        @staticmethod
+        def ice_staticId():
+            return '::IceStorm::TopicLink'
 
-_M_IceStorm._t_ReapWouldBlock = IcePy.defineException('::IceStorm::ReapWouldBlock', ReapWouldBlock, (), None, ())
-ReapWouldBlock._ice_type = _M_IceStorm._t_ReapWouldBlock
+        def forward(self, events, current=None):
+            """
+             Forward a sequence of events.
+            Arguments:
+            events -- The events to forward.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'forward' not implemented")
 
-_M_IceStorm.ReapWouldBlock = ReapWouldBlock
-del ReapWouldBlock
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStorm._t_TopicLinkDisp)
+
+        __repr__ = __str__
+
+    _M_IceStorm._t_TopicLinkDisp = IcePy.defineClass('::IceStorm::TopicLink', TopicLink, (), None, ())
+    TopicLink._ice_type = _M_IceStorm._t_TopicLinkDisp
+
+    TopicLink._op_forward = IcePy.Operation('forward', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStorm._t_EventDataSeq, False, 0),), (), None, ())
+
+    _M_IceStorm.TopicLink = TopicLink
+    del TopicLink
+
+if 'ReapWouldBlock' not in _M_IceStorm.__dict__:
+    _M_IceStorm.ReapWouldBlock = None
+    class ReapWouldBlock(Ice.UserException):
+        """
+         Thrown if the reap call would block.
+        """
+        def __init__(self):
+            pass
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::IceStorm::ReapWouldBlock'
+
+    _M_IceStorm._t_ReapWouldBlock = IcePy.defineException('::IceStorm::ReapWouldBlock', ReapWouldBlock, (), None, ())
+    ReapWouldBlock._ice_type = _M_IceStorm._t_ReapWouldBlock
+
+    _M_IceStorm.ReapWouldBlock = ReapWouldBlock
+    del ReapWouldBlock
 
 _M_IceStorm._t_TopicInternal = IcePy.defineValue('::IceStorm::TopicInternal', Ice.Value, -1, (), True, None, ())
-_M_IceStorm.TopicInternalPrx = None
-class TopicInternalPrx(_M_IceStorm.TopicPrx):
 
-    """
-     Retrieve a proxy to the TopicLink interface.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: The TopicLink for the Topic.
-    """
-    def getLinkProxy(self, context=None):
-        return _M_IceStorm.TopicInternal._op_getLinkProxy.invoke(self, ((), context))
+if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
+    _M_IceStorm.TopicInternalPrx = None
+    class TopicInternalPrx(_M_IceStorm.TopicPrx):
 
-    """
-     Retrieve a proxy to the TopicLink interface.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getLinkProxyAsync(self, context=None):
-        return _M_IceStorm.TopicInternal._op_getLinkProxy.invokeAsync(self, ((), context))
-
-    """
-     Reap the given identities.
-    Arguments:
-    id -- The sequence of identities.
-    context -- The request context for the invocation.
-    Throws:
-    ReapWouldBlock -- Raised if the reap call would block.
-    """
-    def reap(self, id, context=None):
-        return _M_IceStorm.TopicInternal._op_reap.invoke(self, ((id, ), context))
-
-    """
-     Reap the given identities.
-    Arguments:
-    id -- The sequence of identities.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def reapAsync(self, id, context=None):
-        return _M_IceStorm.TopicInternal._op_reap.invokeAsync(self, ((id, ), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_IceStorm.TopicInternalPrx.ice_checkedCast(proxy, '::IceStorm::TopicInternal', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_IceStorm.TopicInternalPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceStorm::TopicInternal'
-_M_IceStorm._t_TopicInternalPrx = IcePy.defineProxy('::IceStorm::TopicInternal', TopicInternalPrx)
-
-_M_IceStorm.TopicInternalPrx = TopicInternalPrx
-del TopicInternalPrx
-
-_M_IceStorm.TopicInternal = None
-class TopicInternal(_M_IceStorm.Topic):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::IceStorm::Topic', '::IceStorm::TopicInternal')
-
-    def ice_id(self, current=None):
-        return '::IceStorm::TopicInternal'
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceStorm::TopicInternal'
-
-    def getLinkProxy(self, current=None):
         """
          Retrieve a proxy to the TopicLink interface.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The TopicLink for the Topic.
+        """
+        def getLinkProxy(self, context=None):
+            return _M_IceStorm.TopicInternal._op_getLinkProxy.invoke(self, ((), context))
+
+        """
+         Retrieve a proxy to the TopicLink interface.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getLinkProxy' not implemented")
+        def getLinkProxyAsync(self, context=None):
+            return _M_IceStorm.TopicInternal._op_getLinkProxy.invokeAsync(self, ((), context))
 
-    def reap(self, id, current=None):
         """
          Reap the given identities.
         Arguments:
         id -- The sequence of identities.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
         Throws:
         ReapWouldBlock -- Raised if the reap call would block.
         """
-        raise NotImplementedError("servant method 'reap' not implemented")
+        def reap(self, id, context=None):
+            return _M_IceStorm.TopicInternal._op_reap.invoke(self, ((id, ), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceStorm._t_TopicInternalDisp)
+        """
+         Reap the given identities.
+        Arguments:
+        id -- The sequence of identities.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def reapAsync(self, id, context=None):
+            return _M_IceStorm.TopicInternal._op_reap.invokeAsync(self, ((id, ), context))
 
-    __repr__ = __str__
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceStorm.TopicInternalPrx.ice_checkedCast(proxy, '::IceStorm::TopicInternal', facetOrContext, context)
 
-_M_IceStorm._t_TopicInternalDisp = IcePy.defineClass('::IceStorm::TopicInternal', TopicInternal, (), None, (_M_IceStorm._t_TopicDisp,))
-TopicInternal._ice_type = _M_IceStorm._t_TopicInternalDisp
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceStorm.TopicInternalPrx.ice_uncheckedCast(proxy, facet)
 
-TopicInternal._op_getLinkProxy = IcePy.Operation('getLinkProxy', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStorm._t_TopicLinkPrx, False, 0), ())
-TopicInternal._op_reap = IcePy.Operation('reap', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, (_M_IceStorm._t_ReapWouldBlock,))
+        @staticmethod
+        def ice_staticId():
+            return '::IceStorm::TopicInternal'
+    _M_IceStorm._t_TopicInternalPrx = IcePy.defineProxy('::IceStorm::TopicInternal', TopicInternalPrx)
 
-_M_IceStorm.TopicInternal = TopicInternal
-del TopicInternal
+    _M_IceStorm.TopicInternalPrx = TopicInternalPrx
+    del TopicInternalPrx
+
+    _M_IceStorm.TopicInternal = None
+    class TopicInternal(_M_IceStorm.Topic):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceStorm::Topic', '::IceStorm::TopicInternal')
+
+        def ice_id(self, current=None):
+            return '::IceStorm::TopicInternal'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceStorm::TopicInternal'
+
+        def getLinkProxy(self, current=None):
+            """
+             Retrieve a proxy to the TopicLink interface.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getLinkProxy' not implemented")
+
+        def reap(self, id, current=None):
+            """
+             Reap the given identities.
+            Arguments:
+            id -- The sequence of identities.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            ReapWouldBlock -- Raised if the reap call would block.
+            """
+            raise NotImplementedError("servant method 'reap' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStorm._t_TopicInternalDisp)
+
+        __repr__ = __str__
+
+    _M_IceStorm._t_TopicInternalDisp = IcePy.defineClass('::IceStorm::TopicInternal', TopicInternal, (), None, (_M_IceStorm._t_TopicDisp,))
+    TopicInternal._ice_type = _M_IceStorm._t_TopicInternalDisp
+
+    TopicInternal._op_getLinkProxy = IcePy.Operation('getLinkProxy', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStorm._t_TopicLinkPrx, False, 0), ())
+    TopicInternal._op_reap = IcePy.Operation('reap', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, (_M_IceStorm._t_ReapWouldBlock,))
+
+    _M_IceStorm.TopicInternal = TopicInternal
+    del TopicInternal
 
 _M_IceStorm._t_TopicManagerInternal = IcePy.defineValue('::IceStorm::TopicManagerInternal', Ice.Value, -1, (), True, None, ())
-_M_IceStorm.TopicManagerInternalPrx = None
-class TopicManagerInternalPrx(_M_IceStorm.TopicManagerPrx):
 
-    """
-     Return the replica node proxy for this topic manager.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: The replica proxy, or null if this instance is not replicated.
-    """
-    def getReplicaNode(self, context=None):
-        return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.invoke(self, ((), context))
+if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
+    _M_IceStorm.TopicManagerInternalPrx = None
+    class TopicManagerInternalPrx(_M_IceStorm.TopicManagerPrx):
 
-    """
-     Return the replica node proxy for this topic manager.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getReplicaNodeAsync(self, context=None):
-        return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.invokeAsync(self, ((), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_IceStorm.TopicManagerInternalPrx.ice_checkedCast(proxy, '::IceStorm::TopicManagerInternal', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_IceStorm.TopicManagerInternalPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceStorm::TopicManagerInternal'
-_M_IceStorm._t_TopicManagerInternalPrx = IcePy.defineProxy('::IceStorm::TopicManagerInternal', TopicManagerInternalPrx)
-
-_M_IceStorm.TopicManagerInternalPrx = TopicManagerInternalPrx
-del TopicManagerInternalPrx
-
-_M_IceStorm.TopicManagerInternal = None
-class TopicManagerInternal(_M_IceStorm.TopicManager):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::IceStorm::TopicManager', '::IceStorm::TopicManagerInternal')
-
-    def ice_id(self, current=None):
-        return '::IceStorm::TopicManagerInternal'
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceStorm::TopicManagerInternal'
-
-    def getReplicaNode(self, current=None):
         """
          Return the replica node proxy for this topic manager.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The replica proxy, or null if this instance is not replicated.
+        """
+        def getReplicaNode(self, context=None):
+            return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.invoke(self, ((), context))
+
+        """
+         Return the replica node proxy for this topic manager.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getReplicaNode' not implemented")
+        def getReplicaNodeAsync(self, context=None):
+            return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.invokeAsync(self, ((), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceStorm._t_TopicManagerInternalDisp)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceStorm.TopicManagerInternalPrx.ice_checkedCast(proxy, '::IceStorm::TopicManagerInternal', facetOrContext, context)
 
-    __repr__ = __str__
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceStorm.TopicManagerInternalPrx.ice_uncheckedCast(proxy, facet)
 
-_M_IceStorm._t_TopicManagerInternalDisp = IcePy.defineClass('::IceStorm::TopicManagerInternal', TopicManagerInternal, (), None, (_M_IceStorm._t_TopicManagerDisp,))
-TopicManagerInternal._ice_type = _M_IceStorm._t_TopicManagerInternalDisp
+        @staticmethod
+        def ice_staticId():
+            return '::IceStorm::TopicManagerInternal'
+    _M_IceStorm._t_TopicManagerInternalPrx = IcePy.defineProxy('::IceStorm::TopicManagerInternal', TopicManagerInternalPrx)
 
-TopicManagerInternal._op_getReplicaNode = IcePy.Operation('getReplicaNode', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStormElection._t_NodePrx, False, 0), ())
+    _M_IceStorm.TopicManagerInternalPrx = TopicManagerInternalPrx
+    del TopicManagerInternalPrx
 
-_M_IceStorm.TopicManagerInternal = TopicManagerInternal
-del TopicManagerInternal
+    _M_IceStorm.TopicManagerInternal = None
+    class TopicManagerInternal(_M_IceStorm.TopicManager):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceStorm::TopicManager', '::IceStorm::TopicManagerInternal')
+
+        def ice_id(self, current=None):
+            return '::IceStorm::TopicManagerInternal'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceStorm::TopicManagerInternal'
+
+        def getReplicaNode(self, current=None):
+            """
+             Return the replica node proxy for this topic manager.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getReplicaNode' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStorm._t_TopicManagerInternalDisp)
+
+        __repr__ = __str__
+
+    _M_IceStorm._t_TopicManagerInternalDisp = IcePy.defineClass('::IceStorm::TopicManagerInternal', TopicManagerInternal, (), None, (_M_IceStorm._t_TopicManagerDisp,))
+    TopicManagerInternal._ice_type = _M_IceStorm._t_TopicManagerInternalDisp
+
+    TopicManagerInternal._op_getReplicaNode = IcePy.Operation('getReplicaNode', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStormElection._t_NodePrx, False, 0), ())
+
+    _M_IceStorm.TopicManagerInternal = TopicManagerInternal
+    del TopicManagerInternal
 
 # End of module IceStorm

@@ -23,58 +23,60 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_Backend = IcePy.defineValue('::Test::Backend', Ice.Value, -1, (), True, None, ())
-_M_Test.BackendPrx = None
-class BackendPrx(Ice.ObjectPrx):
 
-    def shutdown(self, context=None):
-        return _M_Test.Backend._op_shutdown.invoke(self, ((), context))
+if 'BackendPrx' not in _M_Test.__dict__:
+    _M_Test.BackendPrx = None
+    class BackendPrx(Ice.ObjectPrx):
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.Backend._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.Backend._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.BackendPrx.ice_checkedCast(proxy, '::Test::Backend', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.Backend._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.BackendPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.BackendPrx.ice_checkedCast(proxy, '::Test::Backend', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Backend'
-_M_Test._t_BackendPrx = IcePy.defineProxy('::Test::Backend', BackendPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.BackendPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.BackendPrx = BackendPrx
-del BackendPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Backend'
+    _M_Test._t_BackendPrx = IcePy.defineProxy('::Test::Backend', BackendPrx)
 
-_M_Test.Backend = None
-class Backend(Ice.Object):
+    _M_Test.BackendPrx = BackendPrx
+    del BackendPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Backend')
+    _M_Test.Backend = None
+    class Backend(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Backend'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Backend')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Backend'
+        def ice_id(self, current=None):
+            return '::Test::Backend'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Backend'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_BackendDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_BackendDisp)
 
-_M_Test._t_BackendDisp = IcePy.defineClass('::Test::Backend', Backend, (), None, ())
-Backend._ice_type = _M_Test._t_BackendDisp
+        __repr__ = __str__
 
-Backend._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_BackendDisp = IcePy.defineClass('::Test::Backend', Backend, (), None, ())
+    Backend._ice_type = _M_Test._t_BackendDisp
 
-_M_Test.Backend = Backend
-del Backend
+    Backend._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.Backend = Backend
+    del Backend
 
 # End of module Test

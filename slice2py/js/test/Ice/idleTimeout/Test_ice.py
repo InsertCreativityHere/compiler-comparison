@@ -23,168 +23,174 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_DelayedTestIntf = IcePy.defineValue('::Test::DelayedTestIntf', Ice.Value, -1, (), True, None, ())
-_M_Test.DelayedTestIntfPrx = None
-class DelayedTestIntfPrx(Ice.ObjectPrx):
 
-    def sleep(self, ms, context=None):
-        return _M_Test.DelayedTestIntf._op_sleep.invoke(self, ((ms, ), context))
+if 'DelayedTestIntfPrx' not in _M_Test.__dict__:
+    _M_Test.DelayedTestIntfPrx = None
+    class DelayedTestIntfPrx(Ice.ObjectPrx):
 
-    def sleepAsync(self, ms, context=None):
-        return _M_Test.DelayedTestIntf._op_sleep.invokeAsync(self, ((ms, ), context))
+        def sleep(self, ms, context=None):
+            return _M_Test.DelayedTestIntf._op_sleep.invoke(self, ((ms, ), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.DelayedTestIntfPrx.ice_checkedCast(proxy, '::Test::DelayedTestIntf', facetOrContext, context)
+        def sleepAsync(self, ms, context=None):
+            return _M_Test.DelayedTestIntf._op_sleep.invokeAsync(self, ((ms, ), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.DelayedTestIntfPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.DelayedTestIntfPrx.ice_checkedCast(proxy, '::Test::DelayedTestIntf', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::DelayedTestIntf'
-_M_Test._t_DelayedTestIntfPrx = IcePy.defineProxy('::Test::DelayedTestIntf', DelayedTestIntfPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.DelayedTestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.DelayedTestIntfPrx = DelayedTestIntfPrx
-del DelayedTestIntfPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::DelayedTestIntf'
+    _M_Test._t_DelayedTestIntfPrx = IcePy.defineProxy('::Test::DelayedTestIntf', DelayedTestIntfPrx)
 
-_M_Test.DelayedTestIntf = None
-class DelayedTestIntf(Ice.Object):
+    _M_Test.DelayedTestIntfPrx = DelayedTestIntfPrx
+    del DelayedTestIntfPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::DelayedTestIntf')
+    _M_Test.DelayedTestIntf = None
+    class DelayedTestIntf(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::DelayedTestIntf'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::DelayedTestIntf')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::DelayedTestIntf'
+        def ice_id(self, current=None):
+            return '::Test::DelayedTestIntf'
 
-    def sleep(self, ms, current=None):
-        raise NotImplementedError("servant method 'sleep' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::DelayedTestIntf'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_DelayedTestIntfDisp)
+        def sleep(self, ms, current=None):
+            raise NotImplementedError("servant method 'sleep' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_DelayedTestIntfDisp)
 
-_M_Test._t_DelayedTestIntfDisp = IcePy.defineClass('::Test::DelayedTestIntf', DelayedTestIntf, (), None, ())
-DelayedTestIntf._ice_type = _M_Test._t_DelayedTestIntfDisp
+        __repr__ = __str__
 
-DelayedTestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    _M_Test._t_DelayedTestIntfDisp = IcePy.defineClass('::Test::DelayedTestIntf', DelayedTestIntf, (), None, ())
+    DelayedTestIntf._ice_type = _M_Test._t_DelayedTestIntfDisp
 
-_M_Test.DelayedTestIntf = DelayedTestIntf
-del DelayedTestIntf
+    DelayedTestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+
+    _M_Test.DelayedTestIntf = DelayedTestIntf
+    del DelayedTestIntf
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
-_M_Test.TestIntfPrx = None
-class TestIntfPrx(_M_Test.DelayedTestIntfPrx):
 
-    def shutdown(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
+if 'TestIntfPrx' not in _M_Test.__dict__:
+    _M_Test.TestIntfPrx = None
+    class TestIntfPrx(_M_Test.DelayedTestIntfPrx):
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
-_M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestIntfPrx = TestIntfPrx
-del TestIntfPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
+    _M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
 
-_M_Test.TestIntf = None
-class TestIntf(_M_Test.DelayedTestIntf):
+    _M_Test.TestIntfPrx = TestIntfPrx
+    del TestIntfPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::DelayedTestIntf', '::Test::TestIntf')
+    _M_Test.TestIntf = None
+    class TestIntf(_M_Test.DelayedTestIntf):
 
-    def ice_id(self, current=None):
-        return '::Test::TestIntf'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::DelayedTestIntf', '::Test::TestIntf')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
+        def ice_id(self, current=None):
+            return '::Test::TestIntf'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
-_M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, (_M_Test._t_DelayedTestIntfDisp,))
-TestIntf._ice_type = _M_Test._t_TestIntfDisp
+        __repr__ = __str__
 
-TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, (_M_Test._t_DelayedTestIntfDisp,))
+    TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-_M_Test.TestIntf = TestIntf
-del TestIntf
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.TestIntf = TestIntf
+    del TestIntf
 
 _M_Test._t_TestIntfBidir = IcePy.defineValue('::Test::TestIntfBidir', Ice.Value, -1, (), True, None, ())
-_M_Test.TestIntfBidirPrx = None
-class TestIntfBidirPrx(Ice.ObjectPrx):
 
-    def makeSleep(self, aborted, ms, target, context=None):
-        return _M_Test.TestIntfBidir._op_makeSleep.invoke(self, ((aborted, ms, target), context))
+if 'TestIntfBidirPrx' not in _M_Test.__dict__:
+    _M_Test.TestIntfBidirPrx = None
+    class TestIntfBidirPrx(Ice.ObjectPrx):
 
-    def makeSleepAsync(self, aborted, ms, target, context=None):
-        return _M_Test.TestIntfBidir._op_makeSleep.invokeAsync(self, ((aborted, ms, target), context))
+        def makeSleep(self, aborted, ms, target, context=None):
+            return _M_Test.TestIntfBidir._op_makeSleep.invoke(self, ((aborted, ms, target), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestIntfBidirPrx.ice_checkedCast(proxy, '::Test::TestIntfBidir', facetOrContext, context)
+        def makeSleepAsync(self, aborted, ms, target, context=None):
+            return _M_Test.TestIntfBidir._op_makeSleep.invokeAsync(self, ((aborted, ms, target), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestIntfBidirPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestIntfBidirPrx.ice_checkedCast(proxy, '::Test::TestIntfBidir', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntfBidir'
-_M_Test._t_TestIntfBidirPrx = IcePy.defineProxy('::Test::TestIntfBidir', TestIntfBidirPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestIntfBidirPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestIntfBidirPrx = TestIntfBidirPrx
-del TestIntfBidirPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntfBidir'
+    _M_Test._t_TestIntfBidirPrx = IcePy.defineProxy('::Test::TestIntfBidir', TestIntfBidirPrx)
 
-_M_Test.TestIntfBidir = None
-class TestIntfBidir(Ice.Object):
+    _M_Test.TestIntfBidirPrx = TestIntfBidirPrx
+    del TestIntfBidirPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::TestIntfBidir')
+    _M_Test.TestIntfBidir = None
+    class TestIntfBidir(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::TestIntfBidir'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::TestIntfBidir')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntfBidir'
+        def ice_id(self, current=None):
+            return '::Test::TestIntfBidir'
 
-    def makeSleep(self, aborted, ms, target, current=None):
-        raise NotImplementedError("servant method 'makeSleep' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntfBidir'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestIntfBidirDisp)
+        def makeSleep(self, aborted, ms, target, current=None):
+            raise NotImplementedError("servant method 'makeSleep' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestIntfBidirDisp)
 
-_M_Test._t_TestIntfBidirDisp = IcePy.defineClass('::Test::TestIntfBidir', TestIntfBidir, (), None, ())
-TestIntfBidir._ice_type = _M_Test._t_TestIntfBidirDisp
+        __repr__ = __str__
 
-TestIntfBidir._op_makeSleep = IcePy.Operation('makeSleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0), ((), IcePy._t_int, False, 0), ((), _M_Test._t_DelayedTestIntfPrx, False, 0)), (), None, ())
+    _M_Test._t_TestIntfBidirDisp = IcePy.defineClass('::Test::TestIntfBidir', TestIntfBidir, (), None, ())
+    TestIntfBidir._ice_type = _M_Test._t_TestIntfBidirDisp
 
-_M_Test.TestIntfBidir = TestIntfBidir
-del TestIntfBidir
+    TestIntfBidir._op_makeSleep = IcePy.Operation('makeSleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0), ((), IcePy._t_int, False, 0), ((), _M_Test._t_DelayedTestIntfPrx, False, 0)), (), None, ())
+
+    _M_Test.TestIntfBidir = TestIntfBidir
+    del TestIntfBidir
 
 # End of module Test

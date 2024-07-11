@@ -25,677 +25,729 @@ _M_Ice = Ice.openModule('Ice')
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
-_M_Test.A = None
-class A(object):
-    def __init__(self, i=0):
-        self.i = i
 
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.i)
-        return _h % 0x7fffffff
+if 'A' not in _M_Test.__dict__:
+    _M_Test.A = None
+    class A(object):
+        def __init__(self, i=0):
+            self.i = i
 
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.A):
-            return NotImplemented
-        else:
-            if self.i is None or other.i is None:
-                if self.i != other.i:
-                    return (-1 if self.i is None else 1)
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.i)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.A):
+                return NotImplemented
             else:
-                if self.i < other.i:
-                    return -1
-                elif self.i > other.i:
-                    return 1
-            return 0
+                if self.i is None or other.i is None:
+                    if self.i != other.i:
+                        return (-1 if self.i is None else 1)
+                else:
+                    if self.i < other.i:
+                        return -1
+                    elif self.i > other.i:
+                        return 1
+                return 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
-
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
-
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
-
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
-
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
-
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_A)
-
-    __repr__ = __str__
-
-_M_Test._t_A = IcePy.defineStruct('::Test::A', A, (), (('i', (), IcePy._t_int),))
-
-_M_Test.A = A
-del A
-_M_Test._t_ASeq = IcePy.defineSequence('::Test::ASeq', (), _M_Test._t_A)
-_M_Test._t_AArray = IcePy.defineSequence('::Test::AArray', (), _M_Test._t_A)
-_M_Test._t_AList = IcePy.defineSequence('::Test::AList', (), _M_Test._t_A)
-_M_Test._t_BoolSeq = IcePy.defineSequence('::Test::BoolSeq', (), IcePy._t_bool)
-_M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
-_M_Test._t_ShortSeq = IcePy.defineSequence('::Test::ShortSeq', (), IcePy._t_short)
-_M_Test._t_IntSeq = IcePy.defineSequence('::Test::IntSeq', (), IcePy._t_int)
-_M_Test._t_LongSeq = IcePy.defineSequence('::Test::LongSeq', (), IcePy._t_long)
-_M_Test._t_FloatSeq = IcePy.defineSequence('::Test::FloatSeq', (), IcePy._t_float)
-_M_Test._t_DoubleSeq = IcePy.defineSequence('::Test::DoubleSeq', (), IcePy._t_double)
-_M_Test._t_StringSeq = IcePy.defineSequence('::Test::StringSeq', (), IcePy._t_string)
-_M_Test._t_ByteBuffer = IcePy.defineSequence('::Test::ByteBuffer', (), IcePy._t_byte)
-_M_Test._t_ShortBuffer = IcePy.defineSequence('::Test::ShortBuffer', (), IcePy._t_short)
-_M_Test._t_IntBuffer = IcePy.defineSequence('::Test::IntBuffer', (), IcePy._t_int)
-_M_Test._t_LongBuffer = IcePy.defineSequence('::Test::LongBuffer', (), IcePy._t_long)
-_M_Test._t_FloatBuffer = IcePy.defineSequence('::Test::FloatBuffer', (), IcePy._t_float)
-_M_Test._t_DoubleBuffer = IcePy.defineSequence('::Test::DoubleBuffer', (), IcePy._t_double)
-_M_Test.E = None
-class E(Ice.EnumBase):
-
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
-
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
-
-E.E1 = E("E1", 0)
-E.E2 = E("E2", 1)
-E.E3 = E("E3", 2)
-E._enumerators = { 0:E.E1, 1:E.E2, 2:E.E3 }
-
-_M_Test._t_E = IcePy.defineEnum('::Test::E', E, (), E._enumerators)
-
-_M_Test.E = E
-del E
-_M_Test._t_ESeq = IcePy.defineSequence('::Test::ESeq', (), _M_Test._t_E)
-_M_Test.S = None
-class S(object):
-    def __init__(self, en=_M_Test.E.E1):
-        self.en = en
-
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.en)
-        return _h % 0x7fffffff
-
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.S):
-            return NotImplemented
-        else:
-            if self.en is None or other.en is None:
-                if self.en != other.en:
-                    return (-1 if self.en is None else 1)
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.en < other.en:
-                    return -1
-                elif self.en > other.en:
-                    return 1
-            return 0
+                return r < 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_A)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_S)
+        __repr__ = __str__
 
-    __repr__ = __str__
+    _M_Test._t_A = IcePy.defineStruct('::Test::A', A, (), (('i', (), IcePy._t_int),))
 
-_M_Test._t_S = IcePy.defineStruct('::Test::S', S, (), (('en', (), _M_Test._t_E),))
+    _M_Test.A = A
+    del A
 
-_M_Test.S = S
-del S
-_M_Test._t_SSeq = IcePy.defineSequence('::Test::SSeq', (), _M_Test._t_S)
-_M_Test._t_D = IcePy.defineDictionary('::Test::D', (), IcePy._t_int, IcePy._t_string)
-_M_Test._t_DSeq = IcePy.defineSequence('::Test::DSeq', (), _M_Test._t_D)
-_M_Test._t_StringSeqSeq = IcePy.defineSequence('::Test::StringSeqSeq', (), _M_Test._t_StringSeq)
+if '_t_ASeq' not in _M_Test.__dict__:
+    _M_Test._t_ASeq = IcePy.defineSequence('::Test::ASeq', (), _M_Test._t_A)
+
+if '_t_AArray' not in _M_Test.__dict__:
+    _M_Test._t_AArray = IcePy.defineSequence('::Test::AArray', (), _M_Test._t_A)
+
+if '_t_AList' not in _M_Test.__dict__:
+    _M_Test._t_AList = IcePy.defineSequence('::Test::AList', (), _M_Test._t_A)
+
+if '_t_BoolSeq' not in _M_Test.__dict__:
+    _M_Test._t_BoolSeq = IcePy.defineSequence('::Test::BoolSeq', (), IcePy._t_bool)
+
+if '_t_ByteSeq' not in _M_Test.__dict__:
+    _M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
+
+if '_t_ShortSeq' not in _M_Test.__dict__:
+    _M_Test._t_ShortSeq = IcePy.defineSequence('::Test::ShortSeq', (), IcePy._t_short)
+
+if '_t_IntSeq' not in _M_Test.__dict__:
+    _M_Test._t_IntSeq = IcePy.defineSequence('::Test::IntSeq', (), IcePy._t_int)
+
+if '_t_LongSeq' not in _M_Test.__dict__:
+    _M_Test._t_LongSeq = IcePy.defineSequence('::Test::LongSeq', (), IcePy._t_long)
+
+if '_t_FloatSeq' not in _M_Test.__dict__:
+    _M_Test._t_FloatSeq = IcePy.defineSequence('::Test::FloatSeq', (), IcePy._t_float)
+
+if '_t_DoubleSeq' not in _M_Test.__dict__:
+    _M_Test._t_DoubleSeq = IcePy.defineSequence('::Test::DoubleSeq', (), IcePy._t_double)
+
+if '_t_StringSeq' not in _M_Test.__dict__:
+    _M_Test._t_StringSeq = IcePy.defineSequence('::Test::StringSeq', (), IcePy._t_string)
+
+if '_t_ByteBuffer' not in _M_Test.__dict__:
+    _M_Test._t_ByteBuffer = IcePy.defineSequence('::Test::ByteBuffer', (), IcePy._t_byte)
+
+if '_t_ShortBuffer' not in _M_Test.__dict__:
+    _M_Test._t_ShortBuffer = IcePy.defineSequence('::Test::ShortBuffer', (), IcePy._t_short)
+
+if '_t_IntBuffer' not in _M_Test.__dict__:
+    _M_Test._t_IntBuffer = IcePy.defineSequence('::Test::IntBuffer', (), IcePy._t_int)
+
+if '_t_LongBuffer' not in _M_Test.__dict__:
+    _M_Test._t_LongBuffer = IcePy.defineSequence('::Test::LongBuffer', (), IcePy._t_long)
+
+if '_t_FloatBuffer' not in _M_Test.__dict__:
+    _M_Test._t_FloatBuffer = IcePy.defineSequence('::Test::FloatBuffer', (), IcePy._t_float)
+
+if '_t_DoubleBuffer' not in _M_Test.__dict__:
+    _M_Test._t_DoubleBuffer = IcePy.defineSequence('::Test::DoubleBuffer', (), IcePy._t_double)
+
+if 'E' not in _M_Test.__dict__:
+    _M_Test.E = None
+    class E(Ice.EnumBase):
+
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
+
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
+
+    E.E1 = E("E1", 0)
+    E.E2 = E("E2", 1)
+    E.E3 = E("E3", 2)
+    E._enumerators = { 0:E.E1, 1:E.E2, 2:E.E3 }
+
+    _M_Test._t_E = IcePy.defineEnum('::Test::E', E, (), E._enumerators)
+
+    _M_Test.E = E
+    del E
+
+if '_t_ESeq' not in _M_Test.__dict__:
+    _M_Test._t_ESeq = IcePy.defineSequence('::Test::ESeq', (), _M_Test._t_E)
+
+if 'S' not in _M_Test.__dict__:
+    _M_Test.S = None
+    class S(object):
+        def __init__(self, en=_M_Test.E.E1):
+            self.en = en
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.en)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.S):
+                return NotImplemented
+            else:
+                if self.en is None or other.en is None:
+                    if self.en != other.en:
+                        return (-1 if self.en is None else 1)
+                else:
+                    if self.en < other.en:
+                        return -1
+                    elif self.en > other.en:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_S)
+
+        __repr__ = __str__
+
+    _M_Test._t_S = IcePy.defineStruct('::Test::S', S, (), (('en', (), _M_Test._t_E),))
+
+    _M_Test.S = S
+    del S
+
+if '_t_SSeq' not in _M_Test.__dict__:
+    _M_Test._t_SSeq = IcePy.defineSequence('::Test::SSeq', (), _M_Test._t_S)
+
+if '_t_D' not in _M_Test.__dict__:
+    _M_Test._t_D = IcePy.defineDictionary('::Test::D', (), IcePy._t_int, IcePy._t_string)
+
+if '_t_DSeq' not in _M_Test.__dict__:
+    _M_Test._t_DSeq = IcePy.defineSequence('::Test::DSeq', (), _M_Test._t_D)
+
+if '_t_StringSeqSeq' not in _M_Test.__dict__:
+    _M_Test._t_StringSeqSeq = IcePy.defineSequence('::Test::StringSeqSeq', (), _M_Test._t_StringSeq)
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
-_M_Test.TestIntfPrx = None
-class TestIntfPrx(Ice.ObjectPrx):
 
-    def opASeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opASeq.invoke(self, ((inSeq, ), context))
+if 'TestIntfPrx' not in _M_Test.__dict__:
+    _M_Test.TestIntfPrx = None
+    class TestIntfPrx(Ice.ObjectPrx):
 
-    def opASeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opASeq.invokeAsync(self, ((inSeq, ), context))
+        def opASeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opASeq.invoke(self, ((inSeq, ), context))
 
-    def opAArray(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opAArray.invoke(self, ((inSeq, ), context))
+        def opASeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opASeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opAArrayAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opAArray.invokeAsync(self, ((inSeq, ), context))
+        def opAArray(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opAArray.invoke(self, ((inSeq, ), context))
 
-    def opAList(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opAList.invoke(self, ((inSeq, ), context))
+        def opAArrayAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opAArray.invokeAsync(self, ((inSeq, ), context))
 
-    def opAListAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opAList.invokeAsync(self, ((inSeq, ), context))
+        def opAList(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opAList.invoke(self, ((inSeq, ), context))
 
-    def opBoolSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opBoolSeq.invoke(self, ((inSeq, ), context))
+        def opAListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opAList.invokeAsync(self, ((inSeq, ), context))
 
-    def opBoolSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opBoolSeq.invokeAsync(self, ((inSeq, ), context))
+        def opBoolSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opBoolSeq.invoke(self, ((inSeq, ), context))
 
-    def opByteSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opByteSeq.invoke(self, ((inSeq, ), context))
+        def opBoolSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opBoolSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opByteSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opByteSeq.invokeAsync(self, ((inSeq, ), context))
+        def opByteSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opByteSeq.invoke(self, ((inSeq, ), context))
 
-    def opShortSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opShortSeq.invoke(self, ((inSeq, ), context))
+        def opByteSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opByteSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opShortSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opShortSeq.invokeAsync(self, ((inSeq, ), context))
+        def opShortSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opShortSeq.invoke(self, ((inSeq, ), context))
 
-    def opIntSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opIntSeq.invoke(self, ((inSeq, ), context))
+        def opShortSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opShortSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opIntSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opIntSeq.invokeAsync(self, ((inSeq, ), context))
+        def opIntSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opIntSeq.invoke(self, ((inSeq, ), context))
 
-    def opLongSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opLongSeq.invoke(self, ((inSeq, ), context))
+        def opIntSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opIntSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opLongSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opLongSeq.invokeAsync(self, ((inSeq, ), context))
+        def opLongSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opLongSeq.invoke(self, ((inSeq, ), context))
 
-    def opFloatSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opFloatSeq.invoke(self, ((inSeq, ), context))
+        def opLongSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opLongSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opFloatSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opFloatSeq.invokeAsync(self, ((inSeq, ), context))
+        def opFloatSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opFloatSeq.invoke(self, ((inSeq, ), context))
 
-    def opDoubleSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opDoubleSeq.invoke(self, ((inSeq, ), context))
+        def opFloatSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opFloatSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opDoubleSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opDoubleSeq.invokeAsync(self, ((inSeq, ), context))
+        def opDoubleSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDoubleSeq.invoke(self, ((inSeq, ), context))
 
-    def opStringSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opStringSeq.invoke(self, ((inSeq, ), context))
+        def opDoubleSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDoubleSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opStringSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opStringSeq.invokeAsync(self, ((inSeq, ), context))
+        def opStringSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opStringSeq.invoke(self, ((inSeq, ), context))
 
-    def opESeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opESeq.invoke(self, ((inSeq, ), context))
+        def opStringSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opStringSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opESeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opESeq.invokeAsync(self, ((inSeq, ), context))
+        def opESeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opESeq.invoke(self, ((inSeq, ), context))
 
-    def opSSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opSSeq.invoke(self, ((inSeq, ), context))
+        def opESeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opESeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opSSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opSSeq.invokeAsync(self, ((inSeq, ), context))
+        def opSSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opSSeq.invoke(self, ((inSeq, ), context))
 
-    def opDSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opDSeq.invoke(self, ((inSeq, ), context))
+        def opSSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opSSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opDSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opDSeq.invokeAsync(self, ((inSeq, ), context))
+        def opDSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDSeq.invoke(self, ((inSeq, ), context))
 
-    def opStringSeqSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opStringSeqSeq.invoke(self, ((inSeq, ), context))
+        def opDSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opStringSeqSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opStringSeqSeq.invokeAsync(self, ((inSeq, ), context))
+        def opStringSeqSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opStringSeqSeq.invoke(self, ((inSeq, ), context))
 
-    def opByteBufferSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opByteBufferSeq.invoke(self, ((inSeq, ), context))
+        def opStringSeqSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opStringSeqSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opByteBufferSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opByteBufferSeq.invokeAsync(self, ((inSeq, ), context))
+        def opByteBufferSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opByteBufferSeq.invoke(self, ((inSeq, ), context))
 
-    def opShortBufferSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opShortBufferSeq.invoke(self, ((inSeq, ), context))
+        def opByteBufferSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opByteBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opShortBufferSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opShortBufferSeq.invokeAsync(self, ((inSeq, ), context))
+        def opShortBufferSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opShortBufferSeq.invoke(self, ((inSeq, ), context))
 
-    def opIntBufferSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opIntBufferSeq.invoke(self, ((inSeq, ), context))
+        def opShortBufferSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opShortBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opIntBufferSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opIntBufferSeq.invokeAsync(self, ((inSeq, ), context))
+        def opIntBufferSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opIntBufferSeq.invoke(self, ((inSeq, ), context))
 
-    def opLongBufferSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opLongBufferSeq.invoke(self, ((inSeq, ), context))
+        def opIntBufferSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opIntBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opLongBufferSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opLongBufferSeq.invokeAsync(self, ((inSeq, ), context))
+        def opLongBufferSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opLongBufferSeq.invoke(self, ((inSeq, ), context))
 
-    def opFloatBufferSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opFloatBufferSeq.invoke(self, ((inSeq, ), context))
+        def opLongBufferSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opLongBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opFloatBufferSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opFloatBufferSeq.invokeAsync(self, ((inSeq, ), context))
+        def opFloatBufferSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opFloatBufferSeq.invoke(self, ((inSeq, ), context))
 
-    def opDoubleBufferSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opDoubleBufferSeq.invoke(self, ((inSeq, ), context))
+        def opFloatBufferSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opFloatBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opDoubleBufferSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opDoubleBufferSeq.invokeAsync(self, ((inSeq, ), context))
+        def opDoubleBufferSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDoubleBufferSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptASeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptASeq.invoke(self, ((inSeq, ), context))
+        def opDoubleBufferSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDoubleBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptASeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptASeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptASeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptASeq.invoke(self, ((inSeq, ), context))
 
-    def opOptAArray(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptAArray.invoke(self, ((inSeq, ), context))
+        def opOptASeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptASeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptAArrayAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptAArray.invokeAsync(self, ((inSeq, ), context))
+        def opOptAArray(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptAArray.invoke(self, ((inSeq, ), context))
 
-    def opOptAList(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptAList.invoke(self, ((inSeq, ), context))
+        def opOptAArrayAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptAArray.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptAListAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptAList.invokeAsync(self, ((inSeq, ), context))
+        def opOptAList(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptAList.invoke(self, ((inSeq, ), context))
 
-    def opOptBoolSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptBoolSeq.invoke(self, ((inSeq, ), context))
+        def opOptAListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptAList.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptBoolSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptBoolSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptBoolSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptBoolSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptByteSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptByteSeq.invoke(self, ((inSeq, ), context))
+        def opOptBoolSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptBoolSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptByteSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptByteSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptByteSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptByteSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptShortSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptShortSeq.invoke(self, ((inSeq, ), context))
+        def opOptByteSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptByteSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptShortSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptShortSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptShortSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptShortSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptIntSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptIntSeq.invoke(self, ((inSeq, ), context))
+        def opOptShortSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptShortSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptIntSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptIntSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptIntSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptIntSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptLongSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptLongSeq.invoke(self, ((inSeq, ), context))
+        def opOptIntSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptIntSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptLongSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptLongSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptLongSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptLongSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptFloatSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptFloatSeq.invoke(self, ((inSeq, ), context))
+        def opOptLongSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptLongSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptFloatSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptFloatSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptFloatSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptFloatSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptDoubleSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptDoubleSeq.invoke(self, ((inSeq, ), context))
+        def opOptFloatSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptFloatSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptDoubleSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptDoubleSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptDoubleSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptDoubleSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptStringSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptStringSeq.invoke(self, ((inSeq, ), context))
+        def opOptDoubleSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptDoubleSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptStringSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptStringSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptStringSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptStringSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptESeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptESeq.invoke(self, ((inSeq, ), context))
+        def opOptStringSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptStringSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptESeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptESeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptESeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptESeq.invoke(self, ((inSeq, ), context))
 
-    def opOptSSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptSSeq.invoke(self, ((inSeq, ), context))
+        def opOptESeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptESeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptSSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptSSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptSSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptSSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptDSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptDSeq.invoke(self, ((inSeq, ), context))
+        def opOptSSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptSSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptDSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptDSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptDSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptDSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptStringSeqSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptStringSeqSeq.invoke(self, ((inSeq, ), context))
+        def opOptDSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptDSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptStringSeqSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptStringSeqSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptStringSeqSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptStringSeqSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptByteBufferSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptByteBufferSeq.invoke(self, ((inSeq, ), context))
+        def opOptStringSeqSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptStringSeqSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptByteBufferSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptByteBufferSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptByteBufferSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptByteBufferSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptShortBufferSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptShortBufferSeq.invoke(self, ((inSeq, ), context))
+        def opOptByteBufferSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptByteBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptShortBufferSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptShortBufferSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptShortBufferSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptShortBufferSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptIntBufferSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptIntBufferSeq.invoke(self, ((inSeq, ), context))
+        def opOptShortBufferSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptShortBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptIntBufferSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptIntBufferSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptIntBufferSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptIntBufferSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptLongBufferSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptLongBufferSeq.invoke(self, ((inSeq, ), context))
+        def opOptIntBufferSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptIntBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptLongBufferSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptLongBufferSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptLongBufferSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptLongBufferSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptFloatBufferSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptFloatBufferSeq.invoke(self, ((inSeq, ), context))
+        def opOptLongBufferSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptLongBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptFloatBufferSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptFloatBufferSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptFloatBufferSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptFloatBufferSeq.invoke(self, ((inSeq, ), context))
 
-    def opOptDoubleBufferSeq(self, inSeq=Ice.Unset, context=None):
-        return _M_Test.TestIntf._op_opOptDoubleBufferSeq.invoke(self, ((inSeq, ), context))
+        def opOptFloatBufferSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptFloatBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opOptDoubleBufferSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opOptDoubleBufferSeq.invokeAsync(self, ((inSeq, ), context))
+        def opOptDoubleBufferSeq(self, inSeq=Ice.Unset, context=None):
+            return _M_Test.TestIntf._op_opOptDoubleBufferSeq.invoke(self, ((inSeq, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
+        def opOptDoubleBufferSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opOptDoubleBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
-_M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestIntfPrx = TestIntfPrx
-del TestIntfPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
+    _M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
 
-_M_Test.TestIntf = None
-class TestIntf(Ice.Object):
+    _M_Test.TestIntfPrx = TestIntfPrx
+    del TestIntfPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::TestIntf')
+    _M_Test.TestIntf = None
+    class TestIntf(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::TestIntf'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::TestIntf')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
+        def ice_id(self, current=None):
+            return '::Test::TestIntf'
 
-    def opASeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opASeq' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
 
-    def opAArray(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opAArray' not implemented")
+        def opASeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opASeq' not implemented")
 
-    def opAList(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opAList' not implemented")
+        def opAArray(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opAArray' not implemented")
 
-    def opBoolSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opBoolSeq' not implemented")
+        def opAList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opAList' not implemented")
 
-    def opByteSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opByteSeq' not implemented")
+        def opBoolSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opBoolSeq' not implemented")
 
-    def opShortSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opShortSeq' not implemented")
+        def opByteSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opByteSeq' not implemented")
 
-    def opIntSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opIntSeq' not implemented")
+        def opShortSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opShortSeq' not implemented")
 
-    def opLongSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opLongSeq' not implemented")
+        def opIntSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opIntSeq' not implemented")
 
-    def opFloatSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opFloatSeq' not implemented")
+        def opLongSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opLongSeq' not implemented")
 
-    def opDoubleSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opDoubleSeq' not implemented")
+        def opFloatSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opFloatSeq' not implemented")
 
-    def opStringSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opStringSeq' not implemented")
+        def opDoubleSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opDoubleSeq' not implemented")
 
-    def opESeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opESeq' not implemented")
+        def opStringSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opStringSeq' not implemented")
 
-    def opSSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opSSeq' not implemented")
+        def opESeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opESeq' not implemented")
 
-    def opDSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opDSeq' not implemented")
+        def opSSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opSSeq' not implemented")
 
-    def opStringSeqSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opStringSeqSeq' not implemented")
+        def opDSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opDSeq' not implemented")
 
-    def opByteBufferSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opByteBufferSeq' not implemented")
+        def opStringSeqSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opStringSeqSeq' not implemented")
 
-    def opShortBufferSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opShortBufferSeq' not implemented")
+        def opByteBufferSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opByteBufferSeq' not implemented")
 
-    def opIntBufferSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opIntBufferSeq' not implemented")
+        def opShortBufferSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opShortBufferSeq' not implemented")
 
-    def opLongBufferSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opLongBufferSeq' not implemented")
+        def opIntBufferSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opIntBufferSeq' not implemented")
 
-    def opFloatBufferSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opFloatBufferSeq' not implemented")
+        def opLongBufferSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opLongBufferSeq' not implemented")
 
-    def opDoubleBufferSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opDoubleBufferSeq' not implemented")
+        def opFloatBufferSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opFloatBufferSeq' not implemented")
 
-    def opOptASeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptASeq' not implemented")
+        def opDoubleBufferSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opDoubleBufferSeq' not implemented")
 
-    def opOptAArray(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptAArray' not implemented")
+        def opOptASeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptASeq' not implemented")
 
-    def opOptAList(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptAList' not implemented")
+        def opOptAArray(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptAArray' not implemented")
 
-    def opOptBoolSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptBoolSeq' not implemented")
+        def opOptAList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptAList' not implemented")
 
-    def opOptByteSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptByteSeq' not implemented")
+        def opOptBoolSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptBoolSeq' not implemented")
 
-    def opOptShortSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptShortSeq' not implemented")
+        def opOptByteSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptByteSeq' not implemented")
 
-    def opOptIntSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptIntSeq' not implemented")
+        def opOptShortSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptShortSeq' not implemented")
 
-    def opOptLongSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptLongSeq' not implemented")
+        def opOptIntSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptIntSeq' not implemented")
 
-    def opOptFloatSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptFloatSeq' not implemented")
+        def opOptLongSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptLongSeq' not implemented")
 
-    def opOptDoubleSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptDoubleSeq' not implemented")
+        def opOptFloatSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptFloatSeq' not implemented")
 
-    def opOptStringSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptStringSeq' not implemented")
+        def opOptDoubleSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptDoubleSeq' not implemented")
 
-    def opOptESeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptESeq' not implemented")
+        def opOptStringSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptStringSeq' not implemented")
 
-    def opOptSSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptSSeq' not implemented")
+        def opOptESeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptESeq' not implemented")
 
-    def opOptDSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptDSeq' not implemented")
+        def opOptSSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptSSeq' not implemented")
 
-    def opOptStringSeqSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptStringSeqSeq' not implemented")
+        def opOptDSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptDSeq' not implemented")
 
-    def opOptByteBufferSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptByteBufferSeq' not implemented")
+        def opOptStringSeqSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptStringSeqSeq' not implemented")
 
-    def opOptShortBufferSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptShortBufferSeq' not implemented")
+        def opOptByteBufferSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptByteBufferSeq' not implemented")
 
-    def opOptIntBufferSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptIntBufferSeq' not implemented")
+        def opOptShortBufferSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptShortBufferSeq' not implemented")
 
-    def opOptLongBufferSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptLongBufferSeq' not implemented")
+        def opOptIntBufferSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptIntBufferSeq' not implemented")
 
-    def opOptFloatBufferSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptFloatBufferSeq' not implemented")
+        def opOptLongBufferSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptLongBufferSeq' not implemented")
 
-    def opOptDoubleBufferSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opOptDoubleBufferSeq' not implemented")
+        def opOptFloatBufferSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptFloatBufferSeq' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def opOptDoubleBufferSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opOptDoubleBufferSeq' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
-_M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-TestIntf._ice_type = _M_Test._t_TestIntfDisp
+        __repr__ = __str__
 
-TestIntf._op_opASeq = IcePy.Operation('opASeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ASeq, False, 0),), (((), _M_Test._t_ASeq, False, 0),), ((), _M_Test._t_ASeq, False, 0), ())
-TestIntf._op_opAArray = IcePy.Operation('opAArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AArray, False, 0),), (((), _M_Test._t_AArray, False, 0),), ((), _M_Test._t_AArray, False, 0), ())
-TestIntf._op_opAList = IcePy.Operation('opAList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AList, False, 0),), (((), _M_Test._t_AList, False, 0),), ((), _M_Test._t_AList, False, 0), ())
-TestIntf._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, False, 0),), (((), _M_Test._t_BoolSeq, False, 0),), ((), _M_Test._t_BoolSeq, False, 0), ())
-TestIntf._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), ((), _M_Test._t_ByteSeq, False, 0), ())
-TestIntf._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq, False, 0),), (((), _M_Test._t_ShortSeq, False, 0),), ((), _M_Test._t_ShortSeq, False, 0), ())
-TestIntf._op_opIntSeq = IcePy.Operation('opIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntSeq, False, 0),), (((), _M_Test._t_IntSeq, False, 0),), ((), _M_Test._t_IntSeq, False, 0), ())
-TestIntf._op_opLongSeq = IcePy.Operation('opLongSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongSeq, False, 0),), (((), _M_Test._t_LongSeq, False, 0),), ((), _M_Test._t_LongSeq, False, 0), ())
-TestIntf._op_opFloatSeq = IcePy.Operation('opFloatSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatSeq, False, 0),), (((), _M_Test._t_FloatSeq, False, 0),), ((), _M_Test._t_FloatSeq, False, 0), ())
-TestIntf._op_opDoubleSeq = IcePy.Operation('opDoubleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleSeq, False, 0),), (((), _M_Test._t_DoubleSeq, False, 0),), ((), _M_Test._t_DoubleSeq, False, 0), ())
-TestIntf._op_opStringSeq = IcePy.Operation('opStringSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, False, 0),), (((), _M_Test._t_StringSeq, False, 0),), ((), _M_Test._t_StringSeq, False, 0), ())
-TestIntf._op_opESeq = IcePy.Operation('opESeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ESeq, False, 0),), (((), _M_Test._t_ESeq, False, 0),), ((), _M_Test._t_ESeq, False, 0), ())
-TestIntf._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, False, 0),), (((), _M_Test._t_SSeq, False, 0),), ((), _M_Test._t_SSeq, False, 0), ())
-TestIntf._op_opDSeq = IcePy.Operation('opDSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DSeq, False, 0),), (((), _M_Test._t_DSeq, False, 0),), ((), _M_Test._t_DSeq, False, 0), ())
-TestIntf._op_opStringSeqSeq = IcePy.Operation('opStringSeqSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeqSeq, False, 0),), (((), _M_Test._t_StringSeqSeq, False, 0),), ((), _M_Test._t_StringSeqSeq, False, 0), ())
-TestIntf._op_opByteBufferSeq = IcePy.Operation('opByteBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteBuffer, False, 0),), (((), _M_Test._t_ByteBuffer, False, 0),), ((), _M_Test._t_ByteBuffer, False, 0), ())
-TestIntf._op_opShortBufferSeq = IcePy.Operation('opShortBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortBuffer, False, 0),), (((), _M_Test._t_ShortBuffer, False, 0),), ((), _M_Test._t_ShortBuffer, False, 0), ())
-TestIntf._op_opIntBufferSeq = IcePy.Operation('opIntBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntBuffer, False, 0),), (((), _M_Test._t_IntBuffer, False, 0),), ((), _M_Test._t_IntBuffer, False, 0), ())
-TestIntf._op_opLongBufferSeq = IcePy.Operation('opLongBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongBuffer, False, 0),), (((), _M_Test._t_LongBuffer, False, 0),), ((), _M_Test._t_LongBuffer, False, 0), ())
-TestIntf._op_opFloatBufferSeq = IcePy.Operation('opFloatBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatBuffer, False, 0),), (((), _M_Test._t_FloatBuffer, False, 0),), ((), _M_Test._t_FloatBuffer, False, 0), ())
-TestIntf._op_opDoubleBufferSeq = IcePy.Operation('opDoubleBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleBuffer, False, 0),), (((), _M_Test._t_DoubleBuffer, False, 0),), ((), _M_Test._t_DoubleBuffer, False, 0), ())
-TestIntf._op_opOptASeq = IcePy.Operation('opOptASeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ASeq, True, 2),), (((), _M_Test._t_ASeq, True, 3),), ((), _M_Test._t_ASeq, True, 1), ())
-TestIntf._op_opOptAArray = IcePy.Operation('opOptAArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AArray, True, 2),), (((), _M_Test._t_AArray, True, 3),), ((), _M_Test._t_AArray, True, 1), ())
-TestIntf._op_opOptAList = IcePy.Operation('opOptAList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AList, True, 2),), (((), _M_Test._t_AList, True, 3),), ((), _M_Test._t_AList, True, 1), ())
-TestIntf._op_opOptBoolSeq = IcePy.Operation('opOptBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, True, 2),), (((), _M_Test._t_BoolSeq, True, 3),), ((), _M_Test._t_BoolSeq, True, 1), ())
-TestIntf._op_opOptByteSeq = IcePy.Operation('opOptByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, True, 2),), (((), _M_Test._t_ByteSeq, True, 3),), ((), _M_Test._t_ByteSeq, True, 1), ())
-TestIntf._op_opOptShortSeq = IcePy.Operation('opOptShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq, True, 2),), (((), _M_Test._t_ShortSeq, True, 3),), ((), _M_Test._t_ShortSeq, True, 1), ())
-TestIntf._op_opOptIntSeq = IcePy.Operation('opOptIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntSeq, True, 2),), (((), _M_Test._t_IntSeq, True, 3),), ((), _M_Test._t_IntSeq, True, 1), ())
-TestIntf._op_opOptLongSeq = IcePy.Operation('opOptLongSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongSeq, True, 2),), (((), _M_Test._t_LongSeq, True, 3),), ((), _M_Test._t_LongSeq, True, 1), ())
-TestIntf._op_opOptFloatSeq = IcePy.Operation('opOptFloatSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatSeq, True, 2),), (((), _M_Test._t_FloatSeq, True, 3),), ((), _M_Test._t_FloatSeq, True, 1), ())
-TestIntf._op_opOptDoubleSeq = IcePy.Operation('opOptDoubleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleSeq, True, 2),), (((), _M_Test._t_DoubleSeq, True, 3),), ((), _M_Test._t_DoubleSeq, True, 1), ())
-TestIntf._op_opOptStringSeq = IcePy.Operation('opOptStringSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, True, 2),), (((), _M_Test._t_StringSeq, True, 3),), ((), _M_Test._t_StringSeq, True, 1), ())
-TestIntf._op_opOptESeq = IcePy.Operation('opOptESeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ESeq, True, 2),), (((), _M_Test._t_ESeq, True, 3),), ((), _M_Test._t_ESeq, True, 1), ())
-TestIntf._op_opOptSSeq = IcePy.Operation('opOptSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, True, 2),), (((), _M_Test._t_SSeq, True, 3),), ((), _M_Test._t_SSeq, True, 1), ())
-TestIntf._op_opOptDSeq = IcePy.Operation('opOptDSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DSeq, True, 2),), (((), _M_Test._t_DSeq, True, 3),), ((), _M_Test._t_DSeq, True, 1), ())
-TestIntf._op_opOptStringSeqSeq = IcePy.Operation('opOptStringSeqSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeqSeq, True, 2),), (((), _M_Test._t_StringSeqSeq, True, 3),), ((), _M_Test._t_StringSeqSeq, True, 1), ())
-TestIntf._op_opOptByteBufferSeq = IcePy.Operation('opOptByteBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteBuffer, True, 2),), (((), _M_Test._t_ByteBuffer, True, 3),), ((), _M_Test._t_ByteBuffer, True, 1), ())
-TestIntf._op_opOptShortBufferSeq = IcePy.Operation('opOptShortBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortBuffer, True, 2),), (((), _M_Test._t_ShortBuffer, True, 3),), ((), _M_Test._t_ShortBuffer, True, 1), ())
-TestIntf._op_opOptIntBufferSeq = IcePy.Operation('opOptIntBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntBuffer, True, 2),), (((), _M_Test._t_IntBuffer, True, 3),), ((), _M_Test._t_IntBuffer, True, 1), ())
-TestIntf._op_opOptLongBufferSeq = IcePy.Operation('opOptLongBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongBuffer, True, 2),), (((), _M_Test._t_LongBuffer, True, 3),), ((), _M_Test._t_LongBuffer, True, 1), ())
-TestIntf._op_opOptFloatBufferSeq = IcePy.Operation('opOptFloatBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatBuffer, True, 2),), (((), _M_Test._t_FloatBuffer, True, 3),), ((), _M_Test._t_FloatBuffer, True, 1), ())
-TestIntf._op_opOptDoubleBufferSeq = IcePy.Operation('opOptDoubleBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleBuffer, True, 2),), (((), _M_Test._t_DoubleBuffer, True, 3),), ((), _M_Test._t_DoubleBuffer, True, 1), ())
-TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
+    TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-_M_Test.TestIntf = TestIntf
-del TestIntf
+    TestIntf._op_opASeq = IcePy.Operation('opASeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ASeq, False, 0),), (((), _M_Test._t_ASeq, False, 0),), ((), _M_Test._t_ASeq, False, 0), ())
+    TestIntf._op_opAArray = IcePy.Operation('opAArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AArray, False, 0),), (((), _M_Test._t_AArray, False, 0),), ((), _M_Test._t_AArray, False, 0), ())
+    TestIntf._op_opAList = IcePy.Operation('opAList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AList, False, 0),), (((), _M_Test._t_AList, False, 0),), ((), _M_Test._t_AList, False, 0), ())
+    TestIntf._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, False, 0),), (((), _M_Test._t_BoolSeq, False, 0),), ((), _M_Test._t_BoolSeq, False, 0), ())
+    TestIntf._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), ((), _M_Test._t_ByteSeq, False, 0), ())
+    TestIntf._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq, False, 0),), (((), _M_Test._t_ShortSeq, False, 0),), ((), _M_Test._t_ShortSeq, False, 0), ())
+    TestIntf._op_opIntSeq = IcePy.Operation('opIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntSeq, False, 0),), (((), _M_Test._t_IntSeq, False, 0),), ((), _M_Test._t_IntSeq, False, 0), ())
+    TestIntf._op_opLongSeq = IcePy.Operation('opLongSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongSeq, False, 0),), (((), _M_Test._t_LongSeq, False, 0),), ((), _M_Test._t_LongSeq, False, 0), ())
+    TestIntf._op_opFloatSeq = IcePy.Operation('opFloatSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatSeq, False, 0),), (((), _M_Test._t_FloatSeq, False, 0),), ((), _M_Test._t_FloatSeq, False, 0), ())
+    TestIntf._op_opDoubleSeq = IcePy.Operation('opDoubleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleSeq, False, 0),), (((), _M_Test._t_DoubleSeq, False, 0),), ((), _M_Test._t_DoubleSeq, False, 0), ())
+    TestIntf._op_opStringSeq = IcePy.Operation('opStringSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, False, 0),), (((), _M_Test._t_StringSeq, False, 0),), ((), _M_Test._t_StringSeq, False, 0), ())
+    TestIntf._op_opESeq = IcePy.Operation('opESeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ESeq, False, 0),), (((), _M_Test._t_ESeq, False, 0),), ((), _M_Test._t_ESeq, False, 0), ())
+    TestIntf._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, False, 0),), (((), _M_Test._t_SSeq, False, 0),), ((), _M_Test._t_SSeq, False, 0), ())
+    TestIntf._op_opDSeq = IcePy.Operation('opDSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DSeq, False, 0),), (((), _M_Test._t_DSeq, False, 0),), ((), _M_Test._t_DSeq, False, 0), ())
+    TestIntf._op_opStringSeqSeq = IcePy.Operation('opStringSeqSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeqSeq, False, 0),), (((), _M_Test._t_StringSeqSeq, False, 0),), ((), _M_Test._t_StringSeqSeq, False, 0), ())
+    TestIntf._op_opByteBufferSeq = IcePy.Operation('opByteBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteBuffer, False, 0),), (((), _M_Test._t_ByteBuffer, False, 0),), ((), _M_Test._t_ByteBuffer, False, 0), ())
+    TestIntf._op_opShortBufferSeq = IcePy.Operation('opShortBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortBuffer, False, 0),), (((), _M_Test._t_ShortBuffer, False, 0),), ((), _M_Test._t_ShortBuffer, False, 0), ())
+    TestIntf._op_opIntBufferSeq = IcePy.Operation('opIntBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntBuffer, False, 0),), (((), _M_Test._t_IntBuffer, False, 0),), ((), _M_Test._t_IntBuffer, False, 0), ())
+    TestIntf._op_opLongBufferSeq = IcePy.Operation('opLongBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongBuffer, False, 0),), (((), _M_Test._t_LongBuffer, False, 0),), ((), _M_Test._t_LongBuffer, False, 0), ())
+    TestIntf._op_opFloatBufferSeq = IcePy.Operation('opFloatBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatBuffer, False, 0),), (((), _M_Test._t_FloatBuffer, False, 0),), ((), _M_Test._t_FloatBuffer, False, 0), ())
+    TestIntf._op_opDoubleBufferSeq = IcePy.Operation('opDoubleBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleBuffer, False, 0),), (((), _M_Test._t_DoubleBuffer, False, 0),), ((), _M_Test._t_DoubleBuffer, False, 0), ())
+    TestIntf._op_opOptASeq = IcePy.Operation('opOptASeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ASeq, True, 2),), (((), _M_Test._t_ASeq, True, 3),), ((), _M_Test._t_ASeq, True, 1), ())
+    TestIntf._op_opOptAArray = IcePy.Operation('opOptAArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AArray, True, 2),), (((), _M_Test._t_AArray, True, 3),), ((), _M_Test._t_AArray, True, 1), ())
+    TestIntf._op_opOptAList = IcePy.Operation('opOptAList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AList, True, 2),), (((), _M_Test._t_AList, True, 3),), ((), _M_Test._t_AList, True, 1), ())
+    TestIntf._op_opOptBoolSeq = IcePy.Operation('opOptBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, True, 2),), (((), _M_Test._t_BoolSeq, True, 3),), ((), _M_Test._t_BoolSeq, True, 1), ())
+    TestIntf._op_opOptByteSeq = IcePy.Operation('opOptByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, True, 2),), (((), _M_Test._t_ByteSeq, True, 3),), ((), _M_Test._t_ByteSeq, True, 1), ())
+    TestIntf._op_opOptShortSeq = IcePy.Operation('opOptShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq, True, 2),), (((), _M_Test._t_ShortSeq, True, 3),), ((), _M_Test._t_ShortSeq, True, 1), ())
+    TestIntf._op_opOptIntSeq = IcePy.Operation('opOptIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntSeq, True, 2),), (((), _M_Test._t_IntSeq, True, 3),), ((), _M_Test._t_IntSeq, True, 1), ())
+    TestIntf._op_opOptLongSeq = IcePy.Operation('opOptLongSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongSeq, True, 2),), (((), _M_Test._t_LongSeq, True, 3),), ((), _M_Test._t_LongSeq, True, 1), ())
+    TestIntf._op_opOptFloatSeq = IcePy.Operation('opOptFloatSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatSeq, True, 2),), (((), _M_Test._t_FloatSeq, True, 3),), ((), _M_Test._t_FloatSeq, True, 1), ())
+    TestIntf._op_opOptDoubleSeq = IcePy.Operation('opOptDoubleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleSeq, True, 2),), (((), _M_Test._t_DoubleSeq, True, 3),), ((), _M_Test._t_DoubleSeq, True, 1), ())
+    TestIntf._op_opOptStringSeq = IcePy.Operation('opOptStringSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, True, 2),), (((), _M_Test._t_StringSeq, True, 3),), ((), _M_Test._t_StringSeq, True, 1), ())
+    TestIntf._op_opOptESeq = IcePy.Operation('opOptESeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ESeq, True, 2),), (((), _M_Test._t_ESeq, True, 3),), ((), _M_Test._t_ESeq, True, 1), ())
+    TestIntf._op_opOptSSeq = IcePy.Operation('opOptSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, True, 2),), (((), _M_Test._t_SSeq, True, 3),), ((), _M_Test._t_SSeq, True, 1), ())
+    TestIntf._op_opOptDSeq = IcePy.Operation('opOptDSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DSeq, True, 2),), (((), _M_Test._t_DSeq, True, 3),), ((), _M_Test._t_DSeq, True, 1), ())
+    TestIntf._op_opOptStringSeqSeq = IcePy.Operation('opOptStringSeqSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeqSeq, True, 2),), (((), _M_Test._t_StringSeqSeq, True, 3),), ((), _M_Test._t_StringSeqSeq, True, 1), ())
+    TestIntf._op_opOptByteBufferSeq = IcePy.Operation('opOptByteBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteBuffer, True, 2),), (((), _M_Test._t_ByteBuffer, True, 3),), ((), _M_Test._t_ByteBuffer, True, 1), ())
+    TestIntf._op_opOptShortBufferSeq = IcePy.Operation('opOptShortBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortBuffer, True, 2),), (((), _M_Test._t_ShortBuffer, True, 3),), ((), _M_Test._t_ShortBuffer, True, 1), ())
+    TestIntf._op_opOptIntBufferSeq = IcePy.Operation('opOptIntBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntBuffer, True, 2),), (((), _M_Test._t_IntBuffer, True, 3),), ((), _M_Test._t_IntBuffer, True, 1), ())
+    TestIntf._op_opOptLongBufferSeq = IcePy.Operation('opOptLongBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongBuffer, True, 2),), (((), _M_Test._t_LongBuffer, True, 3),), ((), _M_Test._t_LongBuffer, True, 1), ())
+    TestIntf._op_opOptFloatBufferSeq = IcePy.Operation('opOptFloatBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatBuffer, True, 2),), (((), _M_Test._t_FloatBuffer, True, 3),), ((), _M_Test._t_FloatBuffer, True, 1), ())
+    TestIntf._op_opOptDoubleBufferSeq = IcePy.Operation('opOptDoubleBufferSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleBuffer, True, 2),), (((), _M_Test._t_DoubleBuffer, True, 3),), ((), _M_Test._t_DoubleBuffer, True, 1), ())
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.TestIntf = TestIntf
+    del TestIntf
 
 # End of module Test

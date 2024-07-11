@@ -31,22 +31,24 @@ _M_Test.Inner.Sub = Ice.openModule('Test.Inner.Sub')
 
 # Start of module Test
 __name__ = 'Test'
-_M_Test.DerivedEx = None
-class DerivedEx(_M_Test.BaseEx):
-    def __init__(self, reason=''):
-        _M_Test.BaseEx.__init__(self, reason)
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+if 'DerivedEx' not in _M_Test.__dict__:
+    _M_Test.DerivedEx = None
+    class DerivedEx(_M_Test.BaseEx):
+        def __init__(self, reason=''):
+            _M_Test.BaseEx.__init__(self, reason)
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    _ice_id = '::Test::DerivedEx'
+        __repr__ = __str__
 
-_M_Test._t_DerivedEx = IcePy.defineException('::Test::DerivedEx', DerivedEx, (), _M_Test._t_BaseEx, ())
-DerivedEx._ice_type = _M_Test._t_DerivedEx
+        _ice_id = '::Test::DerivedEx'
 
-_M_Test.DerivedEx = DerivedEx
-del DerivedEx
+    _M_Test._t_DerivedEx = IcePy.defineException('::Test::DerivedEx', DerivedEx, (), _M_Test._t_BaseEx, ())
+    DerivedEx._ice_type = _M_Test._t_DerivedEx
+
+    _M_Test.DerivedEx = DerivedEx
+    del DerivedEx
 
 # End of module Test

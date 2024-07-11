@@ -23,88 +23,90 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_Echo = IcePy.defineValue('::Test::Echo', Ice.Value, -1, (), True, None, ())
-_M_Test.EchoPrx = None
-class EchoPrx(Ice.ObjectPrx):
 
-    def setConnection(self, context=None):
-        return _M_Test.Echo._op_setConnection.invoke(self, ((), context))
+if 'EchoPrx' not in _M_Test.__dict__:
+    _M_Test.EchoPrx = None
+    class EchoPrx(Ice.ObjectPrx):
 
-    def setConnectionAsync(self, context=None):
-        return _M_Test.Echo._op_setConnection.invokeAsync(self, ((), context))
+        def setConnection(self, context=None):
+            return _M_Test.Echo._op_setConnection.invoke(self, ((), context))
 
-    def startBatch(self, context=None):
-        return _M_Test.Echo._op_startBatch.invoke(self, ((), context))
+        def setConnectionAsync(self, context=None):
+            return _M_Test.Echo._op_setConnection.invokeAsync(self, ((), context))
 
-    def startBatchAsync(self, context=None):
-        return _M_Test.Echo._op_startBatch.invokeAsync(self, ((), context))
+        def startBatch(self, context=None):
+            return _M_Test.Echo._op_startBatch.invoke(self, ((), context))
 
-    def flushBatch(self, context=None):
-        return _M_Test.Echo._op_flushBatch.invoke(self, ((), context))
+        def startBatchAsync(self, context=None):
+            return _M_Test.Echo._op_startBatch.invokeAsync(self, ((), context))
 
-    def flushBatchAsync(self, context=None):
-        return _M_Test.Echo._op_flushBatch.invokeAsync(self, ((), context))
+        def flushBatch(self, context=None):
+            return _M_Test.Echo._op_flushBatch.invoke(self, ((), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.Echo._op_shutdown.invoke(self, ((), context))
+        def flushBatchAsync(self, context=None):
+            return _M_Test.Echo._op_flushBatch.invokeAsync(self, ((), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.Echo._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.Echo._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.EchoPrx.ice_checkedCast(proxy, '::Test::Echo', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.Echo._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.EchoPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.EchoPrx.ice_checkedCast(proxy, '::Test::Echo', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Echo'
-_M_Test._t_EchoPrx = IcePy.defineProxy('::Test::Echo', EchoPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.EchoPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.EchoPrx = EchoPrx
-del EchoPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Echo'
+    _M_Test._t_EchoPrx = IcePy.defineProxy('::Test::Echo', EchoPrx)
 
-_M_Test.Echo = None
-class Echo(Ice.Object):
+    _M_Test.EchoPrx = EchoPrx
+    del EchoPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Echo')
+    _M_Test.Echo = None
+    class Echo(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Echo'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Echo')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Echo'
+        def ice_id(self, current=None):
+            return '::Test::Echo'
 
-    def setConnection(self, current=None):
-        raise NotImplementedError("servant method 'setConnection' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Echo'
 
-    def startBatch(self, current=None):
-        raise NotImplementedError("servant method 'startBatch' not implemented")
+        def setConnection(self, current=None):
+            raise NotImplementedError("servant method 'setConnection' not implemented")
 
-    def flushBatch(self, current=None):
-        raise NotImplementedError("servant method 'flushBatch' not implemented")
+        def startBatch(self, current=None):
+            raise NotImplementedError("servant method 'startBatch' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def flushBatch(self, current=None):
+            raise NotImplementedError("servant method 'flushBatch' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_EchoDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_EchoDisp)
 
-_M_Test._t_EchoDisp = IcePy.defineClass('::Test::Echo', Echo, (), None, ())
-Echo._ice_type = _M_Test._t_EchoDisp
+        __repr__ = __str__
 
-Echo._op_setConnection = IcePy.Operation('setConnection', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Echo._op_startBatch = IcePy.Operation('startBatch', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Echo._op_flushBatch = IcePy.Operation('flushBatch', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Echo._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_EchoDisp = IcePy.defineClass('::Test::Echo', Echo, (), None, ())
+    Echo._ice_type = _M_Test._t_EchoDisp
 
-_M_Test.Echo = Echo
-del Echo
+    Echo._op_setConnection = IcePy.Operation('setConnection', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Echo._op_startBatch = IcePy.Operation('startBatch', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Echo._op_flushBatch = IcePy.Operation('flushBatch', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Echo._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.Echo = Echo
+    del Echo
 
 # End of module Test

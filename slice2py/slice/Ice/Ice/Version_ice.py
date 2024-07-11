@@ -21,191 +21,195 @@ import builtins as _builtins
 # Start of module Ice
 _M_Ice = Ice.openModule('Ice')
 __name__ = 'Ice'
-_M_Ice.ProtocolVersion = None
-class ProtocolVersion(object):
-    """
-     A version structure for the protocol version.
-    """
-    def __init__(self, major=0, minor=0):
-        self.major = major
-        self.minor = minor
 
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.major)
-        _h = 5 * _h + _builtins.hash(self.minor)
-        return _h % 0x7fffffff
+if 'ProtocolVersion' not in _M_Ice.__dict__:
+    _M_Ice.ProtocolVersion = None
+    class ProtocolVersion(object):
+        """
+         A version structure for the protocol version.
+        """
+        def __init__(self, major=0, minor=0):
+            self.major = major
+            self.minor = minor
 
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Ice.ProtocolVersion):
-            return NotImplemented
-        else:
-            if self.major is None or other.major is None:
-                if self.major != other.major:
-                    return (-1 if self.major is None else 1)
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.major)
+            _h = 5 * _h + _builtins.hash(self.minor)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Ice.ProtocolVersion):
+                return NotImplemented
             else:
-                if self.major < other.major:
-                    return -1
-                elif self.major > other.major:
-                    return 1
-            if self.minor is None or other.minor is None:
-                if self.minor != other.minor:
-                    return (-1 if self.minor is None else 1)
+                if self.major is None or other.major is None:
+                    if self.major != other.major:
+                        return (-1 if self.major is None else 1)
+                else:
+                    if self.major < other.major:
+                        return -1
+                    elif self.major > other.major:
+                        return 1
+                if self.minor is None or other.minor is None:
+                    if self.minor != other.minor:
+                        return (-1 if self.minor is None else 1)
+                else:
+                    if self.minor < other.minor:
+                        return -1
+                    elif self.minor > other.minor:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.minor < other.minor:
-                    return -1
-                elif self.minor > other.minor:
-                    return 1
-            return 0
+                return r < 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
-
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
-
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
-
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
-
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
-
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Ice._t_ProtocolVersion)
-
-    __repr__ = __str__
-
-_M_Ice._t_ProtocolVersion = IcePy.defineStruct('::Ice::ProtocolVersion', ProtocolVersion, (), (
-    ('major', (), IcePy._t_byte),
-    ('minor', (), IcePy._t_byte)
-))
-
-_M_Ice.ProtocolVersion = ProtocolVersion
-del ProtocolVersion
-_M_Ice.EncodingVersion = None
-class EncodingVersion(object):
-    """
-     A version structure for the encoding version.
-    """
-    def __init__(self, major=0, minor=0):
-        self.major = major
-        self.minor = minor
-
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.major)
-        _h = 5 * _h + _builtins.hash(self.minor)
-        return _h % 0x7fffffff
-
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Ice.EncodingVersion):
-            return NotImplemented
-        else:
-            if self.major is None or other.major is None:
-                if self.major != other.major:
-                    return (-1 if self.major is None else 1)
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.major < other.major:
-                    return -1
-                elif self.major > other.major:
-                    return 1
-            if self.minor is None or other.minor is None:
-                if self.minor != other.minor:
-                    return (-1 if self.minor is None else 1)
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.minor < other.minor:
-                    return -1
-                elif self.minor > other.minor:
-                    return 1
-            return 0
+                return r > 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+        def __str__(self):
+            return IcePy.stringify(self, _M_Ice._t_ProtocolVersion)
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+        __repr__ = __str__
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+    _M_Ice._t_ProtocolVersion = IcePy.defineStruct('::Ice::ProtocolVersion', ProtocolVersion, (), (
+        ('major', (), IcePy._t_byte),
+        ('minor', (), IcePy._t_byte)
+    ))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Ice._t_EncodingVersion)
+    _M_Ice.ProtocolVersion = ProtocolVersion
+    del ProtocolVersion
 
-    __repr__ = __str__
+if 'EncodingVersion' not in _M_Ice.__dict__:
+    _M_Ice.EncodingVersion = None
+    class EncodingVersion(object):
+        """
+         A version structure for the encoding version.
+        """
+        def __init__(self, major=0, minor=0):
+            self.major = major
+            self.minor = minor
 
-_M_Ice._t_EncodingVersion = IcePy.defineStruct('::Ice::EncodingVersion', EncodingVersion, (), (
-    ('major', (), IcePy._t_byte),
-    ('minor', (), IcePy._t_byte)
-))
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.major)
+            _h = 5 * _h + _builtins.hash(self.minor)
+            return _h % 0x7fffffff
 
-_M_Ice.EncodingVersion = EncodingVersion
-del EncodingVersion
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Ice.EncodingVersion):
+                return NotImplemented
+            else:
+                if self.major is None or other.major is None:
+                    if self.major != other.major:
+                        return (-1 if self.major is None else 1)
+                else:
+                    if self.major < other.major:
+                        return -1
+                    elif self.major > other.major:
+                        return 1
+                if self.minor is None or other.minor is None:
+                    if self.minor != other.minor:
+                        return (-1 if self.minor is None else 1)
+                else:
+                    if self.minor < other.minor:
+                        return -1
+                    elif self.minor > other.minor:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Ice._t_EncodingVersion)
+
+        __repr__ = __str__
+
+    _M_Ice._t_EncodingVersion = IcePy.defineStruct('::Ice::EncodingVersion', EncodingVersion, (), (
+        ('major', (), IcePy._t_byte),
+        ('minor', (), IcePy._t_byte)
+    ))
+
+    _M_Ice.EncodingVersion = EncodingVersion
+    del EncodingVersion
 
 # End of module Ice

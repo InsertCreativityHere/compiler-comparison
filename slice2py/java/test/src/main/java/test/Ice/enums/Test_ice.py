@@ -37,253 +37,271 @@ _M_Test.ShortConst2 = 32766
 _M_Test.IntConst2 = 2147483647
 
 _M_Test.LongConst2 = 2147483646
-_M_Test.ByteEnum = None
-class ByteEnum(Ice.EnumBase):
 
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
+if 'ByteEnum' not in _M_Test.__dict__:
+    _M_Test.ByteEnum = None
+    class ByteEnum(Ice.EnumBase):
 
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
 
-ByteEnum.benum1 = ByteEnum("benum1", 0)
-ByteEnum.benum2 = ByteEnum("benum2", 1)
-ByteEnum.benum3 = ByteEnum("benum3", 10)
-ByteEnum.benum4 = ByteEnum("benum4", 11)
-ByteEnum.benum5 = ByteEnum("benum5", 20)
-ByteEnum.benum6 = ByteEnum("benum6", 21)
-ByteEnum.benum7 = ByteEnum("benum7", 30)
-ByteEnum.benum8 = ByteEnum("benum8", 31)
-ByteEnum.benum9 = ByteEnum("benum9", 40)
-ByteEnum.benum10 = ByteEnum("benum10", 41)
-ByteEnum.benum11 = ByteEnum("benum11", 126)
-ByteEnum._enumerators = { 0:ByteEnum.benum1, 1:ByteEnum.benum2, 10:ByteEnum.benum3, 11:ByteEnum.benum4, 20:ByteEnum.benum5, 21:ByteEnum.benum6, 30:ByteEnum.benum7, 31:ByteEnum.benum8, 40:ByteEnum.benum9, 41:ByteEnum.benum10, 126:ByteEnum.benum11 }
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
 
-_M_Test._t_ByteEnum = IcePy.defineEnum('::Test::ByteEnum', ByteEnum, (), ByteEnum._enumerators)
+    ByteEnum.benum1 = ByteEnum("benum1", 0)
+    ByteEnum.benum2 = ByteEnum("benum2", 1)
+    ByteEnum.benum3 = ByteEnum("benum3", 10)
+    ByteEnum.benum4 = ByteEnum("benum4", 11)
+    ByteEnum.benum5 = ByteEnum("benum5", 20)
+    ByteEnum.benum6 = ByteEnum("benum6", 21)
+    ByteEnum.benum7 = ByteEnum("benum7", 30)
+    ByteEnum.benum8 = ByteEnum("benum8", 31)
+    ByteEnum.benum9 = ByteEnum("benum9", 40)
+    ByteEnum.benum10 = ByteEnum("benum10", 41)
+    ByteEnum.benum11 = ByteEnum("benum11", 126)
+    ByteEnum._enumerators = { 0:ByteEnum.benum1, 1:ByteEnum.benum2, 10:ByteEnum.benum3, 11:ByteEnum.benum4, 20:ByteEnum.benum5, 21:ByteEnum.benum6, 30:ByteEnum.benum7, 31:ByteEnum.benum8, 40:ByteEnum.benum9, 41:ByteEnum.benum10, 126:ByteEnum.benum11 }
 
-_M_Test.ByteEnum = ByteEnum
-del ByteEnum
-_M_Test._t_ByteEnumSeq = IcePy.defineSequence('::Test::ByteEnumSeq', (), _M_Test._t_ByteEnum)
-_M_Test.ShortEnum = None
-class ShortEnum(Ice.EnumBase):
+    _M_Test._t_ByteEnum = IcePy.defineEnum('::Test::ByteEnum', ByteEnum, (), ByteEnum._enumerators)
 
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
+    _M_Test.ByteEnum = ByteEnum
+    del ByteEnum
 
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
+if '_t_ByteEnumSeq' not in _M_Test.__dict__:
+    _M_Test._t_ByteEnumSeq = IcePy.defineSequence('::Test::ByteEnumSeq', (), _M_Test._t_ByteEnum)
 
-ShortEnum.senum1 = ShortEnum("senum1", 3)
-ShortEnum.senum2 = ShortEnum("senum2", 4)
-ShortEnum.senum3 = ShortEnum("senum3", 10)
-ShortEnum.senum4 = ShortEnum("senum4", 11)
-ShortEnum.senum5 = ShortEnum("senum5", 20)
-ShortEnum.senum6 = ShortEnum("senum6", 21)
-ShortEnum.senum7 = ShortEnum("senum7", 30)
-ShortEnum.senum8 = ShortEnum("senum8", 31)
-ShortEnum.senum9 = ShortEnum("senum9", 40)
-ShortEnum.senum10 = ShortEnum("senum10", 41)
-ShortEnum.senum11 = ShortEnum("senum11", 32766)
-ShortEnum._enumerators = { 3:ShortEnum.senum1, 4:ShortEnum.senum2, 10:ShortEnum.senum3, 11:ShortEnum.senum4, 20:ShortEnum.senum5, 21:ShortEnum.senum6, 30:ShortEnum.senum7, 31:ShortEnum.senum8, 40:ShortEnum.senum9, 41:ShortEnum.senum10, 32766:ShortEnum.senum11 }
+if 'ShortEnum' not in _M_Test.__dict__:
+    _M_Test.ShortEnum = None
+    class ShortEnum(Ice.EnumBase):
 
-_M_Test._t_ShortEnum = IcePy.defineEnum('::Test::ShortEnum', ShortEnum, (), ShortEnum._enumerators)
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
 
-_M_Test.ShortEnum = ShortEnum
-del ShortEnum
-_M_Test._t_ShortEnumSeq = IcePy.defineSequence('::Test::ShortEnumSeq', (), _M_Test._t_ShortEnum)
-_M_Test.IntEnum = None
-class IntEnum(Ice.EnumBase):
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
 
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
+    ShortEnum.senum1 = ShortEnum("senum1", 3)
+    ShortEnum.senum2 = ShortEnum("senum2", 4)
+    ShortEnum.senum3 = ShortEnum("senum3", 10)
+    ShortEnum.senum4 = ShortEnum("senum4", 11)
+    ShortEnum.senum5 = ShortEnum("senum5", 20)
+    ShortEnum.senum6 = ShortEnum("senum6", 21)
+    ShortEnum.senum7 = ShortEnum("senum7", 30)
+    ShortEnum.senum8 = ShortEnum("senum8", 31)
+    ShortEnum.senum9 = ShortEnum("senum9", 40)
+    ShortEnum.senum10 = ShortEnum("senum10", 41)
+    ShortEnum.senum11 = ShortEnum("senum11", 32766)
+    ShortEnum._enumerators = { 3:ShortEnum.senum1, 4:ShortEnum.senum2, 10:ShortEnum.senum3, 11:ShortEnum.senum4, 20:ShortEnum.senum5, 21:ShortEnum.senum6, 30:ShortEnum.senum7, 31:ShortEnum.senum8, 40:ShortEnum.senum9, 41:ShortEnum.senum10, 32766:ShortEnum.senum11 }
 
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
+    _M_Test._t_ShortEnum = IcePy.defineEnum('::Test::ShortEnum', ShortEnum, (), ShortEnum._enumerators)
 
-IntEnum.ienum1 = IntEnum("ienum1", 0)
-IntEnum.ienum2 = IntEnum("ienum2", 1)
-IntEnum.ienum3 = IntEnum("ienum3", 10)
-IntEnum.ienum4 = IntEnum("ienum4", 11)
-IntEnum.ienum5 = IntEnum("ienum5", 20)
-IntEnum.ienum6 = IntEnum("ienum6", 21)
-IntEnum.ienum7 = IntEnum("ienum7", 30)
-IntEnum.ienum8 = IntEnum("ienum8", 31)
-IntEnum.ienum9 = IntEnum("ienum9", 40)
-IntEnum.ienum10 = IntEnum("ienum10", 41)
-IntEnum.ienum11 = IntEnum("ienum11", 2147483647)
-IntEnum.ienum12 = IntEnum("ienum12", 2147483646)
-IntEnum._enumerators = { 0:IntEnum.ienum1, 1:IntEnum.ienum2, 10:IntEnum.ienum3, 11:IntEnum.ienum4, 20:IntEnum.ienum5, 21:IntEnum.ienum6, 30:IntEnum.ienum7, 31:IntEnum.ienum8, 40:IntEnum.ienum9, 41:IntEnum.ienum10, 2147483647:IntEnum.ienum11, 2147483646:IntEnum.ienum12 }
+    _M_Test.ShortEnum = ShortEnum
+    del ShortEnum
 
-_M_Test._t_IntEnum = IcePy.defineEnum('::Test::IntEnum', IntEnum, (), IntEnum._enumerators)
+if '_t_ShortEnumSeq' not in _M_Test.__dict__:
+    _M_Test._t_ShortEnumSeq = IcePy.defineSequence('::Test::ShortEnumSeq', (), _M_Test._t_ShortEnum)
 
-_M_Test.IntEnum = IntEnum
-del IntEnum
-_M_Test._t_IntEnumSeq = IcePy.defineSequence('::Test::IntEnumSeq', (), _M_Test._t_IntEnum)
-_M_Test.SimpleEnum = None
-class SimpleEnum(Ice.EnumBase):
+if 'IntEnum' not in _M_Test.__dict__:
+    _M_Test.IntEnum = None
+    class IntEnum(Ice.EnumBase):
 
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
 
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
 
-SimpleEnum.red = SimpleEnum("red", 0)
-SimpleEnum.green = SimpleEnum("green", 1)
-SimpleEnum.blue = SimpleEnum("blue", 2)
-SimpleEnum._enumerators = { 0:SimpleEnum.red, 1:SimpleEnum.green, 2:SimpleEnum.blue }
+    IntEnum.ienum1 = IntEnum("ienum1", 0)
+    IntEnum.ienum2 = IntEnum("ienum2", 1)
+    IntEnum.ienum3 = IntEnum("ienum3", 10)
+    IntEnum.ienum4 = IntEnum("ienum4", 11)
+    IntEnum.ienum5 = IntEnum("ienum5", 20)
+    IntEnum.ienum6 = IntEnum("ienum6", 21)
+    IntEnum.ienum7 = IntEnum("ienum7", 30)
+    IntEnum.ienum8 = IntEnum("ienum8", 31)
+    IntEnum.ienum9 = IntEnum("ienum9", 40)
+    IntEnum.ienum10 = IntEnum("ienum10", 41)
+    IntEnum.ienum11 = IntEnum("ienum11", 2147483647)
+    IntEnum.ienum12 = IntEnum("ienum12", 2147483646)
+    IntEnum._enumerators = { 0:IntEnum.ienum1, 1:IntEnum.ienum2, 10:IntEnum.ienum3, 11:IntEnum.ienum4, 20:IntEnum.ienum5, 21:IntEnum.ienum6, 30:IntEnum.ienum7, 31:IntEnum.ienum8, 40:IntEnum.ienum9, 41:IntEnum.ienum10, 2147483647:IntEnum.ienum11, 2147483646:IntEnum.ienum12 }
 
-_M_Test._t_SimpleEnum = IcePy.defineEnum('::Test::SimpleEnum', SimpleEnum, (), SimpleEnum._enumerators)
+    _M_Test._t_IntEnum = IcePy.defineEnum('::Test::IntEnum', IntEnum, (), IntEnum._enumerators)
 
-_M_Test.SimpleEnum = SimpleEnum
-del SimpleEnum
-_M_Test._t_SimpleEnumSeq = IcePy.defineSequence('::Test::SimpleEnumSeq', (), _M_Test._t_SimpleEnum)
+    _M_Test.IntEnum = IntEnum
+    del IntEnum
+
+if '_t_IntEnumSeq' not in _M_Test.__dict__:
+    _M_Test._t_IntEnumSeq = IcePy.defineSequence('::Test::IntEnumSeq', (), _M_Test._t_IntEnum)
+
+if 'SimpleEnum' not in _M_Test.__dict__:
+    _M_Test.SimpleEnum = None
+    class SimpleEnum(Ice.EnumBase):
+
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
+
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
+
+    SimpleEnum.red = SimpleEnum("red", 0)
+    SimpleEnum.green = SimpleEnum("green", 1)
+    SimpleEnum.blue = SimpleEnum("blue", 2)
+    SimpleEnum._enumerators = { 0:SimpleEnum.red, 1:SimpleEnum.green, 2:SimpleEnum.blue }
+
+    _M_Test._t_SimpleEnum = IcePy.defineEnum('::Test::SimpleEnum', SimpleEnum, (), SimpleEnum._enumerators)
+
+    _M_Test.SimpleEnum = SimpleEnum
+    del SimpleEnum
+
+if '_t_SimpleEnumSeq' not in _M_Test.__dict__:
+    _M_Test._t_SimpleEnumSeq = IcePy.defineSequence('::Test::SimpleEnumSeq', (), _M_Test._t_SimpleEnum)
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
-_M_Test.TestIntfPrx = None
-class TestIntfPrx(Ice.ObjectPrx):
 
-    def opByte(self, b1, context=None):
-        return _M_Test.TestIntf._op_opByte.invoke(self, ((b1, ), context))
+if 'TestIntfPrx' not in _M_Test.__dict__:
+    _M_Test.TestIntfPrx = None
+    class TestIntfPrx(Ice.ObjectPrx):
 
-    def opByteAsync(self, b1, context=None):
-        return _M_Test.TestIntf._op_opByte.invokeAsync(self, ((b1, ), context))
+        def opByte(self, b1, context=None):
+            return _M_Test.TestIntf._op_opByte.invoke(self, ((b1, ), context))
 
-    def opShort(self, s1, context=None):
-        return _M_Test.TestIntf._op_opShort.invoke(self, ((s1, ), context))
+        def opByteAsync(self, b1, context=None):
+            return _M_Test.TestIntf._op_opByte.invokeAsync(self, ((b1, ), context))
 
-    def opShortAsync(self, s1, context=None):
-        return _M_Test.TestIntf._op_opShort.invokeAsync(self, ((s1, ), context))
+        def opShort(self, s1, context=None):
+            return _M_Test.TestIntf._op_opShort.invoke(self, ((s1, ), context))
 
-    def opInt(self, i1, context=None):
-        return _M_Test.TestIntf._op_opInt.invoke(self, ((i1, ), context))
+        def opShortAsync(self, s1, context=None):
+            return _M_Test.TestIntf._op_opShort.invokeAsync(self, ((s1, ), context))
 
-    def opIntAsync(self, i1, context=None):
-        return _M_Test.TestIntf._op_opInt.invokeAsync(self, ((i1, ), context))
+        def opInt(self, i1, context=None):
+            return _M_Test.TestIntf._op_opInt.invoke(self, ((i1, ), context))
 
-    def opSimple(self, s1, context=None):
-        return _M_Test.TestIntf._op_opSimple.invoke(self, ((s1, ), context))
+        def opIntAsync(self, i1, context=None):
+            return _M_Test.TestIntf._op_opInt.invokeAsync(self, ((i1, ), context))
 
-    def opSimpleAsync(self, s1, context=None):
-        return _M_Test.TestIntf._op_opSimple.invokeAsync(self, ((s1, ), context))
+        def opSimple(self, s1, context=None):
+            return _M_Test.TestIntf._op_opSimple.invoke(self, ((s1, ), context))
 
-    def opByteSeq(self, b1, context=None):
-        return _M_Test.TestIntf._op_opByteSeq.invoke(self, ((b1, ), context))
+        def opSimpleAsync(self, s1, context=None):
+            return _M_Test.TestIntf._op_opSimple.invokeAsync(self, ((s1, ), context))
 
-    def opByteSeqAsync(self, b1, context=None):
-        return _M_Test.TestIntf._op_opByteSeq.invokeAsync(self, ((b1, ), context))
+        def opByteSeq(self, b1, context=None):
+            return _M_Test.TestIntf._op_opByteSeq.invoke(self, ((b1, ), context))
 
-    def opShortSeq(self, s1, context=None):
-        return _M_Test.TestIntf._op_opShortSeq.invoke(self, ((s1, ), context))
+        def opByteSeqAsync(self, b1, context=None):
+            return _M_Test.TestIntf._op_opByteSeq.invokeAsync(self, ((b1, ), context))
 
-    def opShortSeqAsync(self, s1, context=None):
-        return _M_Test.TestIntf._op_opShortSeq.invokeAsync(self, ((s1, ), context))
+        def opShortSeq(self, s1, context=None):
+            return _M_Test.TestIntf._op_opShortSeq.invoke(self, ((s1, ), context))
 
-    def opIntSeq(self, i1, context=None):
-        return _M_Test.TestIntf._op_opIntSeq.invoke(self, ((i1, ), context))
+        def opShortSeqAsync(self, s1, context=None):
+            return _M_Test.TestIntf._op_opShortSeq.invokeAsync(self, ((s1, ), context))
 
-    def opIntSeqAsync(self, i1, context=None):
-        return _M_Test.TestIntf._op_opIntSeq.invokeAsync(self, ((i1, ), context))
+        def opIntSeq(self, i1, context=None):
+            return _M_Test.TestIntf._op_opIntSeq.invoke(self, ((i1, ), context))
 
-    def opSimpleSeq(self, s1, context=None):
-        return _M_Test.TestIntf._op_opSimpleSeq.invoke(self, ((s1, ), context))
+        def opIntSeqAsync(self, i1, context=None):
+            return _M_Test.TestIntf._op_opIntSeq.invokeAsync(self, ((i1, ), context))
 
-    def opSimpleSeqAsync(self, s1, context=None):
-        return _M_Test.TestIntf._op_opSimpleSeq.invokeAsync(self, ((s1, ), context))
+        def opSimpleSeq(self, s1, context=None):
+            return _M_Test.TestIntf._op_opSimpleSeq.invoke(self, ((s1, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
+        def opSimpleSeqAsync(self, s1, context=None):
+            return _M_Test.TestIntf._op_opSimpleSeq.invokeAsync(self, ((s1, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
-_M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestIntfPrx = TestIntfPrx
-del TestIntfPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
+    _M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
 
-_M_Test.TestIntf = None
-class TestIntf(Ice.Object):
+    _M_Test.TestIntfPrx = TestIntfPrx
+    del TestIntfPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::TestIntf')
+    _M_Test.TestIntf = None
+    class TestIntf(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::TestIntf'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::TestIntf')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
+        def ice_id(self, current=None):
+            return '::Test::TestIntf'
 
-    def opByte(self, b1, current=None):
-        raise NotImplementedError("servant method 'opByte' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
 
-    def opShort(self, s1, current=None):
-        raise NotImplementedError("servant method 'opShort' not implemented")
+        def opByte(self, b1, current=None):
+            raise NotImplementedError("servant method 'opByte' not implemented")
 
-    def opInt(self, i1, current=None):
-        raise NotImplementedError("servant method 'opInt' not implemented")
+        def opShort(self, s1, current=None):
+            raise NotImplementedError("servant method 'opShort' not implemented")
 
-    def opSimple(self, s1, current=None):
-        raise NotImplementedError("servant method 'opSimple' not implemented")
+        def opInt(self, i1, current=None):
+            raise NotImplementedError("servant method 'opInt' not implemented")
 
-    def opByteSeq(self, b1, current=None):
-        raise NotImplementedError("servant method 'opByteSeq' not implemented")
+        def opSimple(self, s1, current=None):
+            raise NotImplementedError("servant method 'opSimple' not implemented")
 
-    def opShortSeq(self, s1, current=None):
-        raise NotImplementedError("servant method 'opShortSeq' not implemented")
+        def opByteSeq(self, b1, current=None):
+            raise NotImplementedError("servant method 'opByteSeq' not implemented")
 
-    def opIntSeq(self, i1, current=None):
-        raise NotImplementedError("servant method 'opIntSeq' not implemented")
+        def opShortSeq(self, s1, current=None):
+            raise NotImplementedError("servant method 'opShortSeq' not implemented")
 
-    def opSimpleSeq(self, s1, current=None):
-        raise NotImplementedError("servant method 'opSimpleSeq' not implemented")
+        def opIntSeq(self, i1, current=None):
+            raise NotImplementedError("servant method 'opIntSeq' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def opSimpleSeq(self, s1, current=None):
+            raise NotImplementedError("servant method 'opSimpleSeq' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
-_M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-TestIntf._ice_type = _M_Test._t_TestIntfDisp
+        __repr__ = __str__
 
-TestIntf._op_opByte = IcePy.Operation('opByte', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteEnum, False, 0),), (((), _M_Test._t_ByteEnum, False, 0),), ((), _M_Test._t_ByteEnum, False, 0), ())
-TestIntf._op_opShort = IcePy.Operation('opShort', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortEnum, False, 0),), (((), _M_Test._t_ShortEnum, False, 0),), ((), _M_Test._t_ShortEnum, False, 0), ())
-TestIntf._op_opInt = IcePy.Operation('opInt', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntEnum, False, 0),), (((), _M_Test._t_IntEnum, False, 0),), ((), _M_Test._t_IntEnum, False, 0), ())
-TestIntf._op_opSimple = IcePy.Operation('opSimple', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SimpleEnum, False, 0),), (((), _M_Test._t_SimpleEnum, False, 0),), ((), _M_Test._t_SimpleEnum, False, 0), ())
-TestIntf._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteEnumSeq, False, 0),), (((), _M_Test._t_ByteEnumSeq, False, 0),), ((), _M_Test._t_ByteEnumSeq, False, 0), ())
-TestIntf._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortEnumSeq, False, 0),), (((), _M_Test._t_ShortEnumSeq, False, 0),), ((), _M_Test._t_ShortEnumSeq, False, 0), ())
-TestIntf._op_opIntSeq = IcePy.Operation('opIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntEnumSeq, False, 0),), (((), _M_Test._t_IntEnumSeq, False, 0),), ((), _M_Test._t_IntEnumSeq, False, 0), ())
-TestIntf._op_opSimpleSeq = IcePy.Operation('opSimpleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SimpleEnumSeq, False, 0),), (((), _M_Test._t_SimpleEnumSeq, False, 0),), ((), _M_Test._t_SimpleEnumSeq, False, 0), ())
-TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
+    TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-_M_Test.TestIntf = TestIntf
-del TestIntf
+    TestIntf._op_opByte = IcePy.Operation('opByte', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteEnum, False, 0),), (((), _M_Test._t_ByteEnum, False, 0),), ((), _M_Test._t_ByteEnum, False, 0), ())
+    TestIntf._op_opShort = IcePy.Operation('opShort', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortEnum, False, 0),), (((), _M_Test._t_ShortEnum, False, 0),), ((), _M_Test._t_ShortEnum, False, 0), ())
+    TestIntf._op_opInt = IcePy.Operation('opInt', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntEnum, False, 0),), (((), _M_Test._t_IntEnum, False, 0),), ((), _M_Test._t_IntEnum, False, 0), ())
+    TestIntf._op_opSimple = IcePy.Operation('opSimple', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SimpleEnum, False, 0),), (((), _M_Test._t_SimpleEnum, False, 0),), ((), _M_Test._t_SimpleEnum, False, 0), ())
+    TestIntf._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteEnumSeq, False, 0),), (((), _M_Test._t_ByteEnumSeq, False, 0),), ((), _M_Test._t_ByteEnumSeq, False, 0), ())
+    TestIntf._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortEnumSeq, False, 0),), (((), _M_Test._t_ShortEnumSeq, False, 0),), ((), _M_Test._t_ShortEnumSeq, False, 0), ())
+    TestIntf._op_opIntSeq = IcePy.Operation('opIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntEnumSeq, False, 0),), (((), _M_Test._t_IntEnumSeq, False, 0),), ((), _M_Test._t_IntEnumSeq, False, 0), ())
+    TestIntf._op_opSimpleSeq = IcePy.Operation('opSimpleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SimpleEnumSeq, False, 0),), (((), _M_Test._t_SimpleEnumSeq, False, 0),), ((), _M_Test._t_SimpleEnumSeq, False, 0), ())
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.TestIntf = TestIntf
+    del TestIntf
 
 # End of module Test

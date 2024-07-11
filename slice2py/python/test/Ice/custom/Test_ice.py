@@ -21,449 +21,493 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
-_M_Test._t_ByteString = IcePy.defineSequence('::Test::ByteString', (), IcePy._t_byte)
-_M_Test._t_ByteList = IcePy.defineSequence('::Test::ByteList', ('python:seq:list',), IcePy._t_byte)
-_M_Test._t_StringList = IcePy.defineSequence('::Test::StringList', (), IcePy._t_string)
-_M_Test._t_StringTuple = IcePy.defineSequence('::Test::StringTuple', ('python:seq:tuple',), IcePy._t_string)
-_M_Test._t_BoolSeq1 = IcePy.defineSequence('::Test::BoolSeq1', ('python:array.array',), IcePy._t_bool)
-_M_Test._t_BoolSeq2 = IcePy.defineSequence('::Test::BoolSeq2', ('python:memoryview:Custom.myBoolSeq',), IcePy._t_bool)
-_M_Test._t_ByteSeq1 = IcePy.defineSequence('::Test::ByteSeq1', ('python:array.array',), IcePy._t_byte)
-_M_Test._t_ByteSeq2 = IcePy.defineSequence('::Test::ByteSeq2', ('python:memoryview:Custom.myByteSeq',), IcePy._t_byte)
-_M_Test._t_ShortSeq1 = IcePy.defineSequence('::Test::ShortSeq1', ('python:array.array',), IcePy._t_short)
-_M_Test._t_ShortSeq2 = IcePy.defineSequence('::Test::ShortSeq2', ('python:memoryview:Custom.myShortSeq',), IcePy._t_short)
-_M_Test._t_IntSeq1 = IcePy.defineSequence('::Test::IntSeq1', ('python:array.array',), IcePy._t_int)
-_M_Test._t_IntSeq2 = IcePy.defineSequence('::Test::IntSeq2', ('python:memoryview:Custom.myIntSeq',), IcePy._t_int)
-_M_Test._t_LongSeq1 = IcePy.defineSequence('::Test::LongSeq1', ('python:array.array',), IcePy._t_long)
-_M_Test._t_LongSeq2 = IcePy.defineSequence('::Test::LongSeq2', ('python:memoryview:Custom.myLongSeq',), IcePy._t_long)
-_M_Test._t_FloatSeq1 = IcePy.defineSequence('::Test::FloatSeq1', ('python:array.array',), IcePy._t_float)
-_M_Test._t_FloatSeq2 = IcePy.defineSequence('::Test::FloatSeq2', ('python:memoryview:Custom.myFloatSeq',), IcePy._t_float)
-_M_Test._t_DoubleSeq1 = IcePy.defineSequence('::Test::DoubleSeq1', ('python:array.array',), IcePy._t_double)
-_M_Test._t_DoubleSeq2 = IcePy.defineSequence('::Test::DoubleSeq2', ('python:memoryview:Custom.myDoubleSeq',), IcePy._t_double)
-_M_Test.S = None
-class S(object):
-    def __init__(self, b1=None, b2=None, b3=None, b4=None, s1=None, s2=None, s3=None, s4=None):
-        self.b1 = b1
-        self.b2 = b2
-        self.b3 = b3
-        self.b4 = b4
-        self.s1 = s1
-        self.s2 = s2
-        self.s3 = s3
-        self.s4 = s4
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_Test.S):
-            return NotImplemented
-        else:
-            if self.b1 != other.b1:
+if '_t_ByteString' not in _M_Test.__dict__:
+    _M_Test._t_ByteString = IcePy.defineSequence('::Test::ByteString', (), IcePy._t_byte)
+
+if '_t_ByteList' not in _M_Test.__dict__:
+    _M_Test._t_ByteList = IcePy.defineSequence('::Test::ByteList', ('python:seq:list',), IcePy._t_byte)
+
+if '_t_StringList' not in _M_Test.__dict__:
+    _M_Test._t_StringList = IcePy.defineSequence('::Test::StringList', (), IcePy._t_string)
+
+if '_t_StringTuple' not in _M_Test.__dict__:
+    _M_Test._t_StringTuple = IcePy.defineSequence('::Test::StringTuple', ('python:seq:tuple',), IcePy._t_string)
+
+if '_t_BoolSeq1' not in _M_Test.__dict__:
+    _M_Test._t_BoolSeq1 = IcePy.defineSequence('::Test::BoolSeq1', ('python:array.array',), IcePy._t_bool)
+
+if '_t_BoolSeq2' not in _M_Test.__dict__:
+    _M_Test._t_BoolSeq2 = IcePy.defineSequence('::Test::BoolSeq2', ('python:memoryview:Custom.myBoolSeq',), IcePy._t_bool)
+
+if '_t_ByteSeq1' not in _M_Test.__dict__:
+    _M_Test._t_ByteSeq1 = IcePy.defineSequence('::Test::ByteSeq1', ('python:array.array',), IcePy._t_byte)
+
+if '_t_ByteSeq2' not in _M_Test.__dict__:
+    _M_Test._t_ByteSeq2 = IcePy.defineSequence('::Test::ByteSeq2', ('python:memoryview:Custom.myByteSeq',), IcePy._t_byte)
+
+if '_t_ShortSeq1' not in _M_Test.__dict__:
+    _M_Test._t_ShortSeq1 = IcePy.defineSequence('::Test::ShortSeq1', ('python:array.array',), IcePy._t_short)
+
+if '_t_ShortSeq2' not in _M_Test.__dict__:
+    _M_Test._t_ShortSeq2 = IcePy.defineSequence('::Test::ShortSeq2', ('python:memoryview:Custom.myShortSeq',), IcePy._t_short)
+
+if '_t_IntSeq1' not in _M_Test.__dict__:
+    _M_Test._t_IntSeq1 = IcePy.defineSequence('::Test::IntSeq1', ('python:array.array',), IcePy._t_int)
+
+if '_t_IntSeq2' not in _M_Test.__dict__:
+    _M_Test._t_IntSeq2 = IcePy.defineSequence('::Test::IntSeq2', ('python:memoryview:Custom.myIntSeq',), IcePy._t_int)
+
+if '_t_LongSeq1' not in _M_Test.__dict__:
+    _M_Test._t_LongSeq1 = IcePy.defineSequence('::Test::LongSeq1', ('python:array.array',), IcePy._t_long)
+
+if '_t_LongSeq2' not in _M_Test.__dict__:
+    _M_Test._t_LongSeq2 = IcePy.defineSequence('::Test::LongSeq2', ('python:memoryview:Custom.myLongSeq',), IcePy._t_long)
+
+if '_t_FloatSeq1' not in _M_Test.__dict__:
+    _M_Test._t_FloatSeq1 = IcePy.defineSequence('::Test::FloatSeq1', ('python:array.array',), IcePy._t_float)
+
+if '_t_FloatSeq2' not in _M_Test.__dict__:
+    _M_Test._t_FloatSeq2 = IcePy.defineSequence('::Test::FloatSeq2', ('python:memoryview:Custom.myFloatSeq',), IcePy._t_float)
+
+if '_t_DoubleSeq1' not in _M_Test.__dict__:
+    _M_Test._t_DoubleSeq1 = IcePy.defineSequence('::Test::DoubleSeq1', ('python:array.array',), IcePy._t_double)
+
+if '_t_DoubleSeq2' not in _M_Test.__dict__:
+    _M_Test._t_DoubleSeq2 = IcePy.defineSequence('::Test::DoubleSeq2', ('python:memoryview:Custom.myDoubleSeq',), IcePy._t_double)
+
+if 'S' not in _M_Test.__dict__:
+    _M_Test.S = None
+    class S(object):
+        def __init__(self, b1=None, b2=None, b3=None, b4=None, s1=None, s2=None, s3=None, s4=None):
+            self.b1 = b1
+            self.b2 = b2
+            self.b3 = b3
+            self.b4 = b4
+            self.s1 = s1
+            self.s2 = s2
+            self.s3 = s3
+            self.s4 = s4
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.b2 != other.b2:
-                return False
-            if self.b3 != other.b3:
-                return False
-            if self.b4 != other.b4:
-                return False
-            if self.s1 != other.s1:
-                return False
-            if self.s2 != other.s2:
-                return False
-            if self.s3 != other.s3:
-                return False
-            if self.s4 != other.s4:
-                return False
-            return True
+            elif not isinstance(other, _M_Test.S):
+                return NotImplemented
+            else:
+                if self.b1 != other.b1:
+                    return False
+                if self.b2 != other.b2:
+                    return False
+                if self.b3 != other.b3:
+                    return False
+                if self.b4 != other.b4:
+                    return False
+                if self.s1 != other.s1:
+                    return False
+                if self.s2 != other.s2:
+                    return False
+                if self.s3 != other.s3:
+                    return False
+                if self.s4 != other.s4:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_S)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_S)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test._t_S = IcePy.defineStruct('::Test::S', S, (), (
-    ('b1', (), _M_Test._t_ByteString),
-    ('b2', ('python:seq:list',), _M_Test._t_ByteString),
-    ('b3', ('python:seq:default',), _M_Test._t_ByteList),
-    ('b4', (), _M_Test._t_ByteList),
-    ('s1', (), _M_Test._t_StringList),
-    ('s2', ('python:seq:tuple',), _M_Test._t_StringList),
-    ('s3', (), _M_Test._t_StringTuple),
-    ('s4', ('python:seq:default',), _M_Test._t_StringTuple)
-))
+    _M_Test._t_S = IcePy.defineStruct('::Test::S', S, (), (
+        ('b1', (), _M_Test._t_ByteString),
+        ('b2', ('python:seq:list',), _M_Test._t_ByteString),
+        ('b3', ('python:seq:default',), _M_Test._t_ByteList),
+        ('b4', (), _M_Test._t_ByteList),
+        ('s1', (), _M_Test._t_StringList),
+        ('s2', ('python:seq:tuple',), _M_Test._t_StringList),
+        ('s3', (), _M_Test._t_StringTuple),
+        ('s4', ('python:seq:default',), _M_Test._t_StringTuple)
+    ))
 
-_M_Test.S = S
-del S
-_M_Test.C = None
-class C(Ice.Value):
-    def __init__(self, b1=None, b2=None, b3=None, b4=None, s1=None, s2=None, s3=None, s4=None):
-        self.b1 = b1
-        self.b2 = b2
-        self.b3 = b3
-        self.b4 = b4
-        self.s1 = s1
-        self.s2 = s2
-        self.s3 = s3
-        self.s4 = s4
+    _M_Test.S = S
+    del S
 
-    def ice_id(self):
-        return '::Test::C'
+if 'C' not in _M_Test.__dict__:
+    _M_Test.C = None
+    class C(Ice.Value):
+        def __init__(self, b1=None, b2=None, b3=None, b4=None, s1=None, s2=None, s3=None, s4=None):
+            self.b1 = b1
+            self.b2 = b2
+            self.b3 = b3
+            self.b4 = b4
+            self.s1 = s1
+            self.s2 = s2
+            self.s3 = s3
+            self.s4 = s4
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::C'
+        def ice_id(self):
+            return '::Test::C'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_C)
+        @staticmethod
+        def ice_staticId():
+            return '::Test::C'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_C)
 
-_M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, (
-    ('b1', (), _M_Test._t_ByteString, False, 0),
-    ('b2', ('python:seq:list',), _M_Test._t_ByteString, False, 0),
-    ('b3', ('python:seq:default',), _M_Test._t_ByteList, False, 0),
-    ('b4', (), _M_Test._t_ByteList, False, 0),
-    ('s1', (), _M_Test._t_StringList, False, 0),
-    ('s2', ('python:seq:tuple',), _M_Test._t_StringList, False, 0),
-    ('s3', (), _M_Test._t_StringTuple, False, 0),
-    ('s4', ('python:seq:default',), _M_Test._t_StringTuple, False, 0)
-))
-C._ice_type = _M_Test._t_C
+        __repr__ = __str__
 
-_M_Test.C = C
-del C
-_M_Test.D = None
-class D(Ice.Value):
-    def __init__(self, boolSeq=Ice.Unset, byteSeq=Ice.Unset, shortSeq=Ice.Unset, intSeq=Ice.Unset, longSeq=Ice.Unset, floatSeq=Ice.Unset, doubleSeq=Ice.Unset):
-        self.boolSeq = boolSeq
-        self.byteSeq = byteSeq
-        self.shortSeq = shortSeq
-        self.intSeq = intSeq
-        self.longSeq = longSeq
-        self.floatSeq = floatSeq
-        self.doubleSeq = doubleSeq
+    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, (
+        ('b1', (), _M_Test._t_ByteString, False, 0),
+        ('b2', ('python:seq:list',), _M_Test._t_ByteString, False, 0),
+        ('b3', ('python:seq:default',), _M_Test._t_ByteList, False, 0),
+        ('b4', (), _M_Test._t_ByteList, False, 0),
+        ('s1', (), _M_Test._t_StringList, False, 0),
+        ('s2', ('python:seq:tuple',), _M_Test._t_StringList, False, 0),
+        ('s3', (), _M_Test._t_StringTuple, False, 0),
+        ('s4', ('python:seq:default',), _M_Test._t_StringTuple, False, 0)
+    ))
+    C._ice_type = _M_Test._t_C
 
-    def ice_id(self):
-        return '::Test::D'
+    _M_Test.C = C
+    del C
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::D'
+if 'D' not in _M_Test.__dict__:
+    _M_Test.D = None
+    class D(Ice.Value):
+        def __init__(self, boolSeq=Ice.Unset, byteSeq=Ice.Unset, shortSeq=Ice.Unset, intSeq=Ice.Unset, longSeq=Ice.Unset, floatSeq=Ice.Unset, doubleSeq=Ice.Unset):
+            self.boolSeq = boolSeq
+            self.byteSeq = byteSeq
+            self.shortSeq = shortSeq
+            self.intSeq = intSeq
+            self.longSeq = longSeq
+            self.floatSeq = floatSeq
+            self.doubleSeq = doubleSeq
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_D)
+        def ice_id(self):
+            return '::Test::D'
 
-    __repr__ = __str__
+        @staticmethod
+        def ice_staticId():
+            return '::Test::D'
 
-_M_Test._t_D = IcePy.defineValue('::Test::D', D, -1, (), False, None, (
-    ('boolSeq', (), _M_Test._t_BoolSeq1, True, 1),
-    ('byteSeq', (), _M_Test._t_ByteSeq1, True, 2),
-    ('shortSeq', (), _M_Test._t_ShortSeq1, True, 3),
-    ('intSeq', (), _M_Test._t_IntSeq1, True, 4),
-    ('longSeq', (), _M_Test._t_LongSeq1, True, 5),
-    ('floatSeq', (), _M_Test._t_FloatSeq1, True, 6),
-    ('doubleSeq', (), _M_Test._t_DoubleSeq1, True, 7)
-))
-D._ice_type = _M_Test._t_D
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_D)
 
-_M_Test.D = D
-del D
+        __repr__ = __str__
+
+    _M_Test._t_D = IcePy.defineValue('::Test::D', D, -1, (), False, None, (
+        ('boolSeq', (), _M_Test._t_BoolSeq1, True, 1),
+        ('byteSeq', (), _M_Test._t_ByteSeq1, True, 2),
+        ('shortSeq', (), _M_Test._t_ShortSeq1, True, 3),
+        ('intSeq', (), _M_Test._t_IntSeq1, True, 4),
+        ('longSeq', (), _M_Test._t_LongSeq1, True, 5),
+        ('floatSeq', (), _M_Test._t_FloatSeq1, True, 6),
+        ('doubleSeq', (), _M_Test._t_DoubleSeq1, True, 7)
+    ))
+    D._ice_type = _M_Test._t_D
+
+    _M_Test.D = D
+    del D
 
 _M_Test._t_Custom = IcePy.defineValue('::Test::Custom', Ice.Value, -1, (), True, None, ())
-_M_Test.CustomPrx = None
-class CustomPrx(Ice.ObjectPrx):
 
-    def opByteString1(self, b1, context=None):
-        return _M_Test.Custom._op_opByteString1.invoke(self, ((b1, ), context))
+if 'CustomPrx' not in _M_Test.__dict__:
+    _M_Test.CustomPrx = None
+    class CustomPrx(Ice.ObjectPrx):
 
-    def opByteString1Async(self, b1, context=None):
-        return _M_Test.Custom._op_opByteString1.invokeAsync(self, ((b1, ), context))
+        def opByteString1(self, b1, context=None):
+            return _M_Test.Custom._op_opByteString1.invoke(self, ((b1, ), context))
 
-    def opByteString2(self, b1, context=None):
-        return _M_Test.Custom._op_opByteString2.invoke(self, ((b1, ), context))
+        def opByteString1Async(self, b1, context=None):
+            return _M_Test.Custom._op_opByteString1.invokeAsync(self, ((b1, ), context))
 
-    def opByteString2Async(self, b1, context=None):
-        return _M_Test.Custom._op_opByteString2.invokeAsync(self, ((b1, ), context))
+        def opByteString2(self, b1, context=None):
+            return _M_Test.Custom._op_opByteString2.invoke(self, ((b1, ), context))
 
-    def opByteList1(self, b1, context=None):
-        return _M_Test.Custom._op_opByteList1.invoke(self, ((b1, ), context))
+        def opByteString2Async(self, b1, context=None):
+            return _M_Test.Custom._op_opByteString2.invokeAsync(self, ((b1, ), context))
 
-    def opByteList1Async(self, b1, context=None):
-        return _M_Test.Custom._op_opByteList1.invokeAsync(self, ((b1, ), context))
+        def opByteList1(self, b1, context=None):
+            return _M_Test.Custom._op_opByteList1.invoke(self, ((b1, ), context))
 
-    def opByteList2(self, b1, context=None):
-        return _M_Test.Custom._op_opByteList2.invoke(self, ((b1, ), context))
+        def opByteList1Async(self, b1, context=None):
+            return _M_Test.Custom._op_opByteList1.invokeAsync(self, ((b1, ), context))
 
-    def opByteList2Async(self, b1, context=None):
-        return _M_Test.Custom._op_opByteList2.invokeAsync(self, ((b1, ), context))
+        def opByteList2(self, b1, context=None):
+            return _M_Test.Custom._op_opByteList2.invoke(self, ((b1, ), context))
 
-    def opStringList1(self, s1, context=None):
-        return _M_Test.Custom._op_opStringList1.invoke(self, ((s1, ), context))
+        def opByteList2Async(self, b1, context=None):
+            return _M_Test.Custom._op_opByteList2.invokeAsync(self, ((b1, ), context))
 
-    def opStringList1Async(self, s1, context=None):
-        return _M_Test.Custom._op_opStringList1.invokeAsync(self, ((s1, ), context))
+        def opStringList1(self, s1, context=None):
+            return _M_Test.Custom._op_opStringList1.invoke(self, ((s1, ), context))
 
-    def opStringList2(self, s1, context=None):
-        return _M_Test.Custom._op_opStringList2.invoke(self, ((s1, ), context))
+        def opStringList1Async(self, s1, context=None):
+            return _M_Test.Custom._op_opStringList1.invokeAsync(self, ((s1, ), context))
 
-    def opStringList2Async(self, s1, context=None):
-        return _M_Test.Custom._op_opStringList2.invokeAsync(self, ((s1, ), context))
+        def opStringList2(self, s1, context=None):
+            return _M_Test.Custom._op_opStringList2.invoke(self, ((s1, ), context))
 
-    def opStringTuple1(self, s1, context=None):
-        return _M_Test.Custom._op_opStringTuple1.invoke(self, ((s1, ), context))
+        def opStringList2Async(self, s1, context=None):
+            return _M_Test.Custom._op_opStringList2.invokeAsync(self, ((s1, ), context))
 
-    def opStringTuple1Async(self, s1, context=None):
-        return _M_Test.Custom._op_opStringTuple1.invokeAsync(self, ((s1, ), context))
+        def opStringTuple1(self, s1, context=None):
+            return _M_Test.Custom._op_opStringTuple1.invoke(self, ((s1, ), context))
 
-    def opStringTuple2(self, s1, context=None):
-        return _M_Test.Custom._op_opStringTuple2.invoke(self, ((s1, ), context))
+        def opStringTuple1Async(self, s1, context=None):
+            return _M_Test.Custom._op_opStringTuple1.invokeAsync(self, ((s1, ), context))
 
-    def opStringTuple2Async(self, s1, context=None):
-        return _M_Test.Custom._op_opStringTuple2.invokeAsync(self, ((s1, ), context))
+        def opStringTuple2(self, s1, context=None):
+            return _M_Test.Custom._op_opStringTuple2.invoke(self, ((s1, ), context))
 
-    def sendS(self, val, context=None):
-        return _M_Test.Custom._op_sendS.invoke(self, ((val, ), context))
+        def opStringTuple2Async(self, s1, context=None):
+            return _M_Test.Custom._op_opStringTuple2.invokeAsync(self, ((s1, ), context))
 
-    def sendSAsync(self, val, context=None):
-        return _M_Test.Custom._op_sendS.invokeAsync(self, ((val, ), context))
+        def sendS(self, val, context=None):
+            return _M_Test.Custom._op_sendS.invoke(self, ((val, ), context))
 
-    def sendC(self, val, context=None):
-        return _M_Test.Custom._op_sendC.invoke(self, ((val, ), context))
+        def sendSAsync(self, val, context=None):
+            return _M_Test.Custom._op_sendS.invokeAsync(self, ((val, ), context))
 
-    def sendCAsync(self, val, context=None):
-        return _M_Test.Custom._op_sendC.invokeAsync(self, ((val, ), context))
+        def sendC(self, val, context=None):
+            return _M_Test.Custom._op_sendC.invoke(self, ((val, ), context))
 
-    def opBoolSeq(self, v1, context=None):
-        return _M_Test.Custom._op_opBoolSeq.invoke(self, ((v1, ), context))
+        def sendCAsync(self, val, context=None):
+            return _M_Test.Custom._op_sendC.invokeAsync(self, ((val, ), context))
 
-    def opBoolSeqAsync(self, v1, context=None):
-        return _M_Test.Custom._op_opBoolSeq.invokeAsync(self, ((v1, ), context))
+        def opBoolSeq(self, v1, context=None):
+            return _M_Test.Custom._op_opBoolSeq.invoke(self, ((v1, ), context))
 
-    def opByteSeq(self, v1, context=None):
-        return _M_Test.Custom._op_opByteSeq.invoke(self, ((v1, ), context))
+        def opBoolSeqAsync(self, v1, context=None):
+            return _M_Test.Custom._op_opBoolSeq.invokeAsync(self, ((v1, ), context))
 
-    def opByteSeqAsync(self, v1, context=None):
-        return _M_Test.Custom._op_opByteSeq.invokeAsync(self, ((v1, ), context))
+        def opByteSeq(self, v1, context=None):
+            return _M_Test.Custom._op_opByteSeq.invoke(self, ((v1, ), context))
 
-    def opShortSeq(self, v1, context=None):
-        return _M_Test.Custom._op_opShortSeq.invoke(self, ((v1, ), context))
+        def opByteSeqAsync(self, v1, context=None):
+            return _M_Test.Custom._op_opByteSeq.invokeAsync(self, ((v1, ), context))
 
-    def opShortSeqAsync(self, v1, context=None):
-        return _M_Test.Custom._op_opShortSeq.invokeAsync(self, ((v1, ), context))
+        def opShortSeq(self, v1, context=None):
+            return _M_Test.Custom._op_opShortSeq.invoke(self, ((v1, ), context))
 
-    def opIntSeq(self, v1, context=None):
-        return _M_Test.Custom._op_opIntSeq.invoke(self, ((v1, ), context))
+        def opShortSeqAsync(self, v1, context=None):
+            return _M_Test.Custom._op_opShortSeq.invokeAsync(self, ((v1, ), context))
 
-    def opIntSeqAsync(self, v1, context=None):
-        return _M_Test.Custom._op_opIntSeq.invokeAsync(self, ((v1, ), context))
+        def opIntSeq(self, v1, context=None):
+            return _M_Test.Custom._op_opIntSeq.invoke(self, ((v1, ), context))
 
-    def opLongSeq(self, v1, context=None):
-        return _M_Test.Custom._op_opLongSeq.invoke(self, ((v1, ), context))
+        def opIntSeqAsync(self, v1, context=None):
+            return _M_Test.Custom._op_opIntSeq.invokeAsync(self, ((v1, ), context))
 
-    def opLongSeqAsync(self, v1, context=None):
-        return _M_Test.Custom._op_opLongSeq.invokeAsync(self, ((v1, ), context))
+        def opLongSeq(self, v1, context=None):
+            return _M_Test.Custom._op_opLongSeq.invoke(self, ((v1, ), context))
 
-    def opFloatSeq(self, v1, context=None):
-        return _M_Test.Custom._op_opFloatSeq.invoke(self, ((v1, ), context))
+        def opLongSeqAsync(self, v1, context=None):
+            return _M_Test.Custom._op_opLongSeq.invokeAsync(self, ((v1, ), context))
 
-    def opFloatSeqAsync(self, v1, context=None):
-        return _M_Test.Custom._op_opFloatSeq.invokeAsync(self, ((v1, ), context))
+        def opFloatSeq(self, v1, context=None):
+            return _M_Test.Custom._op_opFloatSeq.invoke(self, ((v1, ), context))
 
-    def opDoubleSeq(self, v1, context=None):
-        return _M_Test.Custom._op_opDoubleSeq.invoke(self, ((v1, ), context))
+        def opFloatSeqAsync(self, v1, context=None):
+            return _M_Test.Custom._op_opFloatSeq.invokeAsync(self, ((v1, ), context))
 
-    def opDoubleSeqAsync(self, v1, context=None):
-        return _M_Test.Custom._op_opDoubleSeq.invokeAsync(self, ((v1, ), context))
+        def opDoubleSeq(self, v1, context=None):
+            return _M_Test.Custom._op_opDoubleSeq.invoke(self, ((v1, ), context))
 
-    def opBogusArrayNotExistsFactory(self, context=None):
-        return _M_Test.Custom._op_opBogusArrayNotExistsFactory.invoke(self, ((), context))
+        def opDoubleSeqAsync(self, v1, context=None):
+            return _M_Test.Custom._op_opDoubleSeq.invokeAsync(self, ((v1, ), context))
 
-    def opBogusArrayNotExistsFactoryAsync(self, context=None):
-        return _M_Test.Custom._op_opBogusArrayNotExistsFactory.invokeAsync(self, ((), context))
+        def opBogusArrayNotExistsFactory(self, context=None):
+            return _M_Test.Custom._op_opBogusArrayNotExistsFactory.invoke(self, ((), context))
 
-    def opBogusArrayThrowFactory(self, context=None):
-        return _M_Test.Custom._op_opBogusArrayThrowFactory.invoke(self, ((), context))
+        def opBogusArrayNotExistsFactoryAsync(self, context=None):
+            return _M_Test.Custom._op_opBogusArrayNotExistsFactory.invokeAsync(self, ((), context))
 
-    def opBogusArrayThrowFactoryAsync(self, context=None):
-        return _M_Test.Custom._op_opBogusArrayThrowFactory.invokeAsync(self, ((), context))
+        def opBogusArrayThrowFactory(self, context=None):
+            return _M_Test.Custom._op_opBogusArrayThrowFactory.invoke(self, ((), context))
 
-    def opBogusArrayType(self, context=None):
-        return _M_Test.Custom._op_opBogusArrayType.invoke(self, ((), context))
+        def opBogusArrayThrowFactoryAsync(self, context=None):
+            return _M_Test.Custom._op_opBogusArrayThrowFactory.invokeAsync(self, ((), context))
 
-    def opBogusArrayTypeAsync(self, context=None):
-        return _M_Test.Custom._op_opBogusArrayType.invokeAsync(self, ((), context))
+        def opBogusArrayType(self, context=None):
+            return _M_Test.Custom._op_opBogusArrayType.invoke(self, ((), context))
 
-    def opBogusArrayNoneFactory(self, context=None):
-        return _M_Test.Custom._op_opBogusArrayNoneFactory.invoke(self, ((), context))
+        def opBogusArrayTypeAsync(self, context=None):
+            return _M_Test.Custom._op_opBogusArrayType.invokeAsync(self, ((), context))
 
-    def opBogusArrayNoneFactoryAsync(self, context=None):
-        return _M_Test.Custom._op_opBogusArrayNoneFactory.invokeAsync(self, ((), context))
+        def opBogusArrayNoneFactory(self, context=None):
+            return _M_Test.Custom._op_opBogusArrayNoneFactory.invoke(self, ((), context))
 
-    def opBogusArraySignatureFactory(self, context=None):
-        return _M_Test.Custom._op_opBogusArraySignatureFactory.invoke(self, ((), context))
+        def opBogusArrayNoneFactoryAsync(self, context=None):
+            return _M_Test.Custom._op_opBogusArrayNoneFactory.invokeAsync(self, ((), context))
 
-    def opBogusArraySignatureFactoryAsync(self, context=None):
-        return _M_Test.Custom._op_opBogusArraySignatureFactory.invokeAsync(self, ((), context))
+        def opBogusArraySignatureFactory(self, context=None):
+            return _M_Test.Custom._op_opBogusArraySignatureFactory.invoke(self, ((), context))
 
-    def opBogusArrayNoCallableFactory(self, context=None):
-        return _M_Test.Custom._op_opBogusArrayNoCallableFactory.invoke(self, ((), context))
+        def opBogusArraySignatureFactoryAsync(self, context=None):
+            return _M_Test.Custom._op_opBogusArraySignatureFactory.invokeAsync(self, ((), context))
 
-    def opBogusArrayNoCallableFactoryAsync(self, context=None):
-        return _M_Test.Custom._op_opBogusArrayNoCallableFactory.invokeAsync(self, ((), context))
+        def opBogusArrayNoCallableFactory(self, context=None):
+            return _M_Test.Custom._op_opBogusArrayNoCallableFactory.invoke(self, ((), context))
 
-    def opD(self, d, context=None):
-        return _M_Test.Custom._op_opD.invoke(self, ((d, ), context))
+        def opBogusArrayNoCallableFactoryAsync(self, context=None):
+            return _M_Test.Custom._op_opBogusArrayNoCallableFactory.invokeAsync(self, ((), context))
 
-    def opDAsync(self, d, context=None):
-        return _M_Test.Custom._op_opD.invokeAsync(self, ((d, ), context))
+        def opD(self, d, context=None):
+            return _M_Test.Custom._op_opD.invoke(self, ((d, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.Custom._op_shutdown.invoke(self, ((), context))
+        def opDAsync(self, d, context=None):
+            return _M_Test.Custom._op_opD.invokeAsync(self, ((d, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.Custom._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.Custom._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.CustomPrx.ice_checkedCast(proxy, '::Test::Custom', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.Custom._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.CustomPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.CustomPrx.ice_checkedCast(proxy, '::Test::Custom', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Custom'
-_M_Test._t_CustomPrx = IcePy.defineProxy('::Test::Custom', CustomPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.CustomPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.CustomPrx = CustomPrx
-del CustomPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Custom'
+    _M_Test._t_CustomPrx = IcePy.defineProxy('::Test::Custom', CustomPrx)
 
-_M_Test.Custom = None
-class Custom(Ice.Object):
+    _M_Test.CustomPrx = CustomPrx
+    del CustomPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Custom')
+    _M_Test.Custom = None
+    class Custom(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Custom'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Custom')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Custom'
+        def ice_id(self, current=None):
+            return '::Test::Custom'
 
-    def opByteString1(self, b1, current=None):
-        raise NotImplementedError("servant method 'opByteString1' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Custom'
 
-    def opByteString2(self, b1, current=None):
-        raise NotImplementedError("servant method 'opByteString2' not implemented")
+        def opByteString1(self, b1, current=None):
+            raise NotImplementedError("servant method 'opByteString1' not implemented")
 
-    def opByteList1(self, b1, current=None):
-        raise NotImplementedError("servant method 'opByteList1' not implemented")
+        def opByteString2(self, b1, current=None):
+            raise NotImplementedError("servant method 'opByteString2' not implemented")
 
-    def opByteList2(self, b1, current=None):
-        raise NotImplementedError("servant method 'opByteList2' not implemented")
+        def opByteList1(self, b1, current=None):
+            raise NotImplementedError("servant method 'opByteList1' not implemented")
 
-    def opStringList1(self, s1, current=None):
-        raise NotImplementedError("servant method 'opStringList1' not implemented")
+        def opByteList2(self, b1, current=None):
+            raise NotImplementedError("servant method 'opByteList2' not implemented")
 
-    def opStringList2(self, s1, current=None):
-        raise NotImplementedError("servant method 'opStringList2' not implemented")
+        def opStringList1(self, s1, current=None):
+            raise NotImplementedError("servant method 'opStringList1' not implemented")
 
-    def opStringTuple1(self, s1, current=None):
-        raise NotImplementedError("servant method 'opStringTuple1' not implemented")
+        def opStringList2(self, s1, current=None):
+            raise NotImplementedError("servant method 'opStringList2' not implemented")
 
-    def opStringTuple2(self, s1, current=None):
-        raise NotImplementedError("servant method 'opStringTuple2' not implemented")
+        def opStringTuple1(self, s1, current=None):
+            raise NotImplementedError("servant method 'opStringTuple1' not implemented")
 
-    def sendS(self, val, current=None):
-        raise NotImplementedError("servant method 'sendS' not implemented")
+        def opStringTuple2(self, s1, current=None):
+            raise NotImplementedError("servant method 'opStringTuple2' not implemented")
 
-    def sendC(self, val, current=None):
-        raise NotImplementedError("servant method 'sendC' not implemented")
+        def sendS(self, val, current=None):
+            raise NotImplementedError("servant method 'sendS' not implemented")
 
-    def opBoolSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opBoolSeq' not implemented")
+        def sendC(self, val, current=None):
+            raise NotImplementedError("servant method 'sendC' not implemented")
 
-    def opByteSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opByteSeq' not implemented")
+        def opBoolSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opBoolSeq' not implemented")
 
-    def opShortSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opShortSeq' not implemented")
+        def opByteSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opByteSeq' not implemented")
 
-    def opIntSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opIntSeq' not implemented")
+        def opShortSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opShortSeq' not implemented")
 
-    def opLongSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opLongSeq' not implemented")
+        def opIntSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opIntSeq' not implemented")
 
-    def opFloatSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opFloatSeq' not implemented")
+        def opLongSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opLongSeq' not implemented")
 
-    def opDoubleSeq(self, v1, current=None):
-        raise NotImplementedError("servant method 'opDoubleSeq' not implemented")
+        def opFloatSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opFloatSeq' not implemented")
 
-    def opBogusArrayNotExistsFactory(self, current=None):
-        raise NotImplementedError("servant method 'opBogusArrayNotExistsFactory' not implemented")
+        def opDoubleSeq(self, v1, current=None):
+            raise NotImplementedError("servant method 'opDoubleSeq' not implemented")
 
-    def opBogusArrayThrowFactory(self, current=None):
-        raise NotImplementedError("servant method 'opBogusArrayThrowFactory' not implemented")
+        def opBogusArrayNotExistsFactory(self, current=None):
+            raise NotImplementedError("servant method 'opBogusArrayNotExistsFactory' not implemented")
 
-    def opBogusArrayType(self, current=None):
-        raise NotImplementedError("servant method 'opBogusArrayType' not implemented")
+        def opBogusArrayThrowFactory(self, current=None):
+            raise NotImplementedError("servant method 'opBogusArrayThrowFactory' not implemented")
 
-    def opBogusArrayNoneFactory(self, current=None):
-        raise NotImplementedError("servant method 'opBogusArrayNoneFactory' not implemented")
+        def opBogusArrayType(self, current=None):
+            raise NotImplementedError("servant method 'opBogusArrayType' not implemented")
 
-    def opBogusArraySignatureFactory(self, current=None):
-        raise NotImplementedError("servant method 'opBogusArraySignatureFactory' not implemented")
+        def opBogusArrayNoneFactory(self, current=None):
+            raise NotImplementedError("servant method 'opBogusArrayNoneFactory' not implemented")
 
-    def opBogusArrayNoCallableFactory(self, current=None):
-        raise NotImplementedError("servant method 'opBogusArrayNoCallableFactory' not implemented")
+        def opBogusArraySignatureFactory(self, current=None):
+            raise NotImplementedError("servant method 'opBogusArraySignatureFactory' not implemented")
 
-    def opD(self, d, current=None):
-        raise NotImplementedError("servant method 'opD' not implemented")
+        def opBogusArrayNoCallableFactory(self, current=None):
+            raise NotImplementedError("servant method 'opBogusArrayNoCallableFactory' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def opD(self, d, current=None):
+            raise NotImplementedError("servant method 'opD' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_CustomDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_CustomDisp)
 
-_M_Test._t_CustomDisp = IcePy.defineClass('::Test::Custom', Custom, (), None, ())
-Custom._ice_type = _M_Test._t_CustomDisp
+        __repr__ = __str__
 
-Custom._op_opByteString1 = IcePy.Operation('opByteString1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteString, False, 0),), (((), _M_Test._t_ByteString, False, 0),), ((), _M_Test._t_ByteString, False, 0), ())
-Custom._op_opByteString2 = IcePy.Operation('opByteString2', Ice.OperationMode.Normal, False, None, ('python:seq:tuple',), ((('python:seq:list',), _M_Test._t_ByteString, False, 0),), ((('python:seq:list',), _M_Test._t_ByteString, False, 0),), ((), _M_Test._t_ByteString, False, 0), ())
-Custom._op_opByteList1 = IcePy.Operation('opByteList1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteList, False, 0),), (((), _M_Test._t_ByteList, False, 0),), ((), _M_Test._t_ByteList, False, 0), ())
-Custom._op_opByteList2 = IcePy.Operation('opByteList2', Ice.OperationMode.Normal, False, None, ('python:seq:default',), ((('python:seq:tuple',), _M_Test._t_ByteList, False, 0),), ((('python:seq:tuple',), _M_Test._t_ByteList, False, 0),), ((), _M_Test._t_ByteList, False, 0), ())
-Custom._op_opStringList1 = IcePy.Operation('opStringList1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringList, False, 0),), (((), _M_Test._t_StringList, False, 0),), ((), _M_Test._t_StringList, False, 0), ())
-Custom._op_opStringList2 = IcePy.Operation('opStringList2', Ice.OperationMode.Normal, False, None, ('python:seq:tuple',), ((('python:seq:tuple',), _M_Test._t_StringList, False, 0),), ((('python:seq:tuple',), _M_Test._t_StringList, False, 0),), ((), _M_Test._t_StringList, False, 0), ())
-Custom._op_opStringTuple1 = IcePy.Operation('opStringTuple1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringTuple, False, 0),), (((), _M_Test._t_StringTuple, False, 0),), ((), _M_Test._t_StringTuple, False, 0), ())
-Custom._op_opStringTuple2 = IcePy.Operation('opStringTuple2', Ice.OperationMode.Normal, False, None, ('python:seq:list',), ((('python:seq:list',), _M_Test._t_StringTuple, False, 0),), ((('python:seq:default',), _M_Test._t_StringTuple, False, 0),), ((), _M_Test._t_StringTuple, False, 0), ())
-Custom._op_sendS = IcePy.Operation('sendS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S, False, 0),), (), None, ())
-Custom._op_sendC = IcePy.Operation('sendC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C, False, 0),), (), None, ())
-Custom._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq1, False, 0),), (((), _M_Test._t_BoolSeq2, False, 0),), ((), _M_Test._t_BoolSeq1, False, 0), ())
-Custom._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq1, False, 0),), (((), _M_Test._t_ByteSeq2, False, 0),), ((), _M_Test._t_ByteSeq1, False, 0), ())
-Custom._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq1, False, 0),), (((), _M_Test._t_ShortSeq2, False, 0),), ((), _M_Test._t_ShortSeq1, False, 0), ())
-Custom._op_opIntSeq = IcePy.Operation('opIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntSeq1, False, 0),), (((), _M_Test._t_IntSeq2, False, 0),), ((), _M_Test._t_IntSeq1, False, 0), ())
-Custom._op_opLongSeq = IcePy.Operation('opLongSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongSeq1, False, 0),), (((), _M_Test._t_LongSeq2, False, 0),), ((), _M_Test._t_LongSeq1, False, 0), ())
-Custom._op_opFloatSeq = IcePy.Operation('opFloatSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatSeq1, False, 0),), (((), _M_Test._t_FloatSeq2, False, 0),), ((), _M_Test._t_FloatSeq1, False, 0), ())
-Custom._op_opDoubleSeq = IcePy.Operation('opDoubleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleSeq1, False, 0),), (((), _M_Test._t_DoubleSeq2, False, 0),), ((), _M_Test._t_DoubleSeq1, False, 0), ())
-Custom._op_opBogusArrayNotExistsFactory = IcePy.Operation('opBogusArrayNotExistsFactory', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myBogusArrayNotExistsFactory',), (), (), ((), _M_Test._t_BoolSeq1, False, 0), ())
-Custom._op_opBogusArrayThrowFactory = IcePy.Operation('opBogusArrayThrowFactory', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myBogusArrayThrowFactory',), (), (), ((), _M_Test._t_BoolSeq1, False, 0), ())
-Custom._op_opBogusArrayType = IcePy.Operation('opBogusArrayType', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myBogusArrayType',), (), (), ((), _M_Test._t_BoolSeq1, False, 0), ())
-Custom._op_opBogusArrayNoneFactory = IcePy.Operation('opBogusArrayNoneFactory', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myBogusArrayNoneFactory',), (), (), ((), _M_Test._t_BoolSeq1, False, 0), ())
-Custom._op_opBogusArraySignatureFactory = IcePy.Operation('opBogusArraySignatureFactory', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myBogusArraySignatureFactory',), (), (), ((), _M_Test._t_BoolSeq1, False, 0), ())
-Custom._op_opBogusArrayNoCallableFactory = IcePy.Operation('opBogusArrayNoCallableFactory', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNoCallableFactory',), (), (), ((), _M_Test._t_BoolSeq1, False, 0), ())
-Custom._op_opD = IcePy.Operation('opD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_D, False, 0),), (), ((), _M_Test._t_D, False, 0), ())
-Custom._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_CustomDisp = IcePy.defineClass('::Test::Custom', Custom, (), None, ())
+    Custom._ice_type = _M_Test._t_CustomDisp
 
-_M_Test.Custom = Custom
-del Custom
+    Custom._op_opByteString1 = IcePy.Operation('opByteString1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteString, False, 0),), (((), _M_Test._t_ByteString, False, 0),), ((), _M_Test._t_ByteString, False, 0), ())
+    Custom._op_opByteString2 = IcePy.Operation('opByteString2', Ice.OperationMode.Normal, False, None, ('python:seq:tuple',), ((('python:seq:list',), _M_Test._t_ByteString, False, 0),), ((('python:seq:list',), _M_Test._t_ByteString, False, 0),), ((), _M_Test._t_ByteString, False, 0), ())
+    Custom._op_opByteList1 = IcePy.Operation('opByteList1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteList, False, 0),), (((), _M_Test._t_ByteList, False, 0),), ((), _M_Test._t_ByteList, False, 0), ())
+    Custom._op_opByteList2 = IcePy.Operation('opByteList2', Ice.OperationMode.Normal, False, None, ('python:seq:default',), ((('python:seq:tuple',), _M_Test._t_ByteList, False, 0),), ((('python:seq:tuple',), _M_Test._t_ByteList, False, 0),), ((), _M_Test._t_ByteList, False, 0), ())
+    Custom._op_opStringList1 = IcePy.Operation('opStringList1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringList, False, 0),), (((), _M_Test._t_StringList, False, 0),), ((), _M_Test._t_StringList, False, 0), ())
+    Custom._op_opStringList2 = IcePy.Operation('opStringList2', Ice.OperationMode.Normal, False, None, ('python:seq:tuple',), ((('python:seq:tuple',), _M_Test._t_StringList, False, 0),), ((('python:seq:tuple',), _M_Test._t_StringList, False, 0),), ((), _M_Test._t_StringList, False, 0), ())
+    Custom._op_opStringTuple1 = IcePy.Operation('opStringTuple1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringTuple, False, 0),), (((), _M_Test._t_StringTuple, False, 0),), ((), _M_Test._t_StringTuple, False, 0), ())
+    Custom._op_opStringTuple2 = IcePy.Operation('opStringTuple2', Ice.OperationMode.Normal, False, None, ('python:seq:list',), ((('python:seq:list',), _M_Test._t_StringTuple, False, 0),), ((('python:seq:default',), _M_Test._t_StringTuple, False, 0),), ((), _M_Test._t_StringTuple, False, 0), ())
+    Custom._op_sendS = IcePy.Operation('sendS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S, False, 0),), (), None, ())
+    Custom._op_sendC = IcePy.Operation('sendC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C, False, 0),), (), None, ())
+    Custom._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq1, False, 0),), (((), _M_Test._t_BoolSeq2, False, 0),), ((), _M_Test._t_BoolSeq1, False, 0), ())
+    Custom._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq1, False, 0),), (((), _M_Test._t_ByteSeq2, False, 0),), ((), _M_Test._t_ByteSeq1, False, 0), ())
+    Custom._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq1, False, 0),), (((), _M_Test._t_ShortSeq2, False, 0),), ((), _M_Test._t_ShortSeq1, False, 0), ())
+    Custom._op_opIntSeq = IcePy.Operation('opIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntSeq1, False, 0),), (((), _M_Test._t_IntSeq2, False, 0),), ((), _M_Test._t_IntSeq1, False, 0), ())
+    Custom._op_opLongSeq = IcePy.Operation('opLongSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongSeq1, False, 0),), (((), _M_Test._t_LongSeq2, False, 0),), ((), _M_Test._t_LongSeq1, False, 0), ())
+    Custom._op_opFloatSeq = IcePy.Operation('opFloatSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatSeq1, False, 0),), (((), _M_Test._t_FloatSeq2, False, 0),), ((), _M_Test._t_FloatSeq1, False, 0), ())
+    Custom._op_opDoubleSeq = IcePy.Operation('opDoubleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleSeq1, False, 0),), (((), _M_Test._t_DoubleSeq2, False, 0),), ((), _M_Test._t_DoubleSeq1, False, 0), ())
+    Custom._op_opBogusArrayNotExistsFactory = IcePy.Operation('opBogusArrayNotExistsFactory', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myBogusArrayNotExistsFactory',), (), (), ((), _M_Test._t_BoolSeq1, False, 0), ())
+    Custom._op_opBogusArrayThrowFactory = IcePy.Operation('opBogusArrayThrowFactory', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myBogusArrayThrowFactory',), (), (), ((), _M_Test._t_BoolSeq1, False, 0), ())
+    Custom._op_opBogusArrayType = IcePy.Operation('opBogusArrayType', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myBogusArrayType',), (), (), ((), _M_Test._t_BoolSeq1, False, 0), ())
+    Custom._op_opBogusArrayNoneFactory = IcePy.Operation('opBogusArrayNoneFactory', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myBogusArrayNoneFactory',), (), (), ((), _M_Test._t_BoolSeq1, False, 0), ())
+    Custom._op_opBogusArraySignatureFactory = IcePy.Operation('opBogusArraySignatureFactory', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myBogusArraySignatureFactory',), (), (), ((), _M_Test._t_BoolSeq1, False, 0), ())
+    Custom._op_opBogusArrayNoCallableFactory = IcePy.Operation('opBogusArrayNoCallableFactory', Ice.OperationMode.Normal, False, None, ('python:memoryview:Custom.myNoCallableFactory',), (), (), ((), _M_Test._t_BoolSeq1, False, 0), ())
+    Custom._op_opD = IcePy.Operation('opD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_D, False, 0),), (), ((), _M_Test._t_D, False, 0), ())
+    Custom._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.Custom = Custom
+    del Custom
 
 # End of module Test

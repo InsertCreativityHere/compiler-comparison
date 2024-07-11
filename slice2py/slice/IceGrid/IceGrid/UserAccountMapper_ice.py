@@ -21,108 +21,112 @@ import builtins as _builtins
 # Start of module IceGrid
 _M_IceGrid = Ice.openModule('IceGrid')
 __name__ = 'IceGrid'
-_M_IceGrid.UserAccountNotFoundException = None
-class UserAccountNotFoundException(Ice.UserException):
-    """
-     This exception is raised if a user account for a given session identifier can't be found.
-    """
-    def __init__(self):
-        pass
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+if 'UserAccountNotFoundException' not in _M_IceGrid.__dict__:
+    _M_IceGrid.UserAccountNotFoundException = None
+    class UserAccountNotFoundException(Ice.UserException):
+        """
+         This exception is raised if a user account for a given session identifier can't be found.
+        """
+        def __init__(self):
+            pass
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    _ice_id = '::IceGrid::UserAccountNotFoundException'
+        __repr__ = __str__
 
-_M_IceGrid._t_UserAccountNotFoundException = IcePy.defineException('::IceGrid::UserAccountNotFoundException', UserAccountNotFoundException, (), None, ())
-UserAccountNotFoundException._ice_type = _M_IceGrid._t_UserAccountNotFoundException
+        _ice_id = '::IceGrid::UserAccountNotFoundException'
 
-_M_IceGrid.UserAccountNotFoundException = UserAccountNotFoundException
-del UserAccountNotFoundException
+    _M_IceGrid._t_UserAccountNotFoundException = IcePy.defineException('::IceGrid::UserAccountNotFoundException', UserAccountNotFoundException, (), None, ())
+    UserAccountNotFoundException._ice_type = _M_IceGrid._t_UserAccountNotFoundException
+
+    _M_IceGrid.UserAccountNotFoundException = UserAccountNotFoundException
+    del UserAccountNotFoundException
 
 _M_IceGrid._t_UserAccountMapper = IcePy.defineValue('::IceGrid::UserAccountMapper', Ice.Value, -1, (), True, None, ())
-_M_IceGrid.UserAccountMapperPrx = None
-class UserAccountMapperPrx(Ice.ObjectPrx):
 
-    """
-     Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
-     account to use to run servers.
-    Arguments:
-    user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
-    context -- The request context for the invocation.
-    Returns: The user account name.
-    Throws:
-    UserAccountNotFoundException -- Raised if no user account is found for the given user.
-    """
-    def getUserAccount(self, user, context=None):
-        return _M_IceGrid.UserAccountMapper._op_getUserAccount.invoke(self, ((user, ), context))
+if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.UserAccountMapperPrx = None
+    class UserAccountMapperPrx(Ice.ObjectPrx):
 
-    """
-     Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
-     account to use to run servers.
-    Arguments:
-    user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getUserAccountAsync(self, user, context=None):
-        return _M_IceGrid.UserAccountMapper._op_getUserAccount.invokeAsync(self, ((user, ), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_IceGrid.UserAccountMapperPrx.ice_checkedCast(proxy, '::IceGrid::UserAccountMapper', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_IceGrid.UserAccountMapperPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceGrid::UserAccountMapper'
-_M_IceGrid._t_UserAccountMapperPrx = IcePy.defineProxy('::IceGrid::UserAccountMapper', UserAccountMapperPrx)
-
-_M_IceGrid.UserAccountMapperPrx = UserAccountMapperPrx
-del UserAccountMapperPrx
-
-_M_IceGrid.UserAccountMapper = None
-class UserAccountMapper(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::IceGrid::UserAccountMapper')
-
-    def ice_id(self, current=None):
-        return '::IceGrid::UserAccountMapper'
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceGrid::UserAccountMapper'
-
-    def getUserAccount(self, user, current=None):
         """
          Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
          account to use to run servers.
         Arguments:
         user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The user account name.
         Throws:
         UserAccountNotFoundException -- Raised if no user account is found for the given user.
         """
-        raise NotImplementedError("servant method 'getUserAccount' not implemented")
+        def getUserAccount(self, user, context=None):
+            return _M_IceGrid.UserAccountMapper._op_getUserAccount.invoke(self, ((user, ), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceGrid._t_UserAccountMapperDisp)
+        """
+         Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+         account to use to run servers.
+        Arguments:
+        user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def getUserAccountAsync(self, user, context=None):
+            return _M_IceGrid.UserAccountMapper._op_getUserAccount.invokeAsync(self, ((user, ), context))
 
-    __repr__ = __str__
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.UserAccountMapperPrx.ice_checkedCast(proxy, '::IceGrid::UserAccountMapper', facetOrContext, context)
 
-_M_IceGrid._t_UserAccountMapperDisp = IcePy.defineClass('::IceGrid::UserAccountMapper', UserAccountMapper, (), None, ())
-UserAccountMapper._ice_type = _M_IceGrid._t_UserAccountMapperDisp
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.UserAccountMapperPrx.ice_uncheckedCast(proxy, facet)
 
-UserAccountMapper._op_getUserAccount = IcePy.Operation('getUserAccount', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_IceGrid._t_UserAccountNotFoundException,))
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::UserAccountMapper'
+    _M_IceGrid._t_UserAccountMapperPrx = IcePy.defineProxy('::IceGrid::UserAccountMapper', UserAccountMapperPrx)
 
-_M_IceGrid.UserAccountMapper = UserAccountMapper
-del UserAccountMapper
+    _M_IceGrid.UserAccountMapperPrx = UserAccountMapperPrx
+    del UserAccountMapperPrx
+
+    _M_IceGrid.UserAccountMapper = None
+    class UserAccountMapper(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::UserAccountMapper')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::UserAccountMapper'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::UserAccountMapper'
+
+        def getUserAccount(self, user, current=None):
+            """
+             Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+             account to use to run servers.
+            Arguments:
+            user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            UserAccountNotFoundException -- Raised if no user account is found for the given user.
+            """
+            raise NotImplementedError("servant method 'getUserAccount' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_UserAccountMapperDisp)
+
+        __repr__ = __str__
+
+    _M_IceGrid._t_UserAccountMapperDisp = IcePy.defineClass('::IceGrid::UserAccountMapper', UserAccountMapper, (), None, ())
+    UserAccountMapper._ice_type = _M_IceGrid._t_UserAccountMapperDisp
+
+    UserAccountMapper._op_getUserAccount = IcePy.Operation('getUserAccount', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_IceGrid._t_UserAccountNotFoundException,))
+
+    _M_IceGrid.UserAccountMapper = UserAccountMapper
+    del UserAccountMapper
 
 # End of module IceGrid

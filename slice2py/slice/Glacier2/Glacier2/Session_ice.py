@@ -29,727 +29,741 @@ _M_Glacier2 = Ice.openModule('Glacier2')
 
 # Start of module Glacier2
 __name__ = 'Glacier2'
-_M_Glacier2.CannotCreateSessionException = None
-class CannotCreateSessionException(Ice.UserException):
-    """
-     This exception is raised if an attempt to create a new session failed.
-    Members:
-    reason --  The reason why session creation has failed.
-    """
-    def __init__(self, reason=''):
-        self.reason = reason
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+if 'CannotCreateSessionException' not in _M_Glacier2.__dict__:
+    _M_Glacier2.CannotCreateSessionException = None
+    class CannotCreateSessionException(Ice.UserException):
+        """
+         This exception is raised if an attempt to create a new session failed.
+        Members:
+        reason --  The reason why session creation has failed.
+        """
+        def __init__(self, reason=''):
+            self.reason = reason
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    _ice_id = '::Glacier2::CannotCreateSessionException'
+        __repr__ = __str__
 
-_M_Glacier2._t_CannotCreateSessionException = IcePy.defineException('::Glacier2::CannotCreateSessionException', CannotCreateSessionException, (), None, (('reason', (), IcePy._t_string, False, 0),))
-CannotCreateSessionException._ice_type = _M_Glacier2._t_CannotCreateSessionException
+        _ice_id = '::Glacier2::CannotCreateSessionException'
 
-_M_Glacier2.CannotCreateSessionException = CannotCreateSessionException
-del CannotCreateSessionException
+    _M_Glacier2._t_CannotCreateSessionException = IcePy.defineException('::Glacier2::CannotCreateSessionException', CannotCreateSessionException, (), None, (('reason', (), IcePy._t_string, False, 0),))
+    CannotCreateSessionException._ice_type = _M_Glacier2._t_CannotCreateSessionException
+
+    _M_Glacier2.CannotCreateSessionException = CannotCreateSessionException
+    del CannotCreateSessionException
 
 _M_Glacier2._t_Session = IcePy.defineValue('::Glacier2::Session', Ice.Value, -1, (), True, None, ())
-_M_Glacier2.SessionPrx = None
-class SessionPrx(Ice.ObjectPrx):
 
-    """
-     Destroy the session. This is called automatically when the router is destroyed.
-    Arguments:
-    context -- The request context for the invocation.
-    """
-    def destroy(self, context=None):
-        return _M_Glacier2.Session._op_destroy.invoke(self, ((), context))
+if 'SessionPrx' not in _M_Glacier2.__dict__:
+    _M_Glacier2.SessionPrx = None
+    class SessionPrx(Ice.ObjectPrx):
 
-    """
-     Destroy the session. This is called automatically when the router is destroyed.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def destroyAsync(self, context=None):
-        return _M_Glacier2.Session._op_destroy.invokeAsync(self, ((), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Glacier2.SessionPrx.ice_checkedCast(proxy, '::Glacier2::Session', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Glacier2.SessionPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::Session'
-_M_Glacier2._t_SessionPrx = IcePy.defineProxy('::Glacier2::Session', SessionPrx)
-
-_M_Glacier2.SessionPrx = SessionPrx
-del SessionPrx
-
-_M_Glacier2.Session = None
-class Session(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Glacier2::Session', '::Ice::Object')
-
-    def ice_id(self, current=None):
-        return '::Glacier2::Session'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::Session'
-
-    def destroy(self, current=None):
         """
          Destroy the session. This is called automatically when the router is destroyed.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        """
+        def destroy(self, context=None):
+            return _M_Glacier2.Session._op_destroy.invoke(self, ((), context))
+
+        """
+         Destroy the session. This is called automatically when the router is destroyed.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'destroy' not implemented")
+        def destroyAsync(self, context=None):
+            return _M_Glacier2.Session._op_destroy.invokeAsync(self, ((), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Glacier2._t_SessionDisp)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Glacier2.SessionPrx.ice_checkedCast(proxy, '::Glacier2::Session', facetOrContext, context)
 
-    __repr__ = __str__
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Glacier2.SessionPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Glacier2._t_SessionDisp = IcePy.defineClass('::Glacier2::Session', Session, (), None, ())
-Session._ice_type = _M_Glacier2._t_SessionDisp
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::Session'
+    _M_Glacier2._t_SessionPrx = IcePy.defineProxy('::Glacier2::Session', SessionPrx)
 
-Session._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Glacier2.SessionPrx = SessionPrx
+    del SessionPrx
 
-_M_Glacier2.Session = Session
-del Session
+    _M_Glacier2.Session = None
+    class Session(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Glacier2::Session', '::Ice::Object')
+
+        def ice_id(self, current=None):
+            return '::Glacier2::Session'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::Session'
+
+        def destroy(self, current=None):
+            """
+             Destroy the session. This is called automatically when the router is destroyed.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'destroy' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Glacier2._t_SessionDisp)
+
+        __repr__ = __str__
+
+    _M_Glacier2._t_SessionDisp = IcePy.defineClass('::Glacier2::Session', Session, (), None, ())
+    Session._ice_type = _M_Glacier2._t_SessionDisp
+
+    Session._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Glacier2.Session = Session
+    del Session
 
 _M_Glacier2._t_StringSet = IcePy.defineValue('::Glacier2::StringSet', Ice.Value, -1, (), True, None, ())
-_M_Glacier2.StringSetPrx = None
-class StringSetPrx(Ice.ObjectPrx):
 
-    """
-     Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
-     removed.
-    Arguments:
-    additions -- The sequence of strings to be added.
-    context -- The request context for the invocation.
-    """
-    def add(self, additions, context=None):
-        return _M_Glacier2.StringSet._op_add.invoke(self, ((additions, ), context))
+if 'StringSetPrx' not in _M_Glacier2.__dict__:
+    _M_Glacier2.StringSetPrx = None
+    class StringSetPrx(Ice.ObjectPrx):
 
-    """
-     Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
-     removed.
-    Arguments:
-    additions -- The sequence of strings to be added.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def addAsync(self, additions, context=None):
-        return _M_Glacier2.StringSet._op_add.invokeAsync(self, ((additions, ), context))
-
-    """
-     Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
-    Arguments:
-    deletions -- The sequence of strings to be removed.
-    context -- The request context for the invocation.
-    """
-    def remove(self, deletions, context=None):
-        return _M_Glacier2.StringSet._op_remove.invoke(self, ((deletions, ), context))
-
-    """
-     Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
-    Arguments:
-    deletions -- The sequence of strings to be removed.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def removeAsync(self, deletions, context=None):
-        return _M_Glacier2.StringSet._op_remove.invokeAsync(self, ((deletions, ), context))
-
-    """
-     Returns a sequence of strings describing the constraints in this set.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: The sequence of strings for this set.
-    """
-    def get(self, context=None):
-        return _M_Glacier2.StringSet._op_get.invoke(self, ((), context))
-
-    """
-     Returns a sequence of strings describing the constraints in this set.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getAsync(self, context=None):
-        return _M_Glacier2.StringSet._op_get.invokeAsync(self, ((), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Glacier2.StringSetPrx.ice_checkedCast(proxy, '::Glacier2::StringSet', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Glacier2.StringSetPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::StringSet'
-_M_Glacier2._t_StringSetPrx = IcePy.defineProxy('::Glacier2::StringSet', StringSetPrx)
-
-_M_Glacier2.StringSetPrx = StringSetPrx
-del StringSetPrx
-
-_M_Glacier2.StringSet = None
-class StringSet(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Glacier2::StringSet', '::Ice::Object')
-
-    def ice_id(self, current=None):
-        return '::Glacier2::StringSet'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::StringSet'
-
-    def add(self, additions, current=None):
         """
          Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
          removed.
         Arguments:
         additions -- The sequence of strings to be added.
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        """
+        def add(self, additions, context=None):
+            return _M_Glacier2.StringSet._op_add.invoke(self, ((additions, ), context))
+
+        """
+         Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+         removed.
+        Arguments:
+        additions -- The sequence of strings to be added.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'add' not implemented")
+        def addAsync(self, additions, context=None):
+            return _M_Glacier2.StringSet._op_add.invokeAsync(self, ((additions, ), context))
 
-    def remove(self, deletions, current=None):
         """
          Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
         Arguments:
         deletions -- The sequence of strings to be removed.
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        """
+        def remove(self, deletions, context=None):
+            return _M_Glacier2.StringSet._op_remove.invoke(self, ((deletions, ), context))
+
+        """
+         Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
+        Arguments:
+        deletions -- The sequence of strings to be removed.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'remove' not implemented")
+        def removeAsync(self, deletions, context=None):
+            return _M_Glacier2.StringSet._op_remove.invokeAsync(self, ((deletions, ), context))
 
-    def get(self, current=None):
         """
          Returns a sequence of strings describing the constraints in this set.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The sequence of strings for this set.
+        """
+        def get(self, context=None):
+            return _M_Glacier2.StringSet._op_get.invoke(self, ((), context))
+
+        """
+         Returns a sequence of strings describing the constraints in this set.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'get' not implemented")
+        def getAsync(self, context=None):
+            return _M_Glacier2.StringSet._op_get.invokeAsync(self, ((), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Glacier2._t_StringSetDisp)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Glacier2.StringSetPrx.ice_checkedCast(proxy, '::Glacier2::StringSet', facetOrContext, context)
 
-    __repr__ = __str__
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Glacier2.StringSetPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Glacier2._t_StringSetDisp = IcePy.defineClass('::Glacier2::StringSet', StringSet, (), None, ())
-StringSet._ice_type = _M_Glacier2._t_StringSetDisp
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::StringSet'
+    _M_Glacier2._t_StringSetPrx = IcePy.defineProxy('::Glacier2::StringSet', StringSetPrx)
 
-StringSet._op_add = IcePy.Operation('add', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
-StringSet._op_remove = IcePy.Operation('remove', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
-StringSet._op_get = IcePy.Operation('get', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
+    _M_Glacier2.StringSetPrx = StringSetPrx
+    del StringSetPrx
 
-_M_Glacier2.StringSet = StringSet
-del StringSet
+    _M_Glacier2.StringSet = None
+    class StringSet(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Glacier2::StringSet', '::Ice::Object')
+
+        def ice_id(self, current=None):
+            return '::Glacier2::StringSet'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::StringSet'
+
+        def add(self, additions, current=None):
+            """
+             Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+             removed.
+            Arguments:
+            additions -- The sequence of strings to be added.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'add' not implemented")
+
+        def remove(self, deletions, current=None):
+            """
+             Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
+            Arguments:
+            deletions -- The sequence of strings to be removed.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'remove' not implemented")
+
+        def get(self, current=None):
+            """
+             Returns a sequence of strings describing the constraints in this set.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'get' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Glacier2._t_StringSetDisp)
+
+        __repr__ = __str__
+
+    _M_Glacier2._t_StringSetDisp = IcePy.defineClass('::Glacier2::StringSet', StringSet, (), None, ())
+    StringSet._ice_type = _M_Glacier2._t_StringSetDisp
+
+    StringSet._op_add = IcePy.Operation('add', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
+    StringSet._op_remove = IcePy.Operation('remove', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
+    StringSet._op_get = IcePy.Operation('get', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
+
+    _M_Glacier2.StringSet = StringSet
+    del StringSet
 
 _M_Glacier2._t_IdentitySet = IcePy.defineValue('::Glacier2::IdentitySet', Ice.Value, -1, (), True, None, ())
-_M_Glacier2.IdentitySetPrx = None
-class IdentitySetPrx(Ice.ObjectPrx):
 
-    """
-     Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
-     implicitly removed.
-    Arguments:
-    additions -- The sequence of Ice identities to be added.
-    context -- The request context for the invocation.
-    """
-    def add(self, additions, context=None):
-        return _M_Glacier2.IdentitySet._op_add.invoke(self, ((additions, ), context))
+if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
+    _M_Glacier2.IdentitySetPrx = None
+    class IdentitySetPrx(Ice.ObjectPrx):
 
-    """
-     Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
-     implicitly removed.
-    Arguments:
-    additions -- The sequence of Ice identities to be added.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def addAsync(self, additions, context=None):
-        return _M_Glacier2.IdentitySet._op_add.invokeAsync(self, ((additions, ), context))
-
-    """
-     Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
-     found.
-    Arguments:
-    deletions -- The sequence of Ice identities to be removed.
-    context -- The request context for the invocation.
-    """
-    def remove(self, deletions, context=None):
-        return _M_Glacier2.IdentitySet._op_remove.invoke(self, ((deletions, ), context))
-
-    """
-     Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
-     found.
-    Arguments:
-    deletions -- The sequence of Ice identities to be removed.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def removeAsync(self, deletions, context=None):
-        return _M_Glacier2.IdentitySet._op_remove.invokeAsync(self, ((deletions, ), context))
-
-    """
-     Returns a sequence of identities describing the constraints in this set.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: The sequence of Ice identities for this set.
-    """
-    def get(self, context=None):
-        return _M_Glacier2.IdentitySet._op_get.invoke(self, ((), context))
-
-    """
-     Returns a sequence of identities describing the constraints in this set.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getAsync(self, context=None):
-        return _M_Glacier2.IdentitySet._op_get.invokeAsync(self, ((), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Glacier2.IdentitySetPrx.ice_checkedCast(proxy, '::Glacier2::IdentitySet', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Glacier2.IdentitySetPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::IdentitySet'
-_M_Glacier2._t_IdentitySetPrx = IcePy.defineProxy('::Glacier2::IdentitySet', IdentitySetPrx)
-
-_M_Glacier2.IdentitySetPrx = IdentitySetPrx
-del IdentitySetPrx
-
-_M_Glacier2.IdentitySet = None
-class IdentitySet(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Glacier2::IdentitySet', '::Ice::Object')
-
-    def ice_id(self, current=None):
-        return '::Glacier2::IdentitySet'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::IdentitySet'
-
-    def add(self, additions, current=None):
         """
          Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
          implicitly removed.
         Arguments:
         additions -- The sequence of Ice identities to be added.
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        """
+        def add(self, additions, context=None):
+            return _M_Glacier2.IdentitySet._op_add.invoke(self, ((additions, ), context))
+
+        """
+         Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+         implicitly removed.
+        Arguments:
+        additions -- The sequence of Ice identities to be added.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'add' not implemented")
+        def addAsync(self, additions, context=None):
+            return _M_Glacier2.IdentitySet._op_add.invokeAsync(self, ((additions, ), context))
 
-    def remove(self, deletions, current=None):
         """
          Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
          found.
         Arguments:
         deletions -- The sequence of Ice identities to be removed.
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        """
+        def remove(self, deletions, context=None):
+            return _M_Glacier2.IdentitySet._op_remove.invoke(self, ((deletions, ), context))
+
+        """
+         Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+         found.
+        Arguments:
+        deletions -- The sequence of Ice identities to be removed.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'remove' not implemented")
+        def removeAsync(self, deletions, context=None):
+            return _M_Glacier2.IdentitySet._op_remove.invokeAsync(self, ((deletions, ), context))
 
-    def get(self, current=None):
         """
          Returns a sequence of identities describing the constraints in this set.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The sequence of Ice identities for this set.
+        """
+        def get(self, context=None):
+            return _M_Glacier2.IdentitySet._op_get.invoke(self, ((), context))
+
+        """
+         Returns a sequence of identities describing the constraints in this set.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'get' not implemented")
+        def getAsync(self, context=None):
+            return _M_Glacier2.IdentitySet._op_get.invokeAsync(self, ((), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Glacier2._t_IdentitySetDisp)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Glacier2.IdentitySetPrx.ice_checkedCast(proxy, '::Glacier2::IdentitySet', facetOrContext, context)
 
-    __repr__ = __str__
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Glacier2.IdentitySetPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Glacier2._t_IdentitySetDisp = IcePy.defineClass('::Glacier2::IdentitySet', IdentitySet, (), None, ())
-IdentitySet._ice_type = _M_Glacier2._t_IdentitySetDisp
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::IdentitySet'
+    _M_Glacier2._t_IdentitySetPrx = IcePy.defineProxy('::Glacier2::IdentitySet', IdentitySetPrx)
 
-IdentitySet._op_add = IcePy.Operation('add', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, ())
-IdentitySet._op_remove = IcePy.Operation('remove', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, ())
-IdentitySet._op_get = IcePy.Operation('get', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_Ice._t_IdentitySeq, False, 0), ())
+    _M_Glacier2.IdentitySetPrx = IdentitySetPrx
+    del IdentitySetPrx
 
-_M_Glacier2.IdentitySet = IdentitySet
-del IdentitySet
+    _M_Glacier2.IdentitySet = None
+    class IdentitySet(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Glacier2::IdentitySet', '::Ice::Object')
+
+        def ice_id(self, current=None):
+            return '::Glacier2::IdentitySet'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::IdentitySet'
+
+        def add(self, additions, current=None):
+            """
+             Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+             implicitly removed.
+            Arguments:
+            additions -- The sequence of Ice identities to be added.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'add' not implemented")
+
+        def remove(self, deletions, current=None):
+            """
+             Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+             found.
+            Arguments:
+            deletions -- The sequence of Ice identities to be removed.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'remove' not implemented")
+
+        def get(self, current=None):
+            """
+             Returns a sequence of identities describing the constraints in this set.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'get' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Glacier2._t_IdentitySetDisp)
+
+        __repr__ = __str__
+
+    _M_Glacier2._t_IdentitySetDisp = IcePy.defineClass('::Glacier2::IdentitySet', IdentitySet, (), None, ())
+    IdentitySet._ice_type = _M_Glacier2._t_IdentitySetDisp
+
+    IdentitySet._op_add = IcePy.Operation('add', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, ())
+    IdentitySet._op_remove = IcePy.Operation('remove', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, ())
+    IdentitySet._op_get = IcePy.Operation('get', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_Ice._t_IdentitySeq, False, 0), ())
+
+    _M_Glacier2.IdentitySet = IdentitySet
+    del IdentitySet
 
 _M_Glacier2._t_SessionControl = IcePy.defineValue('::Glacier2::SessionControl', Ice.Value, -1, (), True, None, ())
-_M_Glacier2.SessionControlPrx = None
-class SessionControlPrx(Ice.ObjectPrx):
 
-    """
-     Access the object that manages the allowable categories for object identities for this session.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A StringSet object. The returned proxy is never null.
-    """
-    def categories(self, context=None):
-        return _M_Glacier2.SessionControl._op_categories.invoke(self, ((), context))
+if 'SessionControlPrx' not in _M_Glacier2.__dict__:
+    _M_Glacier2.SessionControlPrx = None
+    class SessionControlPrx(Ice.ObjectPrx):
 
-    """
-     Access the object that manages the allowable categories for object identities for this session.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def categoriesAsync(self, context=None):
-        return _M_Glacier2.SessionControl._op_categories.invokeAsync(self, ((), context))
-
-    """
-     Access the object that manages the allowable adapter identities for objects for this session.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A StringSet object. The returned proxy is never null.
-    """
-    def adapterIds(self, context=None):
-        return _M_Glacier2.SessionControl._op_adapterIds.invoke(self, ((), context))
-
-    """
-     Access the object that manages the allowable adapter identities for objects for this session.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def adapterIdsAsync(self, context=None):
-        return _M_Glacier2.SessionControl._op_adapterIds.invokeAsync(self, ((), context))
-
-    """
-     Access the object that manages the allowable object identities for this session.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: An IdentitySet object. The returned proxy is never null.
-    """
-    def identities(self, context=None):
-        return _M_Glacier2.SessionControl._op_identities.invoke(self, ((), context))
-
-    """
-     Access the object that manages the allowable object identities for this session.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def identitiesAsync(self, context=None):
-        return _M_Glacier2.SessionControl._op_identities.invokeAsync(self, ((), context))
-
-    """
-     Get the session timeout.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: The timeout.
-    """
-    def getSessionTimeout(self, context=None):
-        return _M_Glacier2.SessionControl._op_getSessionTimeout.invoke(self, ((), context))
-
-    """
-     Get the session timeout.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getSessionTimeoutAsync(self, context=None):
-        return _M_Glacier2.SessionControl._op_getSessionTimeout.invokeAsync(self, ((), context))
-
-    """
-     Destroy the associated session.
-    Arguments:
-    context -- The request context for the invocation.
-    """
-    def destroy(self, context=None):
-        return _M_Glacier2.SessionControl._op_destroy.invoke(self, ((), context))
-
-    """
-     Destroy the associated session.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def destroyAsync(self, context=None):
-        return _M_Glacier2.SessionControl._op_destroy.invokeAsync(self, ((), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Glacier2.SessionControlPrx.ice_checkedCast(proxy, '::Glacier2::SessionControl', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Glacier2.SessionControlPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::SessionControl'
-_M_Glacier2._t_SessionControlPrx = IcePy.defineProxy('::Glacier2::SessionControl', SessionControlPrx)
-
-_M_Glacier2.SessionControlPrx = SessionControlPrx
-del SessionControlPrx
-
-_M_Glacier2.SessionControl = None
-class SessionControl(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Glacier2::SessionControl', '::Ice::Object')
-
-    def ice_id(self, current=None):
-        return '::Glacier2::SessionControl'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::SessionControl'
-
-    def categories(self, current=None):
         """
          Access the object that manages the allowable categories for object identities for this session.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A StringSet object. The returned proxy is never null.
+        """
+        def categories(self, context=None):
+            return _M_Glacier2.SessionControl._op_categories.invoke(self, ((), context))
+
+        """
+         Access the object that manages the allowable categories for object identities for this session.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'categories' not implemented")
+        def categoriesAsync(self, context=None):
+            return _M_Glacier2.SessionControl._op_categories.invokeAsync(self, ((), context))
 
-    def adapterIds(self, current=None):
         """
          Access the object that manages the allowable adapter identities for objects for this session.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A StringSet object. The returned proxy is never null.
+        """
+        def adapterIds(self, context=None):
+            return _M_Glacier2.SessionControl._op_adapterIds.invoke(self, ((), context))
+
+        """
+         Access the object that manages the allowable adapter identities for objects for this session.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'adapterIds' not implemented")
+        def adapterIdsAsync(self, context=None):
+            return _M_Glacier2.SessionControl._op_adapterIds.invokeAsync(self, ((), context))
 
-    def identities(self, current=None):
         """
          Access the object that manages the allowable object identities for this session.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: An IdentitySet object. The returned proxy is never null.
+        """
+        def identities(self, context=None):
+            return _M_Glacier2.SessionControl._op_identities.invoke(self, ((), context))
+
+        """
+         Access the object that manages the allowable object identities for this session.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'identities' not implemented")
+        def identitiesAsync(self, context=None):
+            return _M_Glacier2.SessionControl._op_identities.invokeAsync(self, ((), context))
 
-    def getSessionTimeout(self, current=None):
         """
          Get the session timeout.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The timeout.
+        """
+        def getSessionTimeout(self, context=None):
+            return _M_Glacier2.SessionControl._op_getSessionTimeout.invoke(self, ((), context))
+
+        """
+         Get the session timeout.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getSessionTimeout' not implemented")
+        def getSessionTimeoutAsync(self, context=None):
+            return _M_Glacier2.SessionControl._op_getSessionTimeout.invokeAsync(self, ((), context))
 
-    def destroy(self, current=None):
         """
          Destroy the associated session.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        """
+        def destroy(self, context=None):
+            return _M_Glacier2.SessionControl._op_destroy.invoke(self, ((), context))
+
+        """
+         Destroy the associated session.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'destroy' not implemented")
+        def destroyAsync(self, context=None):
+            return _M_Glacier2.SessionControl._op_destroy.invokeAsync(self, ((), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Glacier2._t_SessionControlDisp)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Glacier2.SessionControlPrx.ice_checkedCast(proxy, '::Glacier2::SessionControl', facetOrContext, context)
 
-    __repr__ = __str__
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Glacier2.SessionControlPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Glacier2._t_SessionControlDisp = IcePy.defineClass('::Glacier2::SessionControl', SessionControl, (), None, ())
-SessionControl._ice_type = _M_Glacier2._t_SessionControlDisp
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::SessionControl'
+    _M_Glacier2._t_SessionControlPrx = IcePy.defineProxy('::Glacier2::SessionControl', SessionControlPrx)
 
-SessionControl._op_categories = IcePy.Operation('categories', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Glacier2._t_StringSetPrx, False, 0), ())
-SessionControl._op_adapterIds = IcePy.Operation('adapterIds', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Glacier2._t_StringSetPrx, False, 0), ())
-SessionControl._op_identities = IcePy.Operation('identities', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Glacier2._t_IdentitySetPrx, False, 0), ())
-SessionControl._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-SessionControl._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Glacier2.SessionControlPrx = SessionControlPrx
+    del SessionControlPrx
 
-_M_Glacier2.SessionControl = SessionControl
-del SessionControl
+    _M_Glacier2.SessionControl = None
+    class SessionControl(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Glacier2::SessionControl', '::Ice::Object')
+
+        def ice_id(self, current=None):
+            return '::Glacier2::SessionControl'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::SessionControl'
+
+        def categories(self, current=None):
+            """
+             Access the object that manages the allowable categories for object identities for this session.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'categories' not implemented")
+
+        def adapterIds(self, current=None):
+            """
+             Access the object that manages the allowable adapter identities for objects for this session.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'adapterIds' not implemented")
+
+        def identities(self, current=None):
+            """
+             Access the object that manages the allowable object identities for this session.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'identities' not implemented")
+
+        def getSessionTimeout(self, current=None):
+            """
+             Get the session timeout.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getSessionTimeout' not implemented")
+
+        def destroy(self, current=None):
+            """
+             Destroy the associated session.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'destroy' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Glacier2._t_SessionControlDisp)
+
+        __repr__ = __str__
+
+    _M_Glacier2._t_SessionControlDisp = IcePy.defineClass('::Glacier2::SessionControl', SessionControl, (), None, ())
+    SessionControl._ice_type = _M_Glacier2._t_SessionControlDisp
+
+    SessionControl._op_categories = IcePy.Operation('categories', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Glacier2._t_StringSetPrx, False, 0), ())
+    SessionControl._op_adapterIds = IcePy.Operation('adapterIds', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Glacier2._t_StringSetPrx, False, 0), ())
+    SessionControl._op_identities = IcePy.Operation('identities', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Glacier2._t_IdentitySetPrx, False, 0), ())
+    SessionControl._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    SessionControl._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Glacier2.SessionControl = SessionControl
+    del SessionControl
 
 _M_Glacier2._t_SessionManager = IcePy.defineValue('::Glacier2::SessionManager', Ice.Value, -1, (), True, None, ())
-_M_Glacier2.SessionManagerPrx = None
-class SessionManagerPrx(Ice.ObjectPrx):
 
-    """
-     Create a new session. The implementation must return a non-null proxy or raise
-     CannotCreateSessionException if the session cannot be created.
-    Arguments:
-    userId -- The user id for the session.
-    control -- A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
-    context -- The request context for the invocation.
-    Returns: A proxy to the newly created session.
-    Throws:
-    CannotCreateSessionException -- Raised if the session cannot be created.
-    """
-    def create(self, userId, control, context=None):
-        return _M_Glacier2.SessionManager._op_create.invoke(self, ((userId, control), context))
+if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
+    _M_Glacier2.SessionManagerPrx = None
+    class SessionManagerPrx(Ice.ObjectPrx):
 
-    """
-     Create a new session. The implementation must return a non-null proxy or raise
-     CannotCreateSessionException if the session cannot be created.
-    Arguments:
-    userId -- The user id for the session.
-    control -- A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def createAsync(self, userId, control, context=None):
-        return _M_Glacier2.SessionManager._op_create.invokeAsync(self, ((userId, control), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Glacier2.SessionManagerPrx.ice_checkedCast(proxy, '::Glacier2::SessionManager', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Glacier2.SessionManagerPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::SessionManager'
-_M_Glacier2._t_SessionManagerPrx = IcePy.defineProxy('::Glacier2::SessionManager', SessionManagerPrx)
-
-_M_Glacier2.SessionManagerPrx = SessionManagerPrx
-del SessionManagerPrx
-
-_M_Glacier2.SessionManager = None
-class SessionManager(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Glacier2::SessionManager', '::Ice::Object')
-
-    def ice_id(self, current=None):
-        return '::Glacier2::SessionManager'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::SessionManager'
-
-    def create(self, userId, control, current=None):
         """
          Create a new session. The implementation must return a non-null proxy or raise
          CannotCreateSessionException if the session cannot be created.
         Arguments:
         userId -- The user id for the session.
         control -- A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A proxy to the newly created session.
         Throws:
         CannotCreateSessionException -- Raised if the session cannot be created.
         """
-        raise NotImplementedError("servant method 'create' not implemented")
+        def create(self, userId, control, context=None):
+            return _M_Glacier2.SessionManager._op_create.invoke(self, ((userId, control), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Glacier2._t_SessionManagerDisp)
+        """
+         Create a new session. The implementation must return a non-null proxy or raise
+         CannotCreateSessionException if the session cannot be created.
+        Arguments:
+        userId -- The user id for the session.
+        control -- A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def createAsync(self, userId, control, context=None):
+            return _M_Glacier2.SessionManager._op_create.invokeAsync(self, ((userId, control), context))
 
-    __repr__ = __str__
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Glacier2.SessionManagerPrx.ice_checkedCast(proxy, '::Glacier2::SessionManager', facetOrContext, context)
 
-_M_Glacier2._t_SessionManagerDisp = IcePy.defineClass('::Glacier2::SessionManager', SessionManager, (), None, ())
-SessionManager._ice_type = _M_Glacier2._t_SessionManagerDisp
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Glacier2.SessionManagerPrx.ice_uncheckedCast(proxy, facet)
 
-SessionManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), _M_Glacier2._t_SessionControlPrx, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_CannotCreateSessionException,))
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::SessionManager'
+    _M_Glacier2._t_SessionManagerPrx = IcePy.defineProxy('::Glacier2::SessionManager', SessionManagerPrx)
 
-_M_Glacier2.SessionManager = SessionManager
-del SessionManager
+    _M_Glacier2.SessionManagerPrx = SessionManagerPrx
+    del SessionManagerPrx
+
+    _M_Glacier2.SessionManager = None
+    class SessionManager(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Glacier2::SessionManager', '::Ice::Object')
+
+        def ice_id(self, current=None):
+            return '::Glacier2::SessionManager'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::SessionManager'
+
+        def create(self, userId, control, current=None):
+            """
+             Create a new session. The implementation must return a non-null proxy or raise
+             CannotCreateSessionException if the session cannot be created.
+            Arguments:
+            userId -- The user id for the session.
+            control -- A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            CannotCreateSessionException -- Raised if the session cannot be created.
+            """
+            raise NotImplementedError("servant method 'create' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Glacier2._t_SessionManagerDisp)
+
+        __repr__ = __str__
+
+    _M_Glacier2._t_SessionManagerDisp = IcePy.defineClass('::Glacier2::SessionManager', SessionManager, (), None, ())
+    SessionManager._ice_type = _M_Glacier2._t_SessionManagerDisp
+
+    SessionManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), _M_Glacier2._t_SessionControlPrx, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_CannotCreateSessionException,))
+
+    _M_Glacier2.SessionManager = SessionManager
+    del SessionManager
 
 _M_Glacier2._t_SSLSessionManager = IcePy.defineValue('::Glacier2::SSLSessionManager', Ice.Value, -1, (), True, None, ())
-_M_Glacier2.SSLSessionManagerPrx = None
-class SSLSessionManagerPrx(Ice.ObjectPrx):
 
-    """
-     Create a new session.
-    Arguments:
-    info -- The SSL info.
-    control -- A proxy to the session control object.
-    context -- The request context for the invocation.
-    Returns: A proxy to the newly created session.
-    Throws:
-    CannotCreateSessionException -- Raised if the session cannot be created.
-    """
-    def create(self, info, control, context=None):
-        return _M_Glacier2.SSLSessionManager._op_create.invoke(self, ((info, control), context))
+if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
+    _M_Glacier2.SSLSessionManagerPrx = None
+    class SSLSessionManagerPrx(Ice.ObjectPrx):
 
-    """
-     Create a new session.
-    Arguments:
-    info -- The SSL info.
-    control -- A proxy to the session control object.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def createAsync(self, info, control, context=None):
-        return _M_Glacier2.SSLSessionManager._op_create.invokeAsync(self, ((info, control), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Glacier2.SSLSessionManagerPrx.ice_checkedCast(proxy, '::Glacier2::SSLSessionManager', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Glacier2.SSLSessionManagerPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::SSLSessionManager'
-_M_Glacier2._t_SSLSessionManagerPrx = IcePy.defineProxy('::Glacier2::SSLSessionManager', SSLSessionManagerPrx)
-
-_M_Glacier2.SSLSessionManagerPrx = SSLSessionManagerPrx
-del SSLSessionManagerPrx
-
-_M_Glacier2.SSLSessionManager = None
-class SSLSessionManager(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Glacier2::SSLSessionManager', '::Ice::Object')
-
-    def ice_id(self, current=None):
-        return '::Glacier2::SSLSessionManager'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::SSLSessionManager'
-
-    def create(self, info, control, current=None):
         """
          Create a new session.
         Arguments:
         info -- The SSL info.
         control -- A proxy to the session control object.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A proxy to the newly created session.
         Throws:
         CannotCreateSessionException -- Raised if the session cannot be created.
         """
-        raise NotImplementedError("servant method 'create' not implemented")
+        def create(self, info, control, context=None):
+            return _M_Glacier2.SSLSessionManager._op_create.invoke(self, ((info, control), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Glacier2._t_SSLSessionManagerDisp)
+        """
+         Create a new session.
+        Arguments:
+        info -- The SSL info.
+        control -- A proxy to the session control object.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def createAsync(self, info, control, context=None):
+            return _M_Glacier2.SSLSessionManager._op_create.invokeAsync(self, ((info, control), context))
 
-    __repr__ = __str__
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Glacier2.SSLSessionManagerPrx.ice_checkedCast(proxy, '::Glacier2::SSLSessionManager', facetOrContext, context)
 
-_M_Glacier2._t_SSLSessionManagerDisp = IcePy.defineClass('::Glacier2::SSLSessionManager', SSLSessionManager, (), None, ())
-SSLSessionManager._ice_type = _M_Glacier2._t_SSLSessionManagerDisp
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Glacier2.SSLSessionManagerPrx.ice_uncheckedCast(proxy, facet)
 
-SSLSessionManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), _M_Glacier2._t_SSLInfo, False, 0), ((), _M_Glacier2._t_SessionControlPrx, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_CannotCreateSessionException,))
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::SSLSessionManager'
+    _M_Glacier2._t_SSLSessionManagerPrx = IcePy.defineProxy('::Glacier2::SSLSessionManager', SSLSessionManagerPrx)
 
-_M_Glacier2.SSLSessionManager = SSLSessionManager
-del SSLSessionManager
+    _M_Glacier2.SSLSessionManagerPrx = SSLSessionManagerPrx
+    del SSLSessionManagerPrx
+
+    _M_Glacier2.SSLSessionManager = None
+    class SSLSessionManager(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Glacier2::SSLSessionManager', '::Ice::Object')
+
+        def ice_id(self, current=None):
+            return '::Glacier2::SSLSessionManager'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::SSLSessionManager'
+
+        def create(self, info, control, current=None):
+            """
+             Create a new session.
+            Arguments:
+            info -- The SSL info.
+            control -- A proxy to the session control object.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            CannotCreateSessionException -- Raised if the session cannot be created.
+            """
+            raise NotImplementedError("servant method 'create' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Glacier2._t_SSLSessionManagerDisp)
+
+        __repr__ = __str__
+
+    _M_Glacier2._t_SSLSessionManagerDisp = IcePy.defineClass('::Glacier2::SSLSessionManager', SSLSessionManager, (), None, ())
+    SSLSessionManager._ice_type = _M_Glacier2._t_SSLSessionManagerDisp
+
+    SSLSessionManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), _M_Glacier2._t_SSLInfo, False, 0), ((), _M_Glacier2._t_SessionControlPrx, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_CannotCreateSessionException,))
+
+    _M_Glacier2.SSLSessionManager = SSLSessionManager
+    del SSLSessionManager
 
 # End of module Glacier2

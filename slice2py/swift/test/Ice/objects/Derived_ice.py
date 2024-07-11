@@ -30,28 +30,30 @@ _M_Test.Inner.Sub = Ice.openModule('Test.Inner.Sub')
 
 # Start of module Test
 __name__ = 'Test'
-_M_Test.Derived = None
-class Derived(_M_Test.Base):
-    def __init__(self, theS=None, str='', b=''):
-        _M_Test.Base.__init__(self, theS, str)
-        self.b = b
 
-    def ice_id(self):
-        return '::Test::Derived'
+if 'Derived' not in _M_Test.__dict__:
+    _M_Test.Derived = None
+    class Derived(_M_Test.Base):
+        def __init__(self, theS=None, str='', b=''):
+            _M_Test.Base.__init__(self, theS, str)
+            self.b = b
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Derived'
+        def ice_id(self):
+            return '::Test::Derived'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_Derived)
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Derived'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_Derived)
 
-_M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, _M_Test._t_Base, (('b', (), IcePy._t_string, False, 0),))
-Derived._ice_type = _M_Test._t_Derived
+        __repr__ = __str__
 
-_M_Test.Derived = Derived
-del Derived
+    _M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, _M_Test._t_Base, (('b', (), IcePy._t_string, False, 0),))
+    Derived._ice_type = _M_Test._t_Derived
+
+    _M_Test.Derived = Derived
+    del Derived
 
 # End of module Test

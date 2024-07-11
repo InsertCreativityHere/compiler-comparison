@@ -21,1429 +21,1513 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
-_M_Test.OneOptional = None
-class OneOptional(Ice.Value):
-    def __init__(self, a=Ice.Unset):
-        self.a = a
 
-    def ice_id(self):
-        return '::Test::OneOptional'
+if 'OneOptional' not in _M_Test.__dict__:
+    _M_Test.OneOptional = None
+    class OneOptional(Ice.Value):
+        def __init__(self, a=Ice.Unset):
+            self.a = a
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::OneOptional'
+        def ice_id(self):
+            return '::Test::OneOptional'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_OneOptional)
+        @staticmethod
+        def ice_staticId():
+            return '::Test::OneOptional'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_OneOptional)
 
-_M_Test._t_OneOptional = IcePy.defineValue('::Test::OneOptional', OneOptional, -1, (), False, None, (('a', (), IcePy._t_int, True, 1),))
-OneOptional._ice_type = _M_Test._t_OneOptional
+        __repr__ = __str__
 
-_M_Test.OneOptional = OneOptional
-del OneOptional
+    _M_Test._t_OneOptional = IcePy.defineValue('::Test::OneOptional', OneOptional, -1, (), False, None, (('a', (), IcePy._t_int, True, 1),))
+    OneOptional._ice_type = _M_Test._t_OneOptional
+
+    _M_Test.OneOptional = OneOptional
+    del OneOptional
 
 _M_Test._t_MyInterface = IcePy.defineValue('::Test::MyInterface', Ice.Value, -1, (), True, None, ())
-_M_Test.MyInterfacePrx = None
-class MyInterfacePrx(Ice.ObjectPrx):
 
-    def op(self, context=None):
-        return _M_Test.MyInterface._op_op.invoke(self, ((), context))
+if 'MyInterfacePrx' not in _M_Test.__dict__:
+    _M_Test.MyInterfacePrx = None
+    class MyInterfacePrx(Ice.ObjectPrx):
 
-    def opAsync(self, context=None):
-        return _M_Test.MyInterface._op_op.invokeAsync(self, ((), context))
+        def op(self, context=None):
+            return _M_Test.MyInterface._op_op.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.MyInterfacePrx.ice_checkedCast(proxy, '::Test::MyInterface', facetOrContext, context)
+        def opAsync(self, context=None):
+            return _M_Test.MyInterface._op_op.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.MyInterfacePrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.MyInterfacePrx.ice_checkedCast(proxy, '::Test::MyInterface', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::MyInterface'
-_M_Test._t_MyInterfacePrx = IcePy.defineProxy('::Test::MyInterface', MyInterfacePrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.MyInterfacePrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.MyInterfacePrx = MyInterfacePrx
-del MyInterfacePrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyInterface'
+    _M_Test._t_MyInterfacePrx = IcePy.defineProxy('::Test::MyInterface', MyInterfacePrx)
 
-_M_Test.MyInterface = None
-class MyInterface(Ice.Object):
+    _M_Test.MyInterfacePrx = MyInterfacePrx
+    del MyInterfacePrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::MyInterface')
+    _M_Test.MyInterface = None
+    class MyInterface(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::MyInterface'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::MyInterface')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::MyInterface'
+        def ice_id(self, current=None):
+            return '::Test::MyInterface'
 
-    def op(self, current=None):
-        raise NotImplementedError("servant method 'op' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyInterface'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_MyInterfaceDisp)
+        def op(self, current=None):
+            raise NotImplementedError("servant method 'op' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_MyInterfaceDisp)
 
-_M_Test._t_MyInterfaceDisp = IcePy.defineClass('::Test::MyInterface', MyInterface, (), None, ())
-MyInterface._ice_type = _M_Test._t_MyInterfaceDisp
+        __repr__ = __str__
 
-MyInterface._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_MyInterfaceDisp = IcePy.defineClass('::Test::MyInterface', MyInterface, (), None, ())
+    MyInterface._ice_type = _M_Test._t_MyInterfaceDisp
 
-_M_Test.MyInterface = MyInterface
-del MyInterface
-_M_Test.MyEnum = None
-class MyEnum(Ice.EnumBase):
+    MyInterface._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
+    _M_Test.MyInterface = MyInterface
+    del MyInterface
 
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
+if 'MyEnum' not in _M_Test.__dict__:
+    _M_Test.MyEnum = None
+    class MyEnum(Ice.EnumBase):
 
-MyEnum.MyEnumMember = MyEnum("MyEnumMember", 0)
-MyEnum._enumerators = { 0:MyEnum.MyEnumMember }
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
 
-_M_Test._t_MyEnum = IcePy.defineEnum('::Test::MyEnum', MyEnum, (), MyEnum._enumerators)
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
 
-_M_Test.MyEnum = MyEnum
-del MyEnum
-_M_Test.SmallStruct = None
-class SmallStruct(object):
-    def __init__(self, m=0):
-        self.m = m
+    MyEnum.MyEnumMember = MyEnum("MyEnumMember", 0)
+    MyEnum._enumerators = { 0:MyEnum.MyEnumMember }
 
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.m)
-        return _h % 0x7fffffff
+    _M_Test._t_MyEnum = IcePy.defineEnum('::Test::MyEnum', MyEnum, (), MyEnum._enumerators)
 
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.SmallStruct):
-            return NotImplemented
-        else:
-            if self.m is None or other.m is None:
-                if self.m != other.m:
-                    return (-1 if self.m is None else 1)
+    _M_Test.MyEnum = MyEnum
+    del MyEnum
+
+if 'SmallStruct' not in _M_Test.__dict__:
+    _M_Test.SmallStruct = None
+    class SmallStruct(object):
+        def __init__(self, m=0):
+            self.m = m
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.m)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.SmallStruct):
+                return NotImplemented
             else:
-                if self.m < other.m:
-                    return -1
-                elif self.m > other.m:
-                    return 1
-            return 0
+                if self.m is None or other.m is None:
+                    if self.m != other.m:
+                        return (-1 if self.m is None else 1)
+                else:
+                    if self.m < other.m:
+                        return -1
+                    elif self.m > other.m:
+                        return 1
+                return 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
-
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
-
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
-
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
-
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
-
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_SmallStruct)
-
-    __repr__ = __str__
-
-_M_Test._t_SmallStruct = IcePy.defineStruct('::Test::SmallStruct', SmallStruct, (), (('m', (), IcePy._t_byte),))
-
-_M_Test.SmallStruct = SmallStruct
-del SmallStruct
-_M_Test.FixedStruct = None
-class FixedStruct(object):
-    def __init__(self, m=0):
-        self.m = m
-
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.m)
-        return _h % 0x7fffffff
-
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.FixedStruct):
-            return NotImplemented
-        else:
-            if self.m is None or other.m is None:
-                if self.m != other.m:
-                    return (-1 if self.m is None else 1)
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.m < other.m:
-                    return -1
-                elif self.m > other.m:
-                    return 1
-            return 0
+                return r < 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
-
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
-
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
-
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
-
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
-
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_FixedStruct)
-
-    __repr__ = __str__
-
-_M_Test._t_FixedStruct = IcePy.defineStruct('::Test::FixedStruct', FixedStruct, (), (('m', (), IcePy._t_int),))
-
-_M_Test.FixedStruct = FixedStruct
-del FixedStruct
-_M_Test.VarStruct = None
-class VarStruct(object):
-    def __init__(self, m=''):
-        self.m = m
-
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.m)
-        return _h % 0x7fffffff
-
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.VarStruct):
-            return NotImplemented
-        else:
-            if self.m is None or other.m is None:
-                if self.m != other.m:
-                    return (-1 if self.m is None else 1)
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.m < other.m:
-                    return -1
-                elif self.m > other.m:
-                    return 1
-            return 0
-
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
-
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
-
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
-
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
-
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
-
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_VarStruct)
-
-    __repr__ = __str__
-
-_M_Test._t_VarStruct = IcePy.defineStruct('::Test::VarStruct', VarStruct, (), (('m', (), IcePy._t_string),))
-
-_M_Test.VarStruct = VarStruct
-del VarStruct
-_M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
-_M_Test._t_BoolSeq = IcePy.defineSequence('::Test::BoolSeq', (), IcePy._t_bool)
-_M_Test._t_ShortSeq = IcePy.defineSequence('::Test::ShortSeq', (), IcePy._t_short)
-_M_Test._t_IntSeq = IcePy.defineSequence('::Test::IntSeq', (), IcePy._t_int)
-_M_Test._t_LongSeq = IcePy.defineSequence('::Test::LongSeq', (), IcePy._t_long)
-_M_Test._t_FloatSeq = IcePy.defineSequence('::Test::FloatSeq', (), IcePy._t_float)
-_M_Test._t_DoubleSeq = IcePy.defineSequence('::Test::DoubleSeq', (), IcePy._t_double)
-_M_Test._t_StringSeq = IcePy.defineSequence('::Test::StringSeq', (), IcePy._t_string)
-_M_Test._t_MyEnumSeq = IcePy.defineSequence('::Test::MyEnumSeq', (), _M_Test._t_MyEnum)
-_M_Test._t_SmallStructSeq = IcePy.defineSequence('::Test::SmallStructSeq', (), _M_Test._t_SmallStruct)
-_M_Test._t_SmallStructList = IcePy.defineSequence('::Test::SmallStructList', (), _M_Test._t_SmallStruct)
-_M_Test._t_FixedStructSeq = IcePy.defineSequence('::Test::FixedStructSeq', (), _M_Test._t_FixedStruct)
-_M_Test._t_FixedStructList = IcePy.defineSequence('::Test::FixedStructList', (), _M_Test._t_FixedStruct)
-_M_Test._t_VarStructSeq = IcePy.defineSequence('::Test::VarStructSeq', (), _M_Test._t_VarStruct)
-_M_Test._t_MyInterfacePrxSeq = IcePy.defineSequence('::Test::MyInterfacePrxSeq', (), _M_Test._t_MyInterfacePrx)
-_M_Test._t_IntIntDict = IcePy.defineDictionary('::Test::IntIntDict', (), IcePy._t_int, IcePy._t_int)
-_M_Test._t_StringIntDict = IcePy.defineDictionary('::Test::StringIntDict', (), IcePy._t_string, IcePy._t_int)
-_M_Test._t_IntEnumDict = IcePy.defineDictionary('::Test::IntEnumDict', (), IcePy._t_int, _M_Test._t_MyEnum)
-_M_Test._t_IntFixedStructDict = IcePy.defineDictionary('::Test::IntFixedStructDict', (), IcePy._t_int, _M_Test._t_FixedStruct)
-_M_Test._t_IntVarStructDict = IcePy.defineDictionary('::Test::IntVarStructDict', (), IcePy._t_int, _M_Test._t_VarStruct)
-_M_Test._t_IntMyInterfacePrxDict = IcePy.defineDictionary('::Test::IntMyInterfacePrxDict', (), IcePy._t_int, _M_Test._t_MyInterfacePrx)
-_M_Test.MultiOptional = None
-class MultiOptional(Ice.Value):
-    def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, mips=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, imipd=Ice.Unset, bos=Ice.Unset):
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
-        self.e = e
-        self.f = f
-        self.g = g
-        self.h = h
-        self.i = i
-        self.j = j
-        self.bs = bs
-        self.ss = ss
-        self.iid = iid
-        self.sid = sid
-        self.fs = fs
-        self.vs = vs
-        self.shs = shs
-        self.es = es
-        self.fss = fss
-        self.vss = vss
-        self.mips = mips
-        self.ied = ied
-        self.ifsd = ifsd
-        self.ivsd = ivsd
-        self.imipd = imipd
-        self.bos = bos
-
-    def ice_id(self):
-        return '::Test::MultiOptional'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Test::MultiOptional'
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_MultiOptional)
-
-    __repr__ = __str__
-
-_M_Test._t_MultiOptional = IcePy.defineValue('::Test::MultiOptional', MultiOptional, -1, (), False, None, (
-    ('a', (), IcePy._t_byte, True, 1),
-    ('b', (), IcePy._t_bool, True, 2),
-    ('c', (), IcePy._t_short, True, 3),
-    ('d', (), IcePy._t_int, True, 4),
-    ('e', (), IcePy._t_long, True, 5),
-    ('f', (), IcePy._t_float, True, 6),
-    ('g', (), IcePy._t_double, True, 7),
-    ('h', (), IcePy._t_string, True, 8),
-    ('i', (), _M_Test._t_MyEnum, True, 9),
-    ('j', (), _M_Test._t_MyInterfacePrx, True, 10),
-    ('bs', (), _M_Test._t_ByteSeq, True, 12),
-    ('ss', (), _M_Test._t_StringSeq, True, 13),
-    ('iid', (), _M_Test._t_IntIntDict, True, 14),
-    ('sid', (), _M_Test._t_StringIntDict, True, 15),
-    ('fs', (), _M_Test._t_FixedStruct, True, 16),
-    ('vs', (), _M_Test._t_VarStruct, True, 17),
-    ('shs', (), _M_Test._t_ShortSeq, True, 18),
-    ('es', (), _M_Test._t_MyEnumSeq, True, 19),
-    ('fss', (), _M_Test._t_FixedStructSeq, True, 20),
-    ('vss', (), _M_Test._t_VarStructSeq, True, 21),
-    ('mips', (), _M_Test._t_MyInterfacePrxSeq, True, 23),
-    ('ied', (), _M_Test._t_IntEnumDict, True, 24),
-    ('ifsd', (), _M_Test._t_IntFixedStructDict, True, 25),
-    ('ivsd', (), _M_Test._t_IntVarStructDict, True, 26),
-    ('imipd', (), _M_Test._t_IntMyInterfacePrxDict, True, 28),
-    ('bos', (), _M_Test._t_BoolSeq, True, 29)
-))
-MultiOptional._ice_type = _M_Test._t_MultiOptional
-
-_M_Test.MultiOptional = MultiOptional
-del MultiOptional
-_M_Test.A = None
-class A(Ice.Value):
-    def __init__(self, requiredA=0, ma=Ice.Unset, mb=Ice.Unset, mc=Ice.Unset):
-        self.requiredA = requiredA
-        self.ma = ma
-        self.mb = mb
-        self.mc = mc
-
-    def ice_id(self):
-        return '::Test::A'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Test::A'
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_A)
-
-    __repr__ = __str__
-
-_M_Test._t_A = IcePy.defineValue('::Test::A', A, -1, (), False, None, (
-    ('requiredA', (), IcePy._t_int, False, 0),
-    ('ma', (), IcePy._t_int, True, 1),
-    ('mb', (), IcePy._t_int, True, 50),
-    ('mc', (), IcePy._t_int, True, 500)
-))
-A._ice_type = _M_Test._t_A
-
-_M_Test.A = A
-del A
-_M_Test.B = None
-class B(_M_Test.A):
-    def __init__(self, requiredA=0, ma=Ice.Unset, mb=Ice.Unset, mc=Ice.Unset, requiredB=0, md=Ice.Unset):
-        _M_Test.A.__init__(self, requiredA, ma, mb, mc)
-        self.requiredB = requiredB
-        self.md = md
-
-    def ice_id(self):
-        return '::Test::B'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Test::B'
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_B)
-
-    __repr__ = __str__
-
-_M_Test._t_B = IcePy.defineValue('::Test::B', B, -1, (), False, _M_Test._t_A, (
-    ('requiredB', (), IcePy._t_int, False, 0),
-    ('md', (), IcePy._t_int, True, 10)
-))
-B._ice_type = _M_Test._t_B
-
-_M_Test.B = B
-del B
-_M_Test.C = None
-class C(_M_Test.B):
-    def __init__(self, requiredA=0, ma=Ice.Unset, mb=Ice.Unset, mc=Ice.Unset, requiredB=0, md=Ice.Unset, ss='', ms=Ice.Unset):
-        _M_Test.B.__init__(self, requiredA, ma, mb, mc, requiredB, md)
-        self.ss = ss
-        self.ms = ms
-
-    def ice_id(self):
-        return '::Test::C'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Test::C'
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_C)
-
-    __repr__ = __str__
-
-_M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, _M_Test._t_B, (
-    ('ss', (), IcePy._t_string, False, 0),
-    ('ms', (), IcePy._t_string, True, 890)
-))
-C._ice_type = _M_Test._t_C
-
-_M_Test.C = C
-del C
-_M_Test.WD = None
-class WD(Ice.Value):
-    def __init__(self, a=5, s="test"):
-        self.a = a
-        self.s = s
-
-    def ice_id(self):
-        return '::Test::WD'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Test::WD'
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_WD)
-
-    __repr__ = __str__
-
-_M_Test._t_WD = IcePy.defineValue('::Test::WD', WD, -1, (), False, None, (
-    ('a', (), IcePy._t_int, True, 1),
-    ('s', (), IcePy._t_string, True, 2)
-))
-WD._ice_type = _M_Test._t_WD
-
-_M_Test.WD = WD
-del WD
-_M_Test.OptionalException = None
-class OptionalException(Ice.UserException):
-    def __init__(self, req=False, a=5, b=Ice.Unset):
-        self.req = req
-        self.a = a
-        self.b = b
-
-    def __str__(self):
-        return IcePy.stringifyException(self)
-
-    __repr__ = __str__
-
-    _ice_id = '::Test::OptionalException'
-
-_M_Test._t_OptionalException = IcePy.defineException('::Test::OptionalException', OptionalException, (), None, (
-    ('req', (), IcePy._t_bool, False, 0),
-    ('a', (), IcePy._t_int, True, 1),
-    ('b', (), IcePy._t_string, True, 2)
-))
-OptionalException._ice_type = _M_Test._t_OptionalException
-
-_M_Test.OptionalException = OptionalException
-del OptionalException
-_M_Test.DerivedException = None
-class DerivedException(_M_Test.OptionalException):
-    def __init__(self, req=False, a=5, b=Ice.Unset, d1='', ss="test", d2=''):
-        _M_Test.OptionalException.__init__(self, req, a, b)
-        self.d1 = d1
-        self.ss = ss
-        self.d2 = d2
-
-    def __str__(self):
-        return IcePy.stringifyException(self)
-
-    __repr__ = __str__
-
-    _ice_id = '::Test::DerivedException'
-
-_M_Test._t_DerivedException = IcePy.defineException('::Test::DerivedException', DerivedException, (), _M_Test._t_OptionalException, (
-    ('d1', (), IcePy._t_string, False, 0),
-    ('ss', (), IcePy._t_string, True, 600),
-    ('d2', (), IcePy._t_string, False, 0)
-))
-DerivedException._ice_type = _M_Test._t_DerivedException
-
-_M_Test.DerivedException = DerivedException
-del DerivedException
-_M_Test.RequiredException = None
-class RequiredException(_M_Test.OptionalException):
-    def __init__(self, req=False, a=5, b=Ice.Unset, ss="test"):
-        _M_Test.OptionalException.__init__(self, req, a, b)
-        self.ss = ss
-
-    def __str__(self):
-        return IcePy.stringifyException(self)
-
-    __repr__ = __str__
-
-    _ice_id = '::Test::RequiredException'
-
-_M_Test._t_RequiredException = IcePy.defineException('::Test::RequiredException', RequiredException, (), _M_Test._t_OptionalException, (('ss', (), IcePy._t_string, False, 0),))
-RequiredException._ice_type = _M_Test._t_RequiredException
-
-_M_Test.RequiredException = RequiredException
-del RequiredException
-_M_Test.OptionalWithCustom = None
-class OptionalWithCustom(Ice.Value):
-    def __init__(self, l=Ice.Unset, _lp=Ice.Unset):
-        self.l = l
-        self._lp = _lp
-
-    def ice_id(self):
-        return '::Test::OptionalWithCustom'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Test::OptionalWithCustom'
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_OptionalWithCustom)
-
-    __repr__ = __str__
-
-_M_Test._t_OptionalWithCustom = IcePy.defineValue('::Test::OptionalWithCustom', OptionalWithCustom, -1, (), False, None, (
-    ('l', (), _M_Test._t_SmallStructList, True, 1),
-    ('_lp', (), _M_Test._t_SmallStructList, True, 2)
-))
-OptionalWithCustom._ice_type = _M_Test._t_OptionalWithCustom
-
-_M_Test.OptionalWithCustom = OptionalWithCustom
-del OptionalWithCustom
-_M_Test.E = None
-class E(Ice.Value):
-    def __init__(self, fse=None):
-        if fse is None:
-            self.fse = _M_Test.FixedStruct()
-        else:
-            self.fse = fse
-
-    def ice_id(self):
-        return '::Test::E'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Test::E'
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_E)
-
-    __repr__ = __str__
-
-_M_Test._t_E = IcePy.defineValue('::Test::E', E, -1, (), False, None, (('fse', (), _M_Test._t_FixedStruct, False, 0),))
-E._ice_type = _M_Test._t_E
-
-_M_Test.E = E
-del E
-_M_Test.F = None
-class F(_M_Test.E):
-    def __init__(self, fse=None, fsf=Ice.Unset):
-        _M_Test.E.__init__(self, fse)
-        self.fsf = fsf
-
-    def ice_id(self):
-        return '::Test::F'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Test::F'
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_F)
-
-    __repr__ = __str__
-
-_M_Test._t_F = IcePy.defineValue('::Test::F', F, -1, (), False, _M_Test._t_E, (('fsf', (), _M_Test._t_FixedStruct, True, 1),))
-F._ice_type = _M_Test._t_F
-
-_M_Test.F = F
-del F
-_M_Test.G1 = None
-class G1(object):
-    def __init__(self, a=''):
-        self.a = a
-
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.a)
-        return _h % 0x7fffffff
-
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.G1):
-            return NotImplemented
-        else:
-            if self.a is None or other.a is None:
-                if self.a != other.a:
-                    return (-1 if self.a is None else 1)
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.a < other.a:
-                    return -1
-                elif self.a > other.a:
-                    return 1
-            return 0
+                return r > 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
-
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
-
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
-
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
-
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
-
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_G1)
-
-    __repr__ = __str__
-
-_M_Test._t_G1 = IcePy.defineStruct('::Test::G1', G1, (), (('a', (), IcePy._t_string),))
-
-_M_Test.G1 = G1
-del G1
-_M_Test.G2 = None
-class G2(object):
-    def __init__(self, a=0):
-        self.a = a
-
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.a)
-        return _h % 0x7fffffff
-
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.G2):
-            return NotImplemented
-        else:
-            if self.a is None or other.a is None:
-                if self.a != other.a:
-                    return (-1 if self.a is None else 1)
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.a < other.a:
-                    return -1
-                elif self.a > other.a:
-                    return 1
-            return 0
+                return r >= 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_SmallStruct)
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+        __repr__ = __str__
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+    _M_Test._t_SmallStruct = IcePy.defineStruct('::Test::SmallStruct', SmallStruct, (), (('m', (), IcePy._t_byte),))
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+    _M_Test.SmallStruct = SmallStruct
+    del SmallStruct
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_G2)
+if 'FixedStruct' not in _M_Test.__dict__:
+    _M_Test.FixedStruct = None
+    class FixedStruct(object):
+        def __init__(self, m=0):
+            self.m = m
 
-    __repr__ = __str__
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.m)
+            return _h % 0x7fffffff
 
-_M_Test._t_G2 = IcePy.defineStruct('::Test::G2', G2, (), (('a', (), IcePy._t_long),))
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.FixedStruct):
+                return NotImplemented
+            else:
+                if self.m is None or other.m is None:
+                    if self.m != other.m:
+                        return (-1 if self.m is None else 1)
+                else:
+                    if self.m < other.m:
+                        return -1
+                    elif self.m > other.m:
+                        return 1
+                return 0
 
-_M_Test.G2 = G2
-del G2
-_M_Test.G = None
-class G(Ice.Value):
-    def __init__(self, gg1Opt=Ice.Unset, gg2=None, gg2Opt=Ice.Unset, gg1=None):
-        self.gg1Opt = gg1Opt
-        if gg2 is None:
-            self.gg2 = _M_Test.G2()
-        else:
-            self.gg2 = gg2
-        self.gg2Opt = gg2Opt
-        if gg1 is None:
-            self.gg1 = _M_Test.G1()
-        else:
-            self.gg1 = gg1
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
 
-    def ice_id(self):
-        return '::Test::G'
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::G'
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_G)
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
 
-    __repr__ = __str__
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
 
-_M_Test._t_G = IcePy.defineValue('::Test::G', G, -1, (), False, None, (
-    ('gg1Opt', (), _M_Test._t_G1, True, 1),
-    ('gg2', (), _M_Test._t_G2, False, 0),
-    ('gg2Opt', (), _M_Test._t_G2, True, 0),
-    ('gg1', (), _M_Test._t_G1, False, 0)
-))
-G._ice_type = _M_Test._t_G
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-_M_Test.G = G
-del G
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_FixedStruct)
+
+        __repr__ = __str__
+
+    _M_Test._t_FixedStruct = IcePy.defineStruct('::Test::FixedStruct', FixedStruct, (), (('m', (), IcePy._t_int),))
+
+    _M_Test.FixedStruct = FixedStruct
+    del FixedStruct
+
+if 'VarStruct' not in _M_Test.__dict__:
+    _M_Test.VarStruct = None
+    class VarStruct(object):
+        def __init__(self, m=''):
+            self.m = m
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.m)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.VarStruct):
+                return NotImplemented
+            else:
+                if self.m is None or other.m is None:
+                    if self.m != other.m:
+                        return (-1 if self.m is None else 1)
+                else:
+                    if self.m < other.m:
+                        return -1
+                    elif self.m > other.m:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_VarStruct)
+
+        __repr__ = __str__
+
+    _M_Test._t_VarStruct = IcePy.defineStruct('::Test::VarStruct', VarStruct, (), (('m', (), IcePy._t_string),))
+
+    _M_Test.VarStruct = VarStruct
+    del VarStruct
+
+if '_t_ByteSeq' not in _M_Test.__dict__:
+    _M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
+
+if '_t_BoolSeq' not in _M_Test.__dict__:
+    _M_Test._t_BoolSeq = IcePy.defineSequence('::Test::BoolSeq', (), IcePy._t_bool)
+
+if '_t_ShortSeq' not in _M_Test.__dict__:
+    _M_Test._t_ShortSeq = IcePy.defineSequence('::Test::ShortSeq', (), IcePy._t_short)
+
+if '_t_IntSeq' not in _M_Test.__dict__:
+    _M_Test._t_IntSeq = IcePy.defineSequence('::Test::IntSeq', (), IcePy._t_int)
+
+if '_t_LongSeq' not in _M_Test.__dict__:
+    _M_Test._t_LongSeq = IcePy.defineSequence('::Test::LongSeq', (), IcePy._t_long)
+
+if '_t_FloatSeq' not in _M_Test.__dict__:
+    _M_Test._t_FloatSeq = IcePy.defineSequence('::Test::FloatSeq', (), IcePy._t_float)
+
+if '_t_DoubleSeq' not in _M_Test.__dict__:
+    _M_Test._t_DoubleSeq = IcePy.defineSequence('::Test::DoubleSeq', (), IcePy._t_double)
+
+if '_t_StringSeq' not in _M_Test.__dict__:
+    _M_Test._t_StringSeq = IcePy.defineSequence('::Test::StringSeq', (), IcePy._t_string)
+
+if '_t_MyEnumSeq' not in _M_Test.__dict__:
+    _M_Test._t_MyEnumSeq = IcePy.defineSequence('::Test::MyEnumSeq', (), _M_Test._t_MyEnum)
+
+if '_t_SmallStructSeq' not in _M_Test.__dict__:
+    _M_Test._t_SmallStructSeq = IcePy.defineSequence('::Test::SmallStructSeq', (), _M_Test._t_SmallStruct)
+
+if '_t_SmallStructList' not in _M_Test.__dict__:
+    _M_Test._t_SmallStructList = IcePy.defineSequence('::Test::SmallStructList', (), _M_Test._t_SmallStruct)
+
+if '_t_FixedStructSeq' not in _M_Test.__dict__:
+    _M_Test._t_FixedStructSeq = IcePy.defineSequence('::Test::FixedStructSeq', (), _M_Test._t_FixedStruct)
+
+if '_t_FixedStructList' not in _M_Test.__dict__:
+    _M_Test._t_FixedStructList = IcePy.defineSequence('::Test::FixedStructList', (), _M_Test._t_FixedStruct)
+
+if '_t_VarStructSeq' not in _M_Test.__dict__:
+    _M_Test._t_VarStructSeq = IcePy.defineSequence('::Test::VarStructSeq', (), _M_Test._t_VarStruct)
+
+if '_t_MyInterfacePrxSeq' not in _M_Test.__dict__:
+    _M_Test._t_MyInterfacePrxSeq = IcePy.defineSequence('::Test::MyInterfacePrxSeq', (), _M_Test._t_MyInterfacePrx)
+
+if '_t_IntIntDict' not in _M_Test.__dict__:
+    _M_Test._t_IntIntDict = IcePy.defineDictionary('::Test::IntIntDict', (), IcePy._t_int, IcePy._t_int)
+
+if '_t_StringIntDict' not in _M_Test.__dict__:
+    _M_Test._t_StringIntDict = IcePy.defineDictionary('::Test::StringIntDict', (), IcePy._t_string, IcePy._t_int)
+
+if '_t_IntEnumDict' not in _M_Test.__dict__:
+    _M_Test._t_IntEnumDict = IcePy.defineDictionary('::Test::IntEnumDict', (), IcePy._t_int, _M_Test._t_MyEnum)
+
+if '_t_IntFixedStructDict' not in _M_Test.__dict__:
+    _M_Test._t_IntFixedStructDict = IcePy.defineDictionary('::Test::IntFixedStructDict', (), IcePy._t_int, _M_Test._t_FixedStruct)
+
+if '_t_IntVarStructDict' not in _M_Test.__dict__:
+    _M_Test._t_IntVarStructDict = IcePy.defineDictionary('::Test::IntVarStructDict', (), IcePy._t_int, _M_Test._t_VarStruct)
+
+if '_t_IntMyInterfacePrxDict' not in _M_Test.__dict__:
+    _M_Test._t_IntMyInterfacePrxDict = IcePy.defineDictionary('::Test::IntMyInterfacePrxDict', (), IcePy._t_int, _M_Test._t_MyInterfacePrx)
+
+if 'MultiOptional' not in _M_Test.__dict__:
+    _M_Test.MultiOptional = None
+    class MultiOptional(Ice.Value):
+        def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, mips=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, imipd=Ice.Unset, bos=Ice.Unset):
+            self.a = a
+            self.b = b
+            self.c = c
+            self.d = d
+            self.e = e
+            self.f = f
+            self.g = g
+            self.h = h
+            self.i = i
+            self.j = j
+            self.bs = bs
+            self.ss = ss
+            self.iid = iid
+            self.sid = sid
+            self.fs = fs
+            self.vs = vs
+            self.shs = shs
+            self.es = es
+            self.fss = fss
+            self.vss = vss
+            self.mips = mips
+            self.ied = ied
+            self.ifsd = ifsd
+            self.ivsd = ivsd
+            self.imipd = imipd
+            self.bos = bos
+
+        def ice_id(self):
+            return '::Test::MultiOptional'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MultiOptional'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_MultiOptional)
+
+        __repr__ = __str__
+
+    _M_Test._t_MultiOptional = IcePy.defineValue('::Test::MultiOptional', MultiOptional, -1, (), False, None, (
+        ('a', (), IcePy._t_byte, True, 1),
+        ('b', (), IcePy._t_bool, True, 2),
+        ('c', (), IcePy._t_short, True, 3),
+        ('d', (), IcePy._t_int, True, 4),
+        ('e', (), IcePy._t_long, True, 5),
+        ('f', (), IcePy._t_float, True, 6),
+        ('g', (), IcePy._t_double, True, 7),
+        ('h', (), IcePy._t_string, True, 8),
+        ('i', (), _M_Test._t_MyEnum, True, 9),
+        ('j', (), _M_Test._t_MyInterfacePrx, True, 10),
+        ('bs', (), _M_Test._t_ByteSeq, True, 12),
+        ('ss', (), _M_Test._t_StringSeq, True, 13),
+        ('iid', (), _M_Test._t_IntIntDict, True, 14),
+        ('sid', (), _M_Test._t_StringIntDict, True, 15),
+        ('fs', (), _M_Test._t_FixedStruct, True, 16),
+        ('vs', (), _M_Test._t_VarStruct, True, 17),
+        ('shs', (), _M_Test._t_ShortSeq, True, 18),
+        ('es', (), _M_Test._t_MyEnumSeq, True, 19),
+        ('fss', (), _M_Test._t_FixedStructSeq, True, 20),
+        ('vss', (), _M_Test._t_VarStructSeq, True, 21),
+        ('mips', (), _M_Test._t_MyInterfacePrxSeq, True, 23),
+        ('ied', (), _M_Test._t_IntEnumDict, True, 24),
+        ('ifsd', (), _M_Test._t_IntFixedStructDict, True, 25),
+        ('ivsd', (), _M_Test._t_IntVarStructDict, True, 26),
+        ('imipd', (), _M_Test._t_IntMyInterfacePrxDict, True, 28),
+        ('bos', (), _M_Test._t_BoolSeq, True, 29)
+    ))
+    MultiOptional._ice_type = _M_Test._t_MultiOptional
+
+    _M_Test.MultiOptional = MultiOptional
+    del MultiOptional
+
+if 'A' not in _M_Test.__dict__:
+    _M_Test.A = None
+    class A(Ice.Value):
+        def __init__(self, requiredA=0, ma=Ice.Unset, mb=Ice.Unset, mc=Ice.Unset):
+            self.requiredA = requiredA
+            self.ma = ma
+            self.mb = mb
+            self.mc = mc
+
+        def ice_id(self):
+            return '::Test::A'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::A'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_A)
+
+        __repr__ = __str__
+
+    _M_Test._t_A = IcePy.defineValue('::Test::A', A, -1, (), False, None, (
+        ('requiredA', (), IcePy._t_int, False, 0),
+        ('ma', (), IcePy._t_int, True, 1),
+        ('mb', (), IcePy._t_int, True, 50),
+        ('mc', (), IcePy._t_int, True, 500)
+    ))
+    A._ice_type = _M_Test._t_A
+
+    _M_Test.A = A
+    del A
+
+if 'B' not in _M_Test.__dict__:
+    _M_Test.B = None
+    class B(_M_Test.A):
+        def __init__(self, requiredA=0, ma=Ice.Unset, mb=Ice.Unset, mc=Ice.Unset, requiredB=0, md=Ice.Unset):
+            _M_Test.A.__init__(self, requiredA, ma, mb, mc)
+            self.requiredB = requiredB
+            self.md = md
+
+        def ice_id(self):
+            return '::Test::B'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::B'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_B)
+
+        __repr__ = __str__
+
+    _M_Test._t_B = IcePy.defineValue('::Test::B', B, -1, (), False, _M_Test._t_A, (
+        ('requiredB', (), IcePy._t_int, False, 0),
+        ('md', (), IcePy._t_int, True, 10)
+    ))
+    B._ice_type = _M_Test._t_B
+
+    _M_Test.B = B
+    del B
+
+if 'C' not in _M_Test.__dict__:
+    _M_Test.C = None
+    class C(_M_Test.B):
+        def __init__(self, requiredA=0, ma=Ice.Unset, mb=Ice.Unset, mc=Ice.Unset, requiredB=0, md=Ice.Unset, ss='', ms=Ice.Unset):
+            _M_Test.B.__init__(self, requiredA, ma, mb, mc, requiredB, md)
+            self.ss = ss
+            self.ms = ms
+
+        def ice_id(self):
+            return '::Test::C'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::C'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_C)
+
+        __repr__ = __str__
+
+    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, _M_Test._t_B, (
+        ('ss', (), IcePy._t_string, False, 0),
+        ('ms', (), IcePy._t_string, True, 890)
+    ))
+    C._ice_type = _M_Test._t_C
+
+    _M_Test.C = C
+    del C
+
+if 'WD' not in _M_Test.__dict__:
+    _M_Test.WD = None
+    class WD(Ice.Value):
+        def __init__(self, a=5, s="test"):
+            self.a = a
+            self.s = s
+
+        def ice_id(self):
+            return '::Test::WD'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::WD'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_WD)
+
+        __repr__ = __str__
+
+    _M_Test._t_WD = IcePy.defineValue('::Test::WD', WD, -1, (), False, None, (
+        ('a', (), IcePy._t_int, True, 1),
+        ('s', (), IcePy._t_string, True, 2)
+    ))
+    WD._ice_type = _M_Test._t_WD
+
+    _M_Test.WD = WD
+    del WD
+
+if 'OptionalException' not in _M_Test.__dict__:
+    _M_Test.OptionalException = None
+    class OptionalException(Ice.UserException):
+        def __init__(self, req=False, a=5, b=Ice.Unset):
+            self.req = req
+            self.a = a
+            self.b = b
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::Test::OptionalException'
+
+    _M_Test._t_OptionalException = IcePy.defineException('::Test::OptionalException', OptionalException, (), None, (
+        ('req', (), IcePy._t_bool, False, 0),
+        ('a', (), IcePy._t_int, True, 1),
+        ('b', (), IcePy._t_string, True, 2)
+    ))
+    OptionalException._ice_type = _M_Test._t_OptionalException
+
+    _M_Test.OptionalException = OptionalException
+    del OptionalException
+
+if 'DerivedException' not in _M_Test.__dict__:
+    _M_Test.DerivedException = None
+    class DerivedException(_M_Test.OptionalException):
+        def __init__(self, req=False, a=5, b=Ice.Unset, d1='', ss="test", d2=''):
+            _M_Test.OptionalException.__init__(self, req, a, b)
+            self.d1 = d1
+            self.ss = ss
+            self.d2 = d2
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::Test::DerivedException'
+
+    _M_Test._t_DerivedException = IcePy.defineException('::Test::DerivedException', DerivedException, (), _M_Test._t_OptionalException, (
+        ('d1', (), IcePy._t_string, False, 0),
+        ('ss', (), IcePy._t_string, True, 600),
+        ('d2', (), IcePy._t_string, False, 0)
+    ))
+    DerivedException._ice_type = _M_Test._t_DerivedException
+
+    _M_Test.DerivedException = DerivedException
+    del DerivedException
+
+if 'RequiredException' not in _M_Test.__dict__:
+    _M_Test.RequiredException = None
+    class RequiredException(_M_Test.OptionalException):
+        def __init__(self, req=False, a=5, b=Ice.Unset, ss="test"):
+            _M_Test.OptionalException.__init__(self, req, a, b)
+            self.ss = ss
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::Test::RequiredException'
+
+    _M_Test._t_RequiredException = IcePy.defineException('::Test::RequiredException', RequiredException, (), _M_Test._t_OptionalException, (('ss', (), IcePy._t_string, False, 0),))
+    RequiredException._ice_type = _M_Test._t_RequiredException
+
+    _M_Test.RequiredException = RequiredException
+    del RequiredException
+
+if 'OptionalWithCustom' not in _M_Test.__dict__:
+    _M_Test.OptionalWithCustom = None
+    class OptionalWithCustom(Ice.Value):
+        def __init__(self, l=Ice.Unset, _lp=Ice.Unset):
+            self.l = l
+            self._lp = _lp
+
+        def ice_id(self):
+            return '::Test::OptionalWithCustom'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::OptionalWithCustom'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_OptionalWithCustom)
+
+        __repr__ = __str__
+
+    _M_Test._t_OptionalWithCustom = IcePy.defineValue('::Test::OptionalWithCustom', OptionalWithCustom, -1, (), False, None, (
+        ('l', (), _M_Test._t_SmallStructList, True, 1),
+        ('_lp', (), _M_Test._t_SmallStructList, True, 2)
+    ))
+    OptionalWithCustom._ice_type = _M_Test._t_OptionalWithCustom
+
+    _M_Test.OptionalWithCustom = OptionalWithCustom
+    del OptionalWithCustom
+
+if 'E' not in _M_Test.__dict__:
+    _M_Test.E = None
+    class E(Ice.Value):
+        def __init__(self, fse=None):
+            if fse is None:
+                self.fse = _M_Test.FixedStruct()
+            else:
+                self.fse = fse
+
+        def ice_id(self):
+            return '::Test::E'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::E'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_E)
+
+        __repr__ = __str__
+
+    _M_Test._t_E = IcePy.defineValue('::Test::E', E, -1, (), False, None, (('fse', (), _M_Test._t_FixedStruct, False, 0),))
+    E._ice_type = _M_Test._t_E
+
+    _M_Test.E = E
+    del E
+
+if 'F' not in _M_Test.__dict__:
+    _M_Test.F = None
+    class F(_M_Test.E):
+        def __init__(self, fse=None, fsf=Ice.Unset):
+            _M_Test.E.__init__(self, fse)
+            self.fsf = fsf
+
+        def ice_id(self):
+            return '::Test::F'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::F'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_F)
+
+        __repr__ = __str__
+
+    _M_Test._t_F = IcePy.defineValue('::Test::F', F, -1, (), False, _M_Test._t_E, (('fsf', (), _M_Test._t_FixedStruct, True, 1),))
+    F._ice_type = _M_Test._t_F
+
+    _M_Test.F = F
+    del F
+
+if 'G1' not in _M_Test.__dict__:
+    _M_Test.G1 = None
+    class G1(object):
+        def __init__(self, a=''):
+            self.a = a
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.a)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.G1):
+                return NotImplemented
+            else:
+                if self.a is None or other.a is None:
+                    if self.a != other.a:
+                        return (-1 if self.a is None else 1)
+                else:
+                    if self.a < other.a:
+                        return -1
+                    elif self.a > other.a:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_G1)
+
+        __repr__ = __str__
+
+    _M_Test._t_G1 = IcePy.defineStruct('::Test::G1', G1, (), (('a', (), IcePy._t_string),))
+
+    _M_Test.G1 = G1
+    del G1
+
+if 'G2' not in _M_Test.__dict__:
+    _M_Test.G2 = None
+    class G2(object):
+        def __init__(self, a=0):
+            self.a = a
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.a)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.G2):
+                return NotImplemented
+            else:
+                if self.a is None or other.a is None:
+                    if self.a != other.a:
+                        return (-1 if self.a is None else 1)
+                else:
+                    if self.a < other.a:
+                        return -1
+                    elif self.a > other.a:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_G2)
+
+        __repr__ = __str__
+
+    _M_Test._t_G2 = IcePy.defineStruct('::Test::G2', G2, (), (('a', (), IcePy._t_long),))
+
+    _M_Test.G2 = G2
+    del G2
+
+if 'G' not in _M_Test.__dict__:
+    _M_Test.G = None
+    class G(Ice.Value):
+        def __init__(self, gg1Opt=Ice.Unset, gg2=None, gg2Opt=Ice.Unset, gg1=None):
+            self.gg1Opt = gg1Opt
+            if gg2 is None:
+                self.gg2 = _M_Test.G2()
+            else:
+                self.gg2 = gg2
+            self.gg2Opt = gg2Opt
+            if gg1 is None:
+                self.gg1 = _M_Test.G1()
+            else:
+                self.gg1 = gg1
+
+        def ice_id(self):
+            return '::Test::G'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::G'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_G)
+
+        __repr__ = __str__
+
+    _M_Test._t_G = IcePy.defineValue('::Test::G', G, -1, (), False, None, (
+        ('gg1Opt', (), _M_Test._t_G1, True, 1),
+        ('gg2', (), _M_Test._t_G2, False, 0),
+        ('gg2Opt', (), _M_Test._t_G2, True, 0),
+        ('gg1', (), _M_Test._t_G1, False, 0)
+    ))
+    G._ice_type = _M_Test._t_G
+
+    _M_Test.G = G
+    del G
 
 _M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
-_M_Test.InitialPrx = None
-class InitialPrx(Ice.ObjectPrx):
 
-    def shutdown(self, context=None):
-        return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
+if 'InitialPrx' not in _M_Test.__dict__:
+    _M_Test.InitialPrx = None
+    class InitialPrx(Ice.ObjectPrx):
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
 
-    def pingPong(self, o, context=None):
-        return _M_Test.Initial._op_pingPong.invoke(self, ((o, ), context))
+        def shutdownAsync(self, context=None):
+            return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
 
-    def pingPongAsync(self, o, context=None):
-        return _M_Test.Initial._op_pingPong.invokeAsync(self, ((o, ), context))
+        def pingPong(self, o, context=None):
+            return _M_Test.Initial._op_pingPong.invoke(self, ((o, ), context))
 
-    def opOptionalException(self, a=Ice.Unset, b=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opOptionalException.invoke(self, ((a, b), context))
+        def pingPongAsync(self, o, context=None):
+            return _M_Test.Initial._op_pingPong.invokeAsync(self, ((o, ), context))
 
-    def opOptionalExceptionAsync(self, a, b, context=None):
-        return _M_Test.Initial._op_opOptionalException.invokeAsync(self, ((a, b), context))
+        def opOptionalException(self, a=Ice.Unset, b=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opOptionalException.invoke(self, ((a, b), context))
 
-    def opDerivedException(self, a=Ice.Unset, b=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opDerivedException.invoke(self, ((a, b), context))
+        def opOptionalExceptionAsync(self, a, b, context=None):
+            return _M_Test.Initial._op_opOptionalException.invokeAsync(self, ((a, b), context))
 
-    def opDerivedExceptionAsync(self, a, b, context=None):
-        return _M_Test.Initial._op_opDerivedException.invokeAsync(self, ((a, b), context))
+        def opDerivedException(self, a=Ice.Unset, b=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opDerivedException.invoke(self, ((a, b), context))
 
-    def opRequiredException(self, a=Ice.Unset, b=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opRequiredException.invoke(self, ((a, b), context))
+        def opDerivedExceptionAsync(self, a, b, context=None):
+            return _M_Test.Initial._op_opDerivedException.invokeAsync(self, ((a, b), context))
 
-    def opRequiredExceptionAsync(self, a, b, context=None):
-        return _M_Test.Initial._op_opRequiredException.invokeAsync(self, ((a, b), context))
+        def opRequiredException(self, a=Ice.Unset, b=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opRequiredException.invoke(self, ((a, b), context))
 
-    def opByte(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opByte.invoke(self, ((p1, ), context))
+        def opRequiredExceptionAsync(self, a, b, context=None):
+            return _M_Test.Initial._op_opRequiredException.invokeAsync(self, ((a, b), context))
 
-    def opByteAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opByte.invokeAsync(self, ((p1, ), context))
+        def opByte(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opByte.invoke(self, ((p1, ), context))
 
-    def opBool(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opBool.invoke(self, ((p1, ), context))
+        def opByteAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opByte.invokeAsync(self, ((p1, ), context))
 
-    def opBoolAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opBool.invokeAsync(self, ((p1, ), context))
+        def opBool(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opBool.invoke(self, ((p1, ), context))
 
-    def opShort(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opShort.invoke(self, ((p1, ), context))
+        def opBoolAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opBool.invokeAsync(self, ((p1, ), context))
 
-    def opShortAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opShort.invokeAsync(self, ((p1, ), context))
+        def opShort(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opShort.invoke(self, ((p1, ), context))
 
-    def opInt(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opInt.invoke(self, ((p1, ), context))
+        def opShortAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opShort.invokeAsync(self, ((p1, ), context))
 
-    def opIntAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opInt.invokeAsync(self, ((p1, ), context))
+        def opInt(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opInt.invoke(self, ((p1, ), context))
 
-    def opLong(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opLong.invoke(self, ((p1, ), context))
+        def opIntAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opInt.invokeAsync(self, ((p1, ), context))
 
-    def opLongAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opLong.invokeAsync(self, ((p1, ), context))
+        def opLong(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opLong.invoke(self, ((p1, ), context))
 
-    def opFloat(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opFloat.invoke(self, ((p1, ), context))
+        def opLongAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opLong.invokeAsync(self, ((p1, ), context))
 
-    def opFloatAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opFloat.invokeAsync(self, ((p1, ), context))
+        def opFloat(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opFloat.invoke(self, ((p1, ), context))
 
-    def opDouble(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opDouble.invoke(self, ((p1, ), context))
+        def opFloatAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opFloat.invokeAsync(self, ((p1, ), context))
 
-    def opDoubleAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opDouble.invokeAsync(self, ((p1, ), context))
+        def opDouble(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opDouble.invoke(self, ((p1, ), context))
 
-    def opString(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opString.invoke(self, ((p1, ), context))
+        def opDoubleAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opDouble.invokeAsync(self, ((p1, ), context))
 
-    def opStringAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opString.invokeAsync(self, ((p1, ), context))
+        def opString(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opString.invoke(self, ((p1, ), context))
 
-    def opMyEnum(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opMyEnum.invoke(self, ((p1, ), context))
+        def opStringAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opString.invokeAsync(self, ((p1, ), context))
 
-    def opMyEnumAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opMyEnum.invokeAsync(self, ((p1, ), context))
+        def opMyEnum(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opMyEnum.invoke(self, ((p1, ), context))
 
-    def opSmallStruct(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opSmallStruct.invoke(self, ((p1, ), context))
+        def opMyEnumAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opMyEnum.invokeAsync(self, ((p1, ), context))
 
-    def opSmallStructAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opSmallStruct.invokeAsync(self, ((p1, ), context))
+        def opSmallStruct(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opSmallStruct.invoke(self, ((p1, ), context))
 
-    def opFixedStruct(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opFixedStruct.invoke(self, ((p1, ), context))
+        def opSmallStructAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opSmallStruct.invokeAsync(self, ((p1, ), context))
 
-    def opFixedStructAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opFixedStruct.invokeAsync(self, ((p1, ), context))
+        def opFixedStruct(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opFixedStruct.invoke(self, ((p1, ), context))
 
-    def opVarStruct(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opVarStruct.invoke(self, ((p1, ), context))
+        def opFixedStructAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opFixedStruct.invokeAsync(self, ((p1, ), context))
 
-    def opVarStructAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opVarStruct.invokeAsync(self, ((p1, ), context))
+        def opVarStruct(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opVarStruct.invoke(self, ((p1, ), context))
 
-    def opMyInterfaceProxy(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opMyInterfaceProxy.invoke(self, ((p1, ), context))
+        def opVarStructAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opVarStruct.invokeAsync(self, ((p1, ), context))
 
-    def opMyInterfaceProxyAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opMyInterfaceProxy.invokeAsync(self, ((p1, ), context))
+        def opMyInterfaceProxy(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opMyInterfaceProxy.invoke(self, ((p1, ), context))
 
-    def opOneOptional(self, p1, context=None):
-        return _M_Test.Initial._op_opOneOptional.invoke(self, ((p1, ), context))
+        def opMyInterfaceProxyAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opMyInterfaceProxy.invokeAsync(self, ((p1, ), context))
 
-    def opOneOptionalAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opOneOptional.invokeAsync(self, ((p1, ), context))
+        def opOneOptional(self, p1, context=None):
+            return _M_Test.Initial._op_opOneOptional.invoke(self, ((p1, ), context))
 
-    def opByteSeq(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opByteSeq.invoke(self, ((p1, ), context))
+        def opOneOptionalAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opOneOptional.invokeAsync(self, ((p1, ), context))
 
-    def opByteSeqAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opByteSeq.invokeAsync(self, ((p1, ), context))
+        def opByteSeq(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opByteSeq.invoke(self, ((p1, ), context))
 
-    def opBoolSeq(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opBoolSeq.invoke(self, ((p1, ), context))
+        def opByteSeqAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opByteSeq.invokeAsync(self, ((p1, ), context))
 
-    def opBoolSeqAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opBoolSeq.invokeAsync(self, ((p1, ), context))
+        def opBoolSeq(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opBoolSeq.invoke(self, ((p1, ), context))
 
-    def opShortSeq(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opShortSeq.invoke(self, ((p1, ), context))
+        def opBoolSeqAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opBoolSeq.invokeAsync(self, ((p1, ), context))
 
-    def opShortSeqAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opShortSeq.invokeAsync(self, ((p1, ), context))
+        def opShortSeq(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opShortSeq.invoke(self, ((p1, ), context))
 
-    def opIntSeq(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opIntSeq.invoke(self, ((p1, ), context))
+        def opShortSeqAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opShortSeq.invokeAsync(self, ((p1, ), context))
 
-    def opIntSeqAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opIntSeq.invokeAsync(self, ((p1, ), context))
+        def opIntSeq(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opIntSeq.invoke(self, ((p1, ), context))
 
-    def opLongSeq(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opLongSeq.invoke(self, ((p1, ), context))
+        def opIntSeqAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opIntSeq.invokeAsync(self, ((p1, ), context))
 
-    def opLongSeqAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opLongSeq.invokeAsync(self, ((p1, ), context))
+        def opLongSeq(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opLongSeq.invoke(self, ((p1, ), context))
 
-    def opFloatSeq(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opFloatSeq.invoke(self, ((p1, ), context))
+        def opLongSeqAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opLongSeq.invokeAsync(self, ((p1, ), context))
 
-    def opFloatSeqAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opFloatSeq.invokeAsync(self, ((p1, ), context))
+        def opFloatSeq(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opFloatSeq.invoke(self, ((p1, ), context))
 
-    def opDoubleSeq(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opDoubleSeq.invoke(self, ((p1, ), context))
+        def opFloatSeqAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opFloatSeq.invokeAsync(self, ((p1, ), context))
 
-    def opDoubleSeqAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opDoubleSeq.invokeAsync(self, ((p1, ), context))
+        def opDoubleSeq(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opDoubleSeq.invoke(self, ((p1, ), context))
 
-    def opStringSeq(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opStringSeq.invoke(self, ((p1, ), context))
+        def opDoubleSeqAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opDoubleSeq.invokeAsync(self, ((p1, ), context))
 
-    def opStringSeqAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opStringSeq.invokeAsync(self, ((p1, ), context))
+        def opStringSeq(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opStringSeq.invoke(self, ((p1, ), context))
 
-    def opSmallStructSeq(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opSmallStructSeq.invoke(self, ((p1, ), context))
+        def opStringSeqAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opStringSeq.invokeAsync(self, ((p1, ), context))
 
-    def opSmallStructSeqAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opSmallStructSeq.invokeAsync(self, ((p1, ), context))
+        def opSmallStructSeq(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opSmallStructSeq.invoke(self, ((p1, ), context))
 
-    def opSmallStructList(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opSmallStructList.invoke(self, ((p1, ), context))
+        def opSmallStructSeqAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opSmallStructSeq.invokeAsync(self, ((p1, ), context))
 
-    def opSmallStructListAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opSmallStructList.invokeAsync(self, ((p1, ), context))
+        def opSmallStructList(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opSmallStructList.invoke(self, ((p1, ), context))
 
-    def opFixedStructSeq(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opFixedStructSeq.invoke(self, ((p1, ), context))
+        def opSmallStructListAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opSmallStructList.invokeAsync(self, ((p1, ), context))
 
-    def opFixedStructSeqAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opFixedStructSeq.invokeAsync(self, ((p1, ), context))
+        def opFixedStructSeq(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opFixedStructSeq.invoke(self, ((p1, ), context))
 
-    def opFixedStructList(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opFixedStructList.invoke(self, ((p1, ), context))
+        def opFixedStructSeqAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opFixedStructSeq.invokeAsync(self, ((p1, ), context))
 
-    def opFixedStructListAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opFixedStructList.invokeAsync(self, ((p1, ), context))
+        def opFixedStructList(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opFixedStructList.invoke(self, ((p1, ), context))
 
-    def opVarStructSeq(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opVarStructSeq.invoke(self, ((p1, ), context))
+        def opFixedStructListAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opFixedStructList.invokeAsync(self, ((p1, ), context))
 
-    def opVarStructSeqAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opVarStructSeq.invokeAsync(self, ((p1, ), context))
+        def opVarStructSeq(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opVarStructSeq.invoke(self, ((p1, ), context))
 
-    def opIntIntDict(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opIntIntDict.invoke(self, ((p1, ), context))
+        def opVarStructSeqAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opVarStructSeq.invokeAsync(self, ((p1, ), context))
 
-    def opIntIntDictAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opIntIntDict.invokeAsync(self, ((p1, ), context))
+        def opIntIntDict(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opIntIntDict.invoke(self, ((p1, ), context))
 
-    def opStringIntDict(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opStringIntDict.invoke(self, ((p1, ), context))
+        def opIntIntDictAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opIntIntDict.invokeAsync(self, ((p1, ), context))
 
-    def opStringIntDictAsync(self, p1, context=None):
-        return _M_Test.Initial._op_opStringIntDict.invokeAsync(self, ((p1, ), context))
+        def opStringIntDict(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opStringIntDict.invoke(self, ((p1, ), context))
 
-    def opClassAndUnknownOptional(self, p, context=None):
-        return _M_Test.Initial._op_opClassAndUnknownOptional.invoke(self, ((p, ), context))
+        def opStringIntDictAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opStringIntDict.invokeAsync(self, ((p1, ), context))
 
-    def opClassAndUnknownOptionalAsync(self, p, context=None):
-        return _M_Test.Initial._op_opClassAndUnknownOptional.invokeAsync(self, ((p, ), context))
+        def opClassAndUnknownOptional(self, p, context=None):
+            return _M_Test.Initial._op_opClassAndUnknownOptional.invoke(self, ((p, ), context))
 
-    def opG(self, g, context=None):
-        return _M_Test.Initial._op_opG.invoke(self, ((g, ), context))
+        def opClassAndUnknownOptionalAsync(self, p, context=None):
+            return _M_Test.Initial._op_opClassAndUnknownOptional.invokeAsync(self, ((p, ), context))
 
-    def opGAsync(self, g, context=None):
-        return _M_Test.Initial._op_opG.invokeAsync(self, ((g, ), context))
+        def opG(self, g, context=None):
+            return _M_Test.Initial._op_opG.invoke(self, ((g, ), context))
 
-    def opVoid(self, context=None):
-        return _M_Test.Initial._op_opVoid.invoke(self, ((), context))
+        def opGAsync(self, g, context=None):
+            return _M_Test.Initial._op_opG.invokeAsync(self, ((g, ), context))
 
-    def opVoidAsync(self, context=None):
-        return _M_Test.Initial._op_opVoid.invokeAsync(self, ((), context))
+        def opVoid(self, context=None):
+            return _M_Test.Initial._op_opVoid.invoke(self, ((), context))
 
-    def opMStruct1(self, context=None):
-        return _M_Test.Initial._op_opMStruct1.invoke(self, ((), context))
+        def opVoidAsync(self, context=None):
+            return _M_Test.Initial._op_opVoid.invokeAsync(self, ((), context))
 
-    def opMStruct1Async(self, context=None):
-        return _M_Test.Initial._op_opMStruct1.invokeAsync(self, ((), context))
+        def opMStruct1(self, context=None):
+            return _M_Test.Initial._op_opMStruct1.invoke(self, ((), context))
 
-    def opMStruct2(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opMStruct2.invoke(self, ((p1, ), context))
+        def opMStruct1Async(self, context=None):
+            return _M_Test.Initial._op_opMStruct1.invokeAsync(self, ((), context))
 
-    def opMStruct2Async(self, p1, context=None):
-        return _M_Test.Initial._op_opMStruct2.invokeAsync(self, ((p1, ), context))
+        def opMStruct2(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opMStruct2.invoke(self, ((p1, ), context))
 
-    def opMSeq1(self, context=None):
-        return _M_Test.Initial._op_opMSeq1.invoke(self, ((), context))
+        def opMStruct2Async(self, p1, context=None):
+            return _M_Test.Initial._op_opMStruct2.invokeAsync(self, ((p1, ), context))
 
-    def opMSeq1Async(self, context=None):
-        return _M_Test.Initial._op_opMSeq1.invokeAsync(self, ((), context))
+        def opMSeq1(self, context=None):
+            return _M_Test.Initial._op_opMSeq1.invoke(self, ((), context))
 
-    def opMSeq2(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opMSeq2.invoke(self, ((p1, ), context))
+        def opMSeq1Async(self, context=None):
+            return _M_Test.Initial._op_opMSeq1.invokeAsync(self, ((), context))
 
-    def opMSeq2Async(self, p1, context=None):
-        return _M_Test.Initial._op_opMSeq2.invokeAsync(self, ((p1, ), context))
+        def opMSeq2(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opMSeq2.invoke(self, ((p1, ), context))
 
-    def opMDict1(self, context=None):
-        return _M_Test.Initial._op_opMDict1.invoke(self, ((), context))
+        def opMSeq2Async(self, p1, context=None):
+            return _M_Test.Initial._op_opMSeq2.invokeAsync(self, ((p1, ), context))
 
-    def opMDict1Async(self, context=None):
-        return _M_Test.Initial._op_opMDict1.invokeAsync(self, ((), context))
+        def opMDict1(self, context=None):
+            return _M_Test.Initial._op_opMDict1.invoke(self, ((), context))
 
-    def opMDict2(self, p1=Ice.Unset, context=None):
-        return _M_Test.Initial._op_opMDict2.invoke(self, ((p1, ), context))
+        def opMDict1Async(self, context=None):
+            return _M_Test.Initial._op_opMDict1.invokeAsync(self, ((), context))
 
-    def opMDict2Async(self, p1, context=None):
-        return _M_Test.Initial._op_opMDict2.invokeAsync(self, ((p1, ), context))
+        def opMDict2(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opMDict2.invoke(self, ((p1, ), context))
 
-    def supportsJavaSerializable(self, context=None):
-        return _M_Test.Initial._op_supportsJavaSerializable.invoke(self, ((), context))
+        def opMDict2Async(self, p1, context=None):
+            return _M_Test.Initial._op_opMDict2.invokeAsync(self, ((p1, ), context))
 
-    def supportsJavaSerializableAsync(self, context=None):
-        return _M_Test.Initial._op_supportsJavaSerializable.invokeAsync(self, ((), context))
+        def supportsJavaSerializable(self, context=None):
+            return _M_Test.Initial._op_supportsJavaSerializable.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.InitialPrx.ice_checkedCast(proxy, '::Test::Initial', facetOrContext, context)
+        def supportsJavaSerializableAsync(self, context=None):
+            return _M_Test.Initial._op_supportsJavaSerializable.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.InitialPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.InitialPrx.ice_checkedCast(proxy, '::Test::Initial', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Initial'
-_M_Test._t_InitialPrx = IcePy.defineProxy('::Test::Initial', InitialPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.InitialPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.InitialPrx = InitialPrx
-del InitialPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Initial'
+    _M_Test._t_InitialPrx = IcePy.defineProxy('::Test::Initial', InitialPrx)
 
-_M_Test.Initial = None
-class Initial(Ice.Object):
+    _M_Test.InitialPrx = InitialPrx
+    del InitialPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Initial')
+    _M_Test.Initial = None
+    class Initial(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Initial'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Initial')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Initial'
+        def ice_id(self, current=None):
+            return '::Test::Initial'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Initial'
 
-    def pingPong(self, o, current=None):
-        raise NotImplementedError("servant method 'pingPong' not implemented")
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    def opOptionalException(self, a, b, current=None):
-        raise NotImplementedError("servant method 'opOptionalException' not implemented")
+        def pingPong(self, o, current=None):
+            raise NotImplementedError("servant method 'pingPong' not implemented")
 
-    def opDerivedException(self, a, b, current=None):
-        raise NotImplementedError("servant method 'opDerivedException' not implemented")
+        def opOptionalException(self, a, b, current=None):
+            raise NotImplementedError("servant method 'opOptionalException' not implemented")
 
-    def opRequiredException(self, a, b, current=None):
-        raise NotImplementedError("servant method 'opRequiredException' not implemented")
+        def opDerivedException(self, a, b, current=None):
+            raise NotImplementedError("servant method 'opDerivedException' not implemented")
 
-    def opByte(self, p1, current=None):
-        raise NotImplementedError("servant method 'opByte' not implemented")
+        def opRequiredException(self, a, b, current=None):
+            raise NotImplementedError("servant method 'opRequiredException' not implemented")
 
-    def opBool(self, p1, current=None):
-        raise NotImplementedError("servant method 'opBool' not implemented")
+        def opByte(self, p1, current=None):
+            raise NotImplementedError("servant method 'opByte' not implemented")
 
-    def opShort(self, p1, current=None):
-        raise NotImplementedError("servant method 'opShort' not implemented")
+        def opBool(self, p1, current=None):
+            raise NotImplementedError("servant method 'opBool' not implemented")
 
-    def opInt(self, p1, current=None):
-        raise NotImplementedError("servant method 'opInt' not implemented")
+        def opShort(self, p1, current=None):
+            raise NotImplementedError("servant method 'opShort' not implemented")
 
-    def opLong(self, p1, current=None):
-        raise NotImplementedError("servant method 'opLong' not implemented")
+        def opInt(self, p1, current=None):
+            raise NotImplementedError("servant method 'opInt' not implemented")
 
-    def opFloat(self, p1, current=None):
-        raise NotImplementedError("servant method 'opFloat' not implemented")
+        def opLong(self, p1, current=None):
+            raise NotImplementedError("servant method 'opLong' not implemented")
 
-    def opDouble(self, p1, current=None):
-        raise NotImplementedError("servant method 'opDouble' not implemented")
+        def opFloat(self, p1, current=None):
+            raise NotImplementedError("servant method 'opFloat' not implemented")
 
-    def opString(self, p1, current=None):
-        raise NotImplementedError("servant method 'opString' not implemented")
+        def opDouble(self, p1, current=None):
+            raise NotImplementedError("servant method 'opDouble' not implemented")
 
-    def opMyEnum(self, p1, current=None):
-        raise NotImplementedError("servant method 'opMyEnum' not implemented")
+        def opString(self, p1, current=None):
+            raise NotImplementedError("servant method 'opString' not implemented")
 
-    def opSmallStruct(self, p1, current=None):
-        raise NotImplementedError("servant method 'opSmallStruct' not implemented")
+        def opMyEnum(self, p1, current=None):
+            raise NotImplementedError("servant method 'opMyEnum' not implemented")
 
-    def opFixedStruct(self, p1, current=None):
-        raise NotImplementedError("servant method 'opFixedStruct' not implemented")
+        def opSmallStruct(self, p1, current=None):
+            raise NotImplementedError("servant method 'opSmallStruct' not implemented")
 
-    def opVarStruct(self, p1, current=None):
-        raise NotImplementedError("servant method 'opVarStruct' not implemented")
+        def opFixedStruct(self, p1, current=None):
+            raise NotImplementedError("servant method 'opFixedStruct' not implemented")
 
-    def opMyInterfaceProxy(self, p1, current=None):
-        raise NotImplementedError("servant method 'opMyInterfaceProxy' not implemented")
+        def opVarStruct(self, p1, current=None):
+            raise NotImplementedError("servant method 'opVarStruct' not implemented")
 
-    def opOneOptional(self, p1, current=None):
-        raise NotImplementedError("servant method 'opOneOptional' not implemented")
+        def opMyInterfaceProxy(self, p1, current=None):
+            raise NotImplementedError("servant method 'opMyInterfaceProxy' not implemented")
 
-    def opByteSeq(self, p1, current=None):
-        raise NotImplementedError("servant method 'opByteSeq' not implemented")
+        def opOneOptional(self, p1, current=None):
+            raise NotImplementedError("servant method 'opOneOptional' not implemented")
 
-    def opBoolSeq(self, p1, current=None):
-        raise NotImplementedError("servant method 'opBoolSeq' not implemented")
+        def opByteSeq(self, p1, current=None):
+            raise NotImplementedError("servant method 'opByteSeq' not implemented")
 
-    def opShortSeq(self, p1, current=None):
-        raise NotImplementedError("servant method 'opShortSeq' not implemented")
+        def opBoolSeq(self, p1, current=None):
+            raise NotImplementedError("servant method 'opBoolSeq' not implemented")
 
-    def opIntSeq(self, p1, current=None):
-        raise NotImplementedError("servant method 'opIntSeq' not implemented")
+        def opShortSeq(self, p1, current=None):
+            raise NotImplementedError("servant method 'opShortSeq' not implemented")
 
-    def opLongSeq(self, p1, current=None):
-        raise NotImplementedError("servant method 'opLongSeq' not implemented")
+        def opIntSeq(self, p1, current=None):
+            raise NotImplementedError("servant method 'opIntSeq' not implemented")
 
-    def opFloatSeq(self, p1, current=None):
-        raise NotImplementedError("servant method 'opFloatSeq' not implemented")
+        def opLongSeq(self, p1, current=None):
+            raise NotImplementedError("servant method 'opLongSeq' not implemented")
 
-    def opDoubleSeq(self, p1, current=None):
-        raise NotImplementedError("servant method 'opDoubleSeq' not implemented")
+        def opFloatSeq(self, p1, current=None):
+            raise NotImplementedError("servant method 'opFloatSeq' not implemented")
 
-    def opStringSeq(self, p1, current=None):
-        raise NotImplementedError("servant method 'opStringSeq' not implemented")
+        def opDoubleSeq(self, p1, current=None):
+            raise NotImplementedError("servant method 'opDoubleSeq' not implemented")
 
-    def opSmallStructSeq(self, p1, current=None):
-        raise NotImplementedError("servant method 'opSmallStructSeq' not implemented")
+        def opStringSeq(self, p1, current=None):
+            raise NotImplementedError("servant method 'opStringSeq' not implemented")
 
-    def opSmallStructList(self, p1, current=None):
-        raise NotImplementedError("servant method 'opSmallStructList' not implemented")
+        def opSmallStructSeq(self, p1, current=None):
+            raise NotImplementedError("servant method 'opSmallStructSeq' not implemented")
 
-    def opFixedStructSeq(self, p1, current=None):
-        raise NotImplementedError("servant method 'opFixedStructSeq' not implemented")
+        def opSmallStructList(self, p1, current=None):
+            raise NotImplementedError("servant method 'opSmallStructList' not implemented")
 
-    def opFixedStructList(self, p1, current=None):
-        raise NotImplementedError("servant method 'opFixedStructList' not implemented")
+        def opFixedStructSeq(self, p1, current=None):
+            raise NotImplementedError("servant method 'opFixedStructSeq' not implemented")
 
-    def opVarStructSeq(self, p1, current=None):
-        raise NotImplementedError("servant method 'opVarStructSeq' not implemented")
+        def opFixedStructList(self, p1, current=None):
+            raise NotImplementedError("servant method 'opFixedStructList' not implemented")
 
-    def opIntIntDict(self, p1, current=None):
-        raise NotImplementedError("servant method 'opIntIntDict' not implemented")
+        def opVarStructSeq(self, p1, current=None):
+            raise NotImplementedError("servant method 'opVarStructSeq' not implemented")
 
-    def opStringIntDict(self, p1, current=None):
-        raise NotImplementedError("servant method 'opStringIntDict' not implemented")
+        def opIntIntDict(self, p1, current=None):
+            raise NotImplementedError("servant method 'opIntIntDict' not implemented")
 
-    def opClassAndUnknownOptional(self, p, current=None):
-        raise NotImplementedError("servant method 'opClassAndUnknownOptional' not implemented")
+        def opStringIntDict(self, p1, current=None):
+            raise NotImplementedError("servant method 'opStringIntDict' not implemented")
 
-    def opG(self, g, current=None):
-        raise NotImplementedError("servant method 'opG' not implemented")
+        def opClassAndUnknownOptional(self, p, current=None):
+            raise NotImplementedError("servant method 'opClassAndUnknownOptional' not implemented")
 
-    def opVoid(self, current=None):
-        raise NotImplementedError("servant method 'opVoid' not implemented")
+        def opG(self, g, current=None):
+            raise NotImplementedError("servant method 'opG' not implemented")
 
-    """
-    Immediately marshals the result of an invocation of opMStruct1
-    and returns an object that the servant implementation must return
-    as its result.
-    Arguments:
-    result -- The result (or result tuple) of the invocation.
-    current -- The Current object passed to the invocation.
-    Returns: An object containing the marshaled result.
-    """
-    @staticmethod
-    def OpMStruct1MarshaledResult(result, current):
-        return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMStruct1, current.adapter.getCommunicator().getImpl(), current.encoding)
+        def opVoid(self, current=None):
+            raise NotImplementedError("servant method 'opVoid' not implemented")
 
-    def opMStruct1(self, current=None):
-        raise NotImplementedError("servant method 'opMStruct1' not implemented")
+        """
+        Immediately marshals the result of an invocation of opMStruct1
+        and returns an object that the servant implementation must return
+        as its result.
+        Arguments:
+        result -- The result (or result tuple) of the invocation.
+        current -- The Current object passed to the invocation.
+        Returns: An object containing the marshaled result.
+        """
+        @staticmethod
+        def OpMStruct1MarshaledResult(result, current):
+            return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMStruct1, current.adapter.getCommunicator().getImpl(), current.encoding)
 
-    """
-    Immediately marshals the result of an invocation of opMStruct2
-    and returns an object that the servant implementation must return
-    as its result.
-    Arguments:
-    result -- The result (or result tuple) of the invocation.
-    current -- The Current object passed to the invocation.
-    Returns: An object containing the marshaled result.
-    """
-    @staticmethod
-    def OpMStruct2MarshaledResult(result, current):
-        return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMStruct2, current.adapter.getCommunicator().getImpl(), current.encoding)
+        def opMStruct1(self, current=None):
+            raise NotImplementedError("servant method 'opMStruct1' not implemented")
 
-    def opMStruct2(self, p1, current=None):
-        raise NotImplementedError("servant method 'opMStruct2' not implemented")
+        """
+        Immediately marshals the result of an invocation of opMStruct2
+        and returns an object that the servant implementation must return
+        as its result.
+        Arguments:
+        result -- The result (or result tuple) of the invocation.
+        current -- The Current object passed to the invocation.
+        Returns: An object containing the marshaled result.
+        """
+        @staticmethod
+        def OpMStruct2MarshaledResult(result, current):
+            return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMStruct2, current.adapter.getCommunicator().getImpl(), current.encoding)
 
-    """
-    Immediately marshals the result of an invocation of opMSeq1
-    and returns an object that the servant implementation must return
-    as its result.
-    Arguments:
-    result -- The result (or result tuple) of the invocation.
-    current -- The Current object passed to the invocation.
-    Returns: An object containing the marshaled result.
-    """
-    @staticmethod
-    def OpMSeq1MarshaledResult(result, current):
-        return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMSeq1, current.adapter.getCommunicator().getImpl(), current.encoding)
+        def opMStruct2(self, p1, current=None):
+            raise NotImplementedError("servant method 'opMStruct2' not implemented")
 
-    def opMSeq1(self, current=None):
-        raise NotImplementedError("servant method 'opMSeq1' not implemented")
+        """
+        Immediately marshals the result of an invocation of opMSeq1
+        and returns an object that the servant implementation must return
+        as its result.
+        Arguments:
+        result -- The result (or result tuple) of the invocation.
+        current -- The Current object passed to the invocation.
+        Returns: An object containing the marshaled result.
+        """
+        @staticmethod
+        def OpMSeq1MarshaledResult(result, current):
+            return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMSeq1, current.adapter.getCommunicator().getImpl(), current.encoding)
 
-    """
-    Immediately marshals the result of an invocation of opMSeq2
-    and returns an object that the servant implementation must return
-    as its result.
-    Arguments:
-    result -- The result (or result tuple) of the invocation.
-    current -- The Current object passed to the invocation.
-    Returns: An object containing the marshaled result.
-    """
-    @staticmethod
-    def OpMSeq2MarshaledResult(result, current):
-        return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMSeq2, current.adapter.getCommunicator().getImpl(), current.encoding)
+        def opMSeq1(self, current=None):
+            raise NotImplementedError("servant method 'opMSeq1' not implemented")
 
-    def opMSeq2(self, p1, current=None):
-        raise NotImplementedError("servant method 'opMSeq2' not implemented")
+        """
+        Immediately marshals the result of an invocation of opMSeq2
+        and returns an object that the servant implementation must return
+        as its result.
+        Arguments:
+        result -- The result (or result tuple) of the invocation.
+        current -- The Current object passed to the invocation.
+        Returns: An object containing the marshaled result.
+        """
+        @staticmethod
+        def OpMSeq2MarshaledResult(result, current):
+            return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMSeq2, current.adapter.getCommunicator().getImpl(), current.encoding)
 
-    """
-    Immediately marshals the result of an invocation of opMDict1
-    and returns an object that the servant implementation must return
-    as its result.
-    Arguments:
-    result -- The result (or result tuple) of the invocation.
-    current -- The Current object passed to the invocation.
-    Returns: An object containing the marshaled result.
-    """
-    @staticmethod
-    def OpMDict1MarshaledResult(result, current):
-        return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMDict1, current.adapter.getCommunicator().getImpl(), current.encoding)
+        def opMSeq2(self, p1, current=None):
+            raise NotImplementedError("servant method 'opMSeq2' not implemented")
 
-    def opMDict1(self, current=None):
-        raise NotImplementedError("servant method 'opMDict1' not implemented")
+        """
+        Immediately marshals the result of an invocation of opMDict1
+        and returns an object that the servant implementation must return
+        as its result.
+        Arguments:
+        result -- The result (or result tuple) of the invocation.
+        current -- The Current object passed to the invocation.
+        Returns: An object containing the marshaled result.
+        """
+        @staticmethod
+        def OpMDict1MarshaledResult(result, current):
+            return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMDict1, current.adapter.getCommunicator().getImpl(), current.encoding)
 
-    """
-    Immediately marshals the result of an invocation of opMDict2
-    and returns an object that the servant implementation must return
-    as its result.
-    Arguments:
-    result -- The result (or result tuple) of the invocation.
-    current -- The Current object passed to the invocation.
-    Returns: An object containing the marshaled result.
-    """
-    @staticmethod
-    def OpMDict2MarshaledResult(result, current):
-        return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMDict2, current.adapter.getCommunicator().getImpl(), current.encoding)
+        def opMDict1(self, current=None):
+            raise NotImplementedError("servant method 'opMDict1' not implemented")
 
-    def opMDict2(self, p1, current=None):
-        raise NotImplementedError("servant method 'opMDict2' not implemented")
+        """
+        Immediately marshals the result of an invocation of opMDict2
+        and returns an object that the servant implementation must return
+        as its result.
+        Arguments:
+        result -- The result (or result tuple) of the invocation.
+        current -- The Current object passed to the invocation.
+        Returns: An object containing the marshaled result.
+        """
+        @staticmethod
+        def OpMDict2MarshaledResult(result, current):
+            return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMDict2, current.adapter.getCommunicator().getImpl(), current.encoding)
 
-    def supportsJavaSerializable(self, current=None):
-        raise NotImplementedError("servant method 'supportsJavaSerializable' not implemented")
+        def opMDict2(self, p1, current=None):
+            raise NotImplementedError("servant method 'opMDict2' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_InitialDisp)
+        def supportsJavaSerializable(self, current=None):
+            raise NotImplementedError("servant method 'supportsJavaSerializable' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_InitialDisp)
 
-_M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
-Initial._ice_type = _M_Test._t_InitialDisp
+        __repr__ = __str__
 
-Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Initial._op_pingPong = IcePy.Operation('pingPong', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_Value, False, 0),), (), ((), IcePy._t_Value, False, 0), ())
-Initial._op_opOptionalException = IcePy.Operation('opOptionalException', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, (_M_Test._t_OptionalException,))
-Initial._op_opDerivedException = IcePy.Operation('opDerivedException', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, (_M_Test._t_OptionalException,))
-Initial._op_opRequiredException = IcePy.Operation('opRequiredException', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, (_M_Test._t_OptionalException,))
-Initial._op_opByte = IcePy.Operation('opByte', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_byte, True, 2),), (((), IcePy._t_byte, True, 3),), ((), IcePy._t_byte, True, 1), ())
-Initial._op_opBool = IcePy.Operation('opBool', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, True, 2),), (((), IcePy._t_bool, True, 3),), ((), IcePy._t_bool, True, 1), ())
-Initial._op_opShort = IcePy.Operation('opShort', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_short, True, 2),), (((), IcePy._t_short, True, 3),), ((), IcePy._t_short, True, 1), ())
-Initial._op_opInt = IcePy.Operation('opInt', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 2),), (((), IcePy._t_int, True, 3),), ((), IcePy._t_int, True, 1), ())
-Initial._op_opLong = IcePy.Operation('opLong', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, True, 1),), (((), IcePy._t_long, True, 2),), ((), IcePy._t_long, True, 3), ())
-Initial._op_opFloat = IcePy.Operation('opFloat', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_float, True, 2),), (((), IcePy._t_float, True, 3),), ((), IcePy._t_float, True, 1), ())
-Initial._op_opDouble = IcePy.Operation('opDouble', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_double, True, 2),), (((), IcePy._t_double, True, 3),), ((), IcePy._t_double, True, 1), ())
-Initial._op_opString = IcePy.Operation('opString', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, True, 2),), (((), IcePy._t_string, True, 3),), ((), IcePy._t_string, True, 1), ())
-Initial._op_opMyEnum = IcePy.Operation('opMyEnum', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnum, True, 2),), (((), _M_Test._t_MyEnum, True, 3),), ((), _M_Test._t_MyEnum, True, 1), ())
-Initial._op_opSmallStruct = IcePy.Operation('opSmallStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStruct, True, 2),), (((), _M_Test._t_SmallStruct, True, 3),), ((), _M_Test._t_SmallStruct, True, 1), ())
-Initial._op_opFixedStruct = IcePy.Operation('opFixedStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStruct, True, 2),), (((), _M_Test._t_FixedStruct, True, 3),), ((), _M_Test._t_FixedStruct, True, 1), ())
-Initial._op_opVarStruct = IcePy.Operation('opVarStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VarStruct, True, 2),), (((), _M_Test._t_VarStruct, True, 3),), ((), _M_Test._t_VarStruct, True, 1), ())
-Initial._op_opMyInterfaceProxy = IcePy.Operation('opMyInterfaceProxy', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyInterfacePrx, True, 2),), (((), _M_Test._t_MyInterfacePrx, True, 3),), ((), _M_Test._t_MyInterfacePrx, True, 1), ())
-Initial._op_opOneOptional = IcePy.Operation('opOneOptional', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_OneOptional, False, 0),), (((), _M_Test._t_OneOptional, False, 0),), ((), _M_Test._t_OneOptional, False, 0), ())
-Initial._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, True, 2),), (((), _M_Test._t_ByteSeq, True, 3),), ((), _M_Test._t_ByteSeq, True, 1), ())
-Initial._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, True, 2),), (((), _M_Test._t_BoolSeq, True, 3),), ((), _M_Test._t_BoolSeq, True, 1), ())
-Initial._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq, True, 2),), (((), _M_Test._t_ShortSeq, True, 3),), ((), _M_Test._t_ShortSeq, True, 1), ())
-Initial._op_opIntSeq = IcePy.Operation('opIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntSeq, True, 2),), (((), _M_Test._t_IntSeq, True, 3),), ((), _M_Test._t_IntSeq, True, 1), ())
-Initial._op_opLongSeq = IcePy.Operation('opLongSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongSeq, True, 2),), (((), _M_Test._t_LongSeq, True, 3),), ((), _M_Test._t_LongSeq, True, 1), ())
-Initial._op_opFloatSeq = IcePy.Operation('opFloatSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatSeq, True, 2),), (((), _M_Test._t_FloatSeq, True, 3),), ((), _M_Test._t_FloatSeq, True, 1), ())
-Initial._op_opDoubleSeq = IcePy.Operation('opDoubleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleSeq, True, 2),), (((), _M_Test._t_DoubleSeq, True, 3),), ((), _M_Test._t_DoubleSeq, True, 1), ())
-Initial._op_opStringSeq = IcePy.Operation('opStringSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, True, 2),), (((), _M_Test._t_StringSeq, True, 3),), ((), _M_Test._t_StringSeq, True, 1), ())
-Initial._op_opSmallStructSeq = IcePy.Operation('opSmallStructSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStructSeq, True, 2),), (((), _M_Test._t_SmallStructSeq, True, 3),), ((), _M_Test._t_SmallStructSeq, True, 1), ())
-Initial._op_opSmallStructList = IcePy.Operation('opSmallStructList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStructList, True, 2),), (((), _M_Test._t_SmallStructList, True, 3),), ((), _M_Test._t_SmallStructList, True, 1), ())
-Initial._op_opFixedStructSeq = IcePy.Operation('opFixedStructSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStructSeq, True, 2),), (((), _M_Test._t_FixedStructSeq, True, 3),), ((), _M_Test._t_FixedStructSeq, True, 1), ())
-Initial._op_opFixedStructList = IcePy.Operation('opFixedStructList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStructList, True, 2),), (((), _M_Test._t_FixedStructList, True, 3),), ((), _M_Test._t_FixedStructList, True, 1), ())
-Initial._op_opVarStructSeq = IcePy.Operation('opVarStructSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VarStructSeq, True, 2),), (((), _M_Test._t_VarStructSeq, True, 3),), ((), _M_Test._t_VarStructSeq, True, 1), ())
-Initial._op_opIntIntDict = IcePy.Operation('opIntIntDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntIntDict, True, 2),), (((), _M_Test._t_IntIntDict, True, 3),), ((), _M_Test._t_IntIntDict, True, 1), ())
-Initial._op_opStringIntDict = IcePy.Operation('opStringIntDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
-Initial._op_opClassAndUnknownOptional = IcePy.Operation('opClassAndUnknownOptional', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_A, False, 0),), (), None, ())
-Initial._op_opG = IcePy.Operation('opG', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_G, False, 0),), (), ((), _M_Test._t_G, False, 0), ())
-Initial._op_opVoid = IcePy.Operation('opVoid', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Initial._op_opMStruct1 = IcePy.Operation('opMStruct1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_SmallStruct, True, 1), ())
-Initial._op_opMStruct2 = IcePy.Operation('opMStruct2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStruct, True, 2),), (((), _M_Test._t_SmallStruct, True, 3),), ((), _M_Test._t_SmallStruct, True, 1), ())
-Initial._op_opMSeq1 = IcePy.Operation('opMSeq1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringSeq, True, 1), ())
-Initial._op_opMSeq2 = IcePy.Operation('opMSeq2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, True, 2),), (((), _M_Test._t_StringSeq, True, 3),), ((), _M_Test._t_StringSeq, True, 1), ())
-Initial._op_opMDict1 = IcePy.Operation('opMDict1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringIntDict, True, 1), ())
-Initial._op_opMDict2 = IcePy.Operation('opMDict2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
-Initial._op_supportsJavaSerializable = IcePy.Operation('supportsJavaSerializable', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
+    Initial._ice_type = _M_Test._t_InitialDisp
 
-_M_Test.Initial = Initial
-del Initial
+    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Initial._op_pingPong = IcePy.Operation('pingPong', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_Value, False, 0),), (), ((), IcePy._t_Value, False, 0), ())
+    Initial._op_opOptionalException = IcePy.Operation('opOptionalException', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, (_M_Test._t_OptionalException,))
+    Initial._op_opDerivedException = IcePy.Operation('opDerivedException', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, (_M_Test._t_OptionalException,))
+    Initial._op_opRequiredException = IcePy.Operation('opRequiredException', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, (_M_Test._t_OptionalException,))
+    Initial._op_opByte = IcePy.Operation('opByte', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_byte, True, 2),), (((), IcePy._t_byte, True, 3),), ((), IcePy._t_byte, True, 1), ())
+    Initial._op_opBool = IcePy.Operation('opBool', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, True, 2),), (((), IcePy._t_bool, True, 3),), ((), IcePy._t_bool, True, 1), ())
+    Initial._op_opShort = IcePy.Operation('opShort', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_short, True, 2),), (((), IcePy._t_short, True, 3),), ((), IcePy._t_short, True, 1), ())
+    Initial._op_opInt = IcePy.Operation('opInt', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 2),), (((), IcePy._t_int, True, 3),), ((), IcePy._t_int, True, 1), ())
+    Initial._op_opLong = IcePy.Operation('opLong', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, True, 1),), (((), IcePy._t_long, True, 2),), ((), IcePy._t_long, True, 3), ())
+    Initial._op_opFloat = IcePy.Operation('opFloat', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_float, True, 2),), (((), IcePy._t_float, True, 3),), ((), IcePy._t_float, True, 1), ())
+    Initial._op_opDouble = IcePy.Operation('opDouble', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_double, True, 2),), (((), IcePy._t_double, True, 3),), ((), IcePy._t_double, True, 1), ())
+    Initial._op_opString = IcePy.Operation('opString', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, True, 2),), (((), IcePy._t_string, True, 3),), ((), IcePy._t_string, True, 1), ())
+    Initial._op_opMyEnum = IcePy.Operation('opMyEnum', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnum, True, 2),), (((), _M_Test._t_MyEnum, True, 3),), ((), _M_Test._t_MyEnum, True, 1), ())
+    Initial._op_opSmallStruct = IcePy.Operation('opSmallStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStruct, True, 2),), (((), _M_Test._t_SmallStruct, True, 3),), ((), _M_Test._t_SmallStruct, True, 1), ())
+    Initial._op_opFixedStruct = IcePy.Operation('opFixedStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStruct, True, 2),), (((), _M_Test._t_FixedStruct, True, 3),), ((), _M_Test._t_FixedStruct, True, 1), ())
+    Initial._op_opVarStruct = IcePy.Operation('opVarStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VarStruct, True, 2),), (((), _M_Test._t_VarStruct, True, 3),), ((), _M_Test._t_VarStruct, True, 1), ())
+    Initial._op_opMyInterfaceProxy = IcePy.Operation('opMyInterfaceProxy', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyInterfacePrx, True, 2),), (((), _M_Test._t_MyInterfacePrx, True, 3),), ((), _M_Test._t_MyInterfacePrx, True, 1), ())
+    Initial._op_opOneOptional = IcePy.Operation('opOneOptional', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_OneOptional, False, 0),), (((), _M_Test._t_OneOptional, False, 0),), ((), _M_Test._t_OneOptional, False, 0), ())
+    Initial._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, True, 2),), (((), _M_Test._t_ByteSeq, True, 3),), ((), _M_Test._t_ByteSeq, True, 1), ())
+    Initial._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, True, 2),), (((), _M_Test._t_BoolSeq, True, 3),), ((), _M_Test._t_BoolSeq, True, 1), ())
+    Initial._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq, True, 2),), (((), _M_Test._t_ShortSeq, True, 3),), ((), _M_Test._t_ShortSeq, True, 1), ())
+    Initial._op_opIntSeq = IcePy.Operation('opIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntSeq, True, 2),), (((), _M_Test._t_IntSeq, True, 3),), ((), _M_Test._t_IntSeq, True, 1), ())
+    Initial._op_opLongSeq = IcePy.Operation('opLongSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongSeq, True, 2),), (((), _M_Test._t_LongSeq, True, 3),), ((), _M_Test._t_LongSeq, True, 1), ())
+    Initial._op_opFloatSeq = IcePy.Operation('opFloatSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatSeq, True, 2),), (((), _M_Test._t_FloatSeq, True, 3),), ((), _M_Test._t_FloatSeq, True, 1), ())
+    Initial._op_opDoubleSeq = IcePy.Operation('opDoubleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleSeq, True, 2),), (((), _M_Test._t_DoubleSeq, True, 3),), ((), _M_Test._t_DoubleSeq, True, 1), ())
+    Initial._op_opStringSeq = IcePy.Operation('opStringSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, True, 2),), (((), _M_Test._t_StringSeq, True, 3),), ((), _M_Test._t_StringSeq, True, 1), ())
+    Initial._op_opSmallStructSeq = IcePy.Operation('opSmallStructSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStructSeq, True, 2),), (((), _M_Test._t_SmallStructSeq, True, 3),), ((), _M_Test._t_SmallStructSeq, True, 1), ())
+    Initial._op_opSmallStructList = IcePy.Operation('opSmallStructList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStructList, True, 2),), (((), _M_Test._t_SmallStructList, True, 3),), ((), _M_Test._t_SmallStructList, True, 1), ())
+    Initial._op_opFixedStructSeq = IcePy.Operation('opFixedStructSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStructSeq, True, 2),), (((), _M_Test._t_FixedStructSeq, True, 3),), ((), _M_Test._t_FixedStructSeq, True, 1), ())
+    Initial._op_opFixedStructList = IcePy.Operation('opFixedStructList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStructList, True, 2),), (((), _M_Test._t_FixedStructList, True, 3),), ((), _M_Test._t_FixedStructList, True, 1), ())
+    Initial._op_opVarStructSeq = IcePy.Operation('opVarStructSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VarStructSeq, True, 2),), (((), _M_Test._t_VarStructSeq, True, 3),), ((), _M_Test._t_VarStructSeq, True, 1), ())
+    Initial._op_opIntIntDict = IcePy.Operation('opIntIntDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntIntDict, True, 2),), (((), _M_Test._t_IntIntDict, True, 3),), ((), _M_Test._t_IntIntDict, True, 1), ())
+    Initial._op_opStringIntDict = IcePy.Operation('opStringIntDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
+    Initial._op_opClassAndUnknownOptional = IcePy.Operation('opClassAndUnknownOptional', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_A, False, 0),), (), None, ())
+    Initial._op_opG = IcePy.Operation('opG', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_G, False, 0),), (), ((), _M_Test._t_G, False, 0), ())
+    Initial._op_opVoid = IcePy.Operation('opVoid', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Initial._op_opMStruct1 = IcePy.Operation('opMStruct1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_SmallStruct, True, 1), ())
+    Initial._op_opMStruct2 = IcePy.Operation('opMStruct2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStruct, True, 2),), (((), _M_Test._t_SmallStruct, True, 3),), ((), _M_Test._t_SmallStruct, True, 1), ())
+    Initial._op_opMSeq1 = IcePy.Operation('opMSeq1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringSeq, True, 1), ())
+    Initial._op_opMSeq2 = IcePy.Operation('opMSeq2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, True, 2),), (((), _M_Test._t_StringSeq, True, 3),), ((), _M_Test._t_StringSeq, True, 1), ())
+    Initial._op_opMDict1 = IcePy.Operation('opMDict1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringIntDict, True, 1), ())
+    Initial._op_opMDict2 = IcePy.Operation('opMDict2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
+    Initial._op_supportsJavaSerializable = IcePy.Operation('supportsJavaSerializable', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+
+    _M_Test.Initial = Initial
+    del Initial
 
 # End of module Test

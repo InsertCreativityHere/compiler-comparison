@@ -30,68 +30,70 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_Session = IcePy.defineValue('::Test::Session', Ice.Value, -1, (), True, None, ())
-_M_Test.SessionPrx = None
-class SessionPrx(_M_Glacier2.SessionPrx):
 
-    def destroyFromClient(self, context=None):
-        return _M_Test.Session._op_destroyFromClient.invoke(self, ((), context))
+if 'SessionPrx' not in _M_Test.__dict__:
+    _M_Test.SessionPrx = None
+    class SessionPrx(_M_Glacier2.SessionPrx):
 
-    def destroyFromClientAsync(self, context=None):
-        return _M_Test.Session._op_destroyFromClient.invokeAsync(self, ((), context))
+        def destroyFromClient(self, context=None):
+            return _M_Test.Session._op_destroyFromClient.invoke(self, ((), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.Session._op_shutdown.invoke(self, ((), context))
+        def destroyFromClientAsync(self, context=None):
+            return _M_Test.Session._op_destroyFromClient.invokeAsync(self, ((), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.Session._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.Session._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.SessionPrx.ice_checkedCast(proxy, '::Test::Session', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.Session._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.SessionPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.SessionPrx.ice_checkedCast(proxy, '::Test::Session', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Session'
-_M_Test._t_SessionPrx = IcePy.defineProxy('::Test::Session', SessionPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.SessionPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.SessionPrx = SessionPrx
-del SessionPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Session'
+    _M_Test._t_SessionPrx = IcePy.defineProxy('::Test::Session', SessionPrx)
 
-_M_Test.Session = None
-class Session(_M_Glacier2.Session):
+    _M_Test.SessionPrx = SessionPrx
+    del SessionPrx
 
-    def ice_ids(self, current=None):
-        return ('::Glacier2::Session', '::Ice::Object', '::Test::Session')
+    _M_Test.Session = None
+    class Session(_M_Glacier2.Session):
 
-    def ice_id(self, current=None):
-        return '::Test::Session'
+        def ice_ids(self, current=None):
+            return ('::Glacier2::Session', '::Ice::Object', '::Test::Session')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Session'
+        def ice_id(self, current=None):
+            return '::Test::Session'
 
-    def destroyFromClient(self, current=None):
-        raise NotImplementedError("servant method 'destroyFromClient' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Session'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def destroyFromClient(self, current=None):
+            raise NotImplementedError("servant method 'destroyFromClient' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_SessionDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_SessionDisp)
 
-_M_Test._t_SessionDisp = IcePy.defineClass('::Test::Session', Session, (), None, (_M_Glacier2._t_SessionDisp,))
-Session._ice_type = _M_Test._t_SessionDisp
+        __repr__ = __str__
 
-Session._op_destroyFromClient = IcePy.Operation('destroyFromClient', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
-Session._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_SessionDisp = IcePy.defineClass('::Test::Session', Session, (), None, (_M_Glacier2._t_SessionDisp,))
+    Session._ice_type = _M_Test._t_SessionDisp
 
-_M_Test.Session = Session
-del Session
+    Session._op_destroyFromClient = IcePy.Operation('destroyFromClient', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
+    Session._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.Session = Session
+    del Session
 
 # End of module Test

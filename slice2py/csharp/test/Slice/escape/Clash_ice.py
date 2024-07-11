@@ -23,381 +23,389 @@ _M_Clash = Ice.openModule('Clash')
 __name__ = 'Clash'
 
 _M_Clash._t_Intf = IcePy.defineValue('::Clash::Intf', Ice.Value, -1, (), True, None, ())
-_M_Clash.IntfPrx = None
-class IntfPrx(Ice.ObjectPrx):
 
-    def context(self, context=None):
-        return _M_Clash.Intf._op_context.invoke(self, ((), context))
+if 'IntfPrx' not in _M_Clash.__dict__:
+    _M_Clash.IntfPrx = None
+    class IntfPrx(Ice.ObjectPrx):
 
-    def contextAsync(self, context=None):
-        return _M_Clash.Intf._op_context.invokeAsync(self, ((), context))
+        def context(self, context=None):
+            return _M_Clash.Intf._op_context.invoke(self, ((), context))
 
-    def current(self, context=None):
-        return _M_Clash.Intf._op_current.invoke(self, ((), context))
+        def contextAsync(self, context=None):
+            return _M_Clash.Intf._op_context.invokeAsync(self, ((), context))
 
-    def currentAsync(self, context=None):
-        return _M_Clash.Intf._op_current.invokeAsync(self, ((), context))
+        def current(self, context=None):
+            return _M_Clash.Intf._op_current.invoke(self, ((), context))
 
-    def response(self, context=None):
-        return _M_Clash.Intf._op_response.invoke(self, ((), context))
+        def currentAsync(self, context=None):
+            return _M_Clash.Intf._op_current.invokeAsync(self, ((), context))
 
-    def responseAsync(self, context=None):
-        return _M_Clash.Intf._op_response.invokeAsync(self, ((), context))
+        def response(self, context=None):
+            return _M_Clash.Intf._op_response.invoke(self, ((), context))
 
-    def typeId(self, context=None):
-        return _M_Clash.Intf._op_typeId.invoke(self, ((), context))
+        def responseAsync(self, context=None):
+            return _M_Clash.Intf._op_response.invokeAsync(self, ((), context))
 
-    def typeIdAsync(self, context=None):
-        return _M_Clash.Intf._op_typeId.invokeAsync(self, ((), context))
+        def typeId(self, context=None):
+            return _M_Clash.Intf._op_typeId.invoke(self, ((), context))
 
-    def _del(self, context=None):
-        return _M_Clash.Intf._op_del.invoke(self, ((), context))
+        def typeIdAsync(self, context=None):
+            return _M_Clash.Intf._op_typeId.invokeAsync(self, ((), context))
 
-    def delAsync(self, context=None):
-        return _M_Clash.Intf._op_del.invokeAsync(self, ((), context))
+        def _del(self, context=None):
+            return _M_Clash.Intf._op_del.invoke(self, ((), context))
 
-    def cookie(self, context=None):
-        return _M_Clash.Intf._op_cookie.invoke(self, ((), context))
+        def delAsync(self, context=None):
+            return _M_Clash.Intf._op_del.invokeAsync(self, ((), context))
 
-    def cookieAsync(self, context=None):
-        return _M_Clash.Intf._op_cookie.invokeAsync(self, ((), context))
+        def cookie(self, context=None):
+            return _M_Clash.Intf._op_cookie.invoke(self, ((), context))
 
-    def sync(self, context=None):
-        return _M_Clash.Intf._op_sync.invoke(self, ((), context))
+        def cookieAsync(self, context=None):
+            return _M_Clash.Intf._op_cookie.invokeAsync(self, ((), context))
 
-    def syncAsync(self, context=None):
-        return _M_Clash.Intf._op_sync.invokeAsync(self, ((), context))
+        def sync(self, context=None):
+            return _M_Clash.Intf._op_sync.invoke(self, ((), context))
 
-    def inS(self, context=None):
-        return _M_Clash.Intf._op_inS.invoke(self, ((), context))
+        def syncAsync(self, context=None):
+            return _M_Clash.Intf._op_sync.invokeAsync(self, ((), context))
 
-    def inSAsync(self, context=None):
-        return _M_Clash.Intf._op_inS.invokeAsync(self, ((), context))
+        def inS(self, context=None):
+            return _M_Clash.Intf._op_inS.invoke(self, ((), context))
 
-    def istr(self, context=None):
-        return _M_Clash.Intf._op_istr.invoke(self, ((), context))
+        def inSAsync(self, context=None):
+            return _M_Clash.Intf._op_inS.invokeAsync(self, ((), context))
 
-    def istrAsync(self, context=None):
-        return _M_Clash.Intf._op_istr.invokeAsync(self, ((), context))
+        def istr(self, context=None):
+            return _M_Clash.Intf._op_istr.invoke(self, ((), context))
 
-    def obj(self, context=None):
-        return _M_Clash.Intf._op_obj.invoke(self, ((), context))
+        def istrAsync(self, context=None):
+            return _M_Clash.Intf._op_istr.invokeAsync(self, ((), context))
 
-    def objAsync(self, context=None):
-        return _M_Clash.Intf._op_obj.invokeAsync(self, ((), context))
+        def obj(self, context=None):
+            return _M_Clash.Intf._op_obj.invoke(self, ((), context))
 
-    def op(self, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy=Ice.Unset, obj=Ice.Unset, context_=None):
-        return _M_Clash.Intf._op_op.invoke(self, ((context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj), context_))
+        def objAsync(self, context=None):
+            return _M_Clash.Intf._op_obj.invokeAsync(self, ((), context))
 
-    def opAsync(self, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj, context_=None):
-        return _M_Clash.Intf._op_op.invokeAsync(self, ((context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj), context_))
+        def op(self, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy=Ice.Unset, obj=Ice.Unset, context_=None):
+            return _M_Clash.Intf._op_op.invoke(self, ((context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj), context_))
 
-    def opOut(self, context_=None):
-        return _M_Clash.Intf._op_opOut.invoke(self, ((), context_))
+        def opAsync(self, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj, context_=None):
+            return _M_Clash.Intf._op_op.invokeAsync(self, ((context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj), context_))
 
-    def opOutAsync(self, context_=None):
-        return _M_Clash.Intf._op_opOut.invokeAsync(self, ((), context_))
+        def opOut(self, context_=None):
+            return _M_Clash.Intf._op_opOut.invoke(self, ((), context_))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Clash.IntfPrx.ice_checkedCast(proxy, '::Clash::Intf', facetOrContext, context)
+        def opOutAsync(self, context_=None):
+            return _M_Clash.Intf._op_opOut.invokeAsync(self, ((), context_))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Clash.IntfPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Clash.IntfPrx.ice_checkedCast(proxy, '::Clash::Intf', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Clash::Intf'
-_M_Clash._t_IntfPrx = IcePy.defineProxy('::Clash::Intf', IntfPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Clash.IntfPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Clash.IntfPrx = IntfPrx
-del IntfPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Clash::Intf'
+    _M_Clash._t_IntfPrx = IcePy.defineProxy('::Clash::Intf', IntfPrx)
 
-_M_Clash.Intf = None
-class Intf(Ice.Object):
+    _M_Clash.IntfPrx = IntfPrx
+    del IntfPrx
 
-    def ice_ids(self, current=None):
-        return ('::Clash::Intf', '::Ice::Object')
+    _M_Clash.Intf = None
+    class Intf(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Clash::Intf'
+        def ice_ids(self, current=None):
+            return ('::Clash::Intf', '::Ice::Object')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Clash::Intf'
+        def ice_id(self, current=None):
+            return '::Clash::Intf'
 
-    def context(self, current=None):
-        raise NotImplementedError("servant method 'context' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Clash::Intf'
 
-    def current(self, current=None):
-        raise NotImplementedError("servant method 'current' not implemented")
+        def context(self, current=None):
+            raise NotImplementedError("servant method 'context' not implemented")
 
-    def response(self, current=None):
-        raise NotImplementedError("servant method 'response' not implemented")
+        def current(self, current=None):
+            raise NotImplementedError("servant method 'current' not implemented")
 
-    def typeId(self, current=None):
-        raise NotImplementedError("servant method 'typeId' not implemented")
+        def response(self, current=None):
+            raise NotImplementedError("servant method 'response' not implemented")
 
-    def _del(self, current=None):
-        raise NotImplementedError("servant method '_del' not implemented")
+        def typeId(self, current=None):
+            raise NotImplementedError("servant method 'typeId' not implemented")
 
-    def cookie(self, current=None):
-        raise NotImplementedError("servant method 'cookie' not implemented")
+        def _del(self, current=None):
+            raise NotImplementedError("servant method '_del' not implemented")
 
-    def sync(self, current=None):
-        raise NotImplementedError("servant method 'sync' not implemented")
+        def cookie(self, current=None):
+            raise NotImplementedError("servant method 'cookie' not implemented")
 
-    def inS(self, current=None):
-        raise NotImplementedError("servant method 'inS' not implemented")
+        def sync(self, current=None):
+            raise NotImplementedError("servant method 'sync' not implemented")
 
-    def istr(self, current=None):
-        raise NotImplementedError("servant method 'istr' not implemented")
+        def inS(self, current=None):
+            raise NotImplementedError("servant method 'inS' not implemented")
 
-    def obj(self, current=None):
-        raise NotImplementedError("servant method 'obj' not implemented")
+        def istr(self, current=None):
+            raise NotImplementedError("servant method 'istr' not implemented")
 
-    def op(self, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj, current_=None):
-        raise NotImplementedError("servant method 'op' not implemented")
+        def obj(self, current=None):
+            raise NotImplementedError("servant method 'obj' not implemented")
 
-    def opOut(self, current_=None):
-        raise NotImplementedError("servant method 'opOut' not implemented")
+        def op(self, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj, current_=None):
+            raise NotImplementedError("servant method 'op' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Clash._t_IntfDisp)
+        def opOut(self, current_=None):
+            raise NotImplementedError("servant method 'opOut' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Clash._t_IntfDisp)
 
-_M_Clash._t_IntfDisp = IcePy.defineClass('::Clash::Intf', Intf, (), None, ())
-Intf._ice_type = _M_Clash._t_IntfDisp
+        __repr__ = __str__
 
-Intf._op_context = IcePy.Operation('context', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Intf._op_current = IcePy.Operation('current', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Intf._op_response = IcePy.Operation('response', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Intf._op_typeId = IcePy.Operation('typeId', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Intf._op_del = IcePy.Operation('del', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Intf._op_cookie = IcePy.Operation('cookie', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Intf._op_sync = IcePy.Operation('sync', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Intf._op_inS = IcePy.Operation('inS', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Intf._op_istr = IcePy.Operation('istr', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Intf._op_obj = IcePy.Operation('obj', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Intf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, True, 1), ((), IcePy._t_int, True, 2)), (), None, ())
-Intf._op_opOut = IcePy.Operation('opOut', Ice.OperationMode.Normal, False, None, (), (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, True, 1), ((), IcePy._t_int, True, 2)), None, ())
+    _M_Clash._t_IntfDisp = IcePy.defineClass('::Clash::Intf', Intf, (), None, ())
+    Intf._ice_type = _M_Clash._t_IntfDisp
 
-_M_Clash.Intf = Intf
-del Intf
-_M_Clash.Cls = None
-class Cls(Ice.Value):
-    def __init__(self, s=None, context='', current=0, response=0, typeId=0, _del=0, cookie=Ice.Unset, ex='', result=0, istr='', ostr='', inS='', _in='', proxy='', obj=0, getCookie=0, clone=''):
-        self.s = s
-        self.context = context
-        self.current = current
-        self.response = response
-        self.typeId = typeId
-        self._del = _del
-        self.cookie = cookie
-        self.ex = ex
-        self.result = result
-        self.istr = istr
-        self.ostr = ostr
-        self.inS = inS
-        self._in = _in
-        self.proxy = proxy
-        self.obj = obj
-        self.getCookie = getCookie
-        self.clone = clone
+    Intf._op_context = IcePy.Operation('context', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_current = IcePy.Operation('current', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_response = IcePy.Operation('response', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_typeId = IcePy.Operation('typeId', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_del = IcePy.Operation('del', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_cookie = IcePy.Operation('cookie', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_sync = IcePy.Operation('sync', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_inS = IcePy.Operation('inS', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_istr = IcePy.Operation('istr', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_obj = IcePy.Operation('obj', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, True, 1), ((), IcePy._t_int, True, 2)), (), None, ())
+    Intf._op_opOut = IcePy.Operation('opOut', Ice.OperationMode.Normal, False, None, (), (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, True, 1), ((), IcePy._t_int, True, 2)), None, ())
 
-    def ice_id(self):
-        return '::Clash::Cls'
+    _M_Clash.Intf = Intf
+    del Intf
 
-    @staticmethod
-    def ice_staticId():
-        return '::Clash::Cls'
+if 'Cls' not in _M_Clash.__dict__:
+    _M_Clash.Cls = None
+    class Cls(Ice.Value):
+        def __init__(self, s=None, context='', current=0, response=0, typeId=0, _del=0, cookie=Ice.Unset, ex='', result=0, istr='', ostr='', inS='', _in='', proxy='', obj=0, getCookie=0, clone=''):
+            self.s = s
+            self.context = context
+            self.current = current
+            self.response = response
+            self.typeId = typeId
+            self._del = _del
+            self.cookie = cookie
+            self.ex = ex
+            self.result = result
+            self.istr = istr
+            self.ostr = ostr
+            self.inS = inS
+            self._in = _in
+            self.proxy = proxy
+            self.obj = obj
+            self.getCookie = getCookie
+            self.clone = clone
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Clash._t_Cls)
+        def ice_id(self):
+            return '::Clash::Cls'
 
-    __repr__ = __str__
+        @staticmethod
+        def ice_staticId():
+            return '::Clash::Cls'
 
-_M_Clash._t_Cls = IcePy.defineValue('::Clash::Cls', Cls, -1, (), False, None, (
-    ('s', (), _M_Clash._t_IntfPrx, False, 0),
-    ('context', (), IcePy._t_string, False, 0),
-    ('current', (), IcePy._t_int, False, 0),
-    ('response', (), IcePy._t_short, False, 0),
-    ('typeId', (), IcePy._t_int, False, 0),
-    ('_del', (), IcePy._t_short, False, 0),
-    ('cookie', (), IcePy._t_short, True, 1),
-    ('ex', (), IcePy._t_string, False, 0),
-    ('result', (), IcePy._t_int, False, 0),
-    ('istr', (), IcePy._t_string, False, 0),
-    ('ostr', (), IcePy._t_string, False, 0),
-    ('inS', (), IcePy._t_string, False, 0),
-    ('_in', (), IcePy._t_string, False, 0),
-    ('proxy', (), IcePy._t_string, False, 0),
-    ('obj', (), IcePy._t_int, False, 0),
-    ('getCookie', (), IcePy._t_int, False, 0),
-    ('clone', (), IcePy._t_string, False, 0)
-))
-Cls._ice_type = _M_Clash._t_Cls
+        def __str__(self):
+            return IcePy.stringify(self, _M_Clash._t_Cls)
 
-_M_Clash.Cls = Cls
-del Cls
-_M_Clash.St = None
-class St(object):
-    def __init__(self, v='', istr=0, ostr=0, rhs=0, hashCode='', clone=0):
-        self.v = v
-        self.istr = istr
-        self.ostr = ostr
-        self.rhs = rhs
-        self.hashCode = hashCode
-        self.clone = clone
+        __repr__ = __str__
 
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.v)
-        _h = 5 * _h + _builtins.hash(self.istr)
-        _h = 5 * _h + _builtins.hash(self.ostr)
-        _h = 5 * _h + _builtins.hash(self.rhs)
-        _h = 5 * _h + _builtins.hash(self.hashCode)
-        _h = 5 * _h + _builtins.hash(self.clone)
-        return _h % 0x7fffffff
+    _M_Clash._t_Cls = IcePy.defineValue('::Clash::Cls', Cls, -1, (), False, None, (
+        ('s', (), _M_Clash._t_IntfPrx, False, 0),
+        ('context', (), IcePy._t_string, False, 0),
+        ('current', (), IcePy._t_int, False, 0),
+        ('response', (), IcePy._t_short, False, 0),
+        ('typeId', (), IcePy._t_int, False, 0),
+        ('_del', (), IcePy._t_short, False, 0),
+        ('cookie', (), IcePy._t_short, True, 1),
+        ('ex', (), IcePy._t_string, False, 0),
+        ('result', (), IcePy._t_int, False, 0),
+        ('istr', (), IcePy._t_string, False, 0),
+        ('ostr', (), IcePy._t_string, False, 0),
+        ('inS', (), IcePy._t_string, False, 0),
+        ('_in', (), IcePy._t_string, False, 0),
+        ('proxy', (), IcePy._t_string, False, 0),
+        ('obj', (), IcePy._t_int, False, 0),
+        ('getCookie', (), IcePy._t_int, False, 0),
+        ('clone', (), IcePy._t_string, False, 0)
+    ))
+    Cls._ice_type = _M_Clash._t_Cls
 
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Clash.St):
-            return NotImplemented
-        else:
-            if self.v is None or other.v is None:
-                if self.v != other.v:
-                    return (-1 if self.v is None else 1)
+    _M_Clash.Cls = Cls
+    del Cls
+
+if 'St' not in _M_Clash.__dict__:
+    _M_Clash.St = None
+    class St(object):
+        def __init__(self, v='', istr=0, ostr=0, rhs=0, hashCode='', clone=0):
+            self.v = v
+            self.istr = istr
+            self.ostr = ostr
+            self.rhs = rhs
+            self.hashCode = hashCode
+            self.clone = clone
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.v)
+            _h = 5 * _h + _builtins.hash(self.istr)
+            _h = 5 * _h + _builtins.hash(self.ostr)
+            _h = 5 * _h + _builtins.hash(self.rhs)
+            _h = 5 * _h + _builtins.hash(self.hashCode)
+            _h = 5 * _h + _builtins.hash(self.clone)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Clash.St):
+                return NotImplemented
             else:
-                if self.v < other.v:
-                    return -1
-                elif self.v > other.v:
-                    return 1
-            if self.istr is None or other.istr is None:
-                if self.istr != other.istr:
-                    return (-1 if self.istr is None else 1)
+                if self.v is None or other.v is None:
+                    if self.v != other.v:
+                        return (-1 if self.v is None else 1)
+                else:
+                    if self.v < other.v:
+                        return -1
+                    elif self.v > other.v:
+                        return 1
+                if self.istr is None or other.istr is None:
+                    if self.istr != other.istr:
+                        return (-1 if self.istr is None else 1)
+                else:
+                    if self.istr < other.istr:
+                        return -1
+                    elif self.istr > other.istr:
+                        return 1
+                if self.ostr is None or other.ostr is None:
+                    if self.ostr != other.ostr:
+                        return (-1 if self.ostr is None else 1)
+                else:
+                    if self.ostr < other.ostr:
+                        return -1
+                    elif self.ostr > other.ostr:
+                        return 1
+                if self.rhs is None or other.rhs is None:
+                    if self.rhs != other.rhs:
+                        return (-1 if self.rhs is None else 1)
+                else:
+                    if self.rhs < other.rhs:
+                        return -1
+                    elif self.rhs > other.rhs:
+                        return 1
+                if self.hashCode is None or other.hashCode is None:
+                    if self.hashCode != other.hashCode:
+                        return (-1 if self.hashCode is None else 1)
+                else:
+                    if self.hashCode < other.hashCode:
+                        return -1
+                    elif self.hashCode > other.hashCode:
+                        return 1
+                if self.clone is None or other.clone is None:
+                    if self.clone != other.clone:
+                        return (-1 if self.clone is None else 1)
+                else:
+                    if self.clone < other.clone:
+                        return -1
+                    elif self.clone > other.clone:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.istr < other.istr:
-                    return -1
-                elif self.istr > other.istr:
-                    return 1
-            if self.ostr is None or other.ostr is None:
-                if self.ostr != other.ostr:
-                    return (-1 if self.ostr is None else 1)
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.ostr < other.ostr:
-                    return -1
-                elif self.ostr > other.ostr:
-                    return 1
-            if self.rhs is None or other.rhs is None:
-                if self.rhs != other.rhs:
-                    return (-1 if self.rhs is None else 1)
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.rhs < other.rhs:
-                    return -1
-                elif self.rhs > other.rhs:
-                    return 1
-            if self.hashCode is None or other.hashCode is None:
-                if self.hashCode != other.hashCode:
-                    return (-1 if self.hashCode is None else 1)
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.hashCode < other.hashCode:
-                    return -1
-                elif self.hashCode > other.hashCode:
-                    return 1
-            if self.clone is None or other.clone is None:
-                if self.clone != other.clone:
-                    return (-1 if self.clone is None else 1)
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.clone < other.clone:
-                    return -1
-                elif self.clone > other.clone:
-                    return 1
-            return 0
+                return r == 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __str__(self):
+            return IcePy.stringify(self, _M_Clash._t_St)
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        __repr__ = __str__
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+    _M_Clash._t_St = IcePy.defineStruct('::Clash::St', St, (), (
+        ('v', (), IcePy._t_string),
+        ('istr', (), IcePy._t_short),
+        ('ostr', (), IcePy._t_int),
+        ('rhs', (), IcePy._t_int),
+        ('hashCode', (), IcePy._t_string),
+        ('clone', (), IcePy._t_int)
+    ))
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+    _M_Clash.St = St
+    del St
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+if 'Ex' not in _M_Clash.__dict__:
+    _M_Clash.Ex = None
+    class Ex(Ice.UserException):
+        def __init__(self, istr=0, ostr=0, cause=''):
+            self.istr = istr
+            self.ostr = ostr
+            self.cause = cause
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Clash._t_St)
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Clash._t_St = IcePy.defineStruct('::Clash::St', St, (), (
-    ('v', (), IcePy._t_string),
-    ('istr', (), IcePy._t_short),
-    ('ostr', (), IcePy._t_int),
-    ('rhs', (), IcePy._t_int),
-    ('hashCode', (), IcePy._t_string),
-    ('clone', (), IcePy._t_int)
-))
+        _ice_id = '::Clash::Ex'
 
-_M_Clash.St = St
-del St
-_M_Clash.Ex = None
-class Ex(Ice.UserException):
-    def __init__(self, istr=0, ostr=0, cause=''):
-        self.istr = istr
-        self.ostr = ostr
-        self.cause = cause
+    _M_Clash._t_Ex = IcePy.defineException('::Clash::Ex', Ex, (), None, (
+        ('istr', (), IcePy._t_short, False, 0),
+        ('ostr', (), IcePy._t_int, False, 0),
+        ('cause', (), IcePy._t_string, False, 0)
+    ))
+    Ex._ice_type = _M_Clash._t_Ex
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
-
-    __repr__ = __str__
-
-    _ice_id = '::Clash::Ex'
-
-_M_Clash._t_Ex = IcePy.defineException('::Clash::Ex', Ex, (), None, (
-    ('istr', (), IcePy._t_short, False, 0),
-    ('ostr', (), IcePy._t_int, False, 0),
-    ('cause', (), IcePy._t_string, False, 0)
-))
-Ex._ice_type = _M_Clash._t_Ex
-
-_M_Clash.Ex = Ex
-del Ex
+    _M_Clash.Ex = Ex
+    del Ex
 
 # End of module Clash

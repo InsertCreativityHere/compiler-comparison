@@ -21,85 +21,93 @@ import builtins as _builtins
 # Start of module WithNamespace
 _M_WithNamespace = Ice.openModule('WithNamespace')
 __name__ = 'WithNamespace'
-_M_WithNamespace.C1 = None
-class C1(Ice.Value):
-    def __init__(self, i=0):
-        self.i = i
 
-    def ice_id(self):
-        return '::WithNamespace::C1'
+if 'C1' not in _M_WithNamespace.__dict__:
+    _M_WithNamespace.C1 = None
+    class C1(Ice.Value):
+        def __init__(self, i=0):
+            self.i = i
 
-    @staticmethod
-    def ice_staticId():
-        return '::WithNamespace::C1'
+        def ice_id(self):
+            return '::WithNamespace::C1'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_WithNamespace._t_C1)
+        @staticmethod
+        def ice_staticId():
+            return '::WithNamespace::C1'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_WithNamespace._t_C1)
 
-_M_WithNamespace._t_C1 = IcePy.defineValue('::WithNamespace::C1', C1, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
-C1._ice_type = _M_WithNamespace._t_C1
+        __repr__ = __str__
 
-_M_WithNamespace.C1 = C1
-del C1
-_M_WithNamespace.C2 = None
-class C2(_M_WithNamespace.C1):
-    def __init__(self, i=0, l=0):
-        _M_WithNamespace.C1.__init__(self, i)
-        self.l = l
+    _M_WithNamespace._t_C1 = IcePy.defineValue('::WithNamespace::C1', C1, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
+    C1._ice_type = _M_WithNamespace._t_C1
 
-    def ice_id(self):
-        return '::WithNamespace::C2'
+    _M_WithNamespace.C1 = C1
+    del C1
 
-    @staticmethod
-    def ice_staticId():
-        return '::WithNamespace::C2'
+if 'C2' not in _M_WithNamespace.__dict__:
+    _M_WithNamespace.C2 = None
+    class C2(_M_WithNamespace.C1):
+        def __init__(self, i=0, l=0):
+            _M_WithNamespace.C1.__init__(self, i)
+            self.l = l
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_WithNamespace._t_C2)
+        def ice_id(self):
+            return '::WithNamespace::C2'
 
-    __repr__ = __str__
+        @staticmethod
+        def ice_staticId():
+            return '::WithNamespace::C2'
 
-_M_WithNamespace._t_C2 = IcePy.defineValue('::WithNamespace::C2', C2, -1, (), False, _M_WithNamespace._t_C1, (('l', (), IcePy._t_long, False, 0),))
-C2._ice_type = _M_WithNamespace._t_C2
+        def __str__(self):
+            return IcePy.stringify(self, _M_WithNamespace._t_C2)
 
-_M_WithNamespace.C2 = C2
-del C2
-_M_WithNamespace.E1 = None
-class E1(Ice.UserException):
-    def __init__(self, i=0):
-        self.i = i
+        __repr__ = __str__
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+    _M_WithNamespace._t_C2 = IcePy.defineValue('::WithNamespace::C2', C2, -1, (), False, _M_WithNamespace._t_C1, (('l', (), IcePy._t_long, False, 0),))
+    C2._ice_type = _M_WithNamespace._t_C2
 
-    __repr__ = __str__
+    _M_WithNamespace.C2 = C2
+    del C2
 
-    _ice_id = '::WithNamespace::E1'
+if 'E1' not in _M_WithNamespace.__dict__:
+    _M_WithNamespace.E1 = None
+    class E1(Ice.UserException):
+        def __init__(self, i=0):
+            self.i = i
 
-_M_WithNamespace._t_E1 = IcePy.defineException('::WithNamespace::E1', E1, (), None, (('i', (), IcePy._t_int, False, 0),))
-E1._ice_type = _M_WithNamespace._t_E1
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-_M_WithNamespace.E1 = E1
-del E1
-_M_WithNamespace.E2 = None
-class E2(_M_WithNamespace.E1):
-    def __init__(self, i=0, l=0):
-        _M_WithNamespace.E1.__init__(self, i)
-        self.l = l
+        __repr__ = __str__
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+        _ice_id = '::WithNamespace::E1'
 
-    __repr__ = __str__
+    _M_WithNamespace._t_E1 = IcePy.defineException('::WithNamespace::E1', E1, (), None, (('i', (), IcePy._t_int, False, 0),))
+    E1._ice_type = _M_WithNamespace._t_E1
 
-    _ice_id = '::WithNamespace::E2'
+    _M_WithNamespace.E1 = E1
+    del E1
 
-_M_WithNamespace._t_E2 = IcePy.defineException('::WithNamespace::E2', E2, (), _M_WithNamespace._t_E1, (('l', (), IcePy._t_long, False, 0),))
-E2._ice_type = _M_WithNamespace._t_E2
+if 'E2' not in _M_WithNamespace.__dict__:
+    _M_WithNamespace.E2 = None
+    class E2(_M_WithNamespace.E1):
+        def __init__(self, i=0, l=0):
+            _M_WithNamespace.E1.__init__(self, i)
+            self.l = l
 
-_M_WithNamespace.E2 = E2
-del E2
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::WithNamespace::E2'
+
+    _M_WithNamespace._t_E2 = IcePy.defineException('::WithNamespace::E2', E2, (), _M_WithNamespace._t_E1, (('l', (), IcePy._t_long, False, 0),))
+    E2._ice_type = _M_WithNamespace._t_E2
+
+    _M_WithNamespace.E2 = E2
+    del E2
 
 # End of module WithNamespace

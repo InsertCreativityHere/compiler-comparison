@@ -21,357 +21,377 @@ import builtins as _builtins
 # Start of module BEGIN
 _M_BEGIN = Ice.openModule('BEGIN')
 __name__ = 'BEGIN'
-_M_BEGIN.END = None
-class END(Ice.EnumBase):
 
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
+if 'END' not in _M_BEGIN.__dict__:
+    _M_BEGIN.END = None
+    class END(Ice.EnumBase):
 
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
 
-END.alias = END("alias", 0)
-END._enumerators = { 0:END.alias }
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
 
-_M_BEGIN._t_END = IcePy.defineEnum('::BEGIN::END', END, (), END._enumerators)
+    END.alias = END("alias", 0)
+    END._enumerators = { 0:END.alias }
 
-_M_BEGIN.END = END
-del END
-_M_BEGIN._and = None
-class _and(object):
-    def __init__(self, begin=0):
-        self.begin = begin
+    _M_BEGIN._t_END = IcePy.defineEnum('::BEGIN::END', END, (), END._enumerators)
 
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.begin)
-        return _h % 0x7fffffff
+    _M_BEGIN.END = END
+    del END
 
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_BEGIN._and):
-            return NotImplemented
-        else:
-            if self.begin is None or other.begin is None:
-                if self.begin != other.begin:
-                    return (-1 if self.begin is None else 1)
+if '_and' not in _M_BEGIN.__dict__:
+    _M_BEGIN._and = None
+    class _and(object):
+        def __init__(self, begin=0):
+            self.begin = begin
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.begin)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_BEGIN._and):
+                return NotImplemented
             else:
-                if self.begin < other.begin:
-                    return -1
-                elif self.begin > other.begin:
-                    return 1
-            return 0
+                if self.begin is None or other.begin is None:
+                    if self.begin != other.begin:
+                        return (-1 if self.begin is None else 1)
+                else:
+                    if self.begin < other.begin:
+                        return -1
+                    elif self.begin > other.begin:
+                        return 1
+                return 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_BEGIN._t__and)
+        def __str__(self):
+            return IcePy.stringify(self, _M_BEGIN._t__and)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_BEGIN._t__and = IcePy.defineStruct('::BEGIN::and', _and, (), (('begin', (), IcePy._t_int),))
+    _M_BEGIN._t__and = IcePy.defineStruct('::BEGIN::and', _and, (), (('begin', (), IcePy._t_int),))
 
-_M_BEGIN._and = _and
-del _and
+    _M_BEGIN._and = _and
+    del _and
 
 _M_BEGIN._t__break = IcePy.defineValue('::BEGIN::break', Ice.Value, -1, (), True, None, ())
-_M_BEGIN.breakPrx = None
-class breakPrx(Ice.ObjectPrx):
 
-    def _case(self, clone, _def, context=None):
-        return _M_BEGIN._break._op_case.invoke(self, ((clone, _def), context))
+if 'breakPrx' not in _M_BEGIN.__dict__:
+    _M_BEGIN.breakPrx = None
+    class breakPrx(Ice.ObjectPrx):
 
-    def caseAsync(self, clone, _def, context=None):
-        return _M_BEGIN._break._op_case.invokeAsync(self, ((clone, _def), context))
+        def _case(self, clone, _def, context=None):
+            return _M_BEGIN._break._op_case.invoke(self, ((clone, _def), context))
 
-    def to_a(self, context=None):
-        return _M_BEGIN._break._op_to_a.invoke(self, ((), context))
+        def caseAsync(self, clone, _def, context=None):
+            return _M_BEGIN._break._op_case.invokeAsync(self, ((clone, _def), context))
 
-    def to_aAsync(self, context=None):
-        return _M_BEGIN._break._op_to_a.invokeAsync(self, ((), context))
+        def to_a(self, context=None):
+            return _M_BEGIN._break._op_to_a.invoke(self, ((), context))
 
-    def instance_variable_set(self, context=None):
-        return _M_BEGIN._break._op_instance_variable_set.invoke(self, ((), context))
+        def to_aAsync(self, context=None):
+            return _M_BEGIN._break._op_to_a.invokeAsync(self, ((), context))
 
-    def instance_variable_setAsync(self, context=None):
-        return _M_BEGIN._break._op_instance_variable_set.invokeAsync(self, ((), context))
+        def instance_variable_set(self, context=None):
+            return _M_BEGIN._break._op_instance_variable_set.invoke(self, ((), context))
 
-    def instance_variables(self, context=None):
-        return _M_BEGIN._break._op_instance_variables.invoke(self, ((), context))
+        def instance_variable_setAsync(self, context=None):
+            return _M_BEGIN._break._op_instance_variable_set.invokeAsync(self, ((), context))
 
-    def instance_variablesAsync(self, context=None):
-        return _M_BEGIN._break._op_instance_variables.invokeAsync(self, ((), context))
+        def instance_variables(self, context=None):
+            return _M_BEGIN._break._op_instance_variables.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_BEGIN.breakPrx.ice_checkedCast(proxy, '::BEGIN::break', facetOrContext, context)
+        def instance_variablesAsync(self, context=None):
+            return _M_BEGIN._break._op_instance_variables.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_BEGIN.breakPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_BEGIN.breakPrx.ice_checkedCast(proxy, '::BEGIN::break', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::BEGIN::break'
-_M_BEGIN._t_breakPrx = IcePy.defineProxy('::BEGIN::break', breakPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_BEGIN.breakPrx.ice_uncheckedCast(proxy, facet)
 
-_M_BEGIN.breakPrx = breakPrx
-del breakPrx
+        @staticmethod
+        def ice_staticId():
+            return '::BEGIN::break'
+    _M_BEGIN._t_breakPrx = IcePy.defineProxy('::BEGIN::break', breakPrx)
 
-_M_BEGIN._break = None
-class _break(Ice.Object):
+    _M_BEGIN.breakPrx = breakPrx
+    del breakPrx
 
-    def ice_ids(self, current=None):
-        return ('::BEGIN::break', '::Ice::Object')
+    _M_BEGIN._break = None
+    class _break(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::BEGIN::break'
+        def ice_ids(self, current=None):
+            return ('::BEGIN::break', '::Ice::Object')
 
-    @staticmethod
-    def ice_staticId():
-        return '::BEGIN::break'
+        def ice_id(self, current=None):
+            return '::BEGIN::break'
 
-    def _case(self, clone, _def, current=None):
-        raise NotImplementedError("servant method '_case' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::BEGIN::break'
 
-    def to_a(self, current=None):
-        raise NotImplementedError("servant method 'to_a' not implemented")
+        def _case(self, clone, _def, current=None):
+            raise NotImplementedError("servant method '_case' not implemented")
 
-    def instance_variable_set(self, current=None):
-        raise NotImplementedError("servant method 'instance_variable_set' not implemented")
+        def to_a(self, current=None):
+            raise NotImplementedError("servant method 'to_a' not implemented")
 
-    def instance_variables(self, current=None):
-        raise NotImplementedError("servant method 'instance_variables' not implemented")
+        def instance_variable_set(self, current=None):
+            raise NotImplementedError("servant method 'instance_variable_set' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_BEGIN._t_breakDisp)
+        def instance_variables(self, current=None):
+            raise NotImplementedError("servant method 'instance_variables' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_BEGIN._t_breakDisp)
 
-_M_BEGIN._t_breakDisp = IcePy.defineClass('::BEGIN::break', _break, (), None, ())
-_break._ice_type = _M_BEGIN._t_breakDisp
+        __repr__ = __str__
 
-_break._op_case = IcePy.Operation('case', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
-_break._op_to_a = IcePy.Operation('to_a', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-_break._op_instance_variable_set = IcePy.Operation('instance_variable_set', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-_break._op_instance_variables = IcePy.Operation('instance_variables', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_BEGIN._t_breakDisp = IcePy.defineClass('::BEGIN::break', _break, (), None, ())
+    _break._ice_type = _M_BEGIN._t_breakDisp
 
-_M_BEGIN._break = _break
-del _break
-_M_BEGIN.display = None
-class display(Ice.Value):
-    def __init__(self, when=0, do=0, dup=None, _else=0):
-        self.when = when
-        self.do = do
-        self.dup = dup
-        self._else = _else
+    _break._op_case = IcePy.Operation('case', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    _break._op_to_a = IcePy.Operation('to_a', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _break._op_instance_variable_set = IcePy.Operation('instance_variable_set', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _break._op_instance_variables = IcePy.Operation('instance_variables', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    def ice_id(self):
-        return '::BEGIN::display'
+    _M_BEGIN._break = _break
+    del _break
 
-    @staticmethod
-    def ice_staticId():
-        return '::BEGIN::display'
+if 'display' not in _M_BEGIN.__dict__:
+    _M_BEGIN.display = None
+    class display(Ice.Value):
+        def __init__(self, when=0, do=0, dup=None, _else=0):
+            self.when = when
+            self.do = do
+            self.dup = dup
+            self._else = _else
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_BEGIN._t_display)
+        def ice_id(self):
+            return '::BEGIN::display'
 
-    __repr__ = __str__
+        @staticmethod
+        def ice_staticId():
+            return '::BEGIN::display'
 
-_M_BEGIN._t_display = IcePy.defineValue('::BEGIN::display', display, -1, (), False, None, (
-    ('when', (), IcePy._t_int, False, 0),
-    ('do', (), IcePy._t_int, False, 0),
-    ('dup', (), _M_BEGIN._t_breakPrx, False, 0),
-    ('_else', (), IcePy._t_int, False, 0)
-))
-display._ice_type = _M_BEGIN._t_display
+        def __str__(self):
+            return IcePy.stringify(self, _M_BEGIN._t_display)
 
-_M_BEGIN.display = display
-del display
+        __repr__ = __str__
+
+    _M_BEGIN._t_display = IcePy.defineValue('::BEGIN::display', display, -1, (), False, None, (
+        ('when', (), IcePy._t_int, False, 0),
+        ('do', (), IcePy._t_int, False, 0),
+        ('dup', (), _M_BEGIN._t_breakPrx, False, 0),
+        ('_else', (), IcePy._t_int, False, 0)
+    ))
+    display._ice_type = _M_BEGIN._t_display
+
+    _M_BEGIN.display = display
+    del display
 
 _M_BEGIN._t_elsif = IcePy.defineValue('::BEGIN::elsif', Ice.Value, -1, (), True, None, ())
-_M_BEGIN.elsifPrx = None
-class elsifPrx(_M_BEGIN.breakPrx):
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_BEGIN.elsifPrx.ice_checkedCast(proxy, '::BEGIN::elsif', facetOrContext, context)
+if 'elsifPrx' not in _M_BEGIN.__dict__:
+    _M_BEGIN.elsifPrx = None
+    class elsifPrx(_M_BEGIN.breakPrx):
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_BEGIN.elsifPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_BEGIN.elsifPrx.ice_checkedCast(proxy, '::BEGIN::elsif', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::BEGIN::elsif'
-_M_BEGIN._t_elsifPrx = IcePy.defineProxy('::BEGIN::elsif', elsifPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_BEGIN.elsifPrx.ice_uncheckedCast(proxy, facet)
 
-_M_BEGIN.elsifPrx = elsifPrx
-del elsifPrx
+        @staticmethod
+        def ice_staticId():
+            return '::BEGIN::elsif'
+    _M_BEGIN._t_elsifPrx = IcePy.defineProxy('::BEGIN::elsif', elsifPrx)
 
-_M_BEGIN.elsif = None
-class elsif(_M_BEGIN._break):
+    _M_BEGIN.elsifPrx = elsifPrx
+    del elsifPrx
 
-    def ice_ids(self, current=None):
-        return ('::BEGIN::break', '::BEGIN::elsif', '::Ice::Object')
+    _M_BEGIN.elsif = None
+    class elsif(_M_BEGIN._break):
 
-    def ice_id(self, current=None):
-        return '::BEGIN::elsif'
+        def ice_ids(self, current=None):
+            return ('::BEGIN::break', '::BEGIN::elsif', '::Ice::Object')
 
-    @staticmethod
-    def ice_staticId():
-        return '::BEGIN::elsif'
+        def ice_id(self, current=None):
+            return '::BEGIN::elsif'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_BEGIN._t_elsifDisp)
+        @staticmethod
+        def ice_staticId():
+            return '::BEGIN::elsif'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_BEGIN._t_elsifDisp)
 
-_M_BEGIN._t_elsifDisp = IcePy.defineClass('::BEGIN::elsif', elsif, (), None, (_M_BEGIN._t_breakDisp,))
-elsif._ice_type = _M_BEGIN._t_elsifDisp
+        __repr__ = __str__
 
-_M_BEGIN.elsif = elsif
-del elsif
-_M_BEGIN._t_rescue = IcePy.defineSequence('::BEGIN::rescue', (), _M_BEGIN._t_END)
-_M_BEGIN._t_ensure = IcePy.defineDictionary('::BEGIN::ensure', (), IcePy._t_string, _M_BEGIN._t_END)
-_M_BEGIN.next = None
-class next(Ice.UserException):
-    def __init__(self, new=0):
-        self.new = new
+    _M_BEGIN._t_elsifDisp = IcePy.defineClass('::BEGIN::elsif', elsif, (), None, (_M_BEGIN._t_breakDisp,))
+    elsif._ice_type = _M_BEGIN._t_elsifDisp
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+    _M_BEGIN.elsif = elsif
+    del elsif
 
-    __repr__ = __str__
+if '_t_rescue' not in _M_BEGIN.__dict__:
+    _M_BEGIN._t_rescue = IcePy.defineSequence('::BEGIN::rescue', (), _M_BEGIN._t_END)
 
-    _ice_id = '::BEGIN::next'
+if '_t_ensure' not in _M_BEGIN.__dict__:
+    _M_BEGIN._t_ensure = IcePy.defineDictionary('::BEGIN::ensure', (), IcePy._t_string, _M_BEGIN._t_END)
 
-_M_BEGIN._t_next = IcePy.defineException('::BEGIN::next', next, (), None, (('new', (), IcePy._t_int, False, 0),))
-next._ice_type = _M_BEGIN._t_next
+if 'next' not in _M_BEGIN.__dict__:
+    _M_BEGIN.next = None
+    class next(Ice.UserException):
+        def __init__(self, new=0):
+            self.new = new
 
-_M_BEGIN.next = next
-del next
-_M_BEGIN.nil = None
-class nil(_M_BEGIN.next):
-    def __init__(self, new=0, _not=0, _or=0):
-        _M_BEGIN.next.__init__(self, new)
-        self._not = _not
-        self._or = _or
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+        __repr__ = __str__
 
-    __repr__ = __str__
+        _ice_id = '::BEGIN::next'
 
-    _ice_id = '::BEGIN::nil'
+    _M_BEGIN._t_next = IcePy.defineException('::BEGIN::next', next, (), None, (('new', (), IcePy._t_int, False, 0),))
+    next._ice_type = _M_BEGIN._t_next
 
-_M_BEGIN._t_nil = IcePy.defineException('::BEGIN::nil', nil, (), _M_BEGIN._t_next, (
-    ('_not', (), IcePy._t_int, False, 0),
-    ('_or', (), IcePy._t_int, False, 0)
-))
-nil._ice_type = _M_BEGIN._t_nil
+    _M_BEGIN.next = next
+    del next
 
-_M_BEGIN.nil = nil
-del nil
+if 'nil' not in _M_BEGIN.__dict__:
+    _M_BEGIN.nil = None
+    class nil(_M_BEGIN.next):
+        def __init__(self, new=0, _not=0, _or=0):
+            _M_BEGIN.next.__init__(self, new)
+            self._not = _not
+            self._or = _or
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::BEGIN::nil'
+
+    _M_BEGIN._t_nil = IcePy.defineException('::BEGIN::nil', nil, (), _M_BEGIN._t_next, (
+        ('_not', (), IcePy._t_int, False, 0),
+        ('_or', (), IcePy._t_int, False, 0)
+    ))
+    nil._ice_type = _M_BEGIN._t_nil
+
+    _M_BEGIN.nil = nil
+    del nil
 
 _M_BEGIN._t_extend = IcePy.defineValue('::BEGIN::extend', Ice.Value, -1, (), True, None, ())
-_M_BEGIN.extendPrx = None
-class extendPrx(Ice.ObjectPrx):
 
-    def _for(self, freeze, hash, _if, inspect, method, methods, context=None):
-        return _M_BEGIN.extend._op_for.invoke(self, ((freeze, hash, _if, inspect, method, methods), context))
+if 'extendPrx' not in _M_BEGIN.__dict__:
+    _M_BEGIN.extendPrx = None
+    class extendPrx(Ice.ObjectPrx):
 
-    def forAsync(self, freeze, hash, _if, inspect, method, methods, context=None):
-        return _M_BEGIN.extend._op_for.invokeAsync(self, ((freeze, hash, _if, inspect, method, methods), context))
+        def _for(self, freeze, hash, _if, inspect, method, methods, context=None):
+            return _M_BEGIN.extend._op_for.invoke(self, ((freeze, hash, _if, inspect, method, methods), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_BEGIN.extendPrx.ice_checkedCast(proxy, '::BEGIN::extend', facetOrContext, context)
+        def forAsync(self, freeze, hash, _if, inspect, method, methods, context=None):
+            return _M_BEGIN.extend._op_for.invokeAsync(self, ((freeze, hash, _if, inspect, method, methods), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_BEGIN.extendPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_BEGIN.extendPrx.ice_checkedCast(proxy, '::BEGIN::extend', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::BEGIN::extend'
-_M_BEGIN._t_extendPrx = IcePy.defineProxy('::BEGIN::extend', extendPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_BEGIN.extendPrx.ice_uncheckedCast(proxy, facet)
 
-_M_BEGIN.extendPrx = extendPrx
-del extendPrx
+        @staticmethod
+        def ice_staticId():
+            return '::BEGIN::extend'
+    _M_BEGIN._t_extendPrx = IcePy.defineProxy('::BEGIN::extend', extendPrx)
 
-_M_BEGIN.extend = None
-class extend(Ice.Object):
+    _M_BEGIN.extendPrx = extendPrx
+    del extendPrx
 
-    def ice_ids(self, current=None):
-        return ('::BEGIN::extend', '::Ice::Object')
+    _M_BEGIN.extend = None
+    class extend(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::BEGIN::extend'
+        def ice_ids(self, current=None):
+            return ('::BEGIN::extend', '::Ice::Object')
 
-    @staticmethod
-    def ice_staticId():
-        return '::BEGIN::extend'
+        def ice_id(self, current=None):
+            return '::BEGIN::extend'
 
-    def _for(self, freeze, hash, _if, inspect, method, methods, current=None):
-        raise NotImplementedError("servant method '_for' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::BEGIN::extend'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_BEGIN._t_extendDisp)
+        def _for(self, freeze, hash, _if, inspect, method, methods, current=None):
+            raise NotImplementedError("servant method '_for' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_BEGIN._t_extendDisp)
 
-_M_BEGIN._t_extendDisp = IcePy.defineClass('::BEGIN::extend', extend, (), None, ())
-extend._ice_type = _M_BEGIN._t_extendDisp
+        __repr__ = __str__
 
-extend._op_for = IcePy.Operation('for', Ice.OperationMode.Normal, False, None, (), (((), _M_BEGIN._t_display, False, 0), ((), _M_BEGIN._t_elsifPrx, False, 0), ((), _M_BEGIN._t_breakPrx, False, 0), ((), _M_BEGIN._t_display, False, 0), ((), _M_BEGIN._t_elsifPrx, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_BEGIN._t_END, False, 0), (_M_BEGIN._t_nil,))
+    _M_BEGIN._t_extendDisp = IcePy.defineClass('::BEGIN::extend', extend, (), None, ())
+    extend._ice_type = _M_BEGIN._t_extendDisp
 
-_M_BEGIN.extend = extend
-del extend
+    extend._op_for = IcePy.Operation('for', Ice.OperationMode.Normal, False, None, (), (((), _M_BEGIN._t_display, False, 0), ((), _M_BEGIN._t_elsifPrx, False, 0), ((), _M_BEGIN._t_breakPrx, False, 0), ((), _M_BEGIN._t_display, False, 0), ((), _M_BEGIN._t_elsifPrx, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_BEGIN._t_END, False, 0), (_M_BEGIN._t_nil,))
+
+    _M_BEGIN.extend = extend
+    del extend
 
 _M_BEGIN.redo = 1
 

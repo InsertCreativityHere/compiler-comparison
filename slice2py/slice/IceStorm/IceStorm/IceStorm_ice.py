@@ -34,792 +34,822 @@ _M_IceStorm.__doc__ = """
  supports typed events, meaning that broadcasting a message over a federation is as easy as invoking a method on an
  interface.
 """
-_M_IceStorm._t_TopicDisp = IcePy.declareClass('::IceStorm::Topic')
-_M_IceStorm._t_TopicPrx = IcePy.declareProxy('::IceStorm::Topic')
-_M_IceStorm.LinkInfo = None
-class LinkInfo(object):
-    """
-      Information on the topic links.
-    Members:
-    theTopic --  The linked topic. It is never null.
-    name --  The name of the linked topic.
-    cost --  The cost of traversing this link.
-    """
-    def __init__(self, theTopic=None, name='', cost=0):
-        self.theTopic = theTopic
-        self.name = name
-        self.cost = cost
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_IceStorm.LinkInfo):
-            return NotImplemented
-        else:
-            if self.theTopic != other.theTopic:
+if 'Topic' not in _M_IceStorm.__dict__:
+    _M_IceStorm._t_TopicDisp = IcePy.declareClass('::IceStorm::Topic')
+    _M_IceStorm._t_TopicPrx = IcePy.declareProxy('::IceStorm::Topic')
+
+if 'LinkInfo' not in _M_IceStorm.__dict__:
+    _M_IceStorm.LinkInfo = None
+    class LinkInfo(object):
+        """
+          Information on the topic links.
+        Members:
+        theTopic --  The linked topic. It is never null.
+        name --  The name of the linked topic.
+        cost --  The cost of traversing this link.
+        """
+        def __init__(self, theTopic=None, name='', cost=0):
+            self.theTopic = theTopic
+            self.name = name
+            self.cost = cost
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.name != other.name:
-                return False
-            if self.cost != other.cost:
-                return False
-            return True
+            elif not isinstance(other, _M_IceStorm.LinkInfo):
+                return NotImplemented
+            else:
+                if self.theTopic != other.theTopic:
+                    return False
+                if self.name != other.name:
+                    return False
+                if self.cost != other.cost:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceStorm._t_LinkInfo)
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStorm._t_LinkInfo)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_IceStorm._t_LinkInfo = IcePy.defineStruct('::IceStorm::LinkInfo', LinkInfo, (), (
-    ('theTopic', (), _M_IceStorm._t_TopicPrx),
-    ('name', (), IcePy._t_string),
-    ('cost', (), IcePy._t_int)
-))
+    _M_IceStorm._t_LinkInfo = IcePy.defineStruct('::IceStorm::LinkInfo', LinkInfo, (), (
+        ('theTopic', (), _M_IceStorm._t_TopicPrx),
+        ('name', (), IcePy._t_string),
+        ('cost', (), IcePy._t_int)
+    ))
 
-_M_IceStorm.LinkInfo = LinkInfo
-del LinkInfo
-_M_IceStorm._t_LinkInfoSeq = IcePy.defineSequence('::IceStorm::LinkInfoSeq', (), _M_IceStorm._t_LinkInfo)
-_M_IceStorm._t_QoS = IcePy.defineDictionary('::IceStorm::QoS', (), IcePy._t_string, IcePy._t_string)
-_M_IceStorm.LinkExists = None
-class LinkExists(Ice.UserException):
-    """
-     This exception indicates that an attempt was made to create a link that already exists.
-    Members:
-    name --  The name of the linked topic.
-    """
-    def __init__(self, name=''):
-        self.name = name
+    _M_IceStorm.LinkInfo = LinkInfo
+    del LinkInfo
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+if '_t_LinkInfoSeq' not in _M_IceStorm.__dict__:
+    _M_IceStorm._t_LinkInfoSeq = IcePy.defineSequence('::IceStorm::LinkInfoSeq', (), _M_IceStorm._t_LinkInfo)
 
-    __repr__ = __str__
+if '_t_QoS' not in _M_IceStorm.__dict__:
+    _M_IceStorm._t_QoS = IcePy.defineDictionary('::IceStorm::QoS', (), IcePy._t_string, IcePy._t_string)
 
-    _ice_id = '::IceStorm::LinkExists'
+if 'LinkExists' not in _M_IceStorm.__dict__:
+    _M_IceStorm.LinkExists = None
+    class LinkExists(Ice.UserException):
+        """
+         This exception indicates that an attempt was made to create a link that already exists.
+        Members:
+        name --  The name of the linked topic.
+        """
+        def __init__(self, name=''):
+            self.name = name
 
-_M_IceStorm._t_LinkExists = IcePy.defineException('::IceStorm::LinkExists', LinkExists, (), None, (('name', (), IcePy._t_string, False, 0),))
-LinkExists._ice_type = _M_IceStorm._t_LinkExists
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-_M_IceStorm.LinkExists = LinkExists
-del LinkExists
-_M_IceStorm.NoSuchLink = None
-class NoSuchLink(Ice.UserException):
-    """
-     This exception indicates that an attempt was made to remove a link that does not exist.
-    Members:
-    name --  The name of the link that does not exist.
-    """
-    def __init__(self, name=''):
-        self.name = name
+        __repr__ = __str__
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+        _ice_id = '::IceStorm::LinkExists'
 
-    __repr__ = __str__
+    _M_IceStorm._t_LinkExists = IcePy.defineException('::IceStorm::LinkExists', LinkExists, (), None, (('name', (), IcePy._t_string, False, 0),))
+    LinkExists._ice_type = _M_IceStorm._t_LinkExists
 
-    _ice_id = '::IceStorm::NoSuchLink'
+    _M_IceStorm.LinkExists = LinkExists
+    del LinkExists
 
-_M_IceStorm._t_NoSuchLink = IcePy.defineException('::IceStorm::NoSuchLink', NoSuchLink, (), None, (('name', (), IcePy._t_string, False, 0),))
-NoSuchLink._ice_type = _M_IceStorm._t_NoSuchLink
+if 'NoSuchLink' not in _M_IceStorm.__dict__:
+    _M_IceStorm.NoSuchLink = None
+    class NoSuchLink(Ice.UserException):
+        """
+         This exception indicates that an attempt was made to remove a link that does not exist.
+        Members:
+        name --  The name of the link that does not exist.
+        """
+        def __init__(self, name=''):
+            self.name = name
 
-_M_IceStorm.NoSuchLink = NoSuchLink
-del NoSuchLink
-_M_IceStorm.AlreadySubscribed = None
-class AlreadySubscribed(Ice.UserException):
-    """
-      This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
-    """
-    def __init__(self):
-        pass
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+        __repr__ = __str__
 
-    __repr__ = __str__
+        _ice_id = '::IceStorm::NoSuchLink'
 
-    _ice_id = '::IceStorm::AlreadySubscribed'
+    _M_IceStorm._t_NoSuchLink = IcePy.defineException('::IceStorm::NoSuchLink', NoSuchLink, (), None, (('name', (), IcePy._t_string, False, 0),))
+    NoSuchLink._ice_type = _M_IceStorm._t_NoSuchLink
 
-_M_IceStorm._t_AlreadySubscribed = IcePy.defineException('::IceStorm::AlreadySubscribed', AlreadySubscribed, (), None, ())
-AlreadySubscribed._ice_type = _M_IceStorm._t_AlreadySubscribed
+    _M_IceStorm.NoSuchLink = NoSuchLink
+    del NoSuchLink
 
-_M_IceStorm.AlreadySubscribed = AlreadySubscribed
-del AlreadySubscribed
-_M_IceStorm.InvalidSubscriber = None
-class InvalidSubscriber(Ice.UserException):
-    """
-     This exception indicates that an attempt was made to subscribe a proxy that is null.
-    Members:
-    reason --  The reason for the failure.
-    """
-    def __init__(self, reason=''):
-        self.reason = reason
+if 'AlreadySubscribed' not in _M_IceStorm.__dict__:
+    _M_IceStorm.AlreadySubscribed = None
+    class AlreadySubscribed(Ice.UserException):
+        """
+          This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
+        """
+        def __init__(self):
+            pass
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-    _ice_id = '::IceStorm::InvalidSubscriber'
+        _ice_id = '::IceStorm::AlreadySubscribed'
 
-_M_IceStorm._t_InvalidSubscriber = IcePy.defineException('::IceStorm::InvalidSubscriber', InvalidSubscriber, (), None, (('reason', (), IcePy._t_string, False, 0),))
-InvalidSubscriber._ice_type = _M_IceStorm._t_InvalidSubscriber
+    _M_IceStorm._t_AlreadySubscribed = IcePy.defineException('::IceStorm::AlreadySubscribed', AlreadySubscribed, (), None, ())
+    AlreadySubscribed._ice_type = _M_IceStorm._t_AlreadySubscribed
 
-_M_IceStorm.InvalidSubscriber = InvalidSubscriber
-del InvalidSubscriber
-_M_IceStorm.BadQoS = None
-class BadQoS(Ice.UserException):
-    """
-     This exception indicates that a subscription failed due to an invalid QoS.
-    Members:
-    reason --  The reason for the failure.
-    """
-    def __init__(self, reason=''):
-        self.reason = reason
+    _M_IceStorm.AlreadySubscribed = AlreadySubscribed
+    del AlreadySubscribed
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+if 'InvalidSubscriber' not in _M_IceStorm.__dict__:
+    _M_IceStorm.InvalidSubscriber = None
+    class InvalidSubscriber(Ice.UserException):
+        """
+         This exception indicates that an attempt was made to subscribe a proxy that is null.
+        Members:
+        reason --  The reason for the failure.
+        """
+        def __init__(self, reason=''):
+            self.reason = reason
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    _ice_id = '::IceStorm::BadQoS'
+        __repr__ = __str__
 
-_M_IceStorm._t_BadQoS = IcePy.defineException('::IceStorm::BadQoS', BadQoS, (), None, (('reason', (), IcePy._t_string, False, 0),))
-BadQoS._ice_type = _M_IceStorm._t_BadQoS
+        _ice_id = '::IceStorm::InvalidSubscriber'
 
-_M_IceStorm.BadQoS = BadQoS
-del BadQoS
+    _M_IceStorm._t_InvalidSubscriber = IcePy.defineException('::IceStorm::InvalidSubscriber', InvalidSubscriber, (), None, (('reason', (), IcePy._t_string, False, 0),))
+    InvalidSubscriber._ice_type = _M_IceStorm._t_InvalidSubscriber
+
+    _M_IceStorm.InvalidSubscriber = InvalidSubscriber
+    del InvalidSubscriber
+
+if 'BadQoS' not in _M_IceStorm.__dict__:
+    _M_IceStorm.BadQoS = None
+    class BadQoS(Ice.UserException):
+        """
+         This exception indicates that a subscription failed due to an invalid QoS.
+        Members:
+        reason --  The reason for the failure.
+        """
+        def __init__(self, reason=''):
+            self.reason = reason
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::IceStorm::BadQoS'
+
+    _M_IceStorm._t_BadQoS = IcePy.defineException('::IceStorm::BadQoS', BadQoS, (), None, (('reason', (), IcePy._t_string, False, 0),))
+    BadQoS._ice_type = _M_IceStorm._t_BadQoS
+
+    _M_IceStorm.BadQoS = BadQoS
+    del BadQoS
 
 _M_IceStorm._t_Topic = IcePy.defineValue('::IceStorm::Topic', Ice.Value, -1, (), True, None, ())
-_M_IceStorm.TopicPrx = None
-class TopicPrx(Ice.ObjectPrx):
 
-    """
-     Get the name of this topic.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: The name of the topic.
-    """
-    def getName(self, context=None):
-        return _M_IceStorm.Topic._op_getName.invoke(self, ((), context))
+if 'TopicPrx' not in _M_IceStorm.__dict__:
+    _M_IceStorm.TopicPrx = None
+    class TopicPrx(Ice.ObjectPrx):
 
-    """
-     Get the name of this topic.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getNameAsync(self, context=None):
-        return _M_IceStorm.Topic._op_getName.invokeAsync(self, ((), context))
-
-    """
-     Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-     and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
-     deployment is used this call may return a replicated proxy. The returned proxy is never null.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A proxy to publish data on this topic.
-    """
-    def getPublisher(self, context=None):
-        return _M_IceStorm.Topic._op_getPublisher.invoke(self, ((), context))
-
-    """
-     Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-     and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
-     deployment is used this call may return a replicated proxy. The returned proxy is never null.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getPublisherAsync(self, context=None):
-        return _M_IceStorm.Topic._op_getPublisher.invokeAsync(self, ((), context))
-
-    """
-     Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-     calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
-     never null.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A proxy to publish data on this topic.
-    """
-    def getNonReplicatedPublisher(self, context=None):
-        return _M_IceStorm.Topic._op_getNonReplicatedPublisher.invoke(self, ((), context))
-
-    """
-     Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-     calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
-     never null.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getNonReplicatedPublisherAsync(self, context=None):
-        return _M_IceStorm.Topic._op_getNonReplicatedPublisher.invokeAsync(self, ((), context))
-
-    """
-     Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
-    Arguments:
-    theQoS -- The quality of service parameters for this subscription.
-    subscriber -- The subscriber's proxy. This proxy is never null.
-    context -- The request context for the invocation.
-    Returns: The per-subscriber publisher object. The returned object is never null.
-    Throws:
-    AlreadySubscribed -- Raised if the subscriber object is already subscribed.
-    BadQoS -- Raised if the requested quality of service is unavailable or invalid.
-    InvalidSubscriber -- Raised if the subscriber object is null.
-    """
-    def subscribeAndGetPublisher(self, theQoS, subscriber, context=None):
-        return _M_IceStorm.Topic._op_subscribeAndGetPublisher.invoke(self, ((theQoS, subscriber), context))
-
-    """
-     Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
-    Arguments:
-    theQoS -- The quality of service parameters for this subscription.
-    subscriber -- The subscriber's proxy. This proxy is never null.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def subscribeAndGetPublisherAsync(self, theQoS, subscriber, context=None):
-        return _M_IceStorm.Topic._op_subscribeAndGetPublisher.invokeAsync(self, ((theQoS, subscriber), context))
-
-    """
-     Unsubscribe the given subscriber.
-    Arguments:
-    subscriber -- The proxy of an existing subscriber. This proxy is never null.
-    context -- The request context for the invocation.
-    """
-    def unsubscribe(self, subscriber, context=None):
-        return _M_IceStorm.Topic._op_unsubscribe.invoke(self, ((subscriber, ), context))
-
-    """
-     Unsubscribe the given subscriber.
-    Arguments:
-    subscriber -- The proxy of an existing subscriber. This proxy is never null.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def unsubscribeAsync(self, subscriber, context=None):
-        return _M_IceStorm.Topic._op_unsubscribe.invokeAsync(self, ((subscriber, ), context))
-
-    """
-     Create a link to the given topic. All events originating on this topic will also be sent to
-     linkTo.
-    Arguments:
-    linkTo -- The topic to link to. This proxy is never null.
-    cost -- The cost to the linked topic.
-    context -- The request context for the invocation.
-    Throws:
-    LinkExists -- Raised if a link to the same topic already exists.
-    """
-    def link(self, linkTo, cost, context=None):
-        return _M_IceStorm.Topic._op_link.invoke(self, ((linkTo, cost), context))
-
-    """
-     Create a link to the given topic. All events originating on this topic will also be sent to
-     linkTo.
-    Arguments:
-    linkTo -- The topic to link to. This proxy is never null.
-    cost -- The cost to the linked topic.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def linkAsync(self, linkTo, cost, context=None):
-        return _M_IceStorm.Topic._op_link.invokeAsync(self, ((linkTo, cost), context))
-
-    """
-     Destroy the link from this topic to the given topic linkTo.
-    Arguments:
-    linkTo -- The topic to destroy the link to. This proxy is never null.
-    context -- The request context for the invocation.
-    Throws:
-    NoSuchLink -- Raised if a link to the topic does not exist.
-    """
-    def unlink(self, linkTo, context=None):
-        return _M_IceStorm.Topic._op_unlink.invoke(self, ((linkTo, ), context))
-
-    """
-     Destroy the link from this topic to the given topic linkTo.
-    Arguments:
-    linkTo -- The topic to destroy the link to. This proxy is never null.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def unlinkAsync(self, linkTo, context=None):
-        return _M_IceStorm.Topic._op_unlink.invokeAsync(self, ((linkTo, ), context))
-
-    """
-     Retrieve information on the current links.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A sequence of LinkInfo objects.
-    """
-    def getLinkInfoSeq(self, context=None):
-        return _M_IceStorm.Topic._op_getLinkInfoSeq.invoke(self, ((), context))
-
-    """
-     Retrieve information on the current links.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getLinkInfoSeqAsync(self, context=None):
-        return _M_IceStorm.Topic._op_getLinkInfoSeq.invokeAsync(self, ((), context))
-
-    """
-     Retrieve the list of subscribers for this topic.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: The sequence of Ice identities for the subscriber objects.
-    """
-    def getSubscribers(self, context=None):
-        return _M_IceStorm.Topic._op_getSubscribers.invoke(self, ((), context))
-
-    """
-     Retrieve the list of subscribers for this topic.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getSubscribersAsync(self, context=None):
-        return _M_IceStorm.Topic._op_getSubscribers.invokeAsync(self, ((), context))
-
-    """
-     Destroy the topic.
-    Arguments:
-    context -- The request context for the invocation.
-    """
-    def destroy(self, context=None):
-        return _M_IceStorm.Topic._op_destroy.invoke(self, ((), context))
-
-    """
-     Destroy the topic.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def destroyAsync(self, context=None):
-        return _M_IceStorm.Topic._op_destroy.invokeAsync(self, ((), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_IceStorm.TopicPrx.ice_checkedCast(proxy, '::IceStorm::Topic', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_IceStorm.TopicPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceStorm::Topic'
-_M_IceStorm._t_TopicPrx = IcePy.defineProxy('::IceStorm::Topic', TopicPrx)
-
-_M_IceStorm.TopicPrx = TopicPrx
-del TopicPrx
-
-_M_IceStorm.Topic = None
-class Topic(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::IceStorm::Topic')
-
-    def ice_id(self, current=None):
-        return '::IceStorm::Topic'
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceStorm::Topic'
-
-    def getName(self, current=None):
         """
          Get the name of this topic.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The name of the topic.
+        """
+        def getName(self, context=None):
+            return _M_IceStorm.Topic._op_getName.invoke(self, ((), context))
+
+        """
+         Get the name of this topic.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getName' not implemented")
+        def getNameAsync(self, context=None):
+            return _M_IceStorm.Topic._op_getName.invokeAsync(self, ((), context))
 
-    def getPublisher(self, current=None):
         """
          Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
          and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
          deployment is used this call may return a replicated proxy. The returned proxy is never null.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A proxy to publish data on this topic.
+        """
+        def getPublisher(self, context=None):
+            return _M_IceStorm.Topic._op_getPublisher.invoke(self, ((), context))
+
+        """
+         Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+         and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+         deployment is used this call may return a replicated proxy. The returned proxy is never null.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getPublisher' not implemented")
+        def getPublisherAsync(self, context=None):
+            return _M_IceStorm.Topic._op_getPublisher.invokeAsync(self, ((), context))
 
-    def getNonReplicatedPublisher(self, current=None):
         """
          Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
          calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
          never null.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A proxy to publish data on this topic.
+        """
+        def getNonReplicatedPublisher(self, context=None):
+            return _M_IceStorm.Topic._op_getNonReplicatedPublisher.invoke(self, ((), context))
+
+        """
+         Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+         calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+         never null.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getNonReplicatedPublisher' not implemented")
+        def getNonReplicatedPublisherAsync(self, context=None):
+            return _M_IceStorm.Topic._op_getNonReplicatedPublisher.invokeAsync(self, ((), context))
 
-    def subscribeAndGetPublisher(self, theQoS, subscriber, current=None):
         """
          Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
         Arguments:
         theQoS -- The quality of service parameters for this subscription.
         subscriber -- The subscriber's proxy. This proxy is never null.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The per-subscriber publisher object. The returned object is never null.
         Throws:
         AlreadySubscribed -- Raised if the subscriber object is already subscribed.
         BadQoS -- Raised if the requested quality of service is unavailable or invalid.
         InvalidSubscriber -- Raised if the subscriber object is null.
         """
-        raise NotImplementedError("servant method 'subscribeAndGetPublisher' not implemented")
+        def subscribeAndGetPublisher(self, theQoS, subscriber, context=None):
+            return _M_IceStorm.Topic._op_subscribeAndGetPublisher.invoke(self, ((theQoS, subscriber), context))
 
-    def unsubscribe(self, subscriber, current=None):
+        """
+         Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
+        Arguments:
+        theQoS -- The quality of service parameters for this subscription.
+        subscriber -- The subscriber's proxy. This proxy is never null.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def subscribeAndGetPublisherAsync(self, theQoS, subscriber, context=None):
+            return _M_IceStorm.Topic._op_subscribeAndGetPublisher.invokeAsync(self, ((theQoS, subscriber), context))
+
         """
          Unsubscribe the given subscriber.
         Arguments:
         subscriber -- The proxy of an existing subscriber. This proxy is never null.
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        """
+        def unsubscribe(self, subscriber, context=None):
+            return _M_IceStorm.Topic._op_unsubscribe.invoke(self, ((subscriber, ), context))
+
+        """
+         Unsubscribe the given subscriber.
+        Arguments:
+        subscriber -- The proxy of an existing subscriber. This proxy is never null.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'unsubscribe' not implemented")
+        def unsubscribeAsync(self, subscriber, context=None):
+            return _M_IceStorm.Topic._op_unsubscribe.invokeAsync(self, ((subscriber, ), context))
 
-    def link(self, linkTo, cost, current=None):
         """
          Create a link to the given topic. All events originating on this topic will also be sent to
          linkTo.
         Arguments:
         linkTo -- The topic to link to. This proxy is never null.
         cost -- The cost to the linked topic.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
         Throws:
         LinkExists -- Raised if a link to the same topic already exists.
         """
-        raise NotImplementedError("servant method 'link' not implemented")
+        def link(self, linkTo, cost, context=None):
+            return _M_IceStorm.Topic._op_link.invoke(self, ((linkTo, cost), context))
 
-    def unlink(self, linkTo, current=None):
+        """
+         Create a link to the given topic. All events originating on this topic will also be sent to
+         linkTo.
+        Arguments:
+        linkTo -- The topic to link to. This proxy is never null.
+        cost -- The cost to the linked topic.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def linkAsync(self, linkTo, cost, context=None):
+            return _M_IceStorm.Topic._op_link.invokeAsync(self, ((linkTo, cost), context))
+
         """
          Destroy the link from this topic to the given topic linkTo.
         Arguments:
         linkTo -- The topic to destroy the link to. This proxy is never null.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
         Throws:
         NoSuchLink -- Raised if a link to the topic does not exist.
         """
-        raise NotImplementedError("servant method 'unlink' not implemented")
+        def unlink(self, linkTo, context=None):
+            return _M_IceStorm.Topic._op_unlink.invoke(self, ((linkTo, ), context))
 
-    def getLinkInfoSeq(self, current=None):
+        """
+         Destroy the link from this topic to the given topic linkTo.
+        Arguments:
+        linkTo -- The topic to destroy the link to. This proxy is never null.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def unlinkAsync(self, linkTo, context=None):
+            return _M_IceStorm.Topic._op_unlink.invokeAsync(self, ((linkTo, ), context))
+
         """
          Retrieve information on the current links.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A sequence of LinkInfo objects.
+        """
+        def getLinkInfoSeq(self, context=None):
+            return _M_IceStorm.Topic._op_getLinkInfoSeq.invoke(self, ((), context))
+
+        """
+         Retrieve information on the current links.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getLinkInfoSeq' not implemented")
+        def getLinkInfoSeqAsync(self, context=None):
+            return _M_IceStorm.Topic._op_getLinkInfoSeq.invokeAsync(self, ((), context))
 
-    def getSubscribers(self, current=None):
         """
          Retrieve the list of subscribers for this topic.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The sequence of Ice identities for the subscriber objects.
+        """
+        def getSubscribers(self, context=None):
+            return _M_IceStorm.Topic._op_getSubscribers.invoke(self, ((), context))
+
+        """
+         Retrieve the list of subscribers for this topic.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getSubscribers' not implemented")
+        def getSubscribersAsync(self, context=None):
+            return _M_IceStorm.Topic._op_getSubscribers.invokeAsync(self, ((), context))
 
-    def destroy(self, current=None):
         """
          Destroy the topic.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        """
+        def destroy(self, context=None):
+            return _M_IceStorm.Topic._op_destroy.invoke(self, ((), context))
+
+        """
+         Destroy the topic.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'destroy' not implemented")
+        def destroyAsync(self, context=None):
+            return _M_IceStorm.Topic._op_destroy.invokeAsync(self, ((), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceStorm._t_TopicDisp)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceStorm.TopicPrx.ice_checkedCast(proxy, '::IceStorm::Topic', facetOrContext, context)
 
-    __repr__ = __str__
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceStorm.TopicPrx.ice_uncheckedCast(proxy, facet)
 
-_M_IceStorm._t_TopicDisp = IcePy.defineClass('::IceStorm::Topic', Topic, (), None, ())
-Topic._ice_type = _M_IceStorm._t_TopicDisp
+        @staticmethod
+        def ice_staticId():
+            return '::IceStorm::Topic'
+    _M_IceStorm._t_TopicPrx = IcePy.defineProxy('::IceStorm::Topic', TopicPrx)
 
-Topic._op_getName = IcePy.Operation('getName', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
-Topic._op_getPublisher = IcePy.Operation('getPublisher', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-Topic._op_getNonReplicatedPublisher = IcePy.Operation('getNonReplicatedPublisher', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-Topic._op_subscribeAndGetPublisher = IcePy.Operation('subscribeAndGetPublisher', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStorm._t_QoS, False, 0), ((), IcePy._t_ObjectPrx, False, 0)), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceStorm._t_AlreadySubscribed, _M_IceStorm._t_InvalidSubscriber, _M_IceStorm._t_BadQoS))
-Topic._op_unsubscribe = IcePy.Operation('unsubscribe', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), None, ())
-Topic._op_link = IcePy.Operation('link', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStorm._t_TopicPrx, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_IceStorm._t_LinkExists,))
-Topic._op_unlink = IcePy.Operation('unlink', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStorm._t_TopicPrx, False, 0),), (), None, (_M_IceStorm._t_NoSuchLink,))
-Topic._op_getLinkInfoSeq = IcePy.Operation('getLinkInfoSeq', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStorm._t_LinkInfoSeq, False, 0), ())
-Topic._op_getSubscribers = IcePy.Operation('getSubscribers', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_IdentitySeq, False, 0), ())
-Topic._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_IceStorm.TopicPrx = TopicPrx
+    del TopicPrx
 
-_M_IceStorm.Topic = Topic
-del Topic
-_M_IceStorm._t_TopicDict = IcePy.defineDictionary('::IceStorm::TopicDict', (), IcePy._t_string, _M_IceStorm._t_TopicPrx)
-_M_IceStorm.TopicExists = None
-class TopicExists(Ice.UserException):
-    """
-     This exception indicates that an attempt was made to create a topic that already exists.
-    Members:
-    name --  The name of the topic that already exists.
-    """
-    def __init__(self, name=''):
-        self.name = name
+    _M_IceStorm.Topic = None
+    class Topic(Ice.Object):
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceStorm::Topic')
 
-    __repr__ = __str__
+        def ice_id(self, current=None):
+            return '::IceStorm::Topic'
 
-    _ice_id = '::IceStorm::TopicExists'
+        @staticmethod
+        def ice_staticId():
+            return '::IceStorm::Topic'
 
-_M_IceStorm._t_TopicExists = IcePy.defineException('::IceStorm::TopicExists', TopicExists, (), None, (('name', (), IcePy._t_string, False, 0),))
-TopicExists._ice_type = _M_IceStorm._t_TopicExists
+        def getName(self, current=None):
+            """
+             Get the name of this topic.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getName' not implemented")
 
-_M_IceStorm.TopicExists = TopicExists
-del TopicExists
-_M_IceStorm.NoSuchTopic = None
-class NoSuchTopic(Ice.UserException):
-    """
-     This exception indicates that an attempt was made to retrieve a topic that does not exist.
-    Members:
-    name --  The name of the topic that does not exist.
-    """
-    def __init__(self, name=''):
-        self.name = name
+        def getPublisher(self, current=None):
+            """
+             Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+             and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+             deployment is used this call may return a replicated proxy. The returned proxy is never null.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getPublisher' not implemented")
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+        def getNonReplicatedPublisher(self, current=None):
+            """
+             Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+             calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+             never null.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getNonReplicatedPublisher' not implemented")
 
-    __repr__ = __str__
+        def subscribeAndGetPublisher(self, theQoS, subscriber, current=None):
+            """
+             Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
+            Arguments:
+            theQoS -- The quality of service parameters for this subscription.
+            subscriber -- The subscriber's proxy. This proxy is never null.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            AlreadySubscribed -- Raised if the subscriber object is already subscribed.
+            BadQoS -- Raised if the requested quality of service is unavailable or invalid.
+            InvalidSubscriber -- Raised if the subscriber object is null.
+            """
+            raise NotImplementedError("servant method 'subscribeAndGetPublisher' not implemented")
 
-    _ice_id = '::IceStorm::NoSuchTopic'
+        def unsubscribe(self, subscriber, current=None):
+            """
+             Unsubscribe the given subscriber.
+            Arguments:
+            subscriber -- The proxy of an existing subscriber. This proxy is never null.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'unsubscribe' not implemented")
 
-_M_IceStorm._t_NoSuchTopic = IcePy.defineException('::IceStorm::NoSuchTopic', NoSuchTopic, (), None, (('name', (), IcePy._t_string, False, 0),))
-NoSuchTopic._ice_type = _M_IceStorm._t_NoSuchTopic
+        def link(self, linkTo, cost, current=None):
+            """
+             Create a link to the given topic. All events originating on this topic will also be sent to
+             linkTo.
+            Arguments:
+            linkTo -- The topic to link to. This proxy is never null.
+            cost -- The cost to the linked topic.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            LinkExists -- Raised if a link to the same topic already exists.
+            """
+            raise NotImplementedError("servant method 'link' not implemented")
 
-_M_IceStorm.NoSuchTopic = NoSuchTopic
-del NoSuchTopic
+        def unlink(self, linkTo, current=None):
+            """
+             Destroy the link from this topic to the given topic linkTo.
+            Arguments:
+            linkTo -- The topic to destroy the link to. This proxy is never null.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            NoSuchLink -- Raised if a link to the topic does not exist.
+            """
+            raise NotImplementedError("servant method 'unlink' not implemented")
+
+        def getLinkInfoSeq(self, current=None):
+            """
+             Retrieve information on the current links.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getLinkInfoSeq' not implemented")
+
+        def getSubscribers(self, current=None):
+            """
+             Retrieve the list of subscribers for this topic.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getSubscribers' not implemented")
+
+        def destroy(self, current=None):
+            """
+             Destroy the topic.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'destroy' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStorm._t_TopicDisp)
+
+        __repr__ = __str__
+
+    _M_IceStorm._t_TopicDisp = IcePy.defineClass('::IceStorm::Topic', Topic, (), None, ())
+    Topic._ice_type = _M_IceStorm._t_TopicDisp
+
+    Topic._op_getName = IcePy.Operation('getName', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    Topic._op_getPublisher = IcePy.Operation('getPublisher', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Topic._op_getNonReplicatedPublisher = IcePy.Operation('getNonReplicatedPublisher', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Topic._op_subscribeAndGetPublisher = IcePy.Operation('subscribeAndGetPublisher', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStorm._t_QoS, False, 0), ((), IcePy._t_ObjectPrx, False, 0)), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceStorm._t_AlreadySubscribed, _M_IceStorm._t_InvalidSubscriber, _M_IceStorm._t_BadQoS))
+    Topic._op_unsubscribe = IcePy.Operation('unsubscribe', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), None, ())
+    Topic._op_link = IcePy.Operation('link', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStorm._t_TopicPrx, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_IceStorm._t_LinkExists,))
+    Topic._op_unlink = IcePy.Operation('unlink', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStorm._t_TopicPrx, False, 0),), (), None, (_M_IceStorm._t_NoSuchLink,))
+    Topic._op_getLinkInfoSeq = IcePy.Operation('getLinkInfoSeq', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStorm._t_LinkInfoSeq, False, 0), ())
+    Topic._op_getSubscribers = IcePy.Operation('getSubscribers', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_IdentitySeq, False, 0), ())
+    Topic._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_IceStorm.Topic = Topic
+    del Topic
+
+if '_t_TopicDict' not in _M_IceStorm.__dict__:
+    _M_IceStorm._t_TopicDict = IcePy.defineDictionary('::IceStorm::TopicDict', (), IcePy._t_string, _M_IceStorm._t_TopicPrx)
+
+if 'TopicExists' not in _M_IceStorm.__dict__:
+    _M_IceStorm.TopicExists = None
+    class TopicExists(Ice.UserException):
+        """
+         This exception indicates that an attempt was made to create a topic that already exists.
+        Members:
+        name --  The name of the topic that already exists.
+        """
+        def __init__(self, name=''):
+            self.name = name
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::IceStorm::TopicExists'
+
+    _M_IceStorm._t_TopicExists = IcePy.defineException('::IceStorm::TopicExists', TopicExists, (), None, (('name', (), IcePy._t_string, False, 0),))
+    TopicExists._ice_type = _M_IceStorm._t_TopicExists
+
+    _M_IceStorm.TopicExists = TopicExists
+    del TopicExists
+
+if 'NoSuchTopic' not in _M_IceStorm.__dict__:
+    _M_IceStorm.NoSuchTopic = None
+    class NoSuchTopic(Ice.UserException):
+        """
+         This exception indicates that an attempt was made to retrieve a topic that does not exist.
+        Members:
+        name --  The name of the topic that does not exist.
+        """
+        def __init__(self, name=''):
+            self.name = name
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::IceStorm::NoSuchTopic'
+
+    _M_IceStorm._t_NoSuchTopic = IcePy.defineException('::IceStorm::NoSuchTopic', NoSuchTopic, (), None, (('name', (), IcePy._t_string, False, 0),))
+    NoSuchTopic._ice_type = _M_IceStorm._t_NoSuchTopic
+
+    _M_IceStorm.NoSuchTopic = NoSuchTopic
+    del NoSuchTopic
 
 _M_IceStorm._t_TopicManager = IcePy.defineValue('::IceStorm::TopicManager', Ice.Value, -1, (), True, None, ())
-_M_IceStorm.TopicManagerPrx = None
-class TopicManagerPrx(Ice.ObjectPrx):
 
-    """
-     Create a new topic. The topic name must be unique.
-    Arguments:
-    name -- The name of the topic.
-    context -- The request context for the invocation.
-    Returns: A proxy to the topic instance. The returned proxy is never null.
-    Throws:
-    TopicExists -- Raised if a topic with the same name already exists.
-    """
-    def create(self, name, context=None):
-        return _M_IceStorm.TopicManager._op_create.invoke(self, ((name, ), context))
+if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
+    _M_IceStorm.TopicManagerPrx = None
+    class TopicManagerPrx(Ice.ObjectPrx):
 
-    """
-     Create a new topic. The topic name must be unique.
-    Arguments:
-    name -- The name of the topic.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def createAsync(self, name, context=None):
-        return _M_IceStorm.TopicManager._op_create.invokeAsync(self, ((name, ), context))
-
-    """
-     Retrieve a topic by name.
-    Arguments:
-    name -- The name of the topic.
-    context -- The request context for the invocation.
-    Returns: A proxy to the topic instance. The returned proxy is never null.
-    Throws:
-    NoSuchTopic -- Raised if the topic does not exist.
-    """
-    def retrieve(self, name, context=None):
-        return _M_IceStorm.TopicManager._op_retrieve.invoke(self, ((name, ), context))
-
-    """
-     Retrieve a topic by name.
-    Arguments:
-    name -- The name of the topic.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def retrieveAsync(self, name, context=None):
-        return _M_IceStorm.TopicManager._op_retrieve.invokeAsync(self, ((name, ), context))
-
-    """
-     Retrieve all topics managed by this topic manager.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A dictionary of string, topic proxy pairs.
-    """
-    def retrieveAll(self, context=None):
-        return _M_IceStorm.TopicManager._op_retrieveAll.invoke(self, ((), context))
-
-    """
-     Retrieve all topics managed by this topic manager.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def retrieveAllAsync(self, context=None):
-        return _M_IceStorm.TopicManager._op_retrieveAll.invokeAsync(self, ((), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_IceStorm.TopicManagerPrx.ice_checkedCast(proxy, '::IceStorm::TopicManager', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_IceStorm.TopicManagerPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceStorm::TopicManager'
-_M_IceStorm._t_TopicManagerPrx = IcePy.defineProxy('::IceStorm::TopicManager', TopicManagerPrx)
-
-_M_IceStorm.TopicManagerPrx = TopicManagerPrx
-del TopicManagerPrx
-
-_M_IceStorm.TopicManager = None
-class TopicManager(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::IceStorm::TopicManager')
-
-    def ice_id(self, current=None):
-        return '::IceStorm::TopicManager'
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceStorm::TopicManager'
-
-    def create(self, name, current=None):
         """
          Create a new topic. The topic name must be unique.
         Arguments:
         name -- The name of the topic.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A proxy to the topic instance. The returned proxy is never null.
         Throws:
         TopicExists -- Raised if a topic with the same name already exists.
         """
-        raise NotImplementedError("servant method 'create' not implemented")
+        def create(self, name, context=None):
+            return _M_IceStorm.TopicManager._op_create.invoke(self, ((name, ), context))
 
-    def retrieve(self, name, current=None):
+        """
+         Create a new topic. The topic name must be unique.
+        Arguments:
+        name -- The name of the topic.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def createAsync(self, name, context=None):
+            return _M_IceStorm.TopicManager._op_create.invokeAsync(self, ((name, ), context))
+
         """
          Retrieve a topic by name.
         Arguments:
         name -- The name of the topic.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A proxy to the topic instance. The returned proxy is never null.
         Throws:
         NoSuchTopic -- Raised if the topic does not exist.
         """
-        raise NotImplementedError("servant method 'retrieve' not implemented")
+        def retrieve(self, name, context=None):
+            return _M_IceStorm.TopicManager._op_retrieve.invoke(self, ((name, ), context))
 
-    def retrieveAll(self, current=None):
+        """
+         Retrieve a topic by name.
+        Arguments:
+        name -- The name of the topic.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def retrieveAsync(self, name, context=None):
+            return _M_IceStorm.TopicManager._op_retrieve.invokeAsync(self, ((name, ), context))
+
         """
          Retrieve all topics managed by this topic manager.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A dictionary of string, topic proxy pairs.
+        """
+        def retrieveAll(self, context=None):
+            return _M_IceStorm.TopicManager._op_retrieveAll.invoke(self, ((), context))
+
+        """
+         Retrieve all topics managed by this topic manager.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'retrieveAll' not implemented")
+        def retrieveAllAsync(self, context=None):
+            return _M_IceStorm.TopicManager._op_retrieveAll.invokeAsync(self, ((), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceStorm._t_TopicManagerDisp)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceStorm.TopicManagerPrx.ice_checkedCast(proxy, '::IceStorm::TopicManager', facetOrContext, context)
 
-    __repr__ = __str__
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceStorm.TopicManagerPrx.ice_uncheckedCast(proxy, facet)
 
-_M_IceStorm._t_TopicManagerDisp = IcePy.defineClass('::IceStorm::TopicManager', TopicManager, (), None, ())
-TopicManager._ice_type = _M_IceStorm._t_TopicManagerDisp
+        @staticmethod
+        def ice_staticId():
+            return '::IceStorm::TopicManager'
+    _M_IceStorm._t_TopicManagerPrx = IcePy.defineProxy('::IceStorm::TopicManager', TopicManagerPrx)
 
-TopicManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceStorm._t_TopicPrx, False, 0), (_M_IceStorm._t_TopicExists,))
-TopicManager._op_retrieve = IcePy.Operation('retrieve', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceStorm._t_TopicPrx, False, 0), (_M_IceStorm._t_NoSuchTopic,))
-TopicManager._op_retrieveAll = IcePy.Operation('retrieveAll', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStorm._t_TopicDict, False, 0), ())
+    _M_IceStorm.TopicManagerPrx = TopicManagerPrx
+    del TopicManagerPrx
 
-_M_IceStorm.TopicManager = TopicManager
-del TopicManager
+    _M_IceStorm.TopicManager = None
+    class TopicManager(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceStorm::TopicManager')
+
+        def ice_id(self, current=None):
+            return '::IceStorm::TopicManager'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceStorm::TopicManager'
+
+        def create(self, name, current=None):
+            """
+             Create a new topic. The topic name must be unique.
+            Arguments:
+            name -- The name of the topic.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            TopicExists -- Raised if a topic with the same name already exists.
+            """
+            raise NotImplementedError("servant method 'create' not implemented")
+
+        def retrieve(self, name, current=None):
+            """
+             Retrieve a topic by name.
+            Arguments:
+            name -- The name of the topic.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            NoSuchTopic -- Raised if the topic does not exist.
+            """
+            raise NotImplementedError("servant method 'retrieve' not implemented")
+
+        def retrieveAll(self, current=None):
+            """
+             Retrieve all topics managed by this topic manager.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'retrieveAll' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStorm._t_TopicManagerDisp)
+
+        __repr__ = __str__
+
+    _M_IceStorm._t_TopicManagerDisp = IcePy.defineClass('::IceStorm::TopicManager', TopicManager, (), None, ())
+    TopicManager._ice_type = _M_IceStorm._t_TopicManagerDisp
+
+    TopicManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceStorm._t_TopicPrx, False, 0), (_M_IceStorm._t_TopicExists,))
+    TopicManager._op_retrieve = IcePy.Operation('retrieve', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceStorm._t_TopicPrx, False, 0), (_M_IceStorm._t_NoSuchTopic,))
+    TopicManager._op_retrieveAll = IcePy.Operation('retrieveAll', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStorm._t_TopicDict, False, 0), ())
+
+    _M_IceStorm.TopicManager = TopicManager
+    del TopicManager
 
 _M_IceStorm._t_Finder = IcePy.defineValue('::IceStorm::Finder', Ice.Value, -1, (), True, None, ())
-_M_IceStorm.FinderPrx = None
-class FinderPrx(Ice.ObjectPrx):
 
-    """
-     Get the topic manager proxy. The proxy might point to several replicas.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: The topic manager proxy. The returned proxy is never null.
-    """
-    def getTopicManager(self, context=None):
-        return _M_IceStorm.Finder._op_getTopicManager.invoke(self, ((), context))
+if 'FinderPrx' not in _M_IceStorm.__dict__:
+    _M_IceStorm.FinderPrx = None
+    class FinderPrx(Ice.ObjectPrx):
 
-    """
-     Get the topic manager proxy. The proxy might point to several replicas.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getTopicManagerAsync(self, context=None):
-        return _M_IceStorm.Finder._op_getTopicManager.invokeAsync(self, ((), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_IceStorm.FinderPrx.ice_checkedCast(proxy, '::IceStorm::Finder', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_IceStorm.FinderPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceStorm::Finder'
-_M_IceStorm._t_FinderPrx = IcePy.defineProxy('::IceStorm::Finder', FinderPrx)
-
-_M_IceStorm.FinderPrx = FinderPrx
-del FinderPrx
-
-_M_IceStorm.Finder = None
-class Finder(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::IceStorm::Finder')
-
-    def ice_id(self, current=None):
-        return '::IceStorm::Finder'
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceStorm::Finder'
-
-    def getTopicManager(self, current=None):
         """
          Get the topic manager proxy. The proxy might point to several replicas.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The topic manager proxy. The returned proxy is never null.
+        """
+        def getTopicManager(self, context=None):
+            return _M_IceStorm.Finder._op_getTopicManager.invoke(self, ((), context))
+
+        """
+         Get the topic manager proxy. The proxy might point to several replicas.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getTopicManager' not implemented")
+        def getTopicManagerAsync(self, context=None):
+            return _M_IceStorm.Finder._op_getTopicManager.invokeAsync(self, ((), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceStorm._t_FinderDisp)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceStorm.FinderPrx.ice_checkedCast(proxy, '::IceStorm::Finder', facetOrContext, context)
 
-    __repr__ = __str__
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceStorm.FinderPrx.ice_uncheckedCast(proxy, facet)
 
-_M_IceStorm._t_FinderDisp = IcePy.defineClass('::IceStorm::Finder', Finder, (), None, ())
-Finder._ice_type = _M_IceStorm._t_FinderDisp
+        @staticmethod
+        def ice_staticId():
+            return '::IceStorm::Finder'
+    _M_IceStorm._t_FinderPrx = IcePy.defineProxy('::IceStorm::Finder', FinderPrx)
 
-Finder._op_getTopicManager = IcePy.Operation('getTopicManager', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceStorm._t_TopicManagerPrx, False, 0), ())
+    _M_IceStorm.FinderPrx = FinderPrx
+    del FinderPrx
 
-_M_IceStorm.Finder = Finder
-del Finder
+    _M_IceStorm.Finder = None
+    class Finder(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceStorm::Finder')
+
+        def ice_id(self, current=None):
+            return '::IceStorm::Finder'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceStorm::Finder'
+
+        def getTopicManager(self, current=None):
+            """
+             Get the topic manager proxy. The proxy might point to several replicas.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getTopicManager' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStorm._t_FinderDisp)
+
+        __repr__ = __str__
+
+    _M_IceStorm._t_FinderDisp = IcePy.defineClass('::IceStorm::Finder', Finder, (), None, ())
+    Finder._ice_type = _M_IceStorm._t_FinderDisp
+
+    Finder._op_getTopicManager = IcePy.Operation('getTopicManager', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceStorm._t_TopicManagerPrx, False, 0), ())
+
+    _M_IceStorm.Finder = Finder
+    del Finder
 
 # End of module IceStorm

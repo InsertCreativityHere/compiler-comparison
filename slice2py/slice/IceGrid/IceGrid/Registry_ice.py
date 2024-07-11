@@ -33,200 +33,85 @@ _M_Glacier2 = Ice.openModule('Glacier2')
 
 # Start of module IceGrid
 __name__ = 'IceGrid'
-_M_IceGrid.LoadSample = None
-class LoadSample(Ice.EnumBase):
-    """
-     Determines which load sampling interval to use.
-    Enumerators:
-    LoadSample1 --  Sample every minute.
-    LoadSample5 --  Sample every five minutes.
-    LoadSample15 --  Sample every fifteen minutes.
-    """
 
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
+if 'LoadSample' not in _M_IceGrid.__dict__:
+    _M_IceGrid.LoadSample = None
+    class LoadSample(Ice.EnumBase):
+        """
+         Determines which load sampling interval to use.
+        Enumerators:
+        LoadSample1 --  Sample every minute.
+        LoadSample5 --  Sample every five minutes.
+        LoadSample15 --  Sample every fifteen minutes.
+        """
 
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
 
-LoadSample.LoadSample1 = LoadSample("LoadSample1", 0)
-LoadSample.LoadSample5 = LoadSample("LoadSample5", 1)
-LoadSample.LoadSample15 = LoadSample("LoadSample15", 2)
-LoadSample._enumerators = { 0:LoadSample.LoadSample1, 1:LoadSample.LoadSample5, 2:LoadSample.LoadSample15 }
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
 
-_M_IceGrid._t_LoadSample = IcePy.defineEnum('::IceGrid::LoadSample', LoadSample, (), LoadSample._enumerators)
+    LoadSample.LoadSample1 = LoadSample("LoadSample1", 0)
+    LoadSample.LoadSample5 = LoadSample("LoadSample5", 1)
+    LoadSample.LoadSample15 = LoadSample("LoadSample15", 2)
+    LoadSample._enumerators = { 0:LoadSample.LoadSample1, 1:LoadSample.LoadSample5, 2:LoadSample.LoadSample15 }
 
-_M_IceGrid.LoadSample = LoadSample
-del LoadSample
+    _M_IceGrid._t_LoadSample = IcePy.defineEnum('::IceGrid::LoadSample', LoadSample, (), LoadSample._enumerators)
+
+    _M_IceGrid.LoadSample = LoadSample
+    del LoadSample
 
 _M_IceGrid._t_Query = IcePy.defineValue('::IceGrid::Query', Ice.Value, -1, (), True, None, ())
-_M_IceGrid.QueryPrx = None
-class QueryPrx(Ice.ObjectPrx):
 
-    """
-     Find a well-known object by identity.
-    Arguments:
-    id -- The identity.
-    context -- The request context for the invocation.
-    Returns: The proxy or null if no such object has been found.
-    """
-    def findObjectById(self, id, context=None):
-        return _M_IceGrid.Query._op_findObjectById.invoke(self, ((id, ), context))
+if 'QueryPrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.QueryPrx = None
+    class QueryPrx(Ice.ObjectPrx):
 
-    """
-     Find a well-known object by identity.
-    Arguments:
-    id -- The identity.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def findObjectByIdAsync(self, id, context=None):
-        return _M_IceGrid.Query._op_findObjectById.invokeAsync(self, ((id, ), context))
-
-    """
-     Find a well-known object by type. If there are several objects registered for the given type, the object is
-     randomly selected.
-    Arguments:
-    type -- The object type.
-    context -- The request context for the invocation.
-    Returns: The proxy or null, if no such object has been found.
-    """
-    def findObjectByType(self, type, context=None):
-        return _M_IceGrid.Query._op_findObjectByType.invoke(self, ((type, ), context))
-
-    """
-     Find a well-known object by type. If there are several objects registered for the given type, the object is
-     randomly selected.
-    Arguments:
-    type -- The object type.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def findObjectByTypeAsync(self, type, context=None):
-        return _M_IceGrid.Query._op_findObjectByType.invokeAsync(self, ((type, ), context))
-
-    """
-     Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
-     the object (for example, because the object was registered with a direct proxy), the registry assumes the
-     object is hosted on a node that has a load average of 1.0.
-    Arguments:
-    type -- The object type.
-    sample -- The sampling interval.
-    context -- The request context for the invocation.
-    Returns: The proxy or null, if no such object has been found.
-    """
-    def findObjectByTypeOnLeastLoadedNode(self, type, sample, context=None):
-        return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invoke(self, ((type, sample), context))
-
-    """
-     Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
-     the object (for example, because the object was registered with a direct proxy), the registry assumes the
-     object is hosted on a node that has a load average of 1.0.
-    Arguments:
-    type -- The object type.
-    sample -- The sampling interval.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def findObjectByTypeOnLeastLoadedNodeAsync(self, type, sample, context=None):
-        return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invokeAsync(self, ((type, sample), context))
-
-    """
-     Find all the well-known objects with the given type.
-    Arguments:
-    type -- The object type.
-    context -- The request context for the invocation.
-    Returns: The proxies or an empty sequence, if no such objects have been found.
-    """
-    def findAllObjectsByType(self, type, context=None):
-        return _M_IceGrid.Query._op_findAllObjectsByType.invoke(self, ((type, ), context))
-
-    """
-     Find all the well-known objects with the given type.
-    Arguments:
-    type -- The object type.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def findAllObjectsByTypeAsync(self, type, context=None):
-        return _M_IceGrid.Query._op_findAllObjectsByType.invokeAsync(self, ((type, ), context))
-
-    """
-     Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
-     from a replica group, an empty sequence is returned.
-    Arguments:
-    proxy -- The object proxy.
-    context -- The request context for the invocation.
-    Returns: The proxies of each object replica or an empty sequence, if the given proxy is not from a replica group.
-    """
-    def findAllReplicas(self, proxy, context=None):
-        return _M_IceGrid.Query._op_findAllReplicas.invoke(self, ((proxy, ), context))
-
-    """
-     Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
-     from a replica group, an empty sequence is returned.
-    Arguments:
-    proxy -- The object proxy.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def findAllReplicasAsync(self, proxy, context=None):
-        return _M_IceGrid.Query._op_findAllReplicas.invokeAsync(self, ((proxy, ), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_IceGrid.QueryPrx.ice_checkedCast(proxy, '::IceGrid::Query', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_IceGrid.QueryPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceGrid::Query'
-_M_IceGrid._t_QueryPrx = IcePy.defineProxy('::IceGrid::Query', QueryPrx)
-
-_M_IceGrid.QueryPrx = QueryPrx
-del QueryPrx
-
-_M_IceGrid.Query = None
-class Query(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::IceGrid::Query')
-
-    def ice_id(self, current=None):
-        return '::IceGrid::Query'
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceGrid::Query'
-
-    def findObjectById(self, id, current=None):
         """
          Find a well-known object by identity.
         Arguments:
         id -- The identity.
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The proxy or null if no such object has been found.
+        """
+        def findObjectById(self, id, context=None):
+            return _M_IceGrid.Query._op_findObjectById.invoke(self, ((id, ), context))
+
+        """
+         Find a well-known object by identity.
+        Arguments:
+        id -- The identity.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'findObjectById' not implemented")
+        def findObjectByIdAsync(self, id, context=None):
+            return _M_IceGrid.Query._op_findObjectById.invokeAsync(self, ((id, ), context))
 
-    def findObjectByType(self, type, current=None):
         """
          Find a well-known object by type. If there are several objects registered for the given type, the object is
          randomly selected.
         Arguments:
         type -- The object type.
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The proxy or null, if no such object has been found.
+        """
+        def findObjectByType(self, type, context=None):
+            return _M_IceGrid.Query._op_findObjectByType.invoke(self, ((type, ), context))
+
+        """
+         Find a well-known object by type. If there are several objects registered for the given type, the object is
+         randomly selected.
+        Arguments:
+        type -- The object type.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'findObjectByType' not implemented")
+        def findObjectByTypeAsync(self, type, context=None):
+            return _M_IceGrid.Query._op_findObjectByType.invokeAsync(self, ((type, ), context))
 
-    def findObjectByTypeOnLeastLoadedNode(self, type, sample, current=None):
         """
          Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
          the object (for example, because the object was registered with a direct proxy), the registry assumes the
@@ -234,389 +119,512 @@ class Query(Ice.Object):
         Arguments:
         type -- The object type.
         sample -- The sampling interval.
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The proxy or null, if no such object has been found.
+        """
+        def findObjectByTypeOnLeastLoadedNode(self, type, sample, context=None):
+            return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invoke(self, ((type, sample), context))
+
+        """
+         Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+         the object (for example, because the object was registered with a direct proxy), the registry assumes the
+         object is hosted on a node that has a load average of 1.0.
+        Arguments:
+        type -- The object type.
+        sample -- The sampling interval.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'findObjectByTypeOnLeastLoadedNode' not implemented")
+        def findObjectByTypeOnLeastLoadedNodeAsync(self, type, sample, context=None):
+            return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invokeAsync(self, ((type, sample), context))
 
-    def findAllObjectsByType(self, type, current=None):
         """
          Find all the well-known objects with the given type.
         Arguments:
         type -- The object type.
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The proxies or an empty sequence, if no such objects have been found.
+        """
+        def findAllObjectsByType(self, type, context=None):
+            return _M_IceGrid.Query._op_findAllObjectsByType.invoke(self, ((type, ), context))
+
+        """
+         Find all the well-known objects with the given type.
+        Arguments:
+        type -- The object type.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'findAllObjectsByType' not implemented")
+        def findAllObjectsByTypeAsync(self, type, context=None):
+            return _M_IceGrid.Query._op_findAllObjectsByType.invokeAsync(self, ((type, ), context))
 
-    def findAllReplicas(self, proxy, current=None):
         """
          Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
          from a replica group, an empty sequence is returned.
         Arguments:
         proxy -- The object proxy.
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The proxies of each object replica or an empty sequence, if the given proxy is not from a replica group.
+        """
+        def findAllReplicas(self, proxy, context=None):
+            return _M_IceGrid.Query._op_findAllReplicas.invoke(self, ((proxy, ), context))
+
+        """
+         Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+         from a replica group, an empty sequence is returned.
+        Arguments:
+        proxy -- The object proxy.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'findAllReplicas' not implemented")
+        def findAllReplicasAsync(self, proxy, context=None):
+            return _M_IceGrid.Query._op_findAllReplicas.invokeAsync(self, ((proxy, ), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceGrid._t_QueryDisp)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.QueryPrx.ice_checkedCast(proxy, '::IceGrid::Query', facetOrContext, context)
 
-    __repr__ = __str__
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.QueryPrx.ice_uncheckedCast(proxy, facet)
 
-_M_IceGrid._t_QueryDisp = IcePy.defineClass('::IceGrid::Query', Query, (), None, ())
-Query._ice_type = _M_IceGrid._t_QueryDisp
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::Query'
+    _M_IceGrid._t_QueryPrx = IcePy.defineProxy('::IceGrid::Query', QueryPrx)
 
-Query._op_findObjectById = IcePy.Operation('findObjectById', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-Query._op_findObjectByType = IcePy.Operation('findObjectByType', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-Query._op_findObjectByTypeOnLeastLoadedNode = IcePy.Operation('findObjectByTypeOnLeastLoadedNode', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_IceGrid._t_LoadSample, False, 0)), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-Query._op_findAllObjectsByType = IcePy.Operation('findAllObjectsByType', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_Ice._t_ObjectProxySeq, False, 0), ())
-Query._op_findAllReplicas = IcePy.Operation('findAllReplicas', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), ((), _M_Ice._t_ObjectProxySeq, False, 0), ())
+    _M_IceGrid.QueryPrx = QueryPrx
+    del QueryPrx
 
-_M_IceGrid.Query = Query
-del Query
+    _M_IceGrid.Query = None
+    class Query(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::Query')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::Query'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::Query'
+
+        def findObjectById(self, id, current=None):
+            """
+             Find a well-known object by identity.
+            Arguments:
+            id -- The identity.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'findObjectById' not implemented")
+
+        def findObjectByType(self, type, current=None):
+            """
+             Find a well-known object by type. If there are several objects registered for the given type, the object is
+             randomly selected.
+            Arguments:
+            type -- The object type.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'findObjectByType' not implemented")
+
+        def findObjectByTypeOnLeastLoadedNode(self, type, sample, current=None):
+            """
+             Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+             the object (for example, because the object was registered with a direct proxy), the registry assumes the
+             object is hosted on a node that has a load average of 1.0.
+            Arguments:
+            type -- The object type.
+            sample -- The sampling interval.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'findObjectByTypeOnLeastLoadedNode' not implemented")
+
+        def findAllObjectsByType(self, type, current=None):
+            """
+             Find all the well-known objects with the given type.
+            Arguments:
+            type -- The object type.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'findAllObjectsByType' not implemented")
+
+        def findAllReplicas(self, proxy, current=None):
+            """
+             Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+             from a replica group, an empty sequence is returned.
+            Arguments:
+            proxy -- The object proxy.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'findAllReplicas' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_QueryDisp)
+
+        __repr__ = __str__
+
+    _M_IceGrid._t_QueryDisp = IcePy.defineClass('::IceGrid::Query', Query, (), None, ())
+    Query._ice_type = _M_IceGrid._t_QueryDisp
+
+    Query._op_findObjectById = IcePy.Operation('findObjectById', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Query._op_findObjectByType = IcePy.Operation('findObjectByType', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Query._op_findObjectByTypeOnLeastLoadedNode = IcePy.Operation('findObjectByTypeOnLeastLoadedNode', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_IceGrid._t_LoadSample, False, 0)), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Query._op_findAllObjectsByType = IcePy.Operation('findAllObjectsByType', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_Ice._t_ObjectProxySeq, False, 0), ())
+    Query._op_findAllReplicas = IcePy.Operation('findAllReplicas', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), ((), _M_Ice._t_ObjectProxySeq, False, 0), ())
+
+    _M_IceGrid.Query = Query
+    del Query
 
 _M_IceGrid._t_Registry = IcePy.defineValue('::IceGrid::Registry', Ice.Value, -1, (), True, None, ())
-_M_IceGrid.RegistryPrx = None
-class RegistryPrx(Ice.ObjectPrx):
 
-    """
-     Create a client session.
-    Arguments:
-    userId -- The user id.
-    password -- The password for the given user id.
-    context -- The request context for the invocation.
-    Returns: A proxy for the newly created session. The returned proxy is never null.
-    Throws:
-    PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
-    """
-    def createSession(self, userId, password, context=None):
-        return _M_IceGrid.Registry._op_createSession.invoke(self, ((userId, password), context))
+if 'RegistryPrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.RegistryPrx = None
+    class RegistryPrx(Ice.ObjectPrx):
 
-    """
-     Create a client session.
-    Arguments:
-    userId -- The user id.
-    password -- The password for the given user id.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def createSessionAsync(self, userId, password, context=None):
-        return _M_IceGrid.Registry._op_createSession.invokeAsync(self, ((userId, password), context))
-
-    """
-     Create an administrative session.
-    Arguments:
-    userId -- The user id.
-    password -- The password for the given user id.
-    context -- The request context for the invocation.
-    Returns: A proxy for the newly created session. The returned proxy is never null.
-    Throws:
-    PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
-    """
-    def createAdminSession(self, userId, password, context=None):
-        return _M_IceGrid.Registry._op_createAdminSession.invoke(self, ((userId, password), context))
-
-    """
-     Create an administrative session.
-    Arguments:
-    userId -- The user id.
-    password -- The password for the given user id.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def createAdminSessionAsync(self, userId, password, context=None):
-        return _M_IceGrid.Registry._op_createAdminSession.invokeAsync(self, ((userId, password), context))
-
-    """
-     Create a client session from a secure connection.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A proxy for the newly created session. The returned proxy is never null.
-    Throws:
-    PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
-    """
-    def createSessionFromSecureConnection(self, context=None):
-        return _M_IceGrid.Registry._op_createSessionFromSecureConnection.invoke(self, ((), context))
-
-    """
-     Create a client session from a secure connection.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def createSessionFromSecureConnectionAsync(self, context=None):
-        return _M_IceGrid.Registry._op_createSessionFromSecureConnection.invokeAsync(self, ((), context))
-
-    """
-     Create an administrative session from a secure connection.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A proxy for the newly created session. The returned proxy is never null.
-    Throws:
-    PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
-    """
-    def createAdminSessionFromSecureConnection(self, context=None):
-        return _M_IceGrid.Registry._op_createAdminSessionFromSecureConnection.invoke(self, ((), context))
-
-    """
-     Create an administrative session from a secure connection.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def createAdminSessionFromSecureConnectionAsync(self, context=None):
-        return _M_IceGrid.Registry._op_createAdminSessionFromSecureConnection.invokeAsync(self, ((), context))
-
-    """
-     Get the idle timeout used by IceGrid for its side of the connection.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: The idle timeout (in seconds).
-    """
-    def getSessionTimeout(self, context=None):
-        return _M_IceGrid.Registry._op_getSessionTimeout.invoke(self, ((), context))
-
-    """
-     Get the idle timeout used by IceGrid for its side of the connection.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getSessionTimeoutAsync(self, context=None):
-        return _M_IceGrid.Registry._op_getSessionTimeout.invokeAsync(self, ((), context))
-
-    """
-     Get the idle timeout used by IceGrid for its side of the connection.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: The idle timeout (in seconds).
-    """
-    def getACMTimeout(self, context=None):
-        return _M_IceGrid.Registry._op_getACMTimeout.invoke(self, ((), context))
-
-    """
-     Get the idle timeout used by IceGrid for its side of the connection.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getACMTimeoutAsync(self, context=None):
-        return _M_IceGrid.Registry._op_getACMTimeout.invokeAsync(self, ((), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_IceGrid.RegistryPrx.ice_checkedCast(proxy, '::IceGrid::Registry', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_IceGrid.RegistryPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceGrid::Registry'
-_M_IceGrid._t_RegistryPrx = IcePy.defineProxy('::IceGrid::Registry', RegistryPrx)
-
-_M_IceGrid.RegistryPrx = RegistryPrx
-del RegistryPrx
-
-_M_IceGrid.Registry = None
-class Registry(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::IceGrid::Registry')
-
-    def ice_id(self, current=None):
-        return '::IceGrid::Registry'
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceGrid::Registry'
-
-    def createSession(self, userId, password, current=None):
         """
          Create a client session.
         Arguments:
         userId -- The user id.
         password -- The password for the given user id.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A proxy for the newly created session. The returned proxy is never null.
         Throws:
         PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
         """
-        raise NotImplementedError("servant method 'createSession' not implemented")
+        def createSession(self, userId, password, context=None):
+            return _M_IceGrid.Registry._op_createSession.invoke(self, ((userId, password), context))
 
-    def createAdminSession(self, userId, password, current=None):
+        """
+         Create a client session.
+        Arguments:
+        userId -- The user id.
+        password -- The password for the given user id.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def createSessionAsync(self, userId, password, context=None):
+            return _M_IceGrid.Registry._op_createSession.invokeAsync(self, ((userId, password), context))
+
         """
          Create an administrative session.
         Arguments:
         userId -- The user id.
         password -- The password for the given user id.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A proxy for the newly created session. The returned proxy is never null.
         Throws:
         PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
         """
-        raise NotImplementedError("servant method 'createAdminSession' not implemented")
+        def createAdminSession(self, userId, password, context=None):
+            return _M_IceGrid.Registry._op_createAdminSession.invoke(self, ((userId, password), context))
 
-    def createSessionFromSecureConnection(self, current=None):
+        """
+         Create an administrative session.
+        Arguments:
+        userId -- The user id.
+        password -- The password for the given user id.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def createAdminSessionAsync(self, userId, password, context=None):
+            return _M_IceGrid.Registry._op_createAdminSession.invokeAsync(self, ((userId, password), context))
+
         """
          Create a client session from a secure connection.
         Arguments:
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A proxy for the newly created session. The returned proxy is never null.
         Throws:
         PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
         """
-        raise NotImplementedError("servant method 'createSessionFromSecureConnection' not implemented")
+        def createSessionFromSecureConnection(self, context=None):
+            return _M_IceGrid.Registry._op_createSessionFromSecureConnection.invoke(self, ((), context))
 
-    def createAdminSessionFromSecureConnection(self, current=None):
+        """
+         Create a client session from a secure connection.
+        Arguments:
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def createSessionFromSecureConnectionAsync(self, context=None):
+            return _M_IceGrid.Registry._op_createSessionFromSecureConnection.invokeAsync(self, ((), context))
+
         """
          Create an administrative session from a secure connection.
         Arguments:
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: A proxy for the newly created session. The returned proxy is never null.
         Throws:
         PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
         """
-        raise NotImplementedError("servant method 'createAdminSessionFromSecureConnection' not implemented")
+        def createAdminSessionFromSecureConnection(self, context=None):
+            return _M_IceGrid.Registry._op_createAdminSessionFromSecureConnection.invoke(self, ((), context))
 
-    def getSessionTimeout(self, current=None):
+        """
+         Create an administrative session from a secure connection.
+        Arguments:
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def createAdminSessionFromSecureConnectionAsync(self, context=None):
+            return _M_IceGrid.Registry._op_createAdminSessionFromSecureConnection.invokeAsync(self, ((), context))
+
         """
          Get the idle timeout used by IceGrid for its side of the connection.
         Arguments:
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The idle timeout (in seconds).
         """
-        raise NotImplementedError("servant method 'getSessionTimeout' not implemented")
+        def getSessionTimeout(self, context=None):
+            return _M_IceGrid.Registry._op_getSessionTimeout.invoke(self, ((), context))
 
-    def getACMTimeout(self, current=None):
         """
          Get the idle timeout used by IceGrid for its side of the connection.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getACMTimeout' not implemented")
+        def getSessionTimeoutAsync(self, context=None):
+            return _M_IceGrid.Registry._op_getSessionTimeout.invokeAsync(self, ((), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceGrid._t_RegistryDisp)
+        """
+         Get the idle timeout used by IceGrid for its side of the connection.
+        Arguments:
+        context -- The request context for the invocation.
+        Returns: The idle timeout (in seconds).
+        """
+        def getACMTimeout(self, context=None):
+            return _M_IceGrid.Registry._op_getACMTimeout.invoke(self, ((), context))
 
-    __repr__ = __str__
+        """
+         Get the idle timeout used by IceGrid for its side of the connection.
+        Arguments:
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def getACMTimeoutAsync(self, context=None):
+            return _M_IceGrid.Registry._op_getACMTimeout.invokeAsync(self, ((), context))
 
-_M_IceGrid._t_RegistryDisp = IcePy.defineClass('::IceGrid::Registry', Registry, (), None, ())
-Registry._ice_type = _M_IceGrid._t_RegistryDisp
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.RegistryPrx.ice_checkedCast(proxy, '::IceGrid::Registry', facetOrContext, context)
 
-Registry._op_createSession = IcePy.Operation('createSession', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_IceGrid._t_SessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
-Registry._op_createAdminSession = IcePy.Operation('createAdminSession', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_IceGrid._t_AdminSessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
-Registry._op_createSessionFromSecureConnection = IcePy.Operation('createSessionFromSecureConnection', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceGrid._t_SessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
-Registry._op_createAdminSessionFromSecureConnection = IcePy.Operation('createAdminSessionFromSecureConnection', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceGrid._t_AdminSessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
-Registry._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-Registry._op_getACMTimeout = IcePy.Operation('getACMTimeout', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.RegistryPrx.ice_uncheckedCast(proxy, facet)
 
-_M_IceGrid.Registry = Registry
-del Registry
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::Registry'
+    _M_IceGrid._t_RegistryPrx = IcePy.defineProxy('::IceGrid::Registry', RegistryPrx)
+
+    _M_IceGrid.RegistryPrx = RegistryPrx
+    del RegistryPrx
+
+    _M_IceGrid.Registry = None
+    class Registry(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::Registry')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::Registry'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::Registry'
+
+        def createSession(self, userId, password, current=None):
+            """
+             Create a client session.
+            Arguments:
+            userId -- The user id.
+            password -- The password for the given user id.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
+            """
+            raise NotImplementedError("servant method 'createSession' not implemented")
+
+        def createAdminSession(self, userId, password, current=None):
+            """
+             Create an administrative session.
+            Arguments:
+            userId -- The user id.
+            password -- The password for the given user id.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
+            """
+            raise NotImplementedError("servant method 'createAdminSession' not implemented")
+
+        def createSessionFromSecureConnection(self, current=None):
+            """
+             Create a client session from a secure connection.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
+            """
+            raise NotImplementedError("servant method 'createSessionFromSecureConnection' not implemented")
+
+        def createAdminSessionFromSecureConnection(self, current=None):
+            """
+             Create an administrative session from a secure connection.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
+            """
+            raise NotImplementedError("servant method 'createAdminSessionFromSecureConnection' not implemented")
+
+        def getSessionTimeout(self, current=None):
+            """
+             Get the idle timeout used by IceGrid for its side of the connection.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getSessionTimeout' not implemented")
+
+        def getACMTimeout(self, current=None):
+            """
+             Get the idle timeout used by IceGrid for its side of the connection.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getACMTimeout' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_RegistryDisp)
+
+        __repr__ = __str__
+
+    _M_IceGrid._t_RegistryDisp = IcePy.defineClass('::IceGrid::Registry', Registry, (), None, ())
+    Registry._ice_type = _M_IceGrid._t_RegistryDisp
+
+    Registry._op_createSession = IcePy.Operation('createSession', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_IceGrid._t_SessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
+    Registry._op_createAdminSession = IcePy.Operation('createAdminSession', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_IceGrid._t_AdminSessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
+    Registry._op_createSessionFromSecureConnection = IcePy.Operation('createSessionFromSecureConnection', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceGrid._t_SessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
+    Registry._op_createAdminSessionFromSecureConnection = IcePy.Operation('createAdminSessionFromSecureConnection', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceGrid._t_AdminSessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
+    Registry._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    Registry._op_getACMTimeout = IcePy.Operation('getACMTimeout', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+
+    _M_IceGrid.Registry = Registry
+    del Registry
 
 _M_IceGrid._t_Locator = IcePy.defineValue('::IceGrid::Locator', Ice.Value, -1, (), True, None, ())
-_M_IceGrid.LocatorPrx = None
-class LocatorPrx(_M_Ice.LocatorPrx):
 
-    """
-     Get the proxy of the registry object hosted by this IceGrid registry.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: The proxy of the registry object. The returned proxy is never null.
-    """
-    def getLocalRegistry(self, context=None):
-        return _M_IceGrid.Locator._op_getLocalRegistry.invoke(self, ((), context))
+if 'LocatorPrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.LocatorPrx = None
+    class LocatorPrx(_M_Ice.LocatorPrx):
 
-    """
-     Get the proxy of the registry object hosted by this IceGrid registry.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getLocalRegistryAsync(self, context=None):
-        return _M_IceGrid.Locator._op_getLocalRegistry.invokeAsync(self, ((), context))
-
-    """
-     Get the proxy of the query object hosted by this IceGrid registry.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: The proxy of the query object. The returned proxy is never null.
-    """
-    def getLocalQuery(self, context=None):
-        return _M_IceGrid.Locator._op_getLocalQuery.invoke(self, ((), context))
-
-    """
-     Get the proxy of the query object hosted by this IceGrid registry.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getLocalQueryAsync(self, context=None):
-        return _M_IceGrid.Locator._op_getLocalQuery.invokeAsync(self, ((), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_IceGrid.LocatorPrx.ice_checkedCast(proxy, '::IceGrid::Locator', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_IceGrid.LocatorPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceGrid::Locator'
-_M_IceGrid._t_LocatorPrx = IcePy.defineProxy('::IceGrid::Locator', LocatorPrx)
-
-_M_IceGrid.LocatorPrx = LocatorPrx
-del LocatorPrx
-
-_M_IceGrid.Locator = None
-class Locator(_M_Ice.Locator):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Locator', '::Ice::Object', '::IceGrid::Locator')
-
-    def ice_id(self, current=None):
-        return '::IceGrid::Locator'
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceGrid::Locator'
-
-    def getLocalRegistry(self, current=None):
         """
          Get the proxy of the registry object hosted by this IceGrid registry.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The proxy of the registry object. The returned proxy is never null.
+        """
+        def getLocalRegistry(self, context=None):
+            return _M_IceGrid.Locator._op_getLocalRegistry.invoke(self, ((), context))
+
+        """
+         Get the proxy of the registry object hosted by this IceGrid registry.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getLocalRegistry' not implemented")
+        def getLocalRegistryAsync(self, context=None):
+            return _M_IceGrid.Locator._op_getLocalRegistry.invokeAsync(self, ((), context))
 
-    def getLocalQuery(self, current=None):
         """
          Get the proxy of the query object hosted by this IceGrid registry.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The proxy of the query object. The returned proxy is never null.
+        """
+        def getLocalQuery(self, context=None):
+            return _M_IceGrid.Locator._op_getLocalQuery.invoke(self, ((), context))
+
+        """
+         Get the proxy of the query object hosted by this IceGrid registry.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getLocalQuery' not implemented")
+        def getLocalQueryAsync(self, context=None):
+            return _M_IceGrid.Locator._op_getLocalQuery.invokeAsync(self, ((), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceGrid._t_LocatorDisp)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.LocatorPrx.ice_checkedCast(proxy, '::IceGrid::Locator', facetOrContext, context)
 
-    __repr__ = __str__
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.LocatorPrx.ice_uncheckedCast(proxy, facet)
 
-_M_IceGrid._t_LocatorDisp = IcePy.defineClass('::IceGrid::Locator', Locator, (), None, (_M_Ice._t_LocatorDisp,))
-Locator._ice_type = _M_IceGrid._t_LocatorDisp
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::Locator'
+    _M_IceGrid._t_LocatorPrx = IcePy.defineProxy('::IceGrid::Locator', LocatorPrx)
 
-Locator._op_getLocalRegistry = IcePy.Operation('getLocalRegistry', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_RegistryPrx, False, 0), ())
-Locator._op_getLocalQuery = IcePy.Operation('getLocalQuery', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_QueryPrx, False, 0), ())
+    _M_IceGrid.LocatorPrx = LocatorPrx
+    del LocatorPrx
 
-_M_IceGrid.Locator = Locator
-del Locator
+    _M_IceGrid.Locator = None
+    class Locator(_M_Ice.Locator):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Locator', '::Ice::Object', '::IceGrid::Locator')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::Locator'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::Locator'
+
+        def getLocalRegistry(self, current=None):
+            """
+             Get the proxy of the registry object hosted by this IceGrid registry.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getLocalRegistry' not implemented")
+
+        def getLocalQuery(self, current=None):
+            """
+             Get the proxy of the query object hosted by this IceGrid registry.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getLocalQuery' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_LocatorDisp)
+
+        __repr__ = __str__
+
+    _M_IceGrid._t_LocatorDisp = IcePy.defineClass('::IceGrid::Locator', Locator, (), None, (_M_Ice._t_LocatorDisp,))
+    Locator._ice_type = _M_IceGrid._t_LocatorDisp
+
+    Locator._op_getLocalRegistry = IcePy.Operation('getLocalRegistry', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_RegistryPrx, False, 0), ())
+    Locator._op_getLocalQuery = IcePy.Operation('getLocalQuery', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_QueryPrx, False, 0), ())
+
+    _M_IceGrid.Locator = Locator
+    del Locator
 
 # End of module IceGrid

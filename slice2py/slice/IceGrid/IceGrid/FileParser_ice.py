@@ -30,110 +30,114 @@ _M_IceGrid = Ice.openModule('IceGrid')
 
 # Start of module IceGrid
 __name__ = 'IceGrid'
-_M_IceGrid.ParseException = None
-class ParseException(Ice.UserException):
-    """
-     This exception is raised if an error occurs during parsing.
-    Members:
-    reason --  The reason for the failure.
-    """
-    def __init__(self, reason=''):
-        self.reason = reason
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+if 'ParseException' not in _M_IceGrid.__dict__:
+    _M_IceGrid.ParseException = None
+    class ParseException(Ice.UserException):
+        """
+         This exception is raised if an error occurs during parsing.
+        Members:
+        reason --  The reason for the failure.
+        """
+        def __init__(self, reason=''):
+            self.reason = reason
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    _ice_id = '::IceGrid::ParseException'
+        __repr__ = __str__
 
-_M_IceGrid._t_ParseException = IcePy.defineException('::IceGrid::ParseException', ParseException, (), None, (('reason', (), IcePy._t_string, False, 0),))
-ParseException._ice_type = _M_IceGrid._t_ParseException
+        _ice_id = '::IceGrid::ParseException'
 
-_M_IceGrid.ParseException = ParseException
-del ParseException
+    _M_IceGrid._t_ParseException = IcePy.defineException('::IceGrid::ParseException', ParseException, (), None, (('reason', (), IcePy._t_string, False, 0),))
+    ParseException._ice_type = _M_IceGrid._t_ParseException
+
+    _M_IceGrid.ParseException = ParseException
+    del ParseException
 
 _M_IceGrid._t_FileParser = IcePy.defineValue('::IceGrid::FileParser', Ice.Value, -1, (), True, None, ())
-_M_IceGrid.FileParserPrx = None
-class FileParserPrx(Ice.ObjectPrx):
 
-    """
-     Parse a file.
-    Arguments:
-    xmlFile -- Full pathname to the file.
-    adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
-    context -- The request context for the invocation.
-    Returns: The application descriptor.
-    Throws:
-    ParseException -- Raised if an error occurred during parsing.
-    """
-    def parse(self, xmlFile, adminProxy, context=None):
-        return _M_IceGrid.FileParser._op_parse.invoke(self, ((xmlFile, adminProxy), context))
+if 'FileParserPrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.FileParserPrx = None
+    class FileParserPrx(Ice.ObjectPrx):
 
-    """
-     Parse a file.
-    Arguments:
-    xmlFile -- Full pathname to the file.
-    adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def parseAsync(self, xmlFile, adminProxy, context=None):
-        return _M_IceGrid.FileParser._op_parse.invokeAsync(self, ((xmlFile, adminProxy), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_IceGrid.FileParserPrx.ice_checkedCast(proxy, '::IceGrid::FileParser', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_IceGrid.FileParserPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceGrid::FileParser'
-_M_IceGrid._t_FileParserPrx = IcePy.defineProxy('::IceGrid::FileParser', FileParserPrx)
-
-_M_IceGrid.FileParserPrx = FileParserPrx
-del FileParserPrx
-
-_M_IceGrid.FileParser = None
-class FileParser(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::IceGrid::FileParser')
-
-    def ice_id(self, current=None):
-        return '::IceGrid::FileParser'
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceGrid::FileParser'
-
-    def parse(self, xmlFile, adminProxy, current=None):
         """
          Parse a file.
         Arguments:
         xmlFile -- Full pathname to the file.
         adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The application descriptor.
         Throws:
         ParseException -- Raised if an error occurred during parsing.
         """
-        raise NotImplementedError("servant method 'parse' not implemented")
+        def parse(self, xmlFile, adminProxy, context=None):
+            return _M_IceGrid.FileParser._op_parse.invoke(self, ((xmlFile, adminProxy), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceGrid._t_FileParserDisp)
+        """
+         Parse a file.
+        Arguments:
+        xmlFile -- Full pathname to the file.
+        adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def parseAsync(self, xmlFile, adminProxy, context=None):
+            return _M_IceGrid.FileParser._op_parse.invokeAsync(self, ((xmlFile, adminProxy), context))
 
-    __repr__ = __str__
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.FileParserPrx.ice_checkedCast(proxy, '::IceGrid::FileParser', facetOrContext, context)
 
-_M_IceGrid._t_FileParserDisp = IcePy.defineClass('::IceGrid::FileParser', FileParser, (), None, ())
-FileParser._ice_type = _M_IceGrid._t_FileParserDisp
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.FileParserPrx.ice_uncheckedCast(proxy, facet)
 
-FileParser._op_parse = IcePy.Operation('parse', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_IceGrid._t_AdminPrx, False, 0)), (), ((), _M_IceGrid._t_ApplicationDescriptor, False, 0), (_M_IceGrid._t_ParseException,))
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::FileParser'
+    _M_IceGrid._t_FileParserPrx = IcePy.defineProxy('::IceGrid::FileParser', FileParserPrx)
 
-_M_IceGrid.FileParser = FileParser
-del FileParser
+    _M_IceGrid.FileParserPrx = FileParserPrx
+    del FileParserPrx
+
+    _M_IceGrid.FileParser = None
+    class FileParser(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::FileParser')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::FileParser'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::FileParser'
+
+        def parse(self, xmlFile, adminProxy, current=None):
+            """
+             Parse a file.
+            Arguments:
+            xmlFile -- Full pathname to the file.
+            adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            ParseException -- Raised if an error occurred during parsing.
+            """
+            raise NotImplementedError("servant method 'parse' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_FileParserDisp)
+
+        __repr__ = __str__
+
+    _M_IceGrid._t_FileParserDisp = IcePy.defineClass('::IceGrid::FileParser', FileParser, (), None, ())
+    FileParser._ice_type = _M_IceGrid._t_FileParserDisp
+
+    FileParser._op_parse = IcePy.Operation('parse', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_IceGrid._t_AdminPrx, False, 0)), (), ((), _M_IceGrid._t_ApplicationDescriptor, False, 0), (_M_IceGrid._t_ParseException,))
+
+    _M_IceGrid.FileParser = FileParser
+    del FileParser
 
 # End of module IceGrid

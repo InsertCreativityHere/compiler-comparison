@@ -34,49 +34,51 @@ _M_IceStormElection = Ice.openModule('IceStormElection')
 
 # Start of module IceStorm
 __name__ = 'IceStorm'
-_M_IceStorm.LinkRecord = None
-class LinkRecord(object):
-    """
-     Used to store persistent information for Topic federation.
-    Members:
-    obj --  The topic link object.
-    cost --  The cost.
-    theTopic --  The linked topic for getLinkInfoSeq
-    """
-    def __init__(self, obj=None, cost=0, theTopic=None):
-        self.obj = obj
-        self.cost = cost
-        self.theTopic = theTopic
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_IceStorm.LinkRecord):
-            return NotImplemented
-        else:
-            if self.obj != other.obj:
+if 'LinkRecord' not in _M_IceStorm.__dict__:
+    _M_IceStorm.LinkRecord = None
+    class LinkRecord(object):
+        """
+         Used to store persistent information for Topic federation.
+        Members:
+        obj --  The topic link object.
+        cost --  The cost.
+        theTopic --  The linked topic for getLinkInfoSeq
+        """
+        def __init__(self, obj=None, cost=0, theTopic=None):
+            self.obj = obj
+            self.cost = cost
+            self.theTopic = theTopic
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.cost != other.cost:
-                return False
-            if self.theTopic != other.theTopic:
-                return False
-            return True
+            elif not isinstance(other, _M_IceStorm.LinkRecord):
+                return NotImplemented
+            else:
+                if self.obj != other.obj:
+                    return False
+                if self.cost != other.cost:
+                    return False
+                if self.theTopic != other.theTopic:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceStorm._t_LinkRecord)
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStorm._t_LinkRecord)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_IceStorm._t_LinkRecord = IcePy.defineStruct('::IceStorm::LinkRecord', LinkRecord, (), (
-    ('obj', (), _M_IceStorm._t_TopicLinkPrx),
-    ('cost', (), IcePy._t_int),
-    ('theTopic', (), _M_IceStorm._t_TopicPrx)
-))
+    _M_IceStorm._t_LinkRecord = IcePy.defineStruct('::IceStorm::LinkRecord', LinkRecord, (), (
+        ('obj', (), _M_IceStorm._t_TopicLinkPrx),
+        ('cost', (), IcePy._t_int),
+        ('theTopic', (), _M_IceStorm._t_TopicPrx)
+    ))
 
-_M_IceStorm.LinkRecord = LinkRecord
-del LinkRecord
+    _M_IceStorm.LinkRecord = LinkRecord
+    del LinkRecord
 
 # End of module IceStorm

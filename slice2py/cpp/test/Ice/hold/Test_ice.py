@@ -23,98 +23,100 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_Hold = IcePy.defineValue('::Test::Hold', Ice.Value, -1, (), True, None, ())
-_M_Test.HoldPrx = None
-class HoldPrx(Ice.ObjectPrx):
 
-    def putOnHold(self, seconds, context=None):
-        return _M_Test.Hold._op_putOnHold.invoke(self, ((seconds, ), context))
+if 'HoldPrx' not in _M_Test.__dict__:
+    _M_Test.HoldPrx = None
+    class HoldPrx(Ice.ObjectPrx):
 
-    def putOnHoldAsync(self, seconds, context=None):
-        return _M_Test.Hold._op_putOnHold.invokeAsync(self, ((seconds, ), context))
+        def putOnHold(self, seconds, context=None):
+            return _M_Test.Hold._op_putOnHold.invoke(self, ((seconds, ), context))
 
-    def waitForHold(self, context=None):
-        return _M_Test.Hold._op_waitForHold.invoke(self, ((), context))
+        def putOnHoldAsync(self, seconds, context=None):
+            return _M_Test.Hold._op_putOnHold.invokeAsync(self, ((seconds, ), context))
 
-    def waitForHoldAsync(self, context=None):
-        return _M_Test.Hold._op_waitForHold.invokeAsync(self, ((), context))
+        def waitForHold(self, context=None):
+            return _M_Test.Hold._op_waitForHold.invoke(self, ((), context))
 
-    def setOneway(self, value, expected, context=None):
-        return _M_Test.Hold._op_setOneway.invoke(self, ((value, expected), context))
+        def waitForHoldAsync(self, context=None):
+            return _M_Test.Hold._op_waitForHold.invokeAsync(self, ((), context))
 
-    def setOnewayAsync(self, value, expected, context=None):
-        return _M_Test.Hold._op_setOneway.invokeAsync(self, ((value, expected), context))
+        def setOneway(self, value, expected, context=None):
+            return _M_Test.Hold._op_setOneway.invoke(self, ((value, expected), context))
 
-    def set(self, value, delay, context=None):
-        return _M_Test.Hold._op_set.invoke(self, ((value, delay), context))
+        def setOnewayAsync(self, value, expected, context=None):
+            return _M_Test.Hold._op_setOneway.invokeAsync(self, ((value, expected), context))
 
-    def setAsync(self, value, delay, context=None):
-        return _M_Test.Hold._op_set.invokeAsync(self, ((value, delay), context))
+        def set(self, value, delay, context=None):
+            return _M_Test.Hold._op_set.invoke(self, ((value, delay), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.Hold._op_shutdown.invoke(self, ((), context))
+        def setAsync(self, value, delay, context=None):
+            return _M_Test.Hold._op_set.invokeAsync(self, ((value, delay), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.Hold._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.Hold._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.HoldPrx.ice_checkedCast(proxy, '::Test::Hold', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.Hold._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.HoldPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.HoldPrx.ice_checkedCast(proxy, '::Test::Hold', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Hold'
-_M_Test._t_HoldPrx = IcePy.defineProxy('::Test::Hold', HoldPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.HoldPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.HoldPrx = HoldPrx
-del HoldPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Hold'
+    _M_Test._t_HoldPrx = IcePy.defineProxy('::Test::Hold', HoldPrx)
 
-_M_Test.Hold = None
-class Hold(Ice.Object):
+    _M_Test.HoldPrx = HoldPrx
+    del HoldPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Hold')
+    _M_Test.Hold = None
+    class Hold(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Hold'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Hold')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Hold'
+        def ice_id(self, current=None):
+            return '::Test::Hold'
 
-    def putOnHold(self, seconds, current=None):
-        raise NotImplementedError("servant method 'putOnHold' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Hold'
 
-    def waitForHold(self, current=None):
-        raise NotImplementedError("servant method 'waitForHold' not implemented")
+        def putOnHold(self, seconds, current=None):
+            raise NotImplementedError("servant method 'putOnHold' not implemented")
 
-    def setOneway(self, value, expected, current=None):
-        raise NotImplementedError("servant method 'setOneway' not implemented")
+        def waitForHold(self, current=None):
+            raise NotImplementedError("servant method 'waitForHold' not implemented")
 
-    def set(self, value, delay, current=None):
-        raise NotImplementedError("servant method 'set' not implemented")
+        def setOneway(self, value, expected, current=None):
+            raise NotImplementedError("servant method 'setOneway' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def set(self, value, delay, current=None):
+            raise NotImplementedError("servant method 'set' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_HoldDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_HoldDisp)
 
-_M_Test._t_HoldDisp = IcePy.defineClass('::Test::Hold', Hold, (), None, ())
-Hold._ice_type = _M_Test._t_HoldDisp
+        __repr__ = __str__
 
-Hold._op_putOnHold = IcePy.Operation('putOnHold', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-Hold._op_waitForHold = IcePy.Operation('waitForHold', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Hold._op_setOneway = IcePy.Operation('setOneway', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
-Hold._op_set = IcePy.Operation('set', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
-Hold._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_HoldDisp = IcePy.defineClass('::Test::Hold', Hold, (), None, ())
+    Hold._ice_type = _M_Test._t_HoldDisp
 
-_M_Test.Hold = Hold
-del Hold
+    Hold._op_putOnHold = IcePy.Operation('putOnHold', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    Hold._op_waitForHold = IcePy.Operation('waitForHold', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Hold._op_setOneway = IcePy.Operation('setOneway', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    Hold._op_set = IcePy.Operation('set', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
+    Hold._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.Hold = Hold
+    del Hold
 
 # End of module Test

@@ -27,194 +27,200 @@ _M_Glacier2 = Ice.openModule('Glacier2')
 
 # Start of module Glacier2
 __name__ = 'Glacier2'
-_M_Glacier2.PermissionDeniedException = None
-class PermissionDeniedException(Ice.UserException):
-    """
-     This exception is raised if a client is denied the ability to create a session with the router.
-    Members:
-    reason --  The reason why permission was denied.
-    """
-    def __init__(self, reason=''):
-        self.reason = reason
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+if 'PermissionDeniedException' not in _M_Glacier2.__dict__:
+    _M_Glacier2.PermissionDeniedException = None
+    class PermissionDeniedException(Ice.UserException):
+        """
+         This exception is raised if a client is denied the ability to create a session with the router.
+        Members:
+        reason --  The reason why permission was denied.
+        """
+        def __init__(self, reason=''):
+            self.reason = reason
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    _ice_id = '::Glacier2::PermissionDeniedException'
+        __repr__ = __str__
 
-_M_Glacier2._t_PermissionDeniedException = IcePy.defineException('::Glacier2::PermissionDeniedException', PermissionDeniedException, (), None, (('reason', (), IcePy._t_string, False, 0),))
-PermissionDeniedException._ice_type = _M_Glacier2._t_PermissionDeniedException
+        _ice_id = '::Glacier2::PermissionDeniedException'
 
-_M_Glacier2.PermissionDeniedException = PermissionDeniedException
-del PermissionDeniedException
+    _M_Glacier2._t_PermissionDeniedException = IcePy.defineException('::Glacier2::PermissionDeniedException', PermissionDeniedException, (), None, (('reason', (), IcePy._t_string, False, 0),))
+    PermissionDeniedException._ice_type = _M_Glacier2._t_PermissionDeniedException
+
+    _M_Glacier2.PermissionDeniedException = PermissionDeniedException
+    del PermissionDeniedException
 
 _M_Glacier2._t_PermissionsVerifier = IcePy.defineValue('::Glacier2::PermissionsVerifier', Ice.Value, -1, (), True, None, ())
-_M_Glacier2.PermissionsVerifierPrx = None
-class PermissionsVerifierPrx(Ice.ObjectPrx):
 
-    """
-     Check whether a user has permission to access the router.
-    Arguments:
-    userId -- The user id for which to check permission.
-    password -- The user's password.
-    context -- The request context for the invocation.
-    Returns a tuple containing the following:
-    _retval -- True if access is granted, or false otherwise.
-    reason -- The reason why access was denied.
-    Throws:
-    PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
-    """
-    def checkPermissions(self, userId, password, context=None):
-        return _M_Glacier2.PermissionsVerifier._op_checkPermissions.invoke(self, ((userId, password), context))
+if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
+    _M_Glacier2.PermissionsVerifierPrx = None
+    class PermissionsVerifierPrx(Ice.ObjectPrx):
 
-    """
-     Check whether a user has permission to access the router.
-    Arguments:
-    userId -- The user id for which to check permission.
-    password -- The user's password.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def checkPermissionsAsync(self, userId, password, context=None):
-        return _M_Glacier2.PermissionsVerifier._op_checkPermissions.invokeAsync(self, ((userId, password), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Glacier2.PermissionsVerifierPrx.ice_checkedCast(proxy, '::Glacier2::PermissionsVerifier', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Glacier2.PermissionsVerifierPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::PermissionsVerifier'
-_M_Glacier2._t_PermissionsVerifierPrx = IcePy.defineProxy('::Glacier2::PermissionsVerifier', PermissionsVerifierPrx)
-
-_M_Glacier2.PermissionsVerifierPrx = PermissionsVerifierPrx
-del PermissionsVerifierPrx
-
-_M_Glacier2.PermissionsVerifier = None
-class PermissionsVerifier(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Glacier2::PermissionsVerifier', '::Ice::Object')
-
-    def ice_id(self, current=None):
-        return '::Glacier2::PermissionsVerifier'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::PermissionsVerifier'
-
-    def checkPermissions(self, userId, password, current=None):
         """
          Check whether a user has permission to access the router.
         Arguments:
         userId -- The user id for which to check permission.
         password -- The user's password.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns a tuple containing the following:
+        _retval -- True if access is granted, or false otherwise.
+        reason -- The reason why access was denied.
         Throws:
         PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
         """
-        raise NotImplementedError("servant method 'checkPermissions' not implemented")
+        def checkPermissions(self, userId, password, context=None):
+            return _M_Glacier2.PermissionsVerifier._op_checkPermissions.invoke(self, ((userId, password), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Glacier2._t_PermissionsVerifierDisp)
+        """
+         Check whether a user has permission to access the router.
+        Arguments:
+        userId -- The user id for which to check permission.
+        password -- The user's password.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def checkPermissionsAsync(self, userId, password, context=None):
+            return _M_Glacier2.PermissionsVerifier._op_checkPermissions.invokeAsync(self, ((userId, password), context))
 
-    __repr__ = __str__
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Glacier2.PermissionsVerifierPrx.ice_checkedCast(proxy, '::Glacier2::PermissionsVerifier', facetOrContext, context)
 
-_M_Glacier2._t_PermissionsVerifierDisp = IcePy.defineClass('::Glacier2::PermissionsVerifier', PermissionsVerifier, (), None, ())
-PermissionsVerifier._ice_type = _M_Glacier2._t_PermissionsVerifierDisp
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Glacier2.PermissionsVerifierPrx.ice_uncheckedCast(proxy, facet)
 
-PermissionsVerifier._op_checkPermissions = IcePy.Operation('checkPermissions', Ice.OperationMode.Idempotent, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (((), IcePy._t_string, False, 0),), ((), IcePy._t_bool, False, 0), (_M_Glacier2._t_PermissionDeniedException,))
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::PermissionsVerifier'
+    _M_Glacier2._t_PermissionsVerifierPrx = IcePy.defineProxy('::Glacier2::PermissionsVerifier', PermissionsVerifierPrx)
 
-_M_Glacier2.PermissionsVerifier = PermissionsVerifier
-del PermissionsVerifier
+    _M_Glacier2.PermissionsVerifierPrx = PermissionsVerifierPrx
+    del PermissionsVerifierPrx
+
+    _M_Glacier2.PermissionsVerifier = None
+    class PermissionsVerifier(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Glacier2::PermissionsVerifier', '::Ice::Object')
+
+        def ice_id(self, current=None):
+            return '::Glacier2::PermissionsVerifier'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::PermissionsVerifier'
+
+        def checkPermissions(self, userId, password, current=None):
+            """
+             Check whether a user has permission to access the router.
+            Arguments:
+            userId -- The user id for which to check permission.
+            password -- The user's password.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
+            """
+            raise NotImplementedError("servant method 'checkPermissions' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Glacier2._t_PermissionsVerifierDisp)
+
+        __repr__ = __str__
+
+    _M_Glacier2._t_PermissionsVerifierDisp = IcePy.defineClass('::Glacier2::PermissionsVerifier', PermissionsVerifier, (), None, ())
+    PermissionsVerifier._ice_type = _M_Glacier2._t_PermissionsVerifierDisp
+
+    PermissionsVerifier._op_checkPermissions = IcePy.Operation('checkPermissions', Ice.OperationMode.Idempotent, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (((), IcePy._t_string, False, 0),), ((), IcePy._t_bool, False, 0), (_M_Glacier2._t_PermissionDeniedException,))
+
+    _M_Glacier2.PermissionsVerifier = PermissionsVerifier
+    del PermissionsVerifier
 
 _M_Glacier2._t_SSLPermissionsVerifier = IcePy.defineValue('::Glacier2::SSLPermissionsVerifier', Ice.Value, -1, (), True, None, ())
-_M_Glacier2.SSLPermissionsVerifierPrx = None
-class SSLPermissionsVerifierPrx(Ice.ObjectPrx):
 
-    """
-     Check whether a user has permission to access the router.
-    Arguments:
-    info -- The SSL information.
-    context -- The request context for the invocation.
-    Returns a tuple containing the following:
-    _retval -- True if access is granted, or false otherwise.
-    reason -- The reason why access was denied.
-    Throws:
-    PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
-    """
-    def authorize(self, info, context=None):
-        return _M_Glacier2.SSLPermissionsVerifier._op_authorize.invoke(self, ((info, ), context))
+if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
+    _M_Glacier2.SSLPermissionsVerifierPrx = None
+    class SSLPermissionsVerifierPrx(Ice.ObjectPrx):
 
-    """
-     Check whether a user has permission to access the router.
-    Arguments:
-    info -- The SSL information.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def authorizeAsync(self, info, context=None):
-        return _M_Glacier2.SSLPermissionsVerifier._op_authorize.invokeAsync(self, ((info, ), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Glacier2.SSLPermissionsVerifierPrx.ice_checkedCast(proxy, '::Glacier2::SSLPermissionsVerifier', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Glacier2.SSLPermissionsVerifierPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::SSLPermissionsVerifier'
-_M_Glacier2._t_SSLPermissionsVerifierPrx = IcePy.defineProxy('::Glacier2::SSLPermissionsVerifier', SSLPermissionsVerifierPrx)
-
-_M_Glacier2.SSLPermissionsVerifierPrx = SSLPermissionsVerifierPrx
-del SSLPermissionsVerifierPrx
-
-_M_Glacier2.SSLPermissionsVerifier = None
-class SSLPermissionsVerifier(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Glacier2::SSLPermissionsVerifier', '::Ice::Object')
-
-    def ice_id(self, current=None):
-        return '::Glacier2::SSLPermissionsVerifier'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Glacier2::SSLPermissionsVerifier'
-
-    def authorize(self, info, current=None):
         """
          Check whether a user has permission to access the router.
         Arguments:
         info -- The SSL information.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns a tuple containing the following:
+        _retval -- True if access is granted, or false otherwise.
+        reason -- The reason why access was denied.
         Throws:
         PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
         """
-        raise NotImplementedError("servant method 'authorize' not implemented")
+        def authorize(self, info, context=None):
+            return _M_Glacier2.SSLPermissionsVerifier._op_authorize.invoke(self, ((info, ), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Glacier2._t_SSLPermissionsVerifierDisp)
+        """
+         Check whether a user has permission to access the router.
+        Arguments:
+        info -- The SSL information.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def authorizeAsync(self, info, context=None):
+            return _M_Glacier2.SSLPermissionsVerifier._op_authorize.invokeAsync(self, ((info, ), context))
 
-    __repr__ = __str__
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Glacier2.SSLPermissionsVerifierPrx.ice_checkedCast(proxy, '::Glacier2::SSLPermissionsVerifier', facetOrContext, context)
 
-_M_Glacier2._t_SSLPermissionsVerifierDisp = IcePy.defineClass('::Glacier2::SSLPermissionsVerifier', SSLPermissionsVerifier, (), None, ())
-SSLPermissionsVerifier._ice_type = _M_Glacier2._t_SSLPermissionsVerifierDisp
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Glacier2.SSLPermissionsVerifierPrx.ice_uncheckedCast(proxy, facet)
 
-SSLPermissionsVerifier._op_authorize = IcePy.Operation('authorize', Ice.OperationMode.Idempotent, False, Ice.FormatType.SlicedFormat, (), (((), _M_Glacier2._t_SSLInfo, False, 0),), (((), IcePy._t_string, False, 0),), ((), IcePy._t_bool, False, 0), (_M_Glacier2._t_PermissionDeniedException,))
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::SSLPermissionsVerifier'
+    _M_Glacier2._t_SSLPermissionsVerifierPrx = IcePy.defineProxy('::Glacier2::SSLPermissionsVerifier', SSLPermissionsVerifierPrx)
 
-_M_Glacier2.SSLPermissionsVerifier = SSLPermissionsVerifier
-del SSLPermissionsVerifier
+    _M_Glacier2.SSLPermissionsVerifierPrx = SSLPermissionsVerifierPrx
+    del SSLPermissionsVerifierPrx
+
+    _M_Glacier2.SSLPermissionsVerifier = None
+    class SSLPermissionsVerifier(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Glacier2::SSLPermissionsVerifier', '::Ice::Object')
+
+        def ice_id(self, current=None):
+            return '::Glacier2::SSLPermissionsVerifier'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Glacier2::SSLPermissionsVerifier'
+
+        def authorize(self, info, current=None):
+            """
+             Check whether a user has permission to access the router.
+            Arguments:
+            info -- The SSL information.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
+            """
+            raise NotImplementedError("servant method 'authorize' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Glacier2._t_SSLPermissionsVerifierDisp)
+
+        __repr__ = __str__
+
+    _M_Glacier2._t_SSLPermissionsVerifierDisp = IcePy.defineClass('::Glacier2::SSLPermissionsVerifier', SSLPermissionsVerifier, (), None, ())
+    SSLPermissionsVerifier._ice_type = _M_Glacier2._t_SSLPermissionsVerifierDisp
+
+    SSLPermissionsVerifier._op_authorize = IcePy.Operation('authorize', Ice.OperationMode.Idempotent, False, Ice.FormatType.SlicedFormat, (), (((), _M_Glacier2._t_SSLInfo, False, 0),), (((), IcePy._t_string, False, 0),), ((), IcePy._t_bool, False, 0), (_M_Glacier2._t_PermissionDeniedException,))
+
+    _M_Glacier2.SSLPermissionsVerifier = SSLPermissionsVerifier
+    del SSLPermissionsVerifier
 
 # End of module Glacier2

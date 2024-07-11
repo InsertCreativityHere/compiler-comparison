@@ -23,68 +23,70 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
-_M_Test.TestIntfPrx = None
-class TestIntfPrx(Ice.ObjectPrx):
 
-    def getReplicaId(self, context=None):
-        return _M_Test.TestIntf._op_getReplicaId.invoke(self, ((), context))
+if 'TestIntfPrx' not in _M_Test.__dict__:
+    _M_Test.TestIntfPrx = None
+    class TestIntfPrx(Ice.ObjectPrx):
 
-    def getReplicaIdAsync(self, context=None):
-        return _M_Test.TestIntf._op_getReplicaId.invokeAsync(self, ((), context))
+        def getReplicaId(self, context=None):
+            return _M_Test.TestIntf._op_getReplicaId.invoke(self, ((), context))
 
-    def getReplicaIdAndShutdown(self, context=None):
-        return _M_Test.TestIntf._op_getReplicaIdAndShutdown.invoke(self, ((), context))
+        def getReplicaIdAsync(self, context=None):
+            return _M_Test.TestIntf._op_getReplicaId.invokeAsync(self, ((), context))
 
-    def getReplicaIdAndShutdownAsync(self, context=None):
-        return _M_Test.TestIntf._op_getReplicaIdAndShutdown.invokeAsync(self, ((), context))
+        def getReplicaIdAndShutdown(self, context=None):
+            return _M_Test.TestIntf._op_getReplicaIdAndShutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
+        def getReplicaIdAndShutdownAsync(self, context=None):
+            return _M_Test.TestIntf._op_getReplicaIdAndShutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
-_M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestIntfPrx = TestIntfPrx
-del TestIntfPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
+    _M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
 
-_M_Test.TestIntf = None
-class TestIntf(Ice.Object):
+    _M_Test.TestIntfPrx = TestIntfPrx
+    del TestIntfPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::TestIntf')
+    _M_Test.TestIntf = None
+    class TestIntf(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::TestIntf'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::TestIntf')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
+        def ice_id(self, current=None):
+            return '::Test::TestIntf'
 
-    def getReplicaId(self, current=None):
-        raise NotImplementedError("servant method 'getReplicaId' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
 
-    def getReplicaIdAndShutdown(self, current=None):
-        raise NotImplementedError("servant method 'getReplicaIdAndShutdown' not implemented")
+        def getReplicaId(self, current=None):
+            raise NotImplementedError("servant method 'getReplicaId' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
+        def getReplicaIdAndShutdown(self, current=None):
+            raise NotImplementedError("servant method 'getReplicaIdAndShutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
-_M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-TestIntf._ice_type = _M_Test._t_TestIntfDisp
+        __repr__ = __str__
 
-TestIntf._op_getReplicaId = IcePy.Operation('getReplicaId', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
-TestIntf._op_getReplicaIdAndShutdown = IcePy.Operation('getReplicaIdAndShutdown', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
+    TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-_M_Test.TestIntf = TestIntf
-del TestIntf
+    TestIntf._op_getReplicaId = IcePy.Operation('getReplicaId', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    TestIntf._op_getReplicaIdAndShutdown = IcePy.Operation('getReplicaIdAndShutdown', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+
+    _M_Test.TestIntf = TestIntf
+    del TestIntf
 
 # End of module Test

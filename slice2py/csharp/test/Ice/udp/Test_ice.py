@@ -27,144 +27,150 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_PingReply = IcePy.defineValue('::Test::PingReply', Ice.Value, -1, (), True, None, ())
-_M_Test.PingReplyPrx = None
-class PingReplyPrx(Ice.ObjectPrx):
 
-    def reply(self, context=None):
-        return _M_Test.PingReply._op_reply.invoke(self, ((), context))
+if 'PingReplyPrx' not in _M_Test.__dict__:
+    _M_Test.PingReplyPrx = None
+    class PingReplyPrx(Ice.ObjectPrx):
 
-    def replyAsync(self, context=None):
-        return _M_Test.PingReply._op_reply.invokeAsync(self, ((), context))
+        def reply(self, context=None):
+            return _M_Test.PingReply._op_reply.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.PingReplyPrx.ice_checkedCast(proxy, '::Test::PingReply', facetOrContext, context)
+        def replyAsync(self, context=None):
+            return _M_Test.PingReply._op_reply.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.PingReplyPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.PingReplyPrx.ice_checkedCast(proxy, '::Test::PingReply', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::PingReply'
-_M_Test._t_PingReplyPrx = IcePy.defineProxy('::Test::PingReply', PingReplyPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.PingReplyPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.PingReplyPrx = PingReplyPrx
-del PingReplyPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::PingReply'
+    _M_Test._t_PingReplyPrx = IcePy.defineProxy('::Test::PingReply', PingReplyPrx)
 
-_M_Test.PingReply = None
-class PingReply(Ice.Object):
+    _M_Test.PingReplyPrx = PingReplyPrx
+    del PingReplyPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::PingReply')
+    _M_Test.PingReply = None
+    class PingReply(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::PingReply'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::PingReply')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::PingReply'
+        def ice_id(self, current=None):
+            return '::Test::PingReply'
 
-    def reply(self, current=None):
-        raise NotImplementedError("servant method 'reply' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::PingReply'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_PingReplyDisp)
+        def reply(self, current=None):
+            raise NotImplementedError("servant method 'reply' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_PingReplyDisp)
 
-_M_Test._t_PingReplyDisp = IcePy.defineClass('::Test::PingReply', PingReply, (), None, ())
-PingReply._ice_type = _M_Test._t_PingReplyDisp
+        __repr__ = __str__
 
-PingReply._op_reply = IcePy.Operation('reply', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_PingReplyDisp = IcePy.defineClass('::Test::PingReply', PingReply, (), None, ())
+    PingReply._ice_type = _M_Test._t_PingReplyDisp
 
-_M_Test.PingReply = PingReply
-del PingReply
-_M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
+    PingReply._op_reply = IcePy.Operation('reply', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.PingReply = PingReply
+    del PingReply
+
+if '_t_ByteSeq' not in _M_Test.__dict__:
+    _M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
-_M_Test.TestIntfPrx = None
-class TestIntfPrx(Ice.ObjectPrx):
 
-    def ping(self, reply, context=None):
-        return _M_Test.TestIntf._op_ping.invoke(self, ((reply, ), context))
+if 'TestIntfPrx' not in _M_Test.__dict__:
+    _M_Test.TestIntfPrx = None
+    class TestIntfPrx(Ice.ObjectPrx):
 
-    def pingAsync(self, reply, context=None):
-        return _M_Test.TestIntf._op_ping.invokeAsync(self, ((reply, ), context))
+        def ping(self, reply, context=None):
+            return _M_Test.TestIntf._op_ping.invoke(self, ((reply, ), context))
 
-    def sendByteSeq(self, seq, reply, context=None):
-        return _M_Test.TestIntf._op_sendByteSeq.invoke(self, ((seq, reply), context))
+        def pingAsync(self, reply, context=None):
+            return _M_Test.TestIntf._op_ping.invokeAsync(self, ((reply, ), context))
 
-    def sendByteSeqAsync(self, seq, reply, context=None):
-        return _M_Test.TestIntf._op_sendByteSeq.invokeAsync(self, ((seq, reply), context))
+        def sendByteSeq(self, seq, reply, context=None):
+            return _M_Test.TestIntf._op_sendByteSeq.invoke(self, ((seq, reply), context))
 
-    def pingBiDir(self, id, context=None):
-        return _M_Test.TestIntf._op_pingBiDir.invoke(self, ((id, ), context))
+        def sendByteSeqAsync(self, seq, reply, context=None):
+            return _M_Test.TestIntf._op_sendByteSeq.invokeAsync(self, ((seq, reply), context))
 
-    def pingBiDirAsync(self, id, context=None):
-        return _M_Test.TestIntf._op_pingBiDir.invokeAsync(self, ((id, ), context))
+        def pingBiDir(self, id, context=None):
+            return _M_Test.TestIntf._op_pingBiDir.invoke(self, ((id, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
+        def pingBiDirAsync(self, id, context=None):
+            return _M_Test.TestIntf._op_pingBiDir.invokeAsync(self, ((id, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
-_M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestIntfPrx = TestIntfPrx
-del TestIntfPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
+    _M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
 
-_M_Test.TestIntf = None
-class TestIntf(Ice.Object):
+    _M_Test.TestIntfPrx = TestIntfPrx
+    del TestIntfPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::TestIntf')
+    _M_Test.TestIntf = None
+    class TestIntf(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::TestIntf'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::TestIntf')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
+        def ice_id(self, current=None):
+            return '::Test::TestIntf'
 
-    def ping(self, reply, current=None):
-        raise NotImplementedError("servant method 'ping' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
 
-    def sendByteSeq(self, seq, reply, current=None):
-        raise NotImplementedError("servant method 'sendByteSeq' not implemented")
+        def ping(self, reply, current=None):
+            raise NotImplementedError("servant method 'ping' not implemented")
 
-    def pingBiDir(self, id, current=None):
-        raise NotImplementedError("servant method 'pingBiDir' not implemented")
+        def sendByteSeq(self, seq, reply, current=None):
+            raise NotImplementedError("servant method 'sendByteSeq' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def pingBiDir(self, id, current=None):
+            raise NotImplementedError("servant method 'pingBiDir' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
-_M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-TestIntf._ice_type = _M_Test._t_TestIntfDisp
+        __repr__ = __str__
 
-TestIntf._op_ping = IcePy.Operation('ping', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
-TestIntf._op_sendByteSeq = IcePy.Operation('sendByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0), ((), _M_Test._t_PingReplyPrx, False, 0)), (), None, ())
-TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), None, ())
-TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
+    TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-_M_Test.TestIntf = TestIntf
-del TestIntf
+    TestIntf._op_ping = IcePy.Operation('ping', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
+    TestIntf._op_sendByteSeq = IcePy.Operation('sendByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0), ((), _M_Test._t_PingReplyPrx, False, 0)), (), None, ())
+    TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), None, ())
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.TestIntf = TestIntf
+    del TestIntf
 
 # End of module Test

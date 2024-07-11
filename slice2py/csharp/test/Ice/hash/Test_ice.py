@@ -21,484 +21,512 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
-_M_Test.BaseException = None
-class BaseException(Ice.UserException):
-    def __init__(self):
-        pass
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+if 'BaseException' not in _M_Test.__dict__:
+    _M_Test.BaseException = None
+    class BaseException(Ice.UserException):
+        def __init__(self):
+            pass
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    _ice_id = '::Test::BaseException'
+        __repr__ = __str__
 
-_M_Test._t_BaseException = IcePy.defineException('::Test::BaseException', BaseException, (), None, ())
-BaseException._ice_type = _M_Test._t_BaseException
+        _ice_id = '::Test::BaseException'
 
-_M_Test.BaseException = BaseException
-del BaseException
-_M_Test.InvalidPointException = None
-class InvalidPointException(_M_Test.BaseException):
-    def __init__(self, index=0):
-        _M_Test.BaseException.__init__(self)
-        self.index = index
+    _M_Test._t_BaseException = IcePy.defineException('::Test::BaseException', BaseException, (), None, ())
+    BaseException._ice_type = _M_Test._t_BaseException
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+    _M_Test.BaseException = BaseException
+    del BaseException
 
-    __repr__ = __str__
+if 'InvalidPointException' not in _M_Test.__dict__:
+    _M_Test.InvalidPointException = None
+    class InvalidPointException(_M_Test.BaseException):
+        def __init__(self, index=0):
+            _M_Test.BaseException.__init__(self)
+            self.index = index
 
-    _ice_id = '::Test::InvalidPointException'
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-_M_Test._t_InvalidPointException = IcePy.defineException('::Test::InvalidPointException', InvalidPointException, (), _M_Test._t_BaseException, (('index', (), IcePy._t_int, False, 0),))
-InvalidPointException._ice_type = _M_Test._t_InvalidPointException
+        __repr__ = __str__
 
-_M_Test.InvalidPointException = InvalidPointException
-del InvalidPointException
-_M_Test.InvalidLengthException = None
-class InvalidLengthException(_M_Test.BaseException):
-    def __init__(self, length=0):
-        _M_Test.BaseException.__init__(self)
-        self.length = length
+        _ice_id = '::Test::InvalidPointException'
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+    _M_Test._t_InvalidPointException = IcePy.defineException('::Test::InvalidPointException', InvalidPointException, (), _M_Test._t_BaseException, (('index', (), IcePy._t_int, False, 0),))
+    InvalidPointException._ice_type = _M_Test._t_InvalidPointException
 
-    __repr__ = __str__
+    _M_Test.InvalidPointException = InvalidPointException
+    del InvalidPointException
 
-    _ice_id = '::Test::InvalidLengthException'
+if 'InvalidLengthException' not in _M_Test.__dict__:
+    _M_Test.InvalidLengthException = None
+    class InvalidLengthException(_M_Test.BaseException):
+        def __init__(self, length=0):
+            _M_Test.BaseException.__init__(self)
+            self.length = length
 
-_M_Test._t_InvalidLengthException = IcePy.defineException('::Test::InvalidLengthException', InvalidLengthException, (), _M_Test._t_BaseException, (('length', (), IcePy._t_int, False, 0),))
-InvalidLengthException._ice_type = _M_Test._t_InvalidLengthException
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-_M_Test.InvalidLengthException = InvalidLengthException
-del InvalidLengthException
-_M_Test.OtherException = None
-class OtherException(Ice.UserException):
-    def __init__(self, x=0, y=0, z=0, b=False):
-        self.x = x
-        self.y = y
-        self.z = z
-        self.b = b
+        __repr__ = __str__
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+        _ice_id = '::Test::InvalidLengthException'
 
-    __repr__ = __str__
+    _M_Test._t_InvalidLengthException = IcePy.defineException('::Test::InvalidLengthException', InvalidLengthException, (), _M_Test._t_BaseException, (('length', (), IcePy._t_int, False, 0),))
+    InvalidLengthException._ice_type = _M_Test._t_InvalidLengthException
 
-    _ice_id = '::Test::OtherException'
+    _M_Test.InvalidLengthException = InvalidLengthException
+    del InvalidLengthException
 
-_M_Test._t_OtherException = IcePy.defineException('::Test::OtherException', OtherException, (), None, (
-    ('x', (), IcePy._t_int, False, 0),
-    ('y', (), IcePy._t_int, False, 0),
-    ('z', (), IcePy._t_int, False, 0),
-    ('b', (), IcePy._t_bool, False, 0)
-))
-OtherException._ice_type = _M_Test._t_OtherException
+if 'OtherException' not in _M_Test.__dict__:
+    _M_Test.OtherException = None
+    class OtherException(Ice.UserException):
+        def __init__(self, x=0, y=0, z=0, b=False):
+            self.x = x
+            self.y = y
+            self.z = z
+            self.b = b
 
-_M_Test.OtherException = OtherException
-del OtherException
-_M_Test.PointF = None
-class PointF(object):
-    def __init__(self, x=0.0, y=0.0, z=0.0):
-        self.x = x
-        self.y = y
-        self.z = z
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_Test.PointF):
-            return NotImplemented
-        else:
-            if self.x != other.x:
+        __repr__ = __str__
+
+        _ice_id = '::Test::OtherException'
+
+    _M_Test._t_OtherException = IcePy.defineException('::Test::OtherException', OtherException, (), None, (
+        ('x', (), IcePy._t_int, False, 0),
+        ('y', (), IcePy._t_int, False, 0),
+        ('z', (), IcePy._t_int, False, 0),
+        ('b', (), IcePy._t_bool, False, 0)
+    ))
+    OtherException._ice_type = _M_Test._t_OtherException
+
+    _M_Test.OtherException = OtherException
+    del OtherException
+
+if 'PointF' not in _M_Test.__dict__:
+    _M_Test.PointF = None
+    class PointF(object):
+        def __init__(self, x=0.0, y=0.0, z=0.0):
+            self.x = x
+            self.y = y
+            self.z = z
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.y != other.y:
-                return False
-            if self.z != other.z:
-                return False
-            return True
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_PointF)
-
-    __repr__ = __str__
-
-_M_Test._t_PointF = IcePy.defineStruct('::Test::PointF', PointF, (), (
-    ('x', (), IcePy._t_float),
-    ('y', (), IcePy._t_float),
-    ('z', (), IcePy._t_float)
-))
-
-_M_Test.PointF = PointF
-del PointF
-_M_Test.PointD = None
-class PointD(object):
-    def __init__(self, x=0.0, y=0.0, z=0.0):
-        self.x = x
-        self.y = y
-        self.z = z
-
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_Test.PointD):
-            return NotImplemented
-        else:
-            if self.x != other.x:
-                return False
-            if self.y != other.y:
-                return False
-            if self.z != other.z:
-                return False
-            return True
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_PointD)
-
-    __repr__ = __str__
-
-_M_Test._t_PointD = IcePy.defineStruct('::Test::PointD', PointD, (), (
-    ('x', (), IcePy._t_double),
-    ('y', (), IcePy._t_double),
-    ('z', (), IcePy._t_double)
-))
-
-_M_Test.PointD = PointD
-del PointD
-_M_Test.Point = None
-class Point(object):
-    def __init__(self, x=0, y=0):
-        self.x = x
-        self.y = y
-
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.x)
-        _h = 5 * _h + _builtins.hash(self.y)
-        return _h % 0x7fffffff
-
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.Point):
-            return NotImplemented
-        else:
-            if self.x is None or other.x is None:
+            elif not isinstance(other, _M_Test.PointF):
+                return NotImplemented
+            else:
                 if self.x != other.x:
-                    return (-1 if self.x is None else 1)
-            else:
-                if self.x < other.x:
-                    return -1
-                elif self.x > other.x:
-                    return 1
-            if self.y is None or other.y is None:
+                    return False
                 if self.y != other.y:
-                    return (-1 if self.y is None else 1)
-            else:
-                if self.y < other.y:
-                    return -1
-                elif self.y > other.y:
-                    return 1
-            return 0
+                    return False
+                if self.z != other.z:
+                    return False
+                return True
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_PointF)
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        __repr__ = __str__
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+    _M_Test._t_PointF = IcePy.defineStruct('::Test::PointF', PointF, (), (
+        ('x', (), IcePy._t_float),
+        ('y', (), IcePy._t_float),
+        ('z', (), IcePy._t_float)
+    ))
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+    _M_Test.PointF = PointF
+    del PointF
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+if 'PointD' not in _M_Test.__dict__:
+    _M_Test.PointD = None
+    class PointD(object):
+        def __init__(self, x=0.0, y=0.0, z=0.0):
+            self.x = x
+            self.y = y
+            self.z = z
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_Point)
-
-    __repr__ = __str__
-
-_M_Test._t_Point = IcePy.defineStruct('::Test::Point', Point, (), (
-    ('x', (), IcePy._t_int),
-    ('y', (), IcePy._t_int)
-))
-
-_M_Test.Point = Point
-del Point
-_M_Test._t_Points = IcePy.defineSequence('::Test::Points', (), _M_Test._t_Point)
-_M_Test.Polyline = None
-class Polyline(object):
-    def __init__(self, vertices=None):
-        self.vertices = vertices
-
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_Test.Polyline):
-            return NotImplemented
-        else:
-            if self.vertices != other.vertices:
+        def __eq__(self, other):
+            if other is None:
                 return False
-            return True
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_Polyline)
-
-    __repr__ = __str__
-
-_M_Test._t_Polyline = IcePy.defineStruct('::Test::Polyline', Polyline, (), (('vertices', (), _M_Test._t_Points),))
-
-_M_Test.Polyline = Polyline
-del Polyline
-_M_Test.Color = None
-class Color(object):
-    def __init__(self, r=0, g=0, b=0, a=0):
-        self.r = r
-        self.g = g
-        self.b = b
-        self.a = a
-
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.r)
-        _h = 5 * _h + _builtins.hash(self.g)
-        _h = 5 * _h + _builtins.hash(self.b)
-        _h = 5 * _h + _builtins.hash(self.a)
-        return _h % 0x7fffffff
-
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.Color):
-            return NotImplemented
-        else:
-            if self.r is None or other.r is None:
-                if self.r != other.r:
-                    return (-1 if self.r is None else 1)
+            elif not isinstance(other, _M_Test.PointD):
+                return NotImplemented
             else:
-                if self.r < other.r:
-                    return -1
-                elif self.r > other.r:
-                    return 1
-            if self.g is None or other.g is None:
-                if self.g != other.g:
-                    return (-1 if self.g is None else 1)
+                if self.x != other.x:
+                    return False
+                if self.y != other.y:
+                    return False
+                if self.z != other.z:
+                    return False
+                return True
+
+        def __ne__(self, other):
+            return not self.__eq__(other)
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_PointD)
+
+        __repr__ = __str__
+
+    _M_Test._t_PointD = IcePy.defineStruct('::Test::PointD', PointD, (), (
+        ('x', (), IcePy._t_double),
+        ('y', (), IcePy._t_double),
+        ('z', (), IcePy._t_double)
+    ))
+
+    _M_Test.PointD = PointD
+    del PointD
+
+if 'Point' not in _M_Test.__dict__:
+    _M_Test.Point = None
+    class Point(object):
+        def __init__(self, x=0, y=0):
+            self.x = x
+            self.y = y
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.x)
+            _h = 5 * _h + _builtins.hash(self.y)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.Point):
+                return NotImplemented
             else:
-                if self.g < other.g:
-                    return -1
-                elif self.g > other.g:
-                    return 1
-            if self.b is None or other.b is None:
-                if self.b != other.b:
-                    return (-1 if self.b is None else 1)
+                if self.x is None or other.x is None:
+                    if self.x != other.x:
+                        return (-1 if self.x is None else 1)
+                else:
+                    if self.x < other.x:
+                        return -1
+                    elif self.x > other.x:
+                        return 1
+                if self.y is None or other.y is None:
+                    if self.y != other.y:
+                        return (-1 if self.y is None else 1)
+                else:
+                    if self.y < other.y:
+                        return -1
+                    elif self.y > other.y:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.b < other.b:
-                    return -1
-                elif self.b > other.b:
-                    return 1
-            if self.a is None or other.a is None:
-                if self.a != other.a:
-                    return (-1 if self.a is None else 1)
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.a < other.a:
-                    return -1
-                elif self.a > other.a:
-                    return 1
-            return 0
+                return r <= 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_Point)
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+        __repr__ = __str__
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_Color)
+    _M_Test._t_Point = IcePy.defineStruct('::Test::Point', Point, (), (
+        ('x', (), IcePy._t_int),
+        ('y', (), IcePy._t_int)
+    ))
 
-    __repr__ = __str__
+    _M_Test.Point = Point
+    del Point
 
-_M_Test._t_Color = IcePy.defineStruct('::Test::Color', Color, (), (
-    ('r', (), IcePy._t_int),
-    ('g', (), IcePy._t_int),
-    ('b', (), IcePy._t_int),
-    ('a', (), IcePy._t_int)
-))
+if '_t_Points' not in _M_Test.__dict__:
+    _M_Test._t_Points = IcePy.defineSequence('::Test::Points', (), _M_Test._t_Point)
 
-_M_Test.Color = Color
-del Color
-_M_Test._t_StringColorMap = IcePy.defineDictionary('::Test::StringColorMap', (), IcePy._t_int, _M_Test._t_Color)
-_M_Test.ColorPalette = None
-class ColorPalette(object):
-    def __init__(self, colors=None):
-        self.colors = colors
+if 'Polyline' not in _M_Test.__dict__:
+    _M_Test.Polyline = None
+    class Polyline(object):
+        def __init__(self, vertices=None):
+            self.vertices = vertices
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_Test.ColorPalette):
-            return NotImplemented
-        else:
-            if self.colors != other.colors:
+        def __eq__(self, other):
+            if other is None:
                 return False
-            return True
+            elif not isinstance(other, _M_Test.Polyline):
+                return NotImplemented
+            else:
+                if self.vertices != other.vertices:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_ColorPalette)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_Polyline)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test._t_ColorPalette = IcePy.defineStruct('::Test::ColorPalette', ColorPalette, (), (('colors', (), _M_Test._t_StringColorMap),))
+    _M_Test._t_Polyline = IcePy.defineStruct('::Test::Polyline', Polyline, (), (('vertices', (), _M_Test._t_Points),))
 
-_M_Test.ColorPalette = ColorPalette
-del ColorPalette
-_M_Test.Pen = None
-class Pen(Ice.Value):
-    def __init__(self, thickness=0, color=None):
-        self.thickness = thickness
-        if color is None:
-            self.color = _M_Test.Color()
-        else:
-            self.color = color
+    _M_Test.Polyline = Polyline
+    del Polyline
 
-    def ice_id(self):
-        return '::Test::Pen'
+if 'Color' not in _M_Test.__dict__:
+    _M_Test.Color = None
+    class Color(object):
+        def __init__(self, r=0, g=0, b=0, a=0):
+            self.r = r
+            self.g = g
+            self.b = b
+            self.a = a
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Pen'
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.r)
+            _h = 5 * _h + _builtins.hash(self.g)
+            _h = 5 * _h + _builtins.hash(self.b)
+            _h = 5 * _h + _builtins.hash(self.a)
+            return _h % 0x7fffffff
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_Pen)
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.Color):
+                return NotImplemented
+            else:
+                if self.r is None or other.r is None:
+                    if self.r != other.r:
+                        return (-1 if self.r is None else 1)
+                else:
+                    if self.r < other.r:
+                        return -1
+                    elif self.r > other.r:
+                        return 1
+                if self.g is None or other.g is None:
+                    if self.g != other.g:
+                        return (-1 if self.g is None else 1)
+                else:
+                    if self.g < other.g:
+                        return -1
+                    elif self.g > other.g:
+                        return 1
+                if self.b is None or other.b is None:
+                    if self.b != other.b:
+                        return (-1 if self.b is None else 1)
+                else:
+                    if self.b < other.b:
+                        return -1
+                    elif self.b > other.b:
+                        return 1
+                if self.a is None or other.a is None:
+                    if self.a != other.a:
+                        return (-1 if self.a is None else 1)
+                else:
+                    if self.a < other.a:
+                        return -1
+                    elif self.a > other.a:
+                        return 1
+                return 0
 
-    __repr__ = __str__
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
 
-_M_Test._t_Pen = IcePy.defineValue('::Test::Pen', Pen, -1, (), False, None, (
-    ('thickness', (), IcePy._t_int, False, 0),
-    ('color', (), _M_Test._t_Color, False, 0)
-))
-Pen._ice_type = _M_Test._t_Pen
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
 
-_M_Test.Pen = Pen
-del Pen
-_M_Test.Draw = None
-class Draw(object):
-    def __init__(self, backgroundColor=None, pen=None, shared=False):
-        if backgroundColor is None:
-            self.backgroundColor = _M_Test.Color()
-        else:
-            self.backgroundColor = backgroundColor
-        self.pen = pen
-        self.shared = shared
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_Test.Draw):
-            return NotImplemented
-        else:
-            if self.backgroundColor != other.backgroundColor:
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_Color)
+
+        __repr__ = __str__
+
+    _M_Test._t_Color = IcePy.defineStruct('::Test::Color', Color, (), (
+        ('r', (), IcePy._t_int),
+        ('g', (), IcePy._t_int),
+        ('b', (), IcePy._t_int),
+        ('a', (), IcePy._t_int)
+    ))
+
+    _M_Test.Color = Color
+    del Color
+
+if '_t_StringColorMap' not in _M_Test.__dict__:
+    _M_Test._t_StringColorMap = IcePy.defineDictionary('::Test::StringColorMap', (), IcePy._t_int, _M_Test._t_Color)
+
+if 'ColorPalette' not in _M_Test.__dict__:
+    _M_Test.ColorPalette = None
+    class ColorPalette(object):
+        def __init__(self, colors=None):
+            self.colors = colors
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.pen != other.pen:
+            elif not isinstance(other, _M_Test.ColorPalette):
+                return NotImplemented
+            else:
+                if self.colors != other.colors:
+                    return False
+                return True
+
+        def __ne__(self, other):
+            return not self.__eq__(other)
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_ColorPalette)
+
+        __repr__ = __str__
+
+    _M_Test._t_ColorPalette = IcePy.defineStruct('::Test::ColorPalette', ColorPalette, (), (('colors', (), _M_Test._t_StringColorMap),))
+
+    _M_Test.ColorPalette = ColorPalette
+    del ColorPalette
+
+if 'Pen' not in _M_Test.__dict__:
+    _M_Test.Pen = None
+    class Pen(Ice.Value):
+        def __init__(self, thickness=0, color=None):
+            self.thickness = thickness
+            if color is None:
+                self.color = _M_Test.Color()
+            else:
+                self.color = color
+
+        def ice_id(self):
+            return '::Test::Pen'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Pen'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_Pen)
+
+        __repr__ = __str__
+
+    _M_Test._t_Pen = IcePy.defineValue('::Test::Pen', Pen, -1, (), False, None, (
+        ('thickness', (), IcePy._t_int, False, 0),
+        ('color', (), _M_Test._t_Color, False, 0)
+    ))
+    Pen._ice_type = _M_Test._t_Pen
+
+    _M_Test.Pen = Pen
+    del Pen
+
+if 'Draw' not in _M_Test.__dict__:
+    _M_Test.Draw = None
+    class Draw(object):
+        def __init__(self, backgroundColor=None, pen=None, shared=False):
+            if backgroundColor is None:
+                self.backgroundColor = _M_Test.Color()
+            else:
+                self.backgroundColor = backgroundColor
+            self.pen = pen
+            self.shared = shared
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.shared != other.shared:
-                return False
-            return True
+            elif not isinstance(other, _M_Test.Draw):
+                return NotImplemented
+            else:
+                if self.backgroundColor != other.backgroundColor:
+                    return False
+                if self.pen != other.pen:
+                    return False
+                if self.shared != other.shared:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_Draw)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_Draw)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test._t_Draw = IcePy.defineStruct('::Test::Draw', Draw, (), (
-    ('backgroundColor', (), _M_Test._t_Color),
-    ('pen', (), _M_Test._t_Pen),
-    ('shared', (), IcePy._t_bool)
-))
+    _M_Test._t_Draw = IcePy.defineStruct('::Test::Draw', Draw, (), (
+        ('backgroundColor', (), _M_Test._t_Color),
+        ('pen', (), _M_Test._t_Pen),
+        ('shared', (), IcePy._t_bool)
+    ))
 
-_M_Test.Draw = Draw
-del Draw
+    _M_Test.Draw = Draw
+    del Draw
 
 # End of module Test

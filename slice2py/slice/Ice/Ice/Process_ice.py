@@ -23,108 +23,110 @@ _M_Ice = Ice.openModule('Ice')
 __name__ = 'Ice'
 
 _M_Ice._t_Process = IcePy.defineValue('::Ice::Process', Ice.Value, -1, (), True, None, ())
-_M_Ice.ProcessPrx = None
-class ProcessPrx(Ice.ObjectPrx):
 
-    """
-     Initiate a graceful shut-down.
-    Arguments:
-    context -- The request context for the invocation.
-    """
-    def shutdown(self, context=None):
-        return _M_Ice.Process._op_shutdown.invoke(self, ((), context))
+if 'ProcessPrx' not in _M_Ice.__dict__:
+    _M_Ice.ProcessPrx = None
+    class ProcessPrx(Ice.ObjectPrx):
 
-    """
-     Initiate a graceful shut-down.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def shutdownAsync(self, context=None):
-        return _M_Ice.Process._op_shutdown.invokeAsync(self, ((), context))
-
-    """
-     Write a message on the process' stdout or stderr.
-    Arguments:
-    message -- The message.
-    fd -- 1 for stdout, 2 for stderr.
-    context -- The request context for the invocation.
-    """
-    def writeMessage(self, message, fd, context=None):
-        return _M_Ice.Process._op_writeMessage.invoke(self, ((message, fd), context))
-
-    """
-     Write a message on the process' stdout or stderr.
-    Arguments:
-    message -- The message.
-    fd -- 1 for stdout, 2 for stderr.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def writeMessageAsync(self, message, fd, context=None):
-        return _M_Ice.Process._op_writeMessage.invokeAsync(self, ((message, fd), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Ice.ProcessPrx.ice_checkedCast(proxy, '::Ice::Process', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Ice.ProcessPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::Ice::Process'
-_M_Ice._t_ProcessPrx = IcePy.defineProxy('::Ice::Process', ProcessPrx)
-
-_M_Ice.ProcessPrx = ProcessPrx
-del ProcessPrx
-
-_M_Ice.Process = None
-class Process(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Ice::Process')
-
-    def ice_id(self, current=None):
-        return '::Ice::Process'
-
-    @staticmethod
-    def ice_staticId():
-        return '::Ice::Process'
-
-    def shutdown(self, current=None):
         """
          Initiate a graceful shut-down.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        """
+        def shutdown(self, context=None):
+            return _M_Ice.Process._op_shutdown.invoke(self, ((), context))
+
+        """
+         Initiate a graceful shut-down.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def shutdownAsync(self, context=None):
+            return _M_Ice.Process._op_shutdown.invokeAsync(self, ((), context))
 
-    def writeMessage(self, message, fd, current=None):
         """
          Write a message on the process' stdout or stderr.
         Arguments:
         message -- The message.
         fd -- 1 for stdout, 2 for stderr.
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        """
+        def writeMessage(self, message, fd, context=None):
+            return _M_Ice.Process._op_writeMessage.invoke(self, ((message, fd), context))
+
+        """
+         Write a message on the process' stdout or stderr.
+        Arguments:
+        message -- The message.
+        fd -- 1 for stdout, 2 for stderr.
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'writeMessage' not implemented")
+        def writeMessageAsync(self, message, fd, context=None):
+            return _M_Ice.Process._op_writeMessage.invokeAsync(self, ((message, fd), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Ice._t_ProcessDisp)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Ice.ProcessPrx.ice_checkedCast(proxy, '::Ice::Process', facetOrContext, context)
 
-    __repr__ = __str__
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Ice.ProcessPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Ice._t_ProcessDisp = IcePy.defineClass('::Ice::Process', Process, (), None, ())
-Process._ice_type = _M_Ice._t_ProcessDisp
+        @staticmethod
+        def ice_staticId():
+            return '::Ice::Process'
+    _M_Ice._t_ProcessPrx = IcePy.defineProxy('::Ice::Process', ProcessPrx)
 
-Process._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Process._op_writeMessage = IcePy.Operation('writeMessage', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    _M_Ice.ProcessPrx = ProcessPrx
+    del ProcessPrx
 
-_M_Ice.Process = Process
-del Process
+    _M_Ice.Process = None
+    class Process(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Ice::Process')
+
+        def ice_id(self, current=None):
+            return '::Ice::Process'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Ice::Process'
+
+        def shutdown(self, current=None):
+            """
+             Initiate a graceful shut-down.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'shutdown' not implemented")
+
+        def writeMessage(self, message, fd, current=None):
+            """
+             Write a message on the process' stdout or stderr.
+            Arguments:
+            message -- The message.
+            fd -- 1 for stdout, 2 for stderr.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'writeMessage' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Ice._t_ProcessDisp)
+
+        __repr__ = __str__
+
+    _M_Ice._t_ProcessDisp = IcePy.defineClass('::Ice::Process', Process, (), None, ())
+    Process._ice_type = _M_Ice._t_ProcessDisp
+
+    Process._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Process._op_writeMessage = IcePy.Operation('writeMessage', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+
+    _M_Ice.Process = Process
+    del Process
 
 # End of module Ice

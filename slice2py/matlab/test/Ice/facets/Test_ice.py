@@ -23,497 +23,515 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_Empty = IcePy.defineValue('::Test::Empty', Ice.Value, -1, (), True, None, ())
-_M_Test.EmptyPrx = None
-class EmptyPrx(Ice.ObjectPrx):
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.EmptyPrx.ice_checkedCast(proxy, '::Test::Empty', facetOrContext, context)
+if 'EmptyPrx' not in _M_Test.__dict__:
+    _M_Test.EmptyPrx = None
+    class EmptyPrx(Ice.ObjectPrx):
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.EmptyPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.EmptyPrx.ice_checkedCast(proxy, '::Test::Empty', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Empty'
-_M_Test._t_EmptyPrx = IcePy.defineProxy('::Test::Empty', EmptyPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.EmptyPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.EmptyPrx = EmptyPrx
-del EmptyPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Empty'
+    _M_Test._t_EmptyPrx = IcePy.defineProxy('::Test::Empty', EmptyPrx)
 
-_M_Test.Empty = None
-class Empty(Ice.Object):
+    _M_Test.EmptyPrx = EmptyPrx
+    del EmptyPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Empty')
+    _M_Test.Empty = None
+    class Empty(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Empty'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Empty')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Empty'
+        def ice_id(self, current=None):
+            return '::Test::Empty'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_EmptyDisp)
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Empty'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_EmptyDisp)
 
-_M_Test._t_EmptyDisp = IcePy.defineClass('::Test::Empty', Empty, (), None, ())
-Empty._ice_type = _M_Test._t_EmptyDisp
+        __repr__ = __str__
 
-_M_Test.Empty = Empty
-del Empty
+    _M_Test._t_EmptyDisp = IcePy.defineClass('::Test::Empty', Empty, (), None, ())
+    Empty._ice_type = _M_Test._t_EmptyDisp
+
+    _M_Test.Empty = Empty
+    del Empty
 
 _M_Test._t_A = IcePy.defineValue('::Test::A', Ice.Value, -1, (), True, None, ())
-_M_Test.APrx = None
-class APrx(Ice.ObjectPrx):
 
-    def callA(self, context=None):
-        return _M_Test.A._op_callA.invoke(self, ((), context))
+if 'APrx' not in _M_Test.__dict__:
+    _M_Test.APrx = None
+    class APrx(Ice.ObjectPrx):
 
-    def callAAsync(self, context=None):
-        return _M_Test.A._op_callA.invokeAsync(self, ((), context))
+        def callA(self, context=None):
+            return _M_Test.A._op_callA.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.APrx.ice_checkedCast(proxy, '::Test::A', facetOrContext, context)
+        def callAAsync(self, context=None):
+            return _M_Test.A._op_callA.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.APrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.APrx.ice_checkedCast(proxy, '::Test::A', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::A'
-_M_Test._t_APrx = IcePy.defineProxy('::Test::A', APrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.APrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.APrx = APrx
-del APrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::A'
+    _M_Test._t_APrx = IcePy.defineProxy('::Test::A', APrx)
 
-_M_Test.A = None
-class A(Ice.Object):
+    _M_Test.APrx = APrx
+    del APrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::A')
+    _M_Test.A = None
+    class A(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::A'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::A')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::A'
+        def ice_id(self, current=None):
+            return '::Test::A'
 
-    def callA(self, current=None):
-        raise NotImplementedError("servant method 'callA' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::A'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_ADisp)
+        def callA(self, current=None):
+            raise NotImplementedError("servant method 'callA' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_ADisp)
 
-_M_Test._t_ADisp = IcePy.defineClass('::Test::A', A, (), None, ())
-A._ice_type = _M_Test._t_ADisp
+        __repr__ = __str__
 
-A._op_callA = IcePy.Operation('callA', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    _M_Test._t_ADisp = IcePy.defineClass('::Test::A', A, (), None, ())
+    A._ice_type = _M_Test._t_ADisp
 
-_M_Test.A = A
-del A
+    A._op_callA = IcePy.Operation('callA', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+
+    _M_Test.A = A
+    del A
 
 _M_Test._t_B = IcePy.defineValue('::Test::B', Ice.Value, -1, (), True, None, ())
-_M_Test.BPrx = None
-class BPrx(_M_Test.APrx):
 
-    def callB(self, context=None):
-        return _M_Test.B._op_callB.invoke(self, ((), context))
+if 'BPrx' not in _M_Test.__dict__:
+    _M_Test.BPrx = None
+    class BPrx(_M_Test.APrx):
 
-    def callBAsync(self, context=None):
-        return _M_Test.B._op_callB.invokeAsync(self, ((), context))
+        def callB(self, context=None):
+            return _M_Test.B._op_callB.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.BPrx.ice_checkedCast(proxy, '::Test::B', facetOrContext, context)
+        def callBAsync(self, context=None):
+            return _M_Test.B._op_callB.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.BPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.BPrx.ice_checkedCast(proxy, '::Test::B', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::B'
-_M_Test._t_BPrx = IcePy.defineProxy('::Test::B', BPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.BPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.BPrx = BPrx
-del BPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::B'
+    _M_Test._t_BPrx = IcePy.defineProxy('::Test::B', BPrx)
 
-_M_Test.B = None
-class B(_M_Test.A):
+    _M_Test.BPrx = BPrx
+    del BPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::A', '::Test::B')
+    _M_Test.B = None
+    class B(_M_Test.A):
 
-    def ice_id(self, current=None):
-        return '::Test::B'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::A', '::Test::B')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::B'
+        def ice_id(self, current=None):
+            return '::Test::B'
 
-    def callB(self, current=None):
-        raise NotImplementedError("servant method 'callB' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::B'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_BDisp)
+        def callB(self, current=None):
+            raise NotImplementedError("servant method 'callB' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_BDisp)
 
-_M_Test._t_BDisp = IcePy.defineClass('::Test::B', B, (), None, (_M_Test._t_ADisp,))
-B._ice_type = _M_Test._t_BDisp
+        __repr__ = __str__
 
-B._op_callB = IcePy.Operation('callB', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    _M_Test._t_BDisp = IcePy.defineClass('::Test::B', B, (), None, (_M_Test._t_ADisp,))
+    B._ice_type = _M_Test._t_BDisp
 
-_M_Test.B = B
-del B
+    B._op_callB = IcePy.Operation('callB', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+
+    _M_Test.B = B
+    del B
 
 _M_Test._t_C = IcePy.defineValue('::Test::C', Ice.Value, -1, (), True, None, ())
-_M_Test.CPrx = None
-class CPrx(_M_Test.APrx):
 
-    def callC(self, context=None):
-        return _M_Test.C._op_callC.invoke(self, ((), context))
+if 'CPrx' not in _M_Test.__dict__:
+    _M_Test.CPrx = None
+    class CPrx(_M_Test.APrx):
 
-    def callCAsync(self, context=None):
-        return _M_Test.C._op_callC.invokeAsync(self, ((), context))
+        def callC(self, context=None):
+            return _M_Test.C._op_callC.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.CPrx.ice_checkedCast(proxy, '::Test::C', facetOrContext, context)
+        def callCAsync(self, context=None):
+            return _M_Test.C._op_callC.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.CPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.CPrx.ice_checkedCast(proxy, '::Test::C', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::C'
-_M_Test._t_CPrx = IcePy.defineProxy('::Test::C', CPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.CPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.CPrx = CPrx
-del CPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::C'
+    _M_Test._t_CPrx = IcePy.defineProxy('::Test::C', CPrx)
 
-_M_Test.C = None
-class C(_M_Test.A):
+    _M_Test.CPrx = CPrx
+    del CPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::A', '::Test::C')
+    _M_Test.C = None
+    class C(_M_Test.A):
 
-    def ice_id(self, current=None):
-        return '::Test::C'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::A', '::Test::C')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::C'
+        def ice_id(self, current=None):
+            return '::Test::C'
 
-    def callC(self, current=None):
-        raise NotImplementedError("servant method 'callC' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::C'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_CDisp)
+        def callC(self, current=None):
+            raise NotImplementedError("servant method 'callC' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_CDisp)
 
-_M_Test._t_CDisp = IcePy.defineClass('::Test::C', C, (), None, (_M_Test._t_ADisp,))
-C._ice_type = _M_Test._t_CDisp
+        __repr__ = __str__
 
-C._op_callC = IcePy.Operation('callC', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    _M_Test._t_CDisp = IcePy.defineClass('::Test::C', C, (), None, (_M_Test._t_ADisp,))
+    C._ice_type = _M_Test._t_CDisp
 
-_M_Test.C = C
-del C
+    C._op_callC = IcePy.Operation('callC', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+
+    _M_Test.C = C
+    del C
 
 _M_Test._t_D = IcePy.defineValue('::Test::D', Ice.Value, -1, (), True, None, ())
-_M_Test.DPrx = None
-class DPrx(_M_Test.BPrx, _M_Test.CPrx):
 
-    def callD(self, context=None):
-        return _M_Test.D._op_callD.invoke(self, ((), context))
+if 'DPrx' not in _M_Test.__dict__:
+    _M_Test.DPrx = None
+    class DPrx(_M_Test.BPrx, _M_Test.CPrx):
 
-    def callDAsync(self, context=None):
-        return _M_Test.D._op_callD.invokeAsync(self, ((), context))
+        def callD(self, context=None):
+            return _M_Test.D._op_callD.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.DPrx.ice_checkedCast(proxy, '::Test::D', facetOrContext, context)
+        def callDAsync(self, context=None):
+            return _M_Test.D._op_callD.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.DPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.DPrx.ice_checkedCast(proxy, '::Test::D', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::D'
-_M_Test._t_DPrx = IcePy.defineProxy('::Test::D', DPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.DPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.DPrx = DPrx
-del DPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::D'
+    _M_Test._t_DPrx = IcePy.defineProxy('::Test::D', DPrx)
 
-_M_Test.D = None
-class D(_M_Test.B, _M_Test.C):
+    _M_Test.DPrx = DPrx
+    del DPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::A', '::Test::B', '::Test::C', '::Test::D')
+    _M_Test.D = None
+    class D(_M_Test.B, _M_Test.C):
 
-    def ice_id(self, current=None):
-        return '::Test::D'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::A', '::Test::B', '::Test::C', '::Test::D')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::D'
+        def ice_id(self, current=None):
+            return '::Test::D'
 
-    def callD(self, current=None):
-        raise NotImplementedError("servant method 'callD' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::D'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_DDisp)
+        def callD(self, current=None):
+            raise NotImplementedError("servant method 'callD' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_DDisp)
 
-_M_Test._t_DDisp = IcePy.defineClass('::Test::D', D, (), None, (_M_Test._t_BDisp, _M_Test._t_CDisp))
-D._ice_type = _M_Test._t_DDisp
+        __repr__ = __str__
 
-D._op_callD = IcePy.Operation('callD', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    _M_Test._t_DDisp = IcePy.defineClass('::Test::D', D, (), None, (_M_Test._t_BDisp, _M_Test._t_CDisp))
+    D._ice_type = _M_Test._t_DDisp
 
-_M_Test.D = D
-del D
+    D._op_callD = IcePy.Operation('callD', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+
+    _M_Test.D = D
+    del D
 
 _M_Test._t_E = IcePy.defineValue('::Test::E', Ice.Value, -1, (), True, None, ())
-_M_Test.EPrx = None
-class EPrx(Ice.ObjectPrx):
 
-    def callE(self, context=None):
-        return _M_Test.E._op_callE.invoke(self, ((), context))
+if 'EPrx' not in _M_Test.__dict__:
+    _M_Test.EPrx = None
+    class EPrx(Ice.ObjectPrx):
 
-    def callEAsync(self, context=None):
-        return _M_Test.E._op_callE.invokeAsync(self, ((), context))
+        def callE(self, context=None):
+            return _M_Test.E._op_callE.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.EPrx.ice_checkedCast(proxy, '::Test::E', facetOrContext, context)
+        def callEAsync(self, context=None):
+            return _M_Test.E._op_callE.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.EPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.EPrx.ice_checkedCast(proxy, '::Test::E', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::E'
-_M_Test._t_EPrx = IcePy.defineProxy('::Test::E', EPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.EPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.EPrx = EPrx
-del EPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::E'
+    _M_Test._t_EPrx = IcePy.defineProxy('::Test::E', EPrx)
 
-_M_Test.E = None
-class E(Ice.Object):
+    _M_Test.EPrx = EPrx
+    del EPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::E')
+    _M_Test.E = None
+    class E(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::E'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::E')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::E'
+        def ice_id(self, current=None):
+            return '::Test::E'
 
-    def callE(self, current=None):
-        raise NotImplementedError("servant method 'callE' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::E'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_EDisp)
+        def callE(self, current=None):
+            raise NotImplementedError("servant method 'callE' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_EDisp)
 
-_M_Test._t_EDisp = IcePy.defineClass('::Test::E', E, (), None, ())
-E._ice_type = _M_Test._t_EDisp
+        __repr__ = __str__
 
-E._op_callE = IcePy.Operation('callE', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    _M_Test._t_EDisp = IcePy.defineClass('::Test::E', E, (), None, ())
+    E._ice_type = _M_Test._t_EDisp
 
-_M_Test.E = E
-del E
+    E._op_callE = IcePy.Operation('callE', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+
+    _M_Test.E = E
+    del E
 
 _M_Test._t_F = IcePy.defineValue('::Test::F', Ice.Value, -1, (), True, None, ())
-_M_Test.FPrx = None
-class FPrx(_M_Test.EPrx):
 
-    def callF(self, context=None):
-        return _M_Test.F._op_callF.invoke(self, ((), context))
+if 'FPrx' not in _M_Test.__dict__:
+    _M_Test.FPrx = None
+    class FPrx(_M_Test.EPrx):
 
-    def callFAsync(self, context=None):
-        return _M_Test.F._op_callF.invokeAsync(self, ((), context))
+        def callF(self, context=None):
+            return _M_Test.F._op_callF.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.FPrx.ice_checkedCast(proxy, '::Test::F', facetOrContext, context)
+        def callFAsync(self, context=None):
+            return _M_Test.F._op_callF.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.FPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.FPrx.ice_checkedCast(proxy, '::Test::F', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::F'
-_M_Test._t_FPrx = IcePy.defineProxy('::Test::F', FPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.FPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.FPrx = FPrx
-del FPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::F'
+    _M_Test._t_FPrx = IcePy.defineProxy('::Test::F', FPrx)
 
-_M_Test.F = None
-class F(_M_Test.E):
+    _M_Test.FPrx = FPrx
+    del FPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::E', '::Test::F')
+    _M_Test.F = None
+    class F(_M_Test.E):
 
-    def ice_id(self, current=None):
-        return '::Test::F'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::E', '::Test::F')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::F'
+        def ice_id(self, current=None):
+            return '::Test::F'
 
-    def callF(self, current=None):
-        raise NotImplementedError("servant method 'callF' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::F'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_FDisp)
+        def callF(self, current=None):
+            raise NotImplementedError("servant method 'callF' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_FDisp)
 
-_M_Test._t_FDisp = IcePy.defineClass('::Test::F', F, (), None, (_M_Test._t_EDisp,))
-F._ice_type = _M_Test._t_FDisp
+        __repr__ = __str__
 
-F._op_callF = IcePy.Operation('callF', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    _M_Test._t_FDisp = IcePy.defineClass('::Test::F', F, (), None, (_M_Test._t_EDisp,))
+    F._ice_type = _M_Test._t_FDisp
 
-_M_Test.F = F
-del F
+    F._op_callF = IcePy.Operation('callF', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+
+    _M_Test.F = F
+    del F
 
 _M_Test._t_G = IcePy.defineValue('::Test::G', Ice.Value, -1, (), True, None, ())
-_M_Test.GPrx = None
-class GPrx(Ice.ObjectPrx):
 
-    def shutdown(self, context=None):
-        return _M_Test.G._op_shutdown.invoke(self, ((), context))
+if 'GPrx' not in _M_Test.__dict__:
+    _M_Test.GPrx = None
+    class GPrx(Ice.ObjectPrx):
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.G._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.G._op_shutdown.invoke(self, ((), context))
 
-    def callG(self, context=None):
-        return _M_Test.G._op_callG.invoke(self, ((), context))
+        def shutdownAsync(self, context=None):
+            return _M_Test.G._op_shutdown.invokeAsync(self, ((), context))
 
-    def callGAsync(self, context=None):
-        return _M_Test.G._op_callG.invokeAsync(self, ((), context))
+        def callG(self, context=None):
+            return _M_Test.G._op_callG.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.GPrx.ice_checkedCast(proxy, '::Test::G', facetOrContext, context)
+        def callGAsync(self, context=None):
+            return _M_Test.G._op_callG.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.GPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.GPrx.ice_checkedCast(proxy, '::Test::G', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::G'
-_M_Test._t_GPrx = IcePy.defineProxy('::Test::G', GPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.GPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.GPrx = GPrx
-del GPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::G'
+    _M_Test._t_GPrx = IcePy.defineProxy('::Test::G', GPrx)
 
-_M_Test.G = None
-class G(Ice.Object):
+    _M_Test.GPrx = GPrx
+    del GPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::G')
+    _M_Test.G = None
+    class G(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::G'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::G')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::G'
+        def ice_id(self, current=None):
+            return '::Test::G'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::G'
 
-    def callG(self, current=None):
-        raise NotImplementedError("servant method 'callG' not implemented")
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_GDisp)
+        def callG(self, current=None):
+            raise NotImplementedError("servant method 'callG' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_GDisp)
 
-_M_Test._t_GDisp = IcePy.defineClass('::Test::G', G, (), None, ())
-G._ice_type = _M_Test._t_GDisp
+        __repr__ = __str__
 
-G._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-G._op_callG = IcePy.Operation('callG', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    _M_Test._t_GDisp = IcePy.defineClass('::Test::G', G, (), None, ())
+    G._ice_type = _M_Test._t_GDisp
 
-_M_Test.G = G
-del G
+    G._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    G._op_callG = IcePy.Operation('callG', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+
+    _M_Test.G = G
+    del G
 
 _M_Test._t_H = IcePy.defineValue('::Test::H', Ice.Value, -1, (), True, None, ())
-_M_Test.HPrx = None
-class HPrx(_M_Test.GPrx):
 
-    def callH(self, context=None):
-        return _M_Test.H._op_callH.invoke(self, ((), context))
+if 'HPrx' not in _M_Test.__dict__:
+    _M_Test.HPrx = None
+    class HPrx(_M_Test.GPrx):
 
-    def callHAsync(self, context=None):
-        return _M_Test.H._op_callH.invokeAsync(self, ((), context))
+        def callH(self, context=None):
+            return _M_Test.H._op_callH.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.HPrx.ice_checkedCast(proxy, '::Test::H', facetOrContext, context)
+        def callHAsync(self, context=None):
+            return _M_Test.H._op_callH.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.HPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.HPrx.ice_checkedCast(proxy, '::Test::H', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::H'
-_M_Test._t_HPrx = IcePy.defineProxy('::Test::H', HPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.HPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.HPrx = HPrx
-del HPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::H'
+    _M_Test._t_HPrx = IcePy.defineProxy('::Test::H', HPrx)
 
-_M_Test.H = None
-class H(_M_Test.G):
+    _M_Test.HPrx = HPrx
+    del HPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::G', '::Test::H')
+    _M_Test.H = None
+    class H(_M_Test.G):
 
-    def ice_id(self, current=None):
-        return '::Test::H'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::G', '::Test::H')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::H'
+        def ice_id(self, current=None):
+            return '::Test::H'
 
-    def callH(self, current=None):
-        raise NotImplementedError("servant method 'callH' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::H'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_HDisp)
+        def callH(self, current=None):
+            raise NotImplementedError("servant method 'callH' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_HDisp)
 
-_M_Test._t_HDisp = IcePy.defineClass('::Test::H', H, (), None, (_M_Test._t_GDisp,))
-H._ice_type = _M_Test._t_HDisp
+        __repr__ = __str__
 
-H._op_callH = IcePy.Operation('callH', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    _M_Test._t_HDisp = IcePy.defineClass('::Test::H', H, (), None, (_M_Test._t_GDisp,))
+    H._ice_type = _M_Test._t_HDisp
 
-_M_Test.H = H
-del H
+    H._op_callH = IcePy.Operation('callH', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+
+    _M_Test.H = H
+    del H
 
 # End of module Test

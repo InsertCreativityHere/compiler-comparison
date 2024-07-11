@@ -34,45 +34,51 @@ _M_IceStormElection = Ice.openModule('IceStormElection')
 
 # Start of module IceStormElection
 __name__ = 'IceStormElection'
-_M_IceStormElection._t_StringLogUpdateDict = IcePy.defineDictionary('::IceStormElection::StringLogUpdateDict', (), IcePy._t_string, _M_IceStormElection._t_LogUpdate)
+
+if '_t_StringLogUpdateDict' not in _M_IceStormElection.__dict__:
+    _M_IceStormElection._t_StringLogUpdateDict = IcePy.defineDictionary('::IceStormElection::StringLogUpdateDict', (), IcePy._t_string, _M_IceStormElection._t_LogUpdate)
 
 # End of module IceStormElection
 
 # Start of module IceStorm
 __name__ = 'IceStorm'
-_M_IceStorm._t_SubscriberRecordDict = IcePy.defineDictionary('::IceStorm::SubscriberRecordDict', (), _M_IceStorm._t_SubscriberRecordKey, _M_IceStorm._t_SubscriberRecord)
-_M_IceStorm.AllData = None
-class AllData(object):
-    def __init__(self, llus=None, subscribers=None):
-        self.llus = llus
-        self.subscribers = subscribers
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_IceStorm.AllData):
-            return NotImplemented
-        else:
-            if self.llus != other.llus:
+if '_t_SubscriberRecordDict' not in _M_IceStorm.__dict__:
+    _M_IceStorm._t_SubscriberRecordDict = IcePy.defineDictionary('::IceStorm::SubscriberRecordDict', (), _M_IceStorm._t_SubscriberRecordKey, _M_IceStorm._t_SubscriberRecord)
+
+if 'AllData' not in _M_IceStorm.__dict__:
+    _M_IceStorm.AllData = None
+    class AllData(object):
+        def __init__(self, llus=None, subscribers=None):
+            self.llus = llus
+            self.subscribers = subscribers
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.subscribers != other.subscribers:
-                return False
-            return True
+            elif not isinstance(other, _M_IceStorm.AllData):
+                return NotImplemented
+            else:
+                if self.llus != other.llus:
+                    return False
+                if self.subscribers != other.subscribers:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceStorm._t_AllData)
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStorm._t_AllData)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_IceStorm._t_AllData = IcePy.defineStruct('::IceStorm::AllData', AllData, (), (
-    ('llus', (), _M_IceStormElection._t_StringLogUpdateDict),
-    ('subscribers', (), _M_IceStorm._t_SubscriberRecordDict)
-))
+    _M_IceStorm._t_AllData = IcePy.defineStruct('::IceStorm::AllData', AllData, (), (
+        ('llus', (), _M_IceStormElection._t_StringLogUpdateDict),
+        ('subscribers', (), _M_IceStorm._t_SubscriberRecordDict)
+    ))
 
-_M_IceStorm.AllData = AllData
-del AllData
+    _M_IceStorm.AllData = AllData
+    del AllData
 
 # End of module IceStorm

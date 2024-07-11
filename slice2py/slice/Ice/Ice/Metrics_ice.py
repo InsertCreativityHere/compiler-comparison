@@ -29,612 +29,642 @@ _M_IceMX.__doc__ = """
  The Ice Management eXtension facility. It provides the IceMX#MetricsAdmin interface for management clients
  to retrieve metrics from Ice applications.
 """
-_M_IceMX._t_StringIntDict = IcePy.defineDictionary('::IceMX::StringIntDict', (), IcePy._t_string, IcePy._t_int)
-_M_IceMX.Metrics = None
-class Metrics(Ice.Value):
-    """
-     The base class for metrics. A metrics object represents a collection of measurements associated to a given a
-     system.
-    Members:
-    id --  The metrics identifier.
-    total --  The total number of objects observed by this metrics. This includes the number of currently observed objects
-     and the number of objects observed in the past.
-    current --  The number of objects currently observed by this metrics.
-    totalLifetime --  The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
-     currently observed, only the objects observed in the past.
-    failures --  The number of failures observed.
-    """
-    def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0):
-        self.id = id
-        self.total = total
-        self.current = current
-        self.totalLifetime = totalLifetime
-        self.failures = failures
 
-    def ice_id(self):
-        return '::IceMX::Metrics'
+if '_t_StringIntDict' not in _M_IceMX.__dict__:
+    _M_IceMX._t_StringIntDict = IcePy.defineDictionary('::IceMX::StringIntDict', (), IcePy._t_string, IcePy._t_int)
 
-    @staticmethod
-    def ice_staticId():
-        return '::IceMX::Metrics'
+if 'Metrics' not in _M_IceMX.__dict__:
+    _M_IceMX.Metrics = None
+    class Metrics(Ice.Value):
+        """
+         The base class for metrics. A metrics object represents a collection of measurements associated to a given a
+         system.
+        Members:
+        id --  The metrics identifier.
+        total --  The total number of objects observed by this metrics. This includes the number of currently observed objects
+         and the number of objects observed in the past.
+        current --  The number of objects currently observed by this metrics.
+        totalLifetime --  The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
+         currently observed, only the objects observed in the past.
+        failures --  The number of failures observed.
+        """
+        def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0):
+            self.id = id
+            self.total = total
+            self.current = current
+            self.totalLifetime = totalLifetime
+            self.failures = failures
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceMX._t_Metrics)
+        def ice_id(self):
+            return '::IceMX::Metrics'
 
-    __repr__ = __str__
+        @staticmethod
+        def ice_staticId():
+            return '::IceMX::Metrics'
 
-_M_IceMX._t_Metrics = IcePy.defineValue('::IceMX::Metrics', Metrics, -1, (), False, None, (
-    ('id', (), IcePy._t_string, False, 0),
-    ('total', (), IcePy._t_long, False, 0),
-    ('current', (), IcePy._t_int, False, 0),
-    ('totalLifetime', (), IcePy._t_long, False, 0),
-    ('failures', (), IcePy._t_int, False, 0)
-))
-Metrics._ice_type = _M_IceMX._t_Metrics
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceMX._t_Metrics)
 
-_M_IceMX.Metrics = Metrics
-del Metrics
-_M_IceMX.MetricsFailures = None
-class MetricsFailures(object):
-    """
-     A structure to keep track of failures associated with a given metrics.
-    Members:
-    id --  The identifier of the metrics object associated to the failures.
-    failures --  The failures observed for this metrics.
-    """
-    def __init__(self, id='', failures=None):
-        self.id = id
-        self.failures = failures
+        __repr__ = __str__
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_IceMX.MetricsFailures):
-            return NotImplemented
-        else:
-            if self.id != other.id:
+    _M_IceMX._t_Metrics = IcePy.defineValue('::IceMX::Metrics', Metrics, -1, (), False, None, (
+        ('id', (), IcePy._t_string, False, 0),
+        ('total', (), IcePy._t_long, False, 0),
+        ('current', (), IcePy._t_int, False, 0),
+        ('totalLifetime', (), IcePy._t_long, False, 0),
+        ('failures', (), IcePy._t_int, False, 0)
+    ))
+    Metrics._ice_type = _M_IceMX._t_Metrics
+
+    _M_IceMX.Metrics = Metrics
+    del Metrics
+
+if 'MetricsFailures' not in _M_IceMX.__dict__:
+    _M_IceMX.MetricsFailures = None
+    class MetricsFailures(object):
+        """
+         A structure to keep track of failures associated with a given metrics.
+        Members:
+        id --  The identifier of the metrics object associated to the failures.
+        failures --  The failures observed for this metrics.
+        """
+        def __init__(self, id='', failures=None):
+            self.id = id
+            self.failures = failures
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.failures != other.failures:
-                return False
-            return True
+            elif not isinstance(other, _M_IceMX.MetricsFailures):
+                return NotImplemented
+            else:
+                if self.id != other.id:
+                    return False
+                if self.failures != other.failures:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceMX._t_MetricsFailures)
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceMX._t_MetricsFailures)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_IceMX._t_MetricsFailures = IcePy.defineStruct('::IceMX::MetricsFailures', MetricsFailures, (), (
-    ('id', (), IcePy._t_string),
-    ('failures', (), _M_IceMX._t_StringIntDict)
-))
+    _M_IceMX._t_MetricsFailures = IcePy.defineStruct('::IceMX::MetricsFailures', MetricsFailures, (), (
+        ('id', (), IcePy._t_string),
+        ('failures', (), _M_IceMX._t_StringIntDict)
+    ))
 
-_M_IceMX.MetricsFailures = MetricsFailures
-del MetricsFailures
-_M_IceMX._t_MetricsFailuresSeq = IcePy.defineSequence('::IceMX::MetricsFailuresSeq', (), _M_IceMX._t_MetricsFailures)
-_M_IceMX._t_MetricsMap = IcePy.defineSequence('::IceMX::MetricsMap', (), _M_IceMX._t_Metrics)
-_M_IceMX._t_MetricsView = IcePy.defineDictionary('::IceMX::MetricsView', (), IcePy._t_string, _M_IceMX._t_MetricsMap)
-_M_IceMX.UnknownMetricsView = None
-class UnknownMetricsView(Ice.UserException):
-    """
-     Raised if a metrics view cannot be found.
-    """
-    def __init__(self):
-        pass
+    _M_IceMX.MetricsFailures = MetricsFailures
+    del MetricsFailures
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+if '_t_MetricsFailuresSeq' not in _M_IceMX.__dict__:
+    _M_IceMX._t_MetricsFailuresSeq = IcePy.defineSequence('::IceMX::MetricsFailuresSeq', (), _M_IceMX._t_MetricsFailures)
 
-    __repr__ = __str__
+if '_t_MetricsMap' not in _M_IceMX.__dict__:
+    _M_IceMX._t_MetricsMap = IcePy.defineSequence('::IceMX::MetricsMap', (), _M_IceMX._t_Metrics)
 
-    _ice_id = '::IceMX::UnknownMetricsView'
+if '_t_MetricsView' not in _M_IceMX.__dict__:
+    _M_IceMX._t_MetricsView = IcePy.defineDictionary('::IceMX::MetricsView', (), IcePy._t_string, _M_IceMX._t_MetricsMap)
 
-_M_IceMX._t_UnknownMetricsView = IcePy.defineException('::IceMX::UnknownMetricsView', UnknownMetricsView, (), None, ())
-UnknownMetricsView._ice_type = _M_IceMX._t_UnknownMetricsView
+if 'UnknownMetricsView' not in _M_IceMX.__dict__:
+    _M_IceMX.UnknownMetricsView = None
+    class UnknownMetricsView(Ice.UserException):
+        """
+         Raised if a metrics view cannot be found.
+        """
+        def __init__(self):
+            pass
 
-_M_IceMX.UnknownMetricsView = UnknownMetricsView
-del UnknownMetricsView
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::IceMX::UnknownMetricsView'
+
+    _M_IceMX._t_UnknownMetricsView = IcePy.defineException('::IceMX::UnknownMetricsView', UnknownMetricsView, (), None, ())
+    UnknownMetricsView._ice_type = _M_IceMX._t_UnknownMetricsView
+
+    _M_IceMX.UnknownMetricsView = UnknownMetricsView
+    del UnknownMetricsView
 
 _M_IceMX._t_MetricsAdmin = IcePy.defineValue('::IceMX::MetricsAdmin', Ice.Value, -1, (), True, None, ())
-_M_IceMX.MetricsAdminPrx = None
-class MetricsAdminPrx(Ice.ObjectPrx):
 
-    """
-     Get the names of enabled and disabled metrics.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns a tuple containing the following:
-    _retval -- The name of the enabled views.
-    disabledViews -- The names of the disabled views.
-    """
-    def getMetricsViewNames(self, context=None):
-        return _M_IceMX.MetricsAdmin._op_getMetricsViewNames.invoke(self, ((), context))
+if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
+    _M_IceMX.MetricsAdminPrx = None
+    class MetricsAdminPrx(Ice.ObjectPrx):
 
-    """
-     Get the names of enabled and disabled metrics.
-    Arguments:
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getMetricsViewNamesAsync(self, context=None):
-        return _M_IceMX.MetricsAdmin._op_getMetricsViewNames.invokeAsync(self, ((), context))
-
-    """
-     Enables a metrics view.
-    Arguments:
-    name -- The metrics view name.
-    context -- The request context for the invocation.
-    Throws:
-    UnknownMetricsView -- Raised if the metrics view cannot be found.
-    """
-    def enableMetricsView(self, name, context=None):
-        return _M_IceMX.MetricsAdmin._op_enableMetricsView.invoke(self, ((name, ), context))
-
-    """
-     Enables a metrics view.
-    Arguments:
-    name -- The metrics view name.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def enableMetricsViewAsync(self, name, context=None):
-        return _M_IceMX.MetricsAdmin._op_enableMetricsView.invokeAsync(self, ((name, ), context))
-
-    """
-     Disable a metrics view.
-    Arguments:
-    name -- The metrics view name.
-    context -- The request context for the invocation.
-    Throws:
-    UnknownMetricsView -- Raised if the metrics view cannot be found.
-    """
-    def disableMetricsView(self, name, context=None):
-        return _M_IceMX.MetricsAdmin._op_disableMetricsView.invoke(self, ((name, ), context))
-
-    """
-     Disable a metrics view.
-    Arguments:
-    name -- The metrics view name.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def disableMetricsViewAsync(self, name, context=None):
-        return _M_IceMX.MetricsAdmin._op_disableMetricsView.invokeAsync(self, ((name, ), context))
-
-    """
-     Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
-     metrics class configured with the view. The timestamp allows the client to compute averages which are not
-     dependent of the invocation latency for this operation.
-    Arguments:
-    view -- The name of the metrics view.
-    context -- The request context for the invocation.
-    Returns a tuple containing the following:
-    _retval -- The metrics view data.
-    timestamp -- The local time of the process when the metrics object were retrieved.
-    Throws:
-    UnknownMetricsView -- Raised if the metrics view cannot be found.
-    """
-    def getMetricsView(self, view, context=None):
-        return _M_IceMX.MetricsAdmin._op_getMetricsView.invoke(self, ((view, ), context))
-
-    """
-     Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
-     metrics class configured with the view. The timestamp allows the client to compute averages which are not
-     dependent of the invocation latency for this operation.
-    Arguments:
-    view -- The name of the metrics view.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getMetricsViewAsync(self, view, context=None):
-        return _M_IceMX.MetricsAdmin._op_getMetricsView.invokeAsync(self, ((view, ), context))
-
-    """
-     Get the metrics failures associated with the given view and map.
-    Arguments:
-    view -- The name of the metrics view.
-    map -- The name of the metrics map.
-    context -- The request context for the invocation.
-    Returns: The metrics failures associated with the map.
-    Throws:
-    UnknownMetricsView -- Raised if the metrics view cannot be found.
-    """
-    def getMapMetricsFailures(self, view, map, context=None):
-        return _M_IceMX.MetricsAdmin._op_getMapMetricsFailures.invoke(self, ((view, map), context))
-
-    """
-     Get the metrics failures associated with the given view and map.
-    Arguments:
-    view -- The name of the metrics view.
-    map -- The name of the metrics map.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getMapMetricsFailuresAsync(self, view, map, context=None):
-        return _M_IceMX.MetricsAdmin._op_getMapMetricsFailures.invokeAsync(self, ((view, map), context))
-
-    """
-     Get the metrics failure associated for the given metrics.
-    Arguments:
-    view -- The name of the metrics view.
-    map -- The name of the metrics map.
-    id -- The ID of the metrics.
-    context -- The request context for the invocation.
-    Returns: The metrics failures associated with the metrics.
-    Throws:
-    UnknownMetricsView -- Raised if the metrics view cannot be found.
-    """
-    def getMetricsFailures(self, view, map, id, context=None):
-        return _M_IceMX.MetricsAdmin._op_getMetricsFailures.invoke(self, ((view, map, id), context))
-
-    """
-     Get the metrics failure associated for the given metrics.
-    Arguments:
-    view -- The name of the metrics view.
-    map -- The name of the metrics map.
-    id -- The ID of the metrics.
-    context -- The request context for the invocation.
-    Returns: A future object for the invocation.
-    """
-    def getMetricsFailuresAsync(self, view, map, id, context=None):
-        return _M_IceMX.MetricsAdmin._op_getMetricsFailures.invokeAsync(self, ((view, map, id), context))
-
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_IceMX.MetricsAdminPrx.ice_checkedCast(proxy, '::IceMX::MetricsAdmin', facetOrContext, context)
-
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_IceMX.MetricsAdminPrx.ice_uncheckedCast(proxy, facet)
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceMX::MetricsAdmin'
-_M_IceMX._t_MetricsAdminPrx = IcePy.defineProxy('::IceMX::MetricsAdmin', MetricsAdminPrx)
-
-_M_IceMX.MetricsAdminPrx = MetricsAdminPrx
-del MetricsAdminPrx
-
-_M_IceMX.MetricsAdmin = None
-class MetricsAdmin(Ice.Object):
-
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::IceMX::MetricsAdmin')
-
-    def ice_id(self, current=None):
-        return '::IceMX::MetricsAdmin'
-
-    @staticmethod
-    def ice_staticId():
-        return '::IceMX::MetricsAdmin'
-
-    def getMetricsViewNames(self, current=None):
         """
          Get the names of enabled and disabled metrics.
         Arguments:
-        current -- The Current object for the invocation.
+        context -- The request context for the invocation.
+        Returns a tuple containing the following:
+        _retval -- The name of the enabled views.
+        disabledViews -- The names of the disabled views.
+        """
+        def getMetricsViewNames(self, context=None):
+            return _M_IceMX.MetricsAdmin._op_getMetricsViewNames.invoke(self, ((), context))
+
+        """
+         Get the names of enabled and disabled metrics.
+        Arguments:
+        context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        raise NotImplementedError("servant method 'getMetricsViewNames' not implemented")
+        def getMetricsViewNamesAsync(self, context=None):
+            return _M_IceMX.MetricsAdmin._op_getMetricsViewNames.invokeAsync(self, ((), context))
 
-    def enableMetricsView(self, name, current=None):
         """
          Enables a metrics view.
         Arguments:
         name -- The metrics view name.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
         Throws:
         UnknownMetricsView -- Raised if the metrics view cannot be found.
         """
-        raise NotImplementedError("servant method 'enableMetricsView' not implemented")
+        def enableMetricsView(self, name, context=None):
+            return _M_IceMX.MetricsAdmin._op_enableMetricsView.invoke(self, ((name, ), context))
 
-    def disableMetricsView(self, name, current=None):
+        """
+         Enables a metrics view.
+        Arguments:
+        name -- The metrics view name.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def enableMetricsViewAsync(self, name, context=None):
+            return _M_IceMX.MetricsAdmin._op_enableMetricsView.invokeAsync(self, ((name, ), context))
+
         """
          Disable a metrics view.
         Arguments:
         name -- The metrics view name.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
         Throws:
         UnknownMetricsView -- Raised if the metrics view cannot be found.
         """
-        raise NotImplementedError("servant method 'disableMetricsView' not implemented")
+        def disableMetricsView(self, name, context=None):
+            return _M_IceMX.MetricsAdmin._op_disableMetricsView.invoke(self, ((name, ), context))
 
-    def getMetricsView(self, view, current=None):
+        """
+         Disable a metrics view.
+        Arguments:
+        name -- The metrics view name.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def disableMetricsViewAsync(self, name, context=None):
+            return _M_IceMX.MetricsAdmin._op_disableMetricsView.invokeAsync(self, ((name, ), context))
+
         """
          Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
          metrics class configured with the view. The timestamp allows the client to compute averages which are not
          dependent of the invocation latency for this operation.
         Arguments:
         view -- The name of the metrics view.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns a tuple containing the following:
+        _retval -- The metrics view data.
+        timestamp -- The local time of the process when the metrics object were retrieved.
         Throws:
         UnknownMetricsView -- Raised if the metrics view cannot be found.
         """
-        raise NotImplementedError("servant method 'getMetricsView' not implemented")
+        def getMetricsView(self, view, context=None):
+            return _M_IceMX.MetricsAdmin._op_getMetricsView.invoke(self, ((view, ), context))
 
-    def getMapMetricsFailures(self, view, map, current=None):
+        """
+         Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+         metrics class configured with the view. The timestamp allows the client to compute averages which are not
+         dependent of the invocation latency for this operation.
+        Arguments:
+        view -- The name of the metrics view.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def getMetricsViewAsync(self, view, context=None):
+            return _M_IceMX.MetricsAdmin._op_getMetricsView.invokeAsync(self, ((view, ), context))
+
         """
          Get the metrics failures associated with the given view and map.
         Arguments:
         view -- The name of the metrics view.
         map -- The name of the metrics map.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The metrics failures associated with the map.
         Throws:
         UnknownMetricsView -- Raised if the metrics view cannot be found.
         """
-        raise NotImplementedError("servant method 'getMapMetricsFailures' not implemented")
+        def getMapMetricsFailures(self, view, map, context=None):
+            return _M_IceMX.MetricsAdmin._op_getMapMetricsFailures.invoke(self, ((view, map), context))
 
-    def getMetricsFailures(self, view, map, id, current=None):
+        """
+         Get the metrics failures associated with the given view and map.
+        Arguments:
+        view -- The name of the metrics view.
+        map -- The name of the metrics map.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def getMapMetricsFailuresAsync(self, view, map, context=None):
+            return _M_IceMX.MetricsAdmin._op_getMapMetricsFailures.invokeAsync(self, ((view, map), context))
+
         """
          Get the metrics failure associated for the given metrics.
         Arguments:
         view -- The name of the metrics view.
         map -- The name of the metrics map.
         id -- The ID of the metrics.
-        current -- The Current object for the invocation.
-        Returns: A future object for the invocation.
+        context -- The request context for the invocation.
+        Returns: The metrics failures associated with the metrics.
         Throws:
         UnknownMetricsView -- Raised if the metrics view cannot be found.
         """
-        raise NotImplementedError("servant method 'getMetricsFailures' not implemented")
+        def getMetricsFailures(self, view, map, id, context=None):
+            return _M_IceMX.MetricsAdmin._op_getMetricsFailures.invoke(self, ((view, map, id), context))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceMX._t_MetricsAdminDisp)
+        """
+         Get the metrics failure associated for the given metrics.
+        Arguments:
+        view -- The name of the metrics view.
+        map -- The name of the metrics map.
+        id -- The ID of the metrics.
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
+        def getMetricsFailuresAsync(self, view, map, id, context=None):
+            return _M_IceMX.MetricsAdmin._op_getMetricsFailures.invokeAsync(self, ((view, map, id), context))
 
-    __repr__ = __str__
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceMX.MetricsAdminPrx.ice_checkedCast(proxy, '::IceMX::MetricsAdmin', facetOrContext, context)
 
-_M_IceMX._t_MetricsAdminDisp = IcePy.defineClass('::IceMX::MetricsAdmin', MetricsAdmin, (), None, ())
-MetricsAdmin._ice_type = _M_IceMX._t_MetricsAdminDisp
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceMX.MetricsAdminPrx.ice_uncheckedCast(proxy, facet)
 
-MetricsAdmin._op_getMetricsViewNames = IcePy.Operation('getMetricsViewNames', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (((), _M_Ice._t_StringSeq, False, 0),), ((), _M_Ice._t_StringSeq, False, 0), ())
-MetricsAdmin._op_enableMetricsView = IcePy.Operation('enableMetricsView', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceMX._t_UnknownMetricsView,))
-MetricsAdmin._op_disableMetricsView = IcePy.Operation('disableMetricsView', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceMX._t_UnknownMetricsView,))
-MetricsAdmin._op_getMetricsView = IcePy.Operation('getMetricsView', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0),), (((), IcePy._t_long, False, 0),), ((), _M_IceMX._t_MetricsView, False, 0), (_M_IceMX._t_UnknownMetricsView,))
-MetricsAdmin._op_getMapMetricsFailures = IcePy.Operation('getMapMetricsFailures', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_IceMX._t_MetricsFailuresSeq, False, 0), (_M_IceMX._t_UnknownMetricsView,))
-MetricsAdmin._op_getMetricsFailures = IcePy.Operation('getMetricsFailures', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_IceMX._t_MetricsFailures, False, 0), (_M_IceMX._t_UnknownMetricsView,))
+        @staticmethod
+        def ice_staticId():
+            return '::IceMX::MetricsAdmin'
+    _M_IceMX._t_MetricsAdminPrx = IcePy.defineProxy('::IceMX::MetricsAdmin', MetricsAdminPrx)
 
-_M_IceMX.MetricsAdmin = MetricsAdmin
-del MetricsAdmin
-_M_IceMX.ThreadMetrics = None
-class ThreadMetrics(_M_IceMX.Metrics):
-    """
-     Provides information on the number of threads currently in use and their activity.
-    Members:
-    inUseForIO --  The number of threads which are currently performing socket read or writes.
-    inUseForUser --  The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
-    inUseForOther --  The number of threads which are currently performing other activities. These are all other that are not
-     counted with inUseForUser or inUseForIO, such as DNS lookups, garbage collection).
-    """
-    def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, inUseForIO=0, inUseForUser=0, inUseForOther=0):
-        _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
-        self.inUseForIO = inUseForIO
-        self.inUseForUser = inUseForUser
-        self.inUseForOther = inUseForOther
+    _M_IceMX.MetricsAdminPrx = MetricsAdminPrx
+    del MetricsAdminPrx
 
-    def ice_id(self):
-        return '::IceMX::ThreadMetrics'
+    _M_IceMX.MetricsAdmin = None
+    class MetricsAdmin(Ice.Object):
 
-    @staticmethod
-    def ice_staticId():
-        return '::IceMX::ThreadMetrics'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceMX::MetricsAdmin')
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceMX._t_ThreadMetrics)
+        def ice_id(self, current=None):
+            return '::IceMX::MetricsAdmin'
 
-    __repr__ = __str__
+        @staticmethod
+        def ice_staticId():
+            return '::IceMX::MetricsAdmin'
 
-_M_IceMX._t_ThreadMetrics = IcePy.defineValue('::IceMX::ThreadMetrics', ThreadMetrics, -1, (), False, _M_IceMX._t_Metrics, (
-    ('inUseForIO', (), IcePy._t_int, False, 0),
-    ('inUseForUser', (), IcePy._t_int, False, 0),
-    ('inUseForOther', (), IcePy._t_int, False, 0)
-))
-ThreadMetrics._ice_type = _M_IceMX._t_ThreadMetrics
+        def getMetricsViewNames(self, current=None):
+            """
+             Get the names of enabled and disabled metrics.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
+            raise NotImplementedError("servant method 'getMetricsViewNames' not implemented")
 
-_M_IceMX.ThreadMetrics = ThreadMetrics
-del ThreadMetrics
-_M_IceMX.DispatchMetrics = None
-class DispatchMetrics(_M_IceMX.Metrics):
-    """
-     Provides information on servant dispatch.
-    Members:
-    userException --  The number of dispatch that failed with a user exception.
-    size --  The size of the dispatch. This corresponds to the size of the marshaled input parameters.
-    replySize --  The size of the dispatch reply. This corresponds to the size of the marshaled output and return parameters.
-    """
-    def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, userException=0, size=0, replySize=0):
-        _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
-        self.userException = userException
-        self.size = size
-        self.replySize = replySize
+        def enableMetricsView(self, name, current=None):
+            """
+             Enables a metrics view.
+            Arguments:
+            name -- The metrics view name.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            UnknownMetricsView -- Raised if the metrics view cannot be found.
+            """
+            raise NotImplementedError("servant method 'enableMetricsView' not implemented")
 
-    def ice_id(self):
-        return '::IceMX::DispatchMetrics'
+        def disableMetricsView(self, name, current=None):
+            """
+             Disable a metrics view.
+            Arguments:
+            name -- The metrics view name.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            UnknownMetricsView -- Raised if the metrics view cannot be found.
+            """
+            raise NotImplementedError("servant method 'disableMetricsView' not implemented")
 
-    @staticmethod
-    def ice_staticId():
-        return '::IceMX::DispatchMetrics'
+        def getMetricsView(self, view, current=None):
+            """
+             Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+             metrics class configured with the view. The timestamp allows the client to compute averages which are not
+             dependent of the invocation latency for this operation.
+            Arguments:
+            view -- The name of the metrics view.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            UnknownMetricsView -- Raised if the metrics view cannot be found.
+            """
+            raise NotImplementedError("servant method 'getMetricsView' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceMX._t_DispatchMetrics)
+        def getMapMetricsFailures(self, view, map, current=None):
+            """
+             Get the metrics failures associated with the given view and map.
+            Arguments:
+            view -- The name of the metrics view.
+            map -- The name of the metrics map.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            UnknownMetricsView -- Raised if the metrics view cannot be found.
+            """
+            raise NotImplementedError("servant method 'getMapMetricsFailures' not implemented")
 
-    __repr__ = __str__
+        def getMetricsFailures(self, view, map, id, current=None):
+            """
+             Get the metrics failure associated for the given metrics.
+            Arguments:
+            view -- The name of the metrics view.
+            map -- The name of the metrics map.
+            id -- The ID of the metrics.
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            Throws:
+            UnknownMetricsView -- Raised if the metrics view cannot be found.
+            """
+            raise NotImplementedError("servant method 'getMetricsFailures' not implemented")
 
-_M_IceMX._t_DispatchMetrics = IcePy.defineValue('::IceMX::DispatchMetrics', DispatchMetrics, -1, (), False, _M_IceMX._t_Metrics, (
-    ('userException', (), IcePy._t_int, False, 0),
-    ('size', (), IcePy._t_long, False, 0),
-    ('replySize', (), IcePy._t_long, False, 0)
-))
-DispatchMetrics._ice_type = _M_IceMX._t_DispatchMetrics
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceMX._t_MetricsAdminDisp)
 
-_M_IceMX.DispatchMetrics = DispatchMetrics
-del DispatchMetrics
-_M_IceMX.ChildInvocationMetrics = None
-class ChildInvocationMetrics(_M_IceMX.Metrics):
-    """
-     Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
-     collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
-     embedded within InvocationMetrics.
-    Members:
-    size --  The size of the invocation. This corresponds to the size of the marshaled input parameters.
-    replySize --  The size of the invocation reply. This corresponds to the size of the marshaled output and return
-     parameters.
-    """
-    def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
-        _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
-        self.size = size
-        self.replySize = replySize
+        __repr__ = __str__
 
-    def ice_id(self):
-        return '::IceMX::ChildInvocationMetrics'
+    _M_IceMX._t_MetricsAdminDisp = IcePy.defineClass('::IceMX::MetricsAdmin', MetricsAdmin, (), None, ())
+    MetricsAdmin._ice_type = _M_IceMX._t_MetricsAdminDisp
 
-    @staticmethod
-    def ice_staticId():
-        return '::IceMX::ChildInvocationMetrics'
+    MetricsAdmin._op_getMetricsViewNames = IcePy.Operation('getMetricsViewNames', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (((), _M_Ice._t_StringSeq, False, 0),), ((), _M_Ice._t_StringSeq, False, 0), ())
+    MetricsAdmin._op_enableMetricsView = IcePy.Operation('enableMetricsView', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceMX._t_UnknownMetricsView,))
+    MetricsAdmin._op_disableMetricsView = IcePy.Operation('disableMetricsView', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceMX._t_UnknownMetricsView,))
+    MetricsAdmin._op_getMetricsView = IcePy.Operation('getMetricsView', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0),), (((), IcePy._t_long, False, 0),), ((), _M_IceMX._t_MetricsView, False, 0), (_M_IceMX._t_UnknownMetricsView,))
+    MetricsAdmin._op_getMapMetricsFailures = IcePy.Operation('getMapMetricsFailures', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_IceMX._t_MetricsFailuresSeq, False, 0), (_M_IceMX._t_UnknownMetricsView,))
+    MetricsAdmin._op_getMetricsFailures = IcePy.Operation('getMetricsFailures', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_IceMX._t_MetricsFailures, False, 0), (_M_IceMX._t_UnknownMetricsView,))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceMX._t_ChildInvocationMetrics)
+    _M_IceMX.MetricsAdmin = MetricsAdmin
+    del MetricsAdmin
 
-    __repr__ = __str__
+if 'ThreadMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX.ThreadMetrics = None
+    class ThreadMetrics(_M_IceMX.Metrics):
+        """
+         Provides information on the number of threads currently in use and their activity.
+        Members:
+        inUseForIO --  The number of threads which are currently performing socket read or writes.
+        inUseForUser --  The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
+        inUseForOther --  The number of threads which are currently performing other activities. These are all other that are not
+         counted with inUseForUser or inUseForIO, such as DNS lookups, garbage collection).
+        """
+        def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, inUseForIO=0, inUseForUser=0, inUseForOther=0):
+            _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
+            self.inUseForIO = inUseForIO
+            self.inUseForUser = inUseForUser
+            self.inUseForOther = inUseForOther
 
-_M_IceMX._t_ChildInvocationMetrics = IcePy.defineValue('::IceMX::ChildInvocationMetrics', ChildInvocationMetrics, -1, (), False, _M_IceMX._t_Metrics, (
-    ('size', (), IcePy._t_long, False, 0),
-    ('replySize', (), IcePy._t_long, False, 0)
-))
-ChildInvocationMetrics._ice_type = _M_IceMX._t_ChildInvocationMetrics
+        def ice_id(self):
+            return '::IceMX::ThreadMetrics'
 
-_M_IceMX.ChildInvocationMetrics = ChildInvocationMetrics
-del ChildInvocationMetrics
-_M_IceMX.CollocatedMetrics = None
-class CollocatedMetrics(_M_IceMX.ChildInvocationMetrics):
-    """
-     Provides information on invocations that are collocated. Collocated metrics are embedded within
-     InvocationMetrics.
-    """
-    def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
-        _M_IceMX.ChildInvocationMetrics.__init__(self, id, total, current, totalLifetime, failures, size, replySize)
+        @staticmethod
+        def ice_staticId():
+            return '::IceMX::ThreadMetrics'
 
-    def ice_id(self):
-        return '::IceMX::CollocatedMetrics'
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceMX._t_ThreadMetrics)
 
-    @staticmethod
-    def ice_staticId():
-        return '::IceMX::CollocatedMetrics'
+        __repr__ = __str__
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceMX._t_CollocatedMetrics)
+    _M_IceMX._t_ThreadMetrics = IcePy.defineValue('::IceMX::ThreadMetrics', ThreadMetrics, -1, (), False, _M_IceMX._t_Metrics, (
+        ('inUseForIO', (), IcePy._t_int, False, 0),
+        ('inUseForUser', (), IcePy._t_int, False, 0),
+        ('inUseForOther', (), IcePy._t_int, False, 0)
+    ))
+    ThreadMetrics._ice_type = _M_IceMX._t_ThreadMetrics
 
-    __repr__ = __str__
+    _M_IceMX.ThreadMetrics = ThreadMetrics
+    del ThreadMetrics
 
-_M_IceMX._t_CollocatedMetrics = IcePy.defineValue('::IceMX::CollocatedMetrics', CollocatedMetrics, -1, (), False, _M_IceMX._t_ChildInvocationMetrics, ())
-CollocatedMetrics._ice_type = _M_IceMX._t_CollocatedMetrics
+if 'DispatchMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX.DispatchMetrics = None
+    class DispatchMetrics(_M_IceMX.Metrics):
+        """
+         Provides information on servant dispatch.
+        Members:
+        userException --  The number of dispatch that failed with a user exception.
+        size --  The size of the dispatch. This corresponds to the size of the marshaled input parameters.
+        replySize --  The size of the dispatch reply. This corresponds to the size of the marshaled output and return parameters.
+        """
+        def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, userException=0, size=0, replySize=0):
+            _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
+            self.userException = userException
+            self.size = size
+            self.replySize = replySize
 
-_M_IceMX.CollocatedMetrics = CollocatedMetrics
-del CollocatedMetrics
-_M_IceMX.RemoteMetrics = None
-class RemoteMetrics(_M_IceMX.ChildInvocationMetrics):
-    """
-     Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
-     within InvocationMetrics.
-    """
-    def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
-        _M_IceMX.ChildInvocationMetrics.__init__(self, id, total, current, totalLifetime, failures, size, replySize)
+        def ice_id(self):
+            return '::IceMX::DispatchMetrics'
 
-    def ice_id(self):
-        return '::IceMX::RemoteMetrics'
+        @staticmethod
+        def ice_staticId():
+            return '::IceMX::DispatchMetrics'
 
-    @staticmethod
-    def ice_staticId():
-        return '::IceMX::RemoteMetrics'
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceMX._t_DispatchMetrics)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceMX._t_RemoteMetrics)
+        __repr__ = __str__
 
-    __repr__ = __str__
+    _M_IceMX._t_DispatchMetrics = IcePy.defineValue('::IceMX::DispatchMetrics', DispatchMetrics, -1, (), False, _M_IceMX._t_Metrics, (
+        ('userException', (), IcePy._t_int, False, 0),
+        ('size', (), IcePy._t_long, False, 0),
+        ('replySize', (), IcePy._t_long, False, 0)
+    ))
+    DispatchMetrics._ice_type = _M_IceMX._t_DispatchMetrics
 
-_M_IceMX._t_RemoteMetrics = IcePy.defineValue('::IceMX::RemoteMetrics', RemoteMetrics, -1, (), False, _M_IceMX._t_ChildInvocationMetrics, ())
-RemoteMetrics._ice_type = _M_IceMX._t_RemoteMetrics
+    _M_IceMX.DispatchMetrics = DispatchMetrics
+    del DispatchMetrics
 
-_M_IceMX.RemoteMetrics = RemoteMetrics
-del RemoteMetrics
-_M_IceMX.InvocationMetrics = None
-class InvocationMetrics(_M_IceMX.Metrics):
-    """
-     Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
-    Members:
-    retry --  The number of retries for the invocation(s).
-    userException --  The number of invocations that failed with a user exception.
-    remotes --  The remote invocation metrics map.
-    collocated --  The collocated invocation metrics map.
-    """
-    def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, retry=0, userException=0, remotes=None, collocated=None):
-        _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
-        self.retry = retry
-        self.userException = userException
-        self.remotes = remotes
-        self.collocated = collocated
+if 'ChildInvocationMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX.ChildInvocationMetrics = None
+    class ChildInvocationMetrics(_M_IceMX.Metrics):
+        """
+         Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
+         collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
+         embedded within InvocationMetrics.
+        Members:
+        size --  The size of the invocation. This corresponds to the size of the marshaled input parameters.
+        replySize --  The size of the invocation reply. This corresponds to the size of the marshaled output and return
+         parameters.
+        """
+        def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
+            _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
+            self.size = size
+            self.replySize = replySize
 
-    def ice_id(self):
-        return '::IceMX::InvocationMetrics'
+        def ice_id(self):
+            return '::IceMX::ChildInvocationMetrics'
 
-    @staticmethod
-    def ice_staticId():
-        return '::IceMX::InvocationMetrics'
+        @staticmethod
+        def ice_staticId():
+            return '::IceMX::ChildInvocationMetrics'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceMX._t_InvocationMetrics)
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceMX._t_ChildInvocationMetrics)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_IceMX._t_InvocationMetrics = IcePy.declareValue('::IceMX::InvocationMetrics')
+    _M_IceMX._t_ChildInvocationMetrics = IcePy.defineValue('::IceMX::ChildInvocationMetrics', ChildInvocationMetrics, -1, (), False, _M_IceMX._t_Metrics, (
+        ('size', (), IcePy._t_long, False, 0),
+        ('replySize', (), IcePy._t_long, False, 0)
+    ))
+    ChildInvocationMetrics._ice_type = _M_IceMX._t_ChildInvocationMetrics
 
-_M_IceMX._t_InvocationMetrics = IcePy.defineValue('::IceMX::InvocationMetrics', InvocationMetrics, -1, (), False, _M_IceMX._t_Metrics, (
-    ('retry', (), IcePy._t_int, False, 0),
-    ('userException', (), IcePy._t_int, False, 0),
-    ('remotes', (), _M_IceMX._t_MetricsMap, False, 0),
-    ('collocated', (), _M_IceMX._t_MetricsMap, False, 0)
-))
-InvocationMetrics._ice_type = _M_IceMX._t_InvocationMetrics
+    _M_IceMX.ChildInvocationMetrics = ChildInvocationMetrics
+    del ChildInvocationMetrics
 
-_M_IceMX.InvocationMetrics = InvocationMetrics
-del InvocationMetrics
-_M_IceMX.ConnectionMetrics = None
-class ConnectionMetrics(_M_IceMX.Metrics):
-    """
-     Provides information on the data sent and received over Ice connections.
-    Members:
-    receivedBytes --  The number of bytes received by the connection.
-    sentBytes --  The number of bytes sent by the connection.
-    """
-    def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, receivedBytes=0, sentBytes=0):
-        _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
-        self.receivedBytes = receivedBytes
-        self.sentBytes = sentBytes
+if 'CollocatedMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX.CollocatedMetrics = None
+    class CollocatedMetrics(_M_IceMX.ChildInvocationMetrics):
+        """
+         Provides information on invocations that are collocated. Collocated metrics are embedded within
+         InvocationMetrics.
+        """
+        def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
+            _M_IceMX.ChildInvocationMetrics.__init__(self, id, total, current, totalLifetime, failures, size, replySize)
 
-    def ice_id(self):
-        return '::IceMX::ConnectionMetrics'
+        def ice_id(self):
+            return '::IceMX::CollocatedMetrics'
 
-    @staticmethod
-    def ice_staticId():
-        return '::IceMX::ConnectionMetrics'
+        @staticmethod
+        def ice_staticId():
+            return '::IceMX::CollocatedMetrics'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceMX._t_ConnectionMetrics)
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceMX._t_CollocatedMetrics)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_IceMX._t_ConnectionMetrics = IcePy.defineValue('::IceMX::ConnectionMetrics', ConnectionMetrics, -1, (), False, _M_IceMX._t_Metrics, (
-    ('receivedBytes', (), IcePy._t_long, False, 0),
-    ('sentBytes', (), IcePy._t_long, False, 0)
-))
-ConnectionMetrics._ice_type = _M_IceMX._t_ConnectionMetrics
+    _M_IceMX._t_CollocatedMetrics = IcePy.defineValue('::IceMX::CollocatedMetrics', CollocatedMetrics, -1, (), False, _M_IceMX._t_ChildInvocationMetrics, ())
+    CollocatedMetrics._ice_type = _M_IceMX._t_CollocatedMetrics
 
-_M_IceMX.ConnectionMetrics = ConnectionMetrics
-del ConnectionMetrics
+    _M_IceMX.CollocatedMetrics = CollocatedMetrics
+    del CollocatedMetrics
+
+if 'RemoteMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX.RemoteMetrics = None
+    class RemoteMetrics(_M_IceMX.ChildInvocationMetrics):
+        """
+         Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
+         within InvocationMetrics.
+        """
+        def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
+            _M_IceMX.ChildInvocationMetrics.__init__(self, id, total, current, totalLifetime, failures, size, replySize)
+
+        def ice_id(self):
+            return '::IceMX::RemoteMetrics'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceMX::RemoteMetrics'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceMX._t_RemoteMetrics)
+
+        __repr__ = __str__
+
+    _M_IceMX._t_RemoteMetrics = IcePy.defineValue('::IceMX::RemoteMetrics', RemoteMetrics, -1, (), False, _M_IceMX._t_ChildInvocationMetrics, ())
+    RemoteMetrics._ice_type = _M_IceMX._t_RemoteMetrics
+
+    _M_IceMX.RemoteMetrics = RemoteMetrics
+    del RemoteMetrics
+
+if 'InvocationMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX.InvocationMetrics = None
+    class InvocationMetrics(_M_IceMX.Metrics):
+        """
+         Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
+        Members:
+        retry --  The number of retries for the invocation(s).
+        userException --  The number of invocations that failed with a user exception.
+        remotes --  The remote invocation metrics map.
+        collocated --  The collocated invocation metrics map.
+        """
+        def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, retry=0, userException=0, remotes=None, collocated=None):
+            _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
+            self.retry = retry
+            self.userException = userException
+            self.remotes = remotes
+            self.collocated = collocated
+
+        def ice_id(self):
+            return '::IceMX::InvocationMetrics'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceMX::InvocationMetrics'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceMX._t_InvocationMetrics)
+
+        __repr__ = __str__
+
+    _M_IceMX._t_InvocationMetrics = IcePy.declareValue('::IceMX::InvocationMetrics')
+
+    _M_IceMX._t_InvocationMetrics = IcePy.defineValue('::IceMX::InvocationMetrics', InvocationMetrics, -1, (), False, _M_IceMX._t_Metrics, (
+        ('retry', (), IcePy._t_int, False, 0),
+        ('userException', (), IcePy._t_int, False, 0),
+        ('remotes', (), _M_IceMX._t_MetricsMap, False, 0),
+        ('collocated', (), _M_IceMX._t_MetricsMap, False, 0)
+    ))
+    InvocationMetrics._ice_type = _M_IceMX._t_InvocationMetrics
+
+    _M_IceMX.InvocationMetrics = InvocationMetrics
+    del InvocationMetrics
+
+if 'ConnectionMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX.ConnectionMetrics = None
+    class ConnectionMetrics(_M_IceMX.Metrics):
+        """
+         Provides information on the data sent and received over Ice connections.
+        Members:
+        receivedBytes --  The number of bytes received by the connection.
+        sentBytes --  The number of bytes sent by the connection.
+        """
+        def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, receivedBytes=0, sentBytes=0):
+            _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
+            self.receivedBytes = receivedBytes
+            self.sentBytes = sentBytes
+
+        def ice_id(self):
+            return '::IceMX::ConnectionMetrics'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceMX::ConnectionMetrics'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceMX._t_ConnectionMetrics)
+
+        __repr__ = __str__
+
+    _M_IceMX._t_ConnectionMetrics = IcePy.defineValue('::IceMX::ConnectionMetrics', ConnectionMetrics, -1, (), False, _M_IceMX._t_Metrics, (
+        ('receivedBytes', (), IcePy._t_long, False, 0),
+        ('sentBytes', (), IcePy._t_long, False, 0)
+    ))
+    ConnectionMetrics._ice_type = _M_IceMX._t_ConnectionMetrics
+
+    _M_IceMX.ConnectionMetrics = ConnectionMetrics
+    del ConnectionMetrics
 
 # End of module IceMX

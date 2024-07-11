@@ -25,415 +25,437 @@ __name__ = 'classdef'
 # Start of module classdef._break
 _M_classdef._break = Ice.openModule('classdef._break')
 __name__ = 'classdef._break'
-_M_classdef._break.bitand = None
-class bitand(Ice.EnumBase):
 
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
+if 'bitand' not in _M_classdef._break.__dict__:
+    _M_classdef._break.bitand = None
+    class bitand(Ice.EnumBase):
 
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
 
-bitand._break = bitand("break", 0)
-bitand._case = bitand("case", 1)
-bitand.catch = bitand("catch", 2)
-bitand.classdef = bitand("classdef", 3)
-bitand._continue = bitand("continue", 4)
-bitand._else = bitand("else", 5)
-bitand.elseif = bitand("elseif", 6)
-bitand.end = bitand("end", 7)
-bitand.enumeration = bitand("enumeration", 8)
-bitand.events = bitand("events", 9)
-bitand._for = bitand("for", 10)
-bitand.function = bitand("function", 11)
-bitand._global = bitand("global", 12)
-bitand._if = bitand("if", 13)
-bitand.methods = bitand("methods", 14)
-bitand.otherwise = bitand("otherwise", 15)
-bitand.parfor = bitand("parfor", 16)
-bitand.persistent = bitand("persistent", 17)
-bitand.properties = bitand("properties", 18)
-bitand._return = bitand("return", 19)
-bitand.spmd = bitand("spmd", 20)
-bitand.switch = bitand("switch", 21)
-bitand._try = bitand("try", 22)
-bitand._while = bitand("while", 23)
-bitand.abs = bitand("abs", 24)
-bitand._and = bitand("and", 25)
-bitand.char = bitand("char", 26)
-bitand.eq = bitand("eq", 27)
-bitand.length = bitand("length", 28)
-bitand.size = bitand("size", 29)
-bitand.xor = bitand("xor", 30)
-bitand.LAST = bitand("LAST", 31)
-bitand._enumerators = { 0:bitand._break, 1:bitand._case, 2:bitand.catch, 3:bitand.classdef, 4:bitand._continue, 5:bitand._else, 6:bitand.elseif, 7:bitand.end, 8:bitand.enumeration, 9:bitand.events, 10:bitand._for, 11:bitand.function, 12:bitand._global, 13:bitand._if, 14:bitand.methods, 15:bitand.otherwise, 16:bitand.parfor, 17:bitand.persistent, 18:bitand.properties, 19:bitand._return, 20:bitand.spmd, 21:bitand.switch, 22:bitand._try, 23:bitand._while, 24:bitand.abs, 25:bitand._and, 26:bitand.char, 27:bitand.eq, 28:bitand.length, 29:bitand.size, 30:bitand.xor, 31:bitand.LAST }
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
 
-_M_classdef._break._t_bitand = IcePy.defineEnum('::classdef::break::bitand', bitand, (), bitand._enumerators)
+    bitand._break = bitand("break", 0)
+    bitand._case = bitand("case", 1)
+    bitand.catch = bitand("catch", 2)
+    bitand.classdef = bitand("classdef", 3)
+    bitand._continue = bitand("continue", 4)
+    bitand._else = bitand("else", 5)
+    bitand.elseif = bitand("elseif", 6)
+    bitand.end = bitand("end", 7)
+    bitand.enumeration = bitand("enumeration", 8)
+    bitand.events = bitand("events", 9)
+    bitand._for = bitand("for", 10)
+    bitand.function = bitand("function", 11)
+    bitand._global = bitand("global", 12)
+    bitand._if = bitand("if", 13)
+    bitand.methods = bitand("methods", 14)
+    bitand.otherwise = bitand("otherwise", 15)
+    bitand.parfor = bitand("parfor", 16)
+    bitand.persistent = bitand("persistent", 17)
+    bitand.properties = bitand("properties", 18)
+    bitand._return = bitand("return", 19)
+    bitand.spmd = bitand("spmd", 20)
+    bitand.switch = bitand("switch", 21)
+    bitand._try = bitand("try", 22)
+    bitand._while = bitand("while", 23)
+    bitand.abs = bitand("abs", 24)
+    bitand._and = bitand("and", 25)
+    bitand.char = bitand("char", 26)
+    bitand.eq = bitand("eq", 27)
+    bitand.length = bitand("length", 28)
+    bitand.size = bitand("size", 29)
+    bitand.xor = bitand("xor", 30)
+    bitand.LAST = bitand("LAST", 31)
+    bitand._enumerators = { 0:bitand._break, 1:bitand._case, 2:bitand.catch, 3:bitand.classdef, 4:bitand._continue, 5:bitand._else, 6:bitand.elseif, 7:bitand.end, 8:bitand.enumeration, 9:bitand.events, 10:bitand._for, 11:bitand.function, 12:bitand._global, 13:bitand._if, 14:bitand.methods, 15:bitand.otherwise, 16:bitand.parfor, 17:bitand.persistent, 18:bitand.properties, 19:bitand._return, 20:bitand.spmd, 21:bitand.switch, 22:bitand._try, 23:bitand._while, 24:bitand.abs, 25:bitand._and, 26:bitand.char, 27:bitand.eq, 28:bitand.length, 29:bitand.size, 30:bitand.xor, 31:bitand.LAST }
 
-_M_classdef._break.bitand = bitand
-del bitand
-_M_classdef._break.bitor = None
-class bitor(object):
-    def __init__(self, _case=_M_classdef._break.bitand.catch, _continue=1, eq=2, ne=3):
-        self._case = _case
-        self._continue = _continue
-        self.eq = eq
-        self.ne = ne
+    _M_classdef._break._t_bitand = IcePy.defineEnum('::classdef::break::bitand', bitand, (), bitand._enumerators)
 
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self._case)
-        _h = 5 * _h + _builtins.hash(self._continue)
-        _h = 5 * _h + _builtins.hash(self.eq)
-        _h = 5 * _h + _builtins.hash(self.ne)
-        return _h % 0x7fffffff
+    _M_classdef._break.bitand = bitand
+    del bitand
 
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_classdef._break.bitor):
-            return NotImplemented
-        else:
-            if self._case is None or other._case is None:
-                if self._case != other._case:
-                    return (-1 if self._case is None else 1)
+if 'bitor' not in _M_classdef._break.__dict__:
+    _M_classdef._break.bitor = None
+    class bitor(object):
+        def __init__(self, _case=_M_classdef._break.bitand.catch, _continue=1, eq=2, ne=3):
+            self._case = _case
+            self._continue = _continue
+            self.eq = eq
+            self.ne = ne
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self._case)
+            _h = 5 * _h + _builtins.hash(self._continue)
+            _h = 5 * _h + _builtins.hash(self.eq)
+            _h = 5 * _h + _builtins.hash(self.ne)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_classdef._break.bitor):
+                return NotImplemented
             else:
-                if self._case < other._case:
-                    return -1
-                elif self._case > other._case:
-                    return 1
-            if self._continue is None or other._continue is None:
-                if self._continue != other._continue:
-                    return (-1 if self._continue is None else 1)
+                if self._case is None or other._case is None:
+                    if self._case != other._case:
+                        return (-1 if self._case is None else 1)
+                else:
+                    if self._case < other._case:
+                        return -1
+                    elif self._case > other._case:
+                        return 1
+                if self._continue is None or other._continue is None:
+                    if self._continue != other._continue:
+                        return (-1 if self._continue is None else 1)
+                else:
+                    if self._continue < other._continue:
+                        return -1
+                    elif self._continue > other._continue:
+                        return 1
+                if self.eq is None or other.eq is None:
+                    if self.eq != other.eq:
+                        return (-1 if self.eq is None else 1)
+                else:
+                    if self.eq < other.eq:
+                        return -1
+                    elif self.eq > other.eq:
+                        return 1
+                if self.ne is None or other.ne is None:
+                    if self.ne != other.ne:
+                        return (-1 if self.ne is None else 1)
+                else:
+                    if self.ne < other.ne:
+                        return -1
+                    elif self.ne > other.ne:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self._continue < other._continue:
-                    return -1
-                elif self._continue > other._continue:
-                    return 1
-            if self.eq is None or other.eq is None:
-                if self.eq != other.eq:
-                    return (-1 if self.eq is None else 1)
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.eq < other.eq:
-                    return -1
-                elif self.eq > other.eq:
-                    return 1
-            if self.ne is None or other.ne is None:
-                if self.ne != other.ne:
-                    return (-1 if self.ne is None else 1)
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.ne < other.ne:
-                    return -1
-                elif self.ne > other.ne:
-                    return 1
-            return 0
+                return r > 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+        def __str__(self):
+            return IcePy.stringify(self, _M_classdef._break._t_bitor)
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+        __repr__ = __str__
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+    _M_classdef._break._t_bitor = IcePy.defineStruct('::classdef::break::bitor', bitor, (), (
+        ('_case', (), _M_classdef._break._t_bitand),
+        ('_continue', (), IcePy._t_int),
+        ('eq', (), IcePy._t_int),
+        ('ne', (), IcePy._t_int)
+    ))
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_classdef._break._t_bitor)
+    _M_classdef._break.bitor = bitor
+    del bitor
 
-    __repr__ = __str__
+if 'logical' not in _M_classdef._break.__dict__:
+    _M_classdef._break.logical = None
+    class logical(Ice.Value):
+        def __init__(self, _else=_M_classdef._break.bitand.enumeration, _for=None, int64=True):
+            self._else = _else
+            if _for is None:
+                self._for = _M_classdef._break.bitor()
+            else:
+                self._for = _for
+            self.int64 = int64
 
-_M_classdef._break._t_bitor = IcePy.defineStruct('::classdef::break::bitor', bitor, (), (
-    ('_case', (), _M_classdef._break._t_bitand),
-    ('_continue', (), IcePy._t_int),
-    ('eq', (), IcePy._t_int),
-    ('ne', (), IcePy._t_int)
-))
+        def ice_id(self):
+            return '::classdef::break::logical'
 
-_M_classdef._break.bitor = bitor
-del bitor
-_M_classdef._break.logical = None
-class logical(Ice.Value):
-    def __init__(self, _else=_M_classdef._break.bitand.enumeration, _for=None, int64=True):
-        self._else = _else
-        if _for is None:
-            self._for = _M_classdef._break.bitor()
-        else:
-            self._for = _for
-        self.int64 = int64
+        @staticmethod
+        def ice_staticId():
+            return '::classdef::break::logical'
 
-    def ice_id(self):
-        return '::classdef::break::logical'
+        def __str__(self):
+            return IcePy.stringify(self, _M_classdef._break._t_logical)
 
-    @staticmethod
-    def ice_staticId():
-        return '::classdef::break::logical'
+        __repr__ = __str__
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_classdef._break._t_logical)
+    _M_classdef._break._t_logical = IcePy.defineValue('::classdef::break::logical', logical, -1, (), False, None, (
+        ('_else', (), _M_classdef._break._t_bitand, False, 0),
+        ('_for', (), _M_classdef._break._t_bitor, False, 0),
+        ('int64', (), IcePy._t_bool, False, 0)
+    ))
+    logical._ice_type = _M_classdef._break._t_logical
 
-    __repr__ = __str__
+    _M_classdef._break.logical = logical
+    del logical
 
-_M_classdef._break._t_logical = IcePy.defineValue('::classdef::break::logical', logical, -1, (), False, None, (
-    ('_else', (), _M_classdef._break._t_bitand, False, 0),
-    ('_for', (), _M_classdef._break._t_bitor, False, 0),
-    ('int64', (), IcePy._t_bool, False, 0)
-))
-logical._ice_type = _M_classdef._break._t_logical
+if 'xor' not in _M_classdef._break.__dict__:
+    _M_classdef._break.xor = None
+    class xor(_M_classdef._break.logical):
+        def __init__(self, _else=_M_classdef._break.bitand.enumeration, _for=None, int64=True, _return=1):
+            _M_classdef._break.logical.__init__(self, _else, _for, int64)
+            self._return = _return
 
-_M_classdef._break.logical = logical
-del logical
-_M_classdef._break.xor = None
-class xor(_M_classdef._break.logical):
-    def __init__(self, _else=_M_classdef._break.bitand.enumeration, _for=None, int64=True, _return=1):
-        _M_classdef._break.logical.__init__(self, _else, _for, int64)
-        self._return = _return
+        def ice_id(self):
+            return '::classdef::break::xor'
 
-    def ice_id(self):
-        return '::classdef::break::xor'
+        @staticmethod
+        def ice_staticId():
+            return '::classdef::break::xor'
 
-    @staticmethod
-    def ice_staticId():
-        return '::classdef::break::xor'
+        def __str__(self):
+            return IcePy.stringify(self, _M_classdef._break._t_xor)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_classdef._break._t_xor)
+        __repr__ = __str__
 
-    __repr__ = __str__
+    _M_classdef._break._t_xor = IcePy.defineValue('::classdef::break::xor', xor, -1, (), False, _M_classdef._break._t_logical, (('_return', (), IcePy._t_int, False, 0),))
+    xor._ice_type = _M_classdef._break._t_xor
 
-_M_classdef._break._t_xor = IcePy.defineValue('::classdef::break::xor', xor, -1, (), False, _M_classdef._break._t_logical, (('_return', (), IcePy._t_int, False, 0),))
-xor._ice_type = _M_classdef._break._t_xor
+    _M_classdef._break.xor = xor
+    del xor
 
-_M_classdef._break.xor = xor
-del xor
-_M_classdef._break._t_parfor = IcePy.defineSequence('::classdef::break::parfor', (), _M_classdef._break._t_bitor)
-_M_classdef._break._t_switch = IcePy.defineDictionary('::classdef::break::switch', (), IcePy._t_int, _M_classdef._break._t_bitor)
-_M_classdef._break._try = None
-class _try(Ice.Value):
-    def __init__(self, _while=1, delete=2):
-        self._while = _while
-        self.delete = delete
+if '_t_parfor' not in _M_classdef._break.__dict__:
+    _M_classdef._break._t_parfor = IcePy.defineSequence('::classdef::break::parfor', (), _M_classdef._break._t_bitor)
 
-    def ice_id(self):
-        return '::classdef::break::try'
+if '_t_switch' not in _M_classdef._break.__dict__:
+    _M_classdef._break._t_switch = IcePy.defineDictionary('::classdef::break::switch', (), IcePy._t_int, _M_classdef._break._t_bitor)
 
-    @staticmethod
-    def ice_staticId():
-        return '::classdef::break::try'
+if '_try' not in _M_classdef._break.__dict__:
+    _M_classdef._break._try = None
+    class _try(Ice.Value):
+        def __init__(self, _while=1, delete=2):
+            self._while = _while
+            self.delete = delete
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_classdef._break._t__try)
+        def ice_id(self):
+            return '::classdef::break::try'
 
-    __repr__ = __str__
+        @staticmethod
+        def ice_staticId():
+            return '::classdef::break::try'
 
-_M_classdef._break._t__try = IcePy.defineValue('::classdef::break::try', _try, -1, (), False, None, (
-    ('_while', (), IcePy._t_int, False, 0),
-    ('delete', (), IcePy._t_int, False, 0)
-))
-_try._ice_type = _M_classdef._break._t__try
+        def __str__(self):
+            return IcePy.stringify(self, _M_classdef._break._t__try)
 
-_M_classdef._break._try = _try
-del _try
-_M_classdef._break.properties = None
-class properties(_M_classdef._break._try):
-    def __init__(self, _while=1, delete=2, _if=2, catch=None, spmd=None, otherwise=None):
-        _M_classdef._break._try.__init__(self, _while, delete)
-        self._if = _if
-        self.catch = catch
-        self.spmd = spmd
-        self.otherwise = otherwise
+        __repr__ = __str__
 
-    def ice_id(self):
-        return '::classdef::break::properties'
+    _M_classdef._break._t__try = IcePy.defineValue('::classdef::break::try', _try, -1, (), False, None, (
+        ('_while', (), IcePy._t_int, False, 0),
+        ('delete', (), IcePy._t_int, False, 0)
+    ))
+    _try._ice_type = _M_classdef._break._t__try
 
-    @staticmethod
-    def ice_staticId():
-        return '::classdef::break::properties'
+    _M_classdef._break._try = _try
+    del _try
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_classdef._break._t_properties)
+if 'properties' not in _M_classdef._break.__dict__:
+    _M_classdef._break.properties = None
+    class properties(_M_classdef._break._try):
+        def __init__(self, _while=1, delete=2, _if=2, catch=None, spmd=None, otherwise=None):
+            _M_classdef._break._try.__init__(self, _while, delete)
+            self._if = _if
+            self.catch = catch
+            self.spmd = spmd
+            self.otherwise = otherwise
 
-    __repr__ = __str__
+        def ice_id(self):
+            return '::classdef::break::properties'
 
-_M_classdef._break._t_properties = IcePy.declareValue('::classdef::break::properties')
+        @staticmethod
+        def ice_staticId():
+            return '::classdef::break::properties'
 
-_M_classdef._break._t_properties = IcePy.defineValue('::classdef::break::properties', properties, -1, (), False, _M_classdef._break._t__try, (
-    ('_if', (), IcePy._t_int, False, 0),
-    ('catch', (), _M_classdef._break._t_xor, False, 0),
-    ('spmd', (), _M_classdef._break._t_parfor, False, 0),
-    ('otherwise', (), _M_classdef._break._t_switch, False, 0)
-))
-properties._ice_type = _M_classdef._break._t_properties
+        def __str__(self):
+            return IcePy.stringify(self, _M_classdef._break._t_properties)
 
-_M_classdef._break.properties = properties
-del properties
-_M_classdef._break.persistent = None
-class persistent(Ice.UserException):
-    def __init__(self, identifier="1", message="2", stack="3", cause="4", type="5", end=None):
-        self.identifier = identifier
-        self.message = message
-        self.stack = stack
-        self.cause = cause
-        self.type = type
-        self.end = end
+        __repr__ = __str__
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+    _M_classdef._break._t_properties = IcePy.declareValue('::classdef::break::properties')
 
-    __repr__ = __str__
+    _M_classdef._break._t_properties = IcePy.defineValue('::classdef::break::properties', properties, -1, (), False, _M_classdef._break._t__try, (
+        ('_if', (), IcePy._t_int, False, 0),
+        ('catch', (), _M_classdef._break._t_xor, False, 0),
+        ('spmd', (), _M_classdef._break._t_parfor, False, 0),
+        ('otherwise', (), _M_classdef._break._t_switch, False, 0)
+    ))
+    properties._ice_type = _M_classdef._break._t_properties
 
-    _ice_id = '::classdef::break::persistent'
+    _M_classdef._break.properties = properties
+    del properties
 
-_M_classdef._break._t_persistent = IcePy.defineException('::classdef::break::persistent', persistent, (), None, (
-    ('identifier', (), IcePy._t_string, False, 0),
-    ('message', (), IcePy._t_string, False, 0),
-    ('stack', (), IcePy._t_string, False, 0),
-    ('cause', (), IcePy._t_string, False, 0),
-    ('type', (), IcePy._t_string, False, 0),
-    ('end', (), _M_classdef._break._t_logical, False, 0)
-))
-persistent._ice_type = _M_classdef._break._t_persistent
+if 'persistent' not in _M_classdef._break.__dict__:
+    _M_classdef._break.persistent = None
+    class persistent(Ice.UserException):
+        def __init__(self, identifier="1", message="2", stack="3", cause="4", type="5", end=None):
+            self.identifier = identifier
+            self.message = message
+            self.stack = stack
+            self.cause = cause
+            self.type = type
+            self.end = end
 
-_M_classdef._break.persistent = persistent
-del persistent
-_M_classdef._break._global = None
-class _global(_M_classdef._break.persistent):
-    def __init__(self, identifier="1", message="2", stack="3", cause="4", type="5", end=None, enumeration=1):
-        _M_classdef._break.persistent.__init__(self, identifier, message, stack, cause, type, end)
-        self.enumeration = enumeration
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+        __repr__ = __str__
 
-    __repr__ = __str__
+        _ice_id = '::classdef::break::persistent'
 
-    _ice_id = '::classdef::break::global'
+    _M_classdef._break._t_persistent = IcePy.defineException('::classdef::break::persistent', persistent, (), None, (
+        ('identifier', (), IcePy._t_string, False, 0),
+        ('message', (), IcePy._t_string, False, 0),
+        ('stack', (), IcePy._t_string, False, 0),
+        ('cause', (), IcePy._t_string, False, 0),
+        ('type', (), IcePy._t_string, False, 0),
+        ('end', (), _M_classdef._break._t_logical, False, 0)
+    ))
+    persistent._ice_type = _M_classdef._break._t_persistent
 
-_M_classdef._break._t__global = IcePy.defineException('::classdef::break::global', _global, (), _M_classdef._break._t_persistent, (('enumeration', (), IcePy._t_int, False, 0),))
-_global._ice_type = _M_classdef._break._t__global
+    _M_classdef._break.persistent = persistent
+    del persistent
 
-_M_classdef._break._global = _global
-del _global
+if '_global' not in _M_classdef._break.__dict__:
+    _M_classdef._break._global = None
+    class _global(_M_classdef._break.persistent):
+        def __init__(self, identifier="1", message="2", stack="3", cause="4", type="5", end=None, enumeration=1):
+            _M_classdef._break.persistent.__init__(self, identifier, message, stack, cause, type, end)
+            self.enumeration = enumeration
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::classdef::break::global'
+
+    _M_classdef._break._t__global = IcePy.defineException('::classdef::break::global', _global, (), _M_classdef._break._t_persistent, (('enumeration', (), IcePy._t_int, False, 0),))
+    _global._ice_type = _M_classdef._break._t__global
+
+    _M_classdef._break._global = _global
+    del _global
 
 _M_classdef._break._t_elseif = IcePy.defineValue('::classdef::break::elseif', Ice.Value, -1, (), True, None, ())
-_M_classdef._break.elseifPrx = None
-class elseifPrx(Ice.ObjectPrx):
 
-    def events(self, context=None):
-        return _M_classdef._break.elseif._op_events.invoke(self, ((), context))
+if 'elseifPrx' not in _M_classdef._break.__dict__:
+    _M_classdef._break.elseifPrx = None
+    class elseifPrx(Ice.ObjectPrx):
 
-    def eventsAsync(self, context=None):
-        return _M_classdef._break.elseif._op_events.invokeAsync(self, ((), context))
+        def events(self, context=None):
+            return _M_classdef._break.elseif._op_events.invoke(self, ((), context))
 
-    def function(self, context=None):
-        return _M_classdef._break.elseif._op_function.invoke(self, ((), context))
+        def eventsAsync(self, context=None):
+            return _M_classdef._break.elseif._op_events.invokeAsync(self, ((), context))
 
-    def functionAsync(self, context=None):
-        return _M_classdef._break.elseif._op_function.invokeAsync(self, ((), context))
+        def function(self, context=None):
+            return _M_classdef._break.elseif._op_function.invoke(self, ((), context))
 
-    def delete(self, context=None):
-        return _M_classdef._break.elseif._op_delete.invoke(self, ((), context))
+        def functionAsync(self, context=None):
+            return _M_classdef._break.elseif._op_function.invokeAsync(self, ((), context))
 
-    def deleteAsync(self, context=None):
-        return _M_classdef._break.elseif._op_delete.invokeAsync(self, ((), context))
+        def delete(self, context=None):
+            return _M_classdef._break.elseif._op_delete.invoke(self, ((), context))
 
-    def _checkedCast(self, context=None):
-        return _M_classdef._break.elseif._op_checkedCast.invoke(self, ((), context))
+        def deleteAsync(self, context=None):
+            return _M_classdef._break.elseif._op_delete.invokeAsync(self, ((), context))
 
-    def checkedCastAsync(self, context=None):
-        return _M_classdef._break.elseif._op_checkedCast.invokeAsync(self, ((), context))
+        def _checkedCast(self, context=None):
+            return _M_classdef._break.elseif._op_checkedCast.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_classdef._break.elseifPrx.ice_checkedCast(proxy, '::classdef::break::elseif', facetOrContext, context)
+        def checkedCastAsync(self, context=None):
+            return _M_classdef._break.elseif._op_checkedCast.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_classdef._break.elseifPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_classdef._break.elseifPrx.ice_checkedCast(proxy, '::classdef::break::elseif', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::classdef::break::elseif'
-_M_classdef._break._t_elseifPrx = IcePy.defineProxy('::classdef::break::elseif', elseifPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_classdef._break.elseifPrx.ice_uncheckedCast(proxy, facet)
 
-_M_classdef._break.elseifPrx = elseifPrx
-del elseifPrx
+        @staticmethod
+        def ice_staticId():
+            return '::classdef::break::elseif'
+    _M_classdef._break._t_elseifPrx = IcePy.defineProxy('::classdef::break::elseif', elseifPrx)
 
-_M_classdef._break.elseif = None
-class elseif(Ice.Object):
+    _M_classdef._break.elseifPrx = elseifPrx
+    del elseifPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::classdef::break::elseif')
+    _M_classdef._break.elseif = None
+    class elseif(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::classdef::break::elseif'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::classdef::break::elseif')
 
-    @staticmethod
-    def ice_staticId():
-        return '::classdef::break::elseif'
+        def ice_id(self, current=None):
+            return '::classdef::break::elseif'
 
-    def events(self, current=None):
-        raise NotImplementedError("servant method 'events' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::classdef::break::elseif'
 
-    def function(self, current=None):
-        raise NotImplementedError("servant method 'function' not implemented")
+        def events(self, current=None):
+            raise NotImplementedError("servant method 'events' not implemented")
 
-    def delete(self, current=None):
-        raise NotImplementedError("servant method 'delete' not implemented")
+        def function(self, current=None):
+            raise NotImplementedError("servant method 'function' not implemented")
 
-    def checkedCast(self, current=None):
-        raise NotImplementedError("servant method 'checkedCast' not implemented")
+        def delete(self, current=None):
+            raise NotImplementedError("servant method 'delete' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_classdef._break._t_elseifDisp)
+        def checkedCast(self, current=None):
+            raise NotImplementedError("servant method 'checkedCast' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_classdef._break._t_elseifDisp)
 
-_M_classdef._break._t_elseifDisp = IcePy.defineClass('::classdef::break::elseif', elseif, (), None, ())
-elseif._ice_type = _M_classdef._break._t_elseifDisp
+        __repr__ = __str__
 
-elseif._op_events = IcePy.Operation('events', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-elseif._op_function = IcePy.Operation('function', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-elseif._op_delete = IcePy.Operation('delete', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-elseif._op_checkedCast = IcePy.Operation('checkedCast', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_classdef._break._t_elseifDisp = IcePy.defineClass('::classdef::break::elseif', elseif, (), None, ())
+    elseif._ice_type = _M_classdef._break._t_elseifDisp
 
-_M_classdef._break.elseif = elseif
-del elseif
+    elseif._op_events = IcePy.Operation('events', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    elseif._op_function = IcePy.Operation('function', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    elseif._op_delete = IcePy.Operation('delete', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    elseif._op_checkedCast = IcePy.Operation('checkedCast', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_classdef._break.elseif = elseif
+    del elseif
 
 _M_classdef._break.methods = 1
 

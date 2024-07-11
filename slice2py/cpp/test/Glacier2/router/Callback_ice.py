@@ -25,226 +25,232 @@ _M_Ice = Ice.openModule('Ice')
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
-_M_Test.CallbackException = None
-class CallbackException(Ice.UserException):
-    def __init__(self, someValue=0.0, someString=''):
-        self.someValue = someValue
-        self.someString = someString
 
-    def __str__(self):
-        return IcePy.stringifyException(self)
+if 'CallbackException' not in _M_Test.__dict__:
+    _M_Test.CallbackException = None
+    class CallbackException(Ice.UserException):
+        def __init__(self, someValue=0.0, someString=''):
+            self.someValue = someValue
+            self.someString = someString
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringifyException(self)
 
-    _ice_id = '::Test::CallbackException'
+        __repr__ = __str__
 
-_M_Test._t_CallbackException = IcePy.defineException('::Test::CallbackException', CallbackException, (), None, (
-    ('someValue', (), IcePy._t_double, False, 0),
-    ('someString', (), IcePy._t_string, False, 0)
-))
-CallbackException._ice_type = _M_Test._t_CallbackException
+        _ice_id = '::Test::CallbackException'
 
-_M_Test.CallbackException = CallbackException
-del CallbackException
+    _M_Test._t_CallbackException = IcePy.defineException('::Test::CallbackException', CallbackException, (), None, (
+        ('someValue', (), IcePy._t_double, False, 0),
+        ('someString', (), IcePy._t_string, False, 0)
+    ))
+    CallbackException._ice_type = _M_Test._t_CallbackException
+
+    _M_Test.CallbackException = CallbackException
+    del CallbackException
 
 _M_Test._t_CallbackReceiver = IcePy.defineValue('::Test::CallbackReceiver', Ice.Value, -1, (), True, None, ())
-_M_Test.CallbackReceiverPrx = None
-class CallbackReceiverPrx(Ice.ObjectPrx):
 
-    def callback(self, context=None):
-        return _M_Test.CallbackReceiver._op_callback.invoke(self, ((), context))
+if 'CallbackReceiverPrx' not in _M_Test.__dict__:
+    _M_Test.CallbackReceiverPrx = None
+    class CallbackReceiverPrx(Ice.ObjectPrx):
 
-    def callbackAsync(self, context=None):
-        return _M_Test.CallbackReceiver._op_callback.invokeAsync(self, ((), context))
+        def callback(self, context=None):
+            return _M_Test.CallbackReceiver._op_callback.invoke(self, ((), context))
 
-    def callbackEx(self, context=None):
-        return _M_Test.CallbackReceiver._op_callbackEx.invoke(self, ((), context))
+        def callbackAsync(self, context=None):
+            return _M_Test.CallbackReceiver._op_callback.invokeAsync(self, ((), context))
 
-    def callbackExAsync(self, context=None):
-        return _M_Test.CallbackReceiver._op_callbackEx.invokeAsync(self, ((), context))
+        def callbackEx(self, context=None):
+            return _M_Test.CallbackReceiver._op_callbackEx.invoke(self, ((), context))
 
-    def concurrentCallback(self, number, context=None):
-        return _M_Test.CallbackReceiver._op_concurrentCallback.invoke(self, ((number, ), context))
+        def callbackExAsync(self, context=None):
+            return _M_Test.CallbackReceiver._op_callbackEx.invokeAsync(self, ((), context))
 
-    def concurrentCallbackAsync(self, number, context=None):
-        return _M_Test.CallbackReceiver._op_concurrentCallback.invokeAsync(self, ((number, ), context))
+        def concurrentCallback(self, number, context=None):
+            return _M_Test.CallbackReceiver._op_concurrentCallback.invoke(self, ((number, ), context))
 
-    def waitCallback(self, context=None):
-        return _M_Test.CallbackReceiver._op_waitCallback.invoke(self, ((), context))
+        def concurrentCallbackAsync(self, number, context=None):
+            return _M_Test.CallbackReceiver._op_concurrentCallback.invokeAsync(self, ((number, ), context))
 
-    def waitCallbackAsync(self, context=None):
-        return _M_Test.CallbackReceiver._op_waitCallback.invokeAsync(self, ((), context))
+        def waitCallback(self, context=None):
+            return _M_Test.CallbackReceiver._op_waitCallback.invoke(self, ((), context))
 
-    def callbackWithPayload(self, payload, context=None):
-        return _M_Test.CallbackReceiver._op_callbackWithPayload.invoke(self, ((payload, ), context))
+        def waitCallbackAsync(self, context=None):
+            return _M_Test.CallbackReceiver._op_waitCallback.invokeAsync(self, ((), context))
 
-    def callbackWithPayloadAsync(self, payload, context=None):
-        return _M_Test.CallbackReceiver._op_callbackWithPayload.invokeAsync(self, ((payload, ), context))
+        def callbackWithPayload(self, payload, context=None):
+            return _M_Test.CallbackReceiver._op_callbackWithPayload.invoke(self, ((payload, ), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.CallbackReceiverPrx.ice_checkedCast(proxy, '::Test::CallbackReceiver', facetOrContext, context)
+        def callbackWithPayloadAsync(self, payload, context=None):
+            return _M_Test.CallbackReceiver._op_callbackWithPayload.invokeAsync(self, ((payload, ), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.CallbackReceiverPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.CallbackReceiverPrx.ice_checkedCast(proxy, '::Test::CallbackReceiver', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::CallbackReceiver'
-_M_Test._t_CallbackReceiverPrx = IcePy.defineProxy('::Test::CallbackReceiver', CallbackReceiverPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.CallbackReceiverPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.CallbackReceiverPrx = CallbackReceiverPrx
-del CallbackReceiverPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::CallbackReceiver'
+    _M_Test._t_CallbackReceiverPrx = IcePy.defineProxy('::Test::CallbackReceiver', CallbackReceiverPrx)
 
-_M_Test.CallbackReceiver = None
-class CallbackReceiver(Ice.Object):
+    _M_Test.CallbackReceiverPrx = CallbackReceiverPrx
+    del CallbackReceiverPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::CallbackReceiver')
+    _M_Test.CallbackReceiver = None
+    class CallbackReceiver(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::CallbackReceiver'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::CallbackReceiver')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::CallbackReceiver'
+        def ice_id(self, current=None):
+            return '::Test::CallbackReceiver'
 
-    def callback(self, current=None):
-        raise NotImplementedError("servant method 'callback' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::CallbackReceiver'
 
-    def callbackEx(self, current=None):
-        raise NotImplementedError("servant method 'callbackEx' not implemented")
+        def callback(self, current=None):
+            raise NotImplementedError("servant method 'callback' not implemented")
 
-    def concurrentCallback(self, number, current=None):
-        raise NotImplementedError("servant method 'concurrentCallback' not implemented")
+        def callbackEx(self, current=None):
+            raise NotImplementedError("servant method 'callbackEx' not implemented")
 
-    def waitCallback(self, current=None):
-        raise NotImplementedError("servant method 'waitCallback' not implemented")
+        def concurrentCallback(self, number, current=None):
+            raise NotImplementedError("servant method 'concurrentCallback' not implemented")
 
-    def callbackWithPayload(self, payload, current=None):
-        raise NotImplementedError("servant method 'callbackWithPayload' not implemented")
+        def waitCallback(self, current=None):
+            raise NotImplementedError("servant method 'waitCallback' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_CallbackReceiverDisp)
+        def callbackWithPayload(self, payload, current=None):
+            raise NotImplementedError("servant method 'callbackWithPayload' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_CallbackReceiverDisp)
 
-_M_Test._t_CallbackReceiverDisp = IcePy.defineClass('::Test::CallbackReceiver', CallbackReceiver, (), None, ())
-CallbackReceiver._ice_type = _M_Test._t_CallbackReceiverDisp
+        __repr__ = __str__
 
-CallbackReceiver._op_callback = IcePy.Operation('callback', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-CallbackReceiver._op_callbackEx = IcePy.Operation('callbackEx', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_CallbackException,))
-CallbackReceiver._op_concurrentCallback = IcePy.Operation('concurrentCallback', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), ())
-CallbackReceiver._op_waitCallback = IcePy.Operation('waitCallback', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-CallbackReceiver._op_callbackWithPayload = IcePy.Operation('callbackWithPayload', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_ByteSeq, False, 0),), (), None, ())
+    _M_Test._t_CallbackReceiverDisp = IcePy.defineClass('::Test::CallbackReceiver', CallbackReceiver, (), None, ())
+    CallbackReceiver._ice_type = _M_Test._t_CallbackReceiverDisp
 
-_M_Test.CallbackReceiver = CallbackReceiver
-del CallbackReceiver
+    CallbackReceiver._op_callback = IcePy.Operation('callback', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    CallbackReceiver._op_callbackEx = IcePy.Operation('callbackEx', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_CallbackException,))
+    CallbackReceiver._op_concurrentCallback = IcePy.Operation('concurrentCallback', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), ())
+    CallbackReceiver._op_waitCallback = IcePy.Operation('waitCallback', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    CallbackReceiver._op_callbackWithPayload = IcePy.Operation('callbackWithPayload', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_ByteSeq, False, 0),), (), None, ())
+
+    _M_Test.CallbackReceiver = CallbackReceiver
+    del CallbackReceiver
 
 _M_Test._t_Callback = IcePy.defineValue('::Test::Callback', Ice.Value, -1, (), True, None, ())
-_M_Test.CallbackPrx = None
-class CallbackPrx(Ice.ObjectPrx):
 
-    def initiateCallback(self, proxy, context=None):
-        return _M_Test.Callback._op_initiateCallback.invoke(self, ((proxy, ), context))
+if 'CallbackPrx' not in _M_Test.__dict__:
+    _M_Test.CallbackPrx = None
+    class CallbackPrx(Ice.ObjectPrx):
 
-    def initiateCallbackAsync(self, proxy, context=None):
-        return _M_Test.Callback._op_initiateCallback.invokeAsync(self, ((proxy, ), context))
+        def initiateCallback(self, proxy, context=None):
+            return _M_Test.Callback._op_initiateCallback.invoke(self, ((proxy, ), context))
 
-    def initiateCallbackEx(self, proxy, context=None):
-        return _M_Test.Callback._op_initiateCallbackEx.invoke(self, ((proxy, ), context))
+        def initiateCallbackAsync(self, proxy, context=None):
+            return _M_Test.Callback._op_initiateCallback.invokeAsync(self, ((proxy, ), context))
 
-    def initiateCallbackExAsync(self, proxy, context=None):
-        return _M_Test.Callback._op_initiateCallbackEx.invokeAsync(self, ((proxy, ), context))
+        def initiateCallbackEx(self, proxy, context=None):
+            return _M_Test.Callback._op_initiateCallbackEx.invoke(self, ((proxy, ), context))
 
-    def initiateConcurrentCallback(self, number, proxy, context=None):
-        return _M_Test.Callback._op_initiateConcurrentCallback.invoke(self, ((number, proxy), context))
+        def initiateCallbackExAsync(self, proxy, context=None):
+            return _M_Test.Callback._op_initiateCallbackEx.invokeAsync(self, ((proxy, ), context))
 
-    def initiateConcurrentCallbackAsync(self, number, proxy, context=None):
-        return _M_Test.Callback._op_initiateConcurrentCallback.invokeAsync(self, ((number, proxy), context))
+        def initiateConcurrentCallback(self, number, proxy, context=None):
+            return _M_Test.Callback._op_initiateConcurrentCallback.invoke(self, ((number, proxy), context))
 
-    def initiateWaitCallback(self, proxy, context=None):
-        return _M_Test.Callback._op_initiateWaitCallback.invoke(self, ((proxy, ), context))
+        def initiateConcurrentCallbackAsync(self, number, proxy, context=None):
+            return _M_Test.Callback._op_initiateConcurrentCallback.invokeAsync(self, ((number, proxy), context))
 
-    def initiateWaitCallbackAsync(self, proxy, context=None):
-        return _M_Test.Callback._op_initiateWaitCallback.invokeAsync(self, ((proxy, ), context))
+        def initiateWaitCallback(self, proxy, context=None):
+            return _M_Test.Callback._op_initiateWaitCallback.invoke(self, ((proxy, ), context))
 
-    def initiateCallbackWithPayload(self, proxy, context=None):
-        return _M_Test.Callback._op_initiateCallbackWithPayload.invoke(self, ((proxy, ), context))
+        def initiateWaitCallbackAsync(self, proxy, context=None):
+            return _M_Test.Callback._op_initiateWaitCallback.invokeAsync(self, ((proxy, ), context))
 
-    def initiateCallbackWithPayloadAsync(self, proxy, context=None):
-        return _M_Test.Callback._op_initiateCallbackWithPayload.invokeAsync(self, ((proxy, ), context))
+        def initiateCallbackWithPayload(self, proxy, context=None):
+            return _M_Test.Callback._op_initiateCallbackWithPayload.invoke(self, ((proxy, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.Callback._op_shutdown.invoke(self, ((), context))
+        def initiateCallbackWithPayloadAsync(self, proxy, context=None):
+            return _M_Test.Callback._op_initiateCallbackWithPayload.invokeAsync(self, ((proxy, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.Callback._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.Callback._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.CallbackPrx.ice_checkedCast(proxy, '::Test::Callback', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.Callback._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.CallbackPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.CallbackPrx.ice_checkedCast(proxy, '::Test::Callback', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Callback'
-_M_Test._t_CallbackPrx = IcePy.defineProxy('::Test::Callback', CallbackPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.CallbackPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.CallbackPrx = CallbackPrx
-del CallbackPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Callback'
+    _M_Test._t_CallbackPrx = IcePy.defineProxy('::Test::Callback', CallbackPrx)
 
-_M_Test.Callback = None
-class Callback(Ice.Object):
+    _M_Test.CallbackPrx = CallbackPrx
+    del CallbackPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Callback')
+    _M_Test.Callback = None
+    class Callback(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Callback'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Callback')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Callback'
+        def ice_id(self, current=None):
+            return '::Test::Callback'
 
-    def initiateCallback(self, proxy, current=None):
-        raise NotImplementedError("servant method 'initiateCallback' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Callback'
 
-    def initiateCallbackEx(self, proxy, current=None):
-        raise NotImplementedError("servant method 'initiateCallbackEx' not implemented")
+        def initiateCallback(self, proxy, current=None):
+            raise NotImplementedError("servant method 'initiateCallback' not implemented")
 
-    def initiateConcurrentCallback(self, number, proxy, current=None):
-        raise NotImplementedError("servant method 'initiateConcurrentCallback' not implemented")
+        def initiateCallbackEx(self, proxy, current=None):
+            raise NotImplementedError("servant method 'initiateCallbackEx' not implemented")
 
-    def initiateWaitCallback(self, proxy, current=None):
-        raise NotImplementedError("servant method 'initiateWaitCallback' not implemented")
+        def initiateConcurrentCallback(self, number, proxy, current=None):
+            raise NotImplementedError("servant method 'initiateConcurrentCallback' not implemented")
 
-    def initiateCallbackWithPayload(self, proxy, current=None):
-        raise NotImplementedError("servant method 'initiateCallbackWithPayload' not implemented")
+        def initiateWaitCallback(self, proxy, current=None):
+            raise NotImplementedError("servant method 'initiateWaitCallback' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def initiateCallbackWithPayload(self, proxy, current=None):
+            raise NotImplementedError("servant method 'initiateCallbackWithPayload' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_CallbackDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_CallbackDisp)
 
-_M_Test._t_CallbackDisp = IcePy.defineClass('::Test::Callback', Callback, (), None, ())
-Callback._ice_type = _M_Test._t_CallbackDisp
+        __repr__ = __str__
 
-Callback._op_initiateCallback = IcePy.Operation('initiateCallback', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, ())
-Callback._op_initiateCallbackEx = IcePy.Operation('initiateCallbackEx', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, (_M_Test._t_CallbackException,))
-Callback._op_initiateConcurrentCallback = IcePy.Operation('initiateConcurrentCallback', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), _M_Test._t_CallbackReceiverPrx, False, 0)), (), ((), IcePy._t_int, False, 0), ())
-Callback._op_initiateWaitCallback = IcePy.Operation('initiateWaitCallback', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, ())
-Callback._op_initiateCallbackWithPayload = IcePy.Operation('initiateCallbackWithPayload', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, ())
-Callback._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_CallbackDisp = IcePy.defineClass('::Test::Callback', Callback, (), None, ())
+    Callback._ice_type = _M_Test._t_CallbackDisp
 
-_M_Test.Callback = Callback
-del Callback
+    Callback._op_initiateCallback = IcePy.Operation('initiateCallback', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, ())
+    Callback._op_initiateCallbackEx = IcePy.Operation('initiateCallbackEx', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, (_M_Test._t_CallbackException,))
+    Callback._op_initiateConcurrentCallback = IcePy.Operation('initiateConcurrentCallback', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), _M_Test._t_CallbackReceiverPrx, False, 0)), (), ((), IcePy._t_int, False, 0), ())
+    Callback._op_initiateWaitCallback = IcePy.Operation('initiateWaitCallback', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, ())
+    Callback._op_initiateCallbackWithPayload = IcePy.Operation('initiateCallbackWithPayload', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, ())
+    Callback._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.Callback = Callback
+    del Callback
 
 # End of module Test

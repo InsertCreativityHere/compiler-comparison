@@ -30,343 +30,353 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_Backend = IcePy.defineValue('::Test::Backend', Ice.Value, -1, (), True, None, ())
-_M_Test.BackendPrx = None
-class BackendPrx(Ice.ObjectPrx):
 
-    def check(self, context=None):
-        return _M_Test.Backend._op_check.invoke(self, ((), context))
+if 'BackendPrx' not in _M_Test.__dict__:
+    _M_Test.BackendPrx = None
+    class BackendPrx(Ice.ObjectPrx):
 
-    def checkAsync(self, context=None):
-        return _M_Test.Backend._op_check.invokeAsync(self, ((), context))
+        def check(self, context=None):
+            return _M_Test.Backend._op_check.invoke(self, ((), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.Backend._op_shutdown.invoke(self, ((), context))
+        def checkAsync(self, context=None):
+            return _M_Test.Backend._op_check.invokeAsync(self, ((), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.Backend._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.Backend._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.BackendPrx.ice_checkedCast(proxy, '::Test::Backend', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.Backend._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.BackendPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.BackendPrx.ice_checkedCast(proxy, '::Test::Backend', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Backend'
-_M_Test._t_BackendPrx = IcePy.defineProxy('::Test::Backend', BackendPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.BackendPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.BackendPrx = BackendPrx
-del BackendPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Backend'
+    _M_Test._t_BackendPrx = IcePy.defineProxy('::Test::Backend', BackendPrx)
 
-_M_Test.Backend = None
-class Backend(Ice.Object):
+    _M_Test.BackendPrx = BackendPrx
+    del BackendPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Backend')
+    _M_Test.Backend = None
+    class Backend(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Backend'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Backend')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Backend'
+        def ice_id(self, current=None):
+            return '::Test::Backend'
 
-    def check(self, current=None):
-        raise NotImplementedError("servant method 'check' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Backend'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def check(self, current=None):
+            raise NotImplementedError("servant method 'check' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_BackendDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_BackendDisp)
 
-_M_Test._t_BackendDisp = IcePy.defineClass('::Test::Backend', Backend, (), None, ())
-Backend._ice_type = _M_Test._t_BackendDisp
+        __repr__ = __str__
 
-Backend._op_check = IcePy.Operation('check', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Backend._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_BackendDisp = IcePy.defineClass('::Test::Backend', Backend, (), None, ())
+    Backend._ice_type = _M_Test._t_BackendDisp
 
-_M_Test.Backend = Backend
-del Backend
-_M_Test.StateCode = None
-class StateCode(Ice.EnumBase):
+    Backend._op_check = IcePy.Operation('check', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Backend._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
+    _M_Test.Backend = Backend
+    del Backend
 
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
+if 'StateCode' not in _M_Test.__dict__:
+    _M_Test.StateCode = None
+    class StateCode(Ice.EnumBase):
 
-StateCode.Initial = StateCode("Initial", 0)
-StateCode.Running = StateCode("Running", 1)
-StateCode.Finished = StateCode("Finished", 2)
-StateCode._enumerators = { 0:StateCode.Initial, 1:StateCode.Running, 2:StateCode.Finished }
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
 
-_M_Test._t_StateCode = IcePy.defineEnum('::Test::StateCode', StateCode, (), StateCode._enumerators)
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
 
-_M_Test.StateCode = StateCode
-del StateCode
-_M_Test.TestToken = None
-class TestToken(object):
-    def __init__(self, expectedResult=False, description='', code=_M_Test.StateCode.Initial, config=0, caseIndex=0, testReference=''):
-        self.expectedResult = expectedResult
-        self.description = description
-        self.code = code
-        self.config = config
-        self.caseIndex = caseIndex
-        self.testReference = testReference
+    StateCode.Initial = StateCode("Initial", 0)
+    StateCode.Running = StateCode("Running", 1)
+    StateCode.Finished = StateCode("Finished", 2)
+    StateCode._enumerators = { 0:StateCode.Initial, 1:StateCode.Running, 2:StateCode.Finished }
 
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.expectedResult)
-        _h = 5 * _h + _builtins.hash(self.description)
-        _h = 5 * _h + _builtins.hash(self.code)
-        _h = 5 * _h + _builtins.hash(self.config)
-        _h = 5 * _h + _builtins.hash(self.caseIndex)
-        _h = 5 * _h + _builtins.hash(self.testReference)
-        return _h % 0x7fffffff
+    _M_Test._t_StateCode = IcePy.defineEnum('::Test::StateCode', StateCode, (), StateCode._enumerators)
 
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.TestToken):
-            return NotImplemented
-        else:
-            if self.expectedResult is None or other.expectedResult is None:
-                if self.expectedResult != other.expectedResult:
-                    return (-1 if self.expectedResult is None else 1)
+    _M_Test.StateCode = StateCode
+    del StateCode
+
+if 'TestToken' not in _M_Test.__dict__:
+    _M_Test.TestToken = None
+    class TestToken(object):
+        def __init__(self, expectedResult=False, description='', code=_M_Test.StateCode.Initial, config=0, caseIndex=0, testReference=''):
+            self.expectedResult = expectedResult
+            self.description = description
+            self.code = code
+            self.config = config
+            self.caseIndex = caseIndex
+            self.testReference = testReference
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.expectedResult)
+            _h = 5 * _h + _builtins.hash(self.description)
+            _h = 5 * _h + _builtins.hash(self.code)
+            _h = 5 * _h + _builtins.hash(self.config)
+            _h = 5 * _h + _builtins.hash(self.caseIndex)
+            _h = 5 * _h + _builtins.hash(self.testReference)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.TestToken):
+                return NotImplemented
             else:
-                if self.expectedResult < other.expectedResult:
-                    return -1
-                elif self.expectedResult > other.expectedResult:
-                    return 1
-            if self.description is None or other.description is None:
-                if self.description != other.description:
-                    return (-1 if self.description is None else 1)
+                if self.expectedResult is None or other.expectedResult is None:
+                    if self.expectedResult != other.expectedResult:
+                        return (-1 if self.expectedResult is None else 1)
+                else:
+                    if self.expectedResult < other.expectedResult:
+                        return -1
+                    elif self.expectedResult > other.expectedResult:
+                        return 1
+                if self.description is None or other.description is None:
+                    if self.description != other.description:
+                        return (-1 if self.description is None else 1)
+                else:
+                    if self.description < other.description:
+                        return -1
+                    elif self.description > other.description:
+                        return 1
+                if self.code is None or other.code is None:
+                    if self.code != other.code:
+                        return (-1 if self.code is None else 1)
+                else:
+                    if self.code < other.code:
+                        return -1
+                    elif self.code > other.code:
+                        return 1
+                if self.config is None or other.config is None:
+                    if self.config != other.config:
+                        return (-1 if self.config is None else 1)
+                else:
+                    if self.config < other.config:
+                        return -1
+                    elif self.config > other.config:
+                        return 1
+                if self.caseIndex is None or other.caseIndex is None:
+                    if self.caseIndex != other.caseIndex:
+                        return (-1 if self.caseIndex is None else 1)
+                else:
+                    if self.caseIndex < other.caseIndex:
+                        return -1
+                    elif self.caseIndex > other.caseIndex:
+                        return 1
+                if self.testReference is None or other.testReference is None:
+                    if self.testReference != other.testReference:
+                        return (-1 if self.testReference is None else 1)
+                else:
+                    if self.testReference < other.testReference:
+                        return -1
+                    elif self.testReference > other.testReference:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.description < other.description:
-                    return -1
-                elif self.description > other.description:
-                    return 1
-            if self.code is None or other.code is None:
-                if self.code != other.code:
-                    return (-1 if self.code is None else 1)
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.code < other.code:
-                    return -1
-                elif self.code > other.code:
-                    return 1
-            if self.config is None or other.config is None:
-                if self.config != other.config:
-                    return (-1 if self.config is None else 1)
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.config < other.config:
-                    return -1
-                elif self.config > other.config:
-                    return 1
-            if self.caseIndex is None or other.caseIndex is None:
-                if self.caseIndex != other.caseIndex:
-                    return (-1 if self.caseIndex is None else 1)
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.caseIndex < other.caseIndex:
-                    return -1
-                elif self.caseIndex > other.caseIndex:
-                    return 1
-            if self.testReference is None or other.testReference is None:
-                if self.testReference != other.testReference:
-                    return (-1 if self.testReference is None else 1)
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
             else:
-                if self.testReference < other.testReference:
-                    return -1
-                elif self.testReference > other.testReference:
-                    return 1
-            return 0
+                return r == 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestToken)
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        __repr__ = __str__
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+    _M_Test._t_TestToken = IcePy.defineStruct('::Test::TestToken', TestToken, (), (
+        ('expectedResult', (), IcePy._t_bool),
+        ('description', (), IcePy._t_string),
+        ('code', (), _M_Test._t_StateCode),
+        ('config', (), IcePy._t_short),
+        ('caseIndex', (), IcePy._t_short),
+        ('testReference', (), IcePy._t_string)
+    ))
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
-
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestToken)
-
-    __repr__ = __str__
-
-_M_Test._t_TestToken = IcePy.defineStruct('::Test::TestToken', TestToken, (), (
-    ('expectedResult', (), IcePy._t_bool),
-    ('description', (), IcePy._t_string),
-    ('code', (), _M_Test._t_StateCode),
-    ('config', (), IcePy._t_short),
-    ('caseIndex', (), IcePy._t_short),
-    ('testReference', (), IcePy._t_string)
-))
-
-_M_Test.TestToken = TestToken
-del TestToken
+    _M_Test.TestToken = TestToken
+    del TestToken
 
 _M_Test._t_TestController = IcePy.defineValue('::Test::TestController', Ice.Value, -1, (), True, None, ())
-_M_Test.TestControllerPrx = None
-class TestControllerPrx(Ice.ObjectPrx):
 
-    def step(self, currentSession, currentState, context=None):
-        return _M_Test.TestController._op_step.invoke(self, ((currentSession, currentState), context))
+if 'TestControllerPrx' not in _M_Test.__dict__:
+    _M_Test.TestControllerPrx = None
+    class TestControllerPrx(Ice.ObjectPrx):
 
-    def stepAsync(self, currentSession, currentState, context=None):
-        return _M_Test.TestController._op_step.invokeAsync(self, ((currentSession, currentState), context))
+        def step(self, currentSession, currentState, context=None):
+            return _M_Test.TestController._op_step.invoke(self, ((currentSession, currentState), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.TestController._op_shutdown.invoke(self, ((), context))
+        def stepAsync(self, currentSession, currentState, context=None):
+            return _M_Test.TestController._op_step.invokeAsync(self, ((currentSession, currentState), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.TestController._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.TestController._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestControllerPrx.ice_checkedCast(proxy, '::Test::TestController', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.TestController._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestControllerPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestControllerPrx.ice_checkedCast(proxy, '::Test::TestController', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestController'
-_M_Test._t_TestControllerPrx = IcePy.defineProxy('::Test::TestController', TestControllerPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestControllerPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestControllerPrx = TestControllerPrx
-del TestControllerPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestController'
+    _M_Test._t_TestControllerPrx = IcePy.defineProxy('::Test::TestController', TestControllerPrx)
 
-_M_Test.TestController = None
-class TestController(Ice.Object):
+    _M_Test.TestControllerPrx = TestControllerPrx
+    del TestControllerPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::TestController')
+    _M_Test.TestController = None
+    class TestController(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::TestController'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::TestController')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestController'
+        def ice_id(self, current=None):
+            return '::Test::TestController'
 
-    def step(self, currentSession, currentState, current=None):
-        raise NotImplementedError("servant method 'step' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestController'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def step(self, currentSession, currentState, current=None):
+            raise NotImplementedError("servant method 'step' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestControllerDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestControllerDisp)
 
-_M_Test._t_TestControllerDisp = IcePy.defineClass('::Test::TestController', TestController, (), None, ())
-TestController._ice_type = _M_Test._t_TestControllerDisp
+        __repr__ = __str__
 
-TestController._op_step = IcePy.Operation('step', Ice.OperationMode.Normal, False, None, (), (((), _M_Glacier2._t_SessionPrx, False, 0), ((), _M_Test._t_TestToken, False, 0)), (((), _M_Test._t_TestToken, False, 0),), None, ())
-TestController._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_TestControllerDisp = IcePy.defineClass('::Test::TestController', TestController, (), None, ())
+    TestController._ice_type = _M_Test._t_TestControllerDisp
 
-_M_Test.TestController = TestController
-del TestController
+    TestController._op_step = IcePy.Operation('step', Ice.OperationMode.Normal, False, None, (), (((), _M_Glacier2._t_SessionPrx, False, 0), ((), _M_Test._t_TestToken, False, 0)), (((), _M_Test._t_TestToken, False, 0),), None, ())
+    TestController._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.TestController = TestController
+    del TestController
 
 _M_Test._t_TestSession = IcePy.defineValue('::Test::TestSession', Ice.Value, -1, (), True, None, ())
-_M_Test.TestSessionPrx = None
-class TestSessionPrx(_M_Glacier2.SessionPrx):
 
-    def shutdown(self, context=None):
-        return _M_Test.TestSession._op_shutdown.invoke(self, ((), context))
+if 'TestSessionPrx' not in _M_Test.__dict__:
+    _M_Test.TestSessionPrx = None
+    class TestSessionPrx(_M_Glacier2.SessionPrx):
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.TestSession._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.TestSession._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestSessionPrx.ice_checkedCast(proxy, '::Test::TestSession', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.TestSession._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestSessionPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestSessionPrx.ice_checkedCast(proxy, '::Test::TestSession', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestSession'
-_M_Test._t_TestSessionPrx = IcePy.defineProxy('::Test::TestSession', TestSessionPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestSessionPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestSessionPrx = TestSessionPrx
-del TestSessionPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestSession'
+    _M_Test._t_TestSessionPrx = IcePy.defineProxy('::Test::TestSession', TestSessionPrx)
 
-_M_Test.TestSession = None
-class TestSession(_M_Glacier2.Session):
+    _M_Test.TestSessionPrx = TestSessionPrx
+    del TestSessionPrx
 
-    def ice_ids(self, current=None):
-        return ('::Glacier2::Session', '::Ice::Object', '::Test::TestSession')
+    _M_Test.TestSession = None
+    class TestSession(_M_Glacier2.Session):
 
-    def ice_id(self, current=None):
-        return '::Test::TestSession'
+        def ice_ids(self, current=None):
+            return ('::Glacier2::Session', '::Ice::Object', '::Test::TestSession')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestSession'
+        def ice_id(self, current=None):
+            return '::Test::TestSession'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestSession'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestSessionDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestSessionDisp)
 
-_M_Test._t_TestSessionDisp = IcePy.defineClass('::Test::TestSession', TestSession, (), None, (_M_Glacier2._t_SessionDisp,))
-TestSession._ice_type = _M_Test._t_TestSessionDisp
+        __repr__ = __str__
 
-TestSession._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_TestSessionDisp = IcePy.defineClass('::Test::TestSession', TestSession, (), None, (_M_Glacier2._t_SessionDisp,))
+    TestSession._ice_type = _M_Test._t_TestSessionDisp
 
-_M_Test.TestSession = TestSession
-del TestSession
+    TestSession._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.TestSession = TestSession
+    del TestSession
 
 # End of module Test

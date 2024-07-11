@@ -21,1080 +21,1178 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
-_M_Test.MyEnum = None
-class MyEnum(Ice.EnumBase):
 
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
+if 'MyEnum' not in _M_Test.__dict__:
+    _M_Test.MyEnum = None
+    class MyEnum(Ice.EnumBase):
 
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
 
-MyEnum.enum1 = MyEnum("enum1", 0)
-MyEnum.enum2 = MyEnum("enum2", 1)
-MyEnum.enum3 = MyEnum("enum3", 2)
-MyEnum._enumerators = { 0:MyEnum.enum1, 1:MyEnum.enum2, 2:MyEnum.enum3 }
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
 
-_M_Test._t_MyEnum = IcePy.defineEnum('::Test::MyEnum', MyEnum, (), MyEnum._enumerators)
+    MyEnum.enum1 = MyEnum("enum1", 0)
+    MyEnum.enum2 = MyEnum("enum2", 1)
+    MyEnum.enum3 = MyEnum("enum3", 2)
+    MyEnum._enumerators = { 0:MyEnum.enum1, 1:MyEnum.enum2, 2:MyEnum.enum3 }
 
-_M_Test.MyEnum = MyEnum
-del MyEnum
-_M_Test._t_MyClassDisp = IcePy.declareClass('::Test::MyClass')
-_M_Test._t_MyClassPrx = IcePy.declareProxy('::Test::MyClass')
-_M_Test.AnotherStruct = None
-class AnotherStruct(object):
-    def __init__(self, s=''):
-        self.s = s
+    _M_Test._t_MyEnum = IcePy.defineEnum('::Test::MyEnum', MyEnum, (), MyEnum._enumerators)
 
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.s)
-        return _h % 0x7fffffff
+    _M_Test.MyEnum = MyEnum
+    del MyEnum
 
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.AnotherStruct):
-            return NotImplemented
-        else:
-            if self.s is None or other.s is None:
-                if self.s != other.s:
-                    return (-1 if self.s is None else 1)
-            else:
-                if self.s < other.s:
-                    return -1
-                elif self.s > other.s:
-                    return 1
-            return 0
+if 'MyClass' not in _M_Test.__dict__:
+    _M_Test._t_MyClassDisp = IcePy.declareClass('::Test::MyClass')
+    _M_Test._t_MyClassPrx = IcePy.declareProxy('::Test::MyClass')
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
-
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
-
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
-
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
-
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
-
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
-
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_AnotherStruct)
-
-    __repr__ = __str__
-
-_M_Test._t_AnotherStruct = IcePy.defineStruct('::Test::AnotherStruct', AnotherStruct, (), (('s', (), IcePy._t_string),))
-
-_M_Test.AnotherStruct = AnotherStruct
-del AnotherStruct
-_M_Test.Structure = None
-class Structure(object):
-    def __init__(self, p=None, e=_M_Test.MyEnum.enum1, s=None):
-        self.p = p
-        self.e = e
-        if s is None:
-            self.s = _M_Test.AnotherStruct()
-        else:
+if 'AnotherStruct' not in _M_Test.__dict__:
+    _M_Test.AnotherStruct = None
+    class AnotherStruct(object):
+        def __init__(self, s=''):
             self.s = s
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_Test.Structure):
-            return NotImplemented
-        else:
-            if self.p != other.p:
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.s)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.AnotherStruct):
+                return NotImplemented
+            else:
+                if self.s is None or other.s is None:
+                    if self.s != other.s:
+                        return (-1 if self.s is None else 1)
+                else:
+                    if self.s < other.s:
+                        return -1
+                    elif self.s > other.s:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_AnotherStruct)
+
+        __repr__ = __str__
+
+    _M_Test._t_AnotherStruct = IcePy.defineStruct('::Test::AnotherStruct', AnotherStruct, (), (('s', (), IcePy._t_string),))
+
+    _M_Test.AnotherStruct = AnotherStruct
+    del AnotherStruct
+
+if 'Structure' not in _M_Test.__dict__:
+    _M_Test.Structure = None
+    class Structure(object):
+        def __init__(self, p=None, e=_M_Test.MyEnum.enum1, s=None):
+            self.p = p
+            self.e = e
+            if s is None:
+                self.s = _M_Test.AnotherStruct()
+            else:
+                self.s = s
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.e != other.e:
-                return False
-            if self.s != other.s:
-                return False
-            return True
+            elif not isinstance(other, _M_Test.Structure):
+                return NotImplemented
+            else:
+                if self.p != other.p:
+                    return False
+                if self.e != other.e:
+                    return False
+                if self.s != other.s:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_Structure)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_Structure)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test._t_Structure = IcePy.defineStruct('::Test::Structure', Structure, (), (
-    ('p', (), _M_Test._t_MyClassPrx),
-    ('e', (), _M_Test._t_MyEnum),
-    ('s', (), _M_Test._t_AnotherStruct)
-))
+    _M_Test._t_Structure = IcePy.defineStruct('::Test::Structure', Structure, (), (
+        ('p', (), _M_Test._t_MyClassPrx),
+        ('e', (), _M_Test._t_MyEnum),
+        ('s', (), _M_Test._t_AnotherStruct)
+    ))
 
-_M_Test.Structure = Structure
-del Structure
-_M_Test._t_ByteS = IcePy.defineSequence('::Test::ByteS', (), IcePy._t_byte)
-_M_Test._t_BoolS = IcePy.defineSequence('::Test::BoolS', (), IcePy._t_bool)
-_M_Test._t_ShortS = IcePy.defineSequence('::Test::ShortS', (), IcePy._t_short)
-_M_Test._t_IntS = IcePy.defineSequence('::Test::IntS', (), IcePy._t_int)
-_M_Test._t_LongS = IcePy.defineSequence('::Test::LongS', (), IcePy._t_long)
-_M_Test._t_FloatS = IcePy.defineSequence('::Test::FloatS', (), IcePy._t_float)
-_M_Test._t_DoubleS = IcePy.defineSequence('::Test::DoubleS', (), IcePy._t_double)
-_M_Test._t_StringS = IcePy.defineSequence('::Test::StringS', (), IcePy._t_string)
-_M_Test._t_MyEnumS = IcePy.defineSequence('::Test::MyEnumS', (), _M_Test._t_MyEnum)
-_M_Test._t_MyClassS = IcePy.defineSequence('::Test::MyClassS', (), _M_Test._t_MyClassPrx)
-_M_Test._t_ByteSS = IcePy.defineSequence('::Test::ByteSS', (), _M_Test._t_ByteS)
-_M_Test._t_BoolSS = IcePy.defineSequence('::Test::BoolSS', (), _M_Test._t_BoolS)
-_M_Test._t_ShortSS = IcePy.defineSequence('::Test::ShortSS', (), _M_Test._t_ShortS)
-_M_Test._t_IntSS = IcePy.defineSequence('::Test::IntSS', (), _M_Test._t_IntS)
-_M_Test._t_LongSS = IcePy.defineSequence('::Test::LongSS', (), _M_Test._t_LongS)
-_M_Test._t_FloatSS = IcePy.defineSequence('::Test::FloatSS', (), _M_Test._t_FloatS)
-_M_Test._t_DoubleSS = IcePy.defineSequence('::Test::DoubleSS', (), _M_Test._t_DoubleS)
-_M_Test._t_StringSS = IcePy.defineSequence('::Test::StringSS', (), _M_Test._t_StringS)
-_M_Test._t_MyEnumSS = IcePy.defineSequence('::Test::MyEnumSS', (), _M_Test._t_MyEnumS)
-_M_Test._t_MyClassSS = IcePy.defineSequence('::Test::MyClassSS', (), _M_Test._t_MyClassS)
-_M_Test._t_ByteBoolD = IcePy.defineDictionary('::Test::ByteBoolD', (), IcePy._t_byte, IcePy._t_bool)
-_M_Test._t_ShortIntD = IcePy.defineDictionary('::Test::ShortIntD', (), IcePy._t_short, IcePy._t_int)
-_M_Test._t_LongFloatD = IcePy.defineDictionary('::Test::LongFloatD', (), IcePy._t_long, IcePy._t_float)
-_M_Test._t_StringStringD = IcePy.defineDictionary('::Test::StringStringD', (), IcePy._t_string, IcePy._t_string)
-_M_Test._t_StringMyEnumD = IcePy.defineDictionary('::Test::StringMyEnumD', (), IcePy._t_string, _M_Test._t_MyEnum)
-_M_Test._t_MyEnumStringD = IcePy.defineDictionary('::Test::MyEnumStringD', (), _M_Test._t_MyEnum, IcePy._t_string)
-_M_Test._t_ByteBoolDS = IcePy.defineSequence('::Test::ByteBoolDS', (), _M_Test._t_ByteBoolD)
-_M_Test._t_ShortIntDS = IcePy.defineSequence('::Test::ShortIntDS', (), _M_Test._t_ShortIntD)
-_M_Test._t_LongFloatDS = IcePy.defineSequence('::Test::LongFloatDS', (), _M_Test._t_LongFloatD)
-_M_Test._t_StringStringDS = IcePy.defineSequence('::Test::StringStringDS', (), _M_Test._t_StringStringD)
-_M_Test._t_StringMyEnumDS = IcePy.defineSequence('::Test::StringMyEnumDS', (), _M_Test._t_StringMyEnumD)
-_M_Test._t_MyEnumStringDS = IcePy.defineSequence('::Test::MyEnumStringDS', (), _M_Test._t_MyEnumStringD)
-_M_Test._t_ByteByteSD = IcePy.defineDictionary('::Test::ByteByteSD', (), IcePy._t_byte, _M_Test._t_ByteS)
-_M_Test._t_BoolBoolSD = IcePy.defineDictionary('::Test::BoolBoolSD', (), IcePy._t_bool, _M_Test._t_BoolS)
-_M_Test._t_ShortShortSD = IcePy.defineDictionary('::Test::ShortShortSD', (), IcePy._t_short, _M_Test._t_ShortS)
-_M_Test._t_IntIntSD = IcePy.defineDictionary('::Test::IntIntSD', (), IcePy._t_int, _M_Test._t_IntS)
-_M_Test._t_LongLongSD = IcePy.defineDictionary('::Test::LongLongSD', (), IcePy._t_long, _M_Test._t_LongS)
-_M_Test._t_StringFloatSD = IcePy.defineDictionary('::Test::StringFloatSD', (), IcePy._t_string, _M_Test._t_FloatS)
-_M_Test._t_StringDoubleSD = IcePy.defineDictionary('::Test::StringDoubleSD', (), IcePy._t_string, _M_Test._t_DoubleS)
-_M_Test._t_StringStringSD = IcePy.defineDictionary('::Test::StringStringSD', (), IcePy._t_string, _M_Test._t_StringS)
-_M_Test._t_MyEnumMyEnumSD = IcePy.defineDictionary('::Test::MyEnumMyEnumSD', (), _M_Test._t_MyEnum, _M_Test._t_MyEnumS)
+    _M_Test.Structure = Structure
+    del Structure
+
+if '_t_ByteS' not in _M_Test.__dict__:
+    _M_Test._t_ByteS = IcePy.defineSequence('::Test::ByteS', (), IcePy._t_byte)
+
+if '_t_BoolS' not in _M_Test.__dict__:
+    _M_Test._t_BoolS = IcePy.defineSequence('::Test::BoolS', (), IcePy._t_bool)
+
+if '_t_ShortS' not in _M_Test.__dict__:
+    _M_Test._t_ShortS = IcePy.defineSequence('::Test::ShortS', (), IcePy._t_short)
+
+if '_t_IntS' not in _M_Test.__dict__:
+    _M_Test._t_IntS = IcePy.defineSequence('::Test::IntS', (), IcePy._t_int)
+
+if '_t_LongS' not in _M_Test.__dict__:
+    _M_Test._t_LongS = IcePy.defineSequence('::Test::LongS', (), IcePy._t_long)
+
+if '_t_FloatS' not in _M_Test.__dict__:
+    _M_Test._t_FloatS = IcePy.defineSequence('::Test::FloatS', (), IcePy._t_float)
+
+if '_t_DoubleS' not in _M_Test.__dict__:
+    _M_Test._t_DoubleS = IcePy.defineSequence('::Test::DoubleS', (), IcePy._t_double)
+
+if '_t_StringS' not in _M_Test.__dict__:
+    _M_Test._t_StringS = IcePy.defineSequence('::Test::StringS', (), IcePy._t_string)
+
+if '_t_MyEnumS' not in _M_Test.__dict__:
+    _M_Test._t_MyEnumS = IcePy.defineSequence('::Test::MyEnumS', (), _M_Test._t_MyEnum)
+
+if '_t_MyClassS' not in _M_Test.__dict__:
+    _M_Test._t_MyClassS = IcePy.defineSequence('::Test::MyClassS', (), _M_Test._t_MyClassPrx)
+
+if '_t_ByteSS' not in _M_Test.__dict__:
+    _M_Test._t_ByteSS = IcePy.defineSequence('::Test::ByteSS', (), _M_Test._t_ByteS)
+
+if '_t_BoolSS' not in _M_Test.__dict__:
+    _M_Test._t_BoolSS = IcePy.defineSequence('::Test::BoolSS', (), _M_Test._t_BoolS)
+
+if '_t_ShortSS' not in _M_Test.__dict__:
+    _M_Test._t_ShortSS = IcePy.defineSequence('::Test::ShortSS', (), _M_Test._t_ShortS)
+
+if '_t_IntSS' not in _M_Test.__dict__:
+    _M_Test._t_IntSS = IcePy.defineSequence('::Test::IntSS', (), _M_Test._t_IntS)
+
+if '_t_LongSS' not in _M_Test.__dict__:
+    _M_Test._t_LongSS = IcePy.defineSequence('::Test::LongSS', (), _M_Test._t_LongS)
+
+if '_t_FloatSS' not in _M_Test.__dict__:
+    _M_Test._t_FloatSS = IcePy.defineSequence('::Test::FloatSS', (), _M_Test._t_FloatS)
+
+if '_t_DoubleSS' not in _M_Test.__dict__:
+    _M_Test._t_DoubleSS = IcePy.defineSequence('::Test::DoubleSS', (), _M_Test._t_DoubleS)
+
+if '_t_StringSS' not in _M_Test.__dict__:
+    _M_Test._t_StringSS = IcePy.defineSequence('::Test::StringSS', (), _M_Test._t_StringS)
+
+if '_t_MyEnumSS' not in _M_Test.__dict__:
+    _M_Test._t_MyEnumSS = IcePy.defineSequence('::Test::MyEnumSS', (), _M_Test._t_MyEnumS)
+
+if '_t_MyClassSS' not in _M_Test.__dict__:
+    _M_Test._t_MyClassSS = IcePy.defineSequence('::Test::MyClassSS', (), _M_Test._t_MyClassS)
+
+if '_t_ByteBoolD' not in _M_Test.__dict__:
+    _M_Test._t_ByteBoolD = IcePy.defineDictionary('::Test::ByteBoolD', (), IcePy._t_byte, IcePy._t_bool)
+
+if '_t_ShortIntD' not in _M_Test.__dict__:
+    _M_Test._t_ShortIntD = IcePy.defineDictionary('::Test::ShortIntD', (), IcePy._t_short, IcePy._t_int)
+
+if '_t_LongFloatD' not in _M_Test.__dict__:
+    _M_Test._t_LongFloatD = IcePy.defineDictionary('::Test::LongFloatD', (), IcePy._t_long, IcePy._t_float)
+
+if '_t_StringStringD' not in _M_Test.__dict__:
+    _M_Test._t_StringStringD = IcePy.defineDictionary('::Test::StringStringD', (), IcePy._t_string, IcePy._t_string)
+
+if '_t_StringMyEnumD' not in _M_Test.__dict__:
+    _M_Test._t_StringMyEnumD = IcePy.defineDictionary('::Test::StringMyEnumD', (), IcePy._t_string, _M_Test._t_MyEnum)
+
+if '_t_MyEnumStringD' not in _M_Test.__dict__:
+    _M_Test._t_MyEnumStringD = IcePy.defineDictionary('::Test::MyEnumStringD', (), _M_Test._t_MyEnum, IcePy._t_string)
+
+if '_t_ByteBoolDS' not in _M_Test.__dict__:
+    _M_Test._t_ByteBoolDS = IcePy.defineSequence('::Test::ByteBoolDS', (), _M_Test._t_ByteBoolD)
+
+if '_t_ShortIntDS' not in _M_Test.__dict__:
+    _M_Test._t_ShortIntDS = IcePy.defineSequence('::Test::ShortIntDS', (), _M_Test._t_ShortIntD)
+
+if '_t_LongFloatDS' not in _M_Test.__dict__:
+    _M_Test._t_LongFloatDS = IcePy.defineSequence('::Test::LongFloatDS', (), _M_Test._t_LongFloatD)
+
+if '_t_StringStringDS' not in _M_Test.__dict__:
+    _M_Test._t_StringStringDS = IcePy.defineSequence('::Test::StringStringDS', (), _M_Test._t_StringStringD)
+
+if '_t_StringMyEnumDS' not in _M_Test.__dict__:
+    _M_Test._t_StringMyEnumDS = IcePy.defineSequence('::Test::StringMyEnumDS', (), _M_Test._t_StringMyEnumD)
+
+if '_t_MyEnumStringDS' not in _M_Test.__dict__:
+    _M_Test._t_MyEnumStringDS = IcePy.defineSequence('::Test::MyEnumStringDS', (), _M_Test._t_MyEnumStringD)
+
+if '_t_ByteByteSD' not in _M_Test.__dict__:
+    _M_Test._t_ByteByteSD = IcePy.defineDictionary('::Test::ByteByteSD', (), IcePy._t_byte, _M_Test._t_ByteS)
+
+if '_t_BoolBoolSD' not in _M_Test.__dict__:
+    _M_Test._t_BoolBoolSD = IcePy.defineDictionary('::Test::BoolBoolSD', (), IcePy._t_bool, _M_Test._t_BoolS)
+
+if '_t_ShortShortSD' not in _M_Test.__dict__:
+    _M_Test._t_ShortShortSD = IcePy.defineDictionary('::Test::ShortShortSD', (), IcePy._t_short, _M_Test._t_ShortS)
+
+if '_t_IntIntSD' not in _M_Test.__dict__:
+    _M_Test._t_IntIntSD = IcePy.defineDictionary('::Test::IntIntSD', (), IcePy._t_int, _M_Test._t_IntS)
+
+if '_t_LongLongSD' not in _M_Test.__dict__:
+    _M_Test._t_LongLongSD = IcePy.defineDictionary('::Test::LongLongSD', (), IcePy._t_long, _M_Test._t_LongS)
+
+if '_t_StringFloatSD' not in _M_Test.__dict__:
+    _M_Test._t_StringFloatSD = IcePy.defineDictionary('::Test::StringFloatSD', (), IcePy._t_string, _M_Test._t_FloatS)
+
+if '_t_StringDoubleSD' not in _M_Test.__dict__:
+    _M_Test._t_StringDoubleSD = IcePy.defineDictionary('::Test::StringDoubleSD', (), IcePy._t_string, _M_Test._t_DoubleS)
+
+if '_t_StringStringSD' not in _M_Test.__dict__:
+    _M_Test._t_StringStringSD = IcePy.defineDictionary('::Test::StringStringSD', (), IcePy._t_string, _M_Test._t_StringS)
+
+if '_t_MyEnumMyEnumSD' not in _M_Test.__dict__:
+    _M_Test._t_MyEnumMyEnumSD = IcePy.defineDictionary('::Test::MyEnumMyEnumSD', (), _M_Test._t_MyEnum, _M_Test._t_MyEnumS)
 
 _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
-_M_Test.MyClassPrx = None
-class MyClassPrx(Ice.ObjectPrx):
 
-    def shutdown(self, context=None):
-        return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
+if 'MyClassPrx' not in _M_Test.__dict__:
+    _M_Test.MyClassPrx = None
+    class MyClassPrx(Ice.ObjectPrx):
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
 
-    def supportsCompress(self, context=None):
-        return _M_Test.MyClass._op_supportsCompress.invoke(self, ((), context))
+        def shutdownAsync(self, context=None):
+            return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
 
-    def supportsCompressAsync(self, context=None):
-        return _M_Test.MyClass._op_supportsCompress.invokeAsync(self, ((), context))
+        def supportsCompress(self, context=None):
+            return _M_Test.MyClass._op_supportsCompress.invoke(self, ((), context))
 
-    def opVoid(self, context=None):
-        return _M_Test.MyClass._op_opVoid.invoke(self, ((), context))
+        def supportsCompressAsync(self, context=None):
+            return _M_Test.MyClass._op_supportsCompress.invokeAsync(self, ((), context))
 
-    def opVoidAsync(self, context=None):
-        return _M_Test.MyClass._op_opVoid.invokeAsync(self, ((), context))
+        def opVoid(self, context=None):
+            return _M_Test.MyClass._op_opVoid.invoke(self, ((), context))
 
-    def opByte(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opByte.invoke(self, ((p1, p2), context))
+        def opVoidAsync(self, context=None):
+            return _M_Test.MyClass._op_opVoid.invokeAsync(self, ((), context))
 
-    def opByteAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opByte.invokeAsync(self, ((p1, p2), context))
+        def opByte(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opByte.invoke(self, ((p1, p2), context))
 
-    def opBool(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opBool.invoke(self, ((p1, p2), context))
+        def opByteAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opByte.invokeAsync(self, ((p1, p2), context))
 
-    def opBoolAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opBool.invokeAsync(self, ((p1, p2), context))
+        def opBool(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opBool.invoke(self, ((p1, p2), context))
 
-    def opShortIntLong(self, p1, p2, p3, context=None):
-        return _M_Test.MyClass._op_opShortIntLong.invoke(self, ((p1, p2, p3), context))
+        def opBoolAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opBool.invokeAsync(self, ((p1, p2), context))
 
-    def opShortIntLongAsync(self, p1, p2, p3, context=None):
-        return _M_Test.MyClass._op_opShortIntLong.invokeAsync(self, ((p1, p2, p3), context))
+        def opShortIntLong(self, p1, p2, p3, context=None):
+            return _M_Test.MyClass._op_opShortIntLong.invoke(self, ((p1, p2, p3), context))
 
-    def opFloatDouble(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opFloatDouble.invoke(self, ((p1, p2), context))
+        def opShortIntLongAsync(self, p1, p2, p3, context=None):
+            return _M_Test.MyClass._op_opShortIntLong.invokeAsync(self, ((p1, p2, p3), context))
 
-    def opFloatDoubleAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opFloatDouble.invokeAsync(self, ((p1, p2), context))
+        def opFloatDouble(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opFloatDouble.invoke(self, ((p1, p2), context))
 
-    def opString(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opString.invoke(self, ((p1, p2), context))
+        def opFloatDoubleAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opFloatDouble.invokeAsync(self, ((p1, p2), context))
 
-    def opStringAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opString.invokeAsync(self, ((p1, p2), context))
+        def opString(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opString.invoke(self, ((p1, p2), context))
 
-    def opMyEnum(self, p1, context=None):
-        return _M_Test.MyClass._op_opMyEnum.invoke(self, ((p1, ), context))
+        def opStringAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opString.invokeAsync(self, ((p1, p2), context))
 
-    def opMyEnumAsync(self, p1, context=None):
-        return _M_Test.MyClass._op_opMyEnum.invokeAsync(self, ((p1, ), context))
+        def opMyEnum(self, p1, context=None):
+            return _M_Test.MyClass._op_opMyEnum.invoke(self, ((p1, ), context))
 
-    def opMyClass(self, p1, context=None):
-        return _M_Test.MyClass._op_opMyClass.invoke(self, ((p1, ), context))
+        def opMyEnumAsync(self, p1, context=None):
+            return _M_Test.MyClass._op_opMyEnum.invokeAsync(self, ((p1, ), context))
 
-    def opMyClassAsync(self, p1, context=None):
-        return _M_Test.MyClass._op_opMyClass.invokeAsync(self, ((p1, ), context))
+        def opMyClass(self, p1, context=None):
+            return _M_Test.MyClass._op_opMyClass.invoke(self, ((p1, ), context))
 
-    def opStruct(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStruct.invoke(self, ((p1, p2), context))
+        def opMyClassAsync(self, p1, context=None):
+            return _M_Test.MyClass._op_opMyClass.invokeAsync(self, ((p1, ), context))
 
-    def opStructAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStruct.invokeAsync(self, ((p1, p2), context))
+        def opStruct(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStruct.invoke(self, ((p1, p2), context))
 
-    def opByteS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opByteS.invoke(self, ((p1, p2), context))
+        def opStructAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStruct.invokeAsync(self, ((p1, p2), context))
 
-    def opByteSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opByteS.invokeAsync(self, ((p1, p2), context))
+        def opByteS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opByteS.invoke(self, ((p1, p2), context))
 
-    def opBoolS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opBoolS.invoke(self, ((p1, p2), context))
+        def opByteSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opByteS.invokeAsync(self, ((p1, p2), context))
 
-    def opBoolSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opBoolS.invokeAsync(self, ((p1, p2), context))
+        def opBoolS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opBoolS.invoke(self, ((p1, p2), context))
 
-    def opShortIntLongS(self, p1, p2, p3, context=None):
-        return _M_Test.MyClass._op_opShortIntLongS.invoke(self, ((p1, p2, p3), context))
+        def opBoolSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opBoolS.invokeAsync(self, ((p1, p2), context))
 
-    def opShortIntLongSAsync(self, p1, p2, p3, context=None):
-        return _M_Test.MyClass._op_opShortIntLongS.invokeAsync(self, ((p1, p2, p3), context))
+        def opShortIntLongS(self, p1, p2, p3, context=None):
+            return _M_Test.MyClass._op_opShortIntLongS.invoke(self, ((p1, p2, p3), context))
 
-    def opFloatDoubleS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opFloatDoubleS.invoke(self, ((p1, p2), context))
+        def opShortIntLongSAsync(self, p1, p2, p3, context=None):
+            return _M_Test.MyClass._op_opShortIntLongS.invokeAsync(self, ((p1, p2, p3), context))
 
-    def opFloatDoubleSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opFloatDoubleS.invokeAsync(self, ((p1, p2), context))
+        def opFloatDoubleS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opFloatDoubleS.invoke(self, ((p1, p2), context))
 
-    def opStringS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringS.invoke(self, ((p1, p2), context))
+        def opFloatDoubleSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opFloatDoubleS.invokeAsync(self, ((p1, p2), context))
 
-    def opStringSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringS.invokeAsync(self, ((p1, p2), context))
+        def opStringS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringS.invoke(self, ((p1, p2), context))
 
-    def opByteSS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opByteSS.invoke(self, ((p1, p2), context))
+        def opStringSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringS.invokeAsync(self, ((p1, p2), context))
 
-    def opByteSSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opByteSS.invokeAsync(self, ((p1, p2), context))
+        def opByteSS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opByteSS.invoke(self, ((p1, p2), context))
 
-    def opBoolSS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opBoolSS.invoke(self, ((p1, p2), context))
+        def opByteSSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opByteSS.invokeAsync(self, ((p1, p2), context))
 
-    def opBoolSSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opBoolSS.invokeAsync(self, ((p1, p2), context))
+        def opBoolSS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opBoolSS.invoke(self, ((p1, p2), context))
 
-    def opShortIntLongSS(self, p1, p2, p3, context=None):
-        return _M_Test.MyClass._op_opShortIntLongSS.invoke(self, ((p1, p2, p3), context))
+        def opBoolSSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opBoolSS.invokeAsync(self, ((p1, p2), context))
 
-    def opShortIntLongSSAsync(self, p1, p2, p3, context=None):
-        return _M_Test.MyClass._op_opShortIntLongSS.invokeAsync(self, ((p1, p2, p3), context))
+        def opShortIntLongSS(self, p1, p2, p3, context=None):
+            return _M_Test.MyClass._op_opShortIntLongSS.invoke(self, ((p1, p2, p3), context))
 
-    def opFloatDoubleSS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opFloatDoubleSS.invoke(self, ((p1, p2), context))
+        def opShortIntLongSSAsync(self, p1, p2, p3, context=None):
+            return _M_Test.MyClass._op_opShortIntLongSS.invokeAsync(self, ((p1, p2, p3), context))
 
-    def opFloatDoubleSSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opFloatDoubleSS.invokeAsync(self, ((p1, p2), context))
+        def opFloatDoubleSS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opFloatDoubleSS.invoke(self, ((p1, p2), context))
 
-    def opStringSS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringSS.invoke(self, ((p1, p2), context))
+        def opFloatDoubleSSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opFloatDoubleSS.invokeAsync(self, ((p1, p2), context))
 
-    def opStringSSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringSS.invokeAsync(self, ((p1, p2), context))
+        def opStringSS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringSS.invoke(self, ((p1, p2), context))
 
-    def opByteBoolD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opByteBoolD.invoke(self, ((p1, p2), context))
+        def opStringSSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringSS.invokeAsync(self, ((p1, p2), context))
 
-    def opByteBoolDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opByteBoolD.invokeAsync(self, ((p1, p2), context))
+        def opByteBoolD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opByteBoolD.invoke(self, ((p1, p2), context))
 
-    def opShortIntD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opShortIntD.invoke(self, ((p1, p2), context))
+        def opByteBoolDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opByteBoolD.invokeAsync(self, ((p1, p2), context))
 
-    def opShortIntDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opShortIntD.invokeAsync(self, ((p1, p2), context))
+        def opShortIntD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opShortIntD.invoke(self, ((p1, p2), context))
 
-    def opLongFloatD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opLongFloatD.invoke(self, ((p1, p2), context))
+        def opShortIntDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opShortIntD.invokeAsync(self, ((p1, p2), context))
 
-    def opLongFloatDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opLongFloatD.invokeAsync(self, ((p1, p2), context))
+        def opLongFloatD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opLongFloatD.invoke(self, ((p1, p2), context))
 
-    def opStringStringD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringStringD.invoke(self, ((p1, p2), context))
+        def opLongFloatDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opLongFloatD.invokeAsync(self, ((p1, p2), context))
 
-    def opStringStringDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringStringD.invokeAsync(self, ((p1, p2), context))
+        def opStringStringD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringStringD.invoke(self, ((p1, p2), context))
 
-    def opStringMyEnumD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringMyEnumD.invoke(self, ((p1, p2), context))
+        def opStringStringDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringStringD.invokeAsync(self, ((p1, p2), context))
 
-    def opStringMyEnumDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringMyEnumD.invokeAsync(self, ((p1, p2), context))
+        def opStringMyEnumD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringMyEnumD.invoke(self, ((p1, p2), context))
 
-    def opMyEnumStringD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opMyEnumStringD.invoke(self, ((p1, p2), context))
+        def opStringMyEnumDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringMyEnumD.invokeAsync(self, ((p1, p2), context))
 
-    def opMyEnumStringDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opMyEnumStringD.invokeAsync(self, ((p1, p2), context))
+        def opMyEnumStringD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opMyEnumStringD.invoke(self, ((p1, p2), context))
 
-    def opByteBoolDS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opByteBoolDS.invoke(self, ((p1, p2), context))
+        def opMyEnumStringDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opMyEnumStringD.invokeAsync(self, ((p1, p2), context))
 
-    def opByteBoolDSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opByteBoolDS.invokeAsync(self, ((p1, p2), context))
+        def opByteBoolDS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opByteBoolDS.invoke(self, ((p1, p2), context))
 
-    def opShortIntDS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opShortIntDS.invoke(self, ((p1, p2), context))
+        def opByteBoolDSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opByteBoolDS.invokeAsync(self, ((p1, p2), context))
 
-    def opShortIntDSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opShortIntDS.invokeAsync(self, ((p1, p2), context))
+        def opShortIntDS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opShortIntDS.invoke(self, ((p1, p2), context))
 
-    def opLongFloatDS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opLongFloatDS.invoke(self, ((p1, p2), context))
+        def opShortIntDSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opShortIntDS.invokeAsync(self, ((p1, p2), context))
 
-    def opLongFloatDSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opLongFloatDS.invokeAsync(self, ((p1, p2), context))
+        def opLongFloatDS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opLongFloatDS.invoke(self, ((p1, p2), context))
 
-    def opStringStringDS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringStringDS.invoke(self, ((p1, p2), context))
+        def opLongFloatDSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opLongFloatDS.invokeAsync(self, ((p1, p2), context))
 
-    def opStringStringDSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringStringDS.invokeAsync(self, ((p1, p2), context))
+        def opStringStringDS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringStringDS.invoke(self, ((p1, p2), context))
 
-    def opStringMyEnumDS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringMyEnumDS.invoke(self, ((p1, p2), context))
+        def opStringStringDSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringStringDS.invokeAsync(self, ((p1, p2), context))
 
-    def opStringMyEnumDSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringMyEnumDS.invokeAsync(self, ((p1, p2), context))
+        def opStringMyEnumDS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringMyEnumDS.invoke(self, ((p1, p2), context))
 
-    def opMyEnumStringDS(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opMyEnumStringDS.invoke(self, ((p1, p2), context))
+        def opStringMyEnumDSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringMyEnumDS.invokeAsync(self, ((p1, p2), context))
 
-    def opMyEnumStringDSAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opMyEnumStringDS.invokeAsync(self, ((p1, p2), context))
+        def opMyEnumStringDS(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opMyEnumStringDS.invoke(self, ((p1, p2), context))
 
-    def opByteByteSD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opByteByteSD.invoke(self, ((p1, p2), context))
+        def opMyEnumStringDSAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opMyEnumStringDS.invokeAsync(self, ((p1, p2), context))
 
-    def opByteByteSDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opByteByteSD.invokeAsync(self, ((p1, p2), context))
+        def opByteByteSD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opByteByteSD.invoke(self, ((p1, p2), context))
 
-    def opBoolBoolSD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opBoolBoolSD.invoke(self, ((p1, p2), context))
+        def opByteByteSDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opByteByteSD.invokeAsync(self, ((p1, p2), context))
 
-    def opBoolBoolSDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opBoolBoolSD.invokeAsync(self, ((p1, p2), context))
+        def opBoolBoolSD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opBoolBoolSD.invoke(self, ((p1, p2), context))
 
-    def opShortShortSD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opShortShortSD.invoke(self, ((p1, p2), context))
+        def opBoolBoolSDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opBoolBoolSD.invokeAsync(self, ((p1, p2), context))
 
-    def opShortShortSDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opShortShortSD.invokeAsync(self, ((p1, p2), context))
+        def opShortShortSD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opShortShortSD.invoke(self, ((p1, p2), context))
 
-    def opIntIntSD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opIntIntSD.invoke(self, ((p1, p2), context))
+        def opShortShortSDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opShortShortSD.invokeAsync(self, ((p1, p2), context))
 
-    def opIntIntSDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opIntIntSD.invokeAsync(self, ((p1, p2), context))
+        def opIntIntSD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opIntIntSD.invoke(self, ((p1, p2), context))
 
-    def opLongLongSD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opLongLongSD.invoke(self, ((p1, p2), context))
+        def opIntIntSDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opIntIntSD.invokeAsync(self, ((p1, p2), context))
 
-    def opLongLongSDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opLongLongSD.invokeAsync(self, ((p1, p2), context))
+        def opLongLongSD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opLongLongSD.invoke(self, ((p1, p2), context))
 
-    def opStringFloatSD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringFloatSD.invoke(self, ((p1, p2), context))
+        def opLongLongSDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opLongLongSD.invokeAsync(self, ((p1, p2), context))
 
-    def opStringFloatSDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringFloatSD.invokeAsync(self, ((p1, p2), context))
+        def opStringFloatSD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringFloatSD.invoke(self, ((p1, p2), context))
 
-    def opStringDoubleSD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringDoubleSD.invoke(self, ((p1, p2), context))
+        def opStringFloatSDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringFloatSD.invokeAsync(self, ((p1, p2), context))
 
-    def opStringDoubleSDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringDoubleSD.invokeAsync(self, ((p1, p2), context))
+        def opStringDoubleSD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringDoubleSD.invoke(self, ((p1, p2), context))
 
-    def opStringStringSD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringStringSD.invoke(self, ((p1, p2), context))
+        def opStringDoubleSDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringDoubleSD.invokeAsync(self, ((p1, p2), context))
 
-    def opStringStringSDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opStringStringSD.invokeAsync(self, ((p1, p2), context))
+        def opStringStringSD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringStringSD.invoke(self, ((p1, p2), context))
 
-    def opMyEnumMyEnumSD(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opMyEnumMyEnumSD.invoke(self, ((p1, p2), context))
+        def opStringStringSDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opStringStringSD.invokeAsync(self, ((p1, p2), context))
 
-    def opMyEnumMyEnumSDAsync(self, p1, p2, context=None):
-        return _M_Test.MyClass._op_opMyEnumMyEnumSD.invokeAsync(self, ((p1, p2), context))
+        def opMyEnumMyEnumSD(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opMyEnumMyEnumSD.invoke(self, ((p1, p2), context))
 
-    def opIntS(self, s, context=None):
-        return _M_Test.MyClass._op_opIntS.invoke(self, ((s, ), context))
+        def opMyEnumMyEnumSDAsync(self, p1, p2, context=None):
+            return _M_Test.MyClass._op_opMyEnumMyEnumSD.invokeAsync(self, ((p1, p2), context))
 
-    def opIntSAsync(self, s, context=None):
-        return _M_Test.MyClass._op_opIntS.invokeAsync(self, ((s, ), context))
+        def opIntS(self, s, context=None):
+            return _M_Test.MyClass._op_opIntS.invoke(self, ((s, ), context))
 
-    def opContext(self, context=None):
-        return _M_Test.MyClass._op_opContext.invoke(self, ((), context))
+        def opIntSAsync(self, s, context=None):
+            return _M_Test.MyClass._op_opIntS.invokeAsync(self, ((s, ), context))
 
-    def opContextAsync(self, context=None):
-        return _M_Test.MyClass._op_opContext.invokeAsync(self, ((), context))
+        def opContext(self, context=None):
+            return _M_Test.MyClass._op_opContext.invoke(self, ((), context))
 
-    def opIdempotent(self, context=None):
-        return _M_Test.MyClass._op_opIdempotent.invoke(self, ((), context))
+        def opContextAsync(self, context=None):
+            return _M_Test.MyClass._op_opContext.invokeAsync(self, ((), context))
 
-    def opIdempotentAsync(self, context=None):
-        return _M_Test.MyClass._op_opIdempotent.invokeAsync(self, ((), context))
+        def opIdempotent(self, context=None):
+            return _M_Test.MyClass._op_opIdempotent.invoke(self, ((), context))
 
-    def opByte1(self, opByte1, context=None):
-        return _M_Test.MyClass._op_opByte1.invoke(self, ((opByte1, ), context))
+        def opIdempotentAsync(self, context=None):
+            return _M_Test.MyClass._op_opIdempotent.invokeAsync(self, ((), context))
 
-    def opByte1Async(self, opByte1, context=None):
-        return _M_Test.MyClass._op_opByte1.invokeAsync(self, ((opByte1, ), context))
+        def opByte1(self, opByte1, context=None):
+            return _M_Test.MyClass._op_opByte1.invoke(self, ((opByte1, ), context))
 
-    def opShort1(self, opShort1, context=None):
-        return _M_Test.MyClass._op_opShort1.invoke(self, ((opShort1, ), context))
+        def opByte1Async(self, opByte1, context=None):
+            return _M_Test.MyClass._op_opByte1.invokeAsync(self, ((opByte1, ), context))
 
-    def opShort1Async(self, opShort1, context=None):
-        return _M_Test.MyClass._op_opShort1.invokeAsync(self, ((opShort1, ), context))
+        def opShort1(self, opShort1, context=None):
+            return _M_Test.MyClass._op_opShort1.invoke(self, ((opShort1, ), context))
 
-    def opInt1(self, opInt1, context=None):
-        return _M_Test.MyClass._op_opInt1.invoke(self, ((opInt1, ), context))
+        def opShort1Async(self, opShort1, context=None):
+            return _M_Test.MyClass._op_opShort1.invokeAsync(self, ((opShort1, ), context))
 
-    def opInt1Async(self, opInt1, context=None):
-        return _M_Test.MyClass._op_opInt1.invokeAsync(self, ((opInt1, ), context))
+        def opInt1(self, opInt1, context=None):
+            return _M_Test.MyClass._op_opInt1.invoke(self, ((opInt1, ), context))
 
-    def opLong1(self, opLong1, context=None):
-        return _M_Test.MyClass._op_opLong1.invoke(self, ((opLong1, ), context))
+        def opInt1Async(self, opInt1, context=None):
+            return _M_Test.MyClass._op_opInt1.invokeAsync(self, ((opInt1, ), context))
 
-    def opLong1Async(self, opLong1, context=None):
-        return _M_Test.MyClass._op_opLong1.invokeAsync(self, ((opLong1, ), context))
+        def opLong1(self, opLong1, context=None):
+            return _M_Test.MyClass._op_opLong1.invoke(self, ((opLong1, ), context))
 
-    def opFloat1(self, opFloat1, context=None):
-        return _M_Test.MyClass._op_opFloat1.invoke(self, ((opFloat1, ), context))
+        def opLong1Async(self, opLong1, context=None):
+            return _M_Test.MyClass._op_opLong1.invokeAsync(self, ((opLong1, ), context))
 
-    def opFloat1Async(self, opFloat1, context=None):
-        return _M_Test.MyClass._op_opFloat1.invokeAsync(self, ((opFloat1, ), context))
+        def opFloat1(self, opFloat1, context=None):
+            return _M_Test.MyClass._op_opFloat1.invoke(self, ((opFloat1, ), context))
 
-    def opDouble1(self, opDouble1, context=None):
-        return _M_Test.MyClass._op_opDouble1.invoke(self, ((opDouble1, ), context))
+        def opFloat1Async(self, opFloat1, context=None):
+            return _M_Test.MyClass._op_opFloat1.invokeAsync(self, ((opFloat1, ), context))
 
-    def opDouble1Async(self, opDouble1, context=None):
-        return _M_Test.MyClass._op_opDouble1.invokeAsync(self, ((opDouble1, ), context))
+        def opDouble1(self, opDouble1, context=None):
+            return _M_Test.MyClass._op_opDouble1.invoke(self, ((opDouble1, ), context))
 
-    def opString1(self, opString1, context=None):
-        return _M_Test.MyClass._op_opString1.invoke(self, ((opString1, ), context))
+        def opDouble1Async(self, opDouble1, context=None):
+            return _M_Test.MyClass._op_opDouble1.invokeAsync(self, ((opDouble1, ), context))
 
-    def opString1Async(self, opString1, context=None):
-        return _M_Test.MyClass._op_opString1.invokeAsync(self, ((opString1, ), context))
+        def opString1(self, opString1, context=None):
+            return _M_Test.MyClass._op_opString1.invoke(self, ((opString1, ), context))
 
-    def opStringS1(self, opStringS1, context=None):
-        return _M_Test.MyClass._op_opStringS1.invoke(self, ((opStringS1, ), context))
+        def opString1Async(self, opString1, context=None):
+            return _M_Test.MyClass._op_opString1.invokeAsync(self, ((opString1, ), context))
 
-    def opStringS1Async(self, opStringS1, context=None):
-        return _M_Test.MyClass._op_opStringS1.invokeAsync(self, ((opStringS1, ), context))
+        def opStringS1(self, opStringS1, context=None):
+            return _M_Test.MyClass._op_opStringS1.invoke(self, ((opStringS1, ), context))
 
-    def opByteBoolD1(self, opByteBoolD1, context=None):
-        return _M_Test.MyClass._op_opByteBoolD1.invoke(self, ((opByteBoolD1, ), context))
+        def opStringS1Async(self, opStringS1, context=None):
+            return _M_Test.MyClass._op_opStringS1.invokeAsync(self, ((opStringS1, ), context))
 
-    def opByteBoolD1Async(self, opByteBoolD1, context=None):
-        return _M_Test.MyClass._op_opByteBoolD1.invokeAsync(self, ((opByteBoolD1, ), context))
+        def opByteBoolD1(self, opByteBoolD1, context=None):
+            return _M_Test.MyClass._op_opByteBoolD1.invoke(self, ((opByteBoolD1, ), context))
 
-    def opStringS2(self, stringS, context=None):
-        return _M_Test.MyClass._op_opStringS2.invoke(self, ((stringS, ), context))
+        def opByteBoolD1Async(self, opByteBoolD1, context=None):
+            return _M_Test.MyClass._op_opByteBoolD1.invokeAsync(self, ((opByteBoolD1, ), context))
 
-    def opStringS2Async(self, stringS, context=None):
-        return _M_Test.MyClass._op_opStringS2.invokeAsync(self, ((stringS, ), context))
+        def opStringS2(self, stringS, context=None):
+            return _M_Test.MyClass._op_opStringS2.invoke(self, ((stringS, ), context))
 
-    def opByteBoolD2(self, byteBoolD, context=None):
-        return _M_Test.MyClass._op_opByteBoolD2.invoke(self, ((byteBoolD, ), context))
+        def opStringS2Async(self, stringS, context=None):
+            return _M_Test.MyClass._op_opStringS2.invokeAsync(self, ((stringS, ), context))
 
-    def opByteBoolD2Async(self, byteBoolD, context=None):
-        return _M_Test.MyClass._op_opByteBoolD2.invokeAsync(self, ((byteBoolD, ), context))
+        def opByteBoolD2(self, byteBoolD, context=None):
+            return _M_Test.MyClass._op_opByteBoolD2.invoke(self, ((byteBoolD, ), context))
 
-    def opStringLiterals(self, context=None):
-        return _M_Test.MyClass._op_opStringLiterals.invoke(self, ((), context))
+        def opByteBoolD2Async(self, byteBoolD, context=None):
+            return _M_Test.MyClass._op_opByteBoolD2.invokeAsync(self, ((byteBoolD, ), context))
 
-    def opStringLiteralsAsync(self, context=None):
-        return _M_Test.MyClass._op_opStringLiterals.invokeAsync(self, ((), context))
+        def opStringLiterals(self, context=None):
+            return _M_Test.MyClass._op_opStringLiterals.invoke(self, ((), context))
 
-    def opMStruct1(self, context=None):
-        return _M_Test.MyClass._op_opMStruct1.invoke(self, ((), context))
+        def opStringLiteralsAsync(self, context=None):
+            return _M_Test.MyClass._op_opStringLiterals.invokeAsync(self, ((), context))
 
-    def opMStruct1Async(self, context=None):
-        return _M_Test.MyClass._op_opMStruct1.invokeAsync(self, ((), context))
+        def opMStruct1(self, context=None):
+            return _M_Test.MyClass._op_opMStruct1.invoke(self, ((), context))
 
-    def opMStruct2(self, p1, context=None):
-        return _M_Test.MyClass._op_opMStruct2.invoke(self, ((p1, ), context))
+        def opMStruct1Async(self, context=None):
+            return _M_Test.MyClass._op_opMStruct1.invokeAsync(self, ((), context))
 
-    def opMStruct2Async(self, p1, context=None):
-        return _M_Test.MyClass._op_opMStruct2.invokeAsync(self, ((p1, ), context))
+        def opMStruct2(self, p1, context=None):
+            return _M_Test.MyClass._op_opMStruct2.invoke(self, ((p1, ), context))
 
-    def opMSeq1(self, context=None):
-        return _M_Test.MyClass._op_opMSeq1.invoke(self, ((), context))
+        def opMStruct2Async(self, p1, context=None):
+            return _M_Test.MyClass._op_opMStruct2.invokeAsync(self, ((p1, ), context))
 
-    def opMSeq1Async(self, context=None):
-        return _M_Test.MyClass._op_opMSeq1.invokeAsync(self, ((), context))
+        def opMSeq1(self, context=None):
+            return _M_Test.MyClass._op_opMSeq1.invoke(self, ((), context))
 
-    def opMSeq2(self, p1, context=None):
-        return _M_Test.MyClass._op_opMSeq2.invoke(self, ((p1, ), context))
+        def opMSeq1Async(self, context=None):
+            return _M_Test.MyClass._op_opMSeq1.invokeAsync(self, ((), context))
 
-    def opMSeq2Async(self, p1, context=None):
-        return _M_Test.MyClass._op_opMSeq2.invokeAsync(self, ((p1, ), context))
+        def opMSeq2(self, p1, context=None):
+            return _M_Test.MyClass._op_opMSeq2.invoke(self, ((p1, ), context))
 
-    def opMDict1(self, context=None):
-        return _M_Test.MyClass._op_opMDict1.invoke(self, ((), context))
+        def opMSeq2Async(self, p1, context=None):
+            return _M_Test.MyClass._op_opMSeq2.invokeAsync(self, ((p1, ), context))
 
-    def opMDict1Async(self, context=None):
-        return _M_Test.MyClass._op_opMDict1.invokeAsync(self, ((), context))
+        def opMDict1(self, context=None):
+            return _M_Test.MyClass._op_opMDict1.invoke(self, ((), context))
 
-    def opMDict2(self, p1, context=None):
-        return _M_Test.MyClass._op_opMDict2.invoke(self, ((p1, ), context))
+        def opMDict1Async(self, context=None):
+            return _M_Test.MyClass._op_opMDict1.invokeAsync(self, ((), context))
 
-    def opMDict2Async(self, p1, context=None):
-        return _M_Test.MyClass._op_opMDict2.invokeAsync(self, ((p1, ), context))
+        def opMDict2(self, p1, context=None):
+            return _M_Test.MyClass._op_opMDict2.invoke(self, ((p1, ), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.MyClassPrx.ice_checkedCast(proxy, '::Test::MyClass', facetOrContext, context)
+        def opMDict2Async(self, p1, context=None):
+            return _M_Test.MyClass._op_opMDict2.invokeAsync(self, ((p1, ), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.MyClassPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.MyClassPrx.ice_checkedCast(proxy, '::Test::MyClass', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::MyClass'
-_M_Test._t_MyClassPrx = IcePy.defineProxy('::Test::MyClass', MyClassPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.MyClassPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.MyClassPrx = MyClassPrx
-del MyClassPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyClass'
+    _M_Test._t_MyClassPrx = IcePy.defineProxy('::Test::MyClass', MyClassPrx)
 
-_M_Test.MyClass = None
-class MyClass(Ice.Object):
+    _M_Test.MyClassPrx = MyClassPrx
+    del MyClassPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::MyClass')
+    _M_Test.MyClass = None
+    class MyClass(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::MyClass'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::MyClass')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::MyClass'
+        def ice_id(self, current=None):
+            return '::Test::MyClass'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyClass'
 
-    def supportsCompress(self, current=None):
-        raise NotImplementedError("servant method 'supportsCompress' not implemented")
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    def opVoid(self, current=None):
-        raise NotImplementedError("servant method 'opVoid' not implemented")
+        def supportsCompress(self, current=None):
+            raise NotImplementedError("servant method 'supportsCompress' not implemented")
 
-    def opByte(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opByte' not implemented")
+        def opVoid(self, current=None):
+            raise NotImplementedError("servant method 'opVoid' not implemented")
 
-    def opBool(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opBool' not implemented")
+        def opByte(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opByte' not implemented")
 
-    def opShortIntLong(self, p1, p2, p3, current=None):
-        raise NotImplementedError("servant method 'opShortIntLong' not implemented")
+        def opBool(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opBool' not implemented")
 
-    def opFloatDouble(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opFloatDouble' not implemented")
+        def opShortIntLong(self, p1, p2, p3, current=None):
+            raise NotImplementedError("servant method 'opShortIntLong' not implemented")
 
-    def opString(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opString' not implemented")
+        def opFloatDouble(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opFloatDouble' not implemented")
 
-    def opMyEnum(self, p1, current=None):
-        raise NotImplementedError("servant method 'opMyEnum' not implemented")
+        def opString(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opString' not implemented")
 
-    def opMyClass(self, p1, current=None):
-        raise NotImplementedError("servant method 'opMyClass' not implemented")
+        def opMyEnum(self, p1, current=None):
+            raise NotImplementedError("servant method 'opMyEnum' not implemented")
 
-    def opStruct(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opStruct' not implemented")
+        def opMyClass(self, p1, current=None):
+            raise NotImplementedError("servant method 'opMyClass' not implemented")
 
-    def opByteS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opByteS' not implemented")
+        def opStruct(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opStruct' not implemented")
 
-    def opBoolS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opBoolS' not implemented")
+        def opByteS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opByteS' not implemented")
 
-    def opShortIntLongS(self, p1, p2, p3, current=None):
-        raise NotImplementedError("servant method 'opShortIntLongS' not implemented")
+        def opBoolS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opBoolS' not implemented")
 
-    def opFloatDoubleS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opFloatDoubleS' not implemented")
+        def opShortIntLongS(self, p1, p2, p3, current=None):
+            raise NotImplementedError("servant method 'opShortIntLongS' not implemented")
 
-    def opStringS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opStringS' not implemented")
+        def opFloatDoubleS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opFloatDoubleS' not implemented")
 
-    def opByteSS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opByteSS' not implemented")
+        def opStringS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opStringS' not implemented")
 
-    def opBoolSS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opBoolSS' not implemented")
+        def opByteSS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opByteSS' not implemented")
 
-    def opShortIntLongSS(self, p1, p2, p3, current=None):
-        raise NotImplementedError("servant method 'opShortIntLongSS' not implemented")
+        def opBoolSS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opBoolSS' not implemented")
 
-    def opFloatDoubleSS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opFloatDoubleSS' not implemented")
+        def opShortIntLongSS(self, p1, p2, p3, current=None):
+            raise NotImplementedError("servant method 'opShortIntLongSS' not implemented")
 
-    def opStringSS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opStringSS' not implemented")
+        def opFloatDoubleSS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opFloatDoubleSS' not implemented")
 
-    def opByteBoolD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opByteBoolD' not implemented")
+        def opStringSS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opStringSS' not implemented")
 
-    def opShortIntD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opShortIntD' not implemented")
+        def opByteBoolD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opByteBoolD' not implemented")
 
-    def opLongFloatD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opLongFloatD' not implemented")
+        def opShortIntD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opShortIntD' not implemented")
 
-    def opStringStringD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opStringStringD' not implemented")
+        def opLongFloatD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opLongFloatD' not implemented")
 
-    def opStringMyEnumD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opStringMyEnumD' not implemented")
+        def opStringStringD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opStringStringD' not implemented")
 
-    def opMyEnumStringD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opMyEnumStringD' not implemented")
+        def opStringMyEnumD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opStringMyEnumD' not implemented")
 
-    def opByteBoolDS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opByteBoolDS' not implemented")
+        def opMyEnumStringD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opMyEnumStringD' not implemented")
 
-    def opShortIntDS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opShortIntDS' not implemented")
+        def opByteBoolDS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opByteBoolDS' not implemented")
 
-    def opLongFloatDS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opLongFloatDS' not implemented")
+        def opShortIntDS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opShortIntDS' not implemented")
 
-    def opStringStringDS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opStringStringDS' not implemented")
+        def opLongFloatDS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opLongFloatDS' not implemented")
 
-    def opStringMyEnumDS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opStringMyEnumDS' not implemented")
+        def opStringStringDS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opStringStringDS' not implemented")
 
-    def opMyEnumStringDS(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opMyEnumStringDS' not implemented")
+        def opStringMyEnumDS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opStringMyEnumDS' not implemented")
 
-    def opByteByteSD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opByteByteSD' not implemented")
+        def opMyEnumStringDS(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opMyEnumStringDS' not implemented")
 
-    def opBoolBoolSD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opBoolBoolSD' not implemented")
+        def opByteByteSD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opByteByteSD' not implemented")
 
-    def opShortShortSD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opShortShortSD' not implemented")
+        def opBoolBoolSD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opBoolBoolSD' not implemented")
 
-    def opIntIntSD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opIntIntSD' not implemented")
+        def opShortShortSD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opShortShortSD' not implemented")
 
-    def opLongLongSD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opLongLongSD' not implemented")
+        def opIntIntSD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opIntIntSD' not implemented")
 
-    def opStringFloatSD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opStringFloatSD' not implemented")
+        def opLongLongSD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opLongLongSD' not implemented")
 
-    def opStringDoubleSD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opStringDoubleSD' not implemented")
+        def opStringFloatSD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opStringFloatSD' not implemented")
 
-    def opStringStringSD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opStringStringSD' not implemented")
+        def opStringDoubleSD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opStringDoubleSD' not implemented")
 
-    def opMyEnumMyEnumSD(self, p1, p2, current=None):
-        raise NotImplementedError("servant method 'opMyEnumMyEnumSD' not implemented")
+        def opStringStringSD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opStringStringSD' not implemented")
 
-    def opIntS(self, s, current=None):
-        raise NotImplementedError("servant method 'opIntS' not implemented")
+        def opMyEnumMyEnumSD(self, p1, p2, current=None):
+            raise NotImplementedError("servant method 'opMyEnumMyEnumSD' not implemented")
 
-    def opContext(self, current=None):
-        raise NotImplementedError("servant method 'opContext' not implemented")
+        def opIntS(self, s, current=None):
+            raise NotImplementedError("servant method 'opIntS' not implemented")
 
-    def opIdempotent(self, current=None):
-        raise NotImplementedError("servant method 'opIdempotent' not implemented")
+        def opContext(self, current=None):
+            raise NotImplementedError("servant method 'opContext' not implemented")
 
-    def opByte1(self, opByte1, current=None):
-        raise NotImplementedError("servant method 'opByte1' not implemented")
+        def opIdempotent(self, current=None):
+            raise NotImplementedError("servant method 'opIdempotent' not implemented")
 
-    def opShort1(self, opShort1, current=None):
-        raise NotImplementedError("servant method 'opShort1' not implemented")
+        def opByte1(self, opByte1, current=None):
+            raise NotImplementedError("servant method 'opByte1' not implemented")
 
-    def opInt1(self, opInt1, current=None):
-        raise NotImplementedError("servant method 'opInt1' not implemented")
+        def opShort1(self, opShort1, current=None):
+            raise NotImplementedError("servant method 'opShort1' not implemented")
 
-    def opLong1(self, opLong1, current=None):
-        raise NotImplementedError("servant method 'opLong1' not implemented")
+        def opInt1(self, opInt1, current=None):
+            raise NotImplementedError("servant method 'opInt1' not implemented")
 
-    def opFloat1(self, opFloat1, current=None):
-        raise NotImplementedError("servant method 'opFloat1' not implemented")
+        def opLong1(self, opLong1, current=None):
+            raise NotImplementedError("servant method 'opLong1' not implemented")
 
-    def opDouble1(self, opDouble1, current=None):
-        raise NotImplementedError("servant method 'opDouble1' not implemented")
+        def opFloat1(self, opFloat1, current=None):
+            raise NotImplementedError("servant method 'opFloat1' not implemented")
 
-    def opString1(self, opString1, current=None):
-        raise NotImplementedError("servant method 'opString1' not implemented")
+        def opDouble1(self, opDouble1, current=None):
+            raise NotImplementedError("servant method 'opDouble1' not implemented")
 
-    def opStringS1(self, opStringS1, current=None):
-        raise NotImplementedError("servant method 'opStringS1' not implemented")
+        def opString1(self, opString1, current=None):
+            raise NotImplementedError("servant method 'opString1' not implemented")
 
-    def opByteBoolD1(self, opByteBoolD1, current=None):
-        raise NotImplementedError("servant method 'opByteBoolD1' not implemented")
+        def opStringS1(self, opStringS1, current=None):
+            raise NotImplementedError("servant method 'opStringS1' not implemented")
 
-    def opStringS2(self, stringS, current=None):
-        raise NotImplementedError("servant method 'opStringS2' not implemented")
+        def opByteBoolD1(self, opByteBoolD1, current=None):
+            raise NotImplementedError("servant method 'opByteBoolD1' not implemented")
 
-    def opByteBoolD2(self, byteBoolD, current=None):
-        raise NotImplementedError("servant method 'opByteBoolD2' not implemented")
+        def opStringS2(self, stringS, current=None):
+            raise NotImplementedError("servant method 'opStringS2' not implemented")
 
-    def opStringLiterals(self, current=None):
-        raise NotImplementedError("servant method 'opStringLiterals' not implemented")
+        def opByteBoolD2(self, byteBoolD, current=None):
+            raise NotImplementedError("servant method 'opByteBoolD2' not implemented")
 
-    """
-    Immediately marshals the result of an invocation of opMStruct1
-    and returns an object that the servant implementation must return
-    as its result.
-    Arguments:
-    result -- The result (or result tuple) of the invocation.
-    current -- The Current object passed to the invocation.
-    Returns: An object containing the marshaled result.
-    """
-    @staticmethod
-    def OpMStruct1MarshaledResult(result, current):
-        return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMStruct1, current.adapter.getCommunicator().getImpl(), current.encoding)
+        def opStringLiterals(self, current=None):
+            raise NotImplementedError("servant method 'opStringLiterals' not implemented")
 
-    def opMStruct1(self, current=None):
-        raise NotImplementedError("servant method 'opMStruct1' not implemented")
+        """
+        Immediately marshals the result of an invocation of opMStruct1
+        and returns an object that the servant implementation must return
+        as its result.
+        Arguments:
+        result -- The result (or result tuple) of the invocation.
+        current -- The Current object passed to the invocation.
+        Returns: An object containing the marshaled result.
+        """
+        @staticmethod
+        def OpMStruct1MarshaledResult(result, current):
+            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMStruct1, current.adapter.getCommunicator().getImpl(), current.encoding)
 
-    """
-    Immediately marshals the result of an invocation of opMStruct2
-    and returns an object that the servant implementation must return
-    as its result.
-    Arguments:
-    result -- The result (or result tuple) of the invocation.
-    current -- The Current object passed to the invocation.
-    Returns: An object containing the marshaled result.
-    """
-    @staticmethod
-    def OpMStruct2MarshaledResult(result, current):
-        return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMStruct2, current.adapter.getCommunicator().getImpl(), current.encoding)
+        def opMStruct1(self, current=None):
+            raise NotImplementedError("servant method 'opMStruct1' not implemented")
 
-    def opMStruct2(self, p1, current=None):
-        raise NotImplementedError("servant method 'opMStruct2' not implemented")
+        """
+        Immediately marshals the result of an invocation of opMStruct2
+        and returns an object that the servant implementation must return
+        as its result.
+        Arguments:
+        result -- The result (or result tuple) of the invocation.
+        current -- The Current object passed to the invocation.
+        Returns: An object containing the marshaled result.
+        """
+        @staticmethod
+        def OpMStruct2MarshaledResult(result, current):
+            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMStruct2, current.adapter.getCommunicator().getImpl(), current.encoding)
 
-    """
-    Immediately marshals the result of an invocation of opMSeq1
-    and returns an object that the servant implementation must return
-    as its result.
-    Arguments:
-    result -- The result (or result tuple) of the invocation.
-    current -- The Current object passed to the invocation.
-    Returns: An object containing the marshaled result.
-    """
-    @staticmethod
-    def OpMSeq1MarshaledResult(result, current):
-        return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMSeq1, current.adapter.getCommunicator().getImpl(), current.encoding)
+        def opMStruct2(self, p1, current=None):
+            raise NotImplementedError("servant method 'opMStruct2' not implemented")
 
-    def opMSeq1(self, current=None):
-        raise NotImplementedError("servant method 'opMSeq1' not implemented")
+        """
+        Immediately marshals the result of an invocation of opMSeq1
+        and returns an object that the servant implementation must return
+        as its result.
+        Arguments:
+        result -- The result (or result tuple) of the invocation.
+        current -- The Current object passed to the invocation.
+        Returns: An object containing the marshaled result.
+        """
+        @staticmethod
+        def OpMSeq1MarshaledResult(result, current):
+            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMSeq1, current.adapter.getCommunicator().getImpl(), current.encoding)
 
-    """
-    Immediately marshals the result of an invocation of opMSeq2
-    and returns an object that the servant implementation must return
-    as its result.
-    Arguments:
-    result -- The result (or result tuple) of the invocation.
-    current -- The Current object passed to the invocation.
-    Returns: An object containing the marshaled result.
-    """
-    @staticmethod
-    def OpMSeq2MarshaledResult(result, current):
-        return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMSeq2, current.adapter.getCommunicator().getImpl(), current.encoding)
+        def opMSeq1(self, current=None):
+            raise NotImplementedError("servant method 'opMSeq1' not implemented")
 
-    def opMSeq2(self, p1, current=None):
-        raise NotImplementedError("servant method 'opMSeq2' not implemented")
+        """
+        Immediately marshals the result of an invocation of opMSeq2
+        and returns an object that the servant implementation must return
+        as its result.
+        Arguments:
+        result -- The result (or result tuple) of the invocation.
+        current -- The Current object passed to the invocation.
+        Returns: An object containing the marshaled result.
+        """
+        @staticmethod
+        def OpMSeq2MarshaledResult(result, current):
+            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMSeq2, current.adapter.getCommunicator().getImpl(), current.encoding)
 
-    """
-    Immediately marshals the result of an invocation of opMDict1
-    and returns an object that the servant implementation must return
-    as its result.
-    Arguments:
-    result -- The result (or result tuple) of the invocation.
-    current -- The Current object passed to the invocation.
-    Returns: An object containing the marshaled result.
-    """
-    @staticmethod
-    def OpMDict1MarshaledResult(result, current):
-        return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMDict1, current.adapter.getCommunicator().getImpl(), current.encoding)
+        def opMSeq2(self, p1, current=None):
+            raise NotImplementedError("servant method 'opMSeq2' not implemented")
 
-    def opMDict1(self, current=None):
-        raise NotImplementedError("servant method 'opMDict1' not implemented")
+        """
+        Immediately marshals the result of an invocation of opMDict1
+        and returns an object that the servant implementation must return
+        as its result.
+        Arguments:
+        result -- The result (or result tuple) of the invocation.
+        current -- The Current object passed to the invocation.
+        Returns: An object containing the marshaled result.
+        """
+        @staticmethod
+        def OpMDict1MarshaledResult(result, current):
+            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMDict1, current.adapter.getCommunicator().getImpl(), current.encoding)
 
-    """
-    Immediately marshals the result of an invocation of opMDict2
-    and returns an object that the servant implementation must return
-    as its result.
-    Arguments:
-    result -- The result (or result tuple) of the invocation.
-    current -- The Current object passed to the invocation.
-    Returns: An object containing the marshaled result.
-    """
-    @staticmethod
-    def OpMDict2MarshaledResult(result, current):
-        return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMDict2, current.adapter.getCommunicator().getImpl(), current.encoding)
+        def opMDict1(self, current=None):
+            raise NotImplementedError("servant method 'opMDict1' not implemented")
 
-    def opMDict2(self, p1, current=None):
-        raise NotImplementedError("servant method 'opMDict2' not implemented")
+        """
+        Immediately marshals the result of an invocation of opMDict2
+        and returns an object that the servant implementation must return
+        as its result.
+        Arguments:
+        result -- The result (or result tuple) of the invocation.
+        current -- The Current object passed to the invocation.
+        Returns: An object containing the marshaled result.
+        """
+        @staticmethod
+        def OpMDict2MarshaledResult(result, current):
+            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMDict2, current.adapter.getCommunicator().getImpl(), current.encoding)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_MyClassDisp)
+        def opMDict2(self, p1, current=None):
+            raise NotImplementedError("servant method 'opMDict2' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_MyClassDisp)
 
-_M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
-MyClass._ice_type = _M_Test._t_MyClassDisp
+        __repr__ = __str__
 
-MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-MyClass._op_supportsCompress = IcePy.Operation('supportsCompress', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-MyClass._op_opVoid = IcePy.Operation('opVoid', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-MyClass._op_opByte = IcePy.Operation('opByte', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_byte, False, 0), ((), IcePy._t_byte, False, 0)), (((), IcePy._t_byte, False, 0),), ((), IcePy._t_byte, False, 0), ())
-MyClass._op_opBool = IcePy.Operation('opBool', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0), ((), IcePy._t_bool, False, 0)), (((), IcePy._t_bool, False, 0),), ((), IcePy._t_bool, False, 0), ())
-MyClass._op_opShortIntLong = IcePy.Operation('opShortIntLong', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_short, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_long, False, 0)), (((), IcePy._t_short, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_long, False, 0)), ((), IcePy._t_long, False, 0), ())
-MyClass._op_opFloatDouble = IcePy.Operation('opFloatDouble', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_float, False, 0), ((), IcePy._t_double, False, 0)), (((), IcePy._t_float, False, 0), ((), IcePy._t_double, False, 0)), ((), IcePy._t_double, False, 0), ())
-MyClass._op_opString = IcePy.Operation('opString', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (((), IcePy._t_string, False, 0),), ((), IcePy._t_string, False, 0), ())
-MyClass._op_opMyEnum = IcePy.Operation('opMyEnum', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnum, False, 0),), (((), _M_Test._t_MyEnum, False, 0),), ((), _M_Test._t_MyEnum, False, 0), ())
-MyClass._op_opMyClass = IcePy.Operation('opMyClass', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyClassPrx, False, 0),), (((), _M_Test._t_MyClassPrx, False, 0), ((), _M_Test._t_MyClassPrx, False, 0)), ((), _M_Test._t_MyClassPrx, False, 0), ())
-MyClass._op_opStruct = IcePy.Operation('opStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Structure, False, 0), ((), _M_Test._t_Structure, False, 0)), (((), _M_Test._t_Structure, False, 0),), ((), _M_Test._t_Structure, False, 0), ())
-MyClass._op_opByteS = IcePy.Operation('opByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteS, False, 0), ((), _M_Test._t_ByteS, False, 0)), (((), _M_Test._t_ByteS, False, 0),), ((), _M_Test._t_ByteS, False, 0), ())
-MyClass._op_opBoolS = IcePy.Operation('opBoolS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolS, False, 0), ((), _M_Test._t_BoolS, False, 0)), (((), _M_Test._t_BoolS, False, 0),), ((), _M_Test._t_BoolS, False, 0), ())
-MyClass._op_opShortIntLongS = IcePy.Operation('opShortIntLongS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortS, False, 0), ((), _M_Test._t_IntS, False, 0), ((), _M_Test._t_LongS, False, 0)), (((), _M_Test._t_ShortS, False, 0), ((), _M_Test._t_IntS, False, 0), ((), _M_Test._t_LongS, False, 0)), ((), _M_Test._t_LongS, False, 0), ())
-MyClass._op_opFloatDoubleS = IcePy.Operation('opFloatDoubleS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatS, False, 0), ((), _M_Test._t_DoubleS, False, 0)), (((), _M_Test._t_FloatS, False, 0), ((), _M_Test._t_DoubleS, False, 0)), ((), _M_Test._t_DoubleS, False, 0), ())
-MyClass._op_opStringS = IcePy.Operation('opStringS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringS, False, 0), ((), _M_Test._t_StringS, False, 0)), (((), _M_Test._t_StringS, False, 0),), ((), _M_Test._t_StringS, False, 0), ())
-MyClass._op_opByteSS = IcePy.Operation('opByteSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSS, False, 0), ((), _M_Test._t_ByteSS, False, 0)), (((), _M_Test._t_ByteSS, False, 0),), ((), _M_Test._t_ByteSS, False, 0), ())
-MyClass._op_opBoolSS = IcePy.Operation('opBoolSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSS, False, 0), ((), _M_Test._t_BoolSS, False, 0)), (((), _M_Test._t_BoolSS, False, 0),), ((), _M_Test._t_BoolSS, False, 0), ())
-MyClass._op_opShortIntLongSS = IcePy.Operation('opShortIntLongSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSS, False, 0), ((), _M_Test._t_IntSS, False, 0), ((), _M_Test._t_LongSS, False, 0)), (((), _M_Test._t_ShortSS, False, 0), ((), _M_Test._t_IntSS, False, 0), ((), _M_Test._t_LongSS, False, 0)), ((), _M_Test._t_LongSS, False, 0), ())
-MyClass._op_opFloatDoubleSS = IcePy.Operation('opFloatDoubleSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatSS, False, 0), ((), _M_Test._t_DoubleSS, False, 0)), (((), _M_Test._t_FloatSS, False, 0), ((), _M_Test._t_DoubleSS, False, 0)), ((), _M_Test._t_DoubleSS, False, 0), ())
-MyClass._op_opStringSS = IcePy.Operation('opStringSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSS, False, 0), ((), _M_Test._t_StringSS, False, 0)), (((), _M_Test._t_StringSS, False, 0),), ((), _M_Test._t_StringSS, False, 0), ())
-MyClass._op_opByteBoolD = IcePy.Operation('opByteBoolD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteBoolD, False, 0), ((), _M_Test._t_ByteBoolD, False, 0)), (((), _M_Test._t_ByteBoolD, False, 0),), ((), _M_Test._t_ByteBoolD, False, 0), ())
-MyClass._op_opShortIntD = IcePy.Operation('opShortIntD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortIntD, False, 0), ((), _M_Test._t_ShortIntD, False, 0)), (((), _M_Test._t_ShortIntD, False, 0),), ((), _M_Test._t_ShortIntD, False, 0), ())
-MyClass._op_opLongFloatD = IcePy.Operation('opLongFloatD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongFloatD, False, 0), ((), _M_Test._t_LongFloatD, False, 0)), (((), _M_Test._t_LongFloatD, False, 0),), ((), _M_Test._t_LongFloatD, False, 0), ())
-MyClass._op_opStringStringD = IcePy.Operation('opStringStringD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringStringD, False, 0), ((), _M_Test._t_StringStringD, False, 0)), (((), _M_Test._t_StringStringD, False, 0),), ((), _M_Test._t_StringStringD, False, 0), ())
-MyClass._op_opStringMyEnumD = IcePy.Operation('opStringMyEnumD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringMyEnumD, False, 0), ((), _M_Test._t_StringMyEnumD, False, 0)), (((), _M_Test._t_StringMyEnumD, False, 0),), ((), _M_Test._t_StringMyEnumD, False, 0), ())
-MyClass._op_opMyEnumStringD = IcePy.Operation('opMyEnumStringD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnumStringD, False, 0), ((), _M_Test._t_MyEnumStringD, False, 0)), (((), _M_Test._t_MyEnumStringD, False, 0),), ((), _M_Test._t_MyEnumStringD, False, 0), ())
-MyClass._op_opByteBoolDS = IcePy.Operation('opByteBoolDS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteBoolDS, False, 0), ((), _M_Test._t_ByteBoolDS, False, 0)), (((), _M_Test._t_ByteBoolDS, False, 0),), ((), _M_Test._t_ByteBoolDS, False, 0), ())
-MyClass._op_opShortIntDS = IcePy.Operation('opShortIntDS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortIntDS, False, 0), ((), _M_Test._t_ShortIntDS, False, 0)), (((), _M_Test._t_ShortIntDS, False, 0),), ((), _M_Test._t_ShortIntDS, False, 0), ())
-MyClass._op_opLongFloatDS = IcePy.Operation('opLongFloatDS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongFloatDS, False, 0), ((), _M_Test._t_LongFloatDS, False, 0)), (((), _M_Test._t_LongFloatDS, False, 0),), ((), _M_Test._t_LongFloatDS, False, 0), ())
-MyClass._op_opStringStringDS = IcePy.Operation('opStringStringDS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringStringDS, False, 0), ((), _M_Test._t_StringStringDS, False, 0)), (((), _M_Test._t_StringStringDS, False, 0),), ((), _M_Test._t_StringStringDS, False, 0), ())
-MyClass._op_opStringMyEnumDS = IcePy.Operation('opStringMyEnumDS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringMyEnumDS, False, 0), ((), _M_Test._t_StringMyEnumDS, False, 0)), (((), _M_Test._t_StringMyEnumDS, False, 0),), ((), _M_Test._t_StringMyEnumDS, False, 0), ())
-MyClass._op_opMyEnumStringDS = IcePy.Operation('opMyEnumStringDS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnumStringDS, False, 0), ((), _M_Test._t_MyEnumStringDS, False, 0)), (((), _M_Test._t_MyEnumStringDS, False, 0),), ((), _M_Test._t_MyEnumStringDS, False, 0), ())
-MyClass._op_opByteByteSD = IcePy.Operation('opByteByteSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteByteSD, False, 0), ((), _M_Test._t_ByteByteSD, False, 0)), (((), _M_Test._t_ByteByteSD, False, 0),), ((), _M_Test._t_ByteByteSD, False, 0), ())
-MyClass._op_opBoolBoolSD = IcePy.Operation('opBoolBoolSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolBoolSD, False, 0), ((), _M_Test._t_BoolBoolSD, False, 0)), (((), _M_Test._t_BoolBoolSD, False, 0),), ((), _M_Test._t_BoolBoolSD, False, 0), ())
-MyClass._op_opShortShortSD = IcePy.Operation('opShortShortSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortShortSD, False, 0), ((), _M_Test._t_ShortShortSD, False, 0)), (((), _M_Test._t_ShortShortSD, False, 0),), ((), _M_Test._t_ShortShortSD, False, 0), ())
-MyClass._op_opIntIntSD = IcePy.Operation('opIntIntSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntIntSD, False, 0), ((), _M_Test._t_IntIntSD, False, 0)), (((), _M_Test._t_IntIntSD, False, 0),), ((), _M_Test._t_IntIntSD, False, 0), ())
-MyClass._op_opLongLongSD = IcePy.Operation('opLongLongSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongLongSD, False, 0), ((), _M_Test._t_LongLongSD, False, 0)), (((), _M_Test._t_LongLongSD, False, 0),), ((), _M_Test._t_LongLongSD, False, 0), ())
-MyClass._op_opStringFloatSD = IcePy.Operation('opStringFloatSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringFloatSD, False, 0), ((), _M_Test._t_StringFloatSD, False, 0)), (((), _M_Test._t_StringFloatSD, False, 0),), ((), _M_Test._t_StringFloatSD, False, 0), ())
-MyClass._op_opStringDoubleSD = IcePy.Operation('opStringDoubleSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringDoubleSD, False, 0), ((), _M_Test._t_StringDoubleSD, False, 0)), (((), _M_Test._t_StringDoubleSD, False, 0),), ((), _M_Test._t_StringDoubleSD, False, 0), ())
-MyClass._op_opStringStringSD = IcePy.Operation('opStringStringSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringStringSD, False, 0), ((), _M_Test._t_StringStringSD, False, 0)), (((), _M_Test._t_StringStringSD, False, 0),), ((), _M_Test._t_StringStringSD, False, 0), ())
-MyClass._op_opMyEnumMyEnumSD = IcePy.Operation('opMyEnumMyEnumSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnumMyEnumSD, False, 0), ((), _M_Test._t_MyEnumMyEnumSD, False, 0)), (((), _M_Test._t_MyEnumMyEnumSD, False, 0),), ((), _M_Test._t_MyEnumMyEnumSD, False, 0), ())
-MyClass._op_opIntS = IcePy.Operation('opIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntS, False, 0),), (), ((), _M_Test._t_IntS, False, 0), ())
-MyClass._op_opContext = IcePy.Operation('opContext', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringStringD, False, 0), ())
-MyClass._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
-MyClass._op_opByte1 = IcePy.Operation('opByte1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_byte, False, 0),), (), ((), IcePy._t_byte, False, 0), ())
-MyClass._op_opShort1 = IcePy.Operation('opShort1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_short, False, 0),), (), ((), IcePy._t_short, False, 0), ())
-MyClass._op_opInt1 = IcePy.Operation('opInt1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), ())
-MyClass._op_opLong1 = IcePy.Operation('opLong1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0),), (), ((), IcePy._t_long, False, 0), ())
-MyClass._op_opFloat1 = IcePy.Operation('opFloat1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_float, False, 0),), (), ((), IcePy._t_float, False, 0), ())
-MyClass._op_opDouble1 = IcePy.Operation('opDouble1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_double, False, 0),), (), ((), IcePy._t_double, False, 0), ())
-MyClass._op_opString1 = IcePy.Operation('opString1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
-MyClass._op_opStringS1 = IcePy.Operation('opStringS1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringS, False, 0),), (), ((), _M_Test._t_StringS, False, 0), ())
-MyClass._op_opByteBoolD1 = IcePy.Operation('opByteBoolD1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteBoolD, False, 0),), (), ((), _M_Test._t_ByteBoolD, False, 0), ())
-MyClass._op_opStringS2 = IcePy.Operation('opStringS2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringS, False, 0),), (), ((), _M_Test._t_StringS, False, 0), ())
-MyClass._op_opByteBoolD2 = IcePy.Operation('opByteBoolD2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteBoolD, False, 0),), (), ((), _M_Test._t_ByteBoolD, False, 0), ())
-MyClass._op_opStringLiterals = IcePy.Operation('opStringLiterals', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringS, False, 0), ())
-MyClass._op_opMStruct1 = IcePy.Operation('opMStruct1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_Structure, False, 0), ())
-MyClass._op_opMStruct2 = IcePy.Operation('opMStruct2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Structure, False, 0),), (((), _M_Test._t_Structure, False, 0),), ((), _M_Test._t_Structure, False, 0), ())
-MyClass._op_opMSeq1 = IcePy.Operation('opMSeq1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringS, False, 0), ())
-MyClass._op_opMSeq2 = IcePy.Operation('opMSeq2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringS, False, 0),), (((), _M_Test._t_StringS, False, 0),), ((), _M_Test._t_StringS, False, 0), ())
-MyClass._op_opMDict1 = IcePy.Operation('opMDict1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringStringD, False, 0), ())
-MyClass._op_opMDict2 = IcePy.Operation('opMDict2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringStringD, False, 0),), (((), _M_Test._t_StringStringD, False, 0),), ((), _M_Test._t_StringStringD, False, 0), ())
+    _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
+    MyClass._ice_type = _M_Test._t_MyClassDisp
 
-_M_Test.MyClass = MyClass
-del MyClass
-_M_Test.MyStruct1 = None
-class MyStruct1(object):
-    def __init__(self, tesT='', myClass=None, myStruct1=''):
-        self.tesT = tesT
-        self.myClass = myClass
-        self.myStruct1 = myStruct1
+    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    MyClass._op_supportsCompress = IcePy.Operation('supportsCompress', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    MyClass._op_opVoid = IcePy.Operation('opVoid', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    MyClass._op_opByte = IcePy.Operation('opByte', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_byte, False, 0), ((), IcePy._t_byte, False, 0)), (((), IcePy._t_byte, False, 0),), ((), IcePy._t_byte, False, 0), ())
+    MyClass._op_opBool = IcePy.Operation('opBool', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0), ((), IcePy._t_bool, False, 0)), (((), IcePy._t_bool, False, 0),), ((), IcePy._t_bool, False, 0), ())
+    MyClass._op_opShortIntLong = IcePy.Operation('opShortIntLong', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_short, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_long, False, 0)), (((), IcePy._t_short, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_long, False, 0)), ((), IcePy._t_long, False, 0), ())
+    MyClass._op_opFloatDouble = IcePy.Operation('opFloatDouble', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_float, False, 0), ((), IcePy._t_double, False, 0)), (((), IcePy._t_float, False, 0), ((), IcePy._t_double, False, 0)), ((), IcePy._t_double, False, 0), ())
+    MyClass._op_opString = IcePy.Operation('opString', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (((), IcePy._t_string, False, 0),), ((), IcePy._t_string, False, 0), ())
+    MyClass._op_opMyEnum = IcePy.Operation('opMyEnum', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnum, False, 0),), (((), _M_Test._t_MyEnum, False, 0),), ((), _M_Test._t_MyEnum, False, 0), ())
+    MyClass._op_opMyClass = IcePy.Operation('opMyClass', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyClassPrx, False, 0),), (((), _M_Test._t_MyClassPrx, False, 0), ((), _M_Test._t_MyClassPrx, False, 0)), ((), _M_Test._t_MyClassPrx, False, 0), ())
+    MyClass._op_opStruct = IcePy.Operation('opStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Structure, False, 0), ((), _M_Test._t_Structure, False, 0)), (((), _M_Test._t_Structure, False, 0),), ((), _M_Test._t_Structure, False, 0), ())
+    MyClass._op_opByteS = IcePy.Operation('opByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteS, False, 0), ((), _M_Test._t_ByteS, False, 0)), (((), _M_Test._t_ByteS, False, 0),), ((), _M_Test._t_ByteS, False, 0), ())
+    MyClass._op_opBoolS = IcePy.Operation('opBoolS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolS, False, 0), ((), _M_Test._t_BoolS, False, 0)), (((), _M_Test._t_BoolS, False, 0),), ((), _M_Test._t_BoolS, False, 0), ())
+    MyClass._op_opShortIntLongS = IcePy.Operation('opShortIntLongS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortS, False, 0), ((), _M_Test._t_IntS, False, 0), ((), _M_Test._t_LongS, False, 0)), (((), _M_Test._t_ShortS, False, 0), ((), _M_Test._t_IntS, False, 0), ((), _M_Test._t_LongS, False, 0)), ((), _M_Test._t_LongS, False, 0), ())
+    MyClass._op_opFloatDoubleS = IcePy.Operation('opFloatDoubleS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatS, False, 0), ((), _M_Test._t_DoubleS, False, 0)), (((), _M_Test._t_FloatS, False, 0), ((), _M_Test._t_DoubleS, False, 0)), ((), _M_Test._t_DoubleS, False, 0), ())
+    MyClass._op_opStringS = IcePy.Operation('opStringS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringS, False, 0), ((), _M_Test._t_StringS, False, 0)), (((), _M_Test._t_StringS, False, 0),), ((), _M_Test._t_StringS, False, 0), ())
+    MyClass._op_opByteSS = IcePy.Operation('opByteSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSS, False, 0), ((), _M_Test._t_ByteSS, False, 0)), (((), _M_Test._t_ByteSS, False, 0),), ((), _M_Test._t_ByteSS, False, 0), ())
+    MyClass._op_opBoolSS = IcePy.Operation('opBoolSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSS, False, 0), ((), _M_Test._t_BoolSS, False, 0)), (((), _M_Test._t_BoolSS, False, 0),), ((), _M_Test._t_BoolSS, False, 0), ())
+    MyClass._op_opShortIntLongSS = IcePy.Operation('opShortIntLongSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSS, False, 0), ((), _M_Test._t_IntSS, False, 0), ((), _M_Test._t_LongSS, False, 0)), (((), _M_Test._t_ShortSS, False, 0), ((), _M_Test._t_IntSS, False, 0), ((), _M_Test._t_LongSS, False, 0)), ((), _M_Test._t_LongSS, False, 0), ())
+    MyClass._op_opFloatDoubleSS = IcePy.Operation('opFloatDoubleSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatSS, False, 0), ((), _M_Test._t_DoubleSS, False, 0)), (((), _M_Test._t_FloatSS, False, 0), ((), _M_Test._t_DoubleSS, False, 0)), ((), _M_Test._t_DoubleSS, False, 0), ())
+    MyClass._op_opStringSS = IcePy.Operation('opStringSS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSS, False, 0), ((), _M_Test._t_StringSS, False, 0)), (((), _M_Test._t_StringSS, False, 0),), ((), _M_Test._t_StringSS, False, 0), ())
+    MyClass._op_opByteBoolD = IcePy.Operation('opByteBoolD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteBoolD, False, 0), ((), _M_Test._t_ByteBoolD, False, 0)), (((), _M_Test._t_ByteBoolD, False, 0),), ((), _M_Test._t_ByteBoolD, False, 0), ())
+    MyClass._op_opShortIntD = IcePy.Operation('opShortIntD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortIntD, False, 0), ((), _M_Test._t_ShortIntD, False, 0)), (((), _M_Test._t_ShortIntD, False, 0),), ((), _M_Test._t_ShortIntD, False, 0), ())
+    MyClass._op_opLongFloatD = IcePy.Operation('opLongFloatD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongFloatD, False, 0), ((), _M_Test._t_LongFloatD, False, 0)), (((), _M_Test._t_LongFloatD, False, 0),), ((), _M_Test._t_LongFloatD, False, 0), ())
+    MyClass._op_opStringStringD = IcePy.Operation('opStringStringD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringStringD, False, 0), ((), _M_Test._t_StringStringD, False, 0)), (((), _M_Test._t_StringStringD, False, 0),), ((), _M_Test._t_StringStringD, False, 0), ())
+    MyClass._op_opStringMyEnumD = IcePy.Operation('opStringMyEnumD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringMyEnumD, False, 0), ((), _M_Test._t_StringMyEnumD, False, 0)), (((), _M_Test._t_StringMyEnumD, False, 0),), ((), _M_Test._t_StringMyEnumD, False, 0), ())
+    MyClass._op_opMyEnumStringD = IcePy.Operation('opMyEnumStringD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnumStringD, False, 0), ((), _M_Test._t_MyEnumStringD, False, 0)), (((), _M_Test._t_MyEnumStringD, False, 0),), ((), _M_Test._t_MyEnumStringD, False, 0), ())
+    MyClass._op_opByteBoolDS = IcePy.Operation('opByteBoolDS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteBoolDS, False, 0), ((), _M_Test._t_ByteBoolDS, False, 0)), (((), _M_Test._t_ByteBoolDS, False, 0),), ((), _M_Test._t_ByteBoolDS, False, 0), ())
+    MyClass._op_opShortIntDS = IcePy.Operation('opShortIntDS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortIntDS, False, 0), ((), _M_Test._t_ShortIntDS, False, 0)), (((), _M_Test._t_ShortIntDS, False, 0),), ((), _M_Test._t_ShortIntDS, False, 0), ())
+    MyClass._op_opLongFloatDS = IcePy.Operation('opLongFloatDS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongFloatDS, False, 0), ((), _M_Test._t_LongFloatDS, False, 0)), (((), _M_Test._t_LongFloatDS, False, 0),), ((), _M_Test._t_LongFloatDS, False, 0), ())
+    MyClass._op_opStringStringDS = IcePy.Operation('opStringStringDS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringStringDS, False, 0), ((), _M_Test._t_StringStringDS, False, 0)), (((), _M_Test._t_StringStringDS, False, 0),), ((), _M_Test._t_StringStringDS, False, 0), ())
+    MyClass._op_opStringMyEnumDS = IcePy.Operation('opStringMyEnumDS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringMyEnumDS, False, 0), ((), _M_Test._t_StringMyEnumDS, False, 0)), (((), _M_Test._t_StringMyEnumDS, False, 0),), ((), _M_Test._t_StringMyEnumDS, False, 0), ())
+    MyClass._op_opMyEnumStringDS = IcePy.Operation('opMyEnumStringDS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnumStringDS, False, 0), ((), _M_Test._t_MyEnumStringDS, False, 0)), (((), _M_Test._t_MyEnumStringDS, False, 0),), ((), _M_Test._t_MyEnumStringDS, False, 0), ())
+    MyClass._op_opByteByteSD = IcePy.Operation('opByteByteSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteByteSD, False, 0), ((), _M_Test._t_ByteByteSD, False, 0)), (((), _M_Test._t_ByteByteSD, False, 0),), ((), _M_Test._t_ByteByteSD, False, 0), ())
+    MyClass._op_opBoolBoolSD = IcePy.Operation('opBoolBoolSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolBoolSD, False, 0), ((), _M_Test._t_BoolBoolSD, False, 0)), (((), _M_Test._t_BoolBoolSD, False, 0),), ((), _M_Test._t_BoolBoolSD, False, 0), ())
+    MyClass._op_opShortShortSD = IcePy.Operation('opShortShortSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortShortSD, False, 0), ((), _M_Test._t_ShortShortSD, False, 0)), (((), _M_Test._t_ShortShortSD, False, 0),), ((), _M_Test._t_ShortShortSD, False, 0), ())
+    MyClass._op_opIntIntSD = IcePy.Operation('opIntIntSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntIntSD, False, 0), ((), _M_Test._t_IntIntSD, False, 0)), (((), _M_Test._t_IntIntSD, False, 0),), ((), _M_Test._t_IntIntSD, False, 0), ())
+    MyClass._op_opLongLongSD = IcePy.Operation('opLongLongSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongLongSD, False, 0), ((), _M_Test._t_LongLongSD, False, 0)), (((), _M_Test._t_LongLongSD, False, 0),), ((), _M_Test._t_LongLongSD, False, 0), ())
+    MyClass._op_opStringFloatSD = IcePy.Operation('opStringFloatSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringFloatSD, False, 0), ((), _M_Test._t_StringFloatSD, False, 0)), (((), _M_Test._t_StringFloatSD, False, 0),), ((), _M_Test._t_StringFloatSD, False, 0), ())
+    MyClass._op_opStringDoubleSD = IcePy.Operation('opStringDoubleSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringDoubleSD, False, 0), ((), _M_Test._t_StringDoubleSD, False, 0)), (((), _M_Test._t_StringDoubleSD, False, 0),), ((), _M_Test._t_StringDoubleSD, False, 0), ())
+    MyClass._op_opStringStringSD = IcePy.Operation('opStringStringSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringStringSD, False, 0), ((), _M_Test._t_StringStringSD, False, 0)), (((), _M_Test._t_StringStringSD, False, 0),), ((), _M_Test._t_StringStringSD, False, 0), ())
+    MyClass._op_opMyEnumMyEnumSD = IcePy.Operation('opMyEnumMyEnumSD', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnumMyEnumSD, False, 0), ((), _M_Test._t_MyEnumMyEnumSD, False, 0)), (((), _M_Test._t_MyEnumMyEnumSD, False, 0),), ((), _M_Test._t_MyEnumMyEnumSD, False, 0), ())
+    MyClass._op_opIntS = IcePy.Operation('opIntS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntS, False, 0),), (), ((), _M_Test._t_IntS, False, 0), ())
+    MyClass._op_opContext = IcePy.Operation('opContext', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringStringD, False, 0), ())
+    MyClass._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    MyClass._op_opByte1 = IcePy.Operation('opByte1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_byte, False, 0),), (), ((), IcePy._t_byte, False, 0), ())
+    MyClass._op_opShort1 = IcePy.Operation('opShort1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_short, False, 0),), (), ((), IcePy._t_short, False, 0), ())
+    MyClass._op_opInt1 = IcePy.Operation('opInt1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), ())
+    MyClass._op_opLong1 = IcePy.Operation('opLong1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0),), (), ((), IcePy._t_long, False, 0), ())
+    MyClass._op_opFloat1 = IcePy.Operation('opFloat1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_float, False, 0),), (), ((), IcePy._t_float, False, 0), ())
+    MyClass._op_opDouble1 = IcePy.Operation('opDouble1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_double, False, 0),), (), ((), IcePy._t_double, False, 0), ())
+    MyClass._op_opString1 = IcePy.Operation('opString1', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
+    MyClass._op_opStringS1 = IcePy.Operation('opStringS1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringS, False, 0),), (), ((), _M_Test._t_StringS, False, 0), ())
+    MyClass._op_opByteBoolD1 = IcePy.Operation('opByteBoolD1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteBoolD, False, 0),), (), ((), _M_Test._t_ByteBoolD, False, 0), ())
+    MyClass._op_opStringS2 = IcePy.Operation('opStringS2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringS, False, 0),), (), ((), _M_Test._t_StringS, False, 0), ())
+    MyClass._op_opByteBoolD2 = IcePy.Operation('opByteBoolD2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteBoolD, False, 0),), (), ((), _M_Test._t_ByteBoolD, False, 0), ())
+    MyClass._op_opStringLiterals = IcePy.Operation('opStringLiterals', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringS, False, 0), ())
+    MyClass._op_opMStruct1 = IcePy.Operation('opMStruct1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_Structure, False, 0), ())
+    MyClass._op_opMStruct2 = IcePy.Operation('opMStruct2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Structure, False, 0),), (((), _M_Test._t_Structure, False, 0),), ((), _M_Test._t_Structure, False, 0), ())
+    MyClass._op_opMSeq1 = IcePy.Operation('opMSeq1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringS, False, 0), ())
+    MyClass._op_opMSeq2 = IcePy.Operation('opMSeq2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringS, False, 0),), (((), _M_Test._t_StringS, False, 0),), ((), _M_Test._t_StringS, False, 0), ())
+    MyClass._op_opMDict1 = IcePy.Operation('opMDict1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringStringD, False, 0), ())
+    MyClass._op_opMDict2 = IcePy.Operation('opMDict2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringStringD, False, 0),), (((), _M_Test._t_StringStringD, False, 0),), ((), _M_Test._t_StringStringD, False, 0), ())
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_Test.MyStruct1):
-            return NotImplemented
-        else:
-            if self.tesT != other.tesT:
+    _M_Test.MyClass = MyClass
+    del MyClass
+
+if 'MyStruct1' not in _M_Test.__dict__:
+    _M_Test.MyStruct1 = None
+    class MyStruct1(object):
+        def __init__(self, tesT='', myClass=None, myStruct1=''):
+            self.tesT = tesT
+            self.myClass = myClass
+            self.myStruct1 = myStruct1
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.myClass != other.myClass:
-                return False
-            if self.myStruct1 != other.myStruct1:
-                return False
-            return True
+            elif not isinstance(other, _M_Test.MyStruct1):
+                return NotImplemented
+            else:
+                if self.tesT != other.tesT:
+                    return False
+                if self.myClass != other.myClass:
+                    return False
+                if self.myStruct1 != other.myStruct1:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_MyStruct1)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_MyStruct1)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test._t_MyStruct1 = IcePy.defineStruct('::Test::MyStruct1', MyStruct1, (), (
-    ('tesT', (), IcePy._t_string),
-    ('myClass', (), _M_Test._t_MyClassPrx),
-    ('myStruct1', (), IcePy._t_string)
-))
+    _M_Test._t_MyStruct1 = IcePy.defineStruct('::Test::MyStruct1', MyStruct1, (), (
+        ('tesT', (), IcePy._t_string),
+        ('myClass', (), _M_Test._t_MyClassPrx),
+        ('myStruct1', (), IcePy._t_string)
+    ))
 
-_M_Test.MyStruct1 = MyStruct1
-del MyStruct1
-_M_Test.MyClass1 = None
-class MyClass1(Ice.Value):
-    def __init__(self, tesT='', myClass=None, myClass1=''):
-        self.tesT = tesT
-        self.myClass = myClass
-        self.myClass1 = myClass1
+    _M_Test.MyStruct1 = MyStruct1
+    del MyStruct1
 
-    def ice_id(self):
-        return '::Test::MyClass1'
+if 'MyClass1' not in _M_Test.__dict__:
+    _M_Test.MyClass1 = None
+    class MyClass1(Ice.Value):
+        def __init__(self, tesT='', myClass=None, myClass1=''):
+            self.tesT = tesT
+            self.myClass = myClass
+            self.myClass1 = myClass1
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::MyClass1'
+        def ice_id(self):
+            return '::Test::MyClass1'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_MyClass1)
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyClass1'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_MyClass1)
 
-_M_Test._t_MyClass1 = IcePy.defineValue('::Test::MyClass1', MyClass1, -1, (), False, None, (
-    ('tesT', (), IcePy._t_string, False, 0),
-    ('myClass', (), _M_Test._t_MyClassPrx, False, 0),
-    ('myClass1', (), IcePy._t_string, False, 0)
-))
-MyClass1._ice_type = _M_Test._t_MyClass1
+        __repr__ = __str__
 
-_M_Test.MyClass1 = MyClass1
-del MyClass1
+    _M_Test._t_MyClass1 = IcePy.defineValue('::Test::MyClass1', MyClass1, -1, (), False, None, (
+        ('tesT', (), IcePy._t_string, False, 0),
+        ('myClass', (), _M_Test._t_MyClassPrx, False, 0),
+        ('myClass1', (), IcePy._t_string, False, 0)
+    ))
+    MyClass1._ice_type = _M_Test._t_MyClass1
+
+    _M_Test.MyClass1 = MyClass1
+    del MyClass1
 
 _M_Test._t_MyDerivedClass = IcePy.defineValue('::Test::MyDerivedClass', Ice.Value, -1, (), True, None, ())
-_M_Test.MyDerivedClassPrx = None
-class MyDerivedClassPrx(_M_Test.MyClassPrx):
 
-    def opDerived(self, context=None):
-        return _M_Test.MyDerivedClass._op_opDerived.invoke(self, ((), context))
+if 'MyDerivedClassPrx' not in _M_Test.__dict__:
+    _M_Test.MyDerivedClassPrx = None
+    class MyDerivedClassPrx(_M_Test.MyClassPrx):
 
-    def opDerivedAsync(self, context=None):
-        return _M_Test.MyDerivedClass._op_opDerived.invokeAsync(self, ((), context))
+        def opDerived(self, context=None):
+            return _M_Test.MyDerivedClass._op_opDerived.invoke(self, ((), context))
 
-    def opMyStruct1(self, s, context=None):
-        return _M_Test.MyDerivedClass._op_opMyStruct1.invoke(self, ((s, ), context))
+        def opDerivedAsync(self, context=None):
+            return _M_Test.MyDerivedClass._op_opDerived.invokeAsync(self, ((), context))
 
-    def opMyStruct1Async(self, s, context=None):
-        return _M_Test.MyDerivedClass._op_opMyStruct1.invokeAsync(self, ((s, ), context))
+        def opMyStruct1(self, s, context=None):
+            return _M_Test.MyDerivedClass._op_opMyStruct1.invoke(self, ((s, ), context))
 
-    def opMyClass1(self, c, context=None):
-        return _M_Test.MyDerivedClass._op_opMyClass1.invoke(self, ((c, ), context))
+        def opMyStruct1Async(self, s, context=None):
+            return _M_Test.MyDerivedClass._op_opMyStruct1.invokeAsync(self, ((s, ), context))
 
-    def opMyClass1Async(self, c, context=None):
-        return _M_Test.MyDerivedClass._op_opMyClass1.invokeAsync(self, ((c, ), context))
+        def opMyClass1(self, c, context=None):
+            return _M_Test.MyDerivedClass._op_opMyClass1.invoke(self, ((c, ), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.MyDerivedClassPrx.ice_checkedCast(proxy, '::Test::MyDerivedClass', facetOrContext, context)
+        def opMyClass1Async(self, c, context=None):
+            return _M_Test.MyDerivedClass._op_opMyClass1.invokeAsync(self, ((c, ), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.MyDerivedClassPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.MyDerivedClassPrx.ice_checkedCast(proxy, '::Test::MyDerivedClass', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::MyDerivedClass'
-_M_Test._t_MyDerivedClassPrx = IcePy.defineProxy('::Test::MyDerivedClass', MyDerivedClassPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.MyDerivedClassPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.MyDerivedClassPrx = MyDerivedClassPrx
-del MyDerivedClassPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyDerivedClass'
+    _M_Test._t_MyDerivedClassPrx = IcePy.defineProxy('::Test::MyDerivedClass', MyDerivedClassPrx)
 
-_M_Test.MyDerivedClass = None
-class MyDerivedClass(_M_Test.MyClass):
+    _M_Test.MyDerivedClassPrx = MyDerivedClassPrx
+    del MyDerivedClassPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::MyClass', '::Test::MyDerivedClass')
+    _M_Test.MyDerivedClass = None
+    class MyDerivedClass(_M_Test.MyClass):
 
-    def ice_id(self, current=None):
-        return '::Test::MyDerivedClass'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::MyClass', '::Test::MyDerivedClass')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::MyDerivedClass'
+        def ice_id(self, current=None):
+            return '::Test::MyDerivedClass'
 
-    def opDerived(self, current=None):
-        raise NotImplementedError("servant method 'opDerived' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyDerivedClass'
 
-    def opMyStruct1(self, s, current=None):
-        raise NotImplementedError("servant method 'opMyStruct1' not implemented")
+        def opDerived(self, current=None):
+            raise NotImplementedError("servant method 'opDerived' not implemented")
 
-    def opMyClass1(self, c, current=None):
-        raise NotImplementedError("servant method 'opMyClass1' not implemented")
+        def opMyStruct1(self, s, current=None):
+            raise NotImplementedError("servant method 'opMyStruct1' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_MyDerivedClassDisp)
+        def opMyClass1(self, c, current=None):
+            raise NotImplementedError("servant method 'opMyClass1' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_MyDerivedClassDisp)
 
-_M_Test._t_MyDerivedClassDisp = IcePy.defineClass('::Test::MyDerivedClass', MyDerivedClass, (), None, (_M_Test._t_MyClassDisp,))
-MyDerivedClass._ice_type = _M_Test._t_MyDerivedClassDisp
+        __repr__ = __str__
 
-MyDerivedClass._op_opDerived = IcePy.Operation('opDerived', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-MyDerivedClass._op_opMyStruct1 = IcePy.Operation('opMyStruct1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyStruct1, False, 0),), (), ((), _M_Test._t_MyStruct1, False, 0), ())
-MyDerivedClass._op_opMyClass1 = IcePy.Operation('opMyClass1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyClass1, False, 0),), (), ((), _M_Test._t_MyClass1, False, 0), ())
+    _M_Test._t_MyDerivedClassDisp = IcePy.defineClass('::Test::MyDerivedClass', MyDerivedClass, (), None, (_M_Test._t_MyClassDisp,))
+    MyDerivedClass._ice_type = _M_Test._t_MyDerivedClassDisp
 
-_M_Test.MyDerivedClass = MyDerivedClass
-del MyDerivedClass
+    MyDerivedClass._op_opDerived = IcePy.Operation('opDerived', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    MyDerivedClass._op_opMyStruct1 = IcePy.Operation('opMyStruct1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyStruct1, False, 0),), (), ((), _M_Test._t_MyStruct1, False, 0), ())
+    MyDerivedClass._op_opMyClass1 = IcePy.Operation('opMyClass1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyClass1, False, 0),), (), ((), _M_Test._t_MyClass1, False, 0), ())
+
+    _M_Test.MyDerivedClass = MyDerivedClass
+    del MyDerivedClass
 
 _M_Test.s0 = "\\"
 
@@ -1165,47 +1263,49 @@ _M_Test2 = Ice.openModule('Test2')
 __name__ = 'Test2'
 
 _M_Test2._t_MyDerivedClass = IcePy.defineValue('::Test2::MyDerivedClass', Ice.Value, -1, (), True, None, ())
-_M_Test2.MyDerivedClassPrx = None
-class MyDerivedClassPrx(_M_Test.MyClassPrx):
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test2.MyDerivedClassPrx.ice_checkedCast(proxy, '::Test2::MyDerivedClass', facetOrContext, context)
+if 'MyDerivedClassPrx' not in _M_Test2.__dict__:
+    _M_Test2.MyDerivedClassPrx = None
+    class MyDerivedClassPrx(_M_Test.MyClassPrx):
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test2.MyDerivedClassPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test2.MyDerivedClassPrx.ice_checkedCast(proxy, '::Test2::MyDerivedClass', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test2::MyDerivedClass'
-_M_Test2._t_MyDerivedClassPrx = IcePy.defineProxy('::Test2::MyDerivedClass', MyDerivedClassPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test2.MyDerivedClassPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test2.MyDerivedClassPrx = MyDerivedClassPrx
-del MyDerivedClassPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test2::MyDerivedClass'
+    _M_Test2._t_MyDerivedClassPrx = IcePy.defineProxy('::Test2::MyDerivedClass', MyDerivedClassPrx)
 
-_M_Test2.MyDerivedClass = None
-class MyDerivedClass(_M_Test.MyClass):
+    _M_Test2.MyDerivedClassPrx = MyDerivedClassPrx
+    del MyDerivedClassPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test2::MyDerivedClass', '::Test::MyClass')
+    _M_Test2.MyDerivedClass = None
+    class MyDerivedClass(_M_Test.MyClass):
 
-    def ice_id(self, current=None):
-        return '::Test2::MyDerivedClass'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test2::MyDerivedClass', '::Test::MyClass')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test2::MyDerivedClass'
+        def ice_id(self, current=None):
+            return '::Test2::MyDerivedClass'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test2._t_MyDerivedClassDisp)
+        @staticmethod
+        def ice_staticId():
+            return '::Test2::MyDerivedClass'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test2._t_MyDerivedClassDisp)
 
-_M_Test2._t_MyDerivedClassDisp = IcePy.defineClass('::Test2::MyDerivedClass', MyDerivedClass, (), None, (_M_Test._t_MyClassDisp,))
-MyDerivedClass._ice_type = _M_Test2._t_MyDerivedClassDisp
+        __repr__ = __str__
 
-_M_Test2.MyDerivedClass = MyDerivedClass
-del MyDerivedClass
+    _M_Test2._t_MyDerivedClassDisp = IcePy.defineClass('::Test2::MyDerivedClass', MyDerivedClass, (), None, (_M_Test._t_MyClassDisp,))
+    MyDerivedClass._ice_type = _M_Test2._t_MyDerivedClassDisp
+
+    _M_Test2.MyDerivedClass = MyDerivedClass
+    del MyDerivedClass
 
 # End of module Test2

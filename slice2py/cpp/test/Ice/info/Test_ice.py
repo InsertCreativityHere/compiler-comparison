@@ -27,78 +27,80 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
-_M_Test.TestIntfPrx = None
-class TestIntfPrx(Ice.ObjectPrx):
 
-    def shutdown(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
+if 'TestIntfPrx' not in _M_Test.__dict__:
+    _M_Test.TestIntfPrx = None
+    class TestIntfPrx(Ice.ObjectPrx):
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
-    def getEndpointInfoAsContext(self, context=None):
-        return _M_Test.TestIntf._op_getEndpointInfoAsContext.invoke(self, ((), context))
+        def shutdownAsync(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
 
-    def getEndpointInfoAsContextAsync(self, context=None):
-        return _M_Test.TestIntf._op_getEndpointInfoAsContext.invokeAsync(self, ((), context))
+        def getEndpointInfoAsContext(self, context=None):
+            return _M_Test.TestIntf._op_getEndpointInfoAsContext.invoke(self, ((), context))
 
-    def getConnectionInfoAsContext(self, context=None):
-        return _M_Test.TestIntf._op_getConnectionInfoAsContext.invoke(self, ((), context))
+        def getEndpointInfoAsContextAsync(self, context=None):
+            return _M_Test.TestIntf._op_getEndpointInfoAsContext.invokeAsync(self, ((), context))
 
-    def getConnectionInfoAsContextAsync(self, context=None):
-        return _M_Test.TestIntf._op_getConnectionInfoAsContext.invokeAsync(self, ((), context))
+        def getConnectionInfoAsContext(self, context=None):
+            return _M_Test.TestIntf._op_getConnectionInfoAsContext.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
+        def getConnectionInfoAsContextAsync(self, context=None):
+            return _M_Test.TestIntf._op_getConnectionInfoAsContext.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
-_M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestIntfPrx = TestIntfPrx
-del TestIntfPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
+    _M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
 
-_M_Test.TestIntf = None
-class TestIntf(Ice.Object):
+    _M_Test.TestIntfPrx = TestIntfPrx
+    del TestIntfPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::TestIntf')
+    _M_Test.TestIntf = None
+    class TestIntf(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::TestIntf'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::TestIntf')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
+        def ice_id(self, current=None):
+            return '::Test::TestIntf'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
 
-    def getEndpointInfoAsContext(self, current=None):
-        raise NotImplementedError("servant method 'getEndpointInfoAsContext' not implemented")
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    def getConnectionInfoAsContext(self, current=None):
-        raise NotImplementedError("servant method 'getConnectionInfoAsContext' not implemented")
+        def getEndpointInfoAsContext(self, current=None):
+            raise NotImplementedError("servant method 'getEndpointInfoAsContext' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
+        def getConnectionInfoAsContext(self, current=None):
+            raise NotImplementedError("servant method 'getConnectionInfoAsContext' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
-_M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-TestIntf._ice_type = _M_Test._t_TestIntfDisp
+        __repr__ = __str__
 
-TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-TestIntf._op_getEndpointInfoAsContext = IcePy.Operation('getEndpointInfoAsContext', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_Context, False, 0), ())
-TestIntf._op_getConnectionInfoAsContext = IcePy.Operation('getConnectionInfoAsContext', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_Context, False, 0), ())
+    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
+    TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-_M_Test.TestIntf = TestIntf
-del TestIntf
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_getEndpointInfoAsContext = IcePy.Operation('getEndpointInfoAsContext', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_Context, False, 0), ())
+    TestIntf._op_getConnectionInfoAsContext = IcePy.Operation('getConnectionInfoAsContext', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_Context, False, 0), ())
+
+    _M_Test.TestIntf = TestIntf
+    del TestIntf
 
 # End of module Test

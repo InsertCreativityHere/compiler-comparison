@@ -27,318 +27,328 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_TestLocatorRegistry = IcePy.defineValue('::Test::TestLocatorRegistry', Ice.Value, -1, (), True, None, ())
-_M_Test.TestLocatorRegistryPrx = None
-class TestLocatorRegistryPrx(_M_Ice.LocatorRegistryPrx):
 
-    def addObject(self, obj, context=None):
-        return _M_Test.TestLocatorRegistry._op_addObject.invoke(self, ((obj, ), context))
+if 'TestLocatorRegistryPrx' not in _M_Test.__dict__:
+    _M_Test.TestLocatorRegistryPrx = None
+    class TestLocatorRegistryPrx(_M_Ice.LocatorRegistryPrx):
 
-    def addObjectAsync(self, obj, context=None):
-        return _M_Test.TestLocatorRegistry._op_addObject.invokeAsync(self, ((obj, ), context))
+        def addObject(self, obj, context=None):
+            return _M_Test.TestLocatorRegistry._op_addObject.invoke(self, ((obj, ), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestLocatorRegistryPrx.ice_checkedCast(proxy, '::Test::TestLocatorRegistry', facetOrContext, context)
+        def addObjectAsync(self, obj, context=None):
+            return _M_Test.TestLocatorRegistry._op_addObject.invokeAsync(self, ((obj, ), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestLocatorRegistryPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestLocatorRegistryPrx.ice_checkedCast(proxy, '::Test::TestLocatorRegistry', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestLocatorRegistry'
-_M_Test._t_TestLocatorRegistryPrx = IcePy.defineProxy('::Test::TestLocatorRegistry', TestLocatorRegistryPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestLocatorRegistryPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestLocatorRegistryPrx = TestLocatorRegistryPrx
-del TestLocatorRegistryPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestLocatorRegistry'
+    _M_Test._t_TestLocatorRegistryPrx = IcePy.defineProxy('::Test::TestLocatorRegistry', TestLocatorRegistryPrx)
 
-_M_Test.TestLocatorRegistry = None
-class TestLocatorRegistry(_M_Ice.LocatorRegistry):
+    _M_Test.TestLocatorRegistryPrx = TestLocatorRegistryPrx
+    del TestLocatorRegistryPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::LocatorRegistry', '::Ice::Object', '::Test::TestLocatorRegistry')
+    _M_Test.TestLocatorRegistry = None
+    class TestLocatorRegistry(_M_Ice.LocatorRegistry):
 
-    def ice_id(self, current=None):
-        return '::Test::TestLocatorRegistry'
+        def ice_ids(self, current=None):
+            return ('::Ice::LocatorRegistry', '::Ice::Object', '::Test::TestLocatorRegistry')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestLocatorRegistry'
+        def ice_id(self, current=None):
+            return '::Test::TestLocatorRegistry'
 
-    def addObject(self, obj, current=None):
-        raise NotImplementedError("servant method 'addObject' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestLocatorRegistry'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestLocatorRegistryDisp)
+        def addObject(self, obj, current=None):
+            raise NotImplementedError("servant method 'addObject' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestLocatorRegistryDisp)
 
-_M_Test._t_TestLocatorRegistryDisp = IcePy.defineClass('::Test::TestLocatorRegistry', TestLocatorRegistry, (), None, (_M_Ice._t_LocatorRegistryDisp,))
-TestLocatorRegistry._ice_type = _M_Test._t_TestLocatorRegistryDisp
+        __repr__ = __str__
 
-TestLocatorRegistry._op_addObject = IcePy.Operation('addObject', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), None, ())
+    _M_Test._t_TestLocatorRegistryDisp = IcePy.defineClass('::Test::TestLocatorRegistry', TestLocatorRegistry, (), None, (_M_Ice._t_LocatorRegistryDisp,))
+    TestLocatorRegistry._ice_type = _M_Test._t_TestLocatorRegistryDisp
 
-_M_Test.TestLocatorRegistry = TestLocatorRegistry
-del TestLocatorRegistry
+    TestLocatorRegistry._op_addObject = IcePy.Operation('addObject', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), None, ())
+
+    _M_Test.TestLocatorRegistry = TestLocatorRegistry
+    del TestLocatorRegistry
 
 _M_Test._t_TestLocator = IcePy.defineValue('::Test::TestLocator', Ice.Value, -1, (), True, None, ())
-_M_Test.TestLocatorPrx = None
-class TestLocatorPrx(_M_Ice.LocatorPrx):
 
-    def getRequestCount(self, context=None):
-        return _M_Test.TestLocator._op_getRequestCount.invoke(self, ((), context))
+if 'TestLocatorPrx' not in _M_Test.__dict__:
+    _M_Test.TestLocatorPrx = None
+    class TestLocatorPrx(_M_Ice.LocatorPrx):
 
-    def getRequestCountAsync(self, context=None):
-        return _M_Test.TestLocator._op_getRequestCount.invokeAsync(self, ((), context))
+        def getRequestCount(self, context=None):
+            return _M_Test.TestLocator._op_getRequestCount.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestLocatorPrx.ice_checkedCast(proxy, '::Test::TestLocator', facetOrContext, context)
+        def getRequestCountAsync(self, context=None):
+            return _M_Test.TestLocator._op_getRequestCount.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestLocatorPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestLocatorPrx.ice_checkedCast(proxy, '::Test::TestLocator', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestLocator'
-_M_Test._t_TestLocatorPrx = IcePy.defineProxy('::Test::TestLocator', TestLocatorPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestLocatorPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestLocatorPrx = TestLocatorPrx
-del TestLocatorPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestLocator'
+    _M_Test._t_TestLocatorPrx = IcePy.defineProxy('::Test::TestLocator', TestLocatorPrx)
 
-_M_Test.TestLocator = None
-class TestLocator(_M_Ice.Locator):
+    _M_Test.TestLocatorPrx = TestLocatorPrx
+    del TestLocatorPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Locator', '::Ice::Object', '::Test::TestLocator')
+    _M_Test.TestLocator = None
+    class TestLocator(_M_Ice.Locator):
 
-    def ice_id(self, current=None):
-        return '::Test::TestLocator'
+        def ice_ids(self, current=None):
+            return ('::Ice::Locator', '::Ice::Object', '::Test::TestLocator')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestLocator'
+        def ice_id(self, current=None):
+            return '::Test::TestLocator'
 
-    def getRequestCount(self, current=None):
-        raise NotImplementedError("servant method 'getRequestCount' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestLocator'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestLocatorDisp)
+        def getRequestCount(self, current=None):
+            raise NotImplementedError("servant method 'getRequestCount' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestLocatorDisp)
 
-_M_Test._t_TestLocatorDisp = IcePy.defineClass('::Test::TestLocator', TestLocator, (), None, (_M_Ice._t_LocatorDisp,))
-TestLocator._ice_type = _M_Test._t_TestLocatorDisp
+        __repr__ = __str__
 
-TestLocator._op_getRequestCount = IcePy.Operation('getRequestCount', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    _M_Test._t_TestLocatorDisp = IcePy.defineClass('::Test::TestLocator', TestLocator, (), None, (_M_Ice._t_LocatorDisp,))
+    TestLocator._ice_type = _M_Test._t_TestLocatorDisp
 
-_M_Test.TestLocator = TestLocator
-del TestLocator
+    TestLocator._op_getRequestCount = IcePy.Operation('getRequestCount', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+
+    _M_Test.TestLocator = TestLocator
+    del TestLocator
 
 _M_Test._t_ServerManager = IcePy.defineValue('::Test::ServerManager', Ice.Value, -1, (), True, None, ())
-_M_Test.ServerManagerPrx = None
-class ServerManagerPrx(Ice.ObjectPrx):
 
-    def startServer(self, context=None):
-        return _M_Test.ServerManager._op_startServer.invoke(self, ((), context))
+if 'ServerManagerPrx' not in _M_Test.__dict__:
+    _M_Test.ServerManagerPrx = None
+    class ServerManagerPrx(Ice.ObjectPrx):
 
-    def startServerAsync(self, context=None):
-        return _M_Test.ServerManager._op_startServer.invokeAsync(self, ((), context))
+        def startServer(self, context=None):
+            return _M_Test.ServerManager._op_startServer.invoke(self, ((), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.ServerManager._op_shutdown.invoke(self, ((), context))
+        def startServerAsync(self, context=None):
+            return _M_Test.ServerManager._op_startServer.invokeAsync(self, ((), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.ServerManager._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.ServerManager._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.ServerManagerPrx.ice_checkedCast(proxy, '::Test::ServerManager', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.ServerManager._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.ServerManagerPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.ServerManagerPrx.ice_checkedCast(proxy, '::Test::ServerManager', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::ServerManager'
-_M_Test._t_ServerManagerPrx = IcePy.defineProxy('::Test::ServerManager', ServerManagerPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.ServerManagerPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.ServerManagerPrx = ServerManagerPrx
-del ServerManagerPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::ServerManager'
+    _M_Test._t_ServerManagerPrx = IcePy.defineProxy('::Test::ServerManager', ServerManagerPrx)
 
-_M_Test.ServerManager = None
-class ServerManager(Ice.Object):
+    _M_Test.ServerManagerPrx = ServerManagerPrx
+    del ServerManagerPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::ServerManager')
+    _M_Test.ServerManager = None
+    class ServerManager(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::ServerManager'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::ServerManager')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::ServerManager'
+        def ice_id(self, current=None):
+            return '::Test::ServerManager'
 
-    def startServer(self, current=None):
-        raise NotImplementedError("servant method 'startServer' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::ServerManager'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def startServer(self, current=None):
+            raise NotImplementedError("servant method 'startServer' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_ServerManagerDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_ServerManagerDisp)
 
-_M_Test._t_ServerManagerDisp = IcePy.defineClass('::Test::ServerManager', ServerManager, (), None, ())
-ServerManager._ice_type = _M_Test._t_ServerManagerDisp
+        __repr__ = __str__
 
-ServerManager._op_startServer = IcePy.Operation('startServer', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-ServerManager._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_ServerManagerDisp = IcePy.defineClass('::Test::ServerManager', ServerManager, (), None, ())
+    ServerManager._ice_type = _M_Test._t_ServerManagerDisp
 
-_M_Test.ServerManager = ServerManager
-del ServerManager
+    ServerManager._op_startServer = IcePy.Operation('startServer', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    ServerManager._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.ServerManager = ServerManager
+    del ServerManager
 
 _M_Test._t_Hello = IcePy.defineValue('::Test::Hello', Ice.Value, -1, (), True, None, ())
-_M_Test.HelloPrx = None
-class HelloPrx(Ice.ObjectPrx):
 
-    def sayHello(self, context=None):
-        return _M_Test.Hello._op_sayHello.invoke(self, ((), context))
+if 'HelloPrx' not in _M_Test.__dict__:
+    _M_Test.HelloPrx = None
+    class HelloPrx(Ice.ObjectPrx):
 
-    def sayHelloAsync(self, context=None):
-        return _M_Test.Hello._op_sayHello.invokeAsync(self, ((), context))
+        def sayHello(self, context=None):
+            return _M_Test.Hello._op_sayHello.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.HelloPrx.ice_checkedCast(proxy, '::Test::Hello', facetOrContext, context)
+        def sayHelloAsync(self, context=None):
+            return _M_Test.Hello._op_sayHello.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.HelloPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.HelloPrx.ice_checkedCast(proxy, '::Test::Hello', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Hello'
-_M_Test._t_HelloPrx = IcePy.defineProxy('::Test::Hello', HelloPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.HelloPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.HelloPrx = HelloPrx
-del HelloPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Hello'
+    _M_Test._t_HelloPrx = IcePy.defineProxy('::Test::Hello', HelloPrx)
 
-_M_Test.Hello = None
-class Hello(Ice.Object):
+    _M_Test.HelloPrx = HelloPrx
+    del HelloPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Hello')
+    _M_Test.Hello = None
+    class Hello(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Hello'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Hello')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Hello'
+        def ice_id(self, current=None):
+            return '::Test::Hello'
 
-    def sayHello(self, current=None):
-        raise NotImplementedError("servant method 'sayHello' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Hello'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_HelloDisp)
+        def sayHello(self, current=None):
+            raise NotImplementedError("servant method 'sayHello' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_HelloDisp)
 
-_M_Test._t_HelloDisp = IcePy.defineClass('::Test::Hello', Hello, (), None, ())
-Hello._ice_type = _M_Test._t_HelloDisp
+        __repr__ = __str__
 
-Hello._op_sayHello = IcePy.Operation('sayHello', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_HelloDisp = IcePy.defineClass('::Test::Hello', Hello, (), None, ())
+    Hello._ice_type = _M_Test._t_HelloDisp
 
-_M_Test.Hello = Hello
-del Hello
+    Hello._op_sayHello = IcePy.Operation('sayHello', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.Hello = Hello
+    del Hello
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
-_M_Test.TestIntfPrx = None
-class TestIntfPrx(Ice.ObjectPrx):
 
-    def shutdown(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
+if 'TestIntfPrx' not in _M_Test.__dict__:
+    _M_Test.TestIntfPrx = None
+    class TestIntfPrx(Ice.ObjectPrx):
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
-    def getHello(self, context=None):
-        return _M_Test.TestIntf._op_getHello.invoke(self, ((), context))
+        def shutdownAsync(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
 
-    def getHelloAsync(self, context=None):
-        return _M_Test.TestIntf._op_getHello.invokeAsync(self, ((), context))
+        def getHello(self, context=None):
+            return _M_Test.TestIntf._op_getHello.invoke(self, ((), context))
 
-    def getReplicatedHello(self, context=None):
-        return _M_Test.TestIntf._op_getReplicatedHello.invoke(self, ((), context))
+        def getHelloAsync(self, context=None):
+            return _M_Test.TestIntf._op_getHello.invokeAsync(self, ((), context))
 
-    def getReplicatedHelloAsync(self, context=None):
-        return _M_Test.TestIntf._op_getReplicatedHello.invokeAsync(self, ((), context))
+        def getReplicatedHello(self, context=None):
+            return _M_Test.TestIntf._op_getReplicatedHello.invoke(self, ((), context))
 
-    def migrateHello(self, context=None):
-        return _M_Test.TestIntf._op_migrateHello.invoke(self, ((), context))
+        def getReplicatedHelloAsync(self, context=None):
+            return _M_Test.TestIntf._op_getReplicatedHello.invokeAsync(self, ((), context))
 
-    def migrateHelloAsync(self, context=None):
-        return _M_Test.TestIntf._op_migrateHello.invokeAsync(self, ((), context))
+        def migrateHello(self, context=None):
+            return _M_Test.TestIntf._op_migrateHello.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
+        def migrateHelloAsync(self, context=None):
+            return _M_Test.TestIntf._op_migrateHello.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
-_M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestIntfPrx = TestIntfPrx
-del TestIntfPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
+    _M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
 
-_M_Test.TestIntf = None
-class TestIntf(Ice.Object):
+    _M_Test.TestIntfPrx = TestIntfPrx
+    del TestIntfPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::TestIntf')
+    _M_Test.TestIntf = None
+    class TestIntf(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::TestIntf'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::TestIntf')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
+        def ice_id(self, current=None):
+            return '::Test::TestIntf'
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
 
-    def getHello(self, current=None):
-        raise NotImplementedError("servant method 'getHello' not implemented")
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    def getReplicatedHello(self, current=None):
-        raise NotImplementedError("servant method 'getReplicatedHello' not implemented")
+        def getHello(self, current=None):
+            raise NotImplementedError("servant method 'getHello' not implemented")
 
-    def migrateHello(self, current=None):
-        raise NotImplementedError("servant method 'migrateHello' not implemented")
+        def getReplicatedHello(self, current=None):
+            raise NotImplementedError("servant method 'getReplicatedHello' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
+        def migrateHello(self, current=None):
+            raise NotImplementedError("servant method 'migrateHello' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
-_M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-TestIntf._ice_type = _M_Test._t_TestIntfDisp
+        __repr__ = __str__
 
-TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-TestIntf._op_getHello = IcePy.Operation('getHello', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_HelloPrx, False, 0), ())
-TestIntf._op_getReplicatedHello = IcePy.Operation('getReplicatedHello', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_HelloPrx, False, 0), ())
-TestIntf._op_migrateHello = IcePy.Operation('migrateHello', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
+    TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-_M_Test.TestIntf = TestIntf
-del TestIntf
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_getHello = IcePy.Operation('getHello', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_HelloPrx, False, 0), ())
+    TestIntf._op_getReplicatedHello = IcePy.Operation('getReplicatedHello', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_HelloPrx, False, 0), ())
+    TestIntf._op_migrateHello = IcePy.Operation('migrateHello', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.TestIntf = TestIntf
+    del TestIntf
 
 # End of module Test

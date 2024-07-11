@@ -23,154 +23,160 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 _M_Test._t_Server = IcePy.defineValue('::Test::Server', Ice.Value, -1, (), True, None, ())
-_M_Test.ServerPrx = None
-class ServerPrx(Ice.ObjectPrx):
 
-    def noCert(self, context=None):
-        return _M_Test.Server._op_noCert.invoke(self, ((), context))
+if 'ServerPrx' not in _M_Test.__dict__:
+    _M_Test.ServerPrx = None
+    class ServerPrx(Ice.ObjectPrx):
 
-    def noCertAsync(self, context=None):
-        return _M_Test.Server._op_noCert.invokeAsync(self, ((), context))
+        def noCert(self, context=None):
+            return _M_Test.Server._op_noCert.invoke(self, ((), context))
 
-    def checkCert(self, subjectDN, issuerDN, context=None):
-        return _M_Test.Server._op_checkCert.invoke(self, ((subjectDN, issuerDN), context))
+        def noCertAsync(self, context=None):
+            return _M_Test.Server._op_noCert.invokeAsync(self, ((), context))
 
-    def checkCertAsync(self, subjectDN, issuerDN, context=None):
-        return _M_Test.Server._op_checkCert.invokeAsync(self, ((subjectDN, issuerDN), context))
+        def checkCert(self, subjectDN, issuerDN, context=None):
+            return _M_Test.Server._op_checkCert.invoke(self, ((subjectDN, issuerDN), context))
 
-    def checkCipher(self, cipher, context=None):
-        return _M_Test.Server._op_checkCipher.invoke(self, ((cipher, ), context))
+        def checkCertAsync(self, subjectDN, issuerDN, context=None):
+            return _M_Test.Server._op_checkCert.invokeAsync(self, ((subjectDN, issuerDN), context))
 
-    def checkCipherAsync(self, cipher, context=None):
-        return _M_Test.Server._op_checkCipher.invokeAsync(self, ((cipher, ), context))
+        def checkCipher(self, cipher, context=None):
+            return _M_Test.Server._op_checkCipher.invoke(self, ((cipher, ), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.ServerPrx.ice_checkedCast(proxy, '::Test::Server', facetOrContext, context)
+        def checkCipherAsync(self, cipher, context=None):
+            return _M_Test.Server._op_checkCipher.invokeAsync(self, ((cipher, ), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.ServerPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.ServerPrx.ice_checkedCast(proxy, '::Test::Server', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Server'
-_M_Test._t_ServerPrx = IcePy.defineProxy('::Test::Server', ServerPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.ServerPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.ServerPrx = ServerPrx
-del ServerPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Server'
+    _M_Test._t_ServerPrx = IcePy.defineProxy('::Test::Server', ServerPrx)
 
-_M_Test.Server = None
-class Server(Ice.Object):
+    _M_Test.ServerPrx = ServerPrx
+    del ServerPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::Server')
+    _M_Test.Server = None
+    class Server(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::Server'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Server')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::Server'
+        def ice_id(self, current=None):
+            return '::Test::Server'
 
-    def noCert(self, current=None):
-        raise NotImplementedError("servant method 'noCert' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Server'
 
-    def checkCert(self, subjectDN, issuerDN, current=None):
-        raise NotImplementedError("servant method 'checkCert' not implemented")
+        def noCert(self, current=None):
+            raise NotImplementedError("servant method 'noCert' not implemented")
 
-    def checkCipher(self, cipher, current=None):
-        raise NotImplementedError("servant method 'checkCipher' not implemented")
+        def checkCert(self, subjectDN, issuerDN, current=None):
+            raise NotImplementedError("servant method 'checkCert' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_ServerDisp)
+        def checkCipher(self, cipher, current=None):
+            raise NotImplementedError("servant method 'checkCipher' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_ServerDisp)
 
-_M_Test._t_ServerDisp = IcePy.defineClass('::Test::Server', Server, (), None, ())
-Server._ice_type = _M_Test._t_ServerDisp
+        __repr__ = __str__
 
-Server._op_noCert = IcePy.Operation('noCert', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-Server._op_checkCert = IcePy.Operation('checkCert', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
-Server._op_checkCipher = IcePy.Operation('checkCipher', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
+    _M_Test._t_ServerDisp = IcePy.defineClass('::Test::Server', Server, (), None, ())
+    Server._ice_type = _M_Test._t_ServerDisp
 
-_M_Test.Server = Server
-del Server
-_M_Test._t_Properties = IcePy.defineDictionary('::Test::Properties', (), IcePy._t_string, IcePy._t_string)
+    Server._op_noCert = IcePy.Operation('noCert', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Server._op_checkCert = IcePy.Operation('checkCert', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
+    Server._op_checkCipher = IcePy.Operation('checkCipher', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
+
+    _M_Test.Server = Server
+    del Server
+
+if '_t_Properties' not in _M_Test.__dict__:
+    _M_Test._t_Properties = IcePy.defineDictionary('::Test::Properties', (), IcePy._t_string, IcePy._t_string)
 
 _M_Test._t_ServerFactory = IcePy.defineValue('::Test::ServerFactory', Ice.Value, -1, (), True, None, ())
-_M_Test.ServerFactoryPrx = None
-class ServerFactoryPrx(Ice.ObjectPrx):
 
-    def createServer(self, props, context=None):
-        return _M_Test.ServerFactory._op_createServer.invoke(self, ((props, ), context))
+if 'ServerFactoryPrx' not in _M_Test.__dict__:
+    _M_Test.ServerFactoryPrx = None
+    class ServerFactoryPrx(Ice.ObjectPrx):
 
-    def createServerAsync(self, props, context=None):
-        return _M_Test.ServerFactory._op_createServer.invokeAsync(self, ((props, ), context))
+        def createServer(self, props, context=None):
+            return _M_Test.ServerFactory._op_createServer.invoke(self, ((props, ), context))
 
-    def destroyServer(self, srv, context=None):
-        return _M_Test.ServerFactory._op_destroyServer.invoke(self, ((srv, ), context))
+        def createServerAsync(self, props, context=None):
+            return _M_Test.ServerFactory._op_createServer.invokeAsync(self, ((props, ), context))
 
-    def destroyServerAsync(self, srv, context=None):
-        return _M_Test.ServerFactory._op_destroyServer.invokeAsync(self, ((srv, ), context))
+        def destroyServer(self, srv, context=None):
+            return _M_Test.ServerFactory._op_destroyServer.invoke(self, ((srv, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.ServerFactory._op_shutdown.invoke(self, ((), context))
+        def destroyServerAsync(self, srv, context=None):
+            return _M_Test.ServerFactory._op_destroyServer.invokeAsync(self, ((srv, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.ServerFactory._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.ServerFactory._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.ServerFactoryPrx.ice_checkedCast(proxy, '::Test::ServerFactory', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.ServerFactory._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.ServerFactoryPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.ServerFactoryPrx.ice_checkedCast(proxy, '::Test::ServerFactory', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::ServerFactory'
-_M_Test._t_ServerFactoryPrx = IcePy.defineProxy('::Test::ServerFactory', ServerFactoryPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.ServerFactoryPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.ServerFactoryPrx = ServerFactoryPrx
-del ServerFactoryPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::ServerFactory'
+    _M_Test._t_ServerFactoryPrx = IcePy.defineProxy('::Test::ServerFactory', ServerFactoryPrx)
 
-_M_Test.ServerFactory = None
-class ServerFactory(Ice.Object):
+    _M_Test.ServerFactoryPrx = ServerFactoryPrx
+    del ServerFactoryPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::ServerFactory')
+    _M_Test.ServerFactory = None
+    class ServerFactory(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::ServerFactory'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::ServerFactory')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::ServerFactory'
+        def ice_id(self, current=None):
+            return '::Test::ServerFactory'
 
-    def createServer(self, props, current=None):
-        raise NotImplementedError("servant method 'createServer' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::ServerFactory'
 
-    def destroyServer(self, srv, current=None):
-        raise NotImplementedError("servant method 'destroyServer' not implemented")
+        def createServer(self, props, current=None):
+            raise NotImplementedError("servant method 'createServer' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def destroyServer(self, srv, current=None):
+            raise NotImplementedError("servant method 'destroyServer' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_ServerFactoryDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_ServerFactoryDisp)
 
-_M_Test._t_ServerFactoryDisp = IcePy.defineClass('::Test::ServerFactory', ServerFactory, (), None, ())
-ServerFactory._ice_type = _M_Test._t_ServerFactoryDisp
+        __repr__ = __str__
 
-ServerFactory._op_createServer = IcePy.Operation('createServer', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Properties, False, 0),), (), ((), _M_Test._t_ServerPrx, False, 0), ())
-ServerFactory._op_destroyServer = IcePy.Operation('destroyServer', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ServerPrx, False, 0),), (), None, ())
-ServerFactory._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_ServerFactoryDisp = IcePy.defineClass('::Test::ServerFactory', ServerFactory, (), None, ())
+    ServerFactory._ice_type = _M_Test._t_ServerFactoryDisp
 
-_M_Test.ServerFactory = ServerFactory
-del ServerFactory
+    ServerFactory._op_createServer = IcePy.Operation('createServer', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Properties, False, 0),), (), ((), _M_Test._t_ServerPrx, False, 0), ())
+    ServerFactory._op_destroyServer = IcePy.Operation('destroyServer', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ServerPrx, False, 0),), (), None, ())
+    ServerFactory._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.ServerFactory = ServerFactory
+    del ServerFactory
 
 # End of module Test

@@ -27,74 +27,78 @@ _M_IceMX = Ice.openModule('IceMX')
 
 # Start of module IceMX
 __name__ = 'IceMX'
-_M_IceMX.TopicMetrics = None
-class TopicMetrics(_M_IceMX.Metrics):
-    """
-     Provides information on IceStorm topics.
-    Members:
-    published --  Number of events published on the topic by publishers.
-    forwarded --  Number of events forwarded on the topic by IceStorm topic links.
-    """
-    def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, published=0, forwarded=0):
-        _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
-        self.published = published
-        self.forwarded = forwarded
 
-    def ice_id(self):
-        return '::IceMX::TopicMetrics'
+if 'TopicMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX.TopicMetrics = None
+    class TopicMetrics(_M_IceMX.Metrics):
+        """
+         Provides information on IceStorm topics.
+        Members:
+        published --  Number of events published on the topic by publishers.
+        forwarded --  Number of events forwarded on the topic by IceStorm topic links.
+        """
+        def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, published=0, forwarded=0):
+            _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
+            self.published = published
+            self.forwarded = forwarded
 
-    @staticmethod
-    def ice_staticId():
-        return '::IceMX::TopicMetrics'
+        def ice_id(self):
+            return '::IceMX::TopicMetrics'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceMX._t_TopicMetrics)
+        @staticmethod
+        def ice_staticId():
+            return '::IceMX::TopicMetrics'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceMX._t_TopicMetrics)
 
-_M_IceMX._t_TopicMetrics = IcePy.defineValue('::IceMX::TopicMetrics', TopicMetrics, -1, (), False, _M_IceMX._t_Metrics, (
-    ('published', (), IcePy._t_long, False, 0),
-    ('forwarded', (), IcePy._t_long, False, 0)
-))
-TopicMetrics._ice_type = _M_IceMX._t_TopicMetrics
+        __repr__ = __str__
 
-_M_IceMX.TopicMetrics = TopicMetrics
-del TopicMetrics
-_M_IceMX.SubscriberMetrics = None
-class SubscriberMetrics(_M_IceMX.Metrics):
-    """
-     Provides information on IceStorm subscribers.
-    Members:
-    queued --  Number of queued events.
-    outstanding --  Number of outstanding events.
-    delivered --  Number of forwarded events.
-    """
-    def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, queued=0, outstanding=0, delivered=0):
-        _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
-        self.queued = queued
-        self.outstanding = outstanding
-        self.delivered = delivered
+    _M_IceMX._t_TopicMetrics = IcePy.defineValue('::IceMX::TopicMetrics', TopicMetrics, -1, (), False, _M_IceMX._t_Metrics, (
+        ('published', (), IcePy._t_long, False, 0),
+        ('forwarded', (), IcePy._t_long, False, 0)
+    ))
+    TopicMetrics._ice_type = _M_IceMX._t_TopicMetrics
 
-    def ice_id(self):
-        return '::IceMX::SubscriberMetrics'
+    _M_IceMX.TopicMetrics = TopicMetrics
+    del TopicMetrics
 
-    @staticmethod
-    def ice_staticId():
-        return '::IceMX::SubscriberMetrics'
+if 'SubscriberMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX.SubscriberMetrics = None
+    class SubscriberMetrics(_M_IceMX.Metrics):
+        """
+         Provides information on IceStorm subscribers.
+        Members:
+        queued --  Number of queued events.
+        outstanding --  Number of outstanding events.
+        delivered --  Number of forwarded events.
+        """
+        def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, queued=0, outstanding=0, delivered=0):
+            _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
+            self.queued = queued
+            self.outstanding = outstanding
+            self.delivered = delivered
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_IceMX._t_SubscriberMetrics)
+        def ice_id(self):
+            return '::IceMX::SubscriberMetrics'
 
-    __repr__ = __str__
+        @staticmethod
+        def ice_staticId():
+            return '::IceMX::SubscriberMetrics'
 
-_M_IceMX._t_SubscriberMetrics = IcePy.defineValue('::IceMX::SubscriberMetrics', SubscriberMetrics, -1, (), False, _M_IceMX._t_Metrics, (
-    ('queued', (), IcePy._t_int, False, 0),
-    ('outstanding', (), IcePy._t_int, False, 0),
-    ('delivered', (), IcePy._t_long, False, 0)
-))
-SubscriberMetrics._ice_type = _M_IceMX._t_SubscriberMetrics
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceMX._t_SubscriberMetrics)
 
-_M_IceMX.SubscriberMetrics = SubscriberMetrics
-del SubscriberMetrics
+        __repr__ = __str__
+
+    _M_IceMX._t_SubscriberMetrics = IcePy.defineValue('::IceMX::SubscriberMetrics', SubscriberMetrics, -1, (), False, _M_IceMX._t_Metrics, (
+        ('queued', (), IcePy._t_int, False, 0),
+        ('outstanding', (), IcePy._t_int, False, 0),
+        ('delivered', (), IcePy._t_long, False, 0)
+    ))
+    SubscriberMetrics._ice_type = _M_IceMX._t_SubscriberMetrics
+
+    _M_IceMX.SubscriberMetrics = SubscriberMetrics
+    del SubscriberMetrics
 
 # End of module IceMX

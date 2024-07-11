@@ -21,704 +21,836 @@ import builtins as _builtins
 # Start of module Test
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
-_M_Test._t_BoolSeq = IcePy.defineSequence('::Test::BoolSeq', (), IcePy._t_bool)
-_M_Test._t_BoolList = IcePy.defineSequence('::Test::BoolList', (), IcePy._t_bool)
-_M_Test._t_BoolListList = IcePy.defineSequence('::Test::BoolListList', (), _M_Test._t_BoolList)
-_M_Test._t_BoolListSeq = IcePy.defineSequence('::Test::BoolListSeq', (), _M_Test._t_BoolList)
-_M_Test._t_BoolSeqList = IcePy.defineSequence('::Test::BoolSeqList', (), _M_Test._t_BoolSeq)
-_M_Test._t_BoolDequeList = IcePy.defineSequence('::Test::BoolDequeList', (), _M_Test._t_BoolSeq)
-_M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
-_M_Test._t_ByteList = IcePy.defineSequence('::Test::ByteList', (), IcePy._t_byte)
-_M_Test._t_ByteListList = IcePy.defineSequence('::Test::ByteListList', (), _M_Test._t_ByteList)
-_M_Test._t_ByteListSeq = IcePy.defineSequence('::Test::ByteListSeq', (), _M_Test._t_ByteList)
-_M_Test._t_ByteSeqList = IcePy.defineSequence('::Test::ByteSeqList', (), _M_Test._t_ByteSeq)
-_M_Test._t_StringSeq = IcePy.defineSequence('::Test::StringSeq', (), IcePy._t_string)
-_M_Test._t_StringList = IcePy.defineSequence('::Test::StringList', (), IcePy._t_string)
-_M_Test._t_StringListList = IcePy.defineSequence('::Test::StringListList', (), _M_Test._t_StringList)
-_M_Test._t_StringListSeq = IcePy.defineSequence('::Test::StringListSeq', (), _M_Test._t_StringList)
-_M_Test._t_StringSeqList = IcePy.defineSequence('::Test::StringSeqList', (), _M_Test._t_StringSeq)
-_M_Test.Fixed = None
-class Fixed(object):
-    def __init__(self, s=0):
-        self.s = s
 
-    def __hash__(self):
-        _h = 0
-        _h = 5 * _h + _builtins.hash(self.s)
-        return _h % 0x7fffffff
+if '_t_BoolSeq' not in _M_Test.__dict__:
+    _M_Test._t_BoolSeq = IcePy.defineSequence('::Test::BoolSeq', (), IcePy._t_bool)
 
-    def __compare(self, other):
-        if other is None:
-            return 1
-        elif not isinstance(other, _M_Test.Fixed):
-            return NotImplemented
-        else:
-            if self.s is None or other.s is None:
-                if self.s != other.s:
-                    return (-1 if self.s is None else 1)
+if '_t_BoolList' not in _M_Test.__dict__:
+    _M_Test._t_BoolList = IcePy.defineSequence('::Test::BoolList', (), IcePy._t_bool)
+
+if '_t_BoolListList' not in _M_Test.__dict__:
+    _M_Test._t_BoolListList = IcePy.defineSequence('::Test::BoolListList', (), _M_Test._t_BoolList)
+
+if '_t_BoolListSeq' not in _M_Test.__dict__:
+    _M_Test._t_BoolListSeq = IcePy.defineSequence('::Test::BoolListSeq', (), _M_Test._t_BoolList)
+
+if '_t_BoolSeqList' not in _M_Test.__dict__:
+    _M_Test._t_BoolSeqList = IcePy.defineSequence('::Test::BoolSeqList', (), _M_Test._t_BoolSeq)
+
+if '_t_BoolDequeList' not in _M_Test.__dict__:
+    _M_Test._t_BoolDequeList = IcePy.defineSequence('::Test::BoolDequeList', (), _M_Test._t_BoolSeq)
+
+if '_t_ByteSeq' not in _M_Test.__dict__:
+    _M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
+
+if '_t_ByteList' not in _M_Test.__dict__:
+    _M_Test._t_ByteList = IcePy.defineSequence('::Test::ByteList', (), IcePy._t_byte)
+
+if '_t_ByteListList' not in _M_Test.__dict__:
+    _M_Test._t_ByteListList = IcePy.defineSequence('::Test::ByteListList', (), _M_Test._t_ByteList)
+
+if '_t_ByteListSeq' not in _M_Test.__dict__:
+    _M_Test._t_ByteListSeq = IcePy.defineSequence('::Test::ByteListSeq', (), _M_Test._t_ByteList)
+
+if '_t_ByteSeqList' not in _M_Test.__dict__:
+    _M_Test._t_ByteSeqList = IcePy.defineSequence('::Test::ByteSeqList', (), _M_Test._t_ByteSeq)
+
+if '_t_StringSeq' not in _M_Test.__dict__:
+    _M_Test._t_StringSeq = IcePy.defineSequence('::Test::StringSeq', (), IcePy._t_string)
+
+if '_t_StringList' not in _M_Test.__dict__:
+    _M_Test._t_StringList = IcePy.defineSequence('::Test::StringList', (), IcePy._t_string)
+
+if '_t_StringListList' not in _M_Test.__dict__:
+    _M_Test._t_StringListList = IcePy.defineSequence('::Test::StringListList', (), _M_Test._t_StringList)
+
+if '_t_StringListSeq' not in _M_Test.__dict__:
+    _M_Test._t_StringListSeq = IcePy.defineSequence('::Test::StringListSeq', (), _M_Test._t_StringList)
+
+if '_t_StringSeqList' not in _M_Test.__dict__:
+    _M_Test._t_StringSeqList = IcePy.defineSequence('::Test::StringSeqList', (), _M_Test._t_StringSeq)
+
+if 'Fixed' not in _M_Test.__dict__:
+    _M_Test.Fixed = None
+    class Fixed(object):
+        def __init__(self, s=0):
+            self.s = s
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.s)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.Fixed):
+                return NotImplemented
             else:
-                if self.s < other.s:
-                    return -1
-                elif self.s > other.s:
-                    return 1
-            return 0
+                if self.s is None or other.s is None:
+                    if self.s != other.s:
+                        return (-1 if self.s is None else 1)
+                else:
+                    if self.s < other.s:
+                        return -1
+                    elif self.s > other.s:
+                        return 1
+                return 0
 
-    def __lt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r < 0
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
 
-    def __le__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r <= 0
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
 
-    def __gt__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r > 0
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
 
-    def __ge__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r >= 0
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
 
-    def __eq__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r == 0
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
 
-    def __ne__(self, other):
-        r = self.__compare(other)
-        if r is NotImplemented:
-            return r
-        else:
-            return r != 0
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_Fixed)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_Fixed)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test._t_Fixed = IcePy.defineStruct('::Test::Fixed', Fixed, (), (('s', (), IcePy._t_short),))
+    _M_Test._t_Fixed = IcePy.defineStruct('::Test::Fixed', Fixed, (), (('s', (), IcePy._t_short),))
 
-_M_Test.Fixed = Fixed
-del Fixed
-_M_Test._t_FixedSeq = IcePy.defineSequence('::Test::FixedSeq', (), _M_Test._t_Fixed)
-_M_Test._t_FixedList = IcePy.defineSequence('::Test::FixedList', (), _M_Test._t_Fixed)
-_M_Test._t_FixedListList = IcePy.defineSequence('::Test::FixedListList', (), _M_Test._t_FixedList)
-_M_Test._t_FixedListSeq = IcePy.defineSequence('::Test::FixedListSeq', (), _M_Test._t_FixedList)
-_M_Test._t_FixedSeqList = IcePy.defineSequence('::Test::FixedSeqList', (), _M_Test._t_FixedSeq)
-_M_Test.Variable = None
-class Variable(object):
-    def __init__(self, s='', bl=None, ss=None):
-        self.s = s
-        self.bl = bl
-        self.ss = ss
+    _M_Test.Fixed = Fixed
+    del Fixed
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_Test.Variable):
-            return NotImplemented
-        else:
-            if self.s != other.s:
+if '_t_FixedSeq' not in _M_Test.__dict__:
+    _M_Test._t_FixedSeq = IcePy.defineSequence('::Test::FixedSeq', (), _M_Test._t_Fixed)
+
+if '_t_FixedList' not in _M_Test.__dict__:
+    _M_Test._t_FixedList = IcePy.defineSequence('::Test::FixedList', (), _M_Test._t_Fixed)
+
+if '_t_FixedListList' not in _M_Test.__dict__:
+    _M_Test._t_FixedListList = IcePy.defineSequence('::Test::FixedListList', (), _M_Test._t_FixedList)
+
+if '_t_FixedListSeq' not in _M_Test.__dict__:
+    _M_Test._t_FixedListSeq = IcePy.defineSequence('::Test::FixedListSeq', (), _M_Test._t_FixedList)
+
+if '_t_FixedSeqList' not in _M_Test.__dict__:
+    _M_Test._t_FixedSeqList = IcePy.defineSequence('::Test::FixedSeqList', (), _M_Test._t_FixedSeq)
+
+if 'Variable' not in _M_Test.__dict__:
+    _M_Test.Variable = None
+    class Variable(object):
+        def __init__(self, s='', bl=None, ss=None):
+            self.s = s
+            self.bl = bl
+            self.ss = ss
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.bl != other.bl:
-                return False
-            if self.ss != other.ss:
-                return False
-            return True
+            elif not isinstance(other, _M_Test.Variable):
+                return NotImplemented
+            else:
+                if self.s != other.s:
+                    return False
+                if self.bl != other.bl:
+                    return False
+                if self.ss != other.ss:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_Variable)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_Variable)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test._t_Variable = IcePy.defineStruct('::Test::Variable', Variable, (), (
-    ('s', (), IcePy._t_string),
-    ('bl', (), _M_Test._t_BoolList),
-    ('ss', (), _M_Test._t_StringSeq)
-))
+    _M_Test._t_Variable = IcePy.defineStruct('::Test::Variable', Variable, (), (
+        ('s', (), IcePy._t_string),
+        ('bl', (), _M_Test._t_BoolList),
+        ('ss', (), _M_Test._t_StringSeq)
+    ))
 
-_M_Test.Variable = Variable
-del Variable
-_M_Test._t_VariableSeq = IcePy.defineSequence('::Test::VariableSeq', (), _M_Test._t_Variable)
-_M_Test._t_VariableList = IcePy.defineSequence('::Test::VariableList', (), _M_Test._t_Variable)
-_M_Test._t_VariableListList = IcePy.defineSequence('::Test::VariableListList', (), _M_Test._t_VariableList)
-_M_Test._t_VariableListSeq = IcePy.defineSequence('::Test::VariableListSeq', (), _M_Test._t_VariableList)
-_M_Test._t_VariableSeqList = IcePy.defineSequence('::Test::VariableSeqList', (), _M_Test._t_VariableSeq)
-_M_Test._t_StringStringDict = IcePy.defineDictionary('::Test::StringStringDict', (), IcePy._t_string, IcePy._t_string)
-_M_Test._t_StringStringDictSeq = IcePy.defineSequence('::Test::StringStringDictSeq', (), _M_Test._t_StringStringDict)
-_M_Test._t_StringStringDictList = IcePy.defineSequence('::Test::StringStringDictList', (), _M_Test._t_StringStringDict)
-_M_Test._t_StringStringDictListList = IcePy.defineSequence('::Test::StringStringDictListList', (), _M_Test._t_StringStringDictList)
-_M_Test._t_StringStringDictListSeq = IcePy.defineSequence('::Test::StringStringDictListSeq', (), _M_Test._t_StringStringDictList)
-_M_Test._t_StringStringDictSeqList = IcePy.defineSequence('::Test::StringStringDictSeqList', (), _M_Test._t_StringStringDictSeq)
-_M_Test.E = None
-class E(Ice.EnumBase):
+    _M_Test.Variable = Variable
+    del Variable
 
-    def __init__(self, _n, _v):
-        Ice.EnumBase.__init__(self, _n, _v)
+if '_t_VariableSeq' not in _M_Test.__dict__:
+    _M_Test._t_VariableSeq = IcePy.defineSequence('::Test::VariableSeq', (), _M_Test._t_Variable)
 
-    def valueOf(self, _n):
-        if _n in self._enumerators:
-            return self._enumerators[_n]
-        return None
-    valueOf = classmethod(valueOf)
+if '_t_VariableList' not in _M_Test.__dict__:
+    _M_Test._t_VariableList = IcePy.defineSequence('::Test::VariableList', (), _M_Test._t_Variable)
 
-E.E1 = E("E1", 0)
-E.E2 = E("E2", 1)
-E.E3 = E("E3", 2)
-E._enumerators = { 0:E.E1, 1:E.E2, 2:E.E3 }
+if '_t_VariableListList' not in _M_Test.__dict__:
+    _M_Test._t_VariableListList = IcePy.defineSequence('::Test::VariableListList', (), _M_Test._t_VariableList)
 
-_M_Test._t_E = IcePy.defineEnum('::Test::E', E, (), E._enumerators)
+if '_t_VariableListSeq' not in _M_Test.__dict__:
+    _M_Test._t_VariableListSeq = IcePy.defineSequence('::Test::VariableListSeq', (), _M_Test._t_VariableList)
 
-_M_Test.E = E
-del E
-_M_Test._t_ESeq = IcePy.defineSequence('::Test::ESeq', (), _M_Test._t_E)
-_M_Test._t_EList = IcePy.defineSequence('::Test::EList', (), _M_Test._t_E)
-_M_Test._t_EListList = IcePy.defineSequence('::Test::EListList', (), _M_Test._t_EList)
-_M_Test._t_EListSeq = IcePy.defineSequence('::Test::EListSeq', (), _M_Test._t_EList)
-_M_Test._t_ESeqList = IcePy.defineSequence('::Test::ESeqList', (), _M_Test._t_ESeq)
-_M_Test.C = None
-class C(Ice.Value):
-    def __init__(self):
-        pass
+if '_t_VariableSeqList' not in _M_Test.__dict__:
+    _M_Test._t_VariableSeqList = IcePy.defineSequence('::Test::VariableSeqList', (), _M_Test._t_VariableSeq)
 
-    def ice_id(self):
-        return '::Test::C'
+if '_t_StringStringDict' not in _M_Test.__dict__:
+    _M_Test._t_StringStringDict = IcePy.defineDictionary('::Test::StringStringDict', (), IcePy._t_string, IcePy._t_string)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::C'
+if '_t_StringStringDictSeq' not in _M_Test.__dict__:
+    _M_Test._t_StringStringDictSeq = IcePy.defineSequence('::Test::StringStringDictSeq', (), _M_Test._t_StringStringDict)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_C)
+if '_t_StringStringDictList' not in _M_Test.__dict__:
+    _M_Test._t_StringStringDictList = IcePy.defineSequence('::Test::StringStringDictList', (), _M_Test._t_StringStringDict)
 
-    __repr__ = __str__
+if '_t_StringStringDictListList' not in _M_Test.__dict__:
+    _M_Test._t_StringStringDictListList = IcePy.defineSequence('::Test::StringStringDictListList', (), _M_Test._t_StringStringDictList)
 
-_M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, ())
-C._ice_type = _M_Test._t_C
+if '_t_StringStringDictListSeq' not in _M_Test.__dict__:
+    _M_Test._t_StringStringDictListSeq = IcePy.defineSequence('::Test::StringStringDictListSeq', (), _M_Test._t_StringStringDictList)
 
-_M_Test.C = C
-del C
-_M_Test._t_CSeq = IcePy.defineSequence('::Test::CSeq', (), _M_Test._t_C)
-_M_Test._t_CList = IcePy.defineSequence('::Test::CList', (), _M_Test._t_C)
-_M_Test._t_CListList = IcePy.defineSequence('::Test::CListList', (), _M_Test._t_CList)
-_M_Test._t_CListSeq = IcePy.defineSequence('::Test::CListSeq', (), _M_Test._t_CList)
-_M_Test._t_CSeqList = IcePy.defineSequence('::Test::CSeqList', (), _M_Test._t_CSeq)
+if '_t_StringStringDictSeqList' not in _M_Test.__dict__:
+    _M_Test._t_StringStringDictSeqList = IcePy.defineSequence('::Test::StringStringDictSeqList', (), _M_Test._t_StringStringDictSeq)
+
+if 'E' not in _M_Test.__dict__:
+    _M_Test.E = None
+    class E(Ice.EnumBase):
+
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
+
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
+
+    E.E1 = E("E1", 0)
+    E.E2 = E("E2", 1)
+    E.E3 = E("E3", 2)
+    E._enumerators = { 0:E.E1, 1:E.E2, 2:E.E3 }
+
+    _M_Test._t_E = IcePy.defineEnum('::Test::E', E, (), E._enumerators)
+
+    _M_Test.E = E
+    del E
+
+if '_t_ESeq' not in _M_Test.__dict__:
+    _M_Test._t_ESeq = IcePy.defineSequence('::Test::ESeq', (), _M_Test._t_E)
+
+if '_t_EList' not in _M_Test.__dict__:
+    _M_Test._t_EList = IcePy.defineSequence('::Test::EList', (), _M_Test._t_E)
+
+if '_t_EListList' not in _M_Test.__dict__:
+    _M_Test._t_EListList = IcePy.defineSequence('::Test::EListList', (), _M_Test._t_EList)
+
+if '_t_EListSeq' not in _M_Test.__dict__:
+    _M_Test._t_EListSeq = IcePy.defineSequence('::Test::EListSeq', (), _M_Test._t_EList)
+
+if '_t_ESeqList' not in _M_Test.__dict__:
+    _M_Test._t_ESeqList = IcePy.defineSequence('::Test::ESeqList', (), _M_Test._t_ESeq)
+
+if 'C' not in _M_Test.__dict__:
+    _M_Test.C = None
+    class C(Ice.Value):
+        def __init__(self):
+            pass
+
+        def ice_id(self):
+            return '::Test::C'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::C'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_C)
+
+        __repr__ = __str__
+
+    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, ())
+    C._ice_type = _M_Test._t_C
+
+    _M_Test.C = C
+    del C
+
+if '_t_CSeq' not in _M_Test.__dict__:
+    _M_Test._t_CSeq = IcePy.defineSequence('::Test::CSeq', (), _M_Test._t_C)
+
+if '_t_CList' not in _M_Test.__dict__:
+    _M_Test._t_CList = IcePy.defineSequence('::Test::CList', (), _M_Test._t_C)
+
+if '_t_CListList' not in _M_Test.__dict__:
+    _M_Test._t_CListList = IcePy.defineSequence('::Test::CListList', (), _M_Test._t_CList)
+
+if '_t_CListSeq' not in _M_Test.__dict__:
+    _M_Test._t_CListSeq = IcePy.defineSequence('::Test::CListSeq', (), _M_Test._t_CList)
+
+if '_t_CSeqList' not in _M_Test.__dict__:
+    _M_Test._t_CSeqList = IcePy.defineSequence('::Test::CSeqList', (), _M_Test._t_CSeq)
 
 _M_Test._t_D = IcePy.defineValue('::Test::D', Ice.Value, -1, (), True, None, ())
-_M_Test.DPrx = None
-class DPrx(Ice.ObjectPrx):
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.DPrx.ice_checkedCast(proxy, '::Test::D', facetOrContext, context)
+if 'DPrx' not in _M_Test.__dict__:
+    _M_Test.DPrx = None
+    class DPrx(Ice.ObjectPrx):
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.DPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.DPrx.ice_checkedCast(proxy, '::Test::D', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::D'
-_M_Test._t_DPrx = IcePy.defineProxy('::Test::D', DPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.DPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.DPrx = DPrx
-del DPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::D'
+    _M_Test._t_DPrx = IcePy.defineProxy('::Test::D', DPrx)
 
-_M_Test.D = None
-class D(Ice.Object):
+    _M_Test.DPrx = DPrx
+    del DPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::D')
+    _M_Test.D = None
+    class D(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::D'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::D')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::D'
+        def ice_id(self, current=None):
+            return '::Test::D'
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_DDisp)
+        @staticmethod
+        def ice_staticId():
+            return '::Test::D'
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_DDisp)
 
-_M_Test._t_DDisp = IcePy.defineClass('::Test::D', D, (), None, ())
-D._ice_type = _M_Test._t_DDisp
+        __repr__ = __str__
 
-_M_Test.D = D
-del D
-_M_Test._t_DPrxSeq = IcePy.defineSequence('::Test::DPrxSeq', (), _M_Test._t_DPrx)
-_M_Test._t_DPrxList = IcePy.defineSequence('::Test::DPrxList', (), _M_Test._t_DPrx)
-_M_Test._t_DPrxListList = IcePy.defineSequence('::Test::DPrxListList', (), _M_Test._t_DPrxList)
-_M_Test._t_DPrxListSeq = IcePy.defineSequence('::Test::DPrxListSeq', (), _M_Test._t_DPrxList)
-_M_Test._t_DPrxSeqList = IcePy.defineSequence('::Test::DPrxSeqList', (), _M_Test._t_DPrxSeq)
-_M_Test._t_DoubleSeq = IcePy.defineSequence('::Test::DoubleSeq', (), IcePy._t_double)
-_M_Test._t_IntStringDict = IcePy.defineDictionary('::Test::IntStringDict', (), IcePy._t_int, IcePy._t_string)
-_M_Test._t_LongLongDict = IcePy.defineDictionary('::Test::LongLongDict', (), IcePy._t_long, IcePy._t_long)
-_M_Test._t_StringIntDict = IcePy.defineDictionary('::Test::StringIntDict', (), IcePy._t_string, IcePy._t_int)
-_M_Test.DictClass = None
-class DictClass(Ice.Value):
-    def __init__(self, isdict=None):
-        self.isdict = isdict
+    _M_Test._t_DDisp = IcePy.defineClass('::Test::D', D, (), None, ())
+    D._ice_type = _M_Test._t_DDisp
 
-    def ice_id(self):
-        return '::Test::DictClass'
+    _M_Test.D = D
+    del D
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::DictClass'
+if '_t_DPrxSeq' not in _M_Test.__dict__:
+    _M_Test._t_DPrxSeq = IcePy.defineSequence('::Test::DPrxSeq', (), _M_Test._t_DPrx)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_DictClass)
+if '_t_DPrxList' not in _M_Test.__dict__:
+    _M_Test._t_DPrxList = IcePy.defineSequence('::Test::DPrxList', (), _M_Test._t_DPrx)
 
-    __repr__ = __str__
+if '_t_DPrxListList' not in _M_Test.__dict__:
+    _M_Test._t_DPrxListList = IcePy.defineSequence('::Test::DPrxListList', (), _M_Test._t_DPrxList)
 
-_M_Test._t_DictClass = IcePy.defineValue('::Test::DictClass', DictClass, -1, (), False, None, (('isdict', (), _M_Test._t_IntStringDict, False, 0),))
-DictClass._ice_type = _M_Test._t_DictClass
+if '_t_DPrxListSeq' not in _M_Test.__dict__:
+    _M_Test._t_DPrxListSeq = IcePy.defineSequence('::Test::DPrxListSeq', (), _M_Test._t_DPrxList)
 
-_M_Test.DictClass = DictClass
-del DictClass
-_M_Test._t_BoolBuffer = IcePy.defineSequence('::Test::BoolBuffer', (), IcePy._t_bool)
-_M_Test._t_ShortBuffer = IcePy.defineSequence('::Test::ShortBuffer', (), IcePy._t_short)
-_M_Test._t_IntBuffer = IcePy.defineSequence('::Test::IntBuffer', (), IcePy._t_int)
-_M_Test._t_LongBuffer = IcePy.defineSequence('::Test::LongBuffer', (), IcePy._t_long)
-_M_Test._t_FloatBuffer = IcePy.defineSequence('::Test::FloatBuffer', (), IcePy._t_float)
-_M_Test._t_DoubleBuffer = IcePy.defineSequence('::Test::DoubleBuffer', (), IcePy._t_double)
-_M_Test._t_ByteBuffer = IcePy.defineSequence('::Test::ByteBuffer', (), IcePy._t_byte)
-_M_Test.BufferStruct = None
-class BufferStruct(object):
-    def __init__(self, byteBuf=None, boolBuf=None, shortBuf=None, intBuf=None, longBuf=None, floatBuf=None, doubleBuf=None):
-        self.byteBuf = byteBuf
-        self.boolBuf = boolBuf
-        self.shortBuf = shortBuf
-        self.intBuf = intBuf
-        self.longBuf = longBuf
-        self.floatBuf = floatBuf
-        self.doubleBuf = doubleBuf
+if '_t_DPrxSeqList' not in _M_Test.__dict__:
+    _M_Test._t_DPrxSeqList = IcePy.defineSequence('::Test::DPrxSeqList', (), _M_Test._t_DPrxSeq)
 
-    def __eq__(self, other):
-        if other is None:
-            return False
-        elif not isinstance(other, _M_Test.BufferStruct):
-            return NotImplemented
-        else:
-            if self.byteBuf != other.byteBuf:
+if '_t_DoubleSeq' not in _M_Test.__dict__:
+    _M_Test._t_DoubleSeq = IcePy.defineSequence('::Test::DoubleSeq', (), IcePy._t_double)
+
+if '_t_IntStringDict' not in _M_Test.__dict__:
+    _M_Test._t_IntStringDict = IcePy.defineDictionary('::Test::IntStringDict', (), IcePy._t_int, IcePy._t_string)
+
+if '_t_LongLongDict' not in _M_Test.__dict__:
+    _M_Test._t_LongLongDict = IcePy.defineDictionary('::Test::LongLongDict', (), IcePy._t_long, IcePy._t_long)
+
+if '_t_StringIntDict' not in _M_Test.__dict__:
+    _M_Test._t_StringIntDict = IcePy.defineDictionary('::Test::StringIntDict', (), IcePy._t_string, IcePy._t_int)
+
+if 'DictClass' not in _M_Test.__dict__:
+    _M_Test.DictClass = None
+    class DictClass(Ice.Value):
+        def __init__(self, isdict=None):
+            self.isdict = isdict
+
+        def ice_id(self):
+            return '::Test::DictClass'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::DictClass'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_DictClass)
+
+        __repr__ = __str__
+
+    _M_Test._t_DictClass = IcePy.defineValue('::Test::DictClass', DictClass, -1, (), False, None, (('isdict', (), _M_Test._t_IntStringDict, False, 0),))
+    DictClass._ice_type = _M_Test._t_DictClass
+
+    _M_Test.DictClass = DictClass
+    del DictClass
+
+if '_t_BoolBuffer' not in _M_Test.__dict__:
+    _M_Test._t_BoolBuffer = IcePy.defineSequence('::Test::BoolBuffer', (), IcePy._t_bool)
+
+if '_t_ShortBuffer' not in _M_Test.__dict__:
+    _M_Test._t_ShortBuffer = IcePy.defineSequence('::Test::ShortBuffer', (), IcePy._t_short)
+
+if '_t_IntBuffer' not in _M_Test.__dict__:
+    _M_Test._t_IntBuffer = IcePy.defineSequence('::Test::IntBuffer', (), IcePy._t_int)
+
+if '_t_LongBuffer' not in _M_Test.__dict__:
+    _M_Test._t_LongBuffer = IcePy.defineSequence('::Test::LongBuffer', (), IcePy._t_long)
+
+if '_t_FloatBuffer' not in _M_Test.__dict__:
+    _M_Test._t_FloatBuffer = IcePy.defineSequence('::Test::FloatBuffer', (), IcePy._t_float)
+
+if '_t_DoubleBuffer' not in _M_Test.__dict__:
+    _M_Test._t_DoubleBuffer = IcePy.defineSequence('::Test::DoubleBuffer', (), IcePy._t_double)
+
+if '_t_ByteBuffer' not in _M_Test.__dict__:
+    _M_Test._t_ByteBuffer = IcePy.defineSequence('::Test::ByteBuffer', (), IcePy._t_byte)
+
+if 'BufferStruct' not in _M_Test.__dict__:
+    _M_Test.BufferStruct = None
+    class BufferStruct(object):
+        def __init__(self, byteBuf=None, boolBuf=None, shortBuf=None, intBuf=None, longBuf=None, floatBuf=None, doubleBuf=None):
+            self.byteBuf = byteBuf
+            self.boolBuf = boolBuf
+            self.shortBuf = shortBuf
+            self.intBuf = intBuf
+            self.longBuf = longBuf
+            self.floatBuf = floatBuf
+            self.doubleBuf = doubleBuf
+
+        def __eq__(self, other):
+            if other is None:
                 return False
-            if self.boolBuf != other.boolBuf:
-                return False
-            if self.shortBuf != other.shortBuf:
-                return False
-            if self.intBuf != other.intBuf:
-                return False
-            if self.longBuf != other.longBuf:
-                return False
-            if self.floatBuf != other.floatBuf:
-                return False
-            if self.doubleBuf != other.doubleBuf:
-                return False
-            return True
+            elif not isinstance(other, _M_Test.BufferStruct):
+                return NotImplemented
+            else:
+                if self.byteBuf != other.byteBuf:
+                    return False
+                if self.boolBuf != other.boolBuf:
+                    return False
+                if self.shortBuf != other.shortBuf:
+                    return False
+                if self.intBuf != other.intBuf:
+                    return False
+                if self.longBuf != other.longBuf:
+                    return False
+                if self.floatBuf != other.floatBuf:
+                    return False
+                if self.doubleBuf != other.doubleBuf:
+                    return False
+                return True
 
-    def __ne__(self, other):
-        return not self.__eq__(other)
+        def __ne__(self, other):
+            return not self.__eq__(other)
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_BufferStruct)
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_BufferStruct)
 
-    __repr__ = __str__
+        __repr__ = __str__
 
-_M_Test._t_BufferStruct = IcePy.defineStruct('::Test::BufferStruct', BufferStruct, (), (
-    ('byteBuf', (), _M_Test._t_ByteBuffer),
-    ('boolBuf', (), _M_Test._t_BoolBuffer),
-    ('shortBuf', (), _M_Test._t_ShortBuffer),
-    ('intBuf', (), _M_Test._t_IntBuffer),
-    ('longBuf', (), _M_Test._t_LongBuffer),
-    ('floatBuf', (), _M_Test._t_FloatBuffer),
-    ('doubleBuf', (), _M_Test._t_DoubleBuffer)
-))
+    _M_Test._t_BufferStruct = IcePy.defineStruct('::Test::BufferStruct', BufferStruct, (), (
+        ('byteBuf', (), _M_Test._t_ByteBuffer),
+        ('boolBuf', (), _M_Test._t_BoolBuffer),
+        ('shortBuf', (), _M_Test._t_ShortBuffer),
+        ('intBuf', (), _M_Test._t_IntBuffer),
+        ('longBuf', (), _M_Test._t_LongBuffer),
+        ('floatBuf', (), _M_Test._t_FloatBuffer),
+        ('doubleBuf', (), _M_Test._t_DoubleBuffer)
+    ))
 
-_M_Test.BufferStruct = BufferStruct
-del BufferStruct
+    _M_Test.BufferStruct = BufferStruct
+    del BufferStruct
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
-_M_Test.TestIntfPrx = None
-class TestIntfPrx(Ice.ObjectPrx):
 
-    def opDoubleArray(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opDoubleArray.invoke(self, ((inSeq, ), context))
+if 'TestIntfPrx' not in _M_Test.__dict__:
+    _M_Test.TestIntfPrx = None
+    class TestIntfPrx(Ice.ObjectPrx):
 
-    def opDoubleArrayAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opDoubleArray.invokeAsync(self, ((inSeq, ), context))
+        def opDoubleArray(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDoubleArray.invoke(self, ((inSeq, ), context))
 
-    def opBoolArray(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opBoolArray.invoke(self, ((inSeq, ), context))
+        def opDoubleArrayAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDoubleArray.invokeAsync(self, ((inSeq, ), context))
 
-    def opBoolArrayAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opBoolArray.invokeAsync(self, ((inSeq, ), context))
+        def opBoolArray(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opBoolArray.invoke(self, ((inSeq, ), context))
 
-    def opByteArray(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opByteArray.invoke(self, ((inSeq, ), context))
+        def opBoolArrayAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opBoolArray.invokeAsync(self, ((inSeq, ), context))
 
-    def opByteArrayAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opByteArray.invokeAsync(self, ((inSeq, ), context))
+        def opByteArray(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opByteArray.invoke(self, ((inSeq, ), context))
 
-    def opVariableArray(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opVariableArray.invoke(self, ((inSeq, ), context))
+        def opByteArrayAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opByteArray.invokeAsync(self, ((inSeq, ), context))
 
-    def opVariableArrayAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opVariableArray.invokeAsync(self, ((inSeq, ), context))
+        def opVariableArray(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opVariableArray.invoke(self, ((inSeq, ), context))
 
-    def opBoolSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opBoolSeq.invoke(self, ((inSeq, ), context))
+        def opVariableArrayAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opVariableArray.invokeAsync(self, ((inSeq, ), context))
 
-    def opBoolSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opBoolSeq.invokeAsync(self, ((inSeq, ), context))
+        def opBoolSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opBoolSeq.invoke(self, ((inSeq, ), context))
 
-    def opBoolList(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opBoolList.invoke(self, ((inSeq, ), context))
+        def opBoolSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opBoolSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opBoolListAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opBoolList.invokeAsync(self, ((inSeq, ), context))
+        def opBoolList(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opBoolList.invoke(self, ((inSeq, ), context))
 
-    def opBoolDequeList(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opBoolDequeList.invoke(self, ((inSeq, ), context))
+        def opBoolListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opBoolList.invokeAsync(self, ((inSeq, ), context))
 
-    def opBoolDequeListAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opBoolDequeList.invokeAsync(self, ((inSeq, ), context))
+        def opBoolDequeList(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opBoolDequeList.invoke(self, ((inSeq, ), context))
 
-    def opBoolDequeListArray(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opBoolDequeListArray.invoke(self, ((inSeq, ), context))
+        def opBoolDequeListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opBoolDequeList.invokeAsync(self, ((inSeq, ), context))
 
-    def opBoolDequeListArrayAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opBoolDequeListArray.invokeAsync(self, ((inSeq, ), context))
+        def opBoolDequeListArray(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opBoolDequeListArray.invoke(self, ((inSeq, ), context))
 
-    def opByteSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opByteSeq.invoke(self, ((inSeq, ), context))
+        def opBoolDequeListArrayAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opBoolDequeListArray.invokeAsync(self, ((inSeq, ), context))
 
-    def opByteSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opByteSeq.invokeAsync(self, ((inSeq, ), context))
+        def opByteSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opByteSeq.invoke(self, ((inSeq, ), context))
 
-    def opByteList(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opByteList.invoke(self, ((inSeq, ), context))
+        def opByteSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opByteSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opByteListAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opByteList.invokeAsync(self, ((inSeq, ), context))
+        def opByteList(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opByteList.invoke(self, ((inSeq, ), context))
 
-    def opMyByteSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opMyByteSeq.invoke(self, ((inSeq, ), context))
+        def opByteListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opByteList.invokeAsync(self, ((inSeq, ), context))
 
-    def opMyByteSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opMyByteSeq.invokeAsync(self, ((inSeq, ), context))
+        def opMyByteSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opMyByteSeq.invoke(self, ((inSeq, ), context))
 
-    def opStringSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opStringSeq.invoke(self, ((inSeq, ), context))
+        def opMyByteSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opMyByteSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opStringSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opStringSeq.invokeAsync(self, ((inSeq, ), context))
+        def opStringSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opStringSeq.invoke(self, ((inSeq, ), context))
 
-    def opStringList(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opStringList.invoke(self, ((inSeq, ), context))
+        def opStringSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opStringSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opStringListAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opStringList.invokeAsync(self, ((inSeq, ), context))
+        def opStringList(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opStringList.invoke(self, ((inSeq, ), context))
 
-    def opFixedSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opFixedSeq.invoke(self, ((inSeq, ), context))
+        def opStringListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opStringList.invokeAsync(self, ((inSeq, ), context))
 
-    def opFixedSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opFixedSeq.invokeAsync(self, ((inSeq, ), context))
+        def opFixedSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opFixedSeq.invoke(self, ((inSeq, ), context))
 
-    def opFixedList(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opFixedList.invoke(self, ((inSeq, ), context))
+        def opFixedSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opFixedSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opFixedListAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opFixedList.invokeAsync(self, ((inSeq, ), context))
+        def opFixedList(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opFixedList.invoke(self, ((inSeq, ), context))
 
-    def opVariableSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opVariableSeq.invoke(self, ((inSeq, ), context))
+        def opFixedListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opFixedList.invokeAsync(self, ((inSeq, ), context))
 
-    def opVariableSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opVariableSeq.invokeAsync(self, ((inSeq, ), context))
+        def opVariableSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opVariableSeq.invoke(self, ((inSeq, ), context))
 
-    def opVariableList(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opVariableList.invoke(self, ((inSeq, ), context))
+        def opVariableSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opVariableSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opVariableListAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opVariableList.invokeAsync(self, ((inSeq, ), context))
+        def opVariableList(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opVariableList.invoke(self, ((inSeq, ), context))
 
-    def opStringStringDictSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opStringStringDictSeq.invoke(self, ((inSeq, ), context))
+        def opVariableListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opVariableList.invokeAsync(self, ((inSeq, ), context))
 
-    def opStringStringDictSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opStringStringDictSeq.invokeAsync(self, ((inSeq, ), context))
+        def opStringStringDictSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opStringStringDictSeq.invoke(self, ((inSeq, ), context))
 
-    def opStringStringDictList(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opStringStringDictList.invoke(self, ((inSeq, ), context))
+        def opStringStringDictSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opStringStringDictSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opStringStringDictListAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opStringStringDictList.invokeAsync(self, ((inSeq, ), context))
+        def opStringStringDictList(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opStringStringDictList.invoke(self, ((inSeq, ), context))
 
-    def opESeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opESeq.invoke(self, ((inSeq, ), context))
+        def opStringStringDictListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opStringStringDictList.invokeAsync(self, ((inSeq, ), context))
 
-    def opESeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opESeq.invokeAsync(self, ((inSeq, ), context))
+        def opESeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opESeq.invoke(self, ((inSeq, ), context))
 
-    def opEList(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opEList.invoke(self, ((inSeq, ), context))
+        def opESeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opESeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opEListAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opEList.invokeAsync(self, ((inSeq, ), context))
+        def opEList(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opEList.invoke(self, ((inSeq, ), context))
 
-    def opDPrxSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opDPrxSeq.invoke(self, ((inSeq, ), context))
+        def opEListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opEList.invokeAsync(self, ((inSeq, ), context))
 
-    def opDPrxSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opDPrxSeq.invokeAsync(self, ((inSeq, ), context))
+        def opDPrxSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDPrxSeq.invoke(self, ((inSeq, ), context))
 
-    def opDPrxList(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opDPrxList.invoke(self, ((inSeq, ), context))
+        def opDPrxSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDPrxSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opDPrxListAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opDPrxList.invokeAsync(self, ((inSeq, ), context))
+        def opDPrxList(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDPrxList.invoke(self, ((inSeq, ), context))
 
-    def opCSeq(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opCSeq.invoke(self, ((inSeq, ), context))
+        def opDPrxListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDPrxList.invokeAsync(self, ((inSeq, ), context))
 
-    def opCSeqAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opCSeq.invokeAsync(self, ((inSeq, ), context))
+        def opCSeq(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opCSeq.invoke(self, ((inSeq, ), context))
 
-    def opCList(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opCList.invoke(self, ((inSeq, ), context))
+        def opCSeqAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opCSeq.invokeAsync(self, ((inSeq, ), context))
 
-    def opCListAsync(self, inSeq, context=None):
-        return _M_Test.TestIntf._op_opCList.invokeAsync(self, ((inSeq, ), context))
+        def opCList(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opCList.invoke(self, ((inSeq, ), context))
 
-    def opOutArrayByteSeq(self, org, context=None):
-        return _M_Test.TestIntf._op_opOutArrayByteSeq.invoke(self, ((org, ), context))
+        def opCListAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opCList.invokeAsync(self, ((inSeq, ), context))
 
-    def opOutArrayByteSeqAsync(self, org, context=None):
-        return _M_Test.TestIntf._op_opOutArrayByteSeq.invokeAsync(self, ((org, ), context))
+        def opOutArrayByteSeq(self, org, context=None):
+            return _M_Test.TestIntf._op_opOutArrayByteSeq.invoke(self, ((org, ), context))
 
-    def opIntStringDict(self, idict, context=None):
-        return _M_Test.TestIntf._op_opIntStringDict.invoke(self, ((idict, ), context))
+        def opOutArrayByteSeqAsync(self, org, context=None):
+            return _M_Test.TestIntf._op_opOutArrayByteSeq.invokeAsync(self, ((org, ), context))
 
-    def opIntStringDictAsync(self, idict, context=None):
-        return _M_Test.TestIntf._op_opIntStringDict.invokeAsync(self, ((idict, ), context))
+        def opIntStringDict(self, idict, context=None):
+            return _M_Test.TestIntf._op_opIntStringDict.invoke(self, ((idict, ), context))
 
-    def opVarDict(self, idict, context=None):
-        return _M_Test.TestIntf._op_opVarDict.invoke(self, ((idict, ), context))
+        def opIntStringDictAsync(self, idict, context=None):
+            return _M_Test.TestIntf._op_opIntStringDict.invokeAsync(self, ((idict, ), context))
 
-    def opVarDictAsync(self, idict, context=None):
-        return _M_Test.TestIntf._op_opVarDict.invokeAsync(self, ((idict, ), context))
+        def opVarDict(self, idict, context=None):
+            return _M_Test.TestIntf._op_opVarDict.invoke(self, ((idict, ), context))
 
-    def opShortBuffer(self, inS, context=None):
-        return _M_Test.TestIntf._op_opShortBuffer.invoke(self, ((inS, ), context))
+        def opVarDictAsync(self, idict, context=None):
+            return _M_Test.TestIntf._op_opVarDict.invokeAsync(self, ((idict, ), context))
 
-    def opShortBufferAsync(self, inS, context=None):
-        return _M_Test.TestIntf._op_opShortBuffer.invokeAsync(self, ((inS, ), context))
+        def opShortBuffer(self, inS, context=None):
+            return _M_Test.TestIntf._op_opShortBuffer.invoke(self, ((inS, ), context))
 
-    def opBoolBuffer(self, inS, context=None):
-        return _M_Test.TestIntf._op_opBoolBuffer.invoke(self, ((inS, ), context))
+        def opShortBufferAsync(self, inS, context=None):
+            return _M_Test.TestIntf._op_opShortBuffer.invokeAsync(self, ((inS, ), context))
 
-    def opBoolBufferAsync(self, inS, context=None):
-        return _M_Test.TestIntf._op_opBoolBuffer.invokeAsync(self, ((inS, ), context))
+        def opBoolBuffer(self, inS, context=None):
+            return _M_Test.TestIntf._op_opBoolBuffer.invoke(self, ((inS, ), context))
 
-    def opBufferStruct(self, s, context=None):
-        return _M_Test.TestIntf._op_opBufferStruct.invoke(self, ((s, ), context))
+        def opBoolBufferAsync(self, inS, context=None):
+            return _M_Test.TestIntf._op_opBoolBuffer.invokeAsync(self, ((inS, ), context))
 
-    def opBufferStructAsync(self, s, context=None):
-        return _M_Test.TestIntf._op_opBufferStruct.invokeAsync(self, ((s, ), context))
+        def opBufferStruct(self, s, context=None):
+            return _M_Test.TestIntf._op_opBufferStruct.invoke(self, ((s, ), context))
 
-    def shutdown(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
+        def opBufferStructAsync(self, s, context=None):
+            return _M_Test.TestIntf._op_opBufferStruct.invokeAsync(self, ((s, ), context))
 
-    def shutdownAsync(self, context=None):
-        return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
+        def shutdown(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
-    @staticmethod
-    def checkedCast(proxy, facetOrContext=None, context=None):
-        return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
+        def shutdownAsync(self, context=None):
+            return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
 
-    @staticmethod
-    def uncheckedCast(proxy, facet=None):
-        return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
-_M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.TestIntfPrx.ice_uncheckedCast(proxy, facet)
 
-_M_Test.TestIntfPrx = TestIntfPrx
-del TestIntfPrx
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
+    _M_Test._t_TestIntfPrx = IcePy.defineProxy('::Test::TestIntf', TestIntfPrx)
 
-_M_Test.TestIntf = None
-class TestIntf(Ice.Object):
+    _M_Test.TestIntfPrx = TestIntfPrx
+    del TestIntfPrx
 
-    def ice_ids(self, current=None):
-        return ('::Ice::Object', '::Test::TestIntf')
+    _M_Test.TestIntf = None
+    class TestIntf(Ice.Object):
 
-    def ice_id(self, current=None):
-        return '::Test::TestIntf'
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::TestIntf')
 
-    @staticmethod
-    def ice_staticId():
-        return '::Test::TestIntf'
+        def ice_id(self, current=None):
+            return '::Test::TestIntf'
 
-    def opDoubleArray(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opDoubleArray' not implemented")
+        @staticmethod
+        def ice_staticId():
+            return '::Test::TestIntf'
 
-    def opBoolArray(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opBoolArray' not implemented")
+        def opDoubleArray(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opDoubleArray' not implemented")
 
-    def opByteArray(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opByteArray' not implemented")
+        def opBoolArray(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opBoolArray' not implemented")
 
-    def opVariableArray(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opVariableArray' not implemented")
+        def opByteArray(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opByteArray' not implemented")
 
-    def opBoolSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opBoolSeq' not implemented")
+        def opVariableArray(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opVariableArray' not implemented")
 
-    def opBoolList(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opBoolList' not implemented")
+        def opBoolSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opBoolSeq' not implemented")
 
-    def opBoolDequeList(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opBoolDequeList' not implemented")
+        def opBoolList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opBoolList' not implemented")
 
-    def opBoolDequeListArray(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opBoolDequeListArray' not implemented")
+        def opBoolDequeList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opBoolDequeList' not implemented")
 
-    def opByteSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opByteSeq' not implemented")
+        def opBoolDequeListArray(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opBoolDequeListArray' not implemented")
 
-    def opByteList(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opByteList' not implemented")
+        def opByteSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opByteSeq' not implemented")
 
-    def opMyByteSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opMyByteSeq' not implemented")
+        def opByteList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opByteList' not implemented")
 
-    def opStringSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opStringSeq' not implemented")
+        def opMyByteSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opMyByteSeq' not implemented")
 
-    def opStringList(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opStringList' not implemented")
+        def opStringSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opStringSeq' not implemented")
 
-    def opFixedSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opFixedSeq' not implemented")
+        def opStringList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opStringList' not implemented")
 
-    def opFixedList(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opFixedList' not implemented")
+        def opFixedSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opFixedSeq' not implemented")
 
-    def opVariableSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opVariableSeq' not implemented")
+        def opFixedList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opFixedList' not implemented")
 
-    def opVariableList(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opVariableList' not implemented")
+        def opVariableSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opVariableSeq' not implemented")
 
-    def opStringStringDictSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opStringStringDictSeq' not implemented")
+        def opVariableList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opVariableList' not implemented")
 
-    def opStringStringDictList(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opStringStringDictList' not implemented")
+        def opStringStringDictSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opStringStringDictSeq' not implemented")
 
-    def opESeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opESeq' not implemented")
+        def opStringStringDictList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opStringStringDictList' not implemented")
 
-    def opEList(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opEList' not implemented")
+        def opESeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opESeq' not implemented")
 
-    def opDPrxSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opDPrxSeq' not implemented")
+        def opEList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opEList' not implemented")
 
-    def opDPrxList(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opDPrxList' not implemented")
+        def opDPrxSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opDPrxSeq' not implemented")
 
-    def opCSeq(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opCSeq' not implemented")
+        def opDPrxList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opDPrxList' not implemented")
 
-    def opCList(self, inSeq, current=None):
-        raise NotImplementedError("servant method 'opCList' not implemented")
+        def opCSeq(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opCSeq' not implemented")
 
-    def opOutArrayByteSeq(self, org, current=None):
-        raise NotImplementedError("servant method 'opOutArrayByteSeq' not implemented")
+        def opCList(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opCList' not implemented")
 
-    def opIntStringDict(self, idict, current=None):
-        raise NotImplementedError("servant method 'opIntStringDict' not implemented")
+        def opOutArrayByteSeq(self, org, current=None):
+            raise NotImplementedError("servant method 'opOutArrayByteSeq' not implemented")
 
-    def opVarDict(self, idict, current=None):
-        raise NotImplementedError("servant method 'opVarDict' not implemented")
+        def opIntStringDict(self, idict, current=None):
+            raise NotImplementedError("servant method 'opIntStringDict' not implemented")
 
-    def opShortBuffer(self, inS, current=None):
-        raise NotImplementedError("servant method 'opShortBuffer' not implemented")
+        def opVarDict(self, idict, current=None):
+            raise NotImplementedError("servant method 'opVarDict' not implemented")
 
-    def opBoolBuffer(self, inS, current=None):
-        raise NotImplementedError("servant method 'opBoolBuffer' not implemented")
+        def opShortBuffer(self, inS, current=None):
+            raise NotImplementedError("servant method 'opShortBuffer' not implemented")
 
-    def opBufferStruct(self, s, current=None):
-        raise NotImplementedError("servant method 'opBufferStruct' not implemented")
+        def opBoolBuffer(self, inS, current=None):
+            raise NotImplementedError("servant method 'opBoolBuffer' not implemented")
 
-    def shutdown(self, current=None):
-        raise NotImplementedError("servant method 'shutdown' not implemented")
+        def opBufferStruct(self, s, current=None):
+            raise NotImplementedError("servant method 'opBufferStruct' not implemented")
 
-    def __str__(self):
-        return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
+        def shutdown(self, current=None):
+            raise NotImplementedError("servant method 'shutdown' not implemented")
 
-    __repr__ = __str__
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
-_M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-TestIntf._ice_type = _M_Test._t_TestIntfDisp
+        __repr__ = __str__
 
-TestIntf._op_opDoubleArray = IcePy.Operation('opDoubleArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleSeq, False, 0),), (((), _M_Test._t_DoubleSeq, False, 0),), ((), _M_Test._t_DoubleSeq, False, 0), ())
-TestIntf._op_opBoolArray = IcePy.Operation('opBoolArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, False, 0),), (((), _M_Test._t_BoolSeq, False, 0),), ((), _M_Test._t_BoolSeq, False, 0), ())
-TestIntf._op_opByteArray = IcePy.Operation('opByteArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteList, False, 0),), (((), _M_Test._t_ByteList, False, 0),), ((), _M_Test._t_ByteList, False, 0), ())
-TestIntf._op_opVariableArray = IcePy.Operation('opVariableArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VariableList, False, 0),), (((), _M_Test._t_VariableList, False, 0),), ((), _M_Test._t_VariableList, False, 0), ())
-TestIntf._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, False, 0),), (((), _M_Test._t_BoolSeq, False, 0),), ((), _M_Test._t_BoolSeq, False, 0), ())
-TestIntf._op_opBoolList = IcePy.Operation('opBoolList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolList, False, 0),), (((), _M_Test._t_BoolList, False, 0),), ((), _M_Test._t_BoolList, False, 0), ())
-TestIntf._op_opBoolDequeList = IcePy.Operation('opBoolDequeList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolDequeList, False, 0),), (((), _M_Test._t_BoolDequeList, False, 0),), ((), _M_Test._t_BoolDequeList, False, 0), ())
-TestIntf._op_opBoolDequeListArray = IcePy.Operation('opBoolDequeListArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolDequeList, False, 0),), (((), _M_Test._t_BoolDequeList, False, 0),), ((), _M_Test._t_BoolDequeList, False, 0), ())
-TestIntf._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), ((), _M_Test._t_ByteSeq, False, 0), ())
-TestIntf._op_opByteList = IcePy.Operation('opByteList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteList, False, 0),), (((), _M_Test._t_ByteList, False, 0),), ((), _M_Test._t_ByteList, False, 0), ())
-TestIntf._op_opMyByteSeq = IcePy.Operation('opMyByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), ((), _M_Test._t_ByteSeq, False, 0), ())
-TestIntf._op_opStringSeq = IcePy.Operation('opStringSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, False, 0),), (((), _M_Test._t_StringSeq, False, 0),), ((), _M_Test._t_StringSeq, False, 0), ())
-TestIntf._op_opStringList = IcePy.Operation('opStringList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringList, False, 0),), (((), _M_Test._t_StringList, False, 0),), ((), _M_Test._t_StringList, False, 0), ())
-TestIntf._op_opFixedSeq = IcePy.Operation('opFixedSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedSeq, False, 0),), (((), _M_Test._t_FixedSeq, False, 0),), ((), _M_Test._t_FixedSeq, False, 0), ())
-TestIntf._op_opFixedList = IcePy.Operation('opFixedList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedList, False, 0),), (((), _M_Test._t_FixedList, False, 0),), ((), _M_Test._t_FixedList, False, 0), ())
-TestIntf._op_opVariableSeq = IcePy.Operation('opVariableSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VariableSeq, False, 0),), (((), _M_Test._t_VariableSeq, False, 0),), ((), _M_Test._t_VariableSeq, False, 0), ())
-TestIntf._op_opVariableList = IcePy.Operation('opVariableList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VariableList, False, 0),), (((), _M_Test._t_VariableList, False, 0),), ((), _M_Test._t_VariableList, False, 0), ())
-TestIntf._op_opStringStringDictSeq = IcePy.Operation('opStringStringDictSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringStringDictSeq, False, 0),), (((), _M_Test._t_StringStringDictSeq, False, 0),), ((), _M_Test._t_StringStringDictSeq, False, 0), ())
-TestIntf._op_opStringStringDictList = IcePy.Operation('opStringStringDictList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringStringDictList, False, 0),), (((), _M_Test._t_StringStringDictList, False, 0),), ((), _M_Test._t_StringStringDictList, False, 0), ())
-TestIntf._op_opESeq = IcePy.Operation('opESeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ESeq, False, 0),), (((), _M_Test._t_ESeq, False, 0),), ((), _M_Test._t_ESeq, False, 0), ())
-TestIntf._op_opEList = IcePy.Operation('opEList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_EList, False, 0),), (((), _M_Test._t_EList, False, 0),), ((), _M_Test._t_EList, False, 0), ())
-TestIntf._op_opDPrxSeq = IcePy.Operation('opDPrxSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DPrxSeq, False, 0),), (((), _M_Test._t_DPrxSeq, False, 0),), ((), _M_Test._t_DPrxSeq, False, 0), ())
-TestIntf._op_opDPrxList = IcePy.Operation('opDPrxList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DPrxList, False, 0),), (((), _M_Test._t_DPrxList, False, 0),), ((), _M_Test._t_DPrxList, False, 0), ())
-TestIntf._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CSeq, False, 0),), (((), _M_Test._t_CSeq, False, 0),), ((), _M_Test._t_CSeq, False, 0), ())
-TestIntf._op_opCList = IcePy.Operation('opCList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CList, False, 0),), (((), _M_Test._t_CList, False, 0),), ((), _M_Test._t_CList, False, 0), ())
-TestIntf._op_opOutArrayByteSeq = IcePy.Operation('opOutArrayByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), None, ())
-TestIntf._op_opIntStringDict = IcePy.Operation('opIntStringDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntStringDict, False, 0),), (((), _M_Test._t_IntStringDict, False, 0),), ((), _M_Test._t_IntStringDict, False, 0), ())
-TestIntf._op_opVarDict = IcePy.Operation('opVarDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringIntDict, False, 0),), (((), _M_Test._t_StringIntDict, False, 0),), ((), _M_Test._t_LongLongDict, False, 0), ())
-TestIntf._op_opShortBuffer = IcePy.Operation('opShortBuffer', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortBuffer, False, 0),), (((), _M_Test._t_ShortBuffer, False, 0),), ((), _M_Test._t_ShortBuffer, False, 0), ())
-TestIntf._op_opBoolBuffer = IcePy.Operation('opBoolBuffer', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, False, 0),), (((), _M_Test._t_BoolSeq, False, 0),), ((), _M_Test._t_BoolSeq, False, 0), ())
-TestIntf._op_opBufferStruct = IcePy.Operation('opBufferStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BufferStruct, False, 0),), (), ((), _M_Test._t_BufferStruct, False, 0), ())
-TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
+    TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-_M_Test.TestIntf = TestIntf
-del TestIntf
+    TestIntf._op_opDoubleArray = IcePy.Operation('opDoubleArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleSeq, False, 0),), (((), _M_Test._t_DoubleSeq, False, 0),), ((), _M_Test._t_DoubleSeq, False, 0), ())
+    TestIntf._op_opBoolArray = IcePy.Operation('opBoolArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, False, 0),), (((), _M_Test._t_BoolSeq, False, 0),), ((), _M_Test._t_BoolSeq, False, 0), ())
+    TestIntf._op_opByteArray = IcePy.Operation('opByteArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteList, False, 0),), (((), _M_Test._t_ByteList, False, 0),), ((), _M_Test._t_ByteList, False, 0), ())
+    TestIntf._op_opVariableArray = IcePy.Operation('opVariableArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VariableList, False, 0),), (((), _M_Test._t_VariableList, False, 0),), ((), _M_Test._t_VariableList, False, 0), ())
+    TestIntf._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, False, 0),), (((), _M_Test._t_BoolSeq, False, 0),), ((), _M_Test._t_BoolSeq, False, 0), ())
+    TestIntf._op_opBoolList = IcePy.Operation('opBoolList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolList, False, 0),), (((), _M_Test._t_BoolList, False, 0),), ((), _M_Test._t_BoolList, False, 0), ())
+    TestIntf._op_opBoolDequeList = IcePy.Operation('opBoolDequeList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolDequeList, False, 0),), (((), _M_Test._t_BoolDequeList, False, 0),), ((), _M_Test._t_BoolDequeList, False, 0), ())
+    TestIntf._op_opBoolDequeListArray = IcePy.Operation('opBoolDequeListArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolDequeList, False, 0),), (((), _M_Test._t_BoolDequeList, False, 0),), ((), _M_Test._t_BoolDequeList, False, 0), ())
+    TestIntf._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), ((), _M_Test._t_ByteSeq, False, 0), ())
+    TestIntf._op_opByteList = IcePy.Operation('opByteList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteList, False, 0),), (((), _M_Test._t_ByteList, False, 0),), ((), _M_Test._t_ByteList, False, 0), ())
+    TestIntf._op_opMyByteSeq = IcePy.Operation('opMyByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), ((), _M_Test._t_ByteSeq, False, 0), ())
+    TestIntf._op_opStringSeq = IcePy.Operation('opStringSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, False, 0),), (((), _M_Test._t_StringSeq, False, 0),), ((), _M_Test._t_StringSeq, False, 0), ())
+    TestIntf._op_opStringList = IcePy.Operation('opStringList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringList, False, 0),), (((), _M_Test._t_StringList, False, 0),), ((), _M_Test._t_StringList, False, 0), ())
+    TestIntf._op_opFixedSeq = IcePy.Operation('opFixedSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedSeq, False, 0),), (((), _M_Test._t_FixedSeq, False, 0),), ((), _M_Test._t_FixedSeq, False, 0), ())
+    TestIntf._op_opFixedList = IcePy.Operation('opFixedList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedList, False, 0),), (((), _M_Test._t_FixedList, False, 0),), ((), _M_Test._t_FixedList, False, 0), ())
+    TestIntf._op_opVariableSeq = IcePy.Operation('opVariableSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VariableSeq, False, 0),), (((), _M_Test._t_VariableSeq, False, 0),), ((), _M_Test._t_VariableSeq, False, 0), ())
+    TestIntf._op_opVariableList = IcePy.Operation('opVariableList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VariableList, False, 0),), (((), _M_Test._t_VariableList, False, 0),), ((), _M_Test._t_VariableList, False, 0), ())
+    TestIntf._op_opStringStringDictSeq = IcePy.Operation('opStringStringDictSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringStringDictSeq, False, 0),), (((), _M_Test._t_StringStringDictSeq, False, 0),), ((), _M_Test._t_StringStringDictSeq, False, 0), ())
+    TestIntf._op_opStringStringDictList = IcePy.Operation('opStringStringDictList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringStringDictList, False, 0),), (((), _M_Test._t_StringStringDictList, False, 0),), ((), _M_Test._t_StringStringDictList, False, 0), ())
+    TestIntf._op_opESeq = IcePy.Operation('opESeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ESeq, False, 0),), (((), _M_Test._t_ESeq, False, 0),), ((), _M_Test._t_ESeq, False, 0), ())
+    TestIntf._op_opEList = IcePy.Operation('opEList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_EList, False, 0),), (((), _M_Test._t_EList, False, 0),), ((), _M_Test._t_EList, False, 0), ())
+    TestIntf._op_opDPrxSeq = IcePy.Operation('opDPrxSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DPrxSeq, False, 0),), (((), _M_Test._t_DPrxSeq, False, 0),), ((), _M_Test._t_DPrxSeq, False, 0), ())
+    TestIntf._op_opDPrxList = IcePy.Operation('opDPrxList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DPrxList, False, 0),), (((), _M_Test._t_DPrxList, False, 0),), ((), _M_Test._t_DPrxList, False, 0), ())
+    TestIntf._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CSeq, False, 0),), (((), _M_Test._t_CSeq, False, 0),), ((), _M_Test._t_CSeq, False, 0), ())
+    TestIntf._op_opCList = IcePy.Operation('opCList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CList, False, 0),), (((), _M_Test._t_CList, False, 0),), ((), _M_Test._t_CList, False, 0), ())
+    TestIntf._op_opOutArrayByteSeq = IcePy.Operation('opOutArrayByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), None, ())
+    TestIntf._op_opIntStringDict = IcePy.Operation('opIntStringDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntStringDict, False, 0),), (((), _M_Test._t_IntStringDict, False, 0),), ((), _M_Test._t_IntStringDict, False, 0), ())
+    TestIntf._op_opVarDict = IcePy.Operation('opVarDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringIntDict, False, 0),), (((), _M_Test._t_StringIntDict, False, 0),), ((), _M_Test._t_LongLongDict, False, 0), ())
+    TestIntf._op_opShortBuffer = IcePy.Operation('opShortBuffer', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortBuffer, False, 0),), (((), _M_Test._t_ShortBuffer, False, 0),), ((), _M_Test._t_ShortBuffer, False, 0), ())
+    TestIntf._op_opBoolBuffer = IcePy.Operation('opBoolBuffer', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, False, 0),), (((), _M_Test._t_BoolSeq, False, 0),), ((), _M_Test._t_BoolSeq, False, 0), ())
+    TestIntf._op_opBufferStruct = IcePy.Operation('opBufferStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BufferStruct, False, 0),), (), ((), _M_Test._t_BufferStruct, False, 0), ())
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.TestIntf = TestIntf
+    del TestIntf
 
 # End of module Test
