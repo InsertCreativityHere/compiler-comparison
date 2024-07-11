@@ -650,8 +650,8 @@ _M_Test.OptionalWithCustom = OptionalWithCustom
 del OptionalWithCustom
 _M_Test.E = None
 class E(Ice.Value):
-    def __init__(self, fse=Ice._struct_marker):
-        if fse is Ice._struct_marker:
+    def __init__(self, fse=None):
+        if fse is None:
             self.fse = _M_Test.FixedStruct()
         else:
             self.fse = fse
@@ -675,7 +675,7 @@ _M_Test.E = E
 del E
 _M_Test.F = None
 class F(_M_Test.E):
-    def __init__(self, fse=Ice._struct_marker, fsf=Ice.Unset):
+    def __init__(self, fse=None, fsf=Ice.Unset):
         _M_Test.E.__init__(self, fse)
         self.fsf = fsf
 
@@ -852,14 +852,14 @@ _M_Test.G2 = G2
 del G2
 _M_Test.G = None
 class G(Ice.Value):
-    def __init__(self, gg1Opt=Ice.Unset, gg2=Ice._struct_marker, gg2Opt=Ice.Unset, gg1=Ice._struct_marker):
+    def __init__(self, gg1Opt=Ice.Unset, gg2=None, gg2Opt=Ice.Unset, gg1=None):
         self.gg1Opt = gg1Opt
-        if gg2 is Ice._struct_marker:
+        if gg2 is None:
             self.gg2 = _M_Test.G2()
         else:
             self.gg2 = gg2
         self.gg2Opt = gg2Opt
-        if gg1 is Ice._struct_marker:
+        if gg1 is None:
             self.gg1 = _M_Test.G1()
         else:
             self.gg1 = gg1

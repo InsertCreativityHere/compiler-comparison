@@ -500,7 +500,7 @@ _M_Test.InnerStruct = InnerStruct
 del InnerStruct
 _M_Test.StructNoDefaults = None
 class StructNoDefaults(object):
-    def __init__(self, bo=False, b=0, s=0, i=0, l=0, f=0.0, d=0.0, str='', c1=_M_Test.Color.red, bs=None, _is=None, dict=None, st=Ice._struct_marker):
+    def __init__(self, bo=False, b=0, s=0, i=0, l=0, f=0.0, d=0.0, str='', c1=_M_Test.Color.red, bs=None, _is=None, dict=None, st=None):
         self.bo = bo
         self.b = b
         self.s = s
@@ -513,7 +513,7 @@ class StructNoDefaults(object):
         self.bs = bs
         self._is = _is
         self.dict = dict
-        if st is Ice._struct_marker:
+        if st is None:
             self.st = _M_Test.InnerStruct()
         else:
             self.st = st
@@ -608,9 +608,9 @@ _M_Test.ClassNoDefaultsBase = ClassNoDefaultsBase
 del ClassNoDefaultsBase
 _M_Test.ClassNoDefaults = None
 class ClassNoDefaults(_M_Test.ClassNoDefaultsBase):
-    def __init__(self, str='', c1=_M_Test.Color.red, bs=None, st=Ice._struct_marker, dict=None):
+    def __init__(self, str='', c1=_M_Test.Color.red, bs=None, st=None, dict=None):
         _M_Test.ClassNoDefaultsBase.__init__(self, str, c1, bs)
-        if st is Ice._struct_marker:
+        if st is None:
             self.st = _M_Test.InnerStruct()
         else:
             self.st = st

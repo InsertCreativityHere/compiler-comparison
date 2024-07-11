@@ -44,8 +44,8 @@ class TopicContent(object):
     id --  The topic identity.
     records --  The topic subscribers.
     """
-    def __init__(self, id=Ice._struct_marker, records=None):
-        if id is Ice._struct_marker:
+    def __init__(self, id=None, records=None):
+        if id is None:
             self.id = _M_Ice.Identity()
         else:
             self.id = id
@@ -492,9 +492,9 @@ class GroupInfo(object):
     id --  The identity of the node.
     llu --  The last known log update for this node.
     """
-    def __init__(self, id=0, llu=Ice._struct_marker):
+    def __init__(self, id=0, llu=None):
         self.id = id
-        if llu is Ice._struct_marker:
+        if llu is None:
             self.llu = _M_IceStormElection.LogUpdate()
         else:
             self.llu = llu

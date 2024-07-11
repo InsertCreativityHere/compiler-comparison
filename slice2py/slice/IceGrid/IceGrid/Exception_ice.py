@@ -153,8 +153,8 @@ class ObjectExistsException(Ice.UserException):
     Members:
     id --  The identity of the object.
     """
-    def __init__(self, id=Ice._struct_marker):
-        if id is Ice._struct_marker:
+    def __init__(self, id=None):
+        if id is None:
             self.id = _M_Ice.Identity()
         else:
             self.id = id
@@ -178,8 +178,8 @@ class ObjectNotRegisteredException(Ice.UserException):
     Members:
     id --  The identity of the object.
     """
-    def __init__(self, id=Ice._struct_marker):
-        if id is Ice._struct_marker:
+    def __init__(self, id=None):
+        if id is None:
             self.id = _M_Ice.Identity()
         else:
             self.id = id
@@ -458,8 +458,8 @@ class ObserverAlreadyRegisteredException(Ice.UserException):
     Members:
     id --  The identity of the observer.
     """
-    def __init__(self, id=Ice._struct_marker):
-        if id is Ice._struct_marker:
+    def __init__(self, id=None):
+        if id is None:
             self.id = _M_Ice.Identity()
         else:
             self.id = id

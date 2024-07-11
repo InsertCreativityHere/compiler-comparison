@@ -41,12 +41,12 @@ class SubscriberRecordKey(object):
     topic --  The topic identity.
     id --  The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
     """
-    def __init__(self, topic=Ice._struct_marker, id=Ice._struct_marker):
-        if topic is Ice._struct_marker:
+    def __init__(self, topic=None, id=None):
+        if topic is None:
             self.topic = _M_Ice.Identity()
         else:
             self.topic = topic
-        if id is Ice._struct_marker:
+        if id is None:
             self.id = _M_Ice.Identity()
         else:
             self.id = id
@@ -148,9 +148,9 @@ class SubscriberRecord(object):
     cost --  The cost.
     theTopic --  The linked topic.
     """
-    def __init__(self, topicName='', id=Ice._struct_marker, link=False, obj=None, theQoS=None, cost=0, theTopic=None):
+    def __init__(self, topicName='', id=None, link=False, obj=None, theQoS=None, cost=0, theTopic=None):
         self.topicName = topicName
-        if id is Ice._struct_marker:
+        if id is None:
             self.id = _M_Ice.Identity()
         else:
             self.id = id

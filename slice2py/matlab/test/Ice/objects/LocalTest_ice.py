@@ -78,8 +78,8 @@ _M_LocalTest._t_C1SeqSeq = IcePy.defineSequence('::LocalTest::C1SeqSeq', (), _M_
 _M_LocalTest._t_S1SeqSeq = IcePy.defineSequence('::LocalTest::S1SeqSeq', (), _M_LocalTest._t_S1Seq)
 _M_LocalTest.S2 = None
 class S2(object):
-    def __init__(self, s1=Ice._struct_marker):
-        if s1 is Ice._struct_marker:
+    def __init__(self, s1=None):
+        if s1 is None:
             self.s1 = _M_LocalTest.S1()
         else:
             self.s1 = s1
@@ -270,8 +270,8 @@ _M_LocalTest.S8 = S8
 del S8
 _M_LocalTest.CB1 = None
 class CB1(Ice.Value):
-    def __init__(self, s1=Ice._struct_marker):
-        if s1 is Ice._struct_marker:
+    def __init__(self, s1=None):
+        if s1 is None:
             self.s1 = _M_LocalTest.S1()
         else:
             self.s1 = s1
@@ -441,8 +441,8 @@ _M_LocalTest.CB7 = CB7
 del CB7
 _M_LocalTest.CB8 = None
 class CB8(Ice.Value):
-    def __init__(self, s1=Ice._struct_marker, c1seq=None, s1dict=None):
-        if s1 is Ice._struct_marker:
+    def __init__(self, s1=None, c1seq=None, s1dict=None):
+        if s1 is None:
             self.s1 = _M_LocalTest.S1()
         else:
             self.s1 = s1

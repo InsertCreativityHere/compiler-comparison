@@ -100,8 +100,8 @@ _M_Test.S = S
 del S
 _M_Test.Base = None
 class Base(Ice.Value):
-    def __init__(self, theS=Ice._struct_marker, str=''):
-        if theS is Ice._struct_marker:
+    def __init__(self, theS=None, str=''):
+        if theS is None:
             self.theS = _M_Test.S()
         else:
             self.theS = theS
@@ -319,7 +319,7 @@ _M_Test.F = F
 del F
 _M_Test.G = None
 class G(_M_Test.Base):
-    def __init__(self, theS=Ice._struct_marker, str=''):
+    def __init__(self, theS=None, str=''):
         _M_Test.Base.__init__(self, theS, str)
 
     def ice_id(self):

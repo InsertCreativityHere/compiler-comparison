@@ -125,7 +125,7 @@ _M_Test.S1 = S1
 del S1
 _M_Test.S2 = None
 class S2(object):
-    def __init__(self, bo=False, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', ss=None, il=None, sd=None, s=Ice._struct_marker, cls=None, prx=None):
+    def __init__(self, bo=False, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', ss=None, il=None, sd=None, s=None, cls=None, prx=None):
         self.bo = bo
         self.by = by
         self.sh = sh
@@ -137,7 +137,7 @@ class S2(object):
         self.ss = ss
         self.il = il
         self.sd = sd
-        if s is Ice._struct_marker:
+        if s is None:
             self.s = _M_Test.S1()
         else:
             self.s = s

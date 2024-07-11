@@ -120,10 +120,10 @@ _M_Test._t_StringMyEnumD = IcePy.defineDictionary('::Test::StringMyEnumD', (), I
 _M_Test._t_StringBaseD = IcePy.defineDictionary('::Test::StringBaseD', (), IcePy._t_string, _M_Test._t_Base)
 _M_Test.Base = None
 class Base(Ice.Value):
-    def __init__(self, b=None, o=None, s=Ice._struct_marker, seq1=None, seq2=None, seq3=None, seq4=None, d1=None, d2=None, d3=None, d4=None):
+    def __init__(self, b=None, o=None, s=None, seq1=None, seq2=None, seq3=None, seq4=None, d1=None, d2=None, d3=None, d4=None):
         self.b = b
         self.o = o
-        if s is Ice._struct_marker:
+        if s is None:
             self.s = _M_Test.Struct1()
         else:
             self.s = s
@@ -167,7 +167,7 @@ _M_Test.Base = Base
 del Base
 _M_Test.Derived = None
 class Derived(_M_Test.Base):
-    def __init__(self, b=None, o=None, s=Ice._struct_marker, seq1=None, seq2=None, seq3=None, seq4=None, d1=None, d2=None, d3=None, d4=None, p=None):
+    def __init__(self, b=None, o=None, s=None, seq1=None, seq2=None, seq3=None, seq4=None, d1=None, d2=None, d3=None, d4=None, p=None):
         _M_Test.Base.__init__(self, b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
         self.p = p
 
@@ -192,8 +192,8 @@ _M_Test.Derived = Derived
 del Derived
 _M_Test.Ex = None
 class Ex(Ice.UserException):
-    def __init__(self, s=Ice._struct_marker, b=None):
-        if s is Ice._struct_marker:
+    def __init__(self, s=None, b=None):
+        if s is None:
             self.s = _M_Test.Struct1()
         else:
             self.s = s

@@ -433,9 +433,9 @@ _M_Test.ColorPalette = ColorPalette
 del ColorPalette
 _M_Test.Pen = None
 class Pen(Ice.Value):
-    def __init__(self, thickness=0, color=Ice._struct_marker):
+    def __init__(self, thickness=0, color=None):
         self.thickness = thickness
-        if color is Ice._struct_marker:
+        if color is None:
             self.color = _M_Test.Color()
         else:
             self.color = color
@@ -462,8 +462,8 @@ _M_Test.Pen = Pen
 del Pen
 _M_Test.Draw = None
 class Draw(object):
-    def __init__(self, backgroundColor=Ice._struct_marker, pen=None, shared=False):
-        if backgroundColor is Ice._struct_marker:
+    def __init__(self, backgroundColor=None, pen=None, shared=False):
+        if backgroundColor is None:
             self.backgroundColor = _M_Test.Color()
         else:
             self.backgroundColor = backgroundColor

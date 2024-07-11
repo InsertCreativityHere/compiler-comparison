@@ -174,8 +174,8 @@ class ObjectDescriptor(object):
     proxyOptions --  Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with
      the proxy options specified on the object adapter or replica group.
     """
-    def __init__(self, id=Ice._struct_marker, type='', proxyOptions=''):
-        if id is Ice._struct_marker:
+    def __init__(self, id=None, type='', proxyOptions=''):
+        if id is None:
             self.id = _M_Ice.Identity()
         else:
             self.id = id
@@ -365,9 +365,9 @@ class CommunicatorDescriptor(Ice.Value):
     logs --  The path of each log file.
     description --  A description of this descriptor.
     """
-    def __init__(self, adapters=None, propertySet=Ice._struct_marker, logs=None, description=''):
+    def __init__(self, adapters=None, propertySet=None, logs=None, description=''):
         self.adapters = adapters
-        if propertySet is Ice._struct_marker:
+        if propertySet is None:
             self.propertySet = _M_IceGrid.PropertySetDescriptor()
         else:
             self.propertySet = propertySet
@@ -458,7 +458,7 @@ class ServerDescriptor(_M_IceGrid.CommunicatorDescriptor):
     allocatable --  Specifies if the server is allocatable.
     user --  The user account used to run the server.
     """
-    def __init__(self, adapters=None, propertySet=Ice._struct_marker, logs=None, description='', id='', exe='', iceVersion='', pwd='', options=None, envs=None, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=False, distrib=Ice._struct_marker, allocatable=False, user=''):
+    def __init__(self, adapters=None, propertySet=None, logs=None, description='', id='', exe='', iceVersion='', pwd='', options=None, envs=None, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=False, distrib=None, allocatable=False, user=''):
         _M_IceGrid.CommunicatorDescriptor.__init__(self, adapters, propertySet, logs, description)
         self.id = id
         self.exe = exe
@@ -470,7 +470,7 @@ class ServerDescriptor(_M_IceGrid.CommunicatorDescriptor):
         self.activationTimeout = activationTimeout
         self.deactivationTimeout = deactivationTimeout
         self.applicationDistrib = applicationDistrib
-        if distrib is Ice._struct_marker:
+        if distrib is None:
             self.distrib = _M_IceGrid.DistributionDescriptor()
         else:
             self.distrib = distrib
@@ -517,7 +517,7 @@ class ServiceDescriptor(_M_IceGrid.CommunicatorDescriptor):
     name --  The service name.
     entry --  The entry point of the IceBox service.
     """
-    def __init__(self, adapters=None, propertySet=Ice._struct_marker, logs=None, description='', name='', entry=''):
+    def __init__(self, adapters=None, propertySet=None, logs=None, description='', name='', entry=''):
         _M_IceGrid.CommunicatorDescriptor.__init__(self, adapters, propertySet, logs, description)
         self.name = name
         self.entry = entry
@@ -554,10 +554,10 @@ class ServerInstanceDescriptor(object):
     servicePropertySets --  The services property sets. It's only valid to set these property sets if the template is an IceBox server
      template.
     """
-    def __init__(self, template='', parameterValues=None, propertySet=Ice._struct_marker, servicePropertySets=None):
+    def __init__(self, template='', parameterValues=None, propertySet=None, servicePropertySets=None):
         self.template = template
         self.parameterValues = parameterValues
-        if propertySet is Ice._struct_marker:
+        if propertySet is None:
             self.propertySet = _M_IceGrid.PropertySetDescriptor()
         else:
             self.propertySet = propertySet
@@ -652,11 +652,11 @@ class ServiceInstanceDescriptor(object):
     descriptor --  The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
     propertySet --  The property set.
     """
-    def __init__(self, template='', parameterValues=None, descriptor=None, propertySet=Ice._struct_marker):
+    def __init__(self, template='', parameterValues=None, descriptor=None, propertySet=None):
         self.template = template
         self.parameterValues = parameterValues
         self.descriptor = descriptor
-        if propertySet is Ice._struct_marker:
+        if propertySet is None:
             self.propertySet = _M_IceGrid.PropertySetDescriptor()
         else:
             self.propertySet = propertySet
@@ -702,7 +702,7 @@ class IceBoxDescriptor(_M_IceGrid.ServerDescriptor):
     Members:
     services --  The service instances.
     """
-    def __init__(self, adapters=None, propertySet=Ice._struct_marker, logs=None, description='', id='', exe='', iceVersion='', pwd='', options=None, envs=None, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=False, distrib=Ice._struct_marker, allocatable=False, user='', services=None):
+    def __init__(self, adapters=None, propertySet=None, logs=None, description='', id='', exe='', iceVersion='', pwd='', options=None, envs=None, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=False, distrib=None, allocatable=False, user='', services=None):
         _M_IceGrid.ServerDescriptor.__init__(self, adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
         self.services = services
 
@@ -991,14 +991,14 @@ class ApplicationDescriptor(object):
     description --  The description of this application.
     propertySets --  Property set descriptors.
     """
-    def __init__(self, name='', variables=None, replicaGroups=None, serverTemplates=None, serviceTemplates=None, nodes=None, distrib=Ice._struct_marker, description='', propertySets=None):
+    def __init__(self, name='', variables=None, replicaGroups=None, serverTemplates=None, serviceTemplates=None, nodes=None, distrib=None, description='', propertySets=None):
         self.name = name
         self.variables = variables
         self.replicaGroups = replicaGroups
         self.serverTemplates = serverTemplates
         self.serviceTemplates = serviceTemplates
         self.nodes = nodes
-        if distrib is Ice._struct_marker:
+        if distrib is None:
             self.distrib = _M_IceGrid.DistributionDescriptor()
         else:
             self.distrib = distrib
@@ -1168,8 +1168,8 @@ class BoxedDistributionDescriptor(Ice.Value):
     Members:
     value --  The value of the boxed distribution descriptor.
     """
-    def __init__(self, value=Ice._struct_marker):
-        if value is Ice._struct_marker:
+    def __init__(self, value=None):
+        if value is None:
             self.value = _M_IceGrid.DistributionDescriptor()
         else:
             self.value = value

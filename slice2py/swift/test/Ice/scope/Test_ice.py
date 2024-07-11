@@ -102,8 +102,8 @@ _M_Test._t_SMap = IcePy.defineDictionary('::Test::SMap', (), IcePy._t_string, _M
 _M_Test._t_SSeq = IcePy.defineSequence('::Test::SSeq', (), _M_Test._t_S)
 _M_Test.C = None
 class C(Ice.Value):
-    def __init__(self, s=Ice._struct_marker):
-        if s is Ice._struct_marker:
+    def __init__(self, s=None):
+        if s is None:
             self.s = _M_Test.S()
         else:
             self.s = s
@@ -251,9 +251,9 @@ _M_Test.C1 = C1
 del C1
 _M_Test.S2 = None
 class S2(object):
-    def __init__(self, E1=_M_Test.E1.v1, S1=Ice._struct_marker, C1=None, S1Seq=None, S1Map=None):
+    def __init__(self, E1=_M_Test.E1.v1, S1=None, C1=None, S1Seq=None, S1Map=None):
         self.E1 = E1
-        if S1 is Ice._struct_marker:
+        if S1 is None:
             self.S1 = _M_Test.S1()
         else:
             self.S1 = S1
@@ -299,9 +299,9 @@ _M_Test.S2 = S2
 del S2
 _M_Test.C2 = None
 class C2(Ice.Value):
-    def __init__(self, E1=_M_Test.E1.v1, S1=Ice._struct_marker, C1=None, S1Seq=None, S1Map=None):
+    def __init__(self, E1=_M_Test.E1.v1, S1=None, C1=None, S1Seq=None, S1Map=None):
         self.E1 = E1
-        if S1 is Ice._struct_marker:
+        if S1 is None:
             self.S1 = _M_Test.S1()
         else:
             self.S1 = S1
@@ -667,8 +667,8 @@ _M_Test.Inner.Inner2._t_SMap = IcePy.defineDictionary('::Test::Inner::Inner2::SM
 _M_Test.Inner.Inner2._t_SSeq = IcePy.defineSequence('::Test::Inner::Inner2::SSeq', (), _M_Test.Inner.Inner2._t_S)
 _M_Test.Inner.Inner2.C = None
 class C(Ice.Value):
-    def __init__(self, s=Ice._struct_marker):
-        if s is Ice._struct_marker:
+    def __init__(self, s=None):
+        if s is None:
             self.s = _M_Test.Inner.Inner2.S()
         else:
             self.s = s
@@ -815,8 +815,8 @@ _M_Test.Inner.Inner2._t_ISeq = IcePy.defineSequence('::Test::Inner::Inner2::ISeq
 __name__ = 'Test.Inner'
 _M_Test.Inner.C = None
 class C(Ice.Value):
-    def __init__(self, s=Ice._struct_marker):
-        if s is Ice._struct_marker:
+    def __init__(self, s=None):
+        if s is None:
             self.s = _M_Test.Inner.S()
         else:
             self.s = s

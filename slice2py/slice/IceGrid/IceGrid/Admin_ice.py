@@ -539,14 +539,14 @@ class ApplicationInfo(object):
     revision --  The application revision number.
     descriptor --  The application descriptor
     """
-    def __init__(self, uuid='', createTime=0, createUser='', updateTime=0, updateUser='', revision=0, descriptor=Ice._struct_marker):
+    def __init__(self, uuid='', createTime=0, createUser='', updateTime=0, updateUser='', revision=0, descriptor=None):
         self.uuid = uuid
         self.createTime = createTime
         self.createUser = createUser
         self.updateTime = updateTime
         self.updateUser = updateUser
         self.revision = revision
-        if descriptor is Ice._struct_marker:
+        if descriptor is None:
             self.descriptor = _M_IceGrid.ApplicationDescriptor()
         else:
             self.descriptor = descriptor
@@ -604,11 +604,11 @@ class ApplicationUpdateInfo(object):
     revision --  The application revision number.
     descriptor --  The update descriptor.
     """
-    def __init__(self, updateTime=0, updateUser='', revision=0, descriptor=Ice._struct_marker):
+    def __init__(self, updateTime=0, updateUser='', revision=0, descriptor=None):
         self.updateTime = updateTime
         self.updateUser = updateUser
         self.revision = revision
-        if descriptor is Ice._struct_marker:
+        if descriptor is None:
             self.descriptor = _M_IceGrid.ApplicationUpdateDescriptor()
         else:
             self.descriptor = descriptor
@@ -2613,8 +2613,8 @@ class NodeDynamicInfo(object):
     servers --  The dynamic information of the servers deployed on this node.
     adapters --  The dynamic information of the adapters deployed on this node.
     """
-    def __init__(self, info=Ice._struct_marker, servers=None, adapters=None):
-        if info is Ice._struct_marker:
+    def __init__(self, info=None, servers=None, adapters=None):
+        if info is None:
             self.info = _M_IceGrid.NodeInfo()
         else:
             self.info = info

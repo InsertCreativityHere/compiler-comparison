@@ -33,7 +33,7 @@ _M_Test.Inner.Sub = Ice.openModule('Test.Inner.Sub')
 __name__ = 'Test'
 _M_Test.Derived = None
 class Derived(_M_Test.Base):
-    def __init__(self, theS=Ice._struct_marker, str='', b=''):
+    def __init__(self, theS=None, str='', b=''):
         _M_Test.Base.__init__(self, theS, str)
         self.b = b
 

@@ -189,9 +189,9 @@ _M_classdef._break.bitor = bitor
 del bitor
 _M_classdef._break.logical = None
 class logical(Ice.Value):
-    def __init__(self, _else=_M_classdef._break.bitand.enumeration, _for=Ice._struct_marker, int64=True):
+    def __init__(self, _else=_M_classdef._break.bitand.enumeration, _for=None, int64=True):
         self._else = _else
-        if _for is Ice._struct_marker:
+        if _for is None:
             self._for = _M_classdef._break.bitor()
         else:
             self._for = _for
@@ -220,7 +220,7 @@ _M_classdef._break.logical = logical
 del logical
 _M_classdef._break.xor = None
 class xor(_M_classdef._break.logical):
-    def __init__(self, _else=_M_classdef._break.bitand.enumeration, _for=Ice._struct_marker, int64=True, _return=1):
+    def __init__(self, _else=_M_classdef._break.bitand.enumeration, _for=None, int64=True, _return=1):
         _M_classdef._break.logical.__init__(self, _else, _for, int64)
         self._return = _return
 

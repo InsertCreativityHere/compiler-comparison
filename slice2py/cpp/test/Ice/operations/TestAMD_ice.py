@@ -127,10 +127,10 @@ _M_Test.AnotherStruct = AnotherStruct
 del AnotherStruct
 _M_Test.Structure = None
 class Structure(object):
-    def __init__(self, p=None, e=_M_Test.MyEnum.enum1, s=Ice._struct_marker):
+    def __init__(self, p=None, e=_M_Test.MyEnum.enum1, s=None):
         self.p = p
         self.e = e
-        if s is Ice._struct_marker:
+        if s is None:
             self.s = _M_Test.AnotherStruct()
         else:
             self.s = s

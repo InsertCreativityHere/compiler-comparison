@@ -163,10 +163,10 @@ _M_Test._t_StringStringD = IcePy.defineDictionary('::Test::StringStringD', (), I
 _M_Test._t_StringMyClassD = IcePy.defineDictionary('::Test::StringMyClassD', (), IcePy._t_string, _M_Test._t_MyClass)
 _M_Test.MyClass = None
 class MyClass(Ice.Value):
-    def __init__(self, c=None, o=None, s=Ice._struct_marker, seq1=None, seq2=None, seq3=None, seq4=None, seq5=None, seq6=None, seq7=None, seq8=None, seq9=None, seq10=None, d=None):
+    def __init__(self, c=None, o=None, s=None, seq1=None, seq2=None, seq3=None, seq4=None, seq5=None, seq6=None, seq7=None, seq8=None, seq9=None, seq10=None, d=None):
         self.c = c
         self.o = o
-        if s is Ice._struct_marker:
+        if s is None:
             self.s = _M_Test.LargeStruct()
         else:
             self.s = s
