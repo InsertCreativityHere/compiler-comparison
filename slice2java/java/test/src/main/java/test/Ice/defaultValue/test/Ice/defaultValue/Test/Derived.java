@@ -68,7 +68,7 @@ public class Derived extends Base
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5513924199298883354L;
+    private static final long serialVersionUID = -4101821968550974675L;
 
     /** @hidden */
     @Override
