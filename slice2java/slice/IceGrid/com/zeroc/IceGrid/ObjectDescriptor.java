@@ -184,5 +184,5 @@ public class ObjectDescriptor implements java.lang.Cloneable,
     private static final ObjectDescriptor _nullMarshalValue = new ObjectDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = -6658912274206300932L;
+    private static final long serialVersionUID = 1956144459529446091L;
 }

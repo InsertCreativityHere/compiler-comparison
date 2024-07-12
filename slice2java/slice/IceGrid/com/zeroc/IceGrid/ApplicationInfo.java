@@ -239,5 +239,5 @@ public class ApplicationInfo implements java.lang.Cloneable,
     private static final ApplicationInfo _nullMarshalValue = new ApplicationInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -4787537649547610788L;
+    private static final long serialVersionUID = -8894454735557756195L;
 }
