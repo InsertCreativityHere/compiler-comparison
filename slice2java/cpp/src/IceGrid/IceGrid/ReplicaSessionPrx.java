@@ -385,8 +385,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      * with the locator registry interface.
      **/
     default void setAdapterDirectProxy(String adapterId, String replicaGroupId, com.zeroc.Ice.ObjectPrx proxy)
-        throws com.zeroc.IceGrid.AdapterNotExistException,
-               AdapterExistsException
+        throws AdapterExistsException,
+               com.zeroc.IceGrid.AdapterNotExistException
     {
         setAdapterDirectProxy(adapterId, replicaGroupId, proxy, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -397,18 +397,18 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      **/
     default void setAdapterDirectProxy(String adapterId, String replicaGroupId, com.zeroc.Ice.ObjectPrx proxy, java.util.Map<String, String> context)
-        throws com.zeroc.IceGrid.AdapterNotExistException,
-               AdapterExistsException
+        throws AdapterExistsException,
+               com.zeroc.IceGrid.AdapterNotExistException
     {
         try
         {
             _iceI_setAdapterDirectProxyAsync(adapterId, replicaGroupId, proxy, context, true).waitForResponseOrUserEx();
         }
-        catch(com.zeroc.IceGrid.AdapterNotExistException ex)
+        catch(AdapterExistsException ex)
         {
             throw ex;
         }
-        catch(AdapterExistsException ex)
+        catch(com.zeroc.IceGrid.AdapterNotExistException ex)
         {
             throw ex;
         }
@@ -462,8 +462,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_setAdapterDirectProxy =
     {
-        com.zeroc.IceGrid.AdapterNotExistException.class,
-        AdapterExistsException.class
+        AdapterExistsException.class,
+        com.zeroc.IceGrid.AdapterNotExistException.class
     };
 
     /**
