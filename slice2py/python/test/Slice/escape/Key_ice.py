@@ -128,6 +128,24 @@ if 'delPrx' not in _M__and.__dict__:
     _M__and.delPrx = None
     class delPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new delPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def _elif(self, _else, context=None):
             return _M__and._del._op_elif.invoke(self, ((_else, ), context))
 
@@ -184,6 +202,24 @@ _M__and._t__exec = IcePy.defineValue('::and::exec', Ice.Value, -1, (), True, Non
 if 'execPrx' not in _M__and.__dict__:
     _M__and.execPrx = None
     class execPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new execPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def _finally(self, context=None):
             return _M__and._exec._op_finally.invoke(self, ((), context))
@@ -271,6 +307,24 @@ _M__and._t__if = IcePy.defineValue('::and::if', Ice.Value, -1, (), True, None, (
 if 'ifPrx' not in _M__and.__dict__:
     _M__and.ifPrx = None
     class ifPrx(_M__and.execPrx, _M__and.delPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ifPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -366,6 +420,24 @@ _M__and._t__print = IcePy.defineValue('::and::print', Ice.Value, -1, (), True, N
 if 'printPrx' not in _M__and.__dict__:
     _M__and.printPrx = None
     class printPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new printPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def _raise(self, _else, _return, _while, _yield, _or, _global, context=None):
             return _M__and._print._op_raise.invoke(self, ((_else, _return, _while, _yield, _or, _global), context))

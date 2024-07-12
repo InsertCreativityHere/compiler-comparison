@@ -149,6 +149,24 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
     _M_Ice.LocatorPrx = None
     class LocatorPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new LocatorPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
          access the object.
@@ -296,6 +314,24 @@ _M_Ice._t_LocatorRegistry = IcePy.defineValue('::Ice::LocatorRegistry', Ice.Valu
 if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
     _M_Ice.LocatorRegistryPrx = None
     class LocatorRegistryPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new LocatorRegistryPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Set the adapter endpoints with the locator registry.
@@ -463,6 +499,24 @@ _M_Ice._t_LocatorFinder = IcePy.defineValue('::Ice::LocatorFinder', Ice.Value, -
 if 'LocatorFinderPrx' not in _M_Ice.__dict__:
     _M_Ice.LocatorFinderPrx = None
     class LocatorFinderPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new LocatorFinderPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Get the locator proxy implemented by the process hosting this finder object. The proxy might point to

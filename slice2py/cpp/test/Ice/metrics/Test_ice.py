@@ -50,6 +50,24 @@ if 'MetricsPrx' not in _M_Test.__dict__:
     _M_Test.MetricsPrx = None
     class MetricsPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new MetricsPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def op(self, context=None):
             return _M_Test.Metrics._op_op.invoke(self, ((), context))
 
@@ -186,6 +204,24 @@ _M_Test._t_Controller = IcePy.defineValue('::Test::Controller', Ice.Value, -1, (
 if 'ControllerPrx' not in _M_Test.__dict__:
     _M_Test.ControllerPrx = None
     class ControllerPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ControllerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def hold(self, context=None):
             return _M_Test.Controller._op_hold.invoke(self, ((), context))

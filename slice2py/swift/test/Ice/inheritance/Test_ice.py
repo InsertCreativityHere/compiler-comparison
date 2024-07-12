@@ -32,6 +32,24 @@ if 'IAPrx' not in _M_Test.MA.__dict__:
     _M_Test.MA.IAPrx = None
     class IAPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new IAPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def iaop(self, p, context=None):
             return _M_Test.MA.IA._op_iaop.invoke(self, ((p, ), context))
 
@@ -97,6 +115,24 @@ if 'IB1Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB.IB1Prx = None
     class IB1Prx(_M_Test.MA.IAPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new IB1Prx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def ib1op(self, p, context=None):
             return _M_Test.MB.IB1._op_ib1op.invoke(self, ((p, ), context))
 
@@ -153,6 +189,24 @@ _M_Test.MB._t_IB2 = IcePy.defineValue('::Test::MB::IB2', Ice.Value, -1, (), True
 if 'IB2Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB.IB2Prx = None
     class IB2Prx(_M_Test.MA.IAPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new IB2Prx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def ib2op(self, p, context=None):
             return _M_Test.MB.IB2._op_ib2op.invoke(self, ((p, ), context))
@@ -218,6 +272,24 @@ if 'ICPrx' not in _M_Test.MA.__dict__:
     _M_Test.MA.ICPrx = None
     class ICPrx(_M_Test.MB.IB1Prx, _M_Test.MB.IB2Prx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ICPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def icop(self, p, context=None):
             return _M_Test.MA.IC._op_icop.invoke(self, ((p, ), context))
 
@@ -278,6 +350,24 @@ _M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), Tru
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None
     class InitialPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new InitialPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def shutdown(self, context=None):
             return _M_Test.Initial._op_shutdown.invoke(self, ((), context))

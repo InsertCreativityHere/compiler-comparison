@@ -32,6 +32,24 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
     _M_Test.RemoteCommunicatorPrx = None
     class RemoteCommunicatorPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new RemoteCommunicatorPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def getAdmin(self, context=None):
             return _M_Test.RemoteCommunicator._op_getAdmin.invoke(self, ((), context))
 
@@ -189,6 +207,24 @@ if 'RemoteCommunicatorFactoryPrx' not in _M_Test.__dict__:
     _M_Test.RemoteCommunicatorFactoryPrx = None
     class RemoteCommunicatorFactoryPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new RemoteCommunicatorFactoryPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def createCommunicator(self, props, context=None):
             return _M_Test.RemoteCommunicatorFactory._op_createCommunicator.invoke(self, ((props, ), context))
 
@@ -255,6 +291,24 @@ _M_Test._t_TestFacet = IcePy.defineValue('::Test::TestFacet', Ice.Value, -1, (),
 if 'TestFacetPrx' not in _M_Test.__dict__:
     _M_Test.TestFacetPrx = None
     class TestFacetPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestFacetPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def op(self, context=None):
             return _M_Test.TestFacet._op_op.invoke(self, ((), context))

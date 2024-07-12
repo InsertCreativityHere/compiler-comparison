@@ -31,6 +31,24 @@ if 'RouterPrx' not in _M_Ice.__dict__:
     _M_Ice.RouterPrx = None
     class RouterPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new RouterPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
          If a null proxy is returned, the client will forward requests to the router's endpoints.
@@ -169,6 +187,24 @@ _M_Ice._t_RouterFinder = IcePy.defineValue('::Ice::RouterFinder', Ice.Value, -1,
 if 'RouterFinderPrx' not in _M_Ice.__dict__:
     _M_Ice.RouterFinderPrx = None
     class RouterFinderPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new RouterFinderPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Get the router proxy implemented by the process hosting this finder object. The proxy might point to several

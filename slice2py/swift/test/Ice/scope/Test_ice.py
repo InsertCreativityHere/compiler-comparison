@@ -358,6 +358,24 @@ if 'IPrx' not in _M_Test.__dict__:
     _M_Test.IPrx = None
     class IPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new IPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def opS(self, s1, context=None):
             return _M_Test.I._op_opS.invoke(self, ((s1, ), context))
 
@@ -733,6 +751,24 @@ if 'IPrx' not in _M_Test.Inner.Inner2.__dict__:
     _M_Test.Inner.Inner2.IPrx = None
     class IPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new IPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def opS(self, s1, context=None):
             return _M_Test.Inner.Inner2.I._op_opS.invoke(self, ((s1, ), context))
 
@@ -896,6 +932,24 @@ if 'IPrx' not in _M_Test.Inner.__dict__:
     _M_Test.Inner.IPrx = None
     class IPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new IPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def opS(self, s1, context=None):
             return _M_Test.Inner.I._op_opS.invoke(self, ((s1, ), context))
 
@@ -1036,6 +1090,24 @@ _M_Inner.Test.Inner2._t_I = IcePy.defineValue('::Inner::Test::Inner2::I', Ice.Va
 if 'IPrx' not in _M_Inner.Test.Inner2.__dict__:
     _M_Inner.Test.Inner2.IPrx = None
     class IPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new IPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def opS(self, s1, context=None):
             return _M_Inner.Test.Inner2.I._op_opS.invoke(self, ((s1, ), context))

@@ -31,6 +31,24 @@ if 'Initial2Prx' not in _M_Test.__dict__:
     _M_Test.Initial2Prx = None
     class Initial2Prx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new Initial2Prx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def opClassAndUnknownOptional(self, p, ovs=Ice.Unset, context=None):
             return _M_Test.Initial2._op_opClassAndUnknownOptional.invoke(self, ((p, ovs), context))
 

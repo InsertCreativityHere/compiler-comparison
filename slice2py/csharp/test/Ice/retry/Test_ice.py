@@ -28,6 +28,24 @@ if 'RetryPrx' not in _M_Test.__dict__:
     _M_Test.RetryPrx = None
     class RetryPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new RetryPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def op(self, kill, context=None):
             return _M_Test.Retry._op_op.invoke(self, ((kill, ), context))
 

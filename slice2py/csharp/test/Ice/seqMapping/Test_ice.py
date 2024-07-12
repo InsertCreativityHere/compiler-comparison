@@ -423,6 +423,24 @@ if 'IPrx' not in _M_Test.__dict__:
     _M_Test.IPrx = None
     class IPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new IPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.IPrx.ice_checkedCast(proxy, '::Test::I', facetOrContext, context)
@@ -574,6 +592,24 @@ _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), Tru
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = None
     class MyClassPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new MyClassPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def shutdown(self, context=None):
             return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))

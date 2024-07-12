@@ -38,6 +38,24 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.SessionPrx = None
     class SessionPrx(_M_Glacier2.SessionPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new SessionPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
          need to call this operation and its implementation does nothing.

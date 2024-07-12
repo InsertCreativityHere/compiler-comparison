@@ -28,6 +28,24 @@ if 'HoldPrx' not in _M_Test.__dict__:
     _M_Test.HoldPrx = None
     class HoldPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new HoldPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def putOnHold(self, seconds, context=None):
             return _M_Test.Hold._op_putOnHold.invoke(self, ((seconds, ), context))
 

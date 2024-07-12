@@ -35,6 +35,24 @@ if 'LookupReplyPrx' not in _M_IceLocatorDiscovery.__dict__:
     _M_IceLocatorDiscovery.LookupReplyPrx = None
     class LookupReplyPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new LookupReplyPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          This method is called by the implementation of the Lookup interface to reply to a findLocator request.
         Arguments:
@@ -111,6 +129,24 @@ _M_IceLocatorDiscovery._t_Lookup = IcePy.defineValue('::IceLocatorDiscovery::Loo
 if 'LookupPrx' not in _M_IceLocatorDiscovery.__dict__:
     _M_IceLocatorDiscovery.LookupPrx = None
     class LookupPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new LookupPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Find a locator proxy with the given instance name.

@@ -66,6 +66,24 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestIntfPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def requestFailedException(self, context=None):
             return _M_Test.TestIntf._op_requestFailedException.invoke(self, ((), context))
 
@@ -232,6 +250,24 @@ _M_Test._t_TestActivation = IcePy.defineValue('::Test::TestActivation', Ice.Valu
 if 'TestActivationPrx' not in _M_Test.__dict__:
     _M_Test.TestActivationPrx = None
     class TestActivationPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestActivationPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def activateServantLocator(self, activate, context=None):
             return _M_Test.TestActivation._op_activateServantLocator.invoke(self, ((activate, ), context))

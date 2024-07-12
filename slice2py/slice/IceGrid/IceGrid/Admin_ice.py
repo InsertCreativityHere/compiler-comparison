@@ -675,6 +675,24 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdminPrx = None
     class AdminPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new AdminPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Add an application to IceGrid.
         Arguments:
@@ -2365,6 +2383,24 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.FileIteratorPrx = None
     class FileIteratorPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new FileIteratorPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Read lines from the log file.
         Arguments:
@@ -2691,6 +2727,24 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.RegistryObserverPrx = None
     class RegistryObserverPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new RegistryObserverPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          The registryInit operation is called after registration of an observer to indicate the state of
          the registries.
@@ -2833,6 +2887,24 @@ _M_IceGrid._t_NodeObserver = IcePy.defineValue('::IceGrid::NodeObserver', Ice.Va
 if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeObserverPrx = None
     class NodeObserverPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new NodeObserverPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          The nodeInit operation indicates the current state of nodes. It is called after the
@@ -3043,6 +3115,24 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.ApplicationObserverPrx = None
     class ApplicationObserverPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ApplicationObserverPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          applicationInit is called after the registration of an observer to indicate the state of the
          registry.
@@ -3231,6 +3321,24 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterObserverPrx = None
     class AdapterObserverPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new AdapterObserverPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          adapterInit is called after registration of an observer to indicate the state of the registry.
         Arguments:
@@ -3406,6 +3514,24 @@ _M_IceGrid._t_ObjectObserver = IcePy.defineValue('::IceGrid::ObjectObserver', Ic
 if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.ObjectObserverPrx = None
     class ObjectObserverPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ObjectObserverPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          objectInit is called after the registration of an observer to indicate the state of the
@@ -3585,6 +3711,24 @@ _M_IceGrid._t_AdminSession = IcePy.defineValue('::IceGrid::AdminSession', Ice.Va
 if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdminSessionPrx = None
     class AdminSessionPrx(_M_Glacier2.SessionPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new AdminSessionPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no

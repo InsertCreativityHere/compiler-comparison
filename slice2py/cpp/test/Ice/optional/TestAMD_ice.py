@@ -52,6 +52,24 @@ if 'MyInterfacePrx' not in _M_Test.__dict__:
     _M_Test.MyInterfacePrx = None
     class MyInterfacePrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new MyInterfacePrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def op(self, context=None):
             return _M_Test.MyInterface._op_op.invoke(self, ((), context))
 
@@ -969,6 +987,24 @@ _M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), Tru
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None
     class InitialPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new InitialPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def shutdown(self, context=None):
             return _M_Test.Initial._op_shutdown.invoke(self, ((), context))

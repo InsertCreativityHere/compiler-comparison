@@ -28,6 +28,24 @@ if 'IntfPrx' not in _M_Clash.__dict__:
     _M_Clash.IntfPrx = None
     class IntfPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new IntfPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def context(self, context=None):
             return _M_Clash.Intf._op_context.invoke(self, ((), context))
 

@@ -64,6 +64,24 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.RouterPrx = None
     class RouterPrx(_M_Ice.RouterPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new RouterPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          This category must be used in the identities of all of the client's callback objects. This is necessary in
          order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints

@@ -296,6 +296,24 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = None
     class MyClassPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new MyClassPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def shutdown(self, context=None):
             return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
 
@@ -1120,6 +1138,24 @@ if 'MyDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyDerivedClassPrx = None
     class MyDerivedClassPrx(_M_Test.MyClassPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new MyDerivedClassPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def opDerived(self, context=None):
             return _M_Test.MyDerivedClass._op_opDerived.invoke(self, ((), context))
 
@@ -1264,6 +1300,24 @@ _M_Test2._t_MyDerivedClass = IcePy.defineValue('::Test2::MyDerivedClass', Ice.Va
 if 'MyDerivedClassPrx' not in _M_Test2.__dict__:
     _M_Test2.MyDerivedClassPrx = None
     class MyDerivedClassPrx(_M_Test.MyClassPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new MyDerivedClassPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

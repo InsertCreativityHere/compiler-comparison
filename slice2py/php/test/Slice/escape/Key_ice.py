@@ -218,6 +218,24 @@ if 'breakPrx' not in _M__and.__dict__:
     _M__and.breakPrx = None
     class breakPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new breakPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def _case(self, catch, context=None):
             return _M__and._break._op_case.invoke(self, ((catch, ), context))
 
@@ -275,6 +293,24 @@ if 'functionPrx' not in _M__and.__dict__:
     _M__and.functionPrx = None
     class functionPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new functionPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def _continue(self, declare, default, context=None):
             return _M__and.function._op_continue.invoke(self, ((declare, default), context))
 
@@ -331,6 +367,24 @@ _M__and._t_die = IcePy.defineValue('::and::die', Ice.Value, -1, (), True, None, 
 if 'diePrx' not in _M__and.__dict__:
     _M__and.diePrx = None
     class diePrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new diePrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def do(self, context=None):
             return _M__and.die._op_do.invoke(self, ((), context))
@@ -420,6 +474,24 @@ _M__and._t_enddeclare = IcePy.defineValue('::and::enddeclare', Ice.Value, -1, ()
 if 'enddeclarePrx' not in _M__and.__dict__:
     _M__and.enddeclarePrx = None
     class enddeclarePrx(_M__and.diePrx, _M__and.functionPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new enddeclarePrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -515,6 +587,24 @@ _M__and._t__for = IcePy.defineValue('::and::for', Ice.Value, -1, (), True, None,
 if 'forPrx' not in _M__and.__dict__:
     _M__and.forPrx = None
     class forPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new forPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def foreach(self, _if, _global, include, _return, list, new, static, context=None):
             return _M__and._for._op_foreach.invoke(self, ((_if, _global, include, _return, list, new, static), context))

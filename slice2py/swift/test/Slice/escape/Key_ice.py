@@ -208,6 +208,24 @@ if 'breakPrx' not in _M__and.__dict__:
     _M__and.breakPrx = None
     class breakPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new breakPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def _case(self, catch, context=None):
             return _M__and._break._op_case.invoke(self, ((catch, ), context))
 
@@ -264,6 +282,24 @@ _M__and._t_func = IcePy.defineValue('::and::func', Ice.Value, -1, (), True, None
 if 'funcPrx' not in _M__and.__dict__:
     _M__and.funcPrx = None
     class funcPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new funcPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def public(self, context=None):
             return _M__and.func._op_public.invoke(self, ((), context))
@@ -351,6 +387,24 @@ _M__and._t_do = IcePy.defineValue('::and::do', Ice.Value, -1, (), True, None, ()
 if 'doPrx' not in _M__and.__dict__:
     _M__and.doPrx = None
     class doPrx(_M__and.funcPrx, _M__and.breakPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new doPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

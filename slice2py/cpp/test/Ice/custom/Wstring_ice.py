@@ -132,6 +132,24 @@ if 'WstringClassPrx' not in _M_Test1.__dict__:
     _M_Test1.WstringClassPrx = None
     class WstringClassPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new WstringClassPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def opString(self, s1, context=None):
             return _M_Test1.WstringClass._op_opString.invoke(self, ((s1, ), context))
 
@@ -318,6 +336,24 @@ _M_Test2._t_WstringClass = IcePy.defineValue('::Test2::WstringClass', Ice.Value,
 if 'WstringClassPrx' not in _M_Test2.__dict__:
     _M_Test2.WstringClassPrx = None
     class WstringClassPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new WstringClassPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def opString(self, s1, context=None):
             return _M_Test2.WstringClass._op_opString.invoke(self, ((s1, ), context))

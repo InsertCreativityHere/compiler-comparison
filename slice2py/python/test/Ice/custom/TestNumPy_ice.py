@@ -115,6 +115,24 @@ if 'CustomPrx' not in _M_Test.NumPy.__dict__:
     _M_Test.NumPy.CustomPrx = None
     class CustomPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new CustomPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def opBoolSeq(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opBoolSeq.invoke(self, ((v1, ), context))
 

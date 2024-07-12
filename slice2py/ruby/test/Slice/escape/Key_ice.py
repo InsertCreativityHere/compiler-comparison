@@ -128,6 +128,24 @@ if 'breakPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN.breakPrx = None
     class breakPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new breakPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def _case(self, clone, _def, context=None):
             return _M_BEGIN._break._op_case.invoke(self, ((clone, _def), context))
 
@@ -247,6 +265,24 @@ if 'elsifPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN.elsifPrx = None
     class elsifPrx(_M_BEGIN.breakPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new elsifPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_BEGIN.elsifPrx.ice_checkedCast(proxy, '::BEGIN::elsif', facetOrContext, context)
@@ -341,6 +377,24 @@ _M_BEGIN._t_extend = IcePy.defineValue('::BEGIN::extend', Ice.Value, -1, (), Tru
 if 'extendPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN.extendPrx = None
     class extendPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new extendPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def _for(self, freeze, hash, _if, inspect, method, methods, context=None):
             return _M_BEGIN.extend._op_for.invoke(self, ((freeze, hash, _if, inspect, method, methods), context))

@@ -102,6 +102,24 @@ if 'ServiceObserverPrx' not in _M_IceBox.__dict__:
     _M_IceBox.ServiceObserverPrx = None
     class ServiceObserverPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ServiceObserverPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Receives the names of the services that were started.
         Arguments:
@@ -208,6 +226,24 @@ _M_IceBox._t_ServiceManager = IcePy.defineValue('::IceBox::ServiceManager', Ice.
 if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
     _M_IceBox.ServiceManagerPrx = None
     class ServiceManagerPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ServiceManagerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Start an individual service.

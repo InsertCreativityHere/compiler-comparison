@@ -97,6 +97,24 @@ if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicLinkPrx = None
     class TopicLinkPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TopicLinkPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Forward a sequence of events.
         Arguments:
@@ -195,6 +213,24 @@ _M_IceStorm._t_TopicInternal = IcePy.defineValue('::IceStorm::TopicInternal', Ic
 if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicInternalPrx = None
     class TopicInternalPrx(_M_IceStorm.TopicPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TopicInternalPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Retrieve a proxy to the TopicLink interface.
@@ -304,6 +340,24 @@ _M_IceStorm._t_TopicManagerInternal = IcePy.defineValue('::IceStorm::TopicManage
 if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicManagerInternalPrx = None
     class TopicManagerInternalPrx(_M_IceStorm.TopicManagerPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TopicManagerInternalPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Return the replica node proxy for this topic manager.

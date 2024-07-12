@@ -192,6 +192,24 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
     _M_Ice.RemoteLoggerPrx = None
     class RemoteLoggerPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new RemoteLoggerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         Arguments:
@@ -323,6 +341,24 @@ _M_Ice._t_LoggerAdmin = IcePy.defineValue('::Ice::LoggerAdmin', Ice.Value, -1, (
 if 'LoggerAdminPrx' not in _M_Ice.__dict__:
     _M_Ice.LoggerAdminPrx = None
     class LoggerAdminPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new LoggerAdminPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided

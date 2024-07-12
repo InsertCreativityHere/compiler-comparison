@@ -28,6 +28,24 @@ if 'Interface1Prx' not in _M_Test.__dict__:
     _M_Test.Interface1Prx = None
     class Interface1Prx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new Interface1Prx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def method(self, context=None):
             return _M_Test.Interface1._op_method.invoke(self, ((), context))
 

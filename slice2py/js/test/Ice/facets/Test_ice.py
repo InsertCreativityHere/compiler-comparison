@@ -28,6 +28,24 @@ if 'EmptyPrx' not in _M_Test.__dict__:
     _M_Test.EmptyPrx = None
     class EmptyPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new EmptyPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.EmptyPrx.ice_checkedCast(proxy, '::Test::Empty', facetOrContext, context)
@@ -73,6 +91,24 @@ _M_Test._t_A = IcePy.defineValue('::Test::A', Ice.Value, -1, (), True, None, ())
 if 'APrx' not in _M_Test.__dict__:
     _M_Test.APrx = None
     class APrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new APrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def callA(self, context=None):
             return _M_Test.A._op_callA.invoke(self, ((), context))
@@ -131,6 +167,24 @@ if 'BPrx' not in _M_Test.__dict__:
     _M_Test.BPrx = None
     class BPrx(_M_Test.APrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new BPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def callB(self, context=None):
             return _M_Test.B._op_callB.invoke(self, ((), context))
 
@@ -187,6 +241,24 @@ _M_Test._t_C = IcePy.defineValue('::Test::C', Ice.Value, -1, (), True, None, ())
 if 'CPrx' not in _M_Test.__dict__:
     _M_Test.CPrx = None
     class CPrx(_M_Test.APrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new CPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def callC(self, context=None):
             return _M_Test.C._op_callC.invoke(self, ((), context))
@@ -245,6 +317,24 @@ if 'DPrx' not in _M_Test.__dict__:
     _M_Test.DPrx = None
     class DPrx(_M_Test.BPrx, _M_Test.CPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new DPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def callD(self, context=None):
             return _M_Test.D._op_callD.invoke(self, ((), context))
 
@@ -301,6 +391,24 @@ _M_Test._t_E = IcePy.defineValue('::Test::E', Ice.Value, -1, (), True, None, ())
 if 'EPrx' not in _M_Test.__dict__:
     _M_Test.EPrx = None
     class EPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new EPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def callE(self, context=None):
             return _M_Test.E._op_callE.invoke(self, ((), context))
@@ -359,6 +467,24 @@ if 'FPrx' not in _M_Test.__dict__:
     _M_Test.FPrx = None
     class FPrx(_M_Test.EPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new FPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def callF(self, context=None):
             return _M_Test.F._op_callF.invoke(self, ((), context))
 
@@ -415,6 +541,24 @@ _M_Test._t_G = IcePy.defineValue('::Test::G', Ice.Value, -1, (), True, None, ())
 if 'GPrx' not in _M_Test.__dict__:
     _M_Test.GPrx = None
     class GPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new GPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def shutdown(self, context=None):
             return _M_Test.G._op_shutdown.invoke(self, ((), context))
@@ -483,6 +627,24 @@ if 'HPrx' not in _M_Test.__dict__:
     _M_Test.HPrx = None
     class HPrx(_M_Test.GPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new HPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def callH(self, context=None):
             return _M_Test.H._op_callH.invoke(self, ((), context))
 
@@ -539,6 +701,24 @@ _M_Test._t_Echo = IcePy.defineValue('::Test::Echo', Ice.Value, -1, (), True, Non
 if 'EchoPrx' not in _M_Test.__dict__:
     _M_Test.EchoPrx = None
     class EchoPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new EchoPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def setConnection(self, context=None):
             return _M_Test.Echo._op_setConnection.invoke(self, ((), context))

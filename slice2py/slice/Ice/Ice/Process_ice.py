@@ -28,6 +28,24 @@ if 'ProcessPrx' not in _M_Ice.__dict__:
     _M_Ice.ProcessPrx = None
     class ProcessPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ProcessPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Initiate a graceful shut-down.
         Arguments:

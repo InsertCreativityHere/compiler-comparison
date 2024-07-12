@@ -128,6 +128,24 @@ if 'casePrx' not in _M_abstract.__dict__:
     _M_abstract.casePrx = None
     class casePrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new casePrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def catch(self, checked, context=None):
             return _M_abstract._case._op_catch.invoke(self, ((checked, ), context))
 
@@ -184,6 +202,24 @@ _M_abstract._t_decimal = IcePy.defineValue('::abstract::decimal', Ice.Value, -1,
 if 'decimalPrx' not in _M_abstract.__dict__:
     _M_abstract.decimalPrx = None
     class decimalPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new decimalPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def default(self, context=None):
             return _M_abstract.decimal._op_default.invoke(self, ((), context))
@@ -272,6 +308,24 @@ if 'explicitPrx' not in _M_abstract.__dict__:
     _M_abstract.explicitPrx = None
     class explicitPrx(_M_abstract.decimalPrx, _M_abstract.casePrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new explicitPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_abstract.explicitPrx.ice_checkedCast(proxy, '::abstract::explicit', facetOrContext, context)
@@ -354,6 +408,24 @@ _M_abstract._t_optionalParams = IcePy.defineValue('::abstract::optionalParams', 
 if 'optionalParamsPrx' not in _M_abstract.__dict__:
     _M_abstract.optionalParamsPrx = None
     class optionalParamsPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new optionalParamsPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def _for(self, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset, context=None):
             return _M_abstract.optionalParams._op_for.invoke(self, ((goto, _if, internal, namespace), context))
@@ -534,6 +606,24 @@ if 'implicitPrx' not in _M_abstract.__dict__:
     _M_abstract.implicitPrx = None
     class implicitPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new implicitPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def _in(self, internal, _is, lock, namespace, new, null, override, params, private, context=None):
             return _M_abstract.implicit._op_in.invoke(self, ((internal, _is, lock, namespace, new, null, override, params, private), context))
 
@@ -598,6 +688,24 @@ _M_abstract.System._t_Test = IcePy.defineValue('::abstract::System::Test', Ice.V
 if 'TestPrx' not in _M_abstract.System.__dict__:
     _M_abstract.System.TestPrx = None
     class TestPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def op(self, context=None):
             return _M_abstract.System.Test._op_op.invoke(self, ((), context))
@@ -665,6 +773,24 @@ _M_System._t_Test = IcePy.defineValue('::System::Test', Ice.Value, -1, (), True,
 if 'TestPrx' not in _M_System.__dict__:
     _M_System.TestPrx = None
     class TestPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def op(self, context=None):
             return _M_System.Test._op_op.invoke(self, ((), context))

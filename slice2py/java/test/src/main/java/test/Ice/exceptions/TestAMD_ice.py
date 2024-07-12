@@ -114,6 +114,24 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
     _M_Test.ThrowerPrx = None
     class ThrowerPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ThrowerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def shutdown(self, context=None):
             return _M_Test.Thrower._op_shutdown.invoke(self, ((), context))
 
@@ -360,6 +378,24 @@ _M_Test._t_WrongOperation = IcePy.defineValue('::Test::WrongOperation', Ice.Valu
 if 'WrongOperationPrx' not in _M_Test.__dict__:
     _M_Test.WrongOperationPrx = None
     class WrongOperationPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new WrongOperationPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def noSuchOperation(self, context=None):
             return _M_Test.WrongOperation._op_noSuchOperation.invoke(self, ((), context))

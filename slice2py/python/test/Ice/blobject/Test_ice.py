@@ -47,6 +47,24 @@ if 'HelloPrx' not in _M_Test.__dict__:
     _M_Test.HelloPrx = None
     class HelloPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new HelloPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def sayHello(self, delay, context=None):
             return _M_Test.Hello._op_sayHello.invoke(self, ((delay, ), context))
 

@@ -60,6 +60,24 @@ if 'SessionPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionPrx = None
     class SessionPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new SessionPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Destroy the session. This is called automatically when the router is destroyed.
         Arguments:
@@ -133,6 +151,24 @@ _M_Glacier2._t_StringSet = IcePy.defineValue('::Glacier2::StringSet', Ice.Value,
 if 'StringSetPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.StringSetPrx = None
     class StringSetPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new StringSetPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
@@ -271,6 +307,24 @@ _M_Glacier2._t_IdentitySet = IcePy.defineValue('::Glacier2::IdentitySet', Ice.Va
 if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.IdentitySetPrx = None
     class IdentitySetPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new IdentitySetPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
@@ -412,6 +466,24 @@ _M_Glacier2._t_SessionControl = IcePy.defineValue('::Glacier2::SessionControl', 
 if 'SessionControlPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionControlPrx = None
     class SessionControlPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new SessionControlPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Access the object that manages the allowable categories for object identities for this session.
@@ -599,6 +671,24 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionManagerPrx = None
     class SessionManagerPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new SessionManagerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Create a new session. The implementation must return a non-null proxy or raise
          CannotCreateSessionException if the session cannot be created.
@@ -686,6 +776,24 @@ _M_Glacier2._t_SSLSessionManager = IcePy.defineValue('::Glacier2::SSLSessionMana
 if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SSLSessionManagerPrx = None
     class SSLSessionManagerPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new SSLSessionManagerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Create a new session.

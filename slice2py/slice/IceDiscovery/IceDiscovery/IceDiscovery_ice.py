@@ -32,6 +32,24 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
     _M_IceDiscovery.LookupReplyPrx = None
     class LookupReplyPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new LookupReplyPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Reply to the findObjectById request.
         Arguments:
@@ -147,6 +165,24 @@ _M_IceDiscovery._t_Lookup = IcePy.defineValue('::IceDiscovery::Lookup', Ice.Valu
 if 'LookupPrx' not in _M_IceDiscovery.__dict__:
     _M_IceDiscovery.LookupPrx = None
     class LookupPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new LookupPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Request to find an Ice object

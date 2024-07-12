@@ -212,6 +212,24 @@ if 'AdapterPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterPrx = None
     class AdapterPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new AdapterPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
          proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
@@ -382,6 +400,24 @@ if 'FileReaderPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.FileReaderPrx = None
     class FileReaderPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new FileReaderPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Count the number of given lines from the end of the file and return the file offset.
         Arguments:
@@ -501,6 +537,24 @@ _M_IceGrid._t_Server = IcePy.defineValue('::IceGrid::Server', Ice.Value, -1, (),
 if 'ServerPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerPrx = None
     class ServerPrx(_M_IceGrid.FileReaderPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ServerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Start the server.
@@ -859,6 +913,24 @@ if 'ReplicaObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.ReplicaObserverPrx = None
     class ReplicaObserverPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ReplicaObserverPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Initialization of the replica observer.
         Arguments:
@@ -995,6 +1067,24 @@ _M_IceGrid._t_Node = IcePy.defineValue('::IceGrid::Node', Ice.Value, -1, (), Tru
 if 'NodePrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodePrx = None
     class NodePrx(_M_IceGrid.FileReaderPrx, _M_IceGrid.ReplicaObserverPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new NodePrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Load the given server. If the server resources weren't already created (database environment directories,
@@ -1399,6 +1489,24 @@ if 'NodeSessionPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeSessionPrx = None
     class NodeSessionPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new NodeSessionPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          The node call this method to keep the session alive.
         Arguments:
@@ -1730,6 +1838,24 @@ if 'DatabaseObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.DatabaseObserverPrx = None
     class DatabaseObserverPrx(_M_IceGrid.ApplicationObserverPrx, _M_IceGrid.ObjectObserverPrx, _M_IceGrid.AdapterObserverPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new DatabaseObserverPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_IceGrid.DatabaseObserverPrx.ice_checkedCast(proxy, '::IceGrid::DatabaseObserver', facetOrContext, context)
@@ -1778,6 +1904,24 @@ _M_IceGrid._t_ReplicaSession = IcePy.defineValue('::IceGrid::ReplicaSession', Ic
 if 'ReplicaSessionPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.ReplicaSessionPrx = None
     class ReplicaSessionPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ReplicaSessionPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          The replica call this method to keep the session alive.
@@ -2166,6 +2310,24 @@ _M_IceGrid._t_InternalRegistry = IcePy.defineValue('::IceGrid::InternalRegistry'
 if 'InternalRegistryPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.InternalRegistryPrx = None
     class InternalRegistryPrx(_M_IceGrid.FileReaderPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new InternalRegistryPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Register a node with the registry. If a node with the same name is already registered,

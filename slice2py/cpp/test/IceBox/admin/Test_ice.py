@@ -32,6 +32,24 @@ if 'TestFacetPrx' not in _M_Test.__dict__:
     _M_Test.TestFacetPrx = None
     class TestFacetPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestFacetPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def getChanges(self, context=None):
             return _M_Test.TestFacet._op_getChanges.invoke(self, ((), context))
 

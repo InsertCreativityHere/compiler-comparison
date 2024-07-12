@@ -35,6 +35,24 @@ if 'BackendPrx' not in _M_Test.__dict__:
     _M_Test.BackendPrx = None
     class BackendPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new BackendPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def check(self, context=None):
             return _M_Test.Backend._op_check.invoke(self, ((), context))
 
@@ -261,6 +279,24 @@ if 'TestControllerPrx' not in _M_Test.__dict__:
     _M_Test.TestControllerPrx = None
     class TestControllerPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestControllerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def step(self, currentSession, currentState, context=None):
             return _M_Test.TestController._op_step.invoke(self, ((currentSession, currentState), context))
 
@@ -327,6 +363,24 @@ _M_Test._t_TestSession = IcePy.defineValue('::Test::TestSession', Ice.Value, -1,
 if 'TestSessionPrx' not in _M_Test.__dict__:
     _M_Test.TestSessionPrx = None
     class TestSessionPrx(_M_Glacier2.SessionPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestSessionPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def shutdown(self, context=None):
             return _M_Test.TestSession._op_shutdown.invoke(self, ((), context))

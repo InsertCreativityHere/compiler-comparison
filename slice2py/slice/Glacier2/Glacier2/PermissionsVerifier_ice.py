@@ -58,6 +58,24 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.PermissionsVerifierPrx = None
     class PermissionsVerifierPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new PermissionsVerifierPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Check whether a user has permission to access the router.
         Arguments:
@@ -144,6 +162,24 @@ _M_Glacier2._t_SSLPermissionsVerifier = IcePy.defineValue('::Glacier2::SSLPermis
 if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SSLPermissionsVerifierPrx = None
     class SSLPermissionsVerifierPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new SSLPermissionsVerifierPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Check whether a user has permission to access the router.

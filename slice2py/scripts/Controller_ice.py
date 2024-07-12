@@ -148,6 +148,24 @@ if 'TestCasePrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.TestCasePrx = None
     class TestCasePrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestCasePrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def startServerSide(self, config, context=None):
             return _M_Test.Common.TestCase._op_startServerSide.invoke(self, ((config, ), context))
 
@@ -234,6 +252,24 @@ _M_Test.Common._t_Controller = IcePy.defineValue('::Test::Common::Controller', I
 if 'ControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ControllerPrx = None
     class ControllerPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ControllerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def runTestCase(self, mapping, testsuite, testcase, cross, context=None):
             return _M_Test.Common.Controller._op_runTestCase.invoke(self, ((mapping, testsuite, testcase, cross), context))
@@ -341,6 +377,24 @@ if 'ProcessPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessPrx = None
     class ProcessPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ProcessPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def waitReady(self, timeout, context=None):
             return _M_Test.Common.Process._op_waitReady.invoke(self, ((timeout, ), context))
 
@@ -418,6 +472,24 @@ if 'ProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessControllerPrx = None
     class ProcessControllerPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ProcessControllerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def start(self, testsuite, exe, args, context=None):
             return _M_Test.Common.ProcessController._op_start.invoke(self, ((testsuite, exe, args), context))
 
@@ -485,6 +557,24 @@ if 'BrowserProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.BrowserProcessControllerPrx = None
     class BrowserProcessControllerPrx(_M_Test.Common.ProcessControllerPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new BrowserProcessControllerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def redirect(self, url, context=None):
             return _M_Test.Common.BrowserProcessController._op_redirect.invoke(self, ((url, ), context))
 
@@ -541,6 +631,24 @@ _M_Test.Common._t_ProcessControllerRegistry = IcePy.defineValue('::Test::Common:
 if 'ProcessControllerRegistryPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessControllerRegistryPrx = None
     class ProcessControllerRegistryPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ProcessControllerRegistryPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def setProcessController(self, controller, context=None):
             return _M_Test.Common.ProcessControllerRegistry._op_setProcessController.invoke(self, ((controller, ), context))

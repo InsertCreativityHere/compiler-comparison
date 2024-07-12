@@ -47,6 +47,24 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
     _M_Test.MyObjectPrx = None
     class MyObjectPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new MyObjectPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def widen(self, msg, context=None):
             return _M_Test.MyObject._op_widen.invoke(self, ((msg, ), context))
 

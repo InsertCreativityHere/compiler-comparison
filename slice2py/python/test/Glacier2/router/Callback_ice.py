@@ -51,6 +51,24 @@ if 'CallbackReceiverPrx' not in _M_Test.__dict__:
     _M_Test.CallbackReceiverPrx = None
     class CallbackReceiverPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new CallbackReceiverPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def callback(self, context=None):
             return _M_Test.CallbackReceiver._op_callback.invoke(self, ((), context))
 
@@ -117,6 +135,24 @@ _M_Test._t_Callback = IcePy.defineValue('::Test::Callback', Ice.Value, -1, (), T
 if 'CallbackPrx' not in _M_Test.__dict__:
     _M_Test.CallbackPrx = None
     class CallbackPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new CallbackPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def initiateCallback(self, proxy, context=None):
             return _M_Test.Callback._op_initiateCallback.invoke(self, ((proxy, ), context))

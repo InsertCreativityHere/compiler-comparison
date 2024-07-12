@@ -28,6 +28,24 @@ if 'PriorityPrx' not in _M_Test.__dict__:
     _M_Test.PriorityPrx = None
     class PriorityPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new PriorityPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def shutdown(self, context=None):
             return _M_Test.Priority._op_shutdown.invoke(self, ((), context))
 

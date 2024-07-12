@@ -219,6 +219,24 @@ if 'CustomPrx' not in _M_Test.__dict__:
     _M_Test.CustomPrx = None
     class CustomPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new CustomPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def opByteString1(self, b1, context=None):
             return _M_Test.Custom._op_opByteString1.invoke(self, ((b1, ), context))
 

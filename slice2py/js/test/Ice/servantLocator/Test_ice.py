@@ -66,6 +66,24 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestIntfPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def requestFailedException(self, context=None):
             return _M_Test.TestIntf._op_requestFailedException.invoke(self, ((), context))
 
@@ -243,6 +261,24 @@ if 'TestActivationPrx' not in _M_Test.__dict__:
     _M_Test.TestActivationPrx = None
     class TestActivationPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestActivationPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def activateServantLocator(self, activate, context=None):
             return _M_Test.TestActivation._op_activateServantLocator.invoke(self, ((activate, ), context))
 
@@ -299,6 +335,24 @@ _M_Test._t_Echo = IcePy.defineValue('::Test::Echo', Ice.Value, -1, (), True, Non
 if 'EchoPrx' not in _M_Test.__dict__:
     _M_Test.EchoPrx = None
     class EchoPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new EchoPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def setConnection(self, context=None):
             return _M_Test.Echo._op_setConnection.invoke(self, ((), context))

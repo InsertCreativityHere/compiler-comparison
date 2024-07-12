@@ -32,6 +32,24 @@ if 'BackgroundPrx' not in _M_Test.__dict__:
     _M_Test.BackgroundPrx = None
     class BackgroundPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new BackgroundPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def op(self, context=None):
             return _M_Test.Background._op_op.invoke(self, ((), context))
 
@@ -108,6 +126,24 @@ _M_Test._t_BackgroundController = IcePy.defineValue('::Test::BackgroundControlle
 if 'BackgroundControllerPrx' not in _M_Test.__dict__:
     _M_Test.BackgroundControllerPrx = None
     class BackgroundControllerPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new BackgroundControllerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def pauseCall(self, call, context=None):
             return _M_Test.BackgroundController._op_pauseCall.invoke(self, ((call, ), context))

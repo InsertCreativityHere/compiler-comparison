@@ -111,6 +111,24 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.ReplicaObserverPrx = None
     class ReplicaObserverPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ReplicaObserverPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Initialize the observer.
         Arguments:
@@ -348,6 +366,24 @@ _M_IceStormElection._t_TopicManagerSync = IcePy.defineValue('::IceStormElection:
 if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.TopicManagerSyncPrx = None
     class TopicManagerSyncPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TopicManagerSyncPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Retrieve the topic content.
@@ -661,6 +697,24 @@ _M_IceStormElection._t_Node = IcePy.defineValue('::IceStormElection::Node', Ice.
 if 'NodePrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.NodePrx = None
     class NodePrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new NodePrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Invite the node into a group with the given coordinator and group name.

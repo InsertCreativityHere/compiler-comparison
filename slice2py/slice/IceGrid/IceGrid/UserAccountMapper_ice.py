@@ -50,6 +50,24 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.UserAccountMapperPrx = None
     class UserAccountMapperPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new UserAccountMapperPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
          account to use to run servers.

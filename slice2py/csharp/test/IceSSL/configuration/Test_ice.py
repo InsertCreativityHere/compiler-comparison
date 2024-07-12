@@ -28,6 +28,24 @@ if 'ServerPrx' not in _M_Test.__dict__:
     _M_Test.ServerPrx = None
     class ServerPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ServerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def noCert(self, context=None):
             return _M_Test.Server._op_noCert.invoke(self, ((), context))
 
@@ -108,6 +126,24 @@ if 'ServerFactoryPrx' not in _M_Test.__dict__:
     _M_Test.ServerFactoryPrx = None
     class ServerFactoryPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ServerFactoryPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def createServer(self, props, context=None):
             return _M_Test.ServerFactory._op_createServer.invoke(self, ((props, ), context))
 
@@ -184,6 +220,24 @@ _M_Test._t_Pingable = IcePy.defineValue('::Test::Pingable', Ice.Value, -1, (), T
 if 'PingablePrx' not in _M_Test.__dict__:
     _M_Test.PingablePrx = None
     class PingablePrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new PingablePrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def ping(self, context=None):
             return _M_Test.Pingable._op_ping.invoke(self, ((), context))

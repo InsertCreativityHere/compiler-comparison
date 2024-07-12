@@ -215,6 +215,24 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicPrx = None
     class TopicPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TopicPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Get the name of this topic.
         Arguments:
@@ -638,6 +656,24 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicManagerPrx = None
     class TopicManagerPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TopicManagerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Create a new topic. The topic name must be unique.
         Arguments:
@@ -782,6 +818,24 @@ _M_IceStorm._t_Finder = IcePy.defineValue('::IceStorm::Finder', Ice.Value, -1, (
 if 'FinderPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.FinderPrx = None
     class FinderPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new FinderPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Get the topic manager proxy. The proxy might point to several replicas.

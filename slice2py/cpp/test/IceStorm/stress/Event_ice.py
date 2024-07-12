@@ -28,6 +28,24 @@ if 'EventPrx' not in _M_Test.__dict__:
     _M_Test.EventPrx = None
     class EventPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new EventPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def pub(self, counter, context=None):
             return _M_Test.Event._op_pub.invoke(self, ((counter, ), context))
 

@@ -32,6 +32,24 @@ if 'TestLocatorRegistryPrx' not in _M_Test.__dict__:
     _M_Test.TestLocatorRegistryPrx = None
     class TestLocatorRegistryPrx(_M_Ice.LocatorRegistryPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestLocatorRegistryPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def addObject(self, obj, context=None):
             return _M_Test.TestLocatorRegistry._op_addObject.invoke(self, ((obj, ), context))
 
@@ -88,6 +106,24 @@ _M_Test._t_ServerManager = IcePy.defineValue('::Test::ServerManager', Ice.Value,
 if 'ServerManagerPrx' not in _M_Test.__dict__:
     _M_Test.ServerManagerPrx = None
     class ServerManagerPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ServerManagerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def startServer(self, context=None):
             return _M_Test.ServerManager._op_startServer.invoke(self, ((), context))
@@ -156,6 +192,24 @@ if 'HelloPrx' not in _M_Test.__dict__:
     _M_Test.HelloPrx = None
     class HelloPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new HelloPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def sayHello(self, context=None):
             return _M_Test.Hello._op_sayHello.invoke(self, ((), context))
 
@@ -212,6 +266,24 @@ _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), T
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestIntfPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def shutdown(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))

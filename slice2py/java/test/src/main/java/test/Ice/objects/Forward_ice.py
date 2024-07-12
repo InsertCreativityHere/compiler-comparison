@@ -52,6 +52,24 @@ if 'F2Prx' not in _M_Test.__dict__:
     _M_Test.F2Prx = None
     class F2Prx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new F2Prx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def op(self, context=None):
             return _M_Test.F2._op_op.invoke(self, ((), context))
 

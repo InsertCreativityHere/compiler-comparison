@@ -61,6 +61,24 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.FileParserPrx = None
     class FileParserPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new FileParserPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Parse a file.
         Arguments:

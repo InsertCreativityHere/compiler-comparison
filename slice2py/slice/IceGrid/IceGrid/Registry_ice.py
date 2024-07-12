@@ -70,6 +70,24 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.QueryPrx = None
     class QueryPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new QueryPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         """
          Find a well-known object by identity.
         Arguments:
@@ -286,6 +304,24 @@ _M_IceGrid._t_Registry = IcePy.defineValue('::IceGrid::Registry', Ice.Value, -1,
 if 'RegistryPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.RegistryPrx = None
     class RegistryPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new RegistryPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Create a client session.
@@ -529,6 +565,24 @@ _M_IceGrid._t_Locator = IcePy.defineValue('::IceGrid::Locator', Ice.Value, -1, (
 if 'LocatorPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.LocatorPrx = None
     class LocatorPrx(_M_Ice.LocatorPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new LocatorPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         """
          Get the proxy of the registry object hosted by this IceGrid registry.

@@ -31,6 +31,24 @@ if 'TimeoutPrx' not in _M_Test.__dict__:
     _M_Test.TimeoutPrx = None
     class TimeoutPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TimeoutPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def op(self, context=None):
             return _M_Test.Timeout._op_op.invoke(self, ((), context))
 
@@ -107,6 +125,24 @@ _M_Test._t_Controller = IcePy.defineValue('::Test::Controller', Ice.Value, -1, (
 if 'ControllerPrx' not in _M_Test.__dict__:
     _M_Test.ControllerPrx = None
     class ControllerPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ControllerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def holdAdapter(self, to, context=None):
             return _M_Test.Controller._op_holdAdapter.invoke(self, ((to, ), context))

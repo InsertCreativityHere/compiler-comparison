@@ -51,6 +51,24 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestIntfPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def op(self, context=None):
             return _M_Test.TestIntf._op_op.invoke(self, ((), context))
 
@@ -166,6 +184,24 @@ _M_Test._t_TestIntfController = IcePy.defineValue('::Test::TestIntfController', 
 if 'TestIntfControllerPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfControllerPrx = None
     class TestIntfControllerPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TestIntfControllerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def holdAdapter(self, context=None):
             return _M_Test.TestIntfController._op_holdAdapter.invoke(self, ((), context))

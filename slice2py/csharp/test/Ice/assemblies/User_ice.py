@@ -56,6 +56,24 @@ if 'RegistryPrx' not in _M_User.__dict__:
     _M_User.RegistryPrx = None
     class RegistryPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new RegistryPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def getUserInfo(self, id, context=None):
             return _M_User.Registry._op_getUserInfo.invoke(self, ((id, ), context))
 

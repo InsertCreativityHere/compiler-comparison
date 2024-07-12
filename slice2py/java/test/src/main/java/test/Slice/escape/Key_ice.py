@@ -128,6 +128,24 @@ if 'catchPrx' not in _M_abstract.__dict__:
     _M_abstract.catchPrx = None
     class catchPrx(Ice.ObjectPrx):
 
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new catchPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
         def _checkedCast(self, clone, context=None):
             return _M_abstract.catch._op_checkedCast.invoke(self, ((clone, ), context))
 
@@ -184,6 +202,24 @@ _M_abstract._t_default = IcePy.defineValue('::abstract::default', Ice.Value, -1,
 if 'defaultPrx' not in _M_abstract.__dict__:
     _M_abstract.defaultPrx = None
     class defaultPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new defaultPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def do(self, context=None):
             return _M_abstract.default._op_do.invoke(self, ((), context))
@@ -271,6 +307,24 @@ _M_abstract._t_finalize = IcePy.defineValue('::abstract::finalize', Ice.Value, -
 if 'finalizePrx' not in _M_abstract.__dict__:
     _M_abstract.finalizePrx = None
     class finalizePrx(_M_abstract.defaultPrx, _M_abstract.catchPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new finalizePrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -366,6 +420,24 @@ _M_abstract._t_new = IcePy.defineValue('::abstract::new', Ice.Value, -1, (), Tru
 if 'newPrx' not in _M_abstract.__dict__:
     _M_abstract.newPrx = None
     class newPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new newPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
 
         def notify(self, notifyAll, null, package, public, _return, static, strictfp, super, context=None):
             return _M_abstract.new._op_notify.invoke(self, ((notifyAll, null, package, public, _return, static, strictfp, super), context))
