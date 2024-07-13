@@ -211,11 +211,6 @@ classdef ControllerPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.Common.ControllerPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ControllerPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         runTestCase_ex_ = { 'Test.Common.TestCaseNotExistException' }
     end

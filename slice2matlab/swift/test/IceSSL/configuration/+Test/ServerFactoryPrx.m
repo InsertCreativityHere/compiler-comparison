@@ -129,9 +129,4 @@ classdef ServerFactoryPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.ServerFactoryPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ServerFactoryPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

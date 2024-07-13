@@ -102,11 +102,6 @@ classdef PermissionsVerifierPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Glacier2.PermissionsVerifierPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = PermissionsVerifierPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         checkPermissions_ex_ = { 'Glacier2.PermissionDeniedException' }
     end

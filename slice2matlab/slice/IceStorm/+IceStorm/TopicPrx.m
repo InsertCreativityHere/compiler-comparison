@@ -396,11 +396,6 @@ classdef TopicPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceStorm.TopicPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TopicPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         subscribeAndGetPublisher_ex_ = { 'IceStorm.AlreadySubscribed', 'IceStorm.InvalidSubscriber', 'IceStorm.BadQoS' }
         link_ex_ = { 'IceStorm.LinkExists' }

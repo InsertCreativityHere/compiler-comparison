@@ -146,11 +146,6 @@ classdef AdapterPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.AdapterPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = AdapterPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         getDirectProxy_ex_ = { 'IceGrid.AdapterNotActiveException' }
         setDirectProxy_ex_ = { 'IceGrid.AdapterActiveException' }

@@ -105,9 +105,4 @@ classdef RemoteLoggerPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Ice.RemoteLoggerPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = RemoteLoggerPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

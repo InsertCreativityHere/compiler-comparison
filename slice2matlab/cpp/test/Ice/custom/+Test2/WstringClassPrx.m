@@ -158,11 +158,6 @@ classdef WstringClassPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test2.WstringClassPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = WstringClassPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         throwExcept_ex_ = { 'Test2.WstringException' }
     end

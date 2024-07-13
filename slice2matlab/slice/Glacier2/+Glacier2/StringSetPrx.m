@@ -136,9 +136,4 @@ classdef StringSetPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Glacier2.StringSetPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = StringSetPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

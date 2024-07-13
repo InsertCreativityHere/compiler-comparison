@@ -348,9 +348,4 @@ classdef IPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Inner.Test.Inner2.IPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = IPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

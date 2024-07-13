@@ -81,9 +81,4 @@ classdef IAPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.MA.IAPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = IAPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

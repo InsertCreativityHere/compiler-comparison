@@ -79,9 +79,4 @@ classdef LocatorFinderPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Ice.LocatorFinderPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = LocatorFinderPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

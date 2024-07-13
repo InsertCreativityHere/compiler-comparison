@@ -187,11 +187,6 @@ classdef TestCasePrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.Common.TestCasePrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TestCasePrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         startServerSide_ex_ = { 'Test.Common.TestCaseFailedException' }
         stopServerSide_ex_ = { 'Test.Common.TestCaseFailedException' }

@@ -70,9 +70,4 @@ classdef BrowserProcessControllerPrx < Test.Common.ProcessControllerPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.Common.BrowserProcessControllerPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = BrowserProcessControllerPrx(communicator, encoding, impl, bytes)
-            obj = obj@Test.Common.ProcessControllerPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

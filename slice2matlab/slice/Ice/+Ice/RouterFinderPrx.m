@@ -79,9 +79,4 @@ classdef RouterFinderPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Ice.RouterFinderPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = RouterFinderPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

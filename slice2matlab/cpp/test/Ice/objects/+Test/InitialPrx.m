@@ -1220,11 +1220,6 @@ classdef InitialPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.InitialPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = InitialPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         throwEDerived_ex_ = { 'Test.EDerived' }
         throwInnerEx_ex_ = { 'Test.Inner.Ex' }

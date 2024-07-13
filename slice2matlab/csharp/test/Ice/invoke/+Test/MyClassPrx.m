@@ -146,11 +146,6 @@ classdef MyClassPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.MyClassPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = MyClassPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         opException_ex_ = { 'Test.MyException' }
     end

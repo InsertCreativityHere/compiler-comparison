@@ -81,9 +81,4 @@ classdef casePrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'abstract.casePrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = casePrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

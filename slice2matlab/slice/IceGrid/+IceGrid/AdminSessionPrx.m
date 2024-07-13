@@ -731,11 +731,6 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.AdminSessionPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = AdminSessionPrx(communicator, encoding, impl, bytes)
-            obj = obj@Glacier2.SessionPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         setObservers_ex_ = { 'IceGrid.ObserverAlreadyRegisteredException' }
         setObserversByIdentity_ex_ = { 'IceGrid.ObserverAlreadyRegisteredException' }

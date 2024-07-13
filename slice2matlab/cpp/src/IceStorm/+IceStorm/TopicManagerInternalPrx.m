@@ -77,9 +77,4 @@ classdef TopicManagerInternalPrx < IceStorm.TopicManagerPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceStorm.TopicManagerInternalPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TopicManagerInternalPrx(communicator, encoding, impl, bytes)
-            obj = obj@IceStorm.TopicManagerPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

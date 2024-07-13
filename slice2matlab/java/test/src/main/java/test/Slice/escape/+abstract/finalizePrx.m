@@ -42,10 +42,4 @@ classdef finalizePrx < abstract.defaultPrx & abstract.catchPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'abstract.finalizePrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = finalizePrx(communicator, encoding, impl, bytes)
-            obj = obj@abstract.defaultPrx(communicator, encoding, impl, bytes);
-            obj = obj@abstract.catchPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

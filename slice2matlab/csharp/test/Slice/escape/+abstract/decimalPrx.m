@@ -62,9 +62,4 @@ classdef decimalPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'abstract.decimalPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = decimalPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

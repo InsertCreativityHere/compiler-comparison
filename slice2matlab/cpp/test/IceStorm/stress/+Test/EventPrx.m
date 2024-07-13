@@ -70,9 +70,4 @@ classdef EventPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.EventPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = EventPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

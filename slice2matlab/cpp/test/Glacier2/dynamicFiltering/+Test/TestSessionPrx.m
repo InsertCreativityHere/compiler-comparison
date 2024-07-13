@@ -62,9 +62,4 @@ classdef TestSessionPrx < Glacier2.SessionPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.TestSessionPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TestSessionPrx(communicator, encoding, impl, bytes)
-            obj = obj@Glacier2.SessionPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

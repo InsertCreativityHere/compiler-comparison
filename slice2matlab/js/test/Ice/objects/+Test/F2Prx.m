@@ -62,9 +62,4 @@ classdef F2Prx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.F2Prx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = F2Prx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

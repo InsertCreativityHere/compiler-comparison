@@ -253,9 +253,4 @@ classdef QueryPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.QueryPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = QueryPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

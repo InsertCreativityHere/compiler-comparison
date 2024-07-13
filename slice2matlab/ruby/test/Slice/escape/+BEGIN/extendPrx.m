@@ -103,11 +103,6 @@ classdef extendPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'BEGIN.extendPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = extendPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         for_ex_ = { 'BEGIN.nil' }
     end

@@ -42,10 +42,4 @@ classdef ifPrx < and.execPrx & and.delPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'and.ifPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ifPrx(communicator, encoding, impl, bytes)
-            obj = obj@and.execPrx(communicator, encoding, impl, bytes);
-            obj = obj@and.delPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

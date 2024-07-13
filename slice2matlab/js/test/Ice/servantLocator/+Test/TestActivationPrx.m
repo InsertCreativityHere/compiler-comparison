@@ -70,9 +70,4 @@ classdef TestActivationPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.TestActivationPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TestActivationPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

@@ -137,9 +137,4 @@ classdef IdentitySetPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Glacier2.IdentitySetPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = IdentitySetPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

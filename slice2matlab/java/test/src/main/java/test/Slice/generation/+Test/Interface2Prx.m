@@ -62,9 +62,4 @@ classdef Interface2Prx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.Interface2Prx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = Interface2Prx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

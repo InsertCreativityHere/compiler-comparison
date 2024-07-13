@@ -42,11 +42,4 @@ classdef DatabaseObserverPrx < IceGrid.ApplicationObserverPrx & IceGrid.ObjectOb
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.DatabaseObserverPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = DatabaseObserverPrx(communicator, encoding, impl, bytes)
-            obj = obj@IceGrid.ApplicationObserverPrx(communicator, encoding, impl, bytes);
-            obj = obj@IceGrid.ObjectObserverPrx(communicator, encoding, impl, bytes);
-            obj = obj@IceGrid.AdapterObserverPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

@@ -81,9 +81,4 @@ classdef catchPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'abstract.catchPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = catchPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

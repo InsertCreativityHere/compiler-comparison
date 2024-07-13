@@ -82,9 +82,4 @@ classdef BackendPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.BackendPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = BackendPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

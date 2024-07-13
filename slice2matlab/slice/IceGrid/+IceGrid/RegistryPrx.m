@@ -288,11 +288,6 @@ classdef RegistryPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.RegistryPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = RegistryPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         createSession_ex_ = { 'IceGrid.PermissionDeniedException' }
         createAdminSession_ex_ = { 'IceGrid.PermissionDeniedException' }

@@ -335,9 +335,4 @@ classdef NodePrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceStormElection.NodePrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = NodePrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

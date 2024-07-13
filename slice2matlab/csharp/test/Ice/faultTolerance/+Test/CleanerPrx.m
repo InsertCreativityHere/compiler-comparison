@@ -62,9 +62,4 @@ classdef CleanerPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.CleanerPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = CleanerPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

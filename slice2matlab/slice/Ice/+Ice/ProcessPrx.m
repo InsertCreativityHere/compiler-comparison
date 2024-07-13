@@ -103,9 +103,4 @@ classdef ProcessPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Ice.ProcessPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ProcessPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

@@ -141,11 +141,6 @@ classdef FileReaderPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.FileReaderPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = FileReaderPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         getOffsetFromEnd_ex_ = { 'IceGrid.FileNotAvailableException' }
         read_ex_ = { 'IceGrid.FileNotAvailableException' }

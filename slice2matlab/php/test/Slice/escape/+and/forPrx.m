@@ -107,11 +107,6 @@ classdef forPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'and.forPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = forPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         foreach_ex_ = { 'and.endwhile', 'and.endif' }
     end

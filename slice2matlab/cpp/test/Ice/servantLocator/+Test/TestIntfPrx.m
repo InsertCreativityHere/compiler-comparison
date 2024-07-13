@@ -360,11 +360,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.TestIntfPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TestIntfPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         impossibleException_ex_ = { 'Test.TestImpossibleException' }
         intfUserException_ex_ = { 'Test.TestIntfUserException', 'Test.TestImpossibleException' }

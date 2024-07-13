@@ -158,9 +158,4 @@ classdef PropertiesAdminPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Ice.PropertiesAdminPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = PropertiesAdminPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

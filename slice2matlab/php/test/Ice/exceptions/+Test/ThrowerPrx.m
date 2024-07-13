@@ -516,11 +516,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.ThrowerPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ThrowerPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         throwAasA_ex_ = { 'Test.A' }
         throwAorDasAorD_ex_ = { 'Test.A', 'Test.D' }

@@ -33,6 +33,10 @@ namespace Test
         class IAPrx;
 
     }
+}
+
+namespace Test
+{
 
     namespace MB
     {
@@ -41,12 +45,20 @@ namespace Test
         class IB2Prx;
 
     }
+}
+
+namespace Test
+{
 
     namespace MA
     {
         class ICPrx;
 
     }
+}
+
+namespace Test
+{
     class InitialPrx;
 
 }
@@ -121,6 +133,11 @@ protected:
 };
 
 }
+
+}
+
+namespace Test
+{
 
 namespace MB
 {
@@ -271,6 +288,11 @@ protected:
 
 }
 
+}
+
+namespace Test
+{
+
 namespace MA
 {
 
@@ -347,6 +369,11 @@ protected:
 };
 
 }
+
+}
+
+namespace Test
+{
 
 class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
@@ -503,6 +530,11 @@ using IAPtr = ::std::shared_ptr<IA>;
 
 }
 
+}
+
+namespace Test
+{
+
 namespace MB
 {
 
@@ -584,6 +616,11 @@ using IB2Ptr = ::std::shared_ptr<IB2>;
 
 }
 
+}
+
+namespace Test
+{
+
 namespace MA
 {
 
@@ -627,6 +664,11 @@ public:
 using ICPtr = ::std::shared_ptr<IC>;
 
 }
+
+}
+
+namespace Test
+{
 
 class Initial : public virtual ::Ice::Object
 {

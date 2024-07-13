@@ -126,9 +126,4 @@ classdef ReplicaObserverPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.ReplicaObserverPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ReplicaObserverPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

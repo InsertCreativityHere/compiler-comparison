@@ -110,9 +110,4 @@ classdef BackgroundPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.BackgroundPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = BackgroundPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

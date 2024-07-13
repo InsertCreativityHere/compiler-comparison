@@ -134,9 +134,4 @@ classdef breakPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'BEGIN.breakPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = breakPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

@@ -70,9 +70,4 @@ classdef ClockPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.ClockPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ClockPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

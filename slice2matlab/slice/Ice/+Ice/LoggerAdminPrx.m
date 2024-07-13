@@ -202,11 +202,6 @@ classdef LoggerAdminPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Ice.LoggerAdminPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = LoggerAdminPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         attachRemoteLogger_ex_ = { 'Ice.RemoteLoggerAlreadyAttachedException' }
     end

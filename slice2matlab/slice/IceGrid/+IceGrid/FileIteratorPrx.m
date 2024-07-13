@@ -118,11 +118,6 @@ classdef FileIteratorPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.FileIteratorPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = FileIteratorPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         read_ex_ = { 'IceGrid.FileNotAvailableException' }
     end

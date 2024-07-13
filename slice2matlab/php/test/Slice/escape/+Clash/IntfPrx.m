@@ -382,9 +382,4 @@ classdef IntfPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Clash.IntfPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = IntfPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

@@ -70,9 +70,4 @@ classdef TestLocatorRegistryPrx < Ice.LocatorRegistryPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.TestLocatorRegistryPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TestLocatorRegistryPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.LocatorRegistryPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

@@ -73,9 +73,4 @@ classdef FPrx < Test.EPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.FPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = FPrx(communicator, encoding, impl, bytes)
-            obj = obj@Test.EPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

@@ -167,11 +167,6 @@ classdef TopicManagerPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceStorm.TopicManagerPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TopicManagerPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         create_ex_ = { 'IceStorm.TopicExists' }
         retrieve_ex_ = { 'IceStorm.NoSuchTopic' }

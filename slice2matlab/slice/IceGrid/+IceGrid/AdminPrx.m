@@ -1924,11 +1924,6 @@ classdef AdminPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.AdminPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = AdminPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         addApplication_ex_ = { 'IceGrid.DeploymentException', 'IceGrid.AccessDeniedException' }
         syncApplication_ex_ = { 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException', 'IceGrid.AccessDeniedException' }

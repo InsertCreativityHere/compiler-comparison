@@ -42,10 +42,4 @@ classdef explicitPrx < abstract.decimalPrx & abstract.casePrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'abstract.explicitPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = explicitPrx(communicator, encoding, impl, bytes)
-            obj = obj@abstract.decimalPrx(communicator, encoding, impl, bytes);
-            obj = obj@abstract.casePrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

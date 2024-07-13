@@ -82,9 +82,4 @@ classdef ServerManagerPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.ServerManagerPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ServerManagerPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

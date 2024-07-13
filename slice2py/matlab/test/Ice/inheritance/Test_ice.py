@@ -105,6 +105,11 @@ if 'IAPrx' not in _M_Test.MA.__dict__:
 
 __name__ = 'Test'
 
+# End of module Test
+
+# Start of module Test
+__name__ = 'Test'
+
 # Start of module Test.MB
 _M_Test.MB = Ice.openModule('Test.MB')
 __name__ = 'Test.MB'
@@ -263,6 +268,11 @@ if 'IB2Prx' not in _M_Test.MB.__dict__:
 
 __name__ = 'Test'
 
+# End of module Test
+
+# Start of module Test
+__name__ = 'Test'
+
 # Start of module Test.MA
 __name__ = 'Test.MA'
 
@@ -343,6 +353,11 @@ if 'ICPrx' not in _M_Test.MA.__dict__:
 
 # End of module Test.MA
 
+__name__ = 'Test'
+
+# End of module Test
+
+# Start of module Test
 __name__ = 'Test'
 
 _M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())

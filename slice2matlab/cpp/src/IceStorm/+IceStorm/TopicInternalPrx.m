@@ -111,11 +111,6 @@ classdef TopicInternalPrx < IceStorm.TopicPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceStorm.TopicInternalPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TopicInternalPrx(communicator, encoding, impl, bytes)
-            obj = obj@IceStorm.TopicPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         reap_ex_ = { 'IceStorm.ReapWouldBlock' }
     end

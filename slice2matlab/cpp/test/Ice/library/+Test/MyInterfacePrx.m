@@ -70,11 +70,6 @@ classdef MyInterfacePrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.MyInterfacePrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = MyInterfacePrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         op_ex_ = { 'Test.UserError' }
     end

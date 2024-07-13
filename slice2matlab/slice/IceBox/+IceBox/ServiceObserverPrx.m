@@ -102,9 +102,4 @@ classdef ServiceObserverPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceBox.ServiceObserverPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ServiceObserverPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

@@ -75,9 +75,4 @@ classdef LookupReplyPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceLocatorDiscovery.LookupReplyPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = LookupReplyPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

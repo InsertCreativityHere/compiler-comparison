@@ -1383,11 +1383,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.TestIntfPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TestIntfPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         throwBaseAsBase_ex_ = { 'Test.BaseException' }
         throwDerivedAsBase_ex_ = { 'Test.BaseException' }

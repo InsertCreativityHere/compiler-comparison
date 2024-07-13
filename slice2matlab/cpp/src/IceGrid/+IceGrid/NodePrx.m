@@ -418,12 +418,6 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.NodePrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = NodePrx(communicator, encoding, impl, bytes)
-            obj = obj@IceGrid.FileReaderPrx(communicator, encoding, impl, bytes);
-            obj = obj@IceGrid.ReplicaObserverPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         loadServer_ex_ = { 'IceGrid.DeploymentException' }
         loadServerWithoutRestart_ex_ = { 'IceGrid.DeploymentException' }

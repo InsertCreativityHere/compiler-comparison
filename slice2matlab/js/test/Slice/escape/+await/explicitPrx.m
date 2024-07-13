@@ -42,10 +42,4 @@ classdef explicitPrx < await.typeofPrx & await.casePrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'await.explicitPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = explicitPrx(communicator, encoding, impl, bytes)
-            obj = obj@await.typeofPrx(communicator, encoding, impl, bytes);
-            obj = obj@await.casePrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

@@ -81,9 +81,4 @@ classdef IB1Prx < Test.MA.IAPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.MB.IB1Prx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = IB1Prx(communicator, encoding, impl, bytes)
-            obj = obj@Test.MA.IAPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

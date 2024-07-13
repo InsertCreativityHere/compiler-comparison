@@ -62,9 +62,4 @@ classdef diePrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'and.diePrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = diePrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

@@ -181,11 +181,6 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Ice.LocatorRegistryPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = LocatorRegistryPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         setAdapterDirectProxy_ex_ = { 'Ice.AdapterNotFoundException', 'Ice.AdapterAlreadyActiveException' }
         setReplicatedAdapterDirectProxy_ex_ = { 'Ice.AdapterNotFoundException', 'Ice.InvalidReplicaGroupIdException', 'Ice.AdapterAlreadyActiveException' }

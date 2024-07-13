@@ -95,11 +95,6 @@ classdef UserAccountMapperPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.UserAccountMapperPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = UserAccountMapperPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         getUserAccount_ex_ = { 'IceGrid.UserAccountNotFoundException' }
     end

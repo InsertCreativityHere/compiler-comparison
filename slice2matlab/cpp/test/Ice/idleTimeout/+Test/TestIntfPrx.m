@@ -62,9 +62,4 @@ classdef TestIntfPrx < Test.DelayedTestIntfPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.TestIntfPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TestIntfPrx(communicator, encoding, impl, bytes)
-            obj = obj@Test.DelayedTestIntfPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

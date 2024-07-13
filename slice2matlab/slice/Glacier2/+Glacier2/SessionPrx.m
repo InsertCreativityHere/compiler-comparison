@@ -66,9 +66,4 @@ classdef SessionPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Glacier2.SessionPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = SessionPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

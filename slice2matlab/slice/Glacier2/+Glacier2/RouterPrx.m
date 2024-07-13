@@ -319,11 +319,6 @@ classdef RouterPrx < Ice.RouterPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Glacier2.RouterPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = RouterPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.RouterPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         createSession_ex_ = { 'Glacier2.CannotCreateSessionException', 'Glacier2.PermissionDeniedException' }
         createSessionFromSecureConnection_ex_ = { 'Glacier2.CannotCreateSessionException', 'Glacier2.PermissionDeniedException' }

@@ -177,9 +177,4 @@ classdef RetryPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.RetryPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = RetryPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

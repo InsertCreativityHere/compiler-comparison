@@ -164,9 +164,4 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.AdapterObserverPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = AdapterObserverPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

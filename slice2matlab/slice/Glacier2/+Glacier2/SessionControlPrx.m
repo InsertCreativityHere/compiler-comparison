@@ -190,9 +190,4 @@ classdef SessionControlPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Glacier2.SessionControlPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = SessionControlPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

@@ -122,11 +122,6 @@ classdef RelayPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.RelayPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = RelayPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         knownPreservedAsBase_ex_ = { 'Test.Base' }
         knownPreservedAsKnownPreserved_ex_ = { 'Test.KnownPreserved' }

@@ -73,9 +73,4 @@ classdef BPrx < Test.APrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.BPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = BPrx(communicator, encoding, impl, bytes)
-            obj = obj@Test.APrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

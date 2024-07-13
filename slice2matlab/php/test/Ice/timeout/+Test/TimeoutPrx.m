@@ -118,9 +118,4 @@ classdef TimeoutPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.TimeoutPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TimeoutPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

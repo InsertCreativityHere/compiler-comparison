@@ -42,10 +42,4 @@ classdef enddeclarePrx < and.diePrx & and.functionPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'and.enddeclarePrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = enddeclarePrx(communicator, encoding, impl, bytes)
-            obj = obj@and.diePrx(communicator, encoding, impl, bytes);
-            obj = obj@and.functionPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

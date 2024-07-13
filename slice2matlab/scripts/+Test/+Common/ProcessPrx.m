@@ -140,11 +140,6 @@ classdef ProcessPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.Common.ProcessPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ProcessPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         waitReady_ex_ = { 'Test.Common.ProcessFailedException' }
         waitSuccess_ex_ = { 'Test.Common.ProcessFailedException' }

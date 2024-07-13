@@ -103,11 +103,6 @@ classdef printPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'and.printPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = printPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         raise_ex_ = { 'and.is' }
     end

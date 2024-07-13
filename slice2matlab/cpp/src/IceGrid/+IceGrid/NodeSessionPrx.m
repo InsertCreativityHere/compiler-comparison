@@ -269,9 +269,4 @@ classdef NodeSessionPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.NodeSessionPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = NodeSessionPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

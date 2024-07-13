@@ -62,9 +62,4 @@ classdef typeofPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'await.typeofPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = typeofPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

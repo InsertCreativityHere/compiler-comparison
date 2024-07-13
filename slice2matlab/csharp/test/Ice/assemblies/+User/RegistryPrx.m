@@ -86,11 +86,6 @@ classdef RegistryPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'User.RegistryPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = RegistryPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         getUserInfo_ex_ = { 'Core.ArgumentException' }
     end

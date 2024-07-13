@@ -70,9 +70,4 @@ classdef ProcessControllerRegistryPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.Common.ProcessControllerRegistryPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ProcessControllerRegistryPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

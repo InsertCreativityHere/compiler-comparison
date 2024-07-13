@@ -73,9 +73,4 @@ classdef TestLocatorPrx < Ice.LocatorPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.TestLocatorPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TestLocatorPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.LocatorPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

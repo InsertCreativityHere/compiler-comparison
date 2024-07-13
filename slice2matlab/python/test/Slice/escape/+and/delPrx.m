@@ -81,9 +81,4 @@ classdef delPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'and.delPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = delPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

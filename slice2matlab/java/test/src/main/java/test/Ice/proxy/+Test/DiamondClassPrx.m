@@ -42,10 +42,4 @@ classdef DiamondClassPrx < Test.MyDerivedClassPrx & Test.MyOtherDerivedClassPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.DiamondClassPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = DiamondClassPrx(communicator, encoding, impl, bytes)
-            obj = obj@Test.MyDerivedClassPrx(communicator, encoding, impl, bytes);
-            obj = obj@Test.MyOtherDerivedClassPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

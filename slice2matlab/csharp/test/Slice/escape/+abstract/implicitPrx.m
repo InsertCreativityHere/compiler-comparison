@@ -115,11 +115,6 @@ classdef implicitPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'abstract.implicitPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = implicitPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         in_ex_ = { 'abstract.foreach', 'abstract.fixed' }
     end

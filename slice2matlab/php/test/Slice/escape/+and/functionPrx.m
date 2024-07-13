@@ -74,9 +74,4 @@ classdef functionPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'and.functionPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = functionPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

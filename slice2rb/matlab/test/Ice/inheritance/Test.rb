@@ -46,6 +46,9 @@ module ::Test
             IAPrx_mixin::OP_iaop = ::Ice::__defineOperation('iaop', ::Ice::OperationMode::Normal, false, nil, [[::Test::MA::T_IAPrx, false, 0]], [], [::Test::MA::T_IAPrx, false, 0], [])
         end
     end
+end
+
+module ::Test
 
     module MB
 
@@ -103,6 +106,9 @@ module ::Test
             IB2Prx_mixin::OP_ib2op = ::Ice::__defineOperation('ib2op', ::Ice::OperationMode::Normal, false, nil, [[::Test::MB::T_IB2Prx, false, 0]], [], [::Test::MB::T_IB2Prx, false, 0], [])
         end
     end
+end
+
+module ::Test
 
     module MA
 
@@ -134,6 +140,9 @@ module ::Test
             ICPrx_mixin::OP_icop = ::Ice::__defineOperation('icop', ::Ice::OperationMode::Normal, false, nil, [[::Test::MA::T_ICPrx, false, 0]], [], [::Test::MA::T_ICPrx, false, 0], [])
         end
     end
+end
+
+module ::Test
 
     if not defined?(::Test::Initial_Mixin)
 

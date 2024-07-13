@@ -62,9 +62,4 @@ classdef PingablePrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.PingablePrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = PingablePrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

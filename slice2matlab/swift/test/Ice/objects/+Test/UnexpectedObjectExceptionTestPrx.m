@@ -78,9 +78,4 @@ classdef UnexpectedObjectExceptionTestPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.UnexpectedObjectExceptionTestPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = UnexpectedObjectExceptionTestPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

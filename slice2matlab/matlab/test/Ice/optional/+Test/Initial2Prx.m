@@ -108,9 +108,4 @@ classdef Initial2Prx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.Initial2Prx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = Initial2Prx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

@@ -102,11 +102,6 @@ classdef SessionManagerPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Glacier2.SessionManagerPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = SessionManagerPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         create_ex_ = { 'Glacier2.CannotCreateSessionException' }
     end

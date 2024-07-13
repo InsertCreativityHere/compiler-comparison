@@ -350,11 +350,6 @@ classdef ServerPrx < IceGrid.FileReaderPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.ServerPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ServerPrx(communicator, encoding, impl, bytes)
-            obj = obj@IceGrid.FileReaderPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         start_ex_ = { 'IceGrid.ServerStartException' }
         stop_ex_ = { 'IceGrid.ServerStopException' }

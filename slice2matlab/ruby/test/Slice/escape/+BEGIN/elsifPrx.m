@@ -42,9 +42,4 @@ classdef elsifPrx < BEGIN.breakPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'BEGIN.elsifPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = elsifPrx(communicator, encoding, impl, bytes)
-            obj = obj@BEGIN.breakPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

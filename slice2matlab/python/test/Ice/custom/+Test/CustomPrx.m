@@ -1012,9 +1012,4 @@ classdef CustomPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.CustomPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = CustomPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

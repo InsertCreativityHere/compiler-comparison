@@ -241,11 +241,6 @@ classdef MetricsPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.MetricsPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = MetricsPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         opWithUserException_ex_ = { 'Test.UserEx' }
     end

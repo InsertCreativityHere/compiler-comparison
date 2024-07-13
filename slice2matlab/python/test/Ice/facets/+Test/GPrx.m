@@ -93,9 +93,4 @@ classdef GPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.GPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = GPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

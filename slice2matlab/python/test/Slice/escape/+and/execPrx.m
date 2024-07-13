@@ -62,9 +62,4 @@ classdef execPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'and.execPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = execPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

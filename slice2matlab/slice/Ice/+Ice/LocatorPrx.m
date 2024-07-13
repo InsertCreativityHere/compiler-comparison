@@ -170,11 +170,6 @@ classdef LocatorPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Ice.LocatorPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = LocatorPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         findObjectById_ex_ = { 'Ice.ObjectNotFoundException' }
         findAdapterById_ex_ = { 'Ice.AdapterNotFoundException' }

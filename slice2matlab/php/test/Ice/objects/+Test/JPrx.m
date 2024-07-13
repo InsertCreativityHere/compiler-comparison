@@ -42,9 +42,4 @@ classdef JPrx < Test.IPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.JPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = JPrx(communicator, encoding, impl, bytes)
-            obj = obj@Test.IPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

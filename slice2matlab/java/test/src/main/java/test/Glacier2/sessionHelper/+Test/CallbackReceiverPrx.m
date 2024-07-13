@@ -82,11 +82,6 @@ classdef CallbackReceiverPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.CallbackReceiverPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = CallbackReceiverPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         callbackEx_ex_ = { 'Test.CallbackException' }
     end

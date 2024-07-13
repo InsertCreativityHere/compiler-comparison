@@ -252,9 +252,4 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'abstract.optionalParamsPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = optionalParamsPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

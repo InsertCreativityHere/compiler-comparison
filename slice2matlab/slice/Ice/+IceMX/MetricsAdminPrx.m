@@ -308,11 +308,6 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceMX.MetricsAdminPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = MetricsAdminPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         enableMetricsView_ex_ = { 'IceMX.UnknownMetricsView' }
         disableMetricsView_ex_ = { 'IceMX.UnknownMetricsView' }

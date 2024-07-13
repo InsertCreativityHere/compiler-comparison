@@ -73,9 +73,4 @@ classdef HPrx < Test.GPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.HPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = HPrx(communicator, encoding, impl, bytes)
-            obj = obj@Test.GPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

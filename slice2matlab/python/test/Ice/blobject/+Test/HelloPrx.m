@@ -153,11 +153,6 @@ classdef HelloPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.HelloPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = HelloPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         raiseUE_ex_ = { 'Test.UE' }
     end

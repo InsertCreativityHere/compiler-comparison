@@ -379,11 +379,6 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.InternalRegistryPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = InternalRegistryPrx(communicator, encoding, impl, bytes)
-            obj = obj@IceGrid.FileReaderPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         registerNode_ex_ = { 'IceGrid.PermissionDeniedException', 'IceGrid.NodeActiveException' }
         registerReplica_ex_ = { 'IceGrid.PermissionDeniedException', 'IceGrid.ReplicaActiveException' }

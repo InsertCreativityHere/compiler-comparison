@@ -102,11 +102,6 @@ classdef TestIntfControllerPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.TestIntfControllerPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TestIntfControllerPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         interrupt_ex_ = { 'Test.CannotInterruptException' }
     end

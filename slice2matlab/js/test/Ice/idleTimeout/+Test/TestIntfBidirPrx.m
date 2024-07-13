@@ -78,9 +78,4 @@ classdef TestIntfBidirPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.TestIntfBidirPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TestIntfBidirPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

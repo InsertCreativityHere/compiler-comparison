@@ -41,7 +41,10 @@ namespace Test
             IAPrx? iaop(IAPrx? p, Ice.Current current);
         }
     }
+}
 
+namespace Test
+{
     namespace MB
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -80,7 +83,10 @@ namespace Test
             IB2Prx? ib2op(IB2Prx? p, Ice.Current current);
         }
     }
+}
 
+namespace Test
+{
     namespace MA
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -101,7 +107,10 @@ namespace Test
             ICPrx? icop(ICPrx? p, Ice.Current current);
         }
     }
+}
 
+namespace Test
+{
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
@@ -145,7 +154,10 @@ namespace Test
             global::System.Threading.Tasks.Task<IAPrx?> iaopAsync(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
+}
 
+namespace Test
+{
     namespace MB
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -164,7 +176,10 @@ namespace Test
             global::System.Threading.Tasks.Task<IB2Prx?> ib2opAsync(IB2Prx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
+}
 
+namespace Test
+{
     namespace MA
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -175,7 +190,10 @@ namespace Test
             global::System.Threading.Tasks.Task<ICPrx?> icopAsync(ICPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
+}
 
+namespace Test
+{
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface InitialPrx : Ice.ObjectPrx
     {
@@ -318,7 +336,10 @@ namespace Test
             }
         }
     }
+}
 
+namespace Test
+{
     namespace MB
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -645,7 +666,10 @@ namespace Test
             }
         }
     }
+}
 
+namespace Test
+{
     namespace MA
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -908,7 +932,10 @@ namespace Test
             }
         }
     }
+}
 
+namespace Test
+{
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class InitialPrxHelper : Ice.ObjectPrxHelperBase, InitialPrx
@@ -1214,7 +1241,10 @@ namespace Test
                 };
         }
     }
+}
 
+namespace Test
+{
     namespace MB
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1267,7 +1297,10 @@ namespace Test
                 };
         }
     }
+}
 
+namespace Test
+{
     namespace MA
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1301,7 +1334,10 @@ namespace Test
                 };
         }
     }
+}
 
+namespace Test
+{
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class InitialDisp_ : Ice.ObjectImpl, Initial
@@ -1362,7 +1398,10 @@ namespace Test
             }
         }
     }
+}
 
+namespace Test
+{
     namespace MB
     {
         public partial interface IB1
@@ -1407,7 +1446,10 @@ namespace Test
             }
         }
     }
+}
 
+namespace Test
+{
     namespace MA
     {
         public partial interface IC
@@ -1431,7 +1473,10 @@ namespace Test
             }
         }
     }
+}
 
+namespace Test
+{
     public partial interface Initial
     {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(

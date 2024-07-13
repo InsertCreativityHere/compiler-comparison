@@ -81,10 +81,4 @@ classdef ICPrx < Test.MB.IB1Prx & Test.MB.IB2Prx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.MA.ICPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ICPrx(communicator, encoding, impl, bytes)
-            obj = obj@Test.MB.IB1Prx(communicator, encoding, impl, bytes);
-            obj = obj@Test.MB.IB2Prx(communicator, encoding, impl, bytes);
-        end
-    end
 end

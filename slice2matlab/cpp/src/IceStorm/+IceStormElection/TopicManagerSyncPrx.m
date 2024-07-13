@@ -80,9 +80,4 @@ classdef TopicManagerSyncPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceStormElection.TopicManagerSyncPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = TopicManagerSyncPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

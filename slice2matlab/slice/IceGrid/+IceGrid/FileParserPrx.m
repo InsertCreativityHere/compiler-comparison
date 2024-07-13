@@ -97,11 +97,6 @@ classdef FileParserPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.FileParserPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = FileParserPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         parse_ex_ = { 'IceGrid.ParseException' }
     end

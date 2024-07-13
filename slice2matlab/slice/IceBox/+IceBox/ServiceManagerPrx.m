@@ -166,11 +166,6 @@ classdef ServiceManagerPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceBox.ServiceManagerPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = ServiceManagerPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         startService_ex_ = { 'IceBox.AlreadyStartedException', 'IceBox.NoSuchServiceException' }
         stopService_ex_ = { 'IceBox.AlreadyStoppedException', 'IceBox.NoSuchServiceException' }

@@ -42,10 +42,4 @@ classdef doPrx < and.funcPrx & and.breakPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'and.doPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = doPrx(communicator, encoding, impl, bytes)
-            obj = obj@and.funcPrx(communicator, encoding, impl, bytes);
-            obj = obj@and.breakPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

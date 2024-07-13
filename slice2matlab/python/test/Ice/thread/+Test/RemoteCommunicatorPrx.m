@@ -155,9 +155,4 @@ classdef RemoteCommunicatorPrx < Ice.ObjectPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test.RemoteCommunicatorPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = RemoteCommunicatorPrx(communicator, encoding, impl, bytes)
-            obj = obj@Ice.ObjectPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

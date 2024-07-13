@@ -45,9 +45,4 @@ classdef MyDerivedClassPrx < Test.MyClassPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'Test2.MyDerivedClassPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = MyDerivedClassPrx(communicator, encoding, impl, bytes)
-            obj = obj@Test.MyClassPrx(communicator, encoding, impl, bytes);
-        end
-    end
 end

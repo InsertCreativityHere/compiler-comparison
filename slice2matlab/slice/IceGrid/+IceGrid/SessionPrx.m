@@ -249,11 +249,6 @@ classdef SessionPrx < Glacier2.SessionPrx
             r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.SessionPrx', varargin{:});
         end
     end
-    methods(Hidden=true)
-        function obj = SessionPrx(communicator, encoding, impl, bytes)
-            obj = obj@Glacier2.SessionPrx(communicator, encoding, impl, bytes);
-        end
-    end
     properties(Constant,Access=private)
         allocateObjectById_ex_ = { 'IceGrid.ObjectNotRegisteredException', 'IceGrid.AllocationException' }
         allocateObjectByType_ex_ = { 'IceGrid.AllocationException' }
