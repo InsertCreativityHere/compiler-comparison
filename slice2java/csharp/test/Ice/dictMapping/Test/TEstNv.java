@@ -152,5 +152,5 @@ public class TEstNv implements java.lang.Cloneable,
     private static final TEstNv _nullMarshalValue = new TEstNv();
 
     /** @hidden */
-    private static final long serialVersionUID = -8662001311055739731L;
+    private static final long serialVersionUID = -950471491094853992L;
 }

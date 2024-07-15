@@ -274,5 +274,5 @@ public class StructNoDefaults implements java.lang.Cloneable,
     private static final StructNoDefaults _nullMarshalValue = new StructNoDefaults();
 
     /** @hidden */
-    private static final long serialVersionUID = -6377873165874638103L;
+    private static final long serialVersionUID = -5085205471737565133L;
 }
