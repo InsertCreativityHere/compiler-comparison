@@ -372,7 +372,7 @@ if '_t__while' not in _M_abstract.__dict__:
 if 'optionalMembers' not in _M_abstract.__dict__:
     _M_abstract.optionalMembers = None
     class optionalMembers(Ice.Value):
-        def __init__(self, _for=Ice.Unset, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset):
+        def __init__(self, _for=None, goto=None, _if=None, internal=None, namespace=None):
             self._for = _for
             self.goto = goto
             self._if = _if
@@ -427,13 +427,13 @@ if 'optionalParamsPrx' not in _M_abstract.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        def _for(self, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset, context=None):
+        def _for(self, goto=None, _if=None, internal=None, namespace=None, context=None):
             return _M_abstract.optionalParams._op_for.invoke(self, ((goto, _if, internal, namespace), context))
 
         def forAsync(self, goto, _if, internal, namespace, context=None):
             return _M_abstract.optionalParams._op_for.invokeAsync(self, ((goto, _if, internal, namespace), context))
 
-        def _continue(self, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset, context=None):
+        def _continue(self, goto=None, _if=None, internal=None, namespace=None, context=None):
             return _M_abstract.optionalParams._op_continue.invoke(self, ((goto, _if, internal, namespace), context))
 
         def continueAsync(self, goto, _if, internal, namespace, context=None):

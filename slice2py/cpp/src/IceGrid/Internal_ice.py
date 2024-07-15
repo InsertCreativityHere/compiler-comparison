@@ -104,7 +104,7 @@ if '_t_PropertyDescriptorSeqDict' not in _M_IceGrid.__dict__:
 if 'InternalServerDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.InternalServerDescriptor = None
     class InternalServerDescriptor(Ice.Value):
-        def __init__(self, id='', application='', uuid='', revision=0, sessionId='', exe='', pwd='', user='', activation='', activationTimeout='', deactivationTimeout='', processRegistered=False, options=None, envs=None, logs=None, adapters=None, dbEnvs=None, properties=None, services=Ice.Unset):
+        def __init__(self, id='', application='', uuid='', revision=0, sessionId='', exe='', pwd='', user='', activation='', activationTimeout='', deactivationTimeout='', processRegistered=False, options=None, envs=None, logs=None, adapters=None, dbEnvs=None, properties=None, services=None):
             self.id = id
             self.application = application
             self.uuid = uuid
@@ -1964,7 +1964,7 @@ if 'ReplicaSessionPrx' not in _M_IceGrid.__dict__:
         serials -- 
         context -- The request context for the invocation.
         """
-        def setDatabaseObserver(self, dbObs, serials=Ice.Unset, context=None):
+        def setDatabaseObserver(self, dbObs, serials=None, context=None):
             return _M_IceGrid.ReplicaSession._op_setDatabaseObserver.invoke(self, ((dbObs, serials), context))
 
         """

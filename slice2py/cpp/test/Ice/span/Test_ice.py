@@ -73,19 +73,19 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opStringSpanAsync(self, dataIn, context=None):
             return _M_Test.TestIntf._op_opStringSpan.invokeAsync(self, ((dataIn, ), context))
 
-        def opOptionalByteSpan(self, dataIn=Ice.Unset, context=None):
+        def opOptionalByteSpan(self, dataIn=None, context=None):
             return _M_Test.TestIntf._op_opOptionalByteSpan.invoke(self, ((dataIn, ), context))
 
         def opOptionalByteSpanAsync(self, dataIn, context=None):
             return _M_Test.TestIntf._op_opOptionalByteSpan.invokeAsync(self, ((dataIn, ), context))
 
-        def opOptionalShortSpan(self, dataIn=Ice.Unset, context=None):
+        def opOptionalShortSpan(self, dataIn=None, context=None):
             return _M_Test.TestIntf._op_opOptionalShortSpan.invoke(self, ((dataIn, ), context))
 
         def opOptionalShortSpanAsync(self, dataIn, context=None):
             return _M_Test.TestIntf._op_opOptionalShortSpan.invokeAsync(self, ((dataIn, ), context))
 
-        def opOptionalStringSpan(self, dataIn=Ice.Unset, context=None):
+        def opOptionalStringSpan(self, dataIn=None, context=None):
             return _M_Test.TestIntf._op_opOptionalStringSpan.invoke(self, ((dataIn, ), context))
 
         def opOptionalStringSpanAsync(self, dataIn, context=None):

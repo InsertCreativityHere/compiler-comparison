@@ -240,7 +240,7 @@ if '_t_StringMyClassD' not in _M_Test.__dict__:
 if 'OptionalClass' not in _M_Test.__dict__:
     _M_Test.OptionalClass = None
     class OptionalClass(Ice.Value):
-        def __init__(self, bo=False, by=0, sh=Ice.Unset, i=Ice.Unset, s=Ice.Unset, enumS4=Ice.Unset, byteBoolD6=Ice.Unset, shortIntD7=Ice.Unset, enum8=Ice.Unset, intSeq12=Ice.Unset, byteSeq13=Ice.Unset, stringSeq14=Ice.Unset, p15=Ice.Unset):
+        def __init__(self, bo=False, by=0, sh=None, i=None, s=None, enumS4=None, byteBoolD6=None, shortIntD7=None, enum8=None, intSeq12=None, byteSeq13=None, stringSeq14=None, p15=None):
             self.bo = bo
             self.by = by
             self.sh = sh

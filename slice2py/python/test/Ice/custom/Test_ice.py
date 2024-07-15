@@ -178,7 +178,7 @@ if 'C' not in _M_Test.__dict__:
 if 'D' not in _M_Test.__dict__:
     _M_Test.D = None
     class D(Ice.Value):
-        def __init__(self, boolSeq=Ice.Unset, byteSeq=Ice.Unset, shortSeq=Ice.Unset, intSeq=Ice.Unset, longSeq=Ice.Unset, floatSeq=Ice.Unset, doubleSeq=Ice.Unset):
+        def __init__(self, boolSeq=None, byteSeq=None, shortSeq=None, intSeq=None, longSeq=None, floatSeq=None, doubleSeq=None):
             self.boolSeq = boolSeq
             self.byteSeq = byteSeq
             self.shortSeq = shortSeq

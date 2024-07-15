@@ -106,7 +106,7 @@ if 'IntfPrx' not in _M_Clash.__dict__:
         def istrAsync(self, context=None):
             return _M_Clash.Intf._op_istr.invokeAsync(self, ((), context))
 
-        def op(self, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy=Ice.Unset, context_=None):
+        def op(self, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy=None, context_=None):
             return _M_Clash.Intf._op_op.invoke(self, ((context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy), context_))
 
         def opAsync(self, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, context_=None):
@@ -210,7 +210,7 @@ if 'IntfPrx' not in _M_Clash.__dict__:
 if 'Cls' not in _M_Clash.__dict__:
     _M_Clash.Cls = None
     class Cls(Ice.Value):
-        def __init__(self, s=None, context='', current=0, response=0, upCast='', typeId=0, _del=0, cookie=Ice.Unset, ex='', result=0, istr='', ostr='', inS='', _in='', proxy=''):
+        def __init__(self, s=None, context='', current=0, response=0, upCast='', typeId=0, _del=0, cookie=None, ex='', result=0, istr='', ostr='', inS='', _in='', proxy=''):
             self.s = s
             self.context = context
             self.current = current

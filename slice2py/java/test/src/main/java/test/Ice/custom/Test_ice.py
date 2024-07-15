@@ -423,127 +423,127 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opDoubleBufferSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opDoubleBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptASeq(self, inSeq=Ice.Unset, context=None):
+        def opOptASeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptASeq.invoke(self, ((inSeq, ), context))
 
         def opOptASeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptASeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptAArray(self, inSeq=Ice.Unset, context=None):
+        def opOptAArray(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptAArray.invoke(self, ((inSeq, ), context))
 
         def opOptAArrayAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptAArray.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptAList(self, inSeq=Ice.Unset, context=None):
+        def opOptAList(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptAList.invoke(self, ((inSeq, ), context))
 
         def opOptAListAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptAList.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptBoolSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptBoolSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptBoolSeq.invoke(self, ((inSeq, ), context))
 
         def opOptBoolSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptBoolSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptByteSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptByteSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptByteSeq.invoke(self, ((inSeq, ), context))
 
         def opOptByteSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptByteSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptShortSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptShortSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptShortSeq.invoke(self, ((inSeq, ), context))
 
         def opOptShortSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptShortSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptIntSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptIntSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptIntSeq.invoke(self, ((inSeq, ), context))
 
         def opOptIntSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptIntSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptLongSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptLongSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptLongSeq.invoke(self, ((inSeq, ), context))
 
         def opOptLongSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptLongSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptFloatSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptFloatSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptFloatSeq.invoke(self, ((inSeq, ), context))
 
         def opOptFloatSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptFloatSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptDoubleSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptDoubleSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptDoubleSeq.invoke(self, ((inSeq, ), context))
 
         def opOptDoubleSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptDoubleSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptStringSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptStringSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptStringSeq.invoke(self, ((inSeq, ), context))
 
         def opOptStringSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptStringSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptESeq(self, inSeq=Ice.Unset, context=None):
+        def opOptESeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptESeq.invoke(self, ((inSeq, ), context))
 
         def opOptESeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptESeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptSSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptSSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptSSeq.invoke(self, ((inSeq, ), context))
 
         def opOptSSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptSSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptDSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptDSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptDSeq.invoke(self, ((inSeq, ), context))
 
         def opOptDSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptDSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptStringSeqSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptStringSeqSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptStringSeqSeq.invoke(self, ((inSeq, ), context))
 
         def opOptStringSeqSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptStringSeqSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptByteBufferSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptByteBufferSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptByteBufferSeq.invoke(self, ((inSeq, ), context))
 
         def opOptByteBufferSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptByteBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptShortBufferSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptShortBufferSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptShortBufferSeq.invoke(self, ((inSeq, ), context))
 
         def opOptShortBufferSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptShortBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptIntBufferSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptIntBufferSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptIntBufferSeq.invoke(self, ((inSeq, ), context))
 
         def opOptIntBufferSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptIntBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptLongBufferSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptLongBufferSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptLongBufferSeq.invoke(self, ((inSeq, ), context))
 
         def opOptLongBufferSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptLongBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptFloatBufferSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptFloatBufferSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptFloatBufferSeq.invoke(self, ((inSeq, ), context))
 
         def opOptFloatBufferSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opOptFloatBufferSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opOptDoubleBufferSeq(self, inSeq=Ice.Unset, context=None):
+        def opOptDoubleBufferSeq(self, inSeq=None, context=None):
             return _M_Test.TestIntf._op_opOptDoubleBufferSeq.invoke(self, ((inSeq, ), context))
 
         def opOptDoubleBufferSeqAsync(self, inSeq, context=None):

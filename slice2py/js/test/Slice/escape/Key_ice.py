@@ -426,7 +426,7 @@ if '_t__while' not in _M__await.__dict__:
 if 'package' not in _M__await.__dict__:
     _M__await.package = None
     class package(Ice.Value):
-        def __init__(self, _for=Ice.Unset, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, debugger=Ice.Unset, null=Ice.Unset):
+        def __init__(self, _for=None, goto=None, _if=None, internal=None, debugger=None, null=None):
             self._for = _for
             self.goto = goto
             self._if = _if
@@ -483,13 +483,13 @@ if 'optionalParamsPrx' not in _M__await.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        def _for(self, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset, null=Ice.Unset, context=None):
+        def _for(self, goto=None, _if=None, internal=None, namespace=None, null=None, context=None):
             return _M__await.optionalParams._op_for.invoke(self, ((goto, _if, internal, namespace, null), context))
 
         def forAsync(self, goto, _if, internal, namespace, null, context=None):
             return _M__await.optionalParams._op_for.invokeAsync(self, ((goto, _if, internal, namespace, null), context))
 
-        def _continue(self, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset, null=Ice.Unset, context=None):
+        def _continue(self, goto=None, _if=None, internal=None, namespace=None, null=None, context=None):
             return _M__await.optionalParams._op_continue.invoke(self, ((goto, _if, internal, namespace, null), context))
 
         def continueAsync(self, goto, _if, internal, namespace, null, context=None):

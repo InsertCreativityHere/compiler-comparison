@@ -126,7 +126,7 @@ if 'LargeStruct' not in _M_Test.__dict__:
 if 'OptionalClass' not in _M_Test.__dict__:
     _M_Test.OptionalClass = None
     class OptionalClass(Ice.Value):
-        def __init__(self, bo=False, by=0, sh=Ice.Unset, i=Ice.Unset):
+        def __init__(self, bo=False, by=0, sh=None, i=None):
             self.bo = bo
             self.by = by
             self.sh = sh

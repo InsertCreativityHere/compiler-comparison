@@ -35,7 +35,7 @@ if '_t_StringSeq' not in _M_Test.Common.__dict__:
 if 'Config' not in _M_Test.Common.__dict__:
     _M_Test.Common.Config = None
     class Config(Ice.Value):
-        def __init__(self, protocol=Ice.Unset, mx=Ice.Unset, serialize=Ice.Unset, compress=Ice.Unset, ipv6=Ice.Unset, cprops=Ice.Unset, sprops=Ice.Unset):
+        def __init__(self, protocol=None, mx=None, serialize=None, compress=None, ipv6=None, cprops=None, sprops=None):
             self.protocol = protocol
             self.mx = mx
             self.serialize = serialize
@@ -73,7 +73,7 @@ if 'Config' not in _M_Test.Common.__dict__:
 if 'OptionOverrides' not in _M_Test.Common.__dict__:
     _M_Test.Common.OptionOverrides = None
     class OptionOverrides(Ice.Value):
-        def __init__(self, protocol=Ice.Unset, mx=Ice.Unset, serialize=Ice.Unset, compress=Ice.Unset, ipv6=Ice.Unset):
+        def __init__(self, protocol=None, mx=None, serialize=None, compress=None, ipv6=None):
             self.protocol = protocol
             self.mx = mx
             self.serialize = serialize

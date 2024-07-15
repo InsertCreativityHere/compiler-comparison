@@ -25,7 +25,7 @@ __name__ = 'Test'
 if 'OneOptional' not in _M_Test.__dict__:
     _M_Test.OneOptional = None
     class OneOptional(Ice.Value):
-        def __init__(self, a=Ice.Unset):
+        def __init__(self, a=None):
             self.a = a
 
         def ice_id(self):
@@ -448,7 +448,7 @@ if '_t_IntMyInterfacePrxDict' not in _M_Test.__dict__:
 if 'MultiOptional' not in _M_Test.__dict__:
     _M_Test.MultiOptional = None
     class MultiOptional(Ice.Value):
-        def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, mips=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, imipd=Ice.Unset, bos=Ice.Unset, ser=Ice.Unset):
+        def __init__(self, a=None, b=None, c=None, d=None, e=None, f=None, g=None, h=None, i=None, j=None, bs=None, ss=None, iid=None, sid=None, fs=None, vs=None, shs=None, es=None, fss=None, vss=None, mips=None, ied=None, ifsd=None, ivsd=None, imipd=None, bos=None, ser=None):
             self.a = a
             self.b = b
             self.c = c
@@ -526,7 +526,7 @@ if 'MultiOptional' not in _M_Test.__dict__:
 if 'A' not in _M_Test.__dict__:
     _M_Test.A = None
     class A(Ice.Value):
-        def __init__(self, requiredA=0, ma=Ice.Unset, mb=Ice.Unset, mc=Ice.Unset):
+        def __init__(self, requiredA=0, ma=None, mb=None, mc=None):
             self.requiredA = requiredA
             self.ma = ma
             self.mb = mb
@@ -558,7 +558,7 @@ if 'A' not in _M_Test.__dict__:
 if 'B' not in _M_Test.__dict__:
     _M_Test.B = None
     class B(_M_Test.A):
-        def __init__(self, requiredA=0, ma=Ice.Unset, mb=Ice.Unset, mc=Ice.Unset, requiredB=0, md=Ice.Unset):
+        def __init__(self, requiredA=0, ma=None, mb=None, mc=None, requiredB=0, md=None):
             _M_Test.A.__init__(self, requiredA, ma, mb, mc)
             self.requiredB = requiredB
             self.md = md
@@ -587,7 +587,7 @@ if 'B' not in _M_Test.__dict__:
 if 'C' not in _M_Test.__dict__:
     _M_Test.C = None
     class C(_M_Test.B):
-        def __init__(self, requiredA=0, ma=Ice.Unset, mb=Ice.Unset, mc=Ice.Unset, requiredB=0, md=Ice.Unset, ss='', ms=Ice.Unset):
+        def __init__(self, requiredA=0, ma=None, mb=None, mc=None, requiredB=0, md=None, ss='', ms=None):
             _M_Test.B.__init__(self, requiredA, ma, mb, mc, requiredB, md)
             self.ss = ss
             self.ms = ms
@@ -644,7 +644,7 @@ if 'WD' not in _M_Test.__dict__:
 if 'OptionalException' not in _M_Test.__dict__:
     _M_Test.OptionalException = None
     class OptionalException(Ice.UserException):
-        def __init__(self, req=False, a=5, b=Ice.Unset):
+        def __init__(self, req=False, a=5, b=None):
             self.req = req
             self.a = a
             self.b = b
@@ -669,7 +669,7 @@ if 'OptionalException' not in _M_Test.__dict__:
 if 'DerivedException' not in _M_Test.__dict__:
     _M_Test.DerivedException = None
     class DerivedException(_M_Test.OptionalException):
-        def __init__(self, req=False, a=5, b=Ice.Unset, d1='', ss="test", d2=''):
+        def __init__(self, req=False, a=5, b=None, d1='', ss="test", d2=''):
             _M_Test.OptionalException.__init__(self, req, a, b)
             self.d1 = d1
             self.ss = ss
@@ -695,7 +695,7 @@ if 'DerivedException' not in _M_Test.__dict__:
 if 'RequiredException' not in _M_Test.__dict__:
     _M_Test.RequiredException = None
     class RequiredException(_M_Test.OptionalException):
-        def __init__(self, req=False, a=5, b=Ice.Unset, ss="test"):
+        def __init__(self, req=False, a=5, b=None, ss="test"):
             _M_Test.OptionalException.__init__(self, req, a, b)
             self.ss = ss
 
@@ -715,7 +715,7 @@ if 'RequiredException' not in _M_Test.__dict__:
 if 'OptionalWithCustom' not in _M_Test.__dict__:
     _M_Test.OptionalWithCustom = None
     class OptionalWithCustom(Ice.Value):
-        def __init__(self, l=Ice.Unset, _lp=Ice.Unset):
+        def __init__(self, l=None, _lp=None):
             self.l = l
             self._lp = _lp
 
@@ -767,7 +767,7 @@ if 'E' not in _M_Test.__dict__:
 if 'F' not in _M_Test.__dict__:
     _M_Test.F = None
     class F(_M_Test.E):
-        def __init__(self, fse=None, fsf=Ice.Unset):
+        def __init__(self, fse=None, fsf=None):
             _M_Test.E.__init__(self, fse)
             self.fsf = fsf
 
@@ -950,7 +950,7 @@ if 'G2' not in _M_Test.__dict__:
 if 'G' not in _M_Test.__dict__:
     _M_Test.G = None
     class G(Ice.Value):
-        def __init__(self, gg1Opt=Ice.Unset, gg2=None, gg2Opt=Ice.Unset, gg1=None):
+        def __init__(self, gg1Opt=None, gg2=None, gg2Opt=None, gg1=None):
             self.gg1Opt = gg1Opt
             self.gg2 = gg2 if gg2 is not None else _M_Test.G2()
             self.gg2Opt = gg2Opt
@@ -1015,97 +1015,97 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def pingPongAsync(self, o, context=None):
             return _M_Test.Initial._op_pingPong.invokeAsync(self, ((o, ), context))
 
-        def opOptionalException(self, a=Ice.Unset, b=Ice.Unset, context=None):
+        def opOptionalException(self, a=None, b=None, context=None):
             return _M_Test.Initial._op_opOptionalException.invoke(self, ((a, b), context))
 
         def opOptionalExceptionAsync(self, a, b, context=None):
             return _M_Test.Initial._op_opOptionalException.invokeAsync(self, ((a, b), context))
 
-        def opDerivedException(self, a=Ice.Unset, b=Ice.Unset, context=None):
+        def opDerivedException(self, a=None, b=None, context=None):
             return _M_Test.Initial._op_opDerivedException.invoke(self, ((a, b), context))
 
         def opDerivedExceptionAsync(self, a, b, context=None):
             return _M_Test.Initial._op_opDerivedException.invokeAsync(self, ((a, b), context))
 
-        def opRequiredException(self, a=Ice.Unset, b=Ice.Unset, context=None):
+        def opRequiredException(self, a=None, b=None, context=None):
             return _M_Test.Initial._op_opRequiredException.invoke(self, ((a, b), context))
 
         def opRequiredExceptionAsync(self, a, b, context=None):
             return _M_Test.Initial._op_opRequiredException.invokeAsync(self, ((a, b), context))
 
-        def opByte(self, p1=Ice.Unset, context=None):
+        def opByte(self, p1=None, context=None):
             return _M_Test.Initial._op_opByte.invoke(self, ((p1, ), context))
 
         def opByteAsync(self, p1, context=None):
             return _M_Test.Initial._op_opByte.invokeAsync(self, ((p1, ), context))
 
-        def opBool(self, p1=Ice.Unset, context=None):
+        def opBool(self, p1=None, context=None):
             return _M_Test.Initial._op_opBool.invoke(self, ((p1, ), context))
 
         def opBoolAsync(self, p1, context=None):
             return _M_Test.Initial._op_opBool.invokeAsync(self, ((p1, ), context))
 
-        def opShort(self, p1=Ice.Unset, context=None):
+        def opShort(self, p1=None, context=None):
             return _M_Test.Initial._op_opShort.invoke(self, ((p1, ), context))
 
         def opShortAsync(self, p1, context=None):
             return _M_Test.Initial._op_opShort.invokeAsync(self, ((p1, ), context))
 
-        def opInt(self, p1=Ice.Unset, context=None):
+        def opInt(self, p1=None, context=None):
             return _M_Test.Initial._op_opInt.invoke(self, ((p1, ), context))
 
         def opIntAsync(self, p1, context=None):
             return _M_Test.Initial._op_opInt.invokeAsync(self, ((p1, ), context))
 
-        def opLong(self, p1=Ice.Unset, context=None):
+        def opLong(self, p1=None, context=None):
             return _M_Test.Initial._op_opLong.invoke(self, ((p1, ), context))
 
         def opLongAsync(self, p1, context=None):
             return _M_Test.Initial._op_opLong.invokeAsync(self, ((p1, ), context))
 
-        def opFloat(self, p1=Ice.Unset, context=None):
+        def opFloat(self, p1=None, context=None):
             return _M_Test.Initial._op_opFloat.invoke(self, ((p1, ), context))
 
         def opFloatAsync(self, p1, context=None):
             return _M_Test.Initial._op_opFloat.invokeAsync(self, ((p1, ), context))
 
-        def opDouble(self, p1=Ice.Unset, context=None):
+        def opDouble(self, p1=None, context=None):
             return _M_Test.Initial._op_opDouble.invoke(self, ((p1, ), context))
 
         def opDoubleAsync(self, p1, context=None):
             return _M_Test.Initial._op_opDouble.invokeAsync(self, ((p1, ), context))
 
-        def opString(self, p1=Ice.Unset, context=None):
+        def opString(self, p1=None, context=None):
             return _M_Test.Initial._op_opString.invoke(self, ((p1, ), context))
 
         def opStringAsync(self, p1, context=None):
             return _M_Test.Initial._op_opString.invokeAsync(self, ((p1, ), context))
 
-        def opMyEnum(self, p1=Ice.Unset, context=None):
+        def opMyEnum(self, p1=None, context=None):
             return _M_Test.Initial._op_opMyEnum.invoke(self, ((p1, ), context))
 
         def opMyEnumAsync(self, p1, context=None):
             return _M_Test.Initial._op_opMyEnum.invokeAsync(self, ((p1, ), context))
 
-        def opSmallStruct(self, p1=Ice.Unset, context=None):
+        def opSmallStruct(self, p1=None, context=None):
             return _M_Test.Initial._op_opSmallStruct.invoke(self, ((p1, ), context))
 
         def opSmallStructAsync(self, p1, context=None):
             return _M_Test.Initial._op_opSmallStruct.invokeAsync(self, ((p1, ), context))
 
-        def opFixedStruct(self, p1=Ice.Unset, context=None):
+        def opFixedStruct(self, p1=None, context=None):
             return _M_Test.Initial._op_opFixedStruct.invoke(self, ((p1, ), context))
 
         def opFixedStructAsync(self, p1, context=None):
             return _M_Test.Initial._op_opFixedStruct.invokeAsync(self, ((p1, ), context))
 
-        def opVarStruct(self, p1=Ice.Unset, context=None):
+        def opVarStruct(self, p1=None, context=None):
             return _M_Test.Initial._op_opVarStruct.invoke(self, ((p1, ), context))
 
         def opVarStructAsync(self, p1, context=None):
             return _M_Test.Initial._op_opVarStruct.invokeAsync(self, ((p1, ), context))
 
-        def opMyInterfaceProxy(self, p1=Ice.Unset, context=None):
+        def opMyInterfaceProxy(self, p1=None, context=None):
             return _M_Test.Initial._op_opMyInterfaceProxy.invoke(self, ((p1, ), context))
 
         def opMyInterfaceProxyAsync(self, p1, context=None):
@@ -1117,97 +1117,97 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opOneOptionalAsync(self, p1, context=None):
             return _M_Test.Initial._op_opOneOptional.invokeAsync(self, ((p1, ), context))
 
-        def opByteSeq(self, p1=Ice.Unset, context=None):
+        def opByteSeq(self, p1=None, context=None):
             return _M_Test.Initial._op_opByteSeq.invoke(self, ((p1, ), context))
 
         def opByteSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opByteSeq.invokeAsync(self, ((p1, ), context))
 
-        def opBoolSeq(self, p1=Ice.Unset, context=None):
+        def opBoolSeq(self, p1=None, context=None):
             return _M_Test.Initial._op_opBoolSeq.invoke(self, ((p1, ), context))
 
         def opBoolSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opBoolSeq.invokeAsync(self, ((p1, ), context))
 
-        def opShortSeq(self, p1=Ice.Unset, context=None):
+        def opShortSeq(self, p1=None, context=None):
             return _M_Test.Initial._op_opShortSeq.invoke(self, ((p1, ), context))
 
         def opShortSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opShortSeq.invokeAsync(self, ((p1, ), context))
 
-        def opIntSeq(self, p1=Ice.Unset, context=None):
+        def opIntSeq(self, p1=None, context=None):
             return _M_Test.Initial._op_opIntSeq.invoke(self, ((p1, ), context))
 
         def opIntSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opIntSeq.invokeAsync(self, ((p1, ), context))
 
-        def opLongSeq(self, p1=Ice.Unset, context=None):
+        def opLongSeq(self, p1=None, context=None):
             return _M_Test.Initial._op_opLongSeq.invoke(self, ((p1, ), context))
 
         def opLongSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opLongSeq.invokeAsync(self, ((p1, ), context))
 
-        def opFloatSeq(self, p1=Ice.Unset, context=None):
+        def opFloatSeq(self, p1=None, context=None):
             return _M_Test.Initial._op_opFloatSeq.invoke(self, ((p1, ), context))
 
         def opFloatSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opFloatSeq.invokeAsync(self, ((p1, ), context))
 
-        def opDoubleSeq(self, p1=Ice.Unset, context=None):
+        def opDoubleSeq(self, p1=None, context=None):
             return _M_Test.Initial._op_opDoubleSeq.invoke(self, ((p1, ), context))
 
         def opDoubleSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opDoubleSeq.invokeAsync(self, ((p1, ), context))
 
-        def opStringSeq(self, p1=Ice.Unset, context=None):
+        def opStringSeq(self, p1=None, context=None):
             return _M_Test.Initial._op_opStringSeq.invoke(self, ((p1, ), context))
 
         def opStringSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opStringSeq.invokeAsync(self, ((p1, ), context))
 
-        def opSmallStructSeq(self, p1=Ice.Unset, context=None):
+        def opSmallStructSeq(self, p1=None, context=None):
             return _M_Test.Initial._op_opSmallStructSeq.invoke(self, ((p1, ), context))
 
         def opSmallStructSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opSmallStructSeq.invokeAsync(self, ((p1, ), context))
 
-        def opSmallStructList(self, p1=Ice.Unset, context=None):
+        def opSmallStructList(self, p1=None, context=None):
             return _M_Test.Initial._op_opSmallStructList.invoke(self, ((p1, ), context))
 
         def opSmallStructListAsync(self, p1, context=None):
             return _M_Test.Initial._op_opSmallStructList.invokeAsync(self, ((p1, ), context))
 
-        def opFixedStructSeq(self, p1=Ice.Unset, context=None):
+        def opFixedStructSeq(self, p1=None, context=None):
             return _M_Test.Initial._op_opFixedStructSeq.invoke(self, ((p1, ), context))
 
         def opFixedStructSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opFixedStructSeq.invokeAsync(self, ((p1, ), context))
 
-        def opFixedStructList(self, p1=Ice.Unset, context=None):
+        def opFixedStructList(self, p1=None, context=None):
             return _M_Test.Initial._op_opFixedStructList.invoke(self, ((p1, ), context))
 
         def opFixedStructListAsync(self, p1, context=None):
             return _M_Test.Initial._op_opFixedStructList.invokeAsync(self, ((p1, ), context))
 
-        def opVarStructSeq(self, p1=Ice.Unset, context=None):
+        def opVarStructSeq(self, p1=None, context=None):
             return _M_Test.Initial._op_opVarStructSeq.invoke(self, ((p1, ), context))
 
         def opVarStructSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opVarStructSeq.invokeAsync(self, ((p1, ), context))
 
-        def opSerializable(self, p1=Ice.Unset, context=None):
+        def opSerializable(self, p1=None, context=None):
             return _M_Test.Initial._op_opSerializable.invoke(self, ((p1, ), context))
 
         def opSerializableAsync(self, p1, context=None):
             return _M_Test.Initial._op_opSerializable.invokeAsync(self, ((p1, ), context))
 
-        def opIntIntDict(self, p1=Ice.Unset, context=None):
+        def opIntIntDict(self, p1=None, context=None):
             return _M_Test.Initial._op_opIntIntDict.invoke(self, ((p1, ), context))
 
         def opIntIntDictAsync(self, p1, context=None):
             return _M_Test.Initial._op_opIntIntDict.invokeAsync(self, ((p1, ), context))
 
-        def opStringIntDict(self, p1=Ice.Unset, context=None):
+        def opStringIntDict(self, p1=None, context=None):
             return _M_Test.Initial._op_opStringIntDict.invoke(self, ((p1, ), context))
 
         def opStringIntDictAsync(self, p1, context=None):
@@ -1231,7 +1231,7 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opMStruct1Async(self, context=None):
             return _M_Test.Initial._op_opMStruct1.invokeAsync(self, ((), context))
 
-        def opMStruct2(self, p1=Ice.Unset, context=None):
+        def opMStruct2(self, p1=None, context=None):
             return _M_Test.Initial._op_opMStruct2.invoke(self, ((p1, ), context))
 
         def opMStruct2Async(self, p1, context=None):
@@ -1243,7 +1243,7 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opMSeq1Async(self, context=None):
             return _M_Test.Initial._op_opMSeq1.invokeAsync(self, ((), context))
 
-        def opMSeq2(self, p1=Ice.Unset, context=None):
+        def opMSeq2(self, p1=None, context=None):
             return _M_Test.Initial._op_opMSeq2.invoke(self, ((p1, ), context))
 
         def opMSeq2Async(self, p1, context=None):
@@ -1255,7 +1255,7 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opMDict1Async(self, context=None):
             return _M_Test.Initial._op_opMDict1.invokeAsync(self, ((), context))
 
-        def opMDict2(self, p1=Ice.Unset, context=None):
+        def opMDict2(self, p1=None, context=None):
             return _M_Test.Initial._op_opMDict2.invoke(self, ((p1, ), context))
 
         def opMDict2Async(self, p1, context=None):

@@ -49,13 +49,13 @@ if 'Initial2Prx' not in _M_Test.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        def opClassAndUnknownOptional(self, p, ovs=Ice.Unset, context=None):
+        def opClassAndUnknownOptional(self, p, ovs=None, context=None):
             return _M_Test.Initial2._op_opClassAndUnknownOptional.invoke(self, ((p, ovs), context))
 
         def opClassAndUnknownOptionalAsync(self, p, ovs, context=None):
             return _M_Test.Initial2._op_opClassAndUnknownOptional.invokeAsync(self, ((p, ovs), context))
 
-        def opVoid(self, a=Ice.Unset, v=Ice.Unset, context=None):
+        def opVoid(self, a=None, v=None, context=None):
             return _M_Test.Initial2._op_opVoid.invoke(self, ((a, v), context))
 
         def opVoidAsync(self, a, v, context=None):
