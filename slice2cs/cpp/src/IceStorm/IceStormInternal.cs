@@ -1435,6 +1435,12 @@ namespace IceStorm
 
         public abstract void reap(global::Ice.Identity[] id, Ice.Current current);
 
+        public abstract LinkInfo[] getLinkInfoSeq(Ice.Current current);
+
+        public abstract global::Ice.Identity[] getSubscribers(Ice.Current current);
+
+        public abstract void destroy(Ice.Current current);
+
         public abstract string getName(Ice.Current current);
 
         public abstract global::Ice.ObjectPrx? getPublisher(Ice.Current current);
@@ -1448,12 +1454,6 @@ namespace IceStorm
         public abstract void link(TopicPrx? linkTo, int cost, Ice.Current current);
 
         public abstract void unlink(TopicPrx? linkTo, Ice.Current current);
-
-        public abstract LinkInfo[] getLinkInfoSeq(Ice.Current current);
-
-        public abstract global::Ice.Identity[] getSubscribers(Ice.Current current);
-
-        public abstract void destroy(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
