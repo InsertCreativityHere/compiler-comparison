@@ -93,7 +93,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit TopicLinkPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -210,7 +210,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -304,7 +304,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -460,7 +460,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Forward a sequence of events.
@@ -507,7 +507,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Retrieve a proxy to the TopicLink interface.
@@ -565,7 +565,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Return the replica node proxy for this topic manager.

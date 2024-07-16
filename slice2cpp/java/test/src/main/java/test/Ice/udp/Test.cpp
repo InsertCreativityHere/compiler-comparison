@@ -64,11 +64,10 @@ Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::PingReplyPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::PingReply";
-    return typeId;
+    return "::Test::PingReply";
 }
 
 void
@@ -192,11 +191,10 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntf";
-    return typeId;
+    return "::Test::TestIntf";
 }
 
 ::std::vector<::std::string>
@@ -212,11 +210,10 @@ Test::PingReply::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::PingReply::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::PingReply";
-    return typeId;
+    return "::Test::PingReply";
 }
 
 /// \cond INTERNAL
@@ -293,11 +290,10 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::TestIntf::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntf";
-    return typeId;
+    return "::Test::TestIntf";
 }
 
 /// \cond INTERNAL

@@ -45,17 +45,16 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::WithNamespace::E2> iceC_WithNamespace_E2_init("::WithNamespace::E2");
 }
 
-::std::string
-WithNamespace::C1::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 WithNamespace::C1::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::WithNamespace::C1";
-    return typeId;
+    return "::WithNamespace::C1";
+}
+
+const char*
+WithNamespace::C1::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -80,17 +79,16 @@ WithNamespace::C1::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-WithNamespace::C2::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 WithNamespace::C2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::WithNamespace::C2";
-    return typeId;
+    return "::WithNamespace::C2";
+}
+
+const char*
+WithNamespace::C2::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr

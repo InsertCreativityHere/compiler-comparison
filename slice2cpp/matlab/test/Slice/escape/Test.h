@@ -149,7 +149,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit elseifPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -223,13 +223,15 @@ struct _cpp_bitor
 class logical : public ::Ice::Value
 {
 public:
-
-    logical() = default;
+    /**
+     * Default constructor.
+     */
+    logical() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    logical(::classdef::_cpp_break::_cpp_bitand _cpp_else, ::classdef::_cpp_break::_cpp_bitor _cpp_for, bool int64) :
+    logical(::classdef::_cpp_break::_cpp_bitand _cpp_else, ::classdef::_cpp_break::_cpp_bitor _cpp_for, bool int64) noexcept :
         _cpp_else(_cpp_else),
         _cpp_for(::std::move(_cpp_for)),
         int64(int64)
@@ -240,9 +242,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -257,14 +259,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    logicalPtr ice_clone() const { return ::std::static_pointer_cast <logical>(_iceCloneImpl()); }
+    logicalPtr ice_clone() const { return ::std::static_pointer_cast<logical>(_iceCloneImpl()); }
 
     ::classdef::_cpp_break::_cpp_bitand _cpp_else = ::classdef::_cpp_break::_cpp_bitand::enumeration;
     ::classdef::_cpp_break::_cpp_bitor _cpp_for;
     bool int64 = true;
 
 protected:
-
     logical(const logical&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -280,13 +281,15 @@ static logical _iceS_logical_init;
 class _cpp_xor : public logical
 {
 public:
-
-    _cpp_xor() = default;
+    /**
+     * Default constructor.
+     */
+    _cpp_xor() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_xor(::classdef::_cpp_break::_cpp_bitand _cpp_else, ::classdef::_cpp_break::_cpp_bitor _cpp_for, bool int64, ::std::int32_t _cpp_return) :
+    _cpp_xor(::classdef::_cpp_break::_cpp_bitand _cpp_else, ::classdef::_cpp_break::_cpp_bitor _cpp_for, bool int64, ::std::int32_t _cpp_return) noexcept :
         logical(_cpp_else, ::std::move(_cpp_for), int64),
         _cpp_return(_cpp_return)
     {
@@ -296,9 +299,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -313,12 +316,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    xorPtr ice_clone() const { return ::std::static_pointer_cast <_cpp_xor>(_iceCloneImpl()); }
+    xorPtr ice_clone() const { return ::std::static_pointer_cast<_cpp_xor>(_iceCloneImpl()); }
 
     ::std::int32_t _cpp_return = 1;
 
 protected:
-
     _cpp_xor(const _cpp_xor&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -330,13 +332,15 @@ protected:
 class _cpp_try : public ::Ice::Value
 {
 public:
-
-    _cpp_try() = default;
+    /**
+     * Default constructor.
+     */
+    _cpp_try() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_try(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete) :
+    _cpp_try(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete) noexcept :
         _cpp_while(_cpp_while),
         _cpp_delete(_cpp_delete)
     {
@@ -346,9 +350,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -363,13 +367,12 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    tryPtr ice_clone() const { return ::std::static_pointer_cast <_cpp_try>(_iceCloneImpl()); }
+    tryPtr ice_clone() const { return ::std::static_pointer_cast<_cpp_try>(_iceCloneImpl()); }
 
     ::std::int32_t _cpp_while = 1;
     ::std::int32_t _cpp_delete = 2;
 
 protected:
-
     _cpp_try(const _cpp_try&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -381,13 +384,15 @@ protected:
 class properties : public _cpp_try
 {
 public:
-
-    properties() = default;
+    /**
+     * Default constructor.
+     */
+    properties() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    properties(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete, ::std::int32_t _cpp_if, ::classdef::break::xorPtr _cpp_catch, ::classdef::_cpp_break::parfor spmd, ::classdef::_cpp_break::_cpp_switch otherwise) :
+    properties(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete, ::std::int32_t _cpp_if, ::classdef::break::xorPtr _cpp_catch, ::classdef::_cpp_break::parfor spmd, ::classdef::_cpp_break::_cpp_switch otherwise) noexcept :
         _cpp_try(_cpp_while, _cpp_delete),
         _cpp_if(_cpp_if),
         _cpp_catch(::std::move(_cpp_catch)),
@@ -400,9 +405,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -417,7 +422,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    propertiesPtr ice_clone() const { return ::std::static_pointer_cast <properties>(_iceCloneImpl()); }
+    propertiesPtr ice_clone() const { return ::std::static_pointer_cast<properties>(_iceCloneImpl()); }
 
     ::std::int32_t _cpp_if = 2;
     ::classdef::break::xorPtr _cpp_catch;
@@ -425,7 +430,6 @@ public:
     ::classdef::_cpp_break::_cpp_switch otherwise;
 
 protected:
-
     properties(const properties&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -583,7 +587,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void events(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

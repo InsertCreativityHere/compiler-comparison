@@ -578,11 +578,10 @@ Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::InitialPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Initial";
-    return typeId;
+    return "::Test::Initial";
 }
 
 ::std::vector<::std::string>
@@ -598,11 +597,10 @@ Test::Initial::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Initial::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Initial";
-    return typeId;
+    return "::Test::Initial";
 }
 
 /// \cond INTERNAL

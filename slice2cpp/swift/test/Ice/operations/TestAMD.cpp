@@ -2794,11 +2794,10 @@ Test::MyClassPrx::_iceI_opMDict2(const ::std::shared_ptr<::IceInternal::Outgoing
         });
 }
 
-::std::string_view
+const char*
 Test::MyClassPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass";
-    return typeId;
+    return "::Test::MyClass";
 }
 
 void
@@ -2901,24 +2900,22 @@ Test::MyDerivedClassPrx::_iceI_opMyStruct1(const ::std::shared_ptr<::IceInternal
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::MyDerivedClassPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyDerivedClass";
-    return typeId;
+    return "::Test::MyDerivedClass";
 }
 
-::std::string
-Test::MyClass1::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::MyClass1::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass1";
-    return typeId;
+    return "::Test::MyClass1";
+}
+
+const char*
+Test::MyClass1::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -2956,11 +2953,10 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MyClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass";
-    return typeId;
+    return "::Test::MyClass";
 }
 
 /// \cond INTERNAL
@@ -5437,11 +5433,10 @@ Test::MyDerivedClass::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MyDerivedClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyDerivedClass";
-    return typeId;
+    return "::Test::MyDerivedClass";
 }
 
 /// \cond INTERNAL

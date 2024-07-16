@@ -126,11 +126,10 @@ Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::ServerPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Server";
-    return typeId;
+    return "::Test::Server";
 }
 
 ::std::optional<::Test::ServerPrx>
@@ -224,11 +223,10 @@ Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::ServerFactoryPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::ServerFactory";
-    return typeId;
+    return "::Test::ServerFactory";
 }
 
 void
@@ -259,11 +257,10 @@ Test::PingablePrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::PingablePrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Pingable";
-    return typeId;
+    return "::Test::Pingable";
 }
 
 ::std::vector<::std::string>
@@ -279,11 +276,10 @@ Test::Server::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Server::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Server";
-    return typeId;
+    return "::Test::Server";
 }
 
 /// \cond INTERNAL
@@ -401,11 +397,10 @@ Test::ServerFactory::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::ServerFactory::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::ServerFactory";
-    return typeId;
+    return "::Test::ServerFactory";
 }
 
 /// \cond INTERNAL
@@ -526,11 +521,10 @@ Test::Pingable::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Pingable::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Pingable";
-    return typeId;
+    return "::Test::Pingable";
 }
 
 /// \cond INTERNAL

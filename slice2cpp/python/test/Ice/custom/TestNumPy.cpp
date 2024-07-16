@@ -682,24 +682,22 @@ Test::NumPy::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::NumPy::CustomPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::NumPy::Custom";
-    return typeId;
+    return "::Test::NumPy::Custom";
 }
 
-::std::string
-Test::NumPy::D::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::NumPy::D::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::NumPy::D";
-    return typeId;
+    return "::Test::NumPy::D";
+}
+
+const char*
+Test::NumPy::D::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -737,11 +735,10 @@ Test::NumPy::Custom::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::NumPy::Custom::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::NumPy::Custom";
-    return typeId;
+    return "::Test::NumPy::Custom";
 }
 
 /// \cond INTERNAL

@@ -367,7 +367,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit CustomPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -440,13 +440,15 @@ struct S
 class C : public ::Ice::Value
 {
 public:
-
-    C() = default;
+    /**
+     * Default constructor.
+     */
+    C() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(::Test::ByteString b1, ::Test::ByteString b2, ::Test::ByteList b3, ::Test::ByteList b4, ::Test::StringList s1, ::Test::StringList s2, ::Test::StringTuple s3, ::Test::StringTuple s4) :
+    C(::Test::ByteString b1, ::Test::ByteString b2, ::Test::ByteList b3, ::Test::ByteList b4, ::Test::StringList s1, ::Test::StringList s2, ::Test::StringTuple s3, ::Test::StringTuple s4) noexcept :
         b1(::std::move(b1)),
         b2(::std::move(b2)),
         b3(::std::move(b3)),
@@ -462,9 +464,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -479,7 +481,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
 
     ::Test::ByteString b1;
     ::Test::ByteString b2;
@@ -491,7 +493,6 @@ public:
     ::Test::StringTuple s4;
 
 protected:
-
     C(const C&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -507,13 +508,15 @@ static C _iceS_C_init;
 class D : public ::Ice::Value
 {
 public:
-
-    D() = default;
+    /**
+     * Default constructor.
+     */
+    D() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(::std::optional<::Test::BoolSeq1> boolSeq, ::std::optional<::Test::ByteSeq1> byteSeq, ::std::optional<::Test::ShortSeq1> shortSeq, ::std::optional<::Test::IntSeq1> intSeq, ::std::optional<::Test::LongSeq1> longSeq, ::std::optional<::Test::FloatSeq1> floatSeq, ::std::optional<::Test::DoubleSeq1> doubleSeq) :
+    D(::std::optional<::Test::BoolSeq1> boolSeq, ::std::optional<::Test::ByteSeq1> byteSeq, ::std::optional<::Test::ShortSeq1> shortSeq, ::std::optional<::Test::IntSeq1> intSeq, ::std::optional<::Test::LongSeq1> longSeq, ::std::optional<::Test::FloatSeq1> floatSeq, ::std::optional<::Test::DoubleSeq1> doubleSeq) noexcept :
         boolSeq(::std::move(boolSeq)),
         byteSeq(::std::move(byteSeq)),
         shortSeq(::std::move(shortSeq)),
@@ -528,9 +531,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -545,7 +548,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    DPtr ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
+    DPtr ice_clone() const { return ::std::static_pointer_cast<D>(_iceCloneImpl()); }
 
     ::std::optional<::Test::BoolSeq1> boolSeq;
     ::std::optional<::Test::ByteSeq1> byteSeq;
@@ -556,7 +559,6 @@ public:
     ::std::optional<::Test::DoubleSeq1> doubleSeq;
 
 protected:
-
     D(const D&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -601,7 +603,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual ByteString opByteString1(ByteString b1, ByteString& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

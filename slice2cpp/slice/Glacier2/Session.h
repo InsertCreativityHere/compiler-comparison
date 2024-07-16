@@ -99,7 +99,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -251,7 +251,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit StringSetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -405,7 +405,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit IdentitySetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -605,7 +605,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit SessionControlPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -707,7 +707,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit SessionManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -802,7 +802,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit SSLSessionManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -940,7 +940,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Destroy the session. This is called automatically when the router is destroyed.
@@ -988,7 +988,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
@@ -1057,7 +1057,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
@@ -1126,7 +1126,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Access the object that manages the allowable categories for object identities for this session.
@@ -1216,7 +1216,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Create a new session. The implementation must return a non-null proxy or raise
@@ -1271,7 +1271,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Create a new session.

@@ -358,11 +358,10 @@ Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::RemoteCommunicatorPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::RemoteCommunicator";
-    return typeId;
+    return "::Test::RemoteCommunicator";
 }
 
 ::std::optional<::Test::RemoteCommunicatorPrx>
@@ -425,11 +424,10 @@ Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::Ice
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::RemoteCommunicatorFactoryPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::RemoteCommunicatorFactory";
-    return typeId;
+    return "::Test::RemoteCommunicatorFactory";
 }
 
 void
@@ -460,11 +458,10 @@ Test::TestFacetPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::TestFacetPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestFacet";
-    return typeId;
+    return "::Test::TestFacet";
 }
 
 ::std::vector<::std::string>
@@ -480,11 +477,10 @@ Test::RemoteCommunicator::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::RemoteCommunicator::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::RemoteCommunicator";
-    return typeId;
+    return "::Test::RemoteCommunicator";
 }
 
 /// \cond INTERNAL
@@ -746,11 +742,10 @@ Test::RemoteCommunicatorFactory::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::RemoteCommunicatorFactory::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::RemoteCommunicatorFactory";
-    return typeId;
+    return "::Test::RemoteCommunicatorFactory";
 }
 
 /// \cond INTERNAL
@@ -851,11 +846,10 @@ Test::TestFacet::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::TestFacet::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestFacet";
-    return typeId;
+    return "::Test::TestFacet";
 }
 
 /// \cond INTERNAL

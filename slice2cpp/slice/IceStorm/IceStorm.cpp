@@ -398,11 +398,10 @@ IceStorm::TopicPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
-::std::string_view
+const char*
 IceStorm::TopicPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::Topic";
-    return typeId;
+    return "::IceStorm::Topic";
 }
 
 ::std::optional<::IceStorm::TopicPrx>
@@ -524,11 +523,10 @@ IceStorm::TopicManagerPrx::_iceI_retrieveAll(const ::std::shared_ptr<::IceIntern
         nullptr);
 }
 
-::std::string_view
+const char*
 IceStorm::TopicManagerPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::TopicManager";
-    return typeId;
+    return "::IceStorm::TopicManager";
 }
 
 ::std::optional<::IceStorm::TopicManagerPrx>
@@ -560,11 +558,10 @@ IceStorm::FinderPrx::_iceI_getTopicManager(const ::std::shared_ptr<::IceInternal
         nullptr);
 }
 
-::std::string_view
+const char*
 IceStorm::FinderPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::Finder";
-    return typeId;
+    return "::IceStorm::Finder";
 }
 
 const char*
@@ -816,11 +813,10 @@ IceStorm::Topic::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceStorm::Topic::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::Topic";
-    return typeId;
+    return "::IceStorm::Topic";
 }
 
 /// \cond INTERNAL
@@ -1083,11 +1079,10 @@ IceStorm::TopicManager::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceStorm::TopicManager::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::TopicManager";
-    return typeId;
+    return "::IceStorm::TopicManager";
 }
 
 /// \cond INTERNAL
@@ -1216,11 +1211,10 @@ IceStorm::Finder::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceStorm::Finder::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::Finder";
-    return typeId;
+    return "::IceStorm::Finder";
 }
 
 /// \cond INTERNAL

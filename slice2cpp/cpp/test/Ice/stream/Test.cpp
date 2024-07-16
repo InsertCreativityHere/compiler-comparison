@@ -46,24 +46,22 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::Sub2::NestedException2> iceC_Test2_Sub2_NestedException2_init("::Test2::Sub2::NestedException2");
 }
 
-::std::string_view
+const char*
 Test::MyInterfacePrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyInterface";
-    return typeId;
+    return "::Test::MyInterface";
 }
 
-::std::string
-Test::OptionalClass::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::OptionalClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::OptionalClass";
-    return typeId;
+    return "::Test::OptionalClass";
+}
+
+const char*
+Test::OptionalClass::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -88,17 +86,16 @@ Test::OptionalClass::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::MyClass::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::MyClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass";
-    return typeId;
+    return "::Test::MyClass";
+}
+
+const char*
+Test::MyClass::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -246,9 +243,8 @@ Test::MyInterface::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MyInterface::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyInterface";
-    return typeId;
+    return "::Test::MyInterface";
 }

@@ -150,11 +150,10 @@ Test::CallbackPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal:
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::CallbackPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Callback";
-    return typeId;
+    return "::Test::Callback";
 }
 
 void
@@ -507,11 +506,10 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::MyClassPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass";
-    return typeId;
+    return "::Test::MyClass";
 }
 
 ::std::vector<::std::string>
@@ -527,11 +525,10 @@ Test::Callback::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Callback::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Callback";
-    return typeId;
+    return "::Test::Callback";
 }
 
 /// \cond INTERNAL
@@ -664,11 +661,10 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MyClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass";
-    return typeId;
+    return "::Test::MyClass";
 }
 
 /// \cond INTERNAL

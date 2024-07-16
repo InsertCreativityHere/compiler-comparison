@@ -56,7 +56,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit F2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -108,13 +108,15 @@ namespace Test
 class F1 : public ::Ice::Value
 {
 public:
-
-    F1() = default;
+    /**
+     * Default constructor.
+     */
+    F1() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit F1(::std::string name) :
+    explicit F1(::std::string name) noexcept :
         name(::std::move(name))
     {
     }
@@ -123,9 +125,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -140,12 +142,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    F1Ptr ice_clone() const { return ::std::static_pointer_cast <F1>(_iceCloneImpl()); }
+    F1Ptr ice_clone() const { return ::std::static_pointer_cast<F1>(_iceCloneImpl()); }
 
     ::std::string name;
 
 protected:
-
     F1(const F1&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -187,7 +188,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

@@ -219,11 +219,10 @@ Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<:
         });
 }
 
-::std::string_view
+const char*
 Test::RelayPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Relay";
-    return typeId;
+    return "::Test::Relay";
 }
 
 void
@@ -1190,11 +1189,10 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntf";
-    return typeId;
+    return "::Test::TestIntf";
 }
 
 const char*
@@ -1411,17 +1409,16 @@ Test::KnownPreservedDerived::_readImpl(::Ice::InputStream* istr)
     KnownPreserved::_readImpl(istr);
 }
 
-::std::string
-Test::BaseClass::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::BaseClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::BaseClass";
-    return typeId;
+    return "::Test::BaseClass";
+}
+
+const char*
+Test::BaseClass::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -1446,17 +1443,16 @@ Test::BaseClass::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::PreservedClass::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::PreservedClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::PreservedClass";
-    return typeId;
+    return "::Test::PreservedClass";
+}
+
+const char*
+Test::PreservedClass::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -1576,11 +1572,10 @@ Test::Relay::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Relay::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Relay";
-    return typeId;
+    return "::Test::Relay";
 }
 
 /// \cond INTERNAL
@@ -1705,11 +1700,10 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::TestIntf::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntf";
-    return typeId;
+    return "::Test::TestIntf";
 }
 
 /// \cond INTERNAL

@@ -186,11 +186,10 @@ Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::RetryPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Retry";
-    return typeId;
+    return "::Test::Retry";
 }
 
 ::std::vector<::std::string>
@@ -206,11 +205,10 @@ Test::Retry::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Retry::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Retry";
-    return typeId;
+    return "::Test::Retry";
 }
 
 /// \cond INTERNAL

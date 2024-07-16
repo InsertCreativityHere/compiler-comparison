@@ -996,7 +996,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit MyClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -1081,7 +1081,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -1203,13 +1203,15 @@ struct MyStruct1
 class MyClass1 : public ::Ice::Value
 {
 public:
-
-    MyClass1() = default;
+    /**
+     * Default constructor.
+     */
+    MyClass1() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyClass1(::std::string tesT, ::std::optional<::Test::MyClassPrx> myClass, ::std::string myClass1) :
+    MyClass1(::std::string tesT, ::std::optional<::Test::MyClassPrx> myClass, ::std::string myClass1) noexcept :
         tesT(::std::move(tesT)),
         myClass(::std::move(myClass)),
         myClass1(::std::move(myClass1))
@@ -1220,9 +1222,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1237,14 +1239,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    MyClass1Ptr ice_clone() const { return ::std::static_pointer_cast <MyClass1>(_iceCloneImpl()); }
+    MyClass1Ptr ice_clone() const { return ::std::static_pointer_cast<MyClass1>(_iceCloneImpl()); }
 
     ::std::string tesT;
     ::std::optional<::Test::MyClassPrx> myClass;
     ::std::string myClass1;
 
 protected:
-
     MyClass1(const MyClass1&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1293,7 +1294,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1754,7 +1755,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void opDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

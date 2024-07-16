@@ -332,24 +332,22 @@ IceMX::MetricsAdminPrx::_iceI_getMetricsFailures(const ::std::shared_ptr<::IceIn
         });
 }
 
-::std::string_view
+const char*
 IceMX::MetricsAdminPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::MetricsAdmin";
-    return typeId;
+    return "::IceMX::MetricsAdmin";
 }
 
-::std::string
-IceMX::Metrics::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceMX::Metrics::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::Metrics";
-    return typeId;
+    return "::IceMX::Metrics";
+}
+
+const char*
+IceMX::Metrics::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -406,17 +404,16 @@ IceMX::UnknownMetricsView::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-IceMX::ThreadMetrics::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceMX::ThreadMetrics::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::ThreadMetrics";
-    return typeId;
+    return "::IceMX::ThreadMetrics";
+}
+
+const char*
+IceMX::ThreadMetrics::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -443,17 +440,16 @@ IceMX::ThreadMetrics::_iceReadImpl(::Ice::InputStream* istr)
     Metrics::_iceReadImpl(istr);
 }
 
-::std::string
-IceMX::DispatchMetrics::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceMX::DispatchMetrics::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::DispatchMetrics";
-    return typeId;
+    return "::IceMX::DispatchMetrics";
+}
+
+const char*
+IceMX::DispatchMetrics::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -480,17 +476,16 @@ IceMX::DispatchMetrics::_iceReadImpl(::Ice::InputStream* istr)
     Metrics::_iceReadImpl(istr);
 }
 
-::std::string
-IceMX::ChildInvocationMetrics::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceMX::ChildInvocationMetrics::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::ChildInvocationMetrics";
-    return typeId;
+    return "::IceMX::ChildInvocationMetrics";
+}
+
+const char*
+IceMX::ChildInvocationMetrics::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -517,17 +512,16 @@ IceMX::ChildInvocationMetrics::_iceReadImpl(::Ice::InputStream* istr)
     Metrics::_iceReadImpl(istr);
 }
 
-::std::string
-IceMX::CollocatedMetrics::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceMX::CollocatedMetrics::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::CollocatedMetrics";
-    return typeId;
+    return "::IceMX::CollocatedMetrics";
+}
+
+const char*
+IceMX::CollocatedMetrics::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -552,17 +546,16 @@ IceMX::CollocatedMetrics::_iceReadImpl(::Ice::InputStream* istr)
     ChildInvocationMetrics::_iceReadImpl(istr);
 }
 
-::std::string
-IceMX::RemoteMetrics::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceMX::RemoteMetrics::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::RemoteMetrics";
-    return typeId;
+    return "::IceMX::RemoteMetrics";
+}
+
+const char*
+IceMX::RemoteMetrics::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -587,17 +580,16 @@ IceMX::RemoteMetrics::_iceReadImpl(::Ice::InputStream* istr)
     ChildInvocationMetrics::_iceReadImpl(istr);
 }
 
-::std::string
-IceMX::InvocationMetrics::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceMX::InvocationMetrics::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::InvocationMetrics";
-    return typeId;
+    return "::IceMX::InvocationMetrics";
+}
+
+const char*
+IceMX::InvocationMetrics::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -624,17 +616,16 @@ IceMX::InvocationMetrics::_iceReadImpl(::Ice::InputStream* istr)
     Metrics::_iceReadImpl(istr);
 }
 
-::std::string
-IceMX::ConnectionMetrics::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceMX::ConnectionMetrics::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::ConnectionMetrics";
-    return typeId;
+    return "::IceMX::ConnectionMetrics";
+}
+
+const char*
+IceMX::ConnectionMetrics::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -674,11 +665,10 @@ IceMX::MetricsAdmin::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceMX::MetricsAdmin::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::MetricsAdmin";
-    return typeId;
+    return "::IceMX::MetricsAdmin";
 }
 
 /// \cond INTERNAL

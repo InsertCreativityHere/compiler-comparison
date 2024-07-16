@@ -109,11 +109,11 @@ Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const CannotCreateSessionException&)
             {
                 throw;
             }
-            catch(const CannotCreateSessionException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -155,11 +155,11 @@ Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const CannotCreateSessionException&)
             {
                 throw;
             }
-            catch(const CannotCreateSessionException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -311,11 +311,10 @@ Glacier2::RouterPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::
         nullptr);
 }
 
-::std::string_view
+const char*
 Glacier2::RouterPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::Router";
-    return typeId;
+    return "::Glacier2::Router";
 }
 
 const char*
@@ -363,11 +362,10 @@ Glacier2::Router::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Glacier2::Router::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::Router";
-    return typeId;
+    return "::Glacier2::Router";
 }
 
 /// \cond INTERNAL

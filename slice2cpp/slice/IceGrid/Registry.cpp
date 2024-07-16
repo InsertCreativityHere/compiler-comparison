@@ -203,11 +203,10 @@ IceGrid::QueryPrx::_iceI_findAllReplicas(const ::std::shared_ptr<::IceInternal::
         nullptr);
 }
 
-::std::string_view
+const char*
 IceGrid::QueryPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::Query";
-    return typeId;
+    return "::IceGrid::Query";
 }
 
 ::std::optional<::IceGrid::SessionPrx>
@@ -442,11 +441,10 @@ IceGrid::RegistryPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal:
         nullptr);
 }
 
-::std::string_view
+const char*
 IceGrid::RegistryPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::Registry";
-    return typeId;
+    return "::IceGrid::Registry";
 }
 
 ::std::optional<::IceGrid::RegistryPrx>
@@ -507,11 +505,10 @@ IceGrid::LocatorPrx::_iceI_getLocalQuery(const ::std::shared_ptr<::IceInternal::
         nullptr);
 }
 
-::std::string_view
+const char*
 IceGrid::LocatorPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::Locator";
-    return typeId;
+    return "::IceGrid::Locator";
 }
 
 ::std::vector<::std::string>
@@ -527,11 +524,10 @@ IceGrid::Query::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceGrid::Query::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::Query";
-    return typeId;
+    return "::IceGrid::Query";
 }
 
 /// \cond INTERNAL
@@ -713,11 +709,10 @@ IceGrid::Registry::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceGrid::Registry::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::Registry";
-    return typeId;
+    return "::IceGrid::Registry";
 }
 
 /// \cond INTERNAL
@@ -908,11 +903,10 @@ IceGrid::Locator::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceGrid::Locator::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::Locator";
-    return typeId;
+    return "::IceGrid::Locator";
 }
 
 /// \cond INTERNAL

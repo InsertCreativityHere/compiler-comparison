@@ -67,11 +67,10 @@ Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::EventPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Event";
-    return typeId;
+    return "::Test::Event";
 }
 
 ::std::vector<::std::string>
@@ -87,11 +86,10 @@ Test::Event::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Event::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Event";
-    return typeId;
+    return "::Test::Event";
 }
 
 /// \cond INTERNAL

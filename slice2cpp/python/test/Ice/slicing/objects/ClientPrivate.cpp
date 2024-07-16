@@ -48,17 +48,16 @@ namespace
     const ::IceInternal::CompactIdInit iceC_Test_CompactPCDerived_compactIdInit ("::Test::CompactPCDerived", 57);
 }
 
-::std::string
-Test::D3::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::D3::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::D3";
-    return typeId;
+    return "::Test::D3";
+}
+
+const char*
+Test::D3::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -85,17 +84,16 @@ Test::D3::_iceReadImpl(::Ice::InputStream* istr)
     B::_iceReadImpl(istr);
 }
 
-::std::string
-Test::PCUnknown::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::PCUnknown::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::PCUnknown";
-    return typeId;
+    return "::Test::PCUnknown";
+}
+
+const char*
+Test::PCUnknown::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -122,17 +120,16 @@ Test::PCUnknown::_iceReadImpl(::Ice::InputStream* istr)
     PBase::_iceReadImpl(istr);
 }
 
-::std::string
-Test::PCDerived::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::PCDerived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::PCDerived";
-    return typeId;
+    return "::Test::PCDerived";
+}
+
+const char*
+Test::PCDerived::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -159,17 +156,16 @@ Test::PCDerived::_iceReadImpl(::Ice::InputStream* istr)
     PDerived::_iceReadImpl(istr);
 }
 
-::std::string
-Test::PCDerived2::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::PCDerived2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::PCDerived2";
-    return typeId;
+    return "::Test::PCDerived2";
+}
+
+const char*
+Test::PCDerived2::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -196,17 +192,16 @@ Test::PCDerived2::_iceReadImpl(::Ice::InputStream* istr)
     PCDerived::_iceReadImpl(istr);
 }
 
-::std::string
-Test::PCDerived3::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::PCDerived3::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::PCDerived3";
-    return typeId;
+    return "::Test::PCDerived3";
+}
+
+const char*
+Test::PCDerived3::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -233,17 +228,16 @@ Test::PCDerived3::_iceReadImpl(::Ice::InputStream* istr)
     PCDerived2::_iceReadImpl(istr);
 }
 
-::std::string
-Test::CompactPCDerived::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::CompactPCDerived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::CompactPCDerived";
-    return typeId;
+    return "::Test::CompactPCDerived";
+}
+
+const char*
+Test::CompactPCDerived::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr

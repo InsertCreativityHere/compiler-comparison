@@ -126,11 +126,10 @@ Test::TimeoutPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::TimeoutPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Timeout";
-    return typeId;
+    return "::Test::Timeout";
 }
 
 void
@@ -220,11 +219,10 @@ Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::ControllerPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Controller";
-    return typeId;
+    return "::Test::Controller";
 }
 
 ::std::vector<::std::string>
@@ -240,11 +238,10 @@ Test::Timeout::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Timeout::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Timeout";
-    return typeId;
+    return "::Test::Timeout";
 }
 
 /// \cond INTERNAL
@@ -361,11 +358,10 @@ Test::Controller::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Controller::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Controller";
-    return typeId;
+    return "::Test::Controller";
 }
 
 /// \cond INTERNAL

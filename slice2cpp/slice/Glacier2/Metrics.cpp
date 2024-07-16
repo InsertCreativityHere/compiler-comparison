@@ -45,17 +45,16 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::IceMX::SessionMetrics> iceC_IceMX_SessionMetrics_init("::IceMX::SessionMetrics");
 }
 
-::std::string
-IceMX::SessionMetrics::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceMX::SessionMetrics::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::SessionMetrics";
-    return typeId;
+    return "::IceMX::SessionMetrics";
+}
+
+const char*
+IceMX::SessionMetrics::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr

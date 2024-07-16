@@ -245,11 +245,10 @@ IceGrid::SessionPrx::_iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInt
         nullptr);
 }
 
-::std::string_view
+const char*
 IceGrid::SessionPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::Session";
-    return typeId;
+    return "::IceGrid::Session";
 }
 
 ::std::vector<::std::string>
@@ -265,11 +264,10 @@ IceGrid::Session::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceGrid::Session::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::Session";
-    return typeId;
+    return "::IceGrid::Session";
 }
 
 /// \cond INTERNAL

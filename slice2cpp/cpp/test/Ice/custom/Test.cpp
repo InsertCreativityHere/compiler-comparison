@@ -43,11 +43,10 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::DictClass> iceC_Test_DictClass_init("::Test::DictClass");
 }
 
-::std::string_view
+const char*
 Test::DPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::D";
-    return typeId;
+    return "::Test::D";
 }
 
 ::Test::DoubleSeq
@@ -1536,24 +1535,22 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntf";
-    return typeId;
+    return "::Test::TestIntf";
 }
 
-::std::string
-Test::C::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::C::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::C";
-    return typeId;
+    return "::Test::C";
+}
+
+const char*
+Test::C::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -1576,17 +1573,16 @@ Test::C::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::DictClass::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::DictClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::DictClass";
-    return typeId;
+    return "::Test::DictClass";
+}
+
+const char*
+Test::DictClass::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -1624,11 +1620,10 @@ Test::D::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::D::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::D";
-    return typeId;
+    return "::Test::D";
 }
 
 ::std::vector<::std::string>
@@ -1644,11 +1639,10 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::TestIntf::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntf";
-    return typeId;
+    return "::Test::TestIntf";
 }
 
 /// \cond INTERNAL

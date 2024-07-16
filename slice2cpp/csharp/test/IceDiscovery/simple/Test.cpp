@@ -65,11 +65,10 @@ Test::TestIntfPrx::_iceI_getAdapterId(const ::std::shared_ptr<::IceInternal::Out
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntf";
-    return typeId;
+    return "::Test::TestIntf";
 }
 
 void
@@ -224,11 +223,10 @@ Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::ControllerPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Controller";
-    return typeId;
+    return "::Test::Controller";
 }
 
 ::std::vector<::std::string>
@@ -244,11 +242,10 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::TestIntf::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntf";
-    return typeId;
+    return "::Test::TestIntf";
 }
 
 /// \cond INTERNAL
@@ -329,11 +326,10 @@ Test::Controller::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Controller::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Controller";
-    return typeId;
+    return "::Test::Controller";
 }
 
 /// \cond INTERNAL

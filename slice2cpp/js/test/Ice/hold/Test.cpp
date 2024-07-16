@@ -186,11 +186,10 @@ Test::HoldPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::HoldPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Hold";
-    return typeId;
+    return "::Test::Hold";
 }
 
 ::std::vector<::std::string>
@@ -206,11 +205,10 @@ Test::Hold::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Hold::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Hold";
-    return typeId;
+    return "::Test::Hold";
 }
 
 /// \cond INTERNAL

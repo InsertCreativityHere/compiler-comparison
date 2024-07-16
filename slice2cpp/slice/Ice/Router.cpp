@@ -142,11 +142,10 @@ Ice::RouterPrx::_iceI_addProxies(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
-::std::string_view
+const char*
 Ice::RouterPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::Router";
-    return typeId;
+    return "::Ice::Router";
 }
 
 ::std::optional<::Ice::RouterPrx>
@@ -178,11 +177,10 @@ Ice::RouterFinderPrx::_iceI_getRouter(const ::std::shared_ptr<::IceInternal::Out
         nullptr);
 }
 
-::std::string_view
+const char*
 Ice::RouterFinderPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::RouterFinder";
-    return typeId;
+    return "::Ice::RouterFinder";
 }
 
 ::std::vector<::std::string>
@@ -198,11 +196,10 @@ Ice::Router::ice_id(const Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Ice::Router::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::Router";
-    return typeId;
+    return "::Ice::Router";
 }
 
 /// \cond INTERNAL
@@ -329,11 +326,10 @@ Ice::RouterFinder::ice_id(const Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Ice::RouterFinder::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::RouterFinder";
-    return typeId;
+    return "::Ice::RouterFinder";
 }
 
 /// \cond INTERNAL

@@ -41,13 +41,15 @@ namespace Test
 class Default : public ::Ice::Value
 {
 public:
-
-    Default() = default;
+    /**
+     * Default constructor.
+     */
+    Default() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    Default(::std::int32_t x, ::std::int32_t y) :
+    Default(::std::int32_t x, ::std::int32_t y) noexcept :
         x(x),
         y(y)
     {
@@ -57,9 +59,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -74,13 +76,12 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    DefaultPtr ice_clone() const { return ::std::static_pointer_cast <Default>(_iceCloneImpl()); }
+    DefaultPtr ice_clone() const { return ::std::static_pointer_cast<Default>(_iceCloneImpl()); }
 
     ::std::int32_t x;
     ::std::int32_t y;
 
 protected:
-
     Default(const Default&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -96,13 +97,15 @@ static Default _iceS_Default_init;
 class NoDefault : public ::Ice::Value
 {
 public:
-
-    NoDefault() = default;
+    /**
+     * Default constructor.
+     */
+    NoDefault() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    NoDefault(::std::int32_t x, ::std::int32_t y) :
+    NoDefault(::std::int32_t x, ::std::int32_t y) noexcept :
         x(x),
         y(y)
     {
@@ -112,9 +115,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -129,13 +132,12 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    NoDefaultPtr ice_clone() const { return ::std::static_pointer_cast <NoDefault>(_iceCloneImpl()); }
+    NoDefaultPtr ice_clone() const { return ::std::static_pointer_cast<NoDefault>(_iceCloneImpl()); }
 
     ::std::int32_t x = 10;
     ::std::int32_t y = 10;
 
 protected:
-
     NoDefault(const NoDefault&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;

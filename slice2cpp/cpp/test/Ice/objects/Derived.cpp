@@ -42,17 +42,16 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::Derived> iceC_Test_Derived_init("::Test::Derived");
 }
 
-::std::string
-Test::Derived::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::Derived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Derived";
-    return typeId;
+    return "::Test::Derived";
+}
+
+const char*
+Test::Derived::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr

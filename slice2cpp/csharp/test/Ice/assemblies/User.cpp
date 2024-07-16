@@ -94,24 +94,22 @@ User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::Outg
         });
 }
 
-::std::string_view
+const char*
 User::RegistryPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::User::Registry";
-    return typeId;
+    return "::User::Registry";
 }
 
-::std::string
-User::UserInfo::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 User::UserInfo::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::User::UserInfo";
-    return typeId;
+    return "::User::UserInfo";
+}
+
+const char*
+User::UserInfo::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -147,11 +145,10 @@ User::Registry::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 User::Registry::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::User::Registry";
-    return typeId;
+    return "::User::Registry";
 }
 
 /// \cond INTERNAL

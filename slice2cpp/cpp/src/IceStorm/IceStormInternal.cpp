@@ -73,11 +73,10 @@ IceStorm::TopicLinkPrx::_iceI_forward(const ::std::shared_ptr<::IceInternal::Out
         nullptr);
 }
 
-::std::string_view
+const char*
 IceStorm::TopicLinkPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::TopicLink";
-    return typeId;
+    return "::IceStorm::TopicLink";
 }
 
 ::std::optional<::IceStorm::TopicLinkPrx>
@@ -154,11 +153,10 @@ IceStorm::TopicInternalPrx::_iceI_reap(const ::std::shared_ptr<::IceInternal::Ou
         });
 }
 
-::std::string_view
+const char*
 IceStorm::TopicInternalPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::TopicInternal";
-    return typeId;
+    return "::IceStorm::TopicInternal";
 }
 
 ::std::optional<::IceStormElection::NodePrx>
@@ -190,11 +188,10 @@ IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode(const ::std::shared_ptr<
         nullptr);
 }
 
-::std::string_view
+const char*
 IceStorm::TopicManagerInternalPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::TopicManagerInternal";
-    return typeId;
+    return "::IceStorm::TopicManagerInternal";
 }
 
 const char*
@@ -242,11 +239,10 @@ IceStorm::TopicLink::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceStorm::TopicLink::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::TopicLink";
-    return typeId;
+    return "::IceStorm::TopicLink";
 }
 
 /// \cond INTERNAL
@@ -327,11 +323,10 @@ IceStorm::TopicInternal::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceStorm::TopicInternal::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::TopicInternal";
-    return typeId;
+    return "::IceStorm::TopicInternal";
 }
 
 /// \cond INTERNAL
@@ -482,11 +477,10 @@ IceStorm::TopicManagerInternal::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceStorm::TopicManagerInternal::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStorm::TopicManagerInternal";
-    return typeId;
+    return "::IceStorm::TopicManagerInternal";
 }
 
 /// \cond INTERNAL

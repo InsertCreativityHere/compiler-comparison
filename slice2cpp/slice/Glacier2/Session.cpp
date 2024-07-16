@@ -73,11 +73,10 @@ Glacier2::SessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
-::std::string_view
+const char*
 Glacier2::SessionPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::Session";
-    return typeId;
+    return "::Glacier2::Session";
 }
 
 void
@@ -171,11 +170,10 @@ Glacier2::StringSetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
-::std::string_view
+const char*
 Glacier2::StringSetPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::StringSet";
-    return typeId;
+    return "::Glacier2::StringSet";
 }
 
 void
@@ -269,11 +267,10 @@ Glacier2::IdentitySetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
-::std::string_view
+const char*
 Glacier2::IdentitySetPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::IdentitySet";
-    return typeId;
+    return "::Glacier2::IdentitySet";
 }
 
 ::std::optional<::Glacier2::StringSetPrx>
@@ -420,11 +417,10 @@ Glacier2::SessionControlPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
         nullptr);
 }
 
-::std::string_view
+const char*
 Glacier2::SessionControlPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::SessionControl";
-    return typeId;
+    return "::Glacier2::SessionControl";
 }
 
 ::std::optional<::Glacier2::SessionPrx>
@@ -472,11 +468,10 @@ Glacier2::SessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal:
         });
 }
 
-::std::string_view
+const char*
 Glacier2::SessionManagerPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::SessionManager";
-    return typeId;
+    return "::Glacier2::SessionManager";
 }
 
 ::std::optional<::Glacier2::SessionPrx>
@@ -524,11 +519,10 @@ Glacier2::SSLSessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceIntern
         });
 }
 
-::std::string_view
+const char*
 Glacier2::SSLSessionManagerPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::SSLSessionManager";
-    return typeId;
+    return "::Glacier2::SSLSessionManager";
 }
 
 const char*
@@ -578,11 +572,10 @@ Glacier2::Session::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Glacier2::Session::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::Session";
-    return typeId;
+    return "::Glacier2::Session";
 }
 
 /// \cond INTERNAL
@@ -659,11 +652,10 @@ Glacier2::StringSet::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Glacier2::StringSet::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::StringSet";
-    return typeId;
+    return "::Glacier2::StringSet";
 }
 
 /// \cond INTERNAL
@@ -784,11 +776,10 @@ Glacier2::IdentitySet::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Glacier2::IdentitySet::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::IdentitySet";
-    return typeId;
+    return "::Glacier2::IdentitySet";
 }
 
 /// \cond INTERNAL
@@ -909,11 +900,10 @@ Glacier2::SessionControl::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Glacier2::SessionControl::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::SessionControl";
-    return typeId;
+    return "::Glacier2::SessionControl";
 }
 
 /// \cond INTERNAL
@@ -1070,11 +1060,10 @@ Glacier2::SessionManager::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Glacier2::SessionManager::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::SessionManager";
-    return typeId;
+    return "::Glacier2::SessionManager";
 }
 
 /// \cond INTERNAL
@@ -1161,11 +1150,10 @@ Glacier2::SSLSessionManager::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Glacier2::SSLSessionManager::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::SSLSessionManager";
-    return typeId;
+    return "::Glacier2::SSLSessionManager";
 }
 
 /// \cond INTERNAL

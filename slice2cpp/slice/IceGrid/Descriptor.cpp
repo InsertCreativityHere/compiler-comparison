@@ -55,17 +55,16 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedDistributionDescriptor> iceC_IceGrid_BoxedDistributionDescriptor_init("::IceGrid::BoxedDistributionDescriptor");
 }
 
-::std::string
-IceGrid::CommunicatorDescriptor::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceGrid::CommunicatorDescriptor::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::CommunicatorDescriptor";
-    return typeId;
+    return "::IceGrid::CommunicatorDescriptor";
+}
+
+const char*
+IceGrid::CommunicatorDescriptor::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -90,17 +89,16 @@ IceGrid::CommunicatorDescriptor::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-IceGrid::ServerDescriptor::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceGrid::ServerDescriptor::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::ServerDescriptor";
-    return typeId;
+    return "::IceGrid::ServerDescriptor";
+}
+
+const char*
+IceGrid::ServerDescriptor::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -127,17 +125,16 @@ IceGrid::ServerDescriptor::_iceReadImpl(::Ice::InputStream* istr)
     CommunicatorDescriptor::_iceReadImpl(istr);
 }
 
-::std::string
-IceGrid::ServiceDescriptor::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceGrid::ServiceDescriptor::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::ServiceDescriptor";
-    return typeId;
+    return "::IceGrid::ServiceDescriptor";
+}
+
+const char*
+IceGrid::ServiceDescriptor::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -164,17 +161,16 @@ IceGrid::ServiceDescriptor::_iceReadImpl(::Ice::InputStream* istr)
     CommunicatorDescriptor::_iceReadImpl(istr);
 }
 
-::std::string
-IceGrid::IceBoxDescriptor::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceGrid::IceBoxDescriptor::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::IceBoxDescriptor";
-    return typeId;
+    return "::IceGrid::IceBoxDescriptor";
+}
+
+const char*
+IceGrid::IceBoxDescriptor::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -201,17 +197,16 @@ IceGrid::IceBoxDescriptor::_iceReadImpl(::Ice::InputStream* istr)
     ServerDescriptor::_iceReadImpl(istr);
 }
 
-::std::string
-IceGrid::LoadBalancingPolicy::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceGrid::LoadBalancingPolicy::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::LoadBalancingPolicy";
-    return typeId;
+    return "::IceGrid::LoadBalancingPolicy";
+}
+
+const char*
+IceGrid::LoadBalancingPolicy::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -236,17 +231,16 @@ IceGrid::LoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-IceGrid::RandomLoadBalancingPolicy::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceGrid::RandomLoadBalancingPolicy::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::RandomLoadBalancingPolicy";
-    return typeId;
+    return "::IceGrid::RandomLoadBalancingPolicy";
+}
+
+const char*
+IceGrid::RandomLoadBalancingPolicy::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -271,17 +265,16 @@ IceGrid::RandomLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
     LoadBalancingPolicy::_iceReadImpl(istr);
 }
 
-::std::string
-IceGrid::OrderedLoadBalancingPolicy::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceGrid::OrderedLoadBalancingPolicy::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::OrderedLoadBalancingPolicy";
-    return typeId;
+    return "::IceGrid::OrderedLoadBalancingPolicy";
+}
+
+const char*
+IceGrid::OrderedLoadBalancingPolicy::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -306,17 +299,16 @@ IceGrid::OrderedLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
     LoadBalancingPolicy::_iceReadImpl(istr);
 }
 
-::std::string
-IceGrid::RoundRobinLoadBalancingPolicy::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceGrid::RoundRobinLoadBalancingPolicy::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::RoundRobinLoadBalancingPolicy";
-    return typeId;
+    return "::IceGrid::RoundRobinLoadBalancingPolicy";
+}
+
+const char*
+IceGrid::RoundRobinLoadBalancingPolicy::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -341,17 +333,16 @@ IceGrid::RoundRobinLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
     LoadBalancingPolicy::_iceReadImpl(istr);
 }
 
-::std::string
-IceGrid::AdaptiveLoadBalancingPolicy::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceGrid::AdaptiveLoadBalancingPolicy::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::AdaptiveLoadBalancingPolicy";
-    return typeId;
+    return "::IceGrid::AdaptiveLoadBalancingPolicy";
+}
+
+const char*
+IceGrid::AdaptiveLoadBalancingPolicy::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -378,17 +369,16 @@ IceGrid::AdaptiveLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
     LoadBalancingPolicy::_iceReadImpl(istr);
 }
 
-::std::string
-IceGrid::BoxedString::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceGrid::BoxedString::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::BoxedString";
-    return typeId;
+    return "::IceGrid::BoxedString";
+}
+
+const char*
+IceGrid::BoxedString::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -413,17 +403,16 @@ IceGrid::BoxedString::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-IceGrid::BoxedDistributionDescriptor::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceGrid::BoxedDistributionDescriptor::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::BoxedDistributionDescriptor";
-    return typeId;
+    return "::IceGrid::BoxedDistributionDescriptor";
+}
+
+const char*
+IceGrid::BoxedDistributionDescriptor::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr

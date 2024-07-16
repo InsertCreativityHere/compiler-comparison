@@ -182,7 +182,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit DPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -572,7 +572,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -654,25 +654,26 @@ struct Variable
 class C : public ::Ice::Value
 {
 public:
-
-    C() = default;
+    /**
+     * Default constructor.
+     */
+    C() noexcept = default;
 
     /**
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
 
 protected:
-
     C(const C&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -688,13 +689,15 @@ static C _iceS_C_init;
 class DictClass : public ::Ice::Value
 {
 public:
-
-    DictClass() = default;
+    /**
+     * Default constructor.
+     */
+    DictClass() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit DictClass(::Test::IntStringDict isdict) :
+    explicit DictClass(::Test::IntStringDict isdict) noexcept :
         isdict(::std::move(isdict))
     {
     }
@@ -703,9 +706,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -720,12 +723,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    DictClassPtr ice_clone() const { return ::std::static_pointer_cast <DictClass>(_iceCloneImpl()); }
+    DictClassPtr ice_clone() const { return ::std::static_pointer_cast<DictClass>(_iceCloneImpl()); }
 
     ::Test::IntStringDict isdict;
 
 protected:
-
     DictClass(const DictClass&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -790,7 +792,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 };
 
 using DPtr = ::std::shared_ptr<D>;
@@ -819,7 +821,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void opDoubleArrayAsync(::std::pair<const double*, const double*> inSeq, ::std::function<void(const DoubleSeq& returnValue, const DoubleSeq& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

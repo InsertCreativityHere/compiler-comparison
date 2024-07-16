@@ -57,7 +57,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit RegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -109,25 +109,26 @@ namespace User
 class UserInfo : public ::Ice::Value
 {
 public:
-
-    UserInfo() = default;
+    /**
+     * Default constructor.
+     */
+    UserInfo() noexcept = default;
 
     /**
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    UserInfoPtr ice_clone() const { return ::std::static_pointer_cast <UserInfo>(_iceCloneImpl()); }
+    UserInfoPtr ice_clone() const { return ::std::static_pointer_cast<UserInfo>(_iceCloneImpl()); }
 
 protected:
-
     UserInfo(const UserInfo&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -169,7 +170,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual UserInfoPtr getUserInfo(::std::string id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

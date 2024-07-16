@@ -203,11 +203,10 @@ Test::MyClassPrx::_iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal
         });
 }
 
-::std::string_view
+const char*
 Test::MyClassPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass";
-    return typeId;
+    return "::Test::MyClass";
 }
 
 const char*
@@ -244,17 +243,16 @@ Test::Bar::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::Baz::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::Baz::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Baz";
-    return typeId;
+    return "::Test::Baz";
+}
+
+const char*
+Test::Baz::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -292,11 +290,10 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MyClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass";
-    return typeId;
+    return "::Test::MyClass";
 }
 
 /// \cond INTERNAL

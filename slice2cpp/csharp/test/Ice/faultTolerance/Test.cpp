@@ -149,11 +149,10 @@ Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntf";
-    return typeId;
+    return "::Test::TestIntf";
 }
 
 void
@@ -184,11 +183,10 @@ Test::CleanerPrx::_iceI_cleanup(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::CleanerPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Cleaner";
-    return typeId;
+    return "::Test::Cleaner";
 }
 
 ::std::vector<::std::string>
@@ -204,11 +202,10 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::TestIntf::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntf";
-    return typeId;
+    return "::Test::TestIntf";
 }
 
 /// \cond INTERNAL
@@ -337,11 +334,10 @@ Test::Cleaner::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Cleaner::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Cleaner";
-    return typeId;
+    return "::Test::Cleaner";
 }
 
 /// \cond INTERNAL

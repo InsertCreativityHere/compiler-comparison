@@ -96,11 +96,10 @@ Test::SessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::SessionPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Session";
-    return typeId;
+    return "::Test::Session";
 }
 
 ::std::vector<::std::string>
@@ -116,11 +115,10 @@ Test::Session::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Session::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Session";
-    return typeId;
+    return "::Test::Session";
 }
 
 /// \cond INTERNAL

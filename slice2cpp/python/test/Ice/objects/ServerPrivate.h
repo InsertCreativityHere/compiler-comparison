@@ -73,7 +73,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit UnexpectedObjectExceptionTestPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -125,25 +125,26 @@ namespace Test
 class Empty : public ::Ice::Value
 {
 public:
-
-    Empty() = default;
+    /**
+     * Default constructor.
+     */
+    Empty() noexcept = default;
 
     /**
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    EmptyPtr ice_clone() const { return ::std::static_pointer_cast <Empty>(_iceCloneImpl()); }
+    EmptyPtr ice_clone() const { return ::std::static_pointer_cast<Empty>(_iceCloneImpl()); }
 
 protected:
-
     Empty(const Empty&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -159,25 +160,26 @@ static Empty _iceS_Empty_init;
 class AlsoEmpty : public ::Ice::Value
 {
 public:
-
-    AlsoEmpty() = default;
+    /**
+     * Default constructor.
+     */
+    AlsoEmpty() noexcept = default;
 
     /**
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    AlsoEmptyPtr ice_clone() const { return ::std::static_pointer_cast <AlsoEmpty>(_iceCloneImpl()); }
+    AlsoEmptyPtr ice_clone() const { return ::std::static_pointer_cast<AlsoEmpty>(_iceCloneImpl()); }
 
 protected:
-
     AlsoEmpty(const AlsoEmpty&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -189,13 +191,15 @@ protected:
 class COneMember : public ::Ice::Value
 {
 public:
-
-    COneMember() = default;
+    /**
+     * Default constructor.
+     */
+    COneMember() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit COneMember(::Test::EmptyPtr e) :
+    explicit COneMember(::Test::EmptyPtr e) noexcept :
         e(::std::move(e))
     {
     }
@@ -204,9 +208,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -221,12 +225,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    COneMemberPtr ice_clone() const { return ::std::static_pointer_cast <COneMember>(_iceCloneImpl()); }
+    COneMemberPtr ice_clone() const { return ::std::static_pointer_cast<COneMember>(_iceCloneImpl()); }
 
     ::Test::EmptyPtr e;
 
 protected:
-
     COneMember(const COneMember&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -238,13 +241,15 @@ protected:
 class CTwoMembers : public ::Ice::Value
 {
 public:
-
-    CTwoMembers() = default;
+    /**
+     * Default constructor.
+     */
+    CTwoMembers() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    CTwoMembers(::Test::EmptyPtr e1, ::Test::EmptyPtr e2) :
+    CTwoMembers(::Test::EmptyPtr e1, ::Test::EmptyPtr e2) noexcept :
         e1(::std::move(e1)),
         e2(::std::move(e2))
     {
@@ -254,9 +259,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -271,13 +276,12 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    CTwoMembersPtr ice_clone() const { return ::std::static_pointer_cast <CTwoMembers>(_iceCloneImpl()); }
+    CTwoMembersPtr ice_clone() const { return ::std::static_pointer_cast<CTwoMembers>(_iceCloneImpl()); }
 
     ::Test::EmptyPtr e1;
     ::Test::EmptyPtr e2;
 
 protected:
-
     CTwoMembers(const CTwoMembers&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -447,7 +451,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual AlsoEmptyPtr op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

@@ -69,7 +69,7 @@ public class ThreadMetrics extends Metrics
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5076747062800905628L;
+    private static final long serialVersionUID = -6201482784859013383L;
 
     /** @hidden */
     @Override

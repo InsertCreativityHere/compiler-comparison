@@ -43,17 +43,16 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::NoDefault> iceC_Test_NoDefault_init("::Test::NoDefault");
 }
 
-::std::string
-Test::Default::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::Default::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Default";
-    return typeId;
+    return "::Test::Default";
+}
+
+const char*
+Test::Default::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -78,17 +77,16 @@ Test::Default::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::NoDefault::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::NoDefault::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::NoDefault";
-    return typeId;
+    return "::Test::NoDefault";
+}
+
+const char*
+Test::NoDefault::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr

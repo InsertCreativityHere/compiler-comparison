@@ -65,11 +65,10 @@ Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::Outg
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::TestFacetPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestFacet";
-    return typeId;
+    return "::Test::TestFacet";
 }
 
 ::std::vector<::std::string>
@@ -85,11 +84,10 @@ Test::TestFacet::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::TestFacet::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestFacet";
-    return typeId;
+    return "::Test::TestFacet";
 }
 
 /// \cond INTERNAL

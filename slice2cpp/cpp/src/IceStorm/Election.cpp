@@ -267,11 +267,10 @@ IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber(const ::std::shared
         });
 }
 
-::std::string_view
+const char*
 IceStormElection::ReplicaObserverPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStormElection::ReplicaObserver";
-    return typeId;
+    return "::IceStormElection::ReplicaObserver";
 }
 
 void
@@ -315,11 +314,10 @@ IceStormElection::TopicManagerSyncPrx::_iceI_getContent(const ::std::shared_ptr<
         });
 }
 
-::std::string_view
+const char*
 IceStormElection::TopicManagerSyncPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStormElection::TopicManagerSync";
-    return typeId;
+    return "::IceStormElection::TopicManagerSync";
 }
 
 void
@@ -563,11 +561,10 @@ IceStormElection::NodePrx::_iceI_query(const ::std::shared_ptr<::IceInternal::Ou
         nullptr);
 }
 
-::std::string_view
+const char*
 IceStormElection::NodePrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStormElection::Node";
-    return typeId;
+    return "::IceStormElection::Node";
 }
 
 const char*
@@ -617,11 +614,10 @@ IceStormElection::ReplicaObserver::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceStormElection::ReplicaObserver::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStormElection::ReplicaObserver";
-    return typeId;
+    return "::IceStormElection::ReplicaObserver";
 }
 
 /// \cond INTERNAL
@@ -789,11 +785,10 @@ IceStormElection::TopicManagerSync::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceStormElection::TopicManagerSync::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStormElection::TopicManagerSync";
-    return typeId;
+    return "::IceStormElection::TopicManagerSync";
 }
 
 /// \cond INTERNAL
@@ -876,11 +871,10 @@ IceStormElection::Node::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceStormElection::Node::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceStormElection::Node";
-    return typeId;
+    return "::IceStormElection::Node";
 }
 
 /// \cond INTERNAL

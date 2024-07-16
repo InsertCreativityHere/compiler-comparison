@@ -109,11 +109,10 @@ IceBox::ServiceObserverPrx::_iceI_servicesStopped(const ::std::shared_ptr<::IceI
         nullptr);
 }
 
-::std::string_view
+const char*
 IceBox::ServiceObserverPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceBox::ServiceObserver";
-    return typeId;
+    return "::IceBox::ServiceObserver";
 }
 
 void
@@ -273,11 +272,10 @@ IceBox::ServiceManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
         nullptr);
 }
 
-::std::string_view
+const char*
 IceBox::ServiceManagerPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceBox::ServiceManager";
-    return typeId;
+    return "::IceBox::ServiceManager";
 }
 
 const char*
@@ -389,11 +387,10 @@ IceBox::ServiceObserver::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceBox::ServiceObserver::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceBox::ServiceObserver";
-    return typeId;
+    return "::IceBox::ServiceObserver";
 }
 
 /// \cond INTERNAL
@@ -494,11 +491,10 @@ IceBox::ServiceManager::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceBox::ServiceManager::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceBox::ServiceManager";
-    return typeId;
+    return "::IceBox::ServiceManager";
 }
 
 /// \cond INTERNAL

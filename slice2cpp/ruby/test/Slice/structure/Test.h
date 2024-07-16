@@ -46,13 +46,15 @@ namespace Test
 class C : public ::Ice::Value
 {
 public:
-
-    C() = default;
+    /**
+     * Default constructor.
+     */
+    C() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit C(::std::int32_t i) :
+    explicit C(::std::int32_t i) noexcept :
         i(i)
     {
     }
@@ -61,9 +63,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -78,12 +80,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
 
     ::std::int32_t i;
 
 protected:
-
     C(const C&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;

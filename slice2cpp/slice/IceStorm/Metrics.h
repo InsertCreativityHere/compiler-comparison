@@ -57,8 +57,10 @@ namespace IceMX
 class ICE_CLASS(ICESTORM_API) TopicMetrics : public Metrics
 {
 public:
-
-    TopicMetrics() = default;
+    /**
+     * Default constructor.
+     */
+    TopicMetrics() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -70,7 +72,7 @@ public:
      * @param published Number of events published on the topic by publishers.
      * @param forwarded Number of events forwarded on the topic by IceStorm topic links.
      */
-    TopicMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t published, ::std::int64_t forwarded) :
+    TopicMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t published, ::std::int64_t forwarded) noexcept :
         Metrics(::std::move(id), total, current, totalLifetime, failures),
         published(published),
         forwarded(forwarded)
@@ -81,9 +83,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
+    ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICESTORM_API) ::std::string ice_id() const override;
+    ICE_MEMBER(ICESTORM_API) const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -98,7 +100,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    TopicMetricsPtr ice_clone() const { return ::std::static_pointer_cast <TopicMetrics>(_iceCloneImpl()); }
+    TopicMetricsPtr ice_clone() const { return ::std::static_pointer_cast<TopicMetrics>(_iceCloneImpl()); }
 
     /**
      * Number of events published on the topic by publishers.
@@ -110,7 +112,6 @@ public:
     ::std::int64_t forwarded = INT64_C(0);
 
 protected:
-
     TopicMetrics(const TopicMetrics&) = default;
 
     ICE_MEMBER(ICESTORM_API) ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -130,8 +131,10 @@ static TopicMetrics _iceS_TopicMetrics_init;
 class ICE_CLASS(ICESTORM_API) SubscriberMetrics : public Metrics
 {
 public:
-
-    SubscriberMetrics() = default;
+    /**
+     * Default constructor.
+     */
+    SubscriberMetrics() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -144,7 +147,7 @@ public:
      * @param outstanding Number of outstanding events.
      * @param delivered Number of forwarded events.
      */
-    SubscriberMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t queued, ::std::int32_t outstanding, ::std::int64_t delivered) :
+    SubscriberMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t queued, ::std::int32_t outstanding, ::std::int64_t delivered) noexcept :
         Metrics(::std::move(id), total, current, totalLifetime, failures),
         queued(queued),
         outstanding(outstanding),
@@ -156,9 +159,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
+    ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICESTORM_API) ::std::string ice_id() const override;
+    ICE_MEMBER(ICESTORM_API) const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -173,7 +176,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    SubscriberMetricsPtr ice_clone() const { return ::std::static_pointer_cast <SubscriberMetrics>(_iceCloneImpl()); }
+    SubscriberMetricsPtr ice_clone() const { return ::std::static_pointer_cast<SubscriberMetrics>(_iceCloneImpl()); }
 
     /**
      * Number of queued events.
@@ -189,7 +192,6 @@ public:
     ::std::int64_t delivered = INT64_C(0);
 
 protected:
-
     SubscriberMetrics(const SubscriberMetrics&) = default;
 
     ICE_MEMBER(ICESTORM_API) ::Ice::ValuePtr _iceCloneImpl() const override;

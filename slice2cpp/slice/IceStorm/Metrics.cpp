@@ -46,17 +46,16 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::IceMX::SubscriberMetrics> iceC_IceMX_SubscriberMetrics_init("::IceMX::SubscriberMetrics");
 }
 
-::std::string
-IceMX::TopicMetrics::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceMX::TopicMetrics::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::TopicMetrics";
-    return typeId;
+    return "::IceMX::TopicMetrics";
+}
+
+const char*
+IceMX::TopicMetrics::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -83,17 +82,16 @@ IceMX::TopicMetrics::_iceReadImpl(::Ice::InputStream* istr)
     Metrics::_iceReadImpl(istr);
 }
 
-::std::string
-IceMX::SubscriberMetrics::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 IceMX::SubscriberMetrics::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceMX::SubscriberMetrics";
-    return typeId;
+    return "::IceMX::SubscriberMetrics";
+}
+
+const char*
+IceMX::SubscriberMetrics::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr

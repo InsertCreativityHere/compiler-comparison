@@ -94,7 +94,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit RelayPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -399,7 +399,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -718,13 +718,15 @@ protected:
 class BaseClass : public ::Ice::Value
 {
 public:
-
-    BaseClass() = default;
+    /**
+     * Default constructor.
+     */
+    BaseClass() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit BaseClass(::std::string bc) :
+    explicit BaseClass(::std::string bc) noexcept :
         bc(::std::move(bc))
     {
     }
@@ -733,9 +735,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -750,12 +752,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    BaseClassPtr ice_clone() const { return ::std::static_pointer_cast <BaseClass>(_iceCloneImpl()); }
+    BaseClassPtr ice_clone() const { return ::std::static_pointer_cast<BaseClass>(_iceCloneImpl()); }
 
     ::std::string bc;
 
 protected:
-
     BaseClass(const BaseClass&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -767,13 +768,15 @@ protected:
 class PreservedClass : public BaseClass
 {
 public:
-
-    PreservedClass() = default;
+    /**
+     * Default constructor.
+     */
+    PreservedClass() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    PreservedClass(::std::string bc, ::std::string pc) :
+    PreservedClass(::std::string bc, ::std::string pc) noexcept :
         BaseClass(::std::move(bc)),
         pc(::std::move(pc))
     {
@@ -783,9 +786,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -800,12 +803,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    PreservedClassPtr ice_clone() const { return ::std::static_pointer_cast <PreservedClass>(_iceCloneImpl()); }
+    PreservedClassPtr ice_clone() const { return ::std::static_pointer_cast<PreservedClass>(_iceCloneImpl()); }
 
     ::std::string pc;
 
 protected:
-
     PreservedClass(const PreservedClass&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -935,7 +937,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void knownPreservedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -988,7 +990,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void baseAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

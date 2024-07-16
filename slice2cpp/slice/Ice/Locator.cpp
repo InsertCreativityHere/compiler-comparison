@@ -169,11 +169,10 @@ Ice::LocatorPrx::_iceI_getRegistry(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr);
 }
 
-::std::string_view
+const char*
 Ice::LocatorPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::Locator";
-    return typeId;
+    return "::Ice::Locator";
 }
 
 void
@@ -323,11 +322,10 @@ Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy(const ::std::shared_ptr<::I
         });
 }
 
-::std::string_view
+const char*
 Ice::LocatorRegistryPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::LocatorRegistry";
-    return typeId;
+    return "::Ice::LocatorRegistry";
 }
 
 ::std::optional<::Ice::LocatorPrx>
@@ -359,11 +357,10 @@ Ice::LocatorFinderPrx::_iceI_getLocator(const ::std::shared_ptr<::IceInternal::O
         nullptr);
 }
 
-::std::string_view
+const char*
 Ice::LocatorFinderPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::LocatorFinder";
-    return typeId;
+    return "::Ice::LocatorFinder";
 }
 
 const char*
@@ -539,11 +536,10 @@ Ice::Locator::ice_id(const Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Ice::Locator::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::Locator";
-    return typeId;
+    return "::Ice::Locator";
 }
 
 /// \cond INTERNAL
@@ -694,11 +690,10 @@ Ice::LocatorRegistry::ice_id(const Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Ice::LocatorRegistry::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::LocatorRegistry";
-    return typeId;
+    return "::Ice::LocatorRegistry";
 }
 
 /// \cond INTERNAL
@@ -844,11 +839,10 @@ Ice::LocatorFinder::ice_id(const Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Ice::LocatorFinder::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::LocatorFinder";
-    return typeId;
+    return "::Ice::LocatorFinder";
 }
 
 /// \cond INTERNAL

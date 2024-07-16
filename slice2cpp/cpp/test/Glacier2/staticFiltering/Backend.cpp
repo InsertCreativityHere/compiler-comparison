@@ -64,11 +64,10 @@ Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::BackendPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Backend";
-    return typeId;
+    return "::Test::Backend";
 }
 
 ::std::vector<::std::string>
@@ -84,11 +83,10 @@ Test::Backend::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Backend::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Backend";
-    return typeId;
+    return "::Test::Backend";
 }
 
 /// \cond INTERNAL

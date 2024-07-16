@@ -80,7 +80,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit delPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -143,7 +143,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit execPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -195,7 +195,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -267,7 +267,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit printPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -333,13 +333,15 @@ struct _cpp_continue
 class _cpp_for : public ::Ice::Value
 {
 public:
-
-    _cpp_for() = default;
+    /**
+     * Default constructor.
+     */
+    _cpp_for() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_for(::std::int32_t lambda, ::std::optional<::_cpp_and::execPrx> from, ::std::int32_t global) :
+    _cpp_for(::std::int32_t lambda, ::std::optional<::_cpp_and::execPrx> from, ::std::int32_t global) noexcept :
         lambda(lambda),
         from(::std::move(from)),
         global(global)
@@ -350,9 +352,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -367,14 +369,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    forPtr ice_clone() const { return ::std::static_pointer_cast <_cpp_for>(_iceCloneImpl()); }
+    forPtr ice_clone() const { return ::std::static_pointer_cast<_cpp_for>(_iceCloneImpl()); }
 
     ::std::int32_t lambda;
     ::std::optional<::_cpp_and::execPrx> from;
     ::std::int32_t global;
 
 protected:
-
     _cpp_for(const _cpp_for&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -512,7 +513,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void elifAsync(::std::int32_t _cpp_else, ::std::function<void(::std::int32_t except)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -550,7 +551,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void finally(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -589,7 +590,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /// \cond INTERNAL
     void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
@@ -622,7 +623,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual assert raise(_cpp_continue _cpp_else, ::and::forPtr _cpp_return, ::std::optional<delPrx> _cpp_while, ::std::optional<execPrx> yield, ::std::optional<ifPrx> _cpp_or, ::std::int32_t global, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

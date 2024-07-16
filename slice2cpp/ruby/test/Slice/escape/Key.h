@@ -106,7 +106,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit breakPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -158,7 +158,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -230,7 +230,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit extendPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -296,13 +296,15 @@ struct _cpp_and
 class display : public ::Ice::Value
 {
 public:
-
-    display() = default;
+    /**
+     * Default constructor.
+     */
+    display() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    display(::std::int32_t when, ::std::int32_t _cpp_do, ::std::optional<::BEGIN::breakPrx> dup, ::std::int32_t _cpp_else) :
+    display(::std::int32_t when, ::std::int32_t _cpp_do, ::std::optional<::BEGIN::breakPrx> dup, ::std::int32_t _cpp_else) noexcept :
         when(when),
         _cpp_do(_cpp_do),
         dup(::std::move(dup)),
@@ -314,9 +316,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -331,7 +333,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    displayPtr ice_clone() const { return ::std::static_pointer_cast <display>(_iceCloneImpl()); }
+    displayPtr ice_clone() const { return ::std::static_pointer_cast<display>(_iceCloneImpl()); }
 
     ::std::int32_t when;
     ::std::int32_t _cpp_do;
@@ -339,7 +341,6 @@ public:
     ::std::int32_t _cpp_else;
 
 protected:
-
     display(const display&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -477,7 +478,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void _cpp_case(::std::int32_t clone, ::std::int32_t def, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -530,7 +531,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /// \cond INTERNAL
     void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
@@ -563,7 +564,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual END _cpp_for(displayPtr freeze, ::std::optional<elsifPrx> hash, ::std::optional<breakPrx> _cpp_if, displayPtr inspect, ::std::optional<elsifPrx> method, ::std::int32_t methods, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

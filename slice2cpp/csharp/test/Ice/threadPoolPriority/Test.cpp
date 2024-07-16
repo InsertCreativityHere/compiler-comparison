@@ -93,11 +93,10 @@ Test::PriorityPrx::_iceI_getPriority(const ::std::shared_ptr<::IceInternal::Outg
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::PriorityPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Priority";
-    return typeId;
+    return "::Test::Priority";
 }
 
 ::std::vector<::std::string>
@@ -113,11 +112,10 @@ Test::Priority::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Priority::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Priority";
-    return typeId;
+    return "::Test::Priority";
 }
 
 /// \cond INTERNAL

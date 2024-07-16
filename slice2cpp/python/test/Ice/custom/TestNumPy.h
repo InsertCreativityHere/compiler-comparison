@@ -280,7 +280,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit CustomPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -337,13 +337,15 @@ namespace NumPy
 class D : public ::Ice::Value
 {
 public:
-
-    D() = default;
+    /**
+     * Default constructor.
+     */
+    D() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(::std::optional<::Test::NumPy::BoolSeq1> boolSeq, ::std::optional<::Test::NumPy::ByteSeq1> byteSeq, ::std::optional<::Test::NumPy::ShortSeq1> shortSeq, ::std::optional<::Test::NumPy::IntSeq1> intSeq, ::std::optional<::Test::NumPy::LongSeq1> longSeq, ::std::optional<::Test::NumPy::FloatSeq1> floatSeq, ::std::optional<::Test::NumPy::DoubleSeq1> doubleSeq) :
+    D(::std::optional<::Test::NumPy::BoolSeq1> boolSeq, ::std::optional<::Test::NumPy::ByteSeq1> byteSeq, ::std::optional<::Test::NumPy::ShortSeq1> shortSeq, ::std::optional<::Test::NumPy::IntSeq1> intSeq, ::std::optional<::Test::NumPy::LongSeq1> longSeq, ::std::optional<::Test::NumPy::FloatSeq1> floatSeq, ::std::optional<::Test::NumPy::DoubleSeq1> doubleSeq) noexcept :
         boolSeq(::std::move(boolSeq)),
         byteSeq(::std::move(byteSeq)),
         shortSeq(::std::move(shortSeq)),
@@ -358,9 +360,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -375,7 +377,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    DPtr ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
+    DPtr ice_clone() const { return ::std::static_pointer_cast<D>(_iceCloneImpl()); }
 
     ::std::optional<::Test::NumPy::BoolSeq1> boolSeq;
     ::std::optional<::Test::NumPy::ByteSeq1> byteSeq;
@@ -386,7 +388,6 @@ public:
     ::std::optional<::Test::NumPy::DoubleSeq1> doubleSeq;
 
 protected:
-
     D(const D&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -433,7 +434,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual BoolSeq1 opBoolSeq(BoolSeq1 v1, BoolSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

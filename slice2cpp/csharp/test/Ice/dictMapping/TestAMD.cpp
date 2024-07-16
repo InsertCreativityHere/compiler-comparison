@@ -416,11 +416,10 @@ Test::MyClassPrx::_iceI_opNDGSS(const ::std::shared_ptr<::IceInternal::OutgoingA
         });
 }
 
-::std::string_view
+const char*
 Test::MyClassPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass";
-    return typeId;
+    return "::Test::MyClass";
 }
 
 ::std::vector<::std::string>
@@ -436,11 +435,10 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MyClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass";
-    return typeId;
+    return "::Test::MyClass";
 }
 
 /// \cond INTERNAL

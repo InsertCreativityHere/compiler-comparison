@@ -179,7 +179,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit IntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -231,13 +231,15 @@ namespace Clash
 class Cls : public ::Ice::Value
 {
 public:
-
-    Cls() = default;
+    /**
+     * Default constructor.
+     */
+    Cls() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    Cls(::std::optional<::Clash::IntfPrx> s, ::std::string context, ::std::int32_t current, ::std::int16_t response, ::std::int32_t typeId, ::std::int16_t del, ::std::optional<::std::int16_t> cookie, ::std::string ex, ::std::int32_t result, ::std::string istr, ::std::string ostr, ::std::string inS, ::std::string in, ::std::string proxy, ::std::int32_t obj, ::std::int32_t getCookie, ::std::string clone) :
+    Cls(::std::optional<::Clash::IntfPrx> s, ::std::string context, ::std::int32_t current, ::std::int16_t response, ::std::int32_t typeId, ::std::int16_t del, ::std::optional<::std::int16_t> cookie, ::std::string ex, ::std::int32_t result, ::std::string istr, ::std::string ostr, ::std::string inS, ::std::string in, ::std::string proxy, ::std::int32_t obj, ::std::int32_t getCookie, ::std::string clone) noexcept :
         s(::std::move(s)),
         context(::std::move(context)),
         current(current),
@@ -262,9 +264,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -279,7 +281,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ClsPtr ice_clone() const { return ::std::static_pointer_cast <Cls>(_iceCloneImpl()); }
+    ClsPtr ice_clone() const { return ::std::static_pointer_cast<Cls>(_iceCloneImpl()); }
 
     ::std::optional<::Clash::IntfPrx> s;
     ::std::string context;
@@ -300,7 +302,6 @@ public:
     ::std::string clone;
 
 protected:
-
     Cls(const Cls&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -415,7 +416,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void context(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

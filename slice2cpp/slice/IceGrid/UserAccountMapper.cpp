@@ -90,11 +90,10 @@ IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::Ic
         });
 }
 
-::std::string_view
+const char*
 IceGrid::UserAccountMapperPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::UserAccountMapper";
-    return typeId;
+    return "::IceGrid::UserAccountMapper";
 }
 
 const char*
@@ -142,11 +141,10 @@ IceGrid::UserAccountMapper::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 IceGrid::UserAccountMapper::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::IceGrid::UserAccountMapper";
-    return typeId;
+    return "::IceGrid::UserAccountMapper";
 }
 
 /// \cond INTERNAL

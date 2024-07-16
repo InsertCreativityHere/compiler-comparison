@@ -184,17 +184,16 @@ Test::OtherException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::Pen::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::Pen::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Pen";
-    return typeId;
+    return "::Test::Pen";
+}
+
+const char*
+Test::Pen::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr

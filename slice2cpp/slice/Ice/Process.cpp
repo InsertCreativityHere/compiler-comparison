@@ -98,11 +98,10 @@ Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
-::std::string_view
+const char*
 Ice::ProcessPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::Process";
-    return typeId;
+    return "::Ice::Process";
 }
 
 ::std::vector<::std::string>
@@ -118,11 +117,10 @@ Ice::Process::ice_id(const Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Ice::Process::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Ice::Process";
-    return typeId;
+    return "::Ice::Process";
 }
 
 /// \cond INTERNAL

@@ -187,13 +187,15 @@ struct Struct2
 class Base : public ::Ice::Value
 {
 public:
-
-    Base() = default;
+    /**
+     * Default constructor.
+     */
+    Base() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    Base(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+    Base(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) noexcept :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -217,9 +219,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -234,7 +236,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    BasePtr ice_clone() const { return ::std::static_pointer_cast <Base>(_iceCloneImpl()); }
+    BasePtr ice_clone() const { return ::std::static_pointer_cast<Base>(_iceCloneImpl()); }
 
     bool boolFalse = false;
     bool boolTrue = true;
@@ -254,7 +256,6 @@ public:
     double zeroDotD = 0;
 
 protected:
-
     Base(const Base&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -270,13 +271,15 @@ static Base _iceS_Base_init;
 class Derived : public Base
 {
 public:
-
-    Derived() = default;
+    /**
+     * Default constructor.
+     */
+    Derived() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    Derived(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
+    Derived(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
         Base(boolFalse, boolTrue, b, s, i, l, f, d, ::std::move(str), ::std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
         c2(c2),
@@ -291,9 +294,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -308,7 +311,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    DerivedPtr ice_clone() const { return ::std::static_pointer_cast <Derived>(_iceCloneImpl()); }
+    DerivedPtr ice_clone() const { return ::std::static_pointer_cast<Derived>(_iceCloneImpl()); }
 
     ::Test::Color c1 = ::Test::Color::red;
     ::Test::Color c2 = ::Test::Color::green;
@@ -318,7 +321,6 @@ public:
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
 
 protected:
-
     Derived(const Derived&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -370,13 +372,15 @@ struct StructNoDefaults
 class ClassNoDefaultsBase : public ::Ice::Value
 {
 public:
-
-    ClassNoDefaultsBase() = default;
+    /**
+     * Default constructor.
+     */
+    ClassNoDefaultsBase() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    ClassNoDefaultsBase(::std::string str, ::Test::Color c1, ::Test::ByteSeq bs) :
+    ClassNoDefaultsBase(::std::string str, ::Test::Color c1, ::Test::ByteSeq bs) noexcept :
         str(::std::move(str)),
         c1(c1),
         bs(::std::move(bs))
@@ -387,9 +391,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -404,14 +408,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ClassNoDefaultsBasePtr ice_clone() const { return ::std::static_pointer_cast <ClassNoDefaultsBase>(_iceCloneImpl()); }
+    ClassNoDefaultsBasePtr ice_clone() const { return ::std::static_pointer_cast<ClassNoDefaultsBase>(_iceCloneImpl()); }
 
     ::std::string str;
     ::Test::Color c1;
     ::Test::ByteSeq bs;
 
 protected:
-
     ClassNoDefaultsBase(const ClassNoDefaultsBase&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -423,13 +426,15 @@ protected:
 class ClassNoDefaults : public ClassNoDefaultsBase
 {
 public:
-
-    ClassNoDefaults() = default;
+    /**
+     * Default constructor.
+     */
+    ClassNoDefaults() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    ClassNoDefaults(::std::string str, ::Test::Color c1, ::Test::ByteSeq bs, ::Test::InnerStruct st, ::Test::IntStringDict dict) :
+    ClassNoDefaults(::std::string str, ::Test::Color c1, ::Test::ByteSeq bs, ::Test::InnerStruct st, ::Test::IntStringDict dict) noexcept :
         ClassNoDefaultsBase(::std::move(str), c1, ::std::move(bs)),
         st(::std::move(st)),
         dict(::std::move(dict))
@@ -440,9 +445,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -457,13 +462,12 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ClassNoDefaultsPtr ice_clone() const { return ::std::static_pointer_cast <ClassNoDefaults>(_iceCloneImpl()); }
+    ClassNoDefaultsPtr ice_clone() const { return ::std::static_pointer_cast<ClassNoDefaults>(_iceCloneImpl()); }
 
     ::Test::InnerStruct st;
     ::Test::IntStringDict dict;
 
 protected:
-
     ClassNoDefaults(const ClassNoDefaults&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;

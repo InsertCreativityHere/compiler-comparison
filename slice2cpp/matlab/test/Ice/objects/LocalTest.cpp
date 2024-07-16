@@ -50,17 +50,16 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB8> iceC_LocalTest_CB8_init("::LocalTest::CB8");
 }
 
-::std::string
-LocalTest::C1::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 LocalTest::C1::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::LocalTest::C1";
-    return typeId;
+    return "::LocalTest::C1";
+}
+
+const char*
+LocalTest::C1::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -85,17 +84,16 @@ LocalTest::C1::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-LocalTest::CB1::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 LocalTest::CB1::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::LocalTest::CB1";
-    return typeId;
+    return "::LocalTest::CB1";
+}
+
+const char*
+LocalTest::CB1::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -120,17 +118,16 @@ LocalTest::CB1::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-LocalTest::CB2::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 LocalTest::CB2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::LocalTest::CB2";
-    return typeId;
+    return "::LocalTest::CB2";
+}
+
+const char*
+LocalTest::CB2::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -155,17 +152,16 @@ LocalTest::CB2::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-LocalTest::CB3::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 LocalTest::CB3::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::LocalTest::CB3";
-    return typeId;
+    return "::LocalTest::CB3";
+}
+
+const char*
+LocalTest::CB3::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -190,17 +186,16 @@ LocalTest::CB3::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-LocalTest::CB4::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 LocalTest::CB4::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::LocalTest::CB4";
-    return typeId;
+    return "::LocalTest::CB4";
+}
+
+const char*
+LocalTest::CB4::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -225,17 +220,16 @@ LocalTest::CB4::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-LocalTest::CB5::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 LocalTest::CB5::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::LocalTest::CB5";
-    return typeId;
+    return "::LocalTest::CB5";
+}
+
+const char*
+LocalTest::CB5::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -260,17 +254,16 @@ LocalTest::CB5::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-LocalTest::CB6::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 LocalTest::CB6::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::LocalTest::CB6";
-    return typeId;
+    return "::LocalTest::CB6";
+}
+
+const char*
+LocalTest::CB6::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -295,17 +288,16 @@ LocalTest::CB6::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-LocalTest::CB7::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 LocalTest::CB7::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::LocalTest::CB7";
-    return typeId;
+    return "::LocalTest::CB7";
+}
+
+const char*
+LocalTest::CB7::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -330,17 +322,16 @@ LocalTest::CB7::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-LocalTest::CB8::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 LocalTest::CB8::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::LocalTest::CB8";
-    return typeId;
+    return "::LocalTest::CB8";
+}
+
+const char*
+LocalTest::CB8::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr

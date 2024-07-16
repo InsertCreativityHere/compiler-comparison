@@ -54,13 +54,15 @@ namespace Test
 class D3 : public B
 {
 public:
-
-    D3() = default;
+    /**
+     * Default constructor.
+     */
+    D3() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    D3(::std::string sb, ::Test::BPtr pb, ::std::string sd3, ::Test::BPtr pd3) :
+    D3(::std::string sb, ::Test::BPtr pb, ::std::string sd3, ::Test::BPtr pd3) noexcept :
         B(::std::move(sb), ::std::move(pb)),
         sd3(::std::move(sd3)),
         pd3(::std::move(pd3))
@@ -71,9 +73,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -88,13 +90,12 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    D3Ptr ice_clone() const { return ::std::static_pointer_cast <D3>(_iceCloneImpl()); }
+    D3Ptr ice_clone() const { return ::std::static_pointer_cast<D3>(_iceCloneImpl()); }
 
     ::std::string sd3;
     ::Test::BPtr pd3;
 
 protected:
-
     D3(const D3&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -110,13 +111,15 @@ static D3 _iceS_D3_init;
 class PCUnknown : public PBase
 {
 public:
-
-    PCUnknown() = default;
+    /**
+     * Default constructor.
+     */
+    PCUnknown() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCUnknown(::std::int32_t pi, ::std::string pu) :
+    PCUnknown(::std::int32_t pi, ::std::string pu) noexcept :
         PBase(pi),
         pu(::std::move(pu))
     {
@@ -126,9 +129,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -143,12 +146,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    PCUnknownPtr ice_clone() const { return ::std::static_pointer_cast <PCUnknown>(_iceCloneImpl()); }
+    PCUnknownPtr ice_clone() const { return ::std::static_pointer_cast<PCUnknown>(_iceCloneImpl()); }
 
     ::std::string pu;
 
 protected:
-
     PCUnknown(const PCUnknown&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -160,13 +162,15 @@ protected:
 class PCDerived : public PDerived
 {
 public:
-
-    PCDerived() = default;
+    /**
+     * Default constructor.
+     */
+    PCDerived() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs) :
+    PCDerived(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs) noexcept :
         PDerived(pi, ::std::move(ps), ::std::move(pb)),
         pbs(::std::move(pbs))
     {
@@ -176,9 +180,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -193,12 +197,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    PCDerivedPtr ice_clone() const { return ::std::static_pointer_cast <PCDerived>(_iceCloneImpl()); }
+    PCDerivedPtr ice_clone() const { return ::std::static_pointer_cast<PCDerived>(_iceCloneImpl()); }
 
     ::Test::PBaseSeq pbs;
 
 protected:
-
     PCDerived(const PCDerived&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -210,13 +213,15 @@ protected:
 class PCDerived2 : public PCDerived
 {
 public:
-
-    PCDerived2() = default;
+    /**
+     * Default constructor.
+     */
+    PCDerived2() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived2(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2) :
+    PCDerived2(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2) noexcept :
         PCDerived(pi, ::std::move(ps), ::std::move(pb), ::std::move(pbs)),
         pcd2(pcd2)
     {
@@ -226,9 +231,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -243,12 +248,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    PCDerived2Ptr ice_clone() const { return ::std::static_pointer_cast <PCDerived2>(_iceCloneImpl()); }
+    PCDerived2Ptr ice_clone() const { return ::std::static_pointer_cast<PCDerived2>(_iceCloneImpl()); }
 
     ::std::int32_t pcd2;
 
 protected:
-
     PCDerived2(const PCDerived2&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -260,13 +264,15 @@ protected:
 class PCDerived3 : public PCDerived2
 {
 public:
-
-    PCDerived3() = default;
+    /**
+     * Default constructor.
+     */
+    PCDerived3() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived3(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2, ::Ice::ValuePtr pcd3) :
+    PCDerived3(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2, ::Ice::ValuePtr pcd3) noexcept :
         PCDerived2(pi, ::std::move(ps), ::std::move(pb), ::std::move(pbs), pcd2),
         pcd3(::std::move(pcd3))
     {
@@ -276,9 +282,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -293,12 +299,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    PCDerived3Ptr ice_clone() const { return ::std::static_pointer_cast <PCDerived3>(_iceCloneImpl()); }
+    PCDerived3Ptr ice_clone() const { return ::std::static_pointer_cast<PCDerived3>(_iceCloneImpl()); }
 
     ::Ice::ValuePtr pcd3;
 
 protected:
-
     PCDerived3(const PCDerived3&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -310,13 +315,15 @@ protected:
 class CompactPCDerived : public CompactPDerived
 {
 public:
-
-    CompactPCDerived() = default;
+    /**
+     * Default constructor.
+     */
+    CompactPCDerived() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    CompactPCDerived(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs) :
+    CompactPCDerived(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs) noexcept :
         CompactPDerived(pi, ::std::move(ps), ::std::move(pb)),
         pbs(::std::move(pbs))
     {
@@ -326,9 +333,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -343,12 +350,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    CompactPCDerivedPtr ice_clone() const { return ::std::static_pointer_cast <CompactPCDerived>(_iceCloneImpl()); }
+    CompactPCDerivedPtr ice_clone() const { return ::std::static_pointer_cast<CompactPCDerived>(_iceCloneImpl()); }
 
     ::Test::PBaseSeq pbs;
 
 protected:
-
     CompactPCDerived(const CompactPCDerived&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;

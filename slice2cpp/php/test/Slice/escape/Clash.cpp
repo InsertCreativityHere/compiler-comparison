@@ -406,24 +406,22 @@ Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsync
         });
 }
 
-::std::string_view
+const char*
 Clash::IntfPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Clash::Intf";
-    return typeId;
+    return "::Clash::Intf";
 }
 
-::std::string
-Clash::Cls::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Clash::Cls::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Clash::Cls";
-    return typeId;
+    return "::Clash::Cls";
+}
+
+const char*
+Clash::Cls::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -495,11 +493,10 @@ Clash::Intf::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Clash::Intf::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Clash::Intf";
-    return typeId;
+    return "::Clash::Intf";
 }
 
 /// \cond INTERNAL

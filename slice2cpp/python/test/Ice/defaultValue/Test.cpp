@@ -49,17 +49,16 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaults> iceC_Test_ClassNoDefaults_init("::Test::ClassNoDefaults");
 }
 
-::std::string
-Test::Base::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::Base::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Base";
-    return typeId;
+    return "::Test::Base";
+}
+
+const char*
+Test::Base::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -84,17 +83,16 @@ Test::Base::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::Derived::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::Derived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Derived";
-    return typeId;
+    return "::Test::Derived";
+}
+
+const char*
+Test::Derived::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -261,17 +259,16 @@ Test::ExceptionNoDefaults::_readImpl(::Ice::InputStream* istr)
     ExceptionNoDefaultsBase::_readImpl(istr);
 }
 
-::std::string
-Test::ClassNoDefaultsBase::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::ClassNoDefaultsBase::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::ClassNoDefaultsBase";
-    return typeId;
+    return "::Test::ClassNoDefaultsBase";
+}
+
+const char*
+Test::ClassNoDefaultsBase::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -296,17 +293,16 @@ Test::ClassNoDefaultsBase::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::ClassNoDefaults::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::ClassNoDefaults::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::ClassNoDefaults";
-    return typeId;
+    return "::Test::ClassNoDefaults";
+}
+
+const char*
+Test::ClassNoDefaults::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr

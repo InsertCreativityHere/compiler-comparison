@@ -96,7 +96,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit MyInterfacePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -187,13 +187,15 @@ struct Point
 class OptionalClass : public ::Ice::Value
 {
 public:
-
-    OptionalClass() = default;
+    /**
+     * Default constructor.
+     */
+    OptionalClass() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i, ::std::optional<::Test::LargeStruct> s, ::std::optional<::Test::MyEnumS> enumS4, ::std::optional<::Test::ByteBoolD> byteBoolD6, ::std::optional<::Test::ShortIntD> shortIntD7, ::std::optional<::Test::MyEnum> enum8, ::std::optional<::Ice::IntSeq> intSeq12, ::std::optional<::Ice::ByteSeq> byteSeq13, ::std::optional<::Ice::StringSeq> stringSeq14, ::std::optional<::Test::Point> p15) :
+    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i, ::std::optional<::Test::LargeStruct> s, ::std::optional<::Test::MyEnumS> enumS4, ::std::optional<::Test::ByteBoolD> byteBoolD6, ::std::optional<::Test::ShortIntD> shortIntD7, ::std::optional<::Test::MyEnum> enum8, ::std::optional<::Ice::IntSeq> intSeq12, ::std::optional<::Ice::ByteSeq> byteSeq13, ::std::optional<::Ice::StringSeq> stringSeq14, ::std::optional<::Test::Point> p15) noexcept :
         bo(bo),
         by(by),
         sh(sh),
@@ -214,9 +216,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -231,7 +233,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    OptionalClassPtr ice_clone() const { return ::std::static_pointer_cast <OptionalClass>(_iceCloneImpl()); }
+    OptionalClassPtr ice_clone() const { return ::std::static_pointer_cast<OptionalClass>(_iceCloneImpl()); }
 
     bool bo;
     ::std::uint8_t by;
@@ -248,7 +250,6 @@ public:
     ::std::optional<::Test::Point> p15;
 
 protected:
-
     OptionalClass(const OptionalClass&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -264,13 +265,15 @@ static OptionalClass _iceS_OptionalClass_init;
 class MyClass : public ::Ice::Value
 {
 public:
-
-    MyClass() = default;
+    /**
+     * Default constructor.
+     */
+    MyClass() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyClass(::Test::MyClassPtr c, ::std::optional<::Test::MyInterfacePrx> prx, ::Ice::ValuePtr o, ::Test::LargeStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) :
+    MyClass(::Test::MyClassPtr c, ::std::optional<::Test::MyInterfacePrx> prx, ::Ice::ValuePtr o, ::Test::LargeStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) noexcept :
         c(::std::move(c)),
         prx(::std::move(prx)),
         o(::std::move(o)),
@@ -293,9 +296,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -310,7 +313,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    MyClassPtr ice_clone() const { return ::std::static_pointer_cast <MyClass>(_iceCloneImpl()); }
+    MyClassPtr ice_clone() const { return ::std::static_pointer_cast<MyClass>(_iceCloneImpl()); }
 
     ::Test::MyClassPtr c;
     ::std::optional<::Test::MyInterfacePrx> prx;
@@ -329,7 +332,6 @@ public:
     ::Test::StringMyClassD d;
 
 protected:
-
     MyClass(const MyClass&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -421,7 +423,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 };
 
 using MyInterfacePtr = ::std::shared_ptr<MyInterface>;

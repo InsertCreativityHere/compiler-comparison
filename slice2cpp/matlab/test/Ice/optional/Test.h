@@ -144,7 +144,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit MyInterfacePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -691,7 +691,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -743,13 +743,15 @@ namespace Test
 class OneOptional : public ::Ice::Value
 {
 public:
-
-    OneOptional() = default;
+    /**
+     * Default constructor.
+     */
+    OneOptional() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit OneOptional(::std::optional<::std::int32_t> a) :
+    explicit OneOptional(::std::optional<::std::int32_t> a) noexcept :
         a(a)
     {
     }
@@ -758,9 +760,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -775,12 +777,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    OneOptionalPtr ice_clone() const { return ::std::static_pointer_cast <OneOptional>(_iceCloneImpl()); }
+    OneOptionalPtr ice_clone() const { return ::std::static_pointer_cast<OneOptional>(_iceCloneImpl()); }
 
     ::std::optional<::std::int32_t> a;
 
 protected:
-
     OneOptional(const OneOptional&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -838,13 +839,15 @@ struct VarStruct
 class MultiOptional : public ::Ice::Value
 {
 public:
-
-    MultiOptional() = default;
+    /**
+     * Default constructor.
+     */
+    MultiOptional() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    MultiOptional(::std::optional<::std::uint8_t> a, ::std::optional<bool> b, ::std::optional<::std::int16_t> c, ::std::optional<::std::int32_t> d, ::std::optional<::std::int64_t> e, ::std::optional<float> f, ::std::optional<double> g, ::std::optional<::std::string> h, ::std::optional<::Test::MyEnum> i, ::std::optional<::Test::MyInterfacePrx> j, ::std::optional<::Test::ByteSeq> bs, ::std::optional<::Test::StringSeq> ss, ::std::optional<::Test::IntIntDict> iid, ::std::optional<::Test::StringIntDict> sid, ::std::optional<::Test::FixedStruct> fs, ::std::optional<::Test::VarStruct> vs, ::std::optional<::Test::ShortSeq> shs, ::std::optional<::Test::MyEnumSeq> es, ::std::optional<::Test::FixedStructSeq> fss, ::std::optional<::Test::VarStructSeq> vss, ::std::optional<::Test::MyInterfacePrxSeq> mips, ::std::optional<::Test::IntEnumDict> ied, ::std::optional<::Test::IntFixedStructDict> ifsd, ::std::optional<::Test::IntVarStructDict> ivsd, ::std::optional<::Test::IntMyInterfacePrxDict> imipd, ::std::optional<::Test::BoolSeq> bos, ::std::optional<::Test::Serializable> ser) :
+    MultiOptional(::std::optional<::std::uint8_t> a, ::std::optional<bool> b, ::std::optional<::std::int16_t> c, ::std::optional<::std::int32_t> d, ::std::optional<::std::int64_t> e, ::std::optional<float> f, ::std::optional<double> g, ::std::optional<::std::string> h, ::std::optional<::Test::MyEnum> i, ::std::optional<::Test::MyInterfacePrx> j, ::std::optional<::Test::ByteSeq> bs, ::std::optional<::Test::StringSeq> ss, ::std::optional<::Test::IntIntDict> iid, ::std::optional<::Test::StringIntDict> sid, ::std::optional<::Test::FixedStruct> fs, ::std::optional<::Test::VarStruct> vs, ::std::optional<::Test::ShortSeq> shs, ::std::optional<::Test::MyEnumSeq> es, ::std::optional<::Test::FixedStructSeq> fss, ::std::optional<::Test::VarStructSeq> vss, ::std::optional<::Test::MyInterfacePrxSeq> mips, ::std::optional<::Test::IntEnumDict> ied, ::std::optional<::Test::IntFixedStructDict> ifsd, ::std::optional<::Test::IntVarStructDict> ivsd, ::std::optional<::Test::IntMyInterfacePrxDict> imipd, ::std::optional<::Test::BoolSeq> bos, ::std::optional<::Test::Serializable> ser) noexcept :
         a(a),
         b(b),
         c(c),
@@ -879,9 +882,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -896,7 +899,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    MultiOptionalPtr ice_clone() const { return ::std::static_pointer_cast <MultiOptional>(_iceCloneImpl()); }
+    MultiOptionalPtr ice_clone() const { return ::std::static_pointer_cast<MultiOptional>(_iceCloneImpl()); }
 
     ::std::optional<::std::uint8_t> a;
     ::std::optional<bool> b;
@@ -927,7 +930,6 @@ public:
     ::std::optional<::Test::Serializable> ser;
 
 protected:
-
     MultiOptional(const MultiOptional&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -939,13 +941,15 @@ protected:
 class A : public ::Ice::Value
 {
 public:
-
-    A() = default;
+    /**
+     * Default constructor.
+     */
+    A() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    A(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc) :
+    A(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc) noexcept :
         requiredA(requiredA),
         ma(ma),
         mb(mb),
@@ -957,9 +961,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -974,7 +978,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    APtr ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
+    APtr ice_clone() const { return ::std::static_pointer_cast<A>(_iceCloneImpl()); }
 
     ::std::int32_t requiredA;
     ::std::optional<::std::int32_t> ma;
@@ -982,7 +986,6 @@ public:
     ::std::optional<::std::int32_t> mc;
 
 protected:
-
     A(const A&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -994,13 +997,15 @@ protected:
 class B : public A
 {
 public:
-
-    B() = default;
+    /**
+     * Default constructor.
+     */
+    B() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md) :
+    B(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md) noexcept :
         A(requiredA, ma, mb, mc),
         requiredB(requiredB),
         md(md)
@@ -1011,9 +1016,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1028,13 +1033,12 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    BPtr ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
+    BPtr ice_clone() const { return ::std::static_pointer_cast<B>(_iceCloneImpl()); }
 
     ::std::int32_t requiredB;
     ::std::optional<::std::int32_t> md;
 
 protected:
-
     B(const B&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1046,13 +1050,15 @@ protected:
 class C : public B
 {
 public:
-
-    C() = default;
+    /**
+     * Default constructor.
+     */
+    C() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md, ::std::string ss, ::std::optional<::std::string> ms) :
+    C(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md, ::std::string ss, ::std::optional<::std::string> ms) noexcept :
         B(requiredA, ma, mb, mc, requiredB, md),
         ss(::std::move(ss)),
         ms(::std::move(ms))
@@ -1063,9 +1069,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1080,13 +1086,12 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
 
     ::std::string ss;
     ::std::optional<::std::string> ms;
 
 protected:
-
     C(const C&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1098,13 +1103,15 @@ protected:
 class WD : public ::Ice::Value
 {
 public:
-
-    WD() = default;
+    /**
+     * Default constructor.
+     */
+    WD() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    WD(::std::optional<::std::int32_t> a, ::std::optional<::std::string> s) :
+    WD(::std::optional<::std::int32_t> a, ::std::optional<::std::string> s) noexcept :
         a(a),
         s(::std::move(s))
     {
@@ -1114,9 +1121,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1131,13 +1138,12 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    WDPtr ice_clone() const { return ::std::static_pointer_cast <WD>(_iceCloneImpl()); }
+    WDPtr ice_clone() const { return ::std::static_pointer_cast<WD>(_iceCloneImpl()); }
 
     ::std::optional<::std::int32_t> a = 5;
     ::std::optional<::std::string> s{"test"};
 
 protected:
-
     WD(const WD&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1288,13 +1294,15 @@ protected:
 class OptionalWithCustom : public ::Ice::Value
 {
 public:
-
-    OptionalWithCustom() = default;
+    /**
+     * Default constructor.
+     */
+    OptionalWithCustom() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalWithCustom(::std::optional<::Test::SmallStructList> l, ::std::optional<::Test::SmallStructList> lp) :
+    OptionalWithCustom(::std::optional<::Test::SmallStructList> l, ::std::optional<::Test::SmallStructList> lp) noexcept :
         l(::std::move(l)),
         lp(::std::move(lp))
     {
@@ -1304,9 +1312,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1321,7 +1329,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    OptionalWithCustomPtr ice_clone() const { return ::std::static_pointer_cast <OptionalWithCustom>(_iceCloneImpl()); }
+    OptionalWithCustomPtr ice_clone() const { return ::std::static_pointer_cast<OptionalWithCustom>(_iceCloneImpl()); }
 
     ::std::optional<::Test::SmallStructList> l;
 
@@ -1345,13 +1353,15 @@ protected:
 class E : public ::Ice::Value
 {
 public:
-
-    E() = default;
+    /**
+     * Default constructor.
+     */
+    E() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit E(::Test::FixedStruct fse) :
+    explicit E(::Test::FixedStruct fse) noexcept :
         fse(::std::move(fse))
     {
     }
@@ -1360,9 +1370,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1377,12 +1387,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    EPtr ice_clone() const { return ::std::static_pointer_cast <E>(_iceCloneImpl()); }
+    EPtr ice_clone() const { return ::std::static_pointer_cast<E>(_iceCloneImpl()); }
 
     ::Test::FixedStruct fse;
 
 protected:
-
     E(const E&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1394,13 +1403,15 @@ protected:
 class F : public E
 {
 public:
-
-    F() = default;
+    /**
+     * Default constructor.
+     */
+    F() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    F(::Test::FixedStruct fse, ::std::optional<::Test::FixedStruct> fsf) :
+    F(::Test::FixedStruct fse, ::std::optional<::Test::FixedStruct> fsf) noexcept :
         E(::std::move(fse)),
         fsf(::std::move(fsf))
     {
@@ -1410,9 +1421,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1427,12 +1438,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    FPtr ice_clone() const { return ::std::static_pointer_cast <F>(_iceCloneImpl()); }
+    FPtr ice_clone() const { return ::std::static_pointer_cast<F>(_iceCloneImpl()); }
 
     ::std::optional<::Test::FixedStruct> fsf;
 
 protected:
-
     F(const F&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1472,13 +1482,15 @@ struct G2
 class G : public ::Ice::Value
 {
 public:
-
-    G() = default;
+    /**
+     * Default constructor.
+     */
+    G() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    G(::std::optional<::Test::G1> gg1Opt, ::Test::G2 gg2, ::std::optional<::Test::G2> gg2Opt, ::Test::G1 gg1) :
+    G(::std::optional<::Test::G1> gg1Opt, ::Test::G2 gg2, ::std::optional<::Test::G2> gg2Opt, ::Test::G1 gg1) noexcept :
         gg1Opt(::std::move(gg1Opt)),
         gg2(::std::move(gg2)),
         gg2Opt(::std::move(gg2Opt)),
@@ -1490,9 +1502,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1507,7 +1519,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    GPtr ice_clone() const { return ::std::static_pointer_cast <G>(_iceCloneImpl()); }
+    GPtr ice_clone() const { return ::std::static_pointer_cast<G>(_iceCloneImpl()); }
 
     ::std::optional<::Test::G1> gg1Opt;
     ::Test::G2 gg2;
@@ -1515,7 +1527,6 @@ public:
     ::Test::G1 gg1;
 
 protected:
-
     G(const G&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1560,7 +1571,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1598,7 +1609,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

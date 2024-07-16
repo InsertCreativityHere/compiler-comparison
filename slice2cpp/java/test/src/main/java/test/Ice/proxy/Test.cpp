@@ -93,11 +93,10 @@ Test::MyClassPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::MyClassPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass";
-    return typeId;
+    return "::Test::MyClass";
 }
 
 ::std::optional<::Ice::ObjectPrx>
@@ -132,25 +131,22 @@ Test::MyDerivedClassPrx::_iceI_echo(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::MyDerivedClassPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyDerivedClass";
-    return typeId;
+    return "::Test::MyDerivedClass";
 }
 
-::std::string_view
+const char*
 Test::MyOtherDerivedClassPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyOtherDerivedClass";
-    return typeId;
+    return "::Test::MyOtherDerivedClass";
 }
 
-::std::string_view
+const char*
 Test::DiamondClassPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::DiamondClass";
-    return typeId;
+    return "::Test::DiamondClass";
 }
 
 ::std::vector<::std::string>
@@ -166,11 +162,10 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MyClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass";
-    return typeId;
+    return "::Test::MyClass";
 }
 
 /// \cond INTERNAL
@@ -267,11 +262,10 @@ Test::MyDerivedClass::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MyDerivedClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyDerivedClass";
-    return typeId;
+    return "::Test::MyDerivedClass";
 }
 
 /// \cond INTERNAL
@@ -366,11 +360,10 @@ Test::MyOtherDerivedClass::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MyOtherDerivedClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyOtherDerivedClass";
-    return typeId;
+    return "::Test::MyOtherDerivedClass";
 }
 
 /// \cond INTERNAL
@@ -441,11 +434,10 @@ Test::DiamondClass::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::DiamondClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::DiamondClass";
-    return typeId;
+    return "::Test::DiamondClass";
 }
 
 /// \cond INTERNAL

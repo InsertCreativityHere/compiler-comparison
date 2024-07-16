@@ -198,7 +198,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit AdapterPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -306,7 +306,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit FileReaderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -650,7 +650,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -795,7 +795,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit ReplicaObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -1139,7 +1139,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -1433,7 +1433,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit NodeSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -1485,7 +1485,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -1779,7 +1779,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit ReplicaSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -2083,7 +2083,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -2144,15 +2144,17 @@ namespace IceGrid
 class InternalDbEnvDescriptor : public ::Ice::Value
 {
 public:
-
-    InternalDbEnvDescriptor() = default;
+    /**
+     * Default constructor.
+     */
+    InternalDbEnvDescriptor() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param name The name of the database environment.
      * @param properties The database properties.
      */
-    InternalDbEnvDescriptor(::std::string name, ::IceGrid::PropertyDescriptorSeq properties) :
+    InternalDbEnvDescriptor(::std::string name, ::IceGrid::PropertyDescriptorSeq properties) noexcept :
         name(::std::move(name)),
         properties(::std::move(properties))
     {
@@ -2162,9 +2164,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -2179,7 +2181,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    InternalDbEnvDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <InternalDbEnvDescriptor>(_iceCloneImpl()); }
+    InternalDbEnvDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<InternalDbEnvDescriptor>(_iceCloneImpl()); }
 
     /**
      * The name of the database environment.
@@ -2191,7 +2193,6 @@ public:
     ::IceGrid::PropertyDescriptorSeq properties;
 
 protected:
-
     InternalDbEnvDescriptor(const InternalDbEnvDescriptor&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -2207,15 +2208,17 @@ static InternalDbEnvDescriptor _iceS_InternalDbEnvDescriptor_init;
 class InternalAdapterDescriptor : public ::Ice::Value
 {
 public:
-
-    InternalAdapterDescriptor() = default;
+    /**
+     * Default constructor.
+     */
+    InternalAdapterDescriptor() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param id The identifier of the server.
      * @param serverLifetime Specifies if the lifetime of the adapter is the same as the server.
      */
-    InternalAdapterDescriptor(::std::string id, bool serverLifetime) :
+    InternalAdapterDescriptor(::std::string id, bool serverLifetime) noexcept :
         id(::std::move(id)),
         serverLifetime(serverLifetime)
     {
@@ -2225,9 +2228,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -2242,7 +2245,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    InternalAdapterDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <InternalAdapterDescriptor>(_iceCloneImpl()); }
+    InternalAdapterDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<InternalAdapterDescriptor>(_iceCloneImpl()); }
 
     /**
      * The identifier of the server.
@@ -2254,7 +2257,6 @@ public:
     bool serverLifetime;
 
 protected:
-
     InternalAdapterDescriptor(const InternalAdapterDescriptor&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -2266,8 +2268,10 @@ protected:
 class InternalServerDescriptor : public ::Ice::Value
 {
 public:
-
-    InternalServerDescriptor() = default;
+    /**
+     * Default constructor.
+     */
+    InternalServerDescriptor() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2290,7 +2294,7 @@ public:
      * @param properties The configuration files of the server.
      * @param services IceBox service names
      */
-    InternalServerDescriptor(::std::string id, ::std::string application, ::std::string uuid, ::std::int32_t revision, ::std::string sessionId, ::std::string exe, ::std::string pwd, ::std::string user, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool processRegistered, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::Ice::StringSeq logs, ::IceGrid::InternalAdapterDescriptorSeq adapters, ::IceGrid::InternalDbEnvDescriptorSeq dbEnvs, ::IceGrid::PropertyDescriptorSeqDict properties, ::std::optional<::Ice::StringSeq> services) :
+    InternalServerDescriptor(::std::string id, ::std::string application, ::std::string uuid, ::std::int32_t revision, ::std::string sessionId, ::std::string exe, ::std::string pwd, ::std::string user, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool processRegistered, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::Ice::StringSeq logs, ::IceGrid::InternalAdapterDescriptorSeq adapters, ::IceGrid::InternalDbEnvDescriptorSeq dbEnvs, ::IceGrid::PropertyDescriptorSeqDict properties, ::std::optional<::Ice::StringSeq> services) noexcept :
         id(::std::move(id)),
         application(::std::move(application)),
         uuid(::std::move(uuid)),
@@ -2317,9 +2321,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -2334,7 +2338,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    InternalServerDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <InternalServerDescriptor>(_iceCloneImpl()); }
+    InternalServerDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<InternalServerDescriptor>(_iceCloneImpl()); }
 
     /**
      * The server ID.
@@ -2411,7 +2415,6 @@ public:
     ::std::optional<::Ice::StringSeq> services;
 
 protected:
-
     InternalServerDescriptor(const InternalServerDescriptor&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -2585,8 +2588,10 @@ protected:
 class InternalNodeInfo : public ::Ice::Value
 {
 public:
-
-    InternalNodeInfo() = default;
+    /**
+     * Default constructor.
+     */
+    InternalNodeInfo() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2599,7 +2604,7 @@ public:
      * @param nProcessors The number of processor threads (e.g.
      * @param dataDir The path to the node data directory.
      */
-    InternalNodeInfo(::std::string name, ::std::string os, ::std::string hostname, ::std::string release, ::std::string version, ::std::string machine, ::std::int32_t nProcessors, ::std::string dataDir) :
+    InternalNodeInfo(::std::string name, ::std::string os, ::std::string hostname, ::std::string release, ::std::string version, ::std::string machine, ::std::int32_t nProcessors, ::std::string dataDir) noexcept :
         name(::std::move(name)),
         os(::std::move(os)),
         hostname(::std::move(hostname)),
@@ -2615,9 +2620,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -2632,7 +2637,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    InternalNodeInfoPtr ice_clone() const { return ::std::static_pointer_cast <InternalNodeInfo>(_iceCloneImpl()); }
+    InternalNodeInfoPtr ice_clone() const { return ::std::static_pointer_cast<InternalNodeInfo>(_iceCloneImpl()); }
 
     /**
      * The name of the node.
@@ -2668,7 +2673,6 @@ public:
     ::std::string dataDir;
 
 protected:
-
     InternalNodeInfo(const InternalNodeInfo&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -2683,15 +2687,17 @@ protected:
 class InternalReplicaInfo : public ::Ice::Value
 {
 public:
-
-    InternalReplicaInfo() = default;
+    /**
+     * Default constructor.
+     */
+    InternalReplicaInfo() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param name The name of the registry.
      * @param hostname The network name of the host running this registry (as defined in uname()).
      */
-    InternalReplicaInfo(::std::string name, ::std::string hostname) :
+    InternalReplicaInfo(::std::string name, ::std::string hostname) noexcept :
         name(::std::move(name)),
         hostname(::std::move(hostname))
     {
@@ -2701,9 +2707,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -2718,7 +2724,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    InternalReplicaInfoPtr ice_clone() const { return ::std::static_pointer_cast <InternalReplicaInfo>(_iceCloneImpl()); }
+    InternalReplicaInfoPtr ice_clone() const { return ::std::static_pointer_cast<InternalReplicaInfo>(_iceCloneImpl()); }
 
     /**
      * The name of the registry.
@@ -2730,7 +2736,6 @@ public:
     ::std::string hostname;
 
 protected:
-
     InternalReplicaInfo(const InternalReplicaInfo&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -2768,7 +2773,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
@@ -2836,7 +2841,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Count the number of given lines from the end of the file and return the file offset.
@@ -2887,7 +2892,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Start the server.
@@ -3022,7 +3027,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Initialization of the replica observer.
@@ -3083,7 +3088,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
@@ -3218,7 +3223,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * The node call this method to keep the session alive.
@@ -3332,7 +3337,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /// \cond INTERNAL
     void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
@@ -3365,7 +3370,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * The replica call this method to keep the session alive.
@@ -3473,7 +3478,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     /**
      * Register a node with the registry. If a node with the same name is already registered,

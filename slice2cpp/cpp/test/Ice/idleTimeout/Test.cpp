@@ -67,11 +67,10 @@ Test::DelayedTestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::Out
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::DelayedTestIntfPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::DelayedTestIntf";
-    return typeId;
+    return "::Test::DelayedTestIntf";
 }
 
 void
@@ -102,11 +101,10 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntf";
-    return typeId;
+    return "::Test::TestIntf";
 }
 
 void
@@ -140,11 +138,10 @@ Test::TestIntfBidirPrx::_iceI_makeSleep(const ::std::shared_ptr<::IceInternal::O
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::TestIntfBidirPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntfBidir";
-    return typeId;
+    return "::Test::TestIntfBidir";
 }
 
 ::std::vector<::std::string>
@@ -160,11 +157,10 @@ Test::DelayedTestIntf::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::DelayedTestIntf::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::DelayedTestIntf";
-    return typeId;
+    return "::Test::DelayedTestIntf";
 }
 
 /// \cond INTERNAL
@@ -245,11 +241,10 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::TestIntf::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntf";
-    return typeId;
+    return "::Test::TestIntf";
 }
 
 /// \cond INTERNAL
@@ -331,11 +326,10 @@ Test::TestIntfBidir::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::TestIntfBidir::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::TestIntfBidir";
-    return typeId;
+    return "::Test::TestIntfBidir";
 }
 
 /// \cond INTERNAL

@@ -68,11 +68,10 @@ Test::MA::IAPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsync
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::MA::IAPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MA::IA";
-    return typeId;
+    return "::Test::MA::IA";
 }
 
 ::std::optional<::Test::MB::IB1Prx>
@@ -107,11 +106,10 @@ Test::MB::IB1Prx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::MB::IB1Prx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MB::IB1";
-    return typeId;
+    return "::Test::MB::IB1";
 }
 
 ::std::optional<::Test::MB::IB2Prx>
@@ -146,11 +144,10 @@ Test::MB::IB2Prx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::MB::IB2Prx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MB::IB2";
-    return typeId;
+    return "::Test::MB::IB2";
 }
 
 ::std::optional<::Test::MA::ICPrx>
@@ -185,11 +182,10 @@ Test::MA::ICPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsync
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::MA::ICPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MA::IC";
-    return typeId;
+    return "::Test::MA::IC";
 }
 
 void
@@ -336,11 +332,10 @@ Test::InitialPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::InitialPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Initial";
-    return typeId;
+    return "::Test::Initial";
 }
 
 ::std::vector<::std::string>
@@ -356,11 +351,10 @@ Test::MA::IA::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MA::IA::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MA::IA";
-    return typeId;
+    return "::Test::MA::IA";
 }
 
 /// \cond INTERNAL
@@ -445,11 +439,10 @@ Test::MB::IB1::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MB::IB1::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MB::IB1";
-    return typeId;
+    return "::Test::MB::IB1";
 }
 
 /// \cond INTERNAL
@@ -539,11 +532,10 @@ Test::MB::IB2::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MB::IB2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MB::IB2";
-    return typeId;
+    return "::Test::MB::IB2";
 }
 
 /// \cond INTERNAL
@@ -633,11 +625,10 @@ Test::MA::IC::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MA::IC::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MA::IC";
-    return typeId;
+    return "::Test::MA::IC";
 }
 
 /// \cond INTERNAL
@@ -737,11 +728,10 @@ Test::Initial::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Initial::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Initial";
-    return typeId;
+    return "::Test::Initial";
 }
 
 /// \cond INTERNAL

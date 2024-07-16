@@ -76,11 +76,10 @@ abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::Out
         nullptr);
 }
 
-::std::string_view
+const char*
 abstract::catchPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::catch";
-    return typeId;
+    return "::abstract::catch";
 }
 
 void
@@ -111,18 +110,16 @@ abstract::defaultPrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr);
 }
 
-::std::string_view
+const char*
 abstract::defaultPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::default";
-    return typeId;
+    return "::abstract::default";
 }
 
-::std::string_view
+const char*
 abstract::finalizePrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::finalize";
-    return typeId;
+    return "::abstract::finalize";
 }
 
 ::abstract::assert
@@ -175,24 +172,22 @@ abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAs
         });
 }
 
-::std::string_view
+const char*
 abstract::newPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::new";
-    return typeId;
+    return "::abstract::new";
 }
 
-::std::string
-abstract::_cpp_else::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 abstract::_cpp_else::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::else";
-    return typeId;
+    return "::abstract::else";
+}
+
+const char*
+abstract::_cpp_else::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -300,11 +295,10 @@ abstract::_cpp_catch::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 abstract::_cpp_catch::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::catch";
-    return typeId;
+    return "::abstract::catch";
 }
 
 /// \cond INTERNAL
@@ -400,11 +394,10 @@ abstract::_cpp_default::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 abstract::_cpp_default::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::default";
-    return typeId;
+    return "::abstract::default";
 }
 
 /// \cond INTERNAL
@@ -481,11 +474,10 @@ abstract::finalize::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 abstract::finalize::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::finalize";
-    return typeId;
+    return "::abstract::finalize";
 }
 
 /// \cond INTERNAL
@@ -556,11 +548,10 @@ abstract::_cpp_new::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 abstract::_cpp_new::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::abstract::new";
-    return typeId;
+    return "::abstract::new";
 }
 
 /// \cond INTERNAL

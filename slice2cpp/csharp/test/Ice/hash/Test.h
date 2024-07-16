@@ -308,13 +308,15 @@ struct ColorPalette
 class Pen : public ::Ice::Value
 {
 public:
-
-    Pen() = default;
+    /**
+     * Default constructor.
+     */
+    Pen() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    Pen(::std::int32_t thickness, ::Test::Color color) :
+    Pen(::std::int32_t thickness, ::Test::Color color) noexcept :
         thickness(thickness),
         color(::std::move(color))
     {
@@ -324,9 +326,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -341,13 +343,12 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    PenPtr ice_clone() const { return ::std::static_pointer_cast <Pen>(_iceCloneImpl()); }
+    PenPtr ice_clone() const { return ::std::static_pointer_cast<Pen>(_iceCloneImpl()); }
 
     ::std::int32_t thickness;
     ::Test::Color color;
 
 protected:
-
     Pen(const Pen&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;

@@ -48,11 +48,10 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Mod::A> iceC_Test_Mod_A_init("::Test::Mod::A");
 }
 
-::std::string_view
+const char*
 Test::EmptyPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Empty";
-    return typeId;
+    return "::Test::Empty";
 }
 
 void
@@ -812,11 +811,10 @@ Test::ThrowerPrx::_iceI_throwAfterException(const ::std::shared_ptr<::IceInterna
         });
 }
 
-::std::string_view
+const char*
 Test::ThrowerPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Thrower";
-    return typeId;
+    return "::Test::Thrower";
 }
 
 void
@@ -847,11 +845,10 @@ Test::WrongOperationPrx::_iceI_noSuchOperation(const ::std::shared_ptr<::IceInte
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::WrongOperationPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::WrongOperation";
-    return typeId;
+    return "::Test::WrongOperation";
 }
 
 const char*
@@ -1111,11 +1108,10 @@ Test::Empty::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Empty::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Empty";
-    return typeId;
+    return "::Test::Empty";
 }
 
 ::std::vector<::std::string>
@@ -1131,11 +1127,10 @@ Test::Thrower::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Thrower::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Thrower";
-    return typeId;
+    return "::Test::Thrower";
 }
 
 /// \cond INTERNAL
@@ -1604,11 +1599,10 @@ Test::WrongOperation::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::WrongOperation::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::WrongOperation";
-    return typeId;
+    return "::Test::WrongOperation";
 }
 
 /// \cond INTERNAL

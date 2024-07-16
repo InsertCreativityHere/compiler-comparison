@@ -120,11 +120,10 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::EchoPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Echo";
-    return typeId;
+    return "::Test::Echo";
 }
 
 ::std::vector<::std::string>
@@ -140,11 +139,10 @@ Test::Echo::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::Echo::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Echo";
-    return typeId;
+    return "::Test::Echo";
 }
 
 /// \cond INTERNAL

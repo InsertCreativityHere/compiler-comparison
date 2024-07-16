@@ -76,11 +76,10 @@ _cpp_and::delPrx::_iceI_elif(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         nullptr);
 }
 
-::std::string_view
+const char*
 _cpp_and::delPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::and::del";
-    return typeId;
+    return "::and::del";
 }
 
 void
@@ -111,18 +110,16 @@ _cpp_and::execPrx::_iceI_finally(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
-::std::string_view
+const char*
 _cpp_and::execPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::and::exec";
-    return typeId;
+    return "::and::exec";
 }
 
-::std::string_view
+const char*
 _cpp_and::ifPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::and::if";
-    return typeId;
+    return "::and::if";
 }
 
 ::_cpp_and::assert
@@ -171,24 +168,22 @@ _cpp_and::printPrx::_iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingA
         });
 }
 
-::std::string_view
+const char*
 _cpp_and::printPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::and::print";
-    return typeId;
+    return "::and::print";
 }
 
-::std::string
-_cpp_and::_cpp_for::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 _cpp_and::_cpp_for::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::and::for";
-    return typeId;
+    return "::and::for";
+}
+
+const char*
+_cpp_and::_cpp_for::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -296,11 +291,10 @@ _cpp_and::del::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 _cpp_and::del::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::and::del";
-    return typeId;
+    return "::and::del";
 }
 
 /// \cond INTERNAL
@@ -396,11 +390,10 @@ _cpp_and::exec::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 _cpp_and::exec::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::and::exec";
-    return typeId;
+    return "::and::exec";
 }
 
 /// \cond INTERNAL
@@ -477,11 +470,10 @@ _cpp_and::_cpp_if::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 _cpp_and::_cpp_if::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::and::if";
-    return typeId;
+    return "::and::if";
 }
 
 /// \cond INTERNAL
@@ -552,11 +544,10 @@ _cpp_and::print::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 _cpp_and::print::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::and::print";
-    return typeId;
+    return "::and::print";
 }
 
 /// \cond INTERNAL

@@ -102,11 +102,10 @@ Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr
         });
 }
 
-::std::string_view
+const char*
 Glacier2::PermissionsVerifierPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::PermissionsVerifier";
-    return typeId;
+    return "::Glacier2::PermissionsVerifier";
 }
 
 bool
@@ -166,11 +165,10 @@ Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::I
         });
 }
 
-::std::string_view
+const char*
 Glacier2::SSLPermissionsVerifierPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::SSLPermissionsVerifier";
-    return typeId;
+    return "::Glacier2::SSLPermissionsVerifier";
 }
 
 const char*
@@ -220,11 +218,10 @@ Glacier2::PermissionsVerifier::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Glacier2::PermissionsVerifier::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::PermissionsVerifier";
-    return typeId;
+    return "::Glacier2::PermissionsVerifier";
 }
 
 /// \cond INTERNAL
@@ -312,11 +309,10 @@ Glacier2::SSLPermissionsVerifier::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Glacier2::SSLPermissionsVerifier::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Glacier2::SSLPermissionsVerifier";
-    return typeId;
+    return "::Glacier2::SSLPermissionsVerifier";
 }
 
 /// \cond INTERNAL

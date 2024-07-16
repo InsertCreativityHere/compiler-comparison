@@ -50,17 +50,16 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::PSUnknownException> iceC_Test_PSUnknownException_init("::Test::PSUnknownException");
 }
 
-::std::string
-Test::SBSUnknownDerived::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::SBSUnknownDerived::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::SBSUnknownDerived";
-    return typeId;
+    return "::Test::SBSUnknownDerived";
+}
+
+const char*
+Test::SBSUnknownDerived::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -87,17 +86,16 @@ Test::SBSUnknownDerived::_iceReadImpl(::Ice::InputStream* istr)
     SBase::_iceReadImpl(istr);
 }
 
-::std::string
-Test::SUnknown::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::SUnknown::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::SUnknown";
-    return typeId;
+    return "::Test::SUnknown";
+}
+
+const char*
+Test::SUnknown::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -122,17 +120,16 @@ Test::SUnknown::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::D2::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::D2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::D2";
-    return typeId;
+    return "::Test::D2";
+}
+
+const char*
+Test::D2::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -159,17 +156,16 @@ Test::D2::_iceReadImpl(::Ice::InputStream* istr)
     B::_iceReadImpl(istr);
 }
 
-::std::string
-Test::D4::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::D4::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::D4";
-    return typeId;
+    return "::Test::D4";
+}
+
+const char*
+Test::D4::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -232,17 +228,16 @@ Test::UnknownDerivedException::_readImpl(::Ice::InputStream* istr)
     BaseException::_readImpl(istr);
 }
 
-::std::string
-Test::MyClass::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::MyClass::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyClass";
-    return typeId;
+    return "::Test::MyClass";
+}
+
+const char*
+Test::MyClass::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -267,17 +262,16 @@ Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::PSUnknown::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::PSUnknown::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::PSUnknown";
-    return typeId;
+    return "::Test::PSUnknown";
+}
+
+const char*
+Test::PSUnknown::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -304,17 +298,16 @@ Test::PSUnknown::_iceReadImpl(::Ice::InputStream* istr)
     Preserved::_iceReadImpl(istr);
 }
 
-::std::string
-Test::PSUnknown2::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::PSUnknown2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::PSUnknown2";
-    return typeId;
+    return "::Test::PSUnknown2";
+}
+
+const char*
+Test::PSUnknown2::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr

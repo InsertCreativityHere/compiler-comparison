@@ -83,24 +83,22 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
         });
 }
 
-::std::string_view
+const char*
 Test::UnexpectedObjectExceptionTestPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UnexpectedObjectExceptionTest";
-    return typeId;
+    return "::Test::UnexpectedObjectExceptionTest";
 }
 
-::std::string
-Test::Empty::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::Empty::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::Empty";
-    return typeId;
+    return "::Test::Empty";
+}
+
+const char*
+Test::Empty::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -123,17 +121,16 @@ Test::Empty::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::AlsoEmpty::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::AlsoEmpty::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::AlsoEmpty";
-    return typeId;
+    return "::Test::AlsoEmpty";
+}
+
+const char*
+Test::AlsoEmpty::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -156,17 +153,16 @@ Test::AlsoEmpty::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::COneMember::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::COneMember::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::COneMember";
-    return typeId;
+    return "::Test::COneMember";
+}
+
+const char*
+Test::COneMember::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -191,17 +187,16 @@ Test::COneMember::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test::CTwoMembers::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test::CTwoMembers::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::CTwoMembers";
-    return typeId;
+    return "::Test::CTwoMembers";
+}
+
+const char*
+Test::CTwoMembers::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -323,11 +318,10 @@ Test::UnexpectedObjectExceptionTest::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::UnexpectedObjectExceptionTest::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::UnexpectedObjectExceptionTest";
-    return typeId;
+    return "::Test::UnexpectedObjectExceptionTest";
 }
 
 /// \cond INTERNAL

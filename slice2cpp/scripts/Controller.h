@@ -113,7 +113,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit TestCasePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -209,7 +209,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit ControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -294,7 +294,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit ProcessPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -368,7 +368,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit ProcessControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -431,7 +431,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -503,7 +503,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit ProcessControllerRegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -560,13 +560,15 @@ namespace Common
 class Config : public ::Ice::Value
 {
 public:
-
-    Config() = default;
+    /**
+     * Default constructor.
+     */
+    Config() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    Config(::std::optional<::std::string> protocol, ::std::optional<bool> mx, ::std::optional<bool> serialize, ::std::optional<bool> compress, ::std::optional<bool> ipv6, ::std::optional<::Test::Common::StringSeq> cprops, ::std::optional<::Test::Common::StringSeq> sprops) :
+    Config(::std::optional<::std::string> protocol, ::std::optional<bool> mx, ::std::optional<bool> serialize, ::std::optional<bool> compress, ::std::optional<bool> ipv6, ::std::optional<::Test::Common::StringSeq> cprops, ::std::optional<::Test::Common::StringSeq> sprops) noexcept :
         protocol(::std::move(protocol)),
         mx(mx),
         serialize(serialize),
@@ -581,9 +583,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -598,7 +600,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ConfigPtr ice_clone() const { return ::std::static_pointer_cast <Config>(_iceCloneImpl()); }
+    ConfigPtr ice_clone() const { return ::std::static_pointer_cast<Config>(_iceCloneImpl()); }
 
     ::std::optional<::std::string> protocol;
     ::std::optional<bool> mx;
@@ -609,7 +611,6 @@ public:
     ::std::optional<::Test::Common::StringSeq> sprops;
 
 protected:
-
     Config(const Config&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -625,13 +626,15 @@ static Config _iceS_Config_init;
 class OptionOverrides : public ::Ice::Value
 {
 public:
-
-    OptionOverrides() = default;
+    /**
+     * Default constructor.
+     */
+    OptionOverrides() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionOverrides(::std::optional<::Test::Common::StringSeq> protocol, ::std::optional<::Test::Common::BoolSeq> mx, ::std::optional<::Test::Common::BoolSeq> serialize, ::std::optional<::Test::Common::BoolSeq> compress, ::std::optional<::Test::Common::BoolSeq> ipv6) :
+    OptionOverrides(::std::optional<::Test::Common::StringSeq> protocol, ::std::optional<::Test::Common::BoolSeq> mx, ::std::optional<::Test::Common::BoolSeq> serialize, ::std::optional<::Test::Common::BoolSeq> compress, ::std::optional<::Test::Common::BoolSeq> ipv6) noexcept :
         protocol(::std::move(protocol)),
         mx(::std::move(mx)),
         serialize(::std::move(serialize)),
@@ -644,9 +647,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -661,7 +664,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    OptionOverridesPtr ice_clone() const { return ::std::static_pointer_cast <OptionOverrides>(_iceCloneImpl()); }
+    OptionOverridesPtr ice_clone() const { return ::std::static_pointer_cast<OptionOverrides>(_iceCloneImpl()); }
 
     ::std::optional<::Test::Common::StringSeq> protocol;
     ::std::optional<::Test::Common::BoolSeq> mx;
@@ -670,7 +673,6 @@ public:
     ::std::optional<::Test::Common::BoolSeq> ipv6;
 
 protected:
-
     OptionOverrides(const OptionOverrides&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -842,7 +844,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual ::std::string startServerSide(ConfigPtr config, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -895,7 +897,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual ::std::optional<TestCasePrx> runTestCase(::std::string mapping, ::std::string testsuite, ::std::string testcase, ::std::string cross, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -948,7 +950,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void waitReady(::std::int32_t timeout, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -996,7 +998,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual ::std::optional<ProcessPrx> start(::std::string testsuite, ::std::string exe, StringSeq args, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1039,7 +1041,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void redirect(::std::string url, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1077,7 +1079,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual void setProcessController(::std::optional<ProcessControllerPrx> controller, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

@@ -147,11 +147,10 @@ Test::MyObjectPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
-::std::string_view
+const char*
 Test::MyObjectPrx::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyObject";
-    return typeId;
+    return "::Test::MyObject";
 }
 
 const char*
@@ -199,11 +198,10 @@ Test::MyObject::ice_id(const ::Ice::Current&) const
     return ::std::string{ice_staticId()};
 }
 
-::std::string_view
+const char*
 Test::MyObject::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test::MyObject";
-    return typeId;
+    return "::Test::MyObject";
 }
 
 /// \cond INTERNAL

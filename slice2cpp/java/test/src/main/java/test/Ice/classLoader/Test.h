@@ -78,7 +78,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -130,13 +130,15 @@ namespace Test
 class ConcreteClass : public ::Ice::Value
 {
 public:
-
-    ConcreteClass() = default;
+    /**
+     * Default constructor.
+     */
+    ConcreteClass() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit ConcreteClass(::std::int32_t i) :
+    explicit ConcreteClass(::std::int32_t i) noexcept :
         i(i)
     {
     }
@@ -145,9 +147,9 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
-    ::std::string ice_id() const override;
+    const char* ice_id() const noexcept override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -162,12 +164,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ConcreteClassPtr ice_clone() const { return ::std::static_pointer_cast <ConcreteClass>(_iceCloneImpl()); }
+    ConcreteClassPtr ice_clone() const { return ::std::static_pointer_cast<ConcreteClass>(_iceCloneImpl()); }
 
     ::std::int32_t i;
 
 protected:
-
     ConcreteClass(const ConcreteClass&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -228,7 +229,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    static const char* ice_staticId() noexcept;
 
     virtual ConcreteClassPtr getConcreteClass(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

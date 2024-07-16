@@ -49,17 +49,16 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test3::E2> iceC_Test3_E2_init("::Test3::E2");
 }
 
-::std::string
-Test2::C1::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test2::C1::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test2::C1";
-    return typeId;
+    return "::Test2::C1";
+}
+
+const char*
+Test2::C1::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -84,17 +83,16 @@ Test2::C1::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test2::C2::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test2::C2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test2::C2";
-    return typeId;
+    return "::Test2::C2";
+}
+
+const char*
+Test2::C2::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -191,17 +189,16 @@ Test2::E2::_readImpl(::Ice::InputStream* istr)
     E1::_readImpl(istr);
 }
 
-::std::string
-Test3::C1::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test3::C1::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test3::C1";
-    return typeId;
+    return "::Test3::C1";
+}
+
+const char*
+Test3::C1::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
@@ -226,17 +223,16 @@ Test3::C1::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::string
-Test3::C2::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
+const char*
 Test3::C2::ice_staticId() noexcept
 {
-    static constexpr ::std::string_view typeId = "::Test3::C2";
-    return typeId;
+    return "::Test3::C2";
+}
+
+const char*
+Test3::C2::ice_id() const noexcept
+{
+    return ice_staticId();
 }
 
 ::Ice::ValuePtr
