@@ -331,8 +331,8 @@ Ice.defineOperations(
         ], , ],
         "throwAorDasAorD": [, , , , [[3]], ,
         [
-            Test.A,
-            Test.D
+            Test.D,
+            Test.A
         ], , ],
         "throwBasA": [, , , , [[3], [3]], ,
         [
