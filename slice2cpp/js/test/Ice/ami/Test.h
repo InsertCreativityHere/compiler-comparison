@@ -409,8 +409,6 @@ namespace Test
 class TestIntfException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.

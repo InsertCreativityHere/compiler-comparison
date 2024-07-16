@@ -1149,7 +1149,10 @@ protected:
 class OptionalException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    OptionalException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1193,7 +1196,10 @@ protected:
 class DerivedException : public OptionalException
 {
 public:
-    using OptionalException::OptionalException;
+    /**
+     * Default constructor.
+     */
+    DerivedException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1238,7 +1244,10 @@ protected:
 class RequiredException : public OptionalException
 {
 public:
-    using OptionalException::OptionalException;
+    /**
+     * Default constructor.
+     */
+    RequiredException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

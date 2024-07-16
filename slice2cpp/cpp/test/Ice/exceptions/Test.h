@@ -449,7 +449,10 @@ namespace Test
 class A : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    A() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -493,7 +496,10 @@ static A _iceS_A_init;
 class B : public A
 {
 public:
-    using A::A;
+    /**
+     * Default constructor.
+     */
+    B() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -534,7 +540,10 @@ protected:
 class C : public B
 {
 public:
-    using B::B;
+    /**
+     * Default constructor.
+     */
+    C() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -575,7 +584,10 @@ protected:
 class D : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    D() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -615,7 +627,10 @@ protected:
 class E : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    E() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -655,7 +670,10 @@ protected:
 class F : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    F() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -664,6 +682,12 @@ public:
         data(::std::move(data))
     {
     }
+
+    /**
+     * Outputs a custom description of this exception to a stream.
+     * @param stream The output stream.
+     */
+    void ice_print(::std::ostream& stream) const override;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -679,11 +703,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-    /**
-     * Prints this exception to the given stream.
-     * @param stream The target stream.
-     */
-    void ice_print(::std::ostream& stream) const override;
 
     const char* ice_id() const noexcept override;
 
@@ -703,7 +722,10 @@ namespace Mod
 class A : public ::Test::A
 {
 public:
-    using ::Test::A::A;
+    /**
+     * Default constructor.
+     */
+    A() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

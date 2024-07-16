@@ -390,7 +390,10 @@ static _cpp_for _iceS_for_init;
 class is : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    is() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -430,7 +433,10 @@ protected:
 class _cpp_not : public is
 {
 public:
-    using is::is;
+    /**
+     * Default constructor.
+     */
+    _cpp_not() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

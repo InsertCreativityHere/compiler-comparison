@@ -735,7 +735,10 @@ struct LinkInfo
 class ICE_CLASS(ICESTORM_API) LinkExists : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    LinkExists() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -787,7 +790,10 @@ static LinkExists _iceS_LinkExists_init;
 class ICE_CLASS(ICESTORM_API) NoSuchLink : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    NoSuchLink() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -835,8 +841,6 @@ protected:
 class ICE_CLASS(ICESTORM_API) AlreadySubscribed : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -860,7 +864,10 @@ protected:
 class ICE_CLASS(ICESTORM_API) InvalidSubscriber : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    InvalidSubscriber() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -908,7 +915,10 @@ protected:
 class ICE_CLASS(ICESTORM_API) BadQoS : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    BadQoS() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -956,7 +966,10 @@ protected:
 class ICE_CLASS(ICESTORM_API) TopicExists : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    TopicExists() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1004,7 +1017,10 @@ protected:
 class ICE_CLASS(ICESTORM_API) NoSuchTopic : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    NoSuchTopic() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

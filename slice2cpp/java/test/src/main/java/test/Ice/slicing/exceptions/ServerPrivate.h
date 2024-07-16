@@ -248,7 +248,10 @@ namespace Test
 class Base : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    Base() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -292,7 +295,10 @@ static Base _iceS_Base_init;
 class KnownDerived : public Base
 {
 public:
-    using Base::Base;
+    /**
+     * Default constructor.
+     */
+    KnownDerived() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -333,7 +339,10 @@ protected:
 class KnownIntermediate : public Base
 {
 public:
-    using Base::Base;
+    /**
+     * Default constructor.
+     */
+    KnownIntermediate() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -374,7 +383,10 @@ protected:
 class KnownMostDerived : public KnownIntermediate
 {
 public:
-    using KnownIntermediate::KnownIntermediate;
+    /**
+     * Default constructor.
+     */
+    KnownMostDerived() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -415,7 +427,10 @@ protected:
 class UnknownDerived : public Base
 {
 public:
-    using Base::Base;
+    /**
+     * Default constructor.
+     */
+    UnknownDerived() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -456,7 +471,10 @@ protected:
 class UnknownIntermediate : public Base
 {
 public:
-    using Base::Base;
+    /**
+     * Default constructor.
+     */
+    UnknownIntermediate() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -497,7 +515,10 @@ protected:
 class UnknownMostDerived1 : public KnownIntermediate
 {
 public:
-    using KnownIntermediate::KnownIntermediate;
+    /**
+     * Default constructor.
+     */
+    UnknownMostDerived1() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -538,7 +559,10 @@ protected:
 class UnknownMostDerived2 : public UnknownIntermediate
 {
 public:
-    using UnknownIntermediate::UnknownIntermediate;
+    /**
+     * Default constructor.
+     */
+    UnknownMostDerived2() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

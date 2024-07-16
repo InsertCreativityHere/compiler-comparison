@@ -203,7 +203,10 @@ namespace Test
 class CallbackException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    CallbackException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

@@ -56,8 +56,6 @@ namespace Test
 class BaseException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -81,7 +79,10 @@ static BaseException _iceS_BaseException_init;
 class InvalidPointException : public BaseException
 {
 public:
-    using BaseException::BaseException;
+    /**
+     * Default constructor.
+     */
+    InvalidPointException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -122,7 +123,10 @@ protected:
 class InvalidLengthException : public BaseException
 {
 public:
-    using BaseException::BaseException;
+    /**
+     * Default constructor.
+     */
+    InvalidLengthException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -163,7 +167,10 @@ protected:
 class OtherException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    OtherException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

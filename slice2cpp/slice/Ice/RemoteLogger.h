@@ -446,8 +446,6 @@ struct LogMessage
 class ICE_CLASS(ICE_API) RemoteLoggerAlreadyAttachedException : public UserException
 {
 public:
-    using UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.

@@ -1299,7 +1299,10 @@ protected:
 class EBase : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    EBase() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1345,7 +1348,10 @@ protected:
 class EDerived : public EBase
 {
 public:
-    using EBase::EBase;
+    /**
+     * Default constructor.
+     */
+    EDerived() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1746,7 +1752,10 @@ protected:
 class EOneMember : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    EOneMember() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1790,7 +1799,10 @@ protected:
 class ETwoMembers : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    ETwoMembers() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

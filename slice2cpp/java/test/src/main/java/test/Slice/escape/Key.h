@@ -407,7 +407,10 @@ static _cpp_else _iceS_else_init;
 class hashCode : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    hashCode() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -447,7 +450,10 @@ protected:
 class import : public hashCode
 {
 public:
-    using hashCode::hashCode;
+    /**
+     * Default constructor.
+     */
+    import() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

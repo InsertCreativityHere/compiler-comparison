@@ -437,7 +437,10 @@ protected:
 class persistent : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    persistent() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -491,7 +494,10 @@ protected:
 class global : public persistent
 {
 public:
-    using persistent::persistent;
+    /**
+     * Default constructor.
+     */
+    global() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

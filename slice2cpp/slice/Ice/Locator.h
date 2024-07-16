@@ -486,8 +486,6 @@ namespace Ice
 class ICE_CLASS(ICE_API) AdapterNotFoundException : public UserException
 {
 public:
-    using UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -515,8 +513,6 @@ static AdapterNotFoundException _iceS_AdapterNotFoundException_init;
 class ICE_CLASS(ICE_API) InvalidReplicaGroupIdException : public UserException
 {
 public:
-    using UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -540,8 +536,6 @@ protected:
 class ICE_CLASS(ICE_API) AdapterAlreadyActiveException : public UserException
 {
 public:
-    using UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -565,8 +559,6 @@ protected:
 class ICE_CLASS(ICE_API) ObjectNotFoundException : public UserException
 {
 public:
-    using UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -590,8 +582,6 @@ protected:
 class ICE_CLASS(ICE_API) ServerNotFoundException : public UserException
 {
 public:
-    using UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.

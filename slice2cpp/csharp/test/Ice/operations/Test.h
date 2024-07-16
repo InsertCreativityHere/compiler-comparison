@@ -1272,8 +1272,6 @@ struct MyStruct
 class SomeException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.

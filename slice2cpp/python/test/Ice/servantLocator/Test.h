@@ -302,8 +302,6 @@ namespace Test
 class TestIntfUserException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -327,8 +325,6 @@ static TestIntfUserException _iceS_TestIntfUserException_init;
 class TestImpossibleException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.

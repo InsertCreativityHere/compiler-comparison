@@ -335,7 +335,10 @@ protected:
 class MyException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    MyException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -404,7 +407,10 @@ struct NestedStruct
 class NestedException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    NestedException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -490,7 +496,10 @@ struct NestedStruct2
 class NestedException2 : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    NestedException2() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

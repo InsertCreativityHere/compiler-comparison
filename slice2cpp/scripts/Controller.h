@@ -682,7 +682,10 @@ protected:
 class TestCaseNotExistException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    TestCaseNotExistException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -722,7 +725,10 @@ protected:
 class TestCaseFailedException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    TestCaseFailedException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -762,7 +768,10 @@ protected:
 class ProcessFailedException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    ProcessFailedException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

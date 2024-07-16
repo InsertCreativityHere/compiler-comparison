@@ -115,7 +115,10 @@ namespace Test
 class ICE_CLASS(LIBRARY_TEST_API) UserError : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    UserError() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

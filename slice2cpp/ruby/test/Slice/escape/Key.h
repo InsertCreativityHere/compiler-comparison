@@ -355,7 +355,10 @@ static display _iceS_display_init;
 class next : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    next() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -395,7 +398,10 @@ protected:
 class nil : public next
 {
 public:
-    using next::next;
+    /**
+     * Default constructor.
+     */
+    nil() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

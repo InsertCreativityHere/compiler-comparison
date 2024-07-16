@@ -358,7 +358,10 @@ static _cpp_switch _iceS_switch_init;
 class _cpp_return : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    _cpp_return() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -398,7 +401,10 @@ protected:
 class as : public _cpp_return
 {
 public:
-    using _cpp_return::_cpp_return;
+    /**
+     * Default constructor.
+     */
+    as() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

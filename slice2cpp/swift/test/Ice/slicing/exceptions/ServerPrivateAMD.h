@@ -36,7 +36,10 @@ namespace Test
 class UnknownDerived : public Base
 {
 public:
-    using Base::Base;
+    /**
+     * Default constructor.
+     */
+    UnknownDerived() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -81,7 +84,10 @@ static UnknownDerived _iceS_UnknownDerived_init;
 class UnknownIntermediate : public Base
 {
 public:
-    using Base::Base;
+    /**
+     * Default constructor.
+     */
+    UnknownIntermediate() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -122,7 +128,10 @@ protected:
 class UnknownMostDerived1 : public KnownIntermediate
 {
 public:
-    using KnownIntermediate::KnownIntermediate;
+    /**
+     * Default constructor.
+     */
+    UnknownMostDerived1() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -163,7 +172,10 @@ protected:
 class UnknownMostDerived2 : public UnknownIntermediate
 {
 public:
-    using UnknownIntermediate::UnknownIntermediate;
+    /**
+     * Default constructor.
+     */
+    UnknownMostDerived2() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

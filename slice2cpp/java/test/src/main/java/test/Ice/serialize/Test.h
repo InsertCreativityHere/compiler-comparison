@@ -315,7 +315,10 @@ protected:
 class Ex : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    Ex() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

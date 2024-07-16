@@ -873,7 +873,10 @@ struct SS3
 class BaseException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    BaseException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -919,7 +922,10 @@ protected:
 class DerivedException : public BaseException
 {
 public:
-    using BaseException::BaseException;
+    /**
+     * Default constructor.
+     */
+    DerivedException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

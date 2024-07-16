@@ -237,8 +237,6 @@ namespace Test
 class InterruptedException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -262,8 +260,6 @@ static InterruptedException _iceS_InterruptedException_init;
 class CannotInterruptException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.

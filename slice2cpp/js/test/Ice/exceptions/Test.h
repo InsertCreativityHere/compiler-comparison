@@ -532,7 +532,10 @@ namespace Test
 class A : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    A() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -576,7 +579,10 @@ static A _iceS_A_init;
 class B : public A
 {
 public:
-    using A::A;
+    /**
+     * Default constructor.
+     */
+    B() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -617,7 +623,10 @@ protected:
 class C : public B
 {
 public:
-    using B::B;
+    /**
+     * Default constructor.
+     */
+    C() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -658,7 +667,10 @@ protected:
 class D : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    D() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

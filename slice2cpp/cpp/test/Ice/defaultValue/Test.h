@@ -351,7 +351,10 @@ protected:
 class BaseEx : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    BaseEx() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -421,7 +424,10 @@ protected:
 class DerivedEx : public BaseEx
 {
 public:
-    using BaseEx::BaseEx;
+    /**
+     * Default constructor.
+     */
+    DerivedEx() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

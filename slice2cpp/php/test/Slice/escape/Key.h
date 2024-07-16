@@ -464,7 +464,10 @@ static echo _iceS_echo_init;
 class endif : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    endif() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -504,7 +507,10 @@ protected:
 class endwhile : public endif
 {
 public:
-    using endif::endif;
+    /**
+     * Default constructor.
+     */
+    endwhile() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

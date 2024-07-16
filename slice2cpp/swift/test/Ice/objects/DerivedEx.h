@@ -39,14 +39,6 @@ public:
     using BaseEx::BaseEx;
 
     /**
-     * One-shot constructor to initialize all data members.
-     */
-    DerivedEx(::std::string reason) noexcept :
-        BaseEx(::std::move(reason))
-    {
-    }
-
-    /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */

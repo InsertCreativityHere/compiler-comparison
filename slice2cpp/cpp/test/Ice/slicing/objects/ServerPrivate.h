@@ -266,7 +266,10 @@ protected:
 class UnknownDerivedException : public BaseException
 {
 public:
-    using BaseException::BaseException;
+    /**
+     * Default constructor.
+     */
+    UnknownDerivedException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

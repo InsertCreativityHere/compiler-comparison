@@ -76,5 +76,5 @@ public class EBase extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 1021942409814956110L;
+    private static final long serialVersionUID = -4113411518687779378L;
 }

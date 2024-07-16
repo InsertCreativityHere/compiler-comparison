@@ -902,7 +902,10 @@ struct SS3
 class BaseException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    BaseException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -948,7 +951,10 @@ protected:
 class DerivedException : public BaseException
 {
 public:
-    using BaseException::BaseException;
+    /**
+     * Default constructor.
+     */
+    DerivedException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1189,8 +1195,6 @@ protected:
 class PreservedException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -1415,7 +1419,10 @@ protected:
 class UnknownDerivedException : public BaseException
 {
 public:
-    using BaseException::BaseException;
+    /**
+     * Default constructor.
+     */
+    UnknownDerivedException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1611,7 +1618,10 @@ protected:
 class PSUnknownException : public PreservedException
 {
 public:
-    using PreservedException::PreservedException;
+    /**
+     * Default constructor.
+     */
+    PSUnknownException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

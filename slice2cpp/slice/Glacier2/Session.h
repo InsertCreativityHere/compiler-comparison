@@ -858,7 +858,10 @@ namespace Glacier2
 class ICE_CLASS(GLACIER2_API) CannotCreateSessionException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    CannotCreateSessionException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

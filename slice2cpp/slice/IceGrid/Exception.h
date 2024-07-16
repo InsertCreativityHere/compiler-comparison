@@ -52,7 +52,10 @@ namespace IceGrid
 class ICE_CLASS(ICEGRID_API) ApplicationNotExistException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    ApplicationNotExistException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -104,7 +107,10 @@ static ApplicationNotExistException _iceS_ApplicationNotExistException_init;
 class ICE_CLASS(ICEGRID_API) ServerNotExistException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    ServerNotExistException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -152,7 +158,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) ServerStartException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    ServerStartException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -206,7 +215,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) ServerStopException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    ServerStopException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -260,7 +272,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) AdapterNotExistException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    AdapterNotExistException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -308,7 +323,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) ObjectExistsException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    ObjectExistsException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -356,7 +374,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) ObjectNotRegisteredException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    ObjectNotRegisteredException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -404,7 +425,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) NodeNotExistException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    NodeNotExistException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -452,7 +476,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) RegistryNotExistException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    RegistryNotExistException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -500,7 +527,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) DeploymentException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    DeploymentException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -548,7 +578,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) NodeUnreachableException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    NodeUnreachableException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -602,7 +635,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) ServerUnreachableException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    ServerUnreachableException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -656,7 +692,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) RegistryUnreachableException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    RegistryUnreachableException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -710,7 +749,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) BadSignalException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    BadSignalException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -758,7 +800,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) AccessDeniedException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    AccessDeniedException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -806,7 +851,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) AllocationException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    AllocationException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -857,15 +905,6 @@ public:
     using AllocationException::AllocationException;
 
     /**
-     * One-shot constructor to initialize all data members.
-     * @param reason The reason why the object couldn't be allocated.
-     */
-    AllocationTimeoutException(::std::string reason) noexcept :
-        AllocationException(::std::move(reason))
-    {
-    }
-
-    /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
@@ -888,7 +927,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) PermissionDeniedException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    PermissionDeniedException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -938,7 +980,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) ObserverAlreadyRegisteredException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    ObserverAlreadyRegisteredException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -992,7 +1037,10 @@ protected:
 class ICE_CLASS(ICEGRID_API) FileNotAvailableException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    FileNotAvailableException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

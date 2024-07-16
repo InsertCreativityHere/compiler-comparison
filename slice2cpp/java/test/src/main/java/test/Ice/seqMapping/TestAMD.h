@@ -172,7 +172,10 @@ struct Foo
 class Bar : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    Bar() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

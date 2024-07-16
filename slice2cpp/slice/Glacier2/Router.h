@@ -401,8 +401,6 @@ namespace Glacier2
 class ICE_CLASS(GLACIER2_API) SessionNotExistException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.

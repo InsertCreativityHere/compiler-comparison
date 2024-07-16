@@ -359,8 +359,6 @@ namespace IceBox
 class ICE_CLASS(ICEBOX_API) AlreadyStartedException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -388,8 +386,6 @@ static AlreadyStartedException _iceS_AlreadyStartedException_init;
 class ICE_CLASS(ICEBOX_API) AlreadyStoppedException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -413,8 +409,6 @@ protected:
 class ICE_CLASS(ICEBOX_API) NoSuchServiceException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.

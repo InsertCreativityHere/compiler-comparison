@@ -249,7 +249,10 @@ struct WstringStruct
 class WstringException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    WstringException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -319,7 +322,10 @@ struct WstringStruct
 class WstringException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    WstringException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

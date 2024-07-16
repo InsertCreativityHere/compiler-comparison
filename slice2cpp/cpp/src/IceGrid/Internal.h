@@ -2426,8 +2426,6 @@ protected:
 class AdapterActiveException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -2447,7 +2445,10 @@ protected:
 class AdapterNotActiveException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    AdapterNotActiveException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2494,7 +2495,10 @@ protected:
 class AdapterExistsException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    AdapterExistsException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2537,8 +2541,6 @@ protected:
 class NodeActiveException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
@@ -2561,8 +2563,6 @@ protected:
 class ReplicaActiveException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.

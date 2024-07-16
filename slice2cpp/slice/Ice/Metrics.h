@@ -483,8 +483,6 @@ struct MetricsFailures
 class ICE_CLASS(ICE_API) UnknownMetricsView : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
-
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.

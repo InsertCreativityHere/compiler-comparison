@@ -691,7 +691,10 @@ protected:
 class fixed : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    fixed() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -731,7 +734,10 @@ protected:
 class foreach : public fixed
 {
 public:
-    using fixed::fixed;
+    /**
+     * Default constructor.
+     */
+    foreach() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -774,7 +780,10 @@ protected:
 class BaseMethods : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    BaseMethods() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.

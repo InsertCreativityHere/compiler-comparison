@@ -150,7 +150,10 @@ namespace IceGrid
 class ICE_CLASS(ICEGRID_API) ParseException : public ::Ice::UserException
 {
 public:
-    using ::Ice::UserException::UserException;
+    /**
+     * Default constructor.
+     */
+    ParseException() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
