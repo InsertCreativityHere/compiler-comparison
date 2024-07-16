@@ -118,18 +118,7 @@ public interface printPrx extends com.zeroc.Ice.ObjectPrx
      **/
     static printPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        if (obj != null)
-        {
-            try
-            {
-                boolean ok = obj.ice_isA(ice_staticId(), context);
-                return ok ? new _printPrxI(obj) : null;
-            }
-            catch (com.zeroc.Ice.FacetNotExistException ex)
-            {
-            }
-        }
-        return null;
+        return (obj != null && obj.ice_isA(ice_staticId(), context)) ? new _printPrxI(obj) : null;
     }
 
     /**

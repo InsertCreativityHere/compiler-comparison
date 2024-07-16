@@ -88,18 +88,7 @@ public interface IB2Prx extends test.Ice.inheritance.Test.MA.IAPrx
      **/
     static IB2Prx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        if (obj != null)
-        {
-            try
-            {
-                boolean ok = obj.ice_isA(ice_staticId(), context);
-                return ok ? new _IB2PrxI(obj) : null;
-            }
-            catch (com.zeroc.Ice.FacetNotExistException ex)
-            {
-            }
-        }
-        return null;
+        return (obj != null && obj.ice_isA(ice_staticId(), context)) ? new _IB2PrxI(obj) : null;
     }
 
     /**

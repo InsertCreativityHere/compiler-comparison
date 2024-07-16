@@ -81,18 +81,7 @@ public interface diePrx extends com.zeroc.Ice.ObjectPrx
      **/
     static diePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        if (obj != null)
-        {
-            try
-            {
-                boolean ok = obj.ice_isA(ice_staticId(), context);
-                return ok ? new _diePrxI(obj) : null;
-            }
-            catch (com.zeroc.Ice.FacetNotExistException ex)
-            {
-            }
-        }
-        return null;
+        return (obj != null && obj.ice_isA(ice_staticId(), context)) ? new _diePrxI(obj) : null;
     }
 
     /**

@@ -81,18 +81,7 @@ public interface F2Prx extends com.zeroc.Ice.ObjectPrx
      **/
     static F2Prx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        if (obj != null)
-        {
-            try
-            {
-                boolean ok = obj.ice_isA(ice_staticId(), context);
-                return ok ? new _F2PrxI(obj) : null;
-            }
-            catch (com.zeroc.Ice.FacetNotExistException ex)
-            {
-            }
-        }
-        return null;
+        return (obj != null && obj.ice_isA(ice_staticId(), context)) ? new _F2PrxI(obj) : null;
     }
 
     /**
