@@ -6286,24 +6286,11 @@ namespace Test
         public static MyClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new MyClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static MyClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+        public static MyClassPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
             b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyClassPrxHelper(b) : null;
 
-        public static MyClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new MyClassPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
+        public static MyClassPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -6313,7 +6300,7 @@ namespace Test
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
         public static MyClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new MyClassPrxHelper(b.ice_facet(f)) : null;
+            uncheckedCast(b?.ice_facet(f));
 
         private static readonly string[] _ids =
         {
@@ -9966,24 +9953,11 @@ namespace Test
         public static MyDerivedClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new MyDerivedClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+        public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
             b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyDerivedClassPrxHelper(b) : null;
 
-        public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new MyDerivedClassPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
+        public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -9993,7 +9967,7 @@ namespace Test
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
         public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new MyDerivedClassPrxHelper(b.ice_facet(f)) : null;
+            uncheckedCast(b?.ice_facet(f));
 
         private static readonly string[] _ids =
         {
@@ -10224,24 +10198,11 @@ namespace Test
         public static EchoPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new EchoPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static EchoPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+        public static EchoPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
             b is not null && b.ice_isA(ice_staticId(), ctx) ? new EchoPrxHelper(b) : null;
 
-        public static EchoPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new EchoPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
+        public static EchoPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -10251,7 +10212,7 @@ namespace Test
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
         public static EchoPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new EchoPrxHelper(b.ice_facet(f)) : null;
+            uncheckedCast(b?.ice_facet(f));
 
         private static readonly string[] _ids =
         {
@@ -13772,24 +13733,11 @@ namespace Test2
         public static MyDerivedClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new MyDerivedClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+        public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
             b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyDerivedClassPrxHelper(b) : null;
 
-        public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new MyDerivedClassPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
+        public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -13799,7 +13747,7 @@ namespace Test2
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
         public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new MyDerivedClassPrxHelper(b.ice_facet(f)) : null;
+            uncheckedCast(b?.ice_facet(f));
 
         private static readonly string[] _ids =
         {
@@ -14073,32 +14021,6 @@ namespace Test
 
         public abstract MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, Ice.Current current);
 
-        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, Ice.Current current);
-
-        public abstract string opString(string p1, string p2, out string p3, Ice.Current current);
-
-        public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, Ice.Current current);
-
-        public abstract MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, Ice.Current current);
-
-        public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, Ice.Current current);
-
-        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
-
-        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
-
-        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, Ice.Current current);
-
-        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, Ice.Current current);
-
-        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
-
-        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
-
-        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
-
-        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
-
         public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, Ice.Current current);
 
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, Ice.Current current);
@@ -14212,6 +14134,32 @@ namespace Test
         public abstract bool opBool(bool p1, bool p2, out bool p3, Ice.Current current);
 
         public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, Ice.Current current);
+
+        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, Ice.Current current);
+
+        public abstract string opString(string p1, string p2, out string p3, Ice.Current current);
+
+        public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, Ice.Current current);
+
+        public abstract MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, Ice.Current current);
+
+        public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, Ice.Current current);
+
+        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
+
+        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
+
+        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, Ice.Current current);
+
+        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, Ice.Current current);
+
+        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
+
+        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
+
+        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
+
+        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -14342,32 +14290,6 @@ namespace Test2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
-        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, Ice.Current current);
-
-        public abstract string opString(string p1, string p2, out string p3, Ice.Current current);
-
-        public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, Ice.Current current);
-
-        public abstract global::Test.MyClassPrx? opMyClass(global::Test.MyClassPrx? p1, out global::Test.MyClassPrx? p2, out global::Test.MyClassPrx? p3, Ice.Current current);
-
-        public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, Ice.Current current);
-
-        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
-
-        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
-
-        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, Ice.Current current);
-
-        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, Ice.Current current);
-
-        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
-
-        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
-
-        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
-
-        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
-
         public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, Ice.Current current);
 
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, Ice.Current current);
@@ -14481,6 +14403,32 @@ namespace Test2
         public abstract bool opBool(bool p1, bool p2, out bool p3, Ice.Current current);
 
         public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, Ice.Current current);
+
+        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, Ice.Current current);
+
+        public abstract string opString(string p1, string p2, out string p3, Ice.Current current);
+
+        public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, Ice.Current current);
+
+        public abstract global::Test.MyClassPrx? opMyClass(global::Test.MyClassPrx? p1, out global::Test.MyClassPrx? p2, out global::Test.MyClassPrx? p3, Ice.Current current);
+
+        public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, Ice.Current current);
+
+        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
+
+        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
+
+        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, Ice.Current current);
+
+        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, Ice.Current current);
+
+        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
+
+        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
+
+        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
+
+        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

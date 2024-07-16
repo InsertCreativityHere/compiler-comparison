@@ -302,24 +302,11 @@ namespace Ice
         public static PropertiesAdminPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new PropertiesAdminPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static PropertiesAdminPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+        public static PropertiesAdminPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
             b is not null && b.ice_isA(ice_staticId(), ctx) ? new PropertiesAdminPrxHelper(b) : null;
 
-        public static PropertiesAdminPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new PropertiesAdminPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
+        public static PropertiesAdminPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -329,7 +316,7 @@ namespace Ice
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
         public static PropertiesAdminPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new PropertiesAdminPrxHelper(b.ice_facet(f)) : null;
+            uncheckedCast(b?.ice_facet(f));
 
         private static readonly string[] _ids =
         {

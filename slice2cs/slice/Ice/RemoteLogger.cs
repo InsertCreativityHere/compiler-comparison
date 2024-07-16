@@ -632,24 +632,11 @@ namespace Ice
         public static RemoteLoggerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new RemoteLoggerPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static RemoteLoggerPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+        public static RemoteLoggerPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
             b is not null && b.ice_isA(ice_staticId(), ctx) ? new RemoteLoggerPrxHelper(b) : null;
 
-        public static RemoteLoggerPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new RemoteLoggerPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
+        public static RemoteLoggerPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -659,7 +646,7 @@ namespace Ice
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
         public static RemoteLoggerPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new RemoteLoggerPrxHelper(b.ice_facet(f)) : null;
+            uncheckedCast(b?.ice_facet(f));
 
         private static readonly string[] _ids =
         {
@@ -857,24 +844,11 @@ namespace Ice
         public static LoggerAdminPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new LoggerAdminPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static LoggerAdminPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+        public static LoggerAdminPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
             b is not null && b.ice_isA(ice_staticId(), ctx) ? new LoggerAdminPrxHelper(b) : null;
 
-        public static LoggerAdminPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new LoggerAdminPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
+        public static LoggerAdminPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -884,7 +858,7 @@ namespace Ice
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
         public static LoggerAdminPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new LoggerAdminPrxHelper(b.ice_facet(f)) : null;
+            uncheckedCast(b?.ice_facet(f));
 
         private static readonly string[] _ids =
         {

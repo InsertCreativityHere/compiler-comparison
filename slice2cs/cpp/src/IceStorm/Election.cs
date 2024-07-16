@@ -1318,24 +1318,11 @@ namespace IceStormElection
         public static ReplicaObserverPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new ReplicaObserverPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static ReplicaObserverPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+        public static ReplicaObserverPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
             b is not null && b.ice_isA(ice_staticId(), ctx) ? new ReplicaObserverPrxHelper(b) : null;
 
-        public static ReplicaObserverPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new ReplicaObserverPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
+        public static ReplicaObserverPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -1345,7 +1332,7 @@ namespace IceStormElection
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
         public static ReplicaObserverPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new ReplicaObserverPrxHelper(b.ice_facet(f)) : null;
+            uncheckedCast(b?.ice_facet(f));
 
         private static readonly string[] _ids =
         {
@@ -1430,24 +1417,11 @@ namespace IceStormElection
         public static TopicManagerSyncPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new TopicManagerSyncPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static TopicManagerSyncPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+        public static TopicManagerSyncPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
             b is not null && b.ice_isA(ice_staticId(), ctx) ? new TopicManagerSyncPrxHelper(b) : null;
 
-        public static TopicManagerSyncPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new TopicManagerSyncPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
+        public static TopicManagerSyncPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -1457,7 +1431,7 @@ namespace IceStormElection
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
         public static TopicManagerSyncPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new TopicManagerSyncPrxHelper(b.ice_facet(f)) : null;
+            uncheckedCast(b?.ice_facet(f));
 
         private static readonly string[] _ids =
         {
@@ -1921,24 +1895,11 @@ namespace IceStormElection
         public static NodePrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new NodePrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static NodePrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+        public static NodePrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
             b is not null && b.ice_isA(ice_staticId(), ctx) ? new NodePrxHelper(b) : null;
 
-        public static NodePrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new NodePrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
+        public static NodePrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -1948,7 +1909,7 @@ namespace IceStormElection
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
         public static NodePrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new NodePrxHelper(b.ice_facet(f)) : null;
+            uncheckedCast(b?.ice_facet(f));
 
         private static readonly string[] _ids =
         {

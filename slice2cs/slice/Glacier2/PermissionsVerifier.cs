@@ -309,24 +309,11 @@ namespace Glacier2
         public static PermissionsVerifierPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new PermissionsVerifierPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static PermissionsVerifierPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+        public static PermissionsVerifierPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
             b is not null && b.ice_isA(ice_staticId(), ctx) ? new PermissionsVerifierPrxHelper(b) : null;
 
-        public static PermissionsVerifierPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new PermissionsVerifierPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
+        public static PermissionsVerifierPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -336,7 +323,7 @@ namespace Glacier2
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
         public static PermissionsVerifierPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new PermissionsVerifierPrxHelper(b.ice_facet(f)) : null;
+            uncheckedCast(b?.ice_facet(f));
 
         private static readonly string[] _ids =
         {
@@ -439,24 +426,11 @@ namespace Glacier2
         public static SSLPermissionsVerifierPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new SSLPermissionsVerifierPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static SSLPermissionsVerifierPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+        public static SSLPermissionsVerifierPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
             b is not null && b.ice_isA(ice_staticId(), ctx) ? new SSLPermissionsVerifierPrxHelper(b) : null;
 
-        public static SSLPermissionsVerifierPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-        {
-            Ice.ObjectPrx? bb = b?.ice_facet(f);
-            try
-            {
-                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                {
-                    return new SSLPermissionsVerifierPrxHelper(bb);
-                }
-            }
-            catch (Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
+        public static SSLPermissionsVerifierPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
 
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -466,7 +440,7 @@ namespace Glacier2
         [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
         public static SSLPermissionsVerifierPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            b is not null ? new SSLPermissionsVerifierPrxHelper(b.ice_facet(f)) : null;
+            uncheckedCast(b?.ice_facet(f));
 
         private static readonly string[] _ids =
         {

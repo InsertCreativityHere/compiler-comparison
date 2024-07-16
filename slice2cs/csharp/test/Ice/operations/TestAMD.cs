@@ -6195,24 +6195,11 @@ namespace Ice.operations.AMD
             public static MyClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
                 new MyClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static MyClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            public static MyClassPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
                 b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyClassPrxHelper(b) : null;
 
-            public static MyClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-            {
-                Ice.ObjectPrx? bb = b?.ice_facet(f);
-                try
-                {
-                    if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                    {
-                        return new MyClassPrxHelper(bb);
-                    }
-                }
-                catch (Ice.FacetNotExistException)
-                {
-                }
-                return null;
-            }
+            public static MyClassPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+                checkedCast(b?.ice_facet(f), ctx);
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -6222,7 +6209,7 @@ namespace Ice.operations.AMD
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
             public static MyClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-                b is not null ? new MyClassPrxHelper(b.ice_facet(f)) : null;
+                uncheckedCast(b?.ice_facet(f));
 
             private static readonly string[] _ids =
             {
@@ -9875,24 +9862,11 @@ namespace Ice.operations.AMD
             public static MyDerivedClassPrx createProxy(Ice.Communicator communicator, string proxyString) =>
                 new MyDerivedClassPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
                 b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyDerivedClassPrxHelper(b) : null;
 
-            public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-            {
-                Ice.ObjectPrx? bb = b?.ice_facet(f);
-                try
-                {
-                    if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                    {
-                        return new MyDerivedClassPrxHelper(bb);
-                    }
-                }
-                catch (Ice.FacetNotExistException)
-                {
-                }
-                return null;
-            }
+            public static MyDerivedClassPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+                checkedCast(b?.ice_facet(f), ctx);
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -9902,7 +9876,7 @@ namespace Ice.operations.AMD
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
             public static MyDerivedClassPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-                b is not null ? new MyDerivedClassPrxHelper(b.ice_facet(f)) : null;
+                uncheckedCast(b?.ice_facet(f));
 
             private static readonly string[] _ids =
             {

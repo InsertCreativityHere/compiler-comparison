@@ -547,24 +547,11 @@ namespace Ice.admin
             public static RemoteCommunicatorPrx createProxy(Ice.Communicator communicator, string proxyString) =>
                 new RemoteCommunicatorPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static RemoteCommunicatorPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            public static RemoteCommunicatorPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
                 b is not null && b.ice_isA(ice_staticId(), ctx) ? new RemoteCommunicatorPrxHelper(b) : null;
 
-            public static RemoteCommunicatorPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-            {
-                Ice.ObjectPrx? bb = b?.ice_facet(f);
-                try
-                {
-                    if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                    {
-                        return new RemoteCommunicatorPrxHelper(bb);
-                    }
-                }
-                catch (Ice.FacetNotExistException)
-                {
-                }
-                return null;
-            }
+            public static RemoteCommunicatorPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+                checkedCast(b?.ice_facet(f), ctx);
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -574,7 +561,7 @@ namespace Ice.admin
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
             public static RemoteCommunicatorPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-                b is not null ? new RemoteCommunicatorPrxHelper(b.ice_facet(f)) : null;
+                uncheckedCast(b?.ice_facet(f));
 
             private static readonly string[] _ids =
             {
@@ -697,24 +684,11 @@ namespace Ice.admin
             public static RemoteCommunicatorFactoryPrx createProxy(Ice.Communicator communicator, string proxyString) =>
                 new RemoteCommunicatorFactoryPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static RemoteCommunicatorFactoryPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            public static RemoteCommunicatorFactoryPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
                 b is not null && b.ice_isA(ice_staticId(), ctx) ? new RemoteCommunicatorFactoryPrxHelper(b) : null;
 
-            public static RemoteCommunicatorFactoryPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-            {
-                Ice.ObjectPrx? bb = b?.ice_facet(f);
-                try
-                {
-                    if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                    {
-                        return new RemoteCommunicatorFactoryPrxHelper(bb);
-                    }
-                }
-                catch (Ice.FacetNotExistException)
-                {
-                }
-                return null;
-            }
+            public static RemoteCommunicatorFactoryPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+                checkedCast(b?.ice_facet(f), ctx);
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -724,7 +698,7 @@ namespace Ice.admin
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
             public static RemoteCommunicatorFactoryPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-                b is not null ? new RemoteCommunicatorFactoryPrxHelper(b.ice_facet(f)) : null;
+                uncheckedCast(b?.ice_facet(f));
 
             private static readonly string[] _ids =
             {
@@ -799,24 +773,11 @@ namespace Ice.admin
             public static TestFacetPrx createProxy(Ice.Communicator communicator, string proxyString) =>
                 new TestFacetPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static TestFacetPrx? checkedCast(Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            public static TestFacetPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
                 b is not null && b.ice_isA(ice_staticId(), ctx) ? new TestFacetPrxHelper(b) : null;
 
-            public static TestFacetPrx? checkedCast(Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
-            {
-                Ice.ObjectPrx? bb = b?.ice_facet(f);
-                try
-                {
-                    if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
-                    {
-                        return new TestFacetPrxHelper(bb);
-                    }
-                }
-                catch (Ice.FacetNotExistException)
-                {
-                }
-                return null;
-            }
+            public static TestFacetPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+                checkedCast(b?.ice_facet(f), ctx);
 
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
@@ -826,7 +787,7 @@ namespace Ice.admin
             [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
 
             public static TestFacetPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-                b is not null ? new TestFacetPrxHelper(b.ice_facet(f)) : null;
+                uncheckedCast(b?.ice_facet(f));
 
             private static readonly string[] _ids =
             {
