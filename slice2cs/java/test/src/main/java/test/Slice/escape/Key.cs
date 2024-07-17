@@ -167,18 +167,10 @@ namespace @abstract
             ice_initialize();
         }
 
-        private const string _id = "::abstract::else";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::abstract::else";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -236,14 +228,9 @@ namespace @abstract
         public int @if;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public hashCode(int @if, global::System.Exception? innerException = null) : base(innerException)
+        public hashCode(int @if)
         {
             this.@if = @if;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public hashCode(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -252,10 +239,7 @@ namespace @abstract
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::abstract::hashCode";
-        }
+        public override string ice_id() => "::abstract::hashCode";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -296,15 +280,10 @@ namespace @abstract
         public int native;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public import(int @if, int instanceof, int native, global::System.Exception? innerException = null) : base(@if, innerException)
+        public import(int @if, int instanceof, int native) : base(@if)
         {
             this.instanceof = instanceof;
             this.native = native;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public import(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -313,10 +292,7 @@ namespace @abstract
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::abstract::import";
-        }
+        public override string ice_id() => "::abstract::import";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)

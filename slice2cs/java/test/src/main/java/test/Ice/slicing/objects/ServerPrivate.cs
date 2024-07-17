@@ -54,18 +54,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::SBase";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::SBase";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -117,18 +109,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::SBSKnownDerived";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::SBSKnownDerived";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -186,18 +170,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::B";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::B";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -255,18 +231,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::D1";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::D1";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -324,18 +292,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::SS1";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::SS1";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -389,18 +349,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::SS2";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::SS2";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -500,16 +452,11 @@ namespace Test
         public B? pb;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BaseException(string sbe, B? pb, global::System.Exception? innerException = null) : base(innerException)
+        public BaseException(string sbe, B? pb)
         {
             global::System.ArgumentNullException.ThrowIfNull(sbe);
             this.sbe = sbe;
             this.pb = pb;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BaseException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -518,10 +465,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::BaseException";
-        }
+        public override string ice_id() => "::Test::BaseException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -570,16 +514,11 @@ namespace Test
         public D1? pd1;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedException(string sbe, B? pb, string sde, D1? pd1, global::System.Exception? innerException = null) : base(sbe, pb, innerException)
+        public DerivedException(string sbe, B? pb, string sde, D1? pd1) : base(sbe, pb)
         {
             global::System.ArgumentNullException.ThrowIfNull(sde);
             this.sde = sde;
             this.pd1 = pd1;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -588,10 +527,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::DerivedException";
-        }
+        public override string ice_id() => "::Test::DerivedException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -646,18 +582,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::PBase";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::PBase";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -709,18 +637,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::Preserved";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::Preserved";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -773,18 +693,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::PDerived";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::PDerived";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -838,18 +750,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::CompactPDerived";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::CompactPDerived";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -902,18 +806,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::PNode";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::PNode";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -948,20 +844,7 @@ namespace Test
     public partial class PreservedException : Ice.UserException
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PreservedException(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PreservedException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::PreservedException";
-        }
+        public override string ice_id() => "::Test::PreservedException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1142,18 +1025,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::SBSUnknownDerived";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::SBSUnknownDerived";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1211,18 +1086,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::SUnknown";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::SUnknown";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1280,18 +1147,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::D2";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::D2";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1350,18 +1209,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::D4";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::D4";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1406,16 +1257,11 @@ namespace Test
         public D2? pd2;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerivedException(string sbe, B? pb, string sude, D2? pd2, global::System.Exception? innerException = null) : base(sbe, pb, innerException)
+        public UnknownDerivedException(string sbe, B? pb, string sude, D2? pd2) : base(sbe, pb)
         {
             global::System.ArgumentNullException.ThrowIfNull(sude);
             this.sude = sude;
             this.pd2 = pd2;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerivedException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1424,10 +1270,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::UnknownDerivedException";
-        }
+        public override string ice_id() => "::Test::UnknownDerivedException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1482,18 +1325,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::MyClass";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::MyClass";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1553,18 +1388,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::PSUnknown";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::PSUnknown";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1621,18 +1448,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::PSUnknown2";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::PSUnknown2";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1672,14 +1491,9 @@ namespace Test
         public PSUnknown2? p;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknownException(PSUnknown2? p, global::System.Exception? innerException = null) : base(innerException)
+        public PSUnknownException(PSUnknown2? p)
         {
             this.p = p;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknownException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1688,10 +1502,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::PSUnknownException";
-        }
+        public override string ice_id() => "::Test::PSUnknownException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1750,18 +1561,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::Hidden";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::Hidden";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1812,18 +1615,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::Forward";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::Forward";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)

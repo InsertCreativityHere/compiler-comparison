@@ -143,5 +143,5 @@ public class VarStruct implements java.lang.Cloneable,
     private static final VarStruct _nullMarshalValue = new VarStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = -1912284094934117406L;
+    private static final long serialVersionUID = -1912286100658448112L;
 }

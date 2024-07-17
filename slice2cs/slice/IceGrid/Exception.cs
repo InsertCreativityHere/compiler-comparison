@@ -44,15 +44,10 @@ namespace IceGrid
         public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationNotExistException(string name, global::System.Exception? innerException = null) : base(innerException)
+        public ApplicationNotExistException(string name)
         {
             global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationNotExistException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -61,10 +56,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::ApplicationNotExistException";
-        }
+        public override string ice_id() => "::IceGrid::ApplicationNotExistException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -106,15 +98,10 @@ namespace IceGrid
         public string id = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerNotExistException(string id, global::System.Exception? innerException = null) : base(innerException)
+        public ServerNotExistException(string id)
         {
             global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerNotExistException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -123,10 +110,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::ServerNotExistException";
-        }
+        public override string ice_id() => "::IceGrid::ServerNotExistException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -171,7 +155,7 @@ namespace IceGrid
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerStartException(string id, string reason, global::System.Exception? innerException = null) : base(innerException)
+        public ServerStartException(string id, string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
@@ -180,20 +164,12 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerStartException(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerStartException()
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::ServerStartException";
-        }
+        public override string ice_id() => "::IceGrid::ServerStartException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -240,7 +216,7 @@ namespace IceGrid
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerStopException(string id, string reason, global::System.Exception? innerException = null) : base(innerException)
+        public ServerStopException(string id, string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
@@ -249,20 +225,12 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerStopException(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerStopException()
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::ServerStopException";
-        }
+        public override string ice_id() => "::IceGrid::ServerStopException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -306,15 +274,10 @@ namespace IceGrid
         public string id = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterNotExistException(string id, global::System.Exception? innerException = null) : base(innerException)
+        public AdapterNotExistException(string id)
         {
             global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterNotExistException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -323,10 +286,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::AdapterNotExistException";
-        }
+        public override string ice_id() => "::IceGrid::AdapterNotExistException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -368,7 +328,7 @@ namespace IceGrid
         public global::Ice.Identity id;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectExistsException(global::Ice.Identity id, global::System.Exception? innerException = null) : base(innerException)
+        public ObjectExistsException(global::Ice.Identity id)
         {
             global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
@@ -382,10 +342,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::ObjectExistsException";
-        }
+        public override string ice_id() => "::IceGrid::ObjectExistsException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -427,7 +384,7 @@ namespace IceGrid
         public global::Ice.Identity id;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectNotRegisteredException(global::Ice.Identity id, global::System.Exception? innerException = null) : base(innerException)
+        public ObjectNotRegisteredException(global::Ice.Identity id)
         {
             global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
@@ -441,10 +398,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::ObjectNotRegisteredException";
-        }
+        public override string ice_id() => "::IceGrid::ObjectNotRegisteredException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -486,15 +440,10 @@ namespace IceGrid
         public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeNotExistException(string name, global::System.Exception? innerException = null) : base(innerException)
+        public NodeNotExistException(string name)
         {
             global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeNotExistException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -503,10 +452,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::NodeNotExistException";
-        }
+        public override string ice_id() => "::IceGrid::NodeNotExistException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -548,15 +494,10 @@ namespace IceGrid
         public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RegistryNotExistException(string name, global::System.Exception? innerException = null) : base(innerException)
+        public RegistryNotExistException(string name)
         {
             global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RegistryNotExistException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -565,10 +506,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::RegistryNotExistException";
-        }
+        public override string ice_id() => "::IceGrid::RegistryNotExistException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -610,15 +548,10 @@ namespace IceGrid
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DeploymentException(string reason, global::System.Exception? innerException = null) : base(innerException)
+        public DeploymentException(string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DeploymentException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -627,10 +560,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::DeploymentException";
-        }
+        public override string ice_id() => "::IceGrid::DeploymentException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -675,7 +605,7 @@ namespace IceGrid
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeUnreachableException(string name, string reason, global::System.Exception? innerException = null) : base(innerException)
+        public NodeUnreachableException(string name, string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
@@ -684,20 +614,12 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeUnreachableException(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeUnreachableException()
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::NodeUnreachableException";
-        }
+        public override string ice_id() => "::IceGrid::NodeUnreachableException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -744,7 +666,7 @@ namespace IceGrid
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerUnreachableException(string name, string reason, global::System.Exception? innerException = null) : base(innerException)
+        public ServerUnreachableException(string name, string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
@@ -753,20 +675,12 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerUnreachableException(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerUnreachableException()
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::ServerUnreachableException";
-        }
+        public override string ice_id() => "::IceGrid::ServerUnreachableException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -813,7 +727,7 @@ namespace IceGrid
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RegistryUnreachableException(string name, string reason, global::System.Exception? innerException = null) : base(innerException)
+        public RegistryUnreachableException(string name, string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
@@ -822,20 +736,12 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RegistryUnreachableException(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public RegistryUnreachableException()
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::RegistryUnreachableException";
-        }
+        public override string ice_id() => "::IceGrid::RegistryUnreachableException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -879,15 +785,10 @@ namespace IceGrid
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BadSignalException(string reason, global::System.Exception? innerException = null) : base(innerException)
+        public BadSignalException(string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BadSignalException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -896,10 +797,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::BadSignalException";
-        }
+        public override string ice_id() => "::IceGrid::BadSignalException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -941,15 +839,10 @@ namespace IceGrid
         public string lockUserId = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AccessDeniedException(string lockUserId, global::System.Exception? innerException = null) : base(innerException)
+        public AccessDeniedException(string lockUserId)
         {
             global::System.ArgumentNullException.ThrowIfNull(lockUserId);
             this.lockUserId = lockUserId;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AccessDeniedException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -958,10 +851,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::AccessDeniedException";
-        }
+        public override string ice_id() => "::IceGrid::AccessDeniedException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1003,15 +893,10 @@ namespace IceGrid
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllocationException(string reason, global::System.Exception? innerException = null) : base(innerException)
+        public AllocationException(string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllocationException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1020,10 +905,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::AllocationException";
-        }
+        public override string ice_id() => "::IceGrid::AllocationException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1062,12 +944,7 @@ namespace IceGrid
     public partial class AllocationTimeoutException : AllocationException
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllocationTimeoutException(string reason, global::System.Exception? innerException = null) : base(reason, innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllocationTimeoutException(global::System.Exception? innerException) : base(innerException)
+        public AllocationTimeoutException(string reason) : base(reason)
         {
         }
 
@@ -1077,10 +954,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::AllocationTimeoutException";
-        }
+        public override string ice_id() => "::IceGrid::AllocationTimeoutException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1122,15 +996,10 @@ namespace IceGrid
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PermissionDeniedException(string reason, global::System.Exception? innerException = null) : base(innerException)
+        public PermissionDeniedException(string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PermissionDeniedException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1139,10 +1008,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::PermissionDeniedException";
-        }
+        public override string ice_id() => "::IceGrid::PermissionDeniedException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1184,7 +1050,7 @@ namespace IceGrid
         public global::Ice.Identity id;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObserverAlreadyRegisteredException(global::Ice.Identity id, global::System.Exception? innerException = null) : base(innerException)
+        public ObserverAlreadyRegisteredException(global::Ice.Identity id)
         {
             global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
@@ -1198,10 +1064,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::ObserverAlreadyRegisteredException";
-        }
+        public override string ice_id() => "::IceGrid::ObserverAlreadyRegisteredException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1243,15 +1106,10 @@ namespace IceGrid
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public FileNotAvailableException(string reason, global::System.Exception? innerException = null) : base(innerException)
+        public FileNotAvailableException(string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public FileNotAvailableException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1260,10 +1118,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::FileNotAvailableException";
-        }
+        public override string ice_id() => "::IceGrid::FileNotAvailableException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)

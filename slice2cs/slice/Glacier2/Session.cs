@@ -44,15 +44,10 @@ namespace Glacier2
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CannotCreateSessionException(string reason, global::System.Exception? innerException = null) : base(innerException)
+        public CannotCreateSessionException(string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CannotCreateSessionException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -61,10 +56,7 @@ namespace Glacier2
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Glacier2::CannotCreateSessionException";
-        }
+        public override string ice_id() => "::Glacier2::CannotCreateSessionException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)

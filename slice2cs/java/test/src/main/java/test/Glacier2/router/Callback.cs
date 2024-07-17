@@ -43,16 +43,11 @@ namespace Test
         public string someString = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CallbackException(double someValue, string someString, global::System.Exception? innerException = null) : base(innerException)
+        public CallbackException(double someValue, string someString)
         {
             this.someValue = someValue;
             global::System.ArgumentNullException.ThrowIfNull(someString);
             this.someString = someString;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CallbackException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -61,10 +56,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::CallbackException";
-        }
+        public override string ice_id() => "::Test::CallbackException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)

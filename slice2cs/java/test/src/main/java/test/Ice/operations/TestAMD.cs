@@ -555,18 +555,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::MyClass1";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::MyClass1";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -10139,24 +10131,6 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, Ice.Current current);
@@ -10278,6 +10252,24 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

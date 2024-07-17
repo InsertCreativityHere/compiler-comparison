@@ -42,20 +42,7 @@ namespace Glacier2
     public partial class SessionNotExistException : Ice.UserException
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SessionNotExistException(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SessionNotExistException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Glacier2::SessionNotExistException";
-        }
+        public override string ice_id() => "::Glacier2::SessionNotExistException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -630,11 +617,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -680,11 +667,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }

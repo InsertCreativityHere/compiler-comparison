@@ -41,20 +41,7 @@ namespace IceBox
     public partial class AlreadyStartedException : Ice.UserException
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadyStartedException(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadyStartedException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceBox::AlreadyStartedException";
-        }
+        public override string ice_id() => "::IceBox::AlreadyStartedException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -91,20 +78,7 @@ namespace IceBox
     public partial class AlreadyStoppedException : Ice.UserException
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadyStoppedException(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadyStoppedException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceBox::AlreadyStoppedException";
-        }
+        public override string ice_id() => "::IceBox::AlreadyStoppedException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -141,20 +115,7 @@ namespace IceBox
     public partial class NoSuchServiceException : Ice.UserException
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchServiceException(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchServiceException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceBox::NoSuchServiceException";
-        }
+        public override string ice_id() => "::IceBox::NoSuchServiceException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)

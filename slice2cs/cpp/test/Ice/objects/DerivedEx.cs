@@ -37,12 +37,7 @@ namespace Test
     public partial class DerivedEx : BaseEx
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedEx(string reason, global::System.Exception? innerException = null) : base(reason, innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedEx(global::System.Exception? innerException) : base(innerException)
+        public DerivedEx(string reason) : base(reason)
         {
         }
 
@@ -52,10 +47,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::DerivedEx";
-        }
+        public override string ice_id() => "::Test::DerivedEx";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)

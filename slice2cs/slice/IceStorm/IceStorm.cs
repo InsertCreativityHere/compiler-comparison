@@ -110,15 +110,10 @@ namespace IceStorm
         public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public LinkExists(string name, global::System.Exception? innerException = null) : base(innerException)
+        public LinkExists(string name)
         {
             global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public LinkExists(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -127,10 +122,7 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceStorm::LinkExists";
-        }
+        public override string ice_id() => "::IceStorm::LinkExists";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -172,15 +164,10 @@ namespace IceStorm
         public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchLink(string name, global::System.Exception? innerException = null) : base(innerException)
+        public NoSuchLink(string name)
         {
             global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchLink(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -189,10 +176,7 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceStorm::NoSuchLink";
-        }
+        public override string ice_id() => "::IceStorm::NoSuchLink";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -231,20 +215,7 @@ namespace IceStorm
     public partial class AlreadySubscribed : Ice.UserException
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadySubscribed(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadySubscribed()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceStorm::AlreadySubscribed";
-        }
+        public override string ice_id() => "::IceStorm::AlreadySubscribed";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -284,15 +255,10 @@ namespace IceStorm
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InvalidSubscriber(string reason, global::System.Exception? innerException = null) : base(innerException)
+        public InvalidSubscriber(string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InvalidSubscriber(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -301,10 +267,7 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceStorm::InvalidSubscriber";
-        }
+        public override string ice_id() => "::IceStorm::InvalidSubscriber";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -346,15 +309,10 @@ namespace IceStorm
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BadQoS(string reason, global::System.Exception? innerException = null) : base(innerException)
+        public BadQoS(string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BadQoS(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -363,10 +321,7 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceStorm::BadQoS";
-        }
+        public override string ice_id() => "::IceStorm::BadQoS";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -540,15 +495,10 @@ namespace IceStorm
         public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TopicExists(string name, global::System.Exception? innerException = null) : base(innerException)
+        public TopicExists(string name)
         {
             global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TopicExists(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -557,10 +507,7 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceStorm::TopicExists";
-        }
+        public override string ice_id() => "::IceStorm::TopicExists";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -602,15 +549,10 @@ namespace IceStorm
         public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchTopic(string name, global::System.Exception? innerException = null) : base(innerException)
+        public NoSuchTopic(string name)
         {
             global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchTopic(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -619,10 +561,7 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceStorm::NoSuchTopic";
-        }
+        public override string ice_id() => "::IceStorm::NoSuchTopic";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)

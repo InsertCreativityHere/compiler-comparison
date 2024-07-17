@@ -39,20 +39,7 @@ namespace Ice.servantLocator.AMD
         public partial class TestIntfUserException : Ice.UserException
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestIntfUserException(global::System.Exception? innerException) : base(innerException)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestIntfUserException()
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override string ice_id()
-            {
-                return "::Test::TestIntfUserException";
-            }
+            public override string ice_id() => "::Test::TestIntfUserException";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -85,20 +72,7 @@ namespace Ice.servantLocator.AMD
         public partial class TestImpossibleException : Ice.UserException
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestImpossibleException(global::System.Exception? innerException) : base(innerException)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestImpossibleException()
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override string ice_id()
-            {
-                return "::Test::TestImpossibleException";
-            }
+            public override string ice_id() => "::Test::TestImpossibleException";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceWriteImpl(Ice.OutputStream ostr_)

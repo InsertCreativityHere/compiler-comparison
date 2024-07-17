@@ -221,18 +221,10 @@ namespace @await
             ice_initialize();
         }
 
-        private const string _id = "::await::delete";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::await::delete";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -331,18 +323,10 @@ namespace @await
             ice_initialize();
         }
 
-        private const string _id = "::await::package";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::await::package";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -489,14 +473,9 @@ namespace @await
         public int @for;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @fixed(int @for, global::System.Exception? innerException = null) : base(innerException)
+        public @fixed(int @for)
         {
             this.@for = @for;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @fixed(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -505,10 +484,7 @@ namespace @await
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::await::fixed";
-        }
+        public override string ice_id() => "::await::fixed";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -549,15 +525,10 @@ namespace @await
         public int @if;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @foreach(int @for, int @goto, int @if, global::System.Exception? innerException = null) : base(@for, innerException)
+        public @foreach(int @for, int @goto, int @if) : base(@for)
         {
             this.@goto = @goto;
             this.@if = @if;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @foreach(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -566,10 +537,7 @@ namespace @await
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::await::foreach";
-        }
+        public override string ice_id() => "::await::foreach";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -653,7 +621,7 @@ namespace @await
         public int ice_ToString_;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BaseMethods(int ice_Data_, int ice_HelpLink_, int ice_InnerException_, int ice_Message_, int ice_Source_, int ice_StackTrace_, int ice_TargetSite_, int ice_HResult_, int ice_Equals_, int ice_GetBaseException_, int ice_GetHashCode_, int ice_GetObjectData_, int ice_GetType_, int ice_ReferenceEquals_, int ice_ToString_, global::System.Exception? innerException = null) : base(innerException)
+        public BaseMethods(int ice_Data_, int ice_HelpLink_, int ice_InnerException_, int ice_Message_, int ice_Source_, int ice_StackTrace_, int ice_TargetSite_, int ice_HResult_, int ice_Equals_, int ice_GetBaseException_, int ice_GetHashCode_, int ice_GetObjectData_, int ice_GetType_, int ice_ReferenceEquals_, int ice_ToString_)
         {
             this.ice_Data_ = ice_Data_;
             this.ice_HelpLink_ = ice_HelpLink_;
@@ -673,20 +641,12 @@ namespace @await
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BaseMethods(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BaseMethods()
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::await::BaseMethods";
-        }
+        public override string ice_id() => "::await::BaseMethods";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)

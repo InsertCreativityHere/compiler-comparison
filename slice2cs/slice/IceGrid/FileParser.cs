@@ -44,15 +44,10 @@ namespace IceGrid
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ParseException(string reason, global::System.Exception? innerException = null) : base(innerException)
+        public ParseException(string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ParseException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -61,10 +56,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::IceGrid::ParseException";
-        }
+        public override string ice_id() => "::IceGrid::ParseException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)

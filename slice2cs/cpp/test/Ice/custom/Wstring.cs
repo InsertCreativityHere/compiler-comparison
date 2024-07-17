@@ -94,15 +94,10 @@ namespace Test1
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringException(string reason, global::System.Exception? innerException = null) : base(innerException)
+        public WstringException(string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -111,10 +106,7 @@ namespace Test1
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test1::WstringException";
-        }
+        public override string ice_id() => "::Test1::WstringException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -233,15 +225,10 @@ namespace Test2
         public string reason = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringException(string reason, global::System.Exception? innerException = null) : base(innerException)
+        public WstringException(string reason)
         {
             global::System.ArgumentNullException.ThrowIfNull(reason);
             this.reason = reason;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringException(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -250,10 +237,7 @@ namespace Test2
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test2::WstringException";
-        }
+        public override string ice_id() => "::Test2::WstringException";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)

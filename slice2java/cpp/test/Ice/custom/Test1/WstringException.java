@@ -65,5 +65,5 @@ public class WstringException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 1345710583967334571L;
+    private static final long serialVersionUID = 1345708540848819316L;
 }

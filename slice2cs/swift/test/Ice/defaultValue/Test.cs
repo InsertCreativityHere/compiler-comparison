@@ -818,18 +818,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::Base";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::Base";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -930,18 +922,10 @@ namespace Test
             ice_initialize();
         }
 
-        private const string _id = "::Test::Derived";
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
+        public static new string ice_staticId() => "::Test::Derived";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
+        public override string ice_id() => ice_staticId();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1036,7 +1020,7 @@ namespace Test
         public double zeroDotD = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BaseEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, global::System.Exception? innerException = null) : base(innerException)
+        public BaseEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
         {
             this.boolFalse = boolFalse;
             this.boolTrue = boolTrue;
@@ -1059,20 +1043,12 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BaseEx(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BaseEx()
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::BaseEx";
-        }
+        public override string ice_id() => "::Test::BaseEx";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -1155,7 +1131,7 @@ namespace Test
         public global::Test.Nested.Color nc3 = Test.ConstNestedColor3.value;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, global::Test.Nested.Color nc1, global::Test.Nested.Color nc2, global::Test.Nested.Color nc3, global::System.Exception? innerException = null) : base(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, innerException)
+        public DerivedEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, global::Test.Nested.Color nc1, global::Test.Nested.Color nc2, global::Test.Nested.Color nc3) : base(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
         {
             this.c1 = c1;
             this.c2 = c2;
@@ -1166,20 +1142,12 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedEx(global::System.Exception? innerException) : base(innerException)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DerivedEx()
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::DerivedEx";
-        }
+        public override string ice_id() => "::Test::DerivedEx";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)

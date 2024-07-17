@@ -40,15 +40,10 @@ namespace Test
         public string ud = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerived(string b, string ud, global::System.Exception? innerException = null) : base(b, innerException)
+        public UnknownDerived(string b, string ud) : base(b)
         {
             global::System.ArgumentNullException.ThrowIfNull(ud);
             this.ud = ud;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerived(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -57,10 +52,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::UnknownDerived";
-        }
+        public override string ice_id() => "::Test::UnknownDerived";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -100,15 +92,10 @@ namespace Test
         public string ui = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownIntermediate(string b, string ui, global::System.Exception? innerException = null) : base(b, innerException)
+        public UnknownIntermediate(string b, string ui) : base(b)
         {
             global::System.ArgumentNullException.ThrowIfNull(ui);
             this.ui = ui;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownIntermediate(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -117,10 +104,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::UnknownIntermediate";
-        }
+        public override string ice_id() => "::Test::UnknownIntermediate";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -160,15 +144,10 @@ namespace Test
         public string umd1 = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived1(string b, string ki, string umd1, global::System.Exception? innerException = null) : base(b, ki, innerException)
+        public UnknownMostDerived1(string b, string ki, string umd1) : base(b, ki)
         {
             global::System.ArgumentNullException.ThrowIfNull(umd1);
             this.umd1 = umd1;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived1(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -177,10 +156,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::UnknownMostDerived1";
-        }
+        public override string ice_id() => "::Test::UnknownMostDerived1";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
@@ -220,15 +196,10 @@ namespace Test
         public string umd2 = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived2(string b, string ui, string umd2, global::System.Exception? innerException = null) : base(b, ui, innerException)
+        public UnknownMostDerived2(string b, string ui, string umd2) : base(b, ui)
         {
             global::System.ArgumentNullException.ThrowIfNull(umd2);
             this.umd2 = umd2;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived2(global::System.Exception? innerException) : base(innerException)
-        {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -237,10 +208,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::UnknownMostDerived2";
-        }
+        public override string ice_id() => "::Test::UnknownMostDerived2";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
