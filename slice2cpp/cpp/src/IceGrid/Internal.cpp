@@ -1474,11 +1474,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setDatabaseObserver(const ::std::shared_ptr<::
             {
                 ex.ice_throw();
             }
-            catch(const DeploymentException&)
+            catch(const ObserverAlreadyRegisteredException&)
             {
                 throw;
             }
-            catch(const ObserverAlreadyRegisteredException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
