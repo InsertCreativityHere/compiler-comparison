@@ -179,9 +179,7 @@ open class ObserverInconsistencyException: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceStormElection::ObserverInconsistencyException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceStormElection::ObserverInconsistencyException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: ObserverInconsistencyException.ice_staticId(), compactId: -1, last: true)
@@ -711,11 +709,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ReplicaObserverPrx.Protocol,
     return ReplicaObserverPrxI.uncheckedCast(prx: prx, facet: facet) as ReplicaObserverPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ReplicaObserverPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ReplicaObserverPrx.Protocol) -> Swift.String {
     return ReplicaObserverTraits.staticId
 }
@@ -1171,11 +1169,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TopicManagerSyncPrx.Protocol
     return TopicManagerSyncPrxI.uncheckedCast(prx: prx, facet: facet) as TopicManagerSyncPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TopicManagerSyncPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TopicManagerSyncPrx.Protocol) -> Swift.String {
     return TopicManagerSyncTraits.staticId
 }
@@ -1349,11 +1347,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: NodePrx.Protocol, facet: Swi
     return NodePrxI.uncheckedCast(prx: prx, facet: facet) as NodePrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `NodePrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: NodePrx.Protocol) -> Swift.String {
     return NodeTraits.staticId
 }

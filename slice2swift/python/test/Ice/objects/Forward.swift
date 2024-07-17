@@ -17,12 +17,6 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class`F1`.
-public struct F1Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::F1"]
-    public static let staticId = "::Test::F1"
-}
-
 /// Traits for Slice interface`F2`.
 public struct F2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::F2"]
@@ -91,11 +85,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: F2Prx.Protocol, facet: Swift
     return F2PrxI.uncheckedCast(prx: prx, facet: facet) as F2PrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `F2Prx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: F2Prx.Protocol) -> Swift.String {
     return F2Traits.staticId
 }
@@ -183,19 +177,10 @@ open class F1: Ice.Value {
         self.name = name
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return F1Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return F1Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::F1" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -204,7 +189,7 @@ open class F1: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: F1Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: F1.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.name)
         ostr.endSlice()
     }

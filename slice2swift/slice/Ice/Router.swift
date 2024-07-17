@@ -99,11 +99,11 @@ public func uncheckedCast(prx: ObjectPrx, type: RouterPrx.Protocol, facet: Swift
     return RouterPrxI.uncheckedCast(prx: prx, facet: facet) as RouterPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `RouterPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: RouterPrx.Protocol) -> Swift.String {
     return RouterTraits.staticId
 }
@@ -357,11 +357,11 @@ public func uncheckedCast(prx: ObjectPrx, type: RouterFinderPrx.Protocol, facet:
     return RouterFinderPrxI.uncheckedCast(prx: prx, facet: facet) as RouterFinderPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `RouterFinderPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: RouterFinderPrx.Protocol) -> Swift.String {
     return RouterFinderTraits.staticId
 }

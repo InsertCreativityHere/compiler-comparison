@@ -1759,11 +1759,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: AdminPrx.Protocol, facet: Sw
     return AdminPrxI.uncheckedCast(prx: prx, facet: facet) as AdminPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `AdminPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: AdminPrx.Protocol) -> Swift.String {
     return AdminTraits.staticId
 }
@@ -5074,11 +5074,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: FileIteratorPrx.Protocol, fa
     return FileIteratorPrxI.uncheckedCast(prx: prx, facet: facet) as FileIteratorPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `FileIteratorPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: FileIteratorPrx.Protocol) -> Swift.String {
     return FileIteratorTraits.staticId
 }
@@ -5299,11 +5299,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: RegistryObserverPrx.Protocol
     return RegistryObserverPrxI.uncheckedCast(prx: prx, facet: facet) as RegistryObserverPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `RegistryObserverPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: RegistryObserverPrx.Protocol) -> Swift.String {
     return RegistryObserverTraits.staticId
 }
@@ -5552,11 +5552,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: NodeObserverPrx.Protocol, fa
     return NodeObserverPrxI.uncheckedCast(prx: prx, facet: facet) as NodeObserverPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `NodeObserverPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: NodeObserverPrx.Protocol) -> Swift.String {
     return NodeObserverTraits.staticId
 }
@@ -5906,11 +5906,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ApplicationObserverPrx.Proto
     return ApplicationObserverPrxI.uncheckedCast(prx: prx, facet: facet) as ApplicationObserverPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ApplicationObserverPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ApplicationObserverPrx.Protocol) -> Swift.String {
     return ApplicationObserverTraits.staticId
 }
@@ -6236,11 +6236,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: AdapterObserverPrx.Protocol,
     return AdapterObserverPrxI.uncheckedCast(prx: prx, facet: facet) as AdapterObserverPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `AdapterObserverPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: AdapterObserverPrx.Protocol) -> Swift.String {
     return AdapterObserverTraits.staticId
 }
@@ -6535,11 +6535,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ObjectObserverPrx.Protocol, 
     return ObjectObserverPrxI.uncheckedCast(prx: prx, facet: facet) as ObjectObserverPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ObjectObserverPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ObjectObserverPrx.Protocol) -> Swift.String {
     return ObjectObserverTraits.staticId
 }
@@ -6882,11 +6882,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: AdminSessionPrx.Protocol, fa
     return AdminSessionPrxI.uncheckedCast(prx: prx, facet: facet) as AdminSessionPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `AdminSessionPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: AdminSessionPrx.Protocol) -> Swift.String {
     return AdminSessionTraits.staticId
 }

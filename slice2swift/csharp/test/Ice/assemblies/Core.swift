@@ -30,14 +30,10 @@ public extension Ice.ClassResolver {
 }
 
 open class ArgumentException: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Core::ArgumentException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Core::ArgumentException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: ArgumentException.ice_staticId(), compactId: -1, last: true)

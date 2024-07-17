@@ -162,11 +162,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: SSLServerPrx.Protocol, facet
     return SSLServerPrxI.uncheckedCast(prx: prx, facet: facet) as SSLServerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `SSLServerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SSLServerPrx.Protocol) -> Swift.String {
     return SSLServerTraits.staticId
 }
@@ -351,11 +351,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: SSLServerFactoryPrx.Protocol
     return SSLServerFactoryPrxI.uncheckedCast(prx: prx, facet: facet) as SSLServerFactoryPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `SSLServerFactoryPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SSLServerFactoryPrx.Protocol) -> Swift.String {
     return SSLServerFactoryTraits.staticId
 }

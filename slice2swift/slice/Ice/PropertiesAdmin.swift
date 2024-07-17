@@ -92,11 +92,11 @@ public func uncheckedCast(prx: ObjectPrx, type: PropertiesAdminPrx.Protocol, fac
     return PropertiesAdminPrxI.uncheckedCast(prx: prx, facet: facet) as PropertiesAdminPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `PropertiesAdminPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: PropertiesAdminPrx.Protocol) -> Swift.String {
     return PropertiesAdminTraits.staticId
 }

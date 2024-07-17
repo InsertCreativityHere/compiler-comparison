@@ -17,12 +17,6 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class`UserInfo`.
-public struct UserInfoTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::User::UserInfo"]
-    public static let staticId = "::User::UserInfo"
-}
-
 /// Traits for Slice interface`Registry`.
 public struct RegistryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::User::Registry"]
@@ -91,11 +85,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: RegistryPrx.Protocol, facet:
     return RegistryPrxI.uncheckedCast(prx: prx, facet: facet) as RegistryPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `RegistryPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: RegistryPrx.Protocol) -> Swift.String {
     return RegistryTraits.staticId
 }
@@ -213,21 +207,10 @@ public extension Ice.ClassResolver {
 }
 
 open class UserInfo: Ice.Value {
-    public required init() {}
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return UserInfoTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return UserInfoTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::User::UserInfo" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -235,7 +218,7 @@ open class UserInfo: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: UserInfoTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: UserInfo.ice_staticId(), compactId: -1, last: true)
         ostr.endSlice()
     }
 }

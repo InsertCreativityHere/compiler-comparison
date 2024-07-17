@@ -1593,12 +1593,6 @@ public struct CStructSDHelper {
     }
 }
 
-/// Traits for Slice class`CV`.
-public struct CVTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::CV"]
-    public static let staticId = "::Test::CV"
-}
-
 public typealias ACVS = [CV?]
 
 /// Helper class to read and write `ACVS` sequence values from
@@ -2131,12 +2125,6 @@ public struct CIPrxSHelper {
             ostr.endSize(position: pos)
         }
     }
-}
-
-/// Traits for Slice class`CR`.
-public struct CRTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::CR"]
-    public static let staticId = "::Test::CR"
 }
 
 public typealias ACRS = [CR?]
@@ -3055,11 +3043,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: IPrx.Protocol, facet: Swift.
     return IPrxI.uncheckedCast(prx: prx, facet: facet) as IPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `IPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: IPrx.Protocol) -> Swift.String {
     return ITraits.staticId
 }
@@ -3452,11 +3440,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: 
     return MyClassPrxI.uncheckedCast(prx: prx, facet: facet) as MyClassPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `MyClassPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MyClassPrx.Protocol) -> Swift.String {
     return MyClassTraits.staticId
 }
@@ -8001,19 +7989,10 @@ open class CV: Ice.Value {
         self.i = i
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CVTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CVTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::CV" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -8022,7 +8001,7 @@ open class CV: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CVTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CV.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.i)
         ostr.endSlice()
     }
@@ -8050,19 +8029,10 @@ open class CR: Ice.Value {
         self.v = v
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CRTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CRTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::CR" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -8071,7 +8041,7 @@ open class CR: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CRTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CR.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.v)
         ostr.endSlice()
     }

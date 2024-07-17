@@ -99,11 +99,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: BackgroundPrx.Protocol, face
     return BackgroundPrxI.uncheckedCast(prx: prx, facet: facet) as BackgroundPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `BackgroundPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: BackgroundPrx.Protocol) -> Swift.String {
     return BackgroundTraits.staticId
 }
@@ -347,11 +347,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: BackgroundControllerPrx.Prot
     return BackgroundControllerPrxI.uncheckedCast(prx: prx, facet: facet) as BackgroundControllerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `BackgroundControllerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: BackgroundControllerPrx.Protocol) -> Swift.String {
     return BackgroundControllerTraits.staticId
 }

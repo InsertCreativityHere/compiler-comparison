@@ -101,11 +101,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TimeoutPrx.Protocol, facet: 
     return TimeoutPrxI.uncheckedCast(prx: prx, facet: facet) as TimeoutPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TimeoutPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TimeoutPrx.Protocol) -> Swift.String {
     return TimeoutTraits.staticId
 }
@@ -327,11 +327,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ControllerPrx.Protocol, face
     return ControllerPrxI.uncheckedCast(prx: prx, facet: facet) as ControllerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ControllerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ControllerPrx.Protocol) -> Swift.String {
     return ControllerTraits.staticId
 }

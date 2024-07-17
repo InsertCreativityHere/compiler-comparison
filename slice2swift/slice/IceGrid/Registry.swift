@@ -175,11 +175,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: QueryPrx.Protocol, facet: Sw
     return QueryPrxI.uncheckedCast(prx: prx, facet: facet) as QueryPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `QueryPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: QueryPrx.Protocol) -> Swift.String {
     return QueryTraits.staticId
 }
@@ -585,11 +585,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: RegistryPrx.Protocol, facet:
     return RegistryPrxI.uncheckedCast(prx: prx, facet: facet) as RegistryPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `RegistryPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: RegistryPrx.Protocol) -> Swift.String {
     return RegistryTraits.staticId
 }
@@ -1067,11 +1067,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: LocatorPrx.Protocol, facet: 
     return LocatorPrxI.uncheckedCast(prx: prx, facet: facet) as LocatorPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `LocatorPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LocatorPrx.Protocol) -> Swift.String {
     return LocatorTraits.staticId
 }

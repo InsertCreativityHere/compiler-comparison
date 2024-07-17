@@ -233,12 +233,6 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class`C`.
-public struct CTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::C"]
-    public static let staticId = "::Test::C"
-}
-
 public class S3 {
     public var obj: C? = nil
     public var sd: StringDict = StringDict()
@@ -329,19 +323,10 @@ open class C: Ice.Value {
         self.name = name
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -350,7 +335,7 @@ open class C: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: C.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.name)
         ostr.endSlice()
     }

@@ -133,11 +133,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: EmptyPrx.Protocol, facet: Sw
     return EmptyPrxI.uncheckedCast(prx: prx, facet: facet) as EmptyPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `EmptyPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: EmptyPrx.Protocol) -> Swift.String {
     return EmptyTraits.staticId
 }
@@ -230,11 +230,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: APrx.Protocol, facet: Swift.
     return APrxI.uncheckedCast(prx: prx, facet: facet) as APrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `APrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: APrx.Protocol) -> Swift.String {
     return ATraits.staticId
 }
@@ -372,11 +372,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: BPrx.Protocol, facet: Swift.
     return BPrxI.uncheckedCast(prx: prx, facet: facet) as BPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `BPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: BPrx.Protocol) -> Swift.String {
     return BTraits.staticId
 }
@@ -514,11 +514,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: CPrx.Protocol, facet: Swift.
     return CPrxI.uncheckedCast(prx: prx, facet: facet) as CPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `CPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CPrx.Protocol) -> Swift.String {
     return CTraits.staticId
 }
@@ -656,11 +656,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: DPrx.Protocol, facet: Swift.
     return DPrxI.uncheckedCast(prx: prx, facet: facet) as DPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `DPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: DPrx.Protocol) -> Swift.String {
     return DTraits.staticId
 }
@@ -798,11 +798,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: EPrx.Protocol, facet: Swift.
     return EPrxI.uncheckedCast(prx: prx, facet: facet) as EPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `EPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: EPrx.Protocol) -> Swift.String {
     return ETraits.staticId
 }
@@ -940,11 +940,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: FPrx.Protocol, facet: Swift.
     return FPrxI.uncheckedCast(prx: prx, facet: facet) as FPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `FPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: FPrx.Protocol) -> Swift.String {
     return FTraits.staticId
 }
@@ -1086,11 +1086,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: GPrx.Protocol, facet: Swift.
     return GPrxI.uncheckedCast(prx: prx, facet: facet) as GPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `GPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: GPrx.Protocol) -> Swift.String {
     return GTraits.staticId
 }
@@ -1261,11 +1261,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: HPrx.Protocol, facet: Swift.
     return HPrxI.uncheckedCast(prx: prx, facet: facet) as HPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `HPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: HPrx.Protocol) -> Swift.String {
     return HTraits.staticId
 }
@@ -1415,11 +1415,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: EchoPrx.Protocol, facet: Swi
     return EchoPrxI.uncheckedCast(prx: prx, facet: facet) as EchoPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `EchoPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: EchoPrx.Protocol) -> Swift.String {
     return EchoTraits.staticId
 }

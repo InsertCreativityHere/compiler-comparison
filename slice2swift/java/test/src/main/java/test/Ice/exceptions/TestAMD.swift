@@ -42,9 +42,7 @@ open class A: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::A"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::A" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: A.ice_staticId(), compactId: -1, last: true)
@@ -87,9 +85,7 @@ open class B: A {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::B"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::B" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: B.ice_staticId(), compactId: -1, last: false)
@@ -134,9 +130,7 @@ open class C: B {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::C"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::C" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: C.ice_staticId(), compactId: -1, last: false)
@@ -178,9 +172,7 @@ open class D: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::D"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::D" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: D.ice_staticId(), compactId: -1, last: true)
@@ -345,11 +337,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ThrowerPrx.Protocol, facet: 
     return ThrowerPrxI.uncheckedCast(prx: prx, facet: facet) as ThrowerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ThrowerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ThrowerPrx.Protocol) -> Swift.String {
     return ThrowerTraits.staticId
 }
@@ -1426,11 +1418,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: WrongOperationPrx.Protocol, 
     return WrongOperationPrxI.uncheckedCast(prx: prx, facet: facet) as WrongOperationPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `WrongOperationPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: WrongOperationPrx.Protocol) -> Swift.String {
     return WrongOperationTraits.staticId
 }

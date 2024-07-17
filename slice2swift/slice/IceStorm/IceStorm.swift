@@ -251,9 +251,7 @@ open class LinkExists: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceStorm::LinkExists"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceStorm::LinkExists" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: LinkExists.ice_staticId(), compactId: -1, last: true)
@@ -295,9 +293,7 @@ open class NoSuchLink: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceStorm::NoSuchLink"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceStorm::NoSuchLink" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: NoSuchLink.ice_staticId(), compactId: -1, last: true)
@@ -327,14 +323,10 @@ public extension Ice.ClassResolver {
 
 /// This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
 open class AlreadySubscribed: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceStorm::AlreadySubscribed"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceStorm::AlreadySubscribed" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: AlreadySubscribed.ice_staticId(), compactId: -1, last: true)
@@ -374,9 +366,7 @@ open class InvalidSubscriber: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceStorm::InvalidSubscriber"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceStorm::InvalidSubscriber" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: InvalidSubscriber.ice_staticId(), compactId: -1, last: true)
@@ -418,9 +408,7 @@ open class BadQoS: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceStorm::BadQoS"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceStorm::BadQoS" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: BadQoS.ice_staticId(), compactId: -1, last: true)
@@ -536,9 +524,7 @@ open class TopicExists: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceStorm::TopicExists"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceStorm::TopicExists" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: TopicExists.ice_staticId(), compactId: -1, last: true)
@@ -580,9 +566,7 @@ open class NoSuchTopic: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceStorm::NoSuchTopic"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceStorm::NoSuchTopic" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: NoSuchTopic.ice_staticId(), compactId: -1, last: true)
@@ -707,11 +691,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TopicPrx.Protocol, facet: Sw
     return TopicPrxI.uncheckedCast(prx: prx, facet: facet) as TopicPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TopicPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TopicPrx.Protocol) -> Swift.String {
     return TopicTraits.staticId
 }
@@ -1352,11 +1336,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TopicManagerPrx.Protocol, fa
     return TopicManagerPrxI.uncheckedCast(prx: prx, facet: facet) as TopicManagerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TopicManagerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TopicManagerPrx.Protocol) -> Swift.String {
     return TopicManagerTraits.staticId
 }
@@ -1643,11 +1627,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: FinderPrx.Protocol, facet: S
     return FinderPrxI.uncheckedCast(prx: prx, facet: facet) as FinderPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `FinderPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: FinderPrx.Protocol) -> Swift.String {
     return FinderTraits.staticId
 }

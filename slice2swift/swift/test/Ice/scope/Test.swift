@@ -207,12 +207,6 @@ public struct SSeqHelper {
     }
 }
 
-/// Traits for Slice class`C`.
-public struct CTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::C"]
-    public static let staticId = "::Test::C"
-}
-
 public typealias CMap = [Swift.String: C?]
 
 /// Helper class to read and write `CMap` dictionary values from
@@ -608,12 +602,6 @@ public struct S1MapHelper {
     }
 }
 
-/// Traits for Slice class`C1`.
-public struct C1Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::C1"]
-    public static let staticId = "::Test::C1"
-}
-
 public class S2 {
     public var E1: E1 = .v1
     typealias Test_S1 = S1
@@ -691,12 +679,6 @@ public extension Ice.OutputStream {
             }
         }
     }
-}
-
-/// Traits for Slice class`C2`.
-public struct C2Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::C2"]
-    public static let staticId = "::Test::C2"
 }
 
 /// Traits for Slice interface`I`.
@@ -1087,12 +1069,6 @@ public struct InnerInner2SSeqHelper {
     }
 }
 
-/// Traits for Slice class`InnerInner2C`.
-public struct InnerInner2CTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::Inner::Inner2::C"]
-    public static let staticId = "::Test::Inner::Inner2::C"
-}
-
 public typealias InnerInner2CMap = [Swift.String: InnerInner2C?]
 
 /// Helper class to read and write `InnerInner2CMap` dictionary values from
@@ -1372,12 +1348,6 @@ public struct InnerInner2ISeqHelper {
             ostr.endSize(position: pos)
         }
     }
-}
-
-/// Traits for Slice class`InnerC`.
-public struct InnerCTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::Inner::C"]
-    public static let staticId = "::Test::Inner::C"
 }
 
 public typealias InnerSSeq = [InnerInner2S]
@@ -1904,11 +1874,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: IPrx.Protocol, facet: Swift.
     return IPrxI.uncheckedCast(prx: prx, facet: facet) as IPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `IPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: IPrx.Protocol) -> Swift.String {
     return ITraits.staticId
 }
@@ -2701,11 +2671,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: InnerInner2IPrx.Protocol, fa
     return InnerInner2IPrxI.uncheckedCast(prx: prx, facet: facet) as InnerInner2IPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `InnerInner2IPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: InnerInner2IPrx.Protocol) -> Swift.String {
     return InnerInner2ITraits.staticId
 }
@@ -3227,11 +3197,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: InnerIPrx.Protocol, facet: S
     return InnerIPrxI.uncheckedCast(prx: prx, facet: facet) as InnerIPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `InnerIPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: InnerIPrx.Protocol) -> Swift.String {
     return InnerITraits.staticId
 }
@@ -3753,11 +3723,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: InnerTestInner2IPrx.Protocol
     return InnerTestInner2IPrxI.uncheckedCast(prx: prx, facet: facet) as InnerTestInner2IPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `InnerTestInner2IPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: InnerTestInner2IPrx.Protocol) -> Swift.String {
     return InnerTestInner2ITraits.staticId
 }
@@ -4215,19 +4185,10 @@ open class C: Ice.Value {
         self.s = s
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4236,7 +4197,7 @@ open class C: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: C.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.s)
         ostr.endSlice()
     }
@@ -4264,19 +4225,10 @@ open class C1: Ice.Value {
         self.s = s
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return C1Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return C1Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::C1" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4285,7 +4237,7 @@ open class C1: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: C1Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: C1.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.s)
         ostr.endSlice()
     }
@@ -4324,19 +4276,10 @@ open class C2: Ice.Value {
         self.S1Map = S1Map
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return C2Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return C2Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::C2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4350,7 +4293,7 @@ open class C2: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: C2Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: C2.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.E1)
         ostr.write(self.S1)
         ostr.write(self.C1)
@@ -4382,19 +4325,10 @@ open class InnerInner2C: Ice.Value {
         self.s = s
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return InnerInner2CTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return InnerInner2CTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Inner::Inner2::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4403,7 +4337,7 @@ open class InnerInner2C: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: InnerInner2CTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: InnerInner2C.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.s)
         ostr.endSlice()
     }
@@ -4431,19 +4365,10 @@ open class InnerC: Ice.Value {
         self.s = s
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return InnerCTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return InnerCTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Inner::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4452,7 +4377,7 @@ open class InnerC: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: InnerCTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: InnerC.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.s)
         ostr.endSlice()
     }

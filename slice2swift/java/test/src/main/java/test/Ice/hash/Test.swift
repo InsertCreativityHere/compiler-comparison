@@ -533,12 +533,6 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class`Pen`.
-public struct PenTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::Pen"]
-    public static let staticId = "::Test::Pen"
-}
-
 public class Draw {
     public var backgroundColor: Color = Color()
     public var pen: Pen? = nil
@@ -631,19 +625,10 @@ open class Pen: Ice.Value {
         self.color = color
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return PenTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return PenTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Pen" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -653,7 +638,7 @@ open class Pen: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: PenTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: Pen.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.thickness)
         ostr.write(self.color)
         ostr.endSlice()

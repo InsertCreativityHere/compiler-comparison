@@ -16,30 +16,6 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class`SBSUnknownDerived`.
-public struct SBSUnknownDerivedTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::SBSUnknownDerived", "::Test::SBase"]
-    public static let staticId = "::Test::SBSUnknownDerived"
-}
-
-/// Traits for Slice class`SUnknown`.
-public struct SUnknownTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::SUnknown"]
-    public static let staticId = "::Test::SUnknown"
-}
-
-/// Traits for Slice class`D2`.
-public struct D2Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::B", "::Test::D2"]
-    public static let staticId = "::Test::D2"
-}
-
-/// Traits for Slice class`D4`.
-public struct D4Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::B", "::Test::D4"]
-    public static let staticId = "::Test::D4"
-}
-
 /// :nodoc:
 public class UnknownDerivedException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
@@ -70,9 +46,7 @@ open class UnknownDerivedException: BaseException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::UnknownDerivedException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::UnknownDerivedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: UnknownDerivedException.ice_staticId(), compactId: -1, last: false)
@@ -89,24 +63,6 @@ open class UnknownDerivedException: BaseException {
         try istr.endSlice()
         try super._iceReadImpl(from: istr);
     }
-}
-
-/// Traits for Slice class`MyClass`.
-public struct MyClassTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MyClass"]
-    public static let staticId = "::Test::MyClass"
-}
-
-/// Traits for Slice class`PSUnknown`.
-public struct PSUnknownTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::PBase", "::Test::PSUnknown", "::Test::Preserved"]
-    public static let staticId = "::Test::PSUnknown"
-}
-
-/// Traits for Slice class`PSUnknown2`.
-public struct PSUnknown2Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::PBase", "::Test::PSUnknown2", "::Test::Preserved"]
-    public static let staticId = "::Test::PSUnknown2"
 }
 
 /// :nodoc:
@@ -134,19 +90,10 @@ open class SBSUnknownDerived: SBase {
         super.init(sb: sb)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return SBSUnknownDerivedTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return SBSUnknownDerivedTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::SBSUnknownDerived" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -156,7 +103,7 @@ open class SBSUnknownDerived: SBase {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: SBSUnknownDerivedTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: SBSUnknownDerived.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.sbsud)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -187,19 +134,10 @@ open class SUnknown: Ice.Value {
         self.cycle = cycle
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return SUnknownTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return SUnknownTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::SUnknown" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -209,7 +147,7 @@ open class SUnknown: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: SUnknownTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: SUnknown.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.su)
         ostr.write(self.cycle)
         ostr.endSlice()
@@ -243,19 +181,10 @@ open class D2: B {
         super.init(sb: sb, pb: pb)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return D2Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return D2Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::D2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -266,7 +195,7 @@ open class D2: B {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: D2Traits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: D2.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.sd2)
         ostr.write(self.pd2)
         ostr.endSlice()
@@ -301,19 +230,10 @@ open class D4: B {
         super.init(sb: sb, pb: pb)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return D4Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return D4Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::D4" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -324,7 +244,7 @@ open class D4: B {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: D4Traits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: D4.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.p1)
         ostr.write(self.p2)
         ostr.endSlice()
@@ -354,19 +274,10 @@ open class MyClass: Ice.Value {
         self.i = i
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MyClassTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MyClassTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MyClass" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -375,7 +286,7 @@ open class MyClass: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MyClassTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: MyClass.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.i)
         ostr.endSlice()
     }
@@ -410,19 +321,10 @@ open class PSUnknown: Preserved {
         super.init(pi: pi, ps: ps)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return PSUnknownTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return PSUnknownTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::PSUnknown" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -434,7 +336,7 @@ open class PSUnknown: Preserved {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: PSUnknownTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: PSUnknown.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.psu)
         ostr.write(self.graph)
         ostr.write(self.cl)
@@ -468,19 +370,10 @@ open class PSUnknown2: Preserved {
         super.init(pi: pi, ps: ps)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return PSUnknown2Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return PSUnknown2Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::PSUnknown2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -490,7 +383,7 @@ open class PSUnknown2: Preserved {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: PSUnknown2Traits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: PSUnknown2.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.pb)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);

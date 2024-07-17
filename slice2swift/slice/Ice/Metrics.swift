@@ -84,12 +84,6 @@ public struct MXStringIntDictHelper {
     }
 }
 
-/// Traits for Slice class`MXMetrics`.
-public struct MXMetricsTraits: SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceMX::Metrics"]
-    public static let staticId = "::IceMX::Metrics"
-}
-
 /// A structure to keep track of failures associated with a given metrics.
 public struct MXMetricsFailures {
     /// The identifier of the metrics object associated to the failures.
@@ -376,14 +370,10 @@ public extension ClassResolver {
 
 /// Raised if a metrics view cannot be found.
 open class MXUnknownMetricsView: UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceMX::UnknownMetricsView"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceMX::UnknownMetricsView" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
         ostr.startSlice(typeId: MXUnknownMetricsView.ice_staticId(), compactId: -1, last: true)
@@ -400,48 +390,6 @@ open class MXUnknownMetricsView: UserException {
 public struct MXMetricsAdminTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::MetricsAdmin"]
     public static let staticId = "::IceMX::MetricsAdmin"
-}
-
-/// Traits for Slice class`MXThreadMetrics`.
-public struct MXThreadMetricsTraits: SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceMX::Metrics", "::IceMX::ThreadMetrics"]
-    public static let staticId = "::IceMX::ThreadMetrics"
-}
-
-/// Traits for Slice class`MXDispatchMetrics`.
-public struct MXDispatchMetricsTraits: SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceMX::DispatchMetrics", "::IceMX::Metrics"]
-    public static let staticId = "::IceMX::DispatchMetrics"
-}
-
-/// Traits for Slice class`MXChildInvocationMetrics`.
-public struct MXChildInvocationMetricsTraits: SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceMX::ChildInvocationMetrics", "::IceMX::Metrics"]
-    public static let staticId = "::IceMX::ChildInvocationMetrics"
-}
-
-/// Traits for Slice class`MXCollocatedMetrics`.
-public struct MXCollocatedMetricsTraits: SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceMX::ChildInvocationMetrics", "::IceMX::CollocatedMetrics", "::IceMX::Metrics"]
-    public static let staticId = "::IceMX::CollocatedMetrics"
-}
-
-/// Traits for Slice class`MXRemoteMetrics`.
-public struct MXRemoteMetricsTraits: SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceMX::ChildInvocationMetrics", "::IceMX::Metrics", "::IceMX::RemoteMetrics"]
-    public static let staticId = "::IceMX::RemoteMetrics"
-}
-
-/// Traits for Slice class`MXInvocationMetrics`.
-public struct MXInvocationMetricsTraits: SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceMX::InvocationMetrics", "::IceMX::Metrics"]
-    public static let staticId = "::IceMX::InvocationMetrics"
-}
-
-/// Traits for Slice class`MXConnectionMetrics`.
-public struct MXConnectionMetricsTraits: SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceMX::ConnectionMetrics", "::IceMX::Metrics"]
-    public static let staticId = "::IceMX::ConnectionMetrics"
 }
 
 /// The metrics administrative facet interface. This interface allows remote administrative clients to access
@@ -527,11 +475,11 @@ public func uncheckedCast(prx: ObjectPrx, type: MXMetricsAdminPrx.Protocol, face
     return MXMetricsAdminPrxI.uncheckedCast(prx: prx, facet: facet) as MXMetricsAdminPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `MXMetricsAdminPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MXMetricsAdminPrx.Protocol) -> Swift.String {
     return MXMetricsAdminTraits.staticId
 }
@@ -1042,19 +990,10 @@ open class MXMetrics: Value {
         self.failures = failures
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MXMetricsTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MXMetricsTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceMX::Metrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
         _ = try istr.startSlice()
@@ -1067,7 +1006,7 @@ open class MXMetrics: Value {
     }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
-        ostr.startSlice(typeId: MXMetricsTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: MXMetrics.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.id)
         ostr.write(self.total)
         ostr.write(self.current)
@@ -1111,19 +1050,10 @@ open class MXThreadMetrics: MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MXThreadMetricsTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MXThreadMetricsTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceMX::ThreadMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
         _ = try istr.startSlice()
@@ -1135,7 +1065,7 @@ open class MXThreadMetrics: MXMetrics {
     }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
-        ostr.startSlice(typeId: MXThreadMetricsTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MXThreadMetrics.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.inUseForIO)
         ostr.write(self.inUseForUser)
         ostr.write(self.inUseForOther)
@@ -1177,19 +1107,10 @@ open class MXDispatchMetrics: MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MXDispatchMetricsTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MXDispatchMetricsTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceMX::DispatchMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
         _ = try istr.startSlice()
@@ -1201,7 +1122,7 @@ open class MXDispatchMetrics: MXMetrics {
     }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
-        ostr.startSlice(typeId: MXDispatchMetricsTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MXDispatchMetrics.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.userException)
         ostr.write(self.size)
         ostr.write(self.replySize)
@@ -1243,19 +1164,10 @@ open class MXChildInvocationMetrics: MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MXChildInvocationMetricsTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MXChildInvocationMetricsTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceMX::ChildInvocationMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
         _ = try istr.startSlice()
@@ -1266,7 +1178,7 @@ open class MXChildInvocationMetrics: MXMetrics {
     }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
-        ostr.startSlice(typeId: MXChildInvocationMetricsTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MXChildInvocationMetrics.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.size)
         ostr.write(self.replySize)
         ostr.endSlice()
@@ -1290,19 +1202,10 @@ public extension ClassResolver {
 /// Provides information on invocations that are collocated. Collocated metrics are embedded within
 /// InvocationMetrics.
 open class MXCollocatedMetrics: MXChildInvocationMetrics {
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MXCollocatedMetricsTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MXCollocatedMetricsTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceMX::CollocatedMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
         _ = try istr.startSlice()
@@ -1311,7 +1214,7 @@ open class MXCollocatedMetrics: MXChildInvocationMetrics {
     }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
-        ostr.startSlice(typeId: MXCollocatedMetricsTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MXCollocatedMetrics.ice_staticId(), compactId: -1, last: false)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
     }
@@ -1333,19 +1236,10 @@ public extension ClassResolver {
 /// Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
 /// within InvocationMetrics.
 open class MXRemoteMetrics: MXChildInvocationMetrics {
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MXRemoteMetricsTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MXRemoteMetricsTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceMX::RemoteMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
         _ = try istr.startSlice()
@@ -1354,7 +1248,7 @@ open class MXRemoteMetrics: MXChildInvocationMetrics {
     }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
-        ostr.startSlice(typeId: MXRemoteMetricsTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MXRemoteMetrics.ice_staticId(), compactId: -1, last: false)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
     }
@@ -1396,19 +1290,10 @@ open class MXInvocationMetrics: MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MXInvocationMetricsTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MXInvocationMetricsTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceMX::InvocationMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
         _ = try istr.startSlice()
@@ -1421,7 +1306,7 @@ open class MXInvocationMetrics: MXMetrics {
     }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
-        ostr.startSlice(typeId: MXInvocationMetricsTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MXInvocationMetrics.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.retry)
         ostr.write(self.userException)
         MXMetricsMapHelper.write(to: ostr, value: self.remotes)
@@ -1461,19 +1346,10 @@ open class MXConnectionMetrics: MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MXConnectionMetricsTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MXConnectionMetricsTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceMX::ConnectionMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
         _ = try istr.startSlice()
@@ -1484,7 +1360,7 @@ open class MXConnectionMetrics: MXMetrics {
     }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
-        ostr.startSlice(typeId: MXConnectionMetricsTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MXConnectionMetrics.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.receivedBytes)
         ostr.write(self.sentBytes)
         ostr.endSlice()

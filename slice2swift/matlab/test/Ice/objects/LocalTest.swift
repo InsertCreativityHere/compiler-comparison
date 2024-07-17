@@ -16,12 +16,6 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class`C1`.
-public struct C1Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::LocalTest::C1"]
-    public static let staticId = "::LocalTest::C1"
-}
-
 public class S1 {
     public var c1: C1? = nil
 
@@ -909,54 +903,6 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class`CB1`.
-public struct CB1Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::LocalTest::CB1"]
-    public static let staticId = "::LocalTest::CB1"
-}
-
-/// Traits for Slice class`CB2`.
-public struct CB2Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::LocalTest::CB2"]
-    public static let staticId = "::LocalTest::CB2"
-}
-
-/// Traits for Slice class`CB3`.
-public struct CB3Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::LocalTest::CB3"]
-    public static let staticId = "::LocalTest::CB3"
-}
-
-/// Traits for Slice class`CB4`.
-public struct CB4Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::LocalTest::CB4"]
-    public static let staticId = "::LocalTest::CB4"
-}
-
-/// Traits for Slice class`CB5`.
-public struct CB5Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::LocalTest::CB5"]
-    public static let staticId = "::LocalTest::CB5"
-}
-
-/// Traits for Slice class`CB6`.
-public struct CB6Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::LocalTest::CB6"]
-    public static let staticId = "::LocalTest::CB6"
-}
-
-/// Traits for Slice class`CB7`.
-public struct CB7Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::LocalTest::CB7"]
-    public static let staticId = "::LocalTest::CB7"
-}
-
-/// Traits for Slice class`CB8`.
-public struct CB8Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::LocalTest::CB8"]
-    public static let staticId = "::LocalTest::CB8"
-}
-
 public struct StructKey: Swift.Hashable {
     public var i: Swift.Int32 = 0
     public var j: Swift.Int32 = 0
@@ -1319,19 +1265,10 @@ open class C1: Ice.Value {
         self.i = i
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return C1Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return C1Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::LocalTest::C1" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1340,7 +1277,7 @@ open class C1: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: C1Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: C1.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.i)
         ostr.endSlice()
     }
@@ -1368,19 +1305,10 @@ open class CB1: Ice.Value {
         self.s1 = s1
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CB1Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CB1Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::LocalTest::CB1" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1389,7 +1317,7 @@ open class CB1: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CB1Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CB1.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.s1)
         ostr.endSlice()
     }
@@ -1417,19 +1345,10 @@ open class CB2: Ice.Value {
         self.c1seq = c1seq
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CB2Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CB2Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::LocalTest::CB2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1438,7 +1357,7 @@ open class CB2: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CB2Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CB2.ice_staticId(), compactId: -1, last: true)
         C1SeqHelper.write(to: ostr, value: self.c1seq)
         ostr.endSlice()
     }
@@ -1466,19 +1385,10 @@ open class CB3: Ice.Value {
         self.s1seq = s1seq
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CB3Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CB3Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::LocalTest::CB3" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1487,7 +1397,7 @@ open class CB3: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CB3Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CB3.ice_staticId(), compactId: -1, last: true)
         S1SeqHelper.write(to: ostr, value: self.s1seq)
         ostr.endSlice()
     }
@@ -1515,19 +1425,10 @@ open class CB4: Ice.Value {
         self.c1dict = c1dict
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CB4Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CB4Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::LocalTest::CB4" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1536,7 +1437,7 @@ open class CB4: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CB4Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CB4.ice_staticId(), compactId: -1, last: true)
         C1DictHelper.write(to: ostr, value: self.c1dict)
         ostr.endSlice()
     }
@@ -1564,19 +1465,10 @@ open class CB5: Ice.Value {
         self.s1dict = s1dict
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CB5Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CB5Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::LocalTest::CB5" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1585,7 +1477,7 @@ open class CB5: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CB5Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CB5.ice_staticId(), compactId: -1, last: true)
         S1DictHelper.write(to: ostr, value: self.s1dict)
         ostr.endSlice()
     }
@@ -1613,19 +1505,10 @@ open class CB6: Ice.Value {
         self.c1seqseq = c1seqseq
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CB6Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CB6Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::LocalTest::CB6" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1634,7 +1517,7 @@ open class CB6: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CB6Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CB6.ice_staticId(), compactId: -1, last: true)
         C1SeqSeqHelper.write(to: ostr, value: self.c1seqseq)
         ostr.endSlice()
     }
@@ -1662,19 +1545,10 @@ open class CB7: Ice.Value {
         self.s1seqseq = s1seqseq
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CB7Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CB7Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::LocalTest::CB7" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1683,7 +1557,7 @@ open class CB7: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CB7Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CB7.ice_staticId(), compactId: -1, last: true)
         S1SeqSeqHelper.write(to: ostr, value: self.s1seqseq)
         ostr.endSlice()
     }
@@ -1715,19 +1589,10 @@ open class CB8: Ice.Value {
         self.s1dict = s1dict
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CB8Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CB8Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::LocalTest::CB8" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1738,7 +1603,7 @@ open class CB8: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CB8Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CB8.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.s1)
         C1SeqHelper.write(to: ostr, value: self.c1seq)
         S1DictHelper.write(to: ostr, value: self.s1dict)

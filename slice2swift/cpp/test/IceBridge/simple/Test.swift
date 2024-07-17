@@ -103,11 +103,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: CallbackPrx.Protocol, facet:
     return CallbackPrxI.uncheckedCast(prx: prx, facet: facet) as CallbackPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `CallbackPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CallbackPrx.Protocol) -> Swift.String {
     return CallbackTraits.staticId
 }
@@ -398,11 +398,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: 
     return MyClassPrxI.uncheckedCast(prx: prx, facet: facet) as MyClassPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `MyClassPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MyClassPrx.Protocol) -> Swift.String {
     return MyClassTraits.staticId
 }

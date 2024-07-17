@@ -2744,12 +2744,6 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class`MyClass1`.
-public struct MyClass1Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MyClass1"]
-    public static let staticId = "::Test::MyClass1"
-}
-
 /// Traits for Slice interface`MyDerivedClass`.
 public struct MyDerivedClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass", "::Test::MyDerivedClass"]
@@ -3170,11 +3164,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: 
     return MyClassPrxI.uncheckedCast(prx: prx, facet: facet) as MyClassPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `MyClassPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MyClassPrx.Protocol) -> Swift.String {
     return MyClassTraits.staticId
 }
@@ -7401,11 +7395,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: MyDerivedClassPrx.Protocol, 
     return MyDerivedClassPrxI.uncheckedCast(prx: prx, facet: facet) as MyDerivedClassPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `MyDerivedClassPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MyDerivedClassPrx.Protocol) -> Swift.String {
     return MyDerivedClassTraits.staticId
 }
@@ -7609,19 +7603,10 @@ open class MyClass1: Ice.Value {
         self.myClass1 = myClass1
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MyClass1Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MyClass1Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MyClass1" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -7632,7 +7617,7 @@ open class MyClass1: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MyClass1Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: MyClass1.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.tesT)
         ostr.write(self.myClass)
         ostr.write(self.myClass1)

@@ -16,18 +16,6 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class`C1`.
-public struct C1Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::WithNamespace::C1"]
-    public static let staticId = "::WithNamespace::C1"
-}
-
-/// Traits for Slice class`C2`.
-public struct C2Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::WithNamespace::C1", "::WithNamespace::C2"]
-    public static let staticId = "::WithNamespace::C2"
-}
-
 /// :nodoc:
 public class E1_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
@@ -53,9 +41,7 @@ open class E1: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::WithNamespace::E1"
-    }
+    open override class func ice_staticId() -> Swift.String { "::WithNamespace::E1" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: E1.ice_staticId(), compactId: -1, last: true)
@@ -98,9 +84,7 @@ open class E2: E1 {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::WithNamespace::E2"
-    }
+    open override class func ice_staticId() -> Swift.String { "::WithNamespace::E2" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: E2.ice_staticId(), compactId: -1, last: false)
@@ -139,19 +123,10 @@ open class C1: Ice.Value {
         self.i = i
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return C1Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return C1Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::WithNamespace::C1" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -160,7 +135,7 @@ open class C1: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: C1Traits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: C1.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.i)
         ostr.endSlice()
     }
@@ -191,19 +166,10 @@ open class C2: C1 {
         super.init(i: i)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return C2Traits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return C2Traits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::WithNamespace::C2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -213,7 +179,7 @@ open class C2: C1 {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: C2Traits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: C2.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.l)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);

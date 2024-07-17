@@ -97,11 +97,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: RetryPrx.Protocol, facet: Sw
     return RetryPrxI.uncheckedCast(prx: prx, facet: facet) as RetryPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `RetryPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: RetryPrx.Protocol) -> Swift.String {
     return RetryTraits.staticId
 }

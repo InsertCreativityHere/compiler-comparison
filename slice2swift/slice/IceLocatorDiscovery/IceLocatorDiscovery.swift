@@ -92,11 +92,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: LookupReplyPrx.Protocol, fac
     return LookupReplyPrxI.uncheckedCast(prx: prx, facet: facet) as LookupReplyPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `LookupReplyPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LookupReplyPrx.Protocol) -> Swift.String {
     return LookupReplyTraits.staticId
 }
@@ -240,11 +240,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: LookupPrx.Protocol, facet: S
     return LookupPrxI.uncheckedCast(prx: prx, facet: facet) as LookupPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `LookupPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LookupPrx.Protocol) -> Swift.String {
     return LookupTraits.staticId
 }

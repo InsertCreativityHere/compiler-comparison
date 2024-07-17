@@ -312,14 +312,10 @@ public extension ClassResolver {
 
 /// Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
 open class RemoteLoggerAlreadyAttachedException: UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Ice::RemoteLoggerAlreadyAttachedException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Ice::RemoteLoggerAlreadyAttachedException" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
         ostr.startSlice(typeId: RemoteLoggerAlreadyAttachedException.ice_staticId(), compactId: -1, last: true)
@@ -405,11 +401,11 @@ public func uncheckedCast(prx: ObjectPrx, type: RemoteLoggerPrx.Protocol, facet:
     return RemoteLoggerPrxI.uncheckedCast(prx: prx, facet: facet) as RemoteLoggerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `RemoteLoggerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: RemoteLoggerPrx.Protocol) -> Swift.String {
     return RemoteLoggerTraits.staticId
 }
@@ -610,11 +606,11 @@ public func uncheckedCast(prx: ObjectPrx, type: LoggerAdminPrx.Protocol, facet: 
     return LoggerAdminPrxI.uncheckedCast(prx: prx, facet: facet) as LoggerAdminPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `LoggerAdminPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LoggerAdminPrx.Protocol) -> Swift.String {
     return LoggerAdminTraits.staticId
 }

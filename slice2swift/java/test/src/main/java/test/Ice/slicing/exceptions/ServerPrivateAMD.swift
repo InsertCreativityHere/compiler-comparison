@@ -42,9 +42,7 @@ open class Base: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::Base"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Base" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: Base.ice_staticId(), compactId: -1, last: true)
@@ -87,9 +85,7 @@ open class KnownDerived: Base {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::KnownDerived"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::KnownDerived" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: KnownDerived.ice_staticId(), compactId: -1, last: false)
@@ -134,9 +130,7 @@ open class KnownIntermediate: Base {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::KnownIntermediate"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::KnownIntermediate" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: KnownIntermediate.ice_staticId(), compactId: -1, last: false)
@@ -181,9 +175,7 @@ open class KnownMostDerived: KnownIntermediate {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::KnownMostDerived"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::KnownMostDerived" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: KnownMostDerived.ice_staticId(), compactId: -1, last: false)
@@ -234,9 +226,7 @@ open class UnknownDerived: Base {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::UnknownDerived"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::UnknownDerived" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: UnknownDerived.ice_staticId(), compactId: -1, last: false)
@@ -281,9 +271,7 @@ open class UnknownIntermediate: Base {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::UnknownIntermediate"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::UnknownIntermediate" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: UnknownIntermediate.ice_staticId(), compactId: -1, last: false)
@@ -328,9 +316,7 @@ open class UnknownMostDerived1: KnownIntermediate {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::UnknownMostDerived1"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::UnknownMostDerived1" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: UnknownMostDerived1.ice_staticId(), compactId: -1, last: false)
@@ -375,9 +361,7 @@ open class UnknownMostDerived2: UnknownIntermediate {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::UnknownMostDerived2"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::UnknownMostDerived2" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: UnknownMostDerived2.ice_staticId(), compactId: -1, last: false)
@@ -508,11 +492,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet:
     return TestIntfPrxI.uncheckedCast(prx: prx, facet: facet) as TestIntfPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TestIntfPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TestIntfPrx.Protocol) -> Swift.String {
     return TestIntfTraits.staticId
 }

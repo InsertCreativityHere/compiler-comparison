@@ -101,11 +101,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: HoldPrx.Protocol, facet: Swi
     return HoldPrxI.uncheckedCast(prx: prx, facet: facet) as HoldPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `HoldPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: HoldPrx.Protocol) -> Swift.String {
     return HoldTraits.staticId
 }

@@ -31,14 +31,10 @@ public extension Ice.ClassResolver {
 }
 
 open class TestException: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::TestException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::TestException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: TestException.ice_staticId(), compactId: -1, last: true)
@@ -147,11 +143,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet:
     return TestIntfPrxI.uncheckedCast(prx: prx, facet: facet) as TestIntfPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TestIntfPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TestIntfPrx.Protocol) -> Swift.String {
     return TestIntfTraits.staticId
 }

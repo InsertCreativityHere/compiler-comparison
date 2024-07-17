@@ -21,18 +21,6 @@ public typealias CommonBoolSeq = [Swift.Bool]
 
 public typealias CommonStringSeq = [Swift.String]
 
-/// Traits for Slice class`CommonConfig`.
-public struct CommonConfigTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::Common::Config"]
-    public static let staticId = "::Test::Common::Config"
-}
-
-/// Traits for Slice class`CommonOptionOverrides`.
-public struct CommonOptionOverridesTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::Common::OptionOverrides"]
-    public static let staticId = "::Test::Common::OptionOverrides"
-}
-
 /// :nodoc:
 public class CommonTestCaseNotExistException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
@@ -58,9 +46,7 @@ open class CommonTestCaseNotExistException: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::Common::TestCaseNotExistException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Common::TestCaseNotExistException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: CommonTestCaseNotExistException.ice_staticId(), compactId: -1, last: true)
@@ -100,9 +86,7 @@ open class CommonTestCaseFailedException: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::Common::TestCaseFailedException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Common::TestCaseFailedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: CommonTestCaseFailedException.ice_staticId(), compactId: -1, last: true)
@@ -154,9 +138,7 @@ open class CommonProcessFailedException: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::Common::ProcessFailedException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Common::ProcessFailedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: CommonProcessFailedException.ice_staticId(), compactId: -1, last: true)
@@ -269,11 +251,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: CommonTestCasePrx.Protocol, 
     return CommonTestCasePrxI.uncheckedCast(prx: prx, facet: facet) as CommonTestCasePrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `CommonTestCasePrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CommonTestCasePrx.Protocol) -> Swift.String {
     return CommonTestCaseTraits.staticId
 }
@@ -624,11 +606,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: CommonControllerPrx.Protocol
     return CommonControllerPrxI.uncheckedCast(prx: prx, facet: facet) as CommonControllerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `CommonControllerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CommonControllerPrx.Protocol) -> Swift.String {
     return CommonControllerTraits.staticId
 }
@@ -975,11 +957,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: CommonProcessPrx.Protocol, f
     return CommonProcessPrxI.uncheckedCast(prx: prx, facet: facet) as CommonProcessPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `CommonProcessPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CommonProcessPrx.Protocol) -> Swift.String {
     return CommonProcessTraits.staticId
 }
@@ -1245,11 +1227,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: CommonProcessControllerPrx.P
     return CommonProcessControllerPrxI.uncheckedCast(prx: prx, facet: facet) as CommonProcessControllerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `CommonProcessControllerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CommonProcessControllerPrx.Protocol) -> Swift.String {
     return CommonProcessControllerTraits.staticId
 }
@@ -1482,11 +1464,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: CommonBrowserProcessControll
     return CommonBrowserProcessControllerPrxI.uncheckedCast(prx: prx, facet: facet) as CommonBrowserProcessControllerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `CommonBrowserProcessControllerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CommonBrowserProcessControllerPrx.Protocol) -> Swift.String {
     return CommonBrowserProcessControllerTraits.staticId
 }
@@ -1624,11 +1606,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: CommonProcessControllerRegis
     return CommonProcessControllerRegistryPrxI.uncheckedCast(prx: prx, facet: facet) as CommonProcessControllerRegistryPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `CommonProcessControllerRegistryPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CommonProcessControllerRegistryPrx.Protocol) -> Swift.String {
     return CommonProcessControllerRegistryTraits.staticId
 }
@@ -1738,19 +1720,10 @@ open class CommonConfig: Ice.Value {
         self.sprops = sprops
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CommonConfigTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CommonConfigTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Common::Config" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1765,7 +1738,7 @@ open class CommonConfig: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CommonConfigTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CommonConfig.ice_staticId(), compactId: -1, last: true)
         ostr.write(tag: 1, value: self.`protocol`)
         ostr.write(tag: 2, value: self.mx)
         ostr.write(tag: 3, value: self.serialize)
@@ -1807,19 +1780,10 @@ open class CommonOptionOverrides: Ice.Value {
         self.ipv6 = ipv6
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CommonOptionOverridesTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CommonOptionOverridesTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Common::OptionOverrides" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1832,7 +1796,7 @@ open class CommonOptionOverrides: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CommonOptionOverridesTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CommonOptionOverrides.ice_staticId(), compactId: -1, last: true)
         ostr.write(tag: 1, value: self.`protocol`)
         ostr.write(tag: 2, value: self.mx)
         ostr.write(tag: 3, value: self.serialize)

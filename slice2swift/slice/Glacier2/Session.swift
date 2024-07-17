@@ -44,9 +44,7 @@ open class CannotCreateSessionException: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Glacier2::CannotCreateSessionException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Glacier2::CannotCreateSessionException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: CannotCreateSessionException.ice_staticId(), compactId: -1, last: true)
@@ -159,11 +157,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: SessionPrx.Protocol, facet: 
     return SessionPrxI.uncheckedCast(prx: prx, facet: facet) as SessionPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `SessionPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SessionPrx.Protocol) -> Swift.String {
     return SessionTraits.staticId
 }
@@ -302,11 +300,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: StringSetPrx.Protocol, facet
     return StringSetPrxI.uncheckedCast(prx: prx, facet: facet) as StringSetPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `StringSetPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: StringSetPrx.Protocol) -> Swift.String {
     return StringSetTraits.staticId
 }
@@ -547,11 +545,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: IdentitySetPrx.Protocol, fac
     return IdentitySetPrxI.uncheckedCast(prx: prx, facet: facet) as IdentitySetPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `IdentitySetPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: IdentitySetPrx.Protocol) -> Swift.String {
     return IdentitySetTraits.staticId
 }
@@ -801,11 +799,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: SessionControlPrx.Protocol, 
     return SessionControlPrxI.uncheckedCast(prx: prx, facet: facet) as SessionControlPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `SessionControlPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SessionControlPrx.Protocol) -> Swift.String {
     return SessionControlTraits.staticId
 }
@@ -1118,11 +1116,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: SessionManagerPrx.Protocol, 
     return SessionManagerPrxI.uncheckedCast(prx: prx, facet: facet) as SessionManagerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `SessionManagerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SessionManagerPrx.Protocol) -> Swift.String {
     return SessionManagerTraits.staticId
 }
@@ -1307,11 +1305,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: SSLSessionManagerPrx.Protoco
     return SSLSessionManagerPrxI.uncheckedCast(prx: prx, facet: facet) as SSLSessionManagerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `SSLSessionManagerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SSLSessionManagerPrx.Protocol) -> Swift.String {
     return SSLSessionManagerTraits.staticId
 }

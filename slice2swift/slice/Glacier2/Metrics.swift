@@ -16,12 +16,6 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class`MXSessionMetrics`.
-public struct MXSessionMetricsTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceMX::Metrics", "::IceMX::SessionMetrics"]
-    public static let staticId = "::IceMX::SessionMetrics"
-}
-
 /// :nodoc:
 public class MXSessionMetrics_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
@@ -67,19 +61,10 @@ open class MXSessionMetrics: Ice.MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MXSessionMetricsTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MXSessionMetricsTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceMX::SessionMetrics" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -95,7 +80,7 @@ open class MXSessionMetrics: Ice.MXMetrics {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MXSessionMetricsTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MXSessionMetrics.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.forwardedClient)
         ostr.write(self.forwardedServer)
         ostr.write(self.routingTableSize)

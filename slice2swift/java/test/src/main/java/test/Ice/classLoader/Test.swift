@@ -17,12 +17,6 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class`ConcreteClass`.
-public struct ConcreteClassTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::ConcreteClass"]
-    public static let staticId = "::Test::ConcreteClass"
-}
-
 /// :nodoc:
 public class E_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
@@ -37,14 +31,10 @@ public extension Ice.ClassResolver {
 }
 
 open class E: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::E"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::E" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: E.ice_staticId(), compactId: -1, last: true)
@@ -133,11 +123,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: InitialPrx.Protocol, facet: 
     return InitialPrxI.uncheckedCast(prx: prx, facet: facet) as InitialPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `InitialPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: InitialPrx.Protocol) -> Swift.String {
     return InitialTraits.staticId
 }
@@ -319,19 +309,10 @@ open class ConcreteClass: Ice.Value {
         self.i = i
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return ConcreteClassTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return ConcreteClassTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::ConcreteClass" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -340,7 +321,7 @@ open class ConcreteClass: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: ConcreteClassTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: ConcreteClass.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.i)
         ostr.endSlice()
     }

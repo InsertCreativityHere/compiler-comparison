@@ -44,9 +44,7 @@ open class ParseException: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceGrid::ParseException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::ParseException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: ParseException.ice_staticId(), compactId: -1, last: true)
@@ -130,11 +128,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: FileParserPrx.Protocol, face
     return FileParserPrxI.uncheckedCast(prx: prx, facet: facet) as FileParserPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `FileParserPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: FileParserPrx.Protocol) -> Swift.String {
     return FileParserTraits.staticId
 }

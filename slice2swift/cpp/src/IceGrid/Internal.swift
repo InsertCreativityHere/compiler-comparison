@@ -17,12 +17,6 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class`InternalDbEnvDescriptor`.
-public struct InternalDbEnvDescriptorTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::InternalDbEnvDescriptor"]
-    public static let staticId = "::IceGrid::InternalDbEnvDescriptor"
-}
-
 public typealias InternalDbEnvDescriptorSeq = [InternalDbEnvDescriptor?]
 
 /// Helper class to read and write `InternalDbEnvDescriptorSeq` sequence values from
@@ -87,12 +81,6 @@ public struct InternalDbEnvDescriptorSeqHelper {
             ostr.endSize(position: pos)
         }
     }
-}
-
-/// Traits for Slice class`InternalAdapterDescriptor`.
-public struct InternalAdapterDescriptorTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::InternalAdapterDescriptor"]
-    public static let staticId = "::IceGrid::InternalAdapterDescriptor"
 }
 
 public typealias InternalAdapterDescriptorSeq = [InternalAdapterDescriptor?]
@@ -228,12 +216,6 @@ public struct PropertyDescriptorSeqDictHelper {
     }
 }
 
-/// Traits for Slice class`InternalServerDescriptor`.
-public struct InternalServerDescriptorTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::InternalServerDescriptor"]
-    public static let staticId = "::IceGrid::InternalServerDescriptor"
-}
-
 /// :nodoc:
 public class AdapterActiveException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
@@ -249,14 +231,10 @@ public extension Ice.ClassResolver {
 
 /// This exception is raised if an adapter is active.
 open class AdapterActiveException: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceGrid::AdapterActiveException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::AdapterActiveException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: AdapterActiveException.ice_staticId(), compactId: -1, last: true)
@@ -295,9 +273,7 @@ open class AdapterNotActiveException: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceGrid::AdapterNotActiveException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::AdapterNotActiveException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: AdapterNotActiveException.ice_staticId(), compactId: -1, last: true)
@@ -344,9 +320,7 @@ open class AdapterExistsException: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceGrid::AdapterExistsException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::AdapterExistsException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: AdapterExistsException.ice_staticId(), compactId: -1, last: true)
@@ -599,14 +573,10 @@ public extension Ice.ClassResolver {
 
 /// This exception is raised if a node is already registered and active.
 open class NodeActiveException: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceGrid::NodeActiveException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::NodeActiveException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: NodeActiveException.ice_staticId(), compactId: -1, last: true)
@@ -640,14 +610,10 @@ public extension Ice.ClassResolver {
 
 /// This exception is raised if a replica is already registered and active.
 open class ReplicaActiveException: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceGrid::ReplicaActiveException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::ReplicaActiveException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: ReplicaActiveException.ice_staticId(), compactId: -1, last: true)
@@ -803,18 +769,6 @@ public struct ReplicaSessionTraits: Ice.SliceTraits {
     public static let staticId = "::IceGrid::ReplicaSession"
 }
 
-/// Traits for Slice class`InternalNodeInfo`.
-public struct InternalNodeInfoTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::InternalNodeInfo"]
-    public static let staticId = "::IceGrid::InternalNodeInfo"
-}
-
-/// Traits for Slice class`InternalReplicaInfo`.
-public struct InternalReplicaInfoTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::InternalReplicaInfo"]
-    public static let staticId = "::IceGrid::InternalReplicaInfo"
-}
-
 /// Traits for Slice interface`InternalRegistry`.
 public struct InternalRegistryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileReader", "::IceGrid::InternalRegistry"]
@@ -891,11 +845,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: AdapterPrx.Protocol, facet: 
     return AdapterPrxI.uncheckedCast(prx: prx, facet: facet) as AdapterPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `AdapterPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: AdapterPrx.Protocol) -> Swift.String {
     return AdapterTraits.staticId
 }
@@ -1168,11 +1122,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: FileReaderPrx.Protocol, face
     return FileReaderPrxI.uncheckedCast(prx: prx, facet: facet) as FileReaderPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `FileReaderPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: FileReaderPrx.Protocol) -> Swift.String {
     return FileReaderTraits.staticId
 }
@@ -1469,11 +1423,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ServerPrx.Protocol, facet: S
     return ServerPrxI.uncheckedCast(prx: prx, facet: facet) as ServerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ServerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ServerPrx.Protocol) -> Swift.String {
     return ServerTraits.staticId
 }
@@ -2094,11 +2048,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ReplicaObserverPrx.Protocol,
     return ReplicaObserverPrxI.uncheckedCast(prx: prx, facet: facet) as ReplicaObserverPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ReplicaObserverPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ReplicaObserverPrx.Protocol) -> Swift.String {
     return ReplicaObserverTraits.staticId
 }
@@ -2364,11 +2318,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: NodePrx.Protocol, facet: Swi
     return NodePrxI.uncheckedCast(prx: prx, facet: facet) as NodePrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `NodePrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: NodePrx.Protocol) -> Swift.String {
     return NodeTraits.staticId
 }
@@ -3095,11 +3049,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: NodeSessionPrx.Protocol, fac
     return NodeSessionPrxI.uncheckedCast(prx: prx, facet: facet) as NodeSessionPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `NodeSessionPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: NodeSessionPrx.Protocol) -> Swift.String {
     return NodeSessionTraits.staticId
 }
@@ -3540,11 +3494,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: DatabaseObserverPrx.Protocol
     return DatabaseObserverPrxI.uncheckedCast(prx: prx, facet: facet) as DatabaseObserverPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `DatabaseObserverPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: DatabaseObserverPrx.Protocol) -> Swift.String {
     return DatabaseObserverTraits.staticId
 }
@@ -3665,11 +3619,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ReplicaSessionPrx.Protocol, 
     return ReplicaSessionPrxI.uncheckedCast(prx: prx, facet: facet) as ReplicaSessionPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ReplicaSessionPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ReplicaSessionPrx.Protocol) -> Swift.String {
     return ReplicaSessionTraits.staticId
 }
@@ -3975,9 +3929,9 @@ public extension ReplicaSessionPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as AdapterExistsException {
-                                  throw error
                               } catch let error as AdapterNotExistException {
+                                  throw error
+                              } catch let error as AdapterExistsException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -4015,9 +3969,9 @@ public extension ReplicaSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as AdapterExistsException {
-                                          throw error
                                       } catch let error as AdapterNotExistException {
+                                          throw error
+                                      } catch let error as AdapterExistsException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -4208,11 +4162,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: InternalRegistryPrx.Protocol
     return InternalRegistryPrxI.uncheckedCast(prx: prx, facet: facet) as InternalRegistryPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `InternalRegistryPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: InternalRegistryPrx.Protocol) -> Swift.String {
     return InternalRegistryTraits.staticId
 }
@@ -4313,9 +4267,9 @@ public extension InternalRegistryPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as NodeActiveException {
-                                         throw error
                                      } catch let error as PermissionDeniedException {
+                                         throw error
+                                     } catch let error as NodeActiveException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -4359,9 +4313,9 @@ public extension InternalRegistryPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as NodeActiveException {
-                                          throw error
                                       } catch let error as PermissionDeniedException {
+                                          throw error
+                                      } catch let error as NodeActiveException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -4401,9 +4355,9 @@ public extension InternalRegistryPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ReplicaActiveException {
-                                         throw error
                                      } catch let error as PermissionDeniedException {
+                                         throw error
+                                     } catch let error as ReplicaActiveException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -4444,9 +4398,9 @@ public extension InternalRegistryPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ReplicaActiveException {
-                                          throw error
                                       } catch let error as PermissionDeniedException {
+                                          throw error
+                                      } catch let error as ReplicaActiveException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -4778,19 +4732,10 @@ open class InternalDbEnvDescriptor: Ice.Value {
         self.properties = properties
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return InternalDbEnvDescriptorTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return InternalDbEnvDescriptorTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::InternalDbEnvDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4800,7 +4745,7 @@ open class InternalDbEnvDescriptor: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: InternalDbEnvDescriptorTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: InternalDbEnvDescriptor.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.name)
         PropertyDescriptorSeqHelper.write(to: ostr, value: self.properties)
         ostr.endSlice()
@@ -4833,19 +4778,10 @@ open class InternalAdapterDescriptor: Ice.Value {
         self.serverLifetime = serverLifetime
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return InternalAdapterDescriptorTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return InternalAdapterDescriptorTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::InternalAdapterDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4855,7 +4791,7 @@ open class InternalAdapterDescriptor: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: InternalAdapterDescriptorTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: InternalAdapterDescriptor.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.id)
         ostr.write(self.serverLifetime)
         ostr.endSlice()
@@ -4938,19 +4874,10 @@ open class InternalServerDescriptor: Ice.Value {
         self.services = services
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return InternalServerDescriptorTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return InternalServerDescriptorTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::InternalServerDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4977,7 +4904,7 @@ open class InternalServerDescriptor: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: InternalServerDescriptorTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: InternalServerDescriptor.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.id)
         ostr.write(self.application)
         ostr.write(self.uuid)
@@ -5046,19 +4973,10 @@ open class InternalNodeInfo: Ice.Value {
         self.dataDir = dataDir
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return InternalNodeInfoTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return InternalNodeInfoTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::InternalNodeInfo" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -5074,7 +4992,7 @@ open class InternalNodeInfo: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: InternalNodeInfoTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: InternalNodeInfo.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.name)
         ostr.write(self.os)
         ostr.write(self.hostname)
@@ -5114,19 +5032,10 @@ open class InternalReplicaInfo: Ice.Value {
         self.hostname = hostname
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return InternalReplicaInfoTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return InternalReplicaInfoTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::InternalReplicaInfo" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -5136,7 +5045,7 @@ open class InternalReplicaInfo: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: InternalReplicaInfoTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: InternalReplicaInfo.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.name)
         ostr.write(self.hostname)
         ostr.endSlice()

@@ -144,12 +144,6 @@ public struct execTraits: Ice.SliceTraits {
     public static let staticId = "::and::exec"
 }
 
-/// Traits for Slice class``for``.
-public struct forTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::and::for"]
-    public static let staticId = "::and::for"
-}
-
 /// Traits for Slice interface``if``.
 public struct ifTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::del", "::and::exec", "::and::if"]
@@ -314,9 +308,7 @@ open class `is`: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::and::is"
-    }
+    open override class func ice_staticId() -> Swift.String { "::and::is" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: `is`.ice_staticId(), compactId: -1, last: true)
@@ -361,9 +353,7 @@ open class not: `is` {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::and::not"
-    }
+    open override class func ice_staticId() -> Swift.String { "::and::not" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: not.ice_staticId(), compactId: -1, last: false)
@@ -508,11 +498,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: delPrx.Protocol, facet: Swif
     return delPrxI.uncheckedCast(prx: prx, facet: facet) as delPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `delPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: delPrx.Protocol) -> Swift.String {
     return delTraits.staticId
 }
@@ -660,11 +650,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: execPrx.Protocol, facet: Swi
     return execPrxI.uncheckedCast(prx: prx, facet: facet) as execPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `execPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: execPrx.Protocol) -> Swift.String {
     return execTraits.staticId
 }
@@ -786,11 +776,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ifPrx.Protocol, facet: Swift
     return ifPrxI.uncheckedCast(prx: prx, facet: facet) as ifPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ifPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ifPrx.Protocol) -> Swift.String {
     return ifTraits.staticId
 }
@@ -883,11 +873,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: printPrx.Protocol, facet: Sw
     return printPrxI.uncheckedCast(prx: prx, facet: facet) as printPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `printPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: printPrx.Protocol) -> Swift.String {
     return printTraits.staticId
 }
@@ -1045,19 +1035,10 @@ open class `for`: Ice.Value {
         self.global = global
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return forTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return forTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::and::for" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1068,7 +1049,7 @@ open class `for`: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: forTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: `for`.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.lambda)
         ostr.write(self.from)
         ostr.write(self.global)

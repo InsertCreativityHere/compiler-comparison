@@ -2259,12 +2259,6 @@ public struct ESeqListHelper {
     }
 }
 
-/// Traits for Slice class`C`.
-public struct CTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::C"]
-    public static let staticId = "::Test::C"
-}
-
 public typealias CSeq = [C?]
 
 /// Helper class to read and write `CSeq` sequence values from
@@ -3132,12 +3126,6 @@ public struct StringIntDictHelper {
     }
 }
 
-/// Traits for Slice class`DictClass`.
-public struct DictClassTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::DictClass"]
-    public static let staticId = "::Test::DictClass"
-}
-
 public typealias BoolBuffer = [Swift.Bool]
 
 public typealias ShortBuffer = [Swift.Int16]
@@ -3298,11 +3286,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: DPrx.Protocol, facet: Swift.
     return DPrxI.uncheckedCast(prx: prx, facet: facet) as DPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `DPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: DPrx.Protocol) -> Swift.String {
     return DTraits.staticId
 }
@@ -3519,11 +3507,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet:
     return TestIntfPrxI.uncheckedCast(prx: prx, facet: facet) as TestIntfPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TestIntfPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TestIntfPrx.Protocol) -> Swift.String {
     return TestIntfTraits.staticId
 }
@@ -5428,21 +5416,10 @@ public extension Ice.ClassResolver {
 }
 
 open class C: Ice.Value {
-    public required init() {}
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -5450,7 +5427,7 @@ open class C: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: C.ice_staticId(), compactId: -1, last: true)
         ostr.endSlice()
     }
 }
@@ -5477,19 +5454,10 @@ open class DictClass: Ice.Value {
         self.isdict = isdict
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return DictClassTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return DictClassTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::DictClass" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -5498,7 +5466,7 @@ open class DictClass: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: DictClassTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: DictClass.ice_staticId(), compactId: -1, last: true)
         IntStringDictHelper.write(to: ostr, value: self.isdict)
         ostr.endSlice()
     }

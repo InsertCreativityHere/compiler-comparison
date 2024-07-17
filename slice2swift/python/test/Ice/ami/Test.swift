@@ -31,14 +31,10 @@ public extension Ice.ClassResolver {
 }
 
 open class TestIntfException: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::TestIntfException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::TestIntfException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: TestIntfException.ice_staticId(), compactId: -1, last: true)
@@ -197,11 +193,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: PingReplyPrx.Protocol, facet
     return PingReplyPrxI.uncheckedCast(prx: prx, facet: facet) as PingReplyPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `PingReplyPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: PingReplyPrx.Protocol) -> Swift.String {
     return PingReplyTraits.staticId
 }
@@ -385,11 +381,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet:
     return TestIntfPrxI.uncheckedCast(prx: prx, facet: facet) as TestIntfPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TestIntfPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TestIntfPrx.Protocol) -> Swift.String {
     return TestIntfTraits.staticId
 }
@@ -1097,11 +1093,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TestIntfControllerPrx.Protoc
     return TestIntfControllerPrxI.uncheckedCast(prx: prx, facet: facet) as TestIntfControllerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TestIntfControllerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TestIntfControllerPrx.Protocol) -> Swift.String {
     return TestIntfControllerTraits.staticId
 }
@@ -1262,11 +1258,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: OuterInnerTestIntfPrx.Protoc
     return OuterInnerTestIntfPrxI.uncheckedCast(prx: prx, facet: facet) as OuterInnerTestIntfPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `OuterInnerTestIntfPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: OuterInnerTestIntfPrx.Protocol) -> Swift.String {
     return OuterInnerTestIntfTraits.staticId
 }

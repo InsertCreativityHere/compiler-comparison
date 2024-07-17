@@ -16,18 +16,6 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class`MXTopicMetrics`.
-public struct MXTopicMetricsTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceMX::Metrics", "::IceMX::TopicMetrics"]
-    public static let staticId = "::IceMX::TopicMetrics"
-}
-
-/// Traits for Slice class`MXSubscriberMetrics`.
-public struct MXSubscriberMetricsTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceMX::Metrics", "::IceMX::SubscriberMetrics"]
-    public static let staticId = "::IceMX::SubscriberMetrics"
-}
-
 /// :nodoc:
 public class MXTopicMetrics_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
@@ -58,19 +46,10 @@ open class MXTopicMetrics: Ice.MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MXTopicMetricsTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MXTopicMetricsTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceMX::TopicMetrics" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -81,7 +60,7 @@ open class MXTopicMetrics: Ice.MXMetrics {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MXTopicMetricsTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MXTopicMetrics.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.published)
         ostr.write(self.forwarded)
         ostr.endSlice()
@@ -122,19 +101,10 @@ open class MXSubscriberMetrics: Ice.MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MXSubscriberMetricsTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MXSubscriberMetricsTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceMX::SubscriberMetrics" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -146,7 +116,7 @@ open class MXSubscriberMetrics: Ice.MXMetrics {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MXSubscriberMetricsTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MXSubscriberMetrics.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.queued)
         ostr.write(self.outstanding)
         ostr.write(self.delivered)

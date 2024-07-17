@@ -32,14 +32,10 @@ public extension Ice.ClassResolver {
 
 /// This exception is raised if a user account for a given session identifier can't be found.
 open class UserAccountNotFoundException: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceGrid::UserAccountNotFoundException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::UserAccountNotFoundException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: UserAccountNotFoundException.ice_staticId(), compactId: -1, last: true)
@@ -120,11 +116,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: UserAccountMapperPrx.Protoco
     return UserAccountMapperPrxI.uncheckedCast(prx: prx, facet: facet) as UserAccountMapperPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `UserAccountMapperPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: UserAccountMapperPrx.Protocol) -> Swift.String {
     return UserAccountMapperTraits.staticId
 }

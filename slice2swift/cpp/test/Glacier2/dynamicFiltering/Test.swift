@@ -242,11 +242,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: BackendPrx.Protocol, facet: 
     return BackendPrxI.uncheckedCast(prx: prx, facet: facet) as BackendPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `BackendPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: BackendPrx.Protocol) -> Swift.String {
     return BackendTraits.staticId
 }
@@ -415,11 +415,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TestControllerPrx.Protocol, 
     return TestControllerPrxI.uncheckedCast(prx: prx, facet: facet) as TestControllerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TestControllerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TestControllerPrx.Protocol) -> Swift.String {
     return TestControllerTraits.staticId
 }
@@ -610,11 +610,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TestSessionPrx.Protocol, fac
     return TestSessionPrxI.uncheckedCast(prx: prx, facet: facet) as TestSessionPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TestSessionPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TestSessionPrx.Protocol) -> Swift.String {
     return TestSessionTraits.staticId
 }

@@ -16,12 +16,6 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class`Derived`.
-public struct DerivedTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::Base", "::Test::Derived"]
-    public static let staticId = "::Test::Derived"
-}
-
 /// :nodoc:
 public class Derived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
@@ -47,19 +41,10 @@ open class Derived: Base {
         super.init(theS: theS, str: str)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return DerivedTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return DerivedTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Derived" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -69,7 +54,7 @@ open class Derived: Base {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: DerivedTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: Derived.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.b)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);

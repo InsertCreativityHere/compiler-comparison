@@ -30,14 +30,10 @@ public extension Ice.ClassResolver {
 }
 
 open class BaseException: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::BaseException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::BaseException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: BaseException.ice_staticId(), compactId: -1, last: true)
@@ -78,9 +74,7 @@ open class InvalidPointException: BaseException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::InvalidPointException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::InvalidPointException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: InvalidPointException.ice_staticId(), compactId: -1, last: false)
@@ -125,9 +119,7 @@ open class InvalidLengthException: BaseException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::InvalidLengthException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::InvalidLengthException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: InvalidLengthException.ice_staticId(), compactId: -1, last: false)
@@ -175,9 +167,7 @@ open class OtherException: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::OtherException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::OtherException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: OtherException.ice_staticId(), compactId: -1, last: true)
@@ -715,12 +705,6 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class`Pen`.
-public struct PenTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::Pen"]
-    public static let staticId = "::Test::Pen"
-}
-
 public class Draw {
     public var backgroundColor: Color = Color()
     public var pen: Pen? = nil
@@ -813,19 +797,10 @@ open class Pen: Ice.Value {
         self.color = color
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return PenTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return PenTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Pen" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -835,7 +810,7 @@ open class Pen: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: PenTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: Pen.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.thickness)
         ostr.write(self.color)
         ostr.endSlice()

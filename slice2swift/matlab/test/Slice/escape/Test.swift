@@ -207,18 +207,6 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class`breaklogical`.
-public struct breaklogicalTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::classdef::break::logical"]
-    public static let staticId = "::classdef::break::logical"
-}
-
-/// Traits for Slice class`breakxor`.
-public struct breakxorTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::classdef::break::logical", "::classdef::break::xor"]
-    public static let staticId = "::classdef::break::xor"
-}
-
 public typealias breakparfor = [breakbitor]
 
 /// Helper class to read and write `breakparfor` sequence values from
@@ -352,18 +340,6 @@ public struct breakswitchHelper {
     }
 }
 
-/// Traits for Slice class`breaktry`.
-public struct breaktryTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::classdef::break::try"]
-    public static let staticId = "::classdef::break::try"
-}
-
-/// Traits for Slice class`breakproperties`.
-public struct breakpropertiesTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::classdef::break::properties", "::classdef::break::try"]
-    public static let staticId = "::classdef::break::properties"
-}
-
 /// :nodoc:
 public class breakpersistent_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
@@ -399,9 +375,7 @@ open class breakpersistent: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::classdef::break::persistent"
-    }
+    open override class func ice_staticId() -> Swift.String { "::classdef::break::persistent" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: breakpersistent.ice_staticId(), compactId: -1, last: true)
@@ -458,9 +432,7 @@ open class breakglobal: breakpersistent {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::classdef::break::global"
-    }
+    open override class func ice_staticId() -> Swift.String { "::classdef::break::global" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: breakglobal.ice_staticId(), compactId: -1, last: false)
@@ -559,11 +531,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: breakelseifPrx.Protocol, fac
     return breakelseifPrxI.uncheckedCast(prx: prx, facet: facet) as breakelseifPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `breakelseifPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: breakelseifPrx.Protocol) -> Swift.String {
     return breakelseifTraits.staticId
 }
@@ -754,19 +726,10 @@ open class breaklogical: Ice.Value {
         self.int64 = int64
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return breaklogicalTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return breaklogicalTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::classdef::break::logical" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -777,7 +740,7 @@ open class breaklogical: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: breaklogicalTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: breaklogical.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.`else`)
         ostr.write(self.`for`)
         ostr.write(self.int64)
@@ -810,19 +773,10 @@ open class breakxor: breaklogical {
         super.init(`else`: `else`, `for`: `for`, int64: int64)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return breakxorTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return breakxorTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::classdef::break::xor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -832,7 +786,7 @@ open class breakxor: breaklogical {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: breakxorTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: breakxor.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.`return`)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -863,19 +817,10 @@ open class breaktry: Ice.Value {
         self.delete = delete
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return breaktryTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return breaktryTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::classdef::break::try" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -885,7 +830,7 @@ open class breaktry: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: breaktryTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: breaktry.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.`while`)
         ostr.write(self.delete)
         ostr.endSlice()
@@ -923,19 +868,10 @@ open class breakproperties: breaktry {
         super.init(`while`: `while`, delete: delete)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return breakpropertiesTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return breakpropertiesTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::classdef::break::properties" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -948,7 +884,7 @@ open class breakproperties: breaktry {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: breakpropertiesTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: breakproperties.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.`if`)
         ostr.write(self.`catch`)
         breakparforHelper.write(to: ostr, value: self.spmd)

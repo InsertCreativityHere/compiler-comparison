@@ -16,18 +16,6 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class``Default``.
-public struct DefaultTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::Default"]
-    public static let staticId = "::Test::Default"
-}
-
-/// Traits for Slice class`NoDefault`.
-public struct NoDefaultTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::NoDefault"]
-    public static let staticId = "::Test::NoDefault"
-}
-
 /// :nodoc:
 public class Default_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
@@ -52,19 +40,10 @@ open class `Default`: Ice.Value {
         self.y = y
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return DefaultTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return DefaultTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Default" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -74,7 +53,7 @@ open class `Default`: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: DefaultTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: `Default`.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.x)
         ostr.write(self.y)
         ostr.endSlice()
@@ -105,19 +84,10 @@ open class NoDefault: Ice.Value {
         self.y = y
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return NoDefaultTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return NoDefaultTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::NoDefault" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -127,7 +97,7 @@ open class NoDefault: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: NoDefaultTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: NoDefault.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.x)
         ostr.write(self.y)
         ostr.endSlice()

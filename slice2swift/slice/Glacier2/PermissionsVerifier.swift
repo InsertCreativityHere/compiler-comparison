@@ -44,9 +44,7 @@ open class PermissionDeniedException: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Glacier2::PermissionDeniedException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Glacier2::PermissionDeniedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: PermissionDeniedException.ice_staticId(), compactId: -1, last: true)
@@ -135,11 +133,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: PermissionsVerifierPrx.Proto
     return PermissionsVerifierPrxI.uncheckedCast(prx: prx, facet: facet) as PermissionsVerifierPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `PermissionsVerifierPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: PermissionsVerifierPrx.Protocol) -> Swift.String {
     return PermissionsVerifierTraits.staticId
 }
@@ -322,11 +320,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: SSLPermissionsVerifierPrx.Pr
     return SSLPermissionsVerifierPrxI.uncheckedCast(prx: prx, facet: facet) as SSLPermissionsVerifierPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `SSLPermissionsVerifierPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SSLPermissionsVerifierPrx.Protocol) -> Swift.String {
     return SSLPermissionsVerifierTraits.staticId
 }

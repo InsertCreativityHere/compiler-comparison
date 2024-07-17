@@ -17,34 +17,10 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class`Empty`.
-public struct EmptyTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::Empty"]
-    public static let staticId = "::Test::Empty"
-}
-
-/// Traits for Slice class`AlsoEmpty`.
-public struct AlsoEmptyTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::AlsoEmpty"]
-    public static let staticId = "::Test::AlsoEmpty"
-}
-
 /// Traits for Slice interface`UnexpectedObjectExceptionTest`.
 public struct UnexpectedObjectExceptionTestTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::UnexpectedObjectExceptionTest"]
     public static let staticId = "::Test::UnexpectedObjectExceptionTest"
-}
-
-/// Traits for Slice class`COneMember`.
-public struct COneMemberTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::COneMember"]
-    public static let staticId = "::Test::COneMember"
-}
-
-/// Traits for Slice class`CTwoMembers`.
-public struct CTwoMembersTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::CTwoMembers"]
-    public static let staticId = "::Test::CTwoMembers"
 }
 
 /// :nodoc:
@@ -72,9 +48,7 @@ open class EOneMember: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::EOneMember"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::EOneMember" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: EOneMember.ice_staticId(), compactId: -1, last: true)
@@ -120,9 +94,7 @@ open class ETwoMembers: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::ETwoMembers"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::ETwoMembers" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: ETwoMembers.ice_staticId(), compactId: -1, last: true)
@@ -481,11 +453,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: UnexpectedObjectExceptionTes
     return UnexpectedObjectExceptionTestPrxI.uncheckedCast(prx: prx, facet: facet) as UnexpectedObjectExceptionTestPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `UnexpectedObjectExceptionTestPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: UnexpectedObjectExceptionTestPrx.Protocol) -> Swift.String {
     return UnexpectedObjectExceptionTestTraits.staticId
 }
@@ -579,21 +551,10 @@ public extension Ice.ClassResolver {
 }
 
 open class Empty: Ice.Value {
-    public required init() {}
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return EmptyTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return EmptyTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Empty" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -601,7 +562,7 @@ open class Empty: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: EmptyTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: Empty.ice_staticId(), compactId: -1, last: true)
         ostr.endSlice()
     }
 }
@@ -620,21 +581,10 @@ public extension Ice.ClassResolver {
 }
 
 open class AlsoEmpty: Ice.Value {
-    public required init() {}
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return AlsoEmptyTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return AlsoEmptyTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::AlsoEmpty" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -642,7 +592,7 @@ open class AlsoEmpty: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: AlsoEmptyTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: AlsoEmpty.ice_staticId(), compactId: -1, last: true)
         ostr.endSlice()
     }
 }
@@ -669,19 +619,10 @@ open class COneMember: Ice.Value {
         self.e = e
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return COneMemberTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return COneMemberTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::COneMember" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -690,7 +631,7 @@ open class COneMember: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: COneMemberTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: COneMember.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.e)
         ostr.endSlice()
     }
@@ -720,19 +661,10 @@ open class CTwoMembers: Ice.Value {
         self.e2 = e2
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CTwoMembersTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CTwoMembersTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::CTwoMembers" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -742,7 +674,7 @@ open class CTwoMembers: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CTwoMembersTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CTwoMembers.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.e1)
         ostr.write(self.e2)
         ostr.endSlice()

@@ -33,9 +33,7 @@ open class DerivedEx: BaseEx {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::DerivedEx"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::DerivedEx" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: DerivedEx.ice_staticId(), compactId: -1, last: false)

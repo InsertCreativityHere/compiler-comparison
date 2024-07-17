@@ -665,12 +665,6 @@ public struct AdapterDescriptorSeqHelper {
     }
 }
 
-/// Traits for Slice class`CommunicatorDescriptor`.
-public struct CommunicatorDescriptorTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::CommunicatorDescriptor"]
-    public static let staticId = "::IceGrid::CommunicatorDescriptor"
-}
-
 /// A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
 /// This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier
 /// releases.
@@ -740,12 +734,6 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class`ServerDescriptor`.
-public struct ServerDescriptorTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::CommunicatorDescriptor", "::IceGrid::ServerDescriptor"]
-    public static let staticId = "::IceGrid::ServerDescriptor"
-}
-
 /// A sequence of server descriptors.
 public typealias ServerDescriptorSeq = [ServerDescriptor?]
 
@@ -811,12 +799,6 @@ public struct ServerDescriptorSeqHelper {
             ostr.endSize(position: pos)
         }
     }
-}
-
-/// Traits for Slice class`ServiceDescriptor`.
-public struct ServiceDescriptorTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::CommunicatorDescriptor", "::IceGrid::ServiceDescriptor"]
-    public static let staticId = "::IceGrid::ServiceDescriptor"
 }
 
 /// A sequence of service descriptors.
@@ -1315,12 +1297,6 @@ public struct ServiceInstanceDescriptorSeqHelper {
     }
 }
 
-/// Traits for Slice class`IceBoxDescriptor`.
-public struct IceBoxDescriptorTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::CommunicatorDescriptor", "::IceGrid::IceBoxDescriptor", "::IceGrid::ServerDescriptor"]
-    public static let staticId = "::IceGrid::IceBoxDescriptor"
-}
-
 /// A node descriptor.
 public class NodeDescriptor {
     /// The variables defined for the node.
@@ -1474,36 +1450,6 @@ public struct NodeDescriptorDictHelper {
             ostr.endSize(position: pos)
         }
     }
-}
-
-/// Traits for Slice class`LoadBalancingPolicy`.
-public struct LoadBalancingPolicyTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::LoadBalancingPolicy"]
-    public static let staticId = "::IceGrid::LoadBalancingPolicy"
-}
-
-/// Traits for Slice class`RandomLoadBalancingPolicy`.
-public struct RandomLoadBalancingPolicyTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::LoadBalancingPolicy", "::IceGrid::RandomLoadBalancingPolicy"]
-    public static let staticId = "::IceGrid::RandomLoadBalancingPolicy"
-}
-
-/// Traits for Slice class`OrderedLoadBalancingPolicy`.
-public struct OrderedLoadBalancingPolicyTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::LoadBalancingPolicy", "::IceGrid::OrderedLoadBalancingPolicy"]
-    public static let staticId = "::IceGrid::OrderedLoadBalancingPolicy"
-}
-
-/// Traits for Slice class`RoundRobinLoadBalancingPolicy`.
-public struct RoundRobinLoadBalancingPolicyTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::LoadBalancingPolicy", "::IceGrid::RoundRobinLoadBalancingPolicy"]
-    public static let staticId = "::IceGrid::RoundRobinLoadBalancingPolicy"
-}
-
-/// Traits for Slice class`AdaptiveLoadBalancingPolicy`.
-public struct AdaptiveLoadBalancingPolicyTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::AdaptiveLoadBalancingPolicy", "::IceGrid::LoadBalancingPolicy"]
-    public static let staticId = "::IceGrid::AdaptiveLoadBalancingPolicy"
 }
 
 /// A replica group descriptor.
@@ -1829,12 +1775,6 @@ public struct ApplicationDescriptorSeqHelper {
     }
 }
 
-/// Traits for Slice class`BoxedString`.
-public struct BoxedStringTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::BoxedString"]
-    public static let staticId = "::IceGrid::BoxedString"
-}
-
 /// A node update descriptor to describe the updates to apply to a node of a deployed application.
 public class NodeUpdateDescriptor {
     /// The name of the node to update.
@@ -2009,12 +1949,6 @@ public struct NodeUpdateDescriptorSeqHelper {
     }
 }
 
-/// Traits for Slice class`BoxedDistributionDescriptor`.
-public struct BoxedDistributionDescriptorTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::BoxedDistributionDescriptor"]
-    public static let staticId = "::IceGrid::BoxedDistributionDescriptor"
-}
-
 /// An application update descriptor to describe the updates to apply to a deployed application.
 public class ApplicationUpdateDescriptor {
     /// The name of the application to update.
@@ -2180,19 +2114,10 @@ open class CommunicatorDescriptor: Ice.Value {
         self.description = description
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CommunicatorDescriptorTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CommunicatorDescriptorTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::CommunicatorDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2204,7 +2129,7 @@ open class CommunicatorDescriptor: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CommunicatorDescriptorTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: CommunicatorDescriptor.ice_staticId(), compactId: -1, last: true)
         AdapterDescriptorSeqHelper.write(to: ostr, value: self.adapters)
         ostr.write(self.propertySet)
         ostr.write(self.logs)
@@ -2278,19 +2203,10 @@ open class ServerDescriptor: CommunicatorDescriptor {
         super.init(adapters: adapters, propertySet: propertySet, logs: logs, description: description)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return ServerDescriptorTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return ServerDescriptorTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::ServerDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2312,7 +2228,7 @@ open class ServerDescriptor: CommunicatorDescriptor {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: ServerDescriptorTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: ServerDescriptor.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.id)
         ostr.write(self.exe)
         ostr.write(self.iceVersion)
@@ -2361,19 +2277,10 @@ open class ServiceDescriptor: CommunicatorDescriptor {
         super.init(adapters: adapters, propertySet: propertySet, logs: logs, description: description)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return ServiceDescriptorTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return ServiceDescriptorTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::ServiceDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2384,7 +2291,7 @@ open class ServiceDescriptor: CommunicatorDescriptor {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: ServiceDescriptorTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: ServiceDescriptor.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.name)
         ostr.write(self.entry)
         ostr.endSlice()
@@ -2419,19 +2326,10 @@ open class IceBoxDescriptor: ServerDescriptor {
         super.init(adapters: adapters, propertySet: propertySet, logs: logs, description: description, id: id, exe: exe, iceVersion: iceVersion, pwd: pwd, options: options, envs: envs, activation: activation, activationTimeout: activationTimeout, deactivationTimeout: deactivationTimeout, applicationDistrib: applicationDistrib, distrib: distrib, allocatable: allocatable, user: user)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return IceBoxDescriptorTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return IceBoxDescriptorTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::IceBoxDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2441,7 +2339,7 @@ open class IceBoxDescriptor: ServerDescriptor {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: IceBoxDescriptorTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: IceBoxDescriptor.ice_staticId(), compactId: -1, last: false)
         ServiceInstanceDescriptorSeqHelper.write(to: ostr, value: self.services)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -2472,19 +2370,10 @@ open class LoadBalancingPolicy: Ice.Value {
         self.nReplicas = nReplicas
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return LoadBalancingPolicyTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return LoadBalancingPolicyTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::LoadBalancingPolicy" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2493,7 +2382,7 @@ open class LoadBalancingPolicy: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: LoadBalancingPolicyTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: LoadBalancingPolicy.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.nReplicas)
         ostr.endSlice()
     }
@@ -2514,19 +2403,10 @@ public extension Ice.ClassResolver {
 
 /// Random load balancing policy.
 open class RandomLoadBalancingPolicy: LoadBalancingPolicy {
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return RandomLoadBalancingPolicyTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return RandomLoadBalancingPolicyTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::RandomLoadBalancingPolicy" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2535,7 +2415,7 @@ open class RandomLoadBalancingPolicy: LoadBalancingPolicy {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: RandomLoadBalancingPolicyTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: RandomLoadBalancingPolicy.ice_staticId(), compactId: -1, last: false)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
     }
@@ -2556,19 +2436,10 @@ public extension Ice.ClassResolver {
 
 /// Ordered load balancing policy.
 open class OrderedLoadBalancingPolicy: LoadBalancingPolicy {
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return OrderedLoadBalancingPolicyTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return OrderedLoadBalancingPolicyTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::OrderedLoadBalancingPolicy" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2577,7 +2448,7 @@ open class OrderedLoadBalancingPolicy: LoadBalancingPolicy {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: OrderedLoadBalancingPolicyTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: OrderedLoadBalancingPolicy.ice_staticId(), compactId: -1, last: false)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
     }
@@ -2598,19 +2469,10 @@ public extension Ice.ClassResolver {
 
 /// Round robin load balancing policy.
 open class RoundRobinLoadBalancingPolicy: LoadBalancingPolicy {
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return RoundRobinLoadBalancingPolicyTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return RoundRobinLoadBalancingPolicyTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::RoundRobinLoadBalancingPolicy" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2619,7 +2481,7 @@ open class RoundRobinLoadBalancingPolicy: LoadBalancingPolicy {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: RoundRobinLoadBalancingPolicyTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: RoundRobinLoadBalancingPolicy.ice_staticId(), compactId: -1, last: false)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
     }
@@ -2653,19 +2515,10 @@ open class AdaptiveLoadBalancingPolicy: LoadBalancingPolicy {
         super.init(nReplicas: nReplicas)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return AdaptiveLoadBalancingPolicyTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return AdaptiveLoadBalancingPolicyTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::AdaptiveLoadBalancingPolicy" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2675,7 +2528,7 @@ open class AdaptiveLoadBalancingPolicy: LoadBalancingPolicy {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: AdaptiveLoadBalancingPolicyTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: AdaptiveLoadBalancingPolicy.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.loadSample)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -2706,19 +2559,10 @@ open class BoxedString: Ice.Value {
         self.value = value
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return BoxedStringTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return BoxedStringTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::BoxedString" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2727,7 +2571,7 @@ open class BoxedString: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: BoxedStringTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: BoxedString.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.value)
         ostr.endSlice()
     }
@@ -2757,19 +2601,10 @@ open class BoxedDistributionDescriptor: Ice.Value {
         self.value = value
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return BoxedDistributionDescriptorTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return BoxedDistributionDescriptorTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceGrid::BoxedDistributionDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2778,7 +2613,7 @@ open class BoxedDistributionDescriptor: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: BoxedDistributionDescriptorTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: BoxedDistributionDescriptor.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.value)
         ostr.endSlice()
     }

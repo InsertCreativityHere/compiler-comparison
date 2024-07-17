@@ -580,12 +580,6 @@ public struct StringMyClassDHelper {
     }
 }
 
-/// Traits for Slice class`OptionalClass`.
-public struct OptionalClassTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::OptionalClass"]
-    public static let staticId = "::Test::OptionalClass"
-}
-
 public typealias BoolSS = [Ice.BoolSeq]
 
 /// Helper class to read and write `BoolSS` sequence values from
@@ -1378,12 +1372,6 @@ public struct StringStringDHelper {
     }
 }
 
-/// Traits for Slice class`MyClass`.
-public struct MyClassTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MyClass"]
-    public static let staticId = "::Test::MyClass"
-}
-
 /// :nodoc:
 public class MyException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
@@ -1409,9 +1397,7 @@ open class MyException: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::MyException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MyException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: MyException.ice_staticId(), compactId: -1, last: true)
@@ -1492,11 +1478,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: MyInterfacePrx.Protocol, fac
     return MyInterfacePrxI.uncheckedCast(prx: prx, facet: facet) as MyInterfacePrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `MyInterfacePrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MyInterfacePrx.Protocol) -> Swift.String {
     return MyInterfaceTraits.staticId
 }
@@ -1573,19 +1559,10 @@ open class OptionalClass: Ice.Value {
         self.p15 = p15
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return OptionalClassTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return OptionalClassTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::OptionalClass" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1606,7 +1583,7 @@ open class OptionalClass: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: OptionalClassTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: OptionalClass.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.bo)
         ostr.write(self.by)
         ostr.write(tag: 1, value: self.sh)
@@ -1674,19 +1651,10 @@ open class MyClass: Ice.Value {
         self.d = d
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MyClassTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MyClassTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MyClass" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1709,7 +1677,7 @@ open class MyClass: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MyClassTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: MyClass.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.c)
         ostr.write(self.prx)
         ostr.write(self.o)

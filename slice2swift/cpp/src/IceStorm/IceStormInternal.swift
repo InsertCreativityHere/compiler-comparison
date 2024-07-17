@@ -183,14 +183,10 @@ public extension Ice.ClassResolver {
 
 /// Thrown if the reap call would block.
 open class ReapWouldBlock: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceStorm::ReapWouldBlock"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceStorm::ReapWouldBlock" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: ReapWouldBlock.ice_staticId(), compactId: -1, last: true)
@@ -277,11 +273,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TopicLinkPrx.Protocol, facet
     return TopicLinkPrxI.uncheckedCast(prx: prx, facet: facet) as TopicLinkPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TopicLinkPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TopicLinkPrx.Protocol) -> Swift.String {
     return TopicLinkTraits.staticId
 }
@@ -425,11 +421,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TopicInternalPrx.Protocol, f
     return TopicInternalPrxI.uncheckedCast(prx: prx, facet: facet) as TopicInternalPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TopicInternalPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TopicInternalPrx.Protocol) -> Swift.String {
     return TopicInternalTraits.staticId
 }
@@ -632,11 +628,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: TopicManagerInternalPrx.Prot
     return TopicManagerInternalPrxI.uncheckedCast(prx: prx, facet: facet) as TopicManagerInternalPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `TopicManagerInternalPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TopicManagerInternalPrx.Protocol) -> Swift.String {
     return TopicManagerInternalTraits.staticId
 }

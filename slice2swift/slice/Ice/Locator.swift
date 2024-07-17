@@ -31,14 +31,10 @@ public extension ClassResolver {
 
 /// This exception is raised if an adapter cannot be found.
 open class AdapterNotFoundException: UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Ice::AdapterNotFoundException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Ice::AdapterNotFoundException" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
         ostr.startSlice(typeId: AdapterNotFoundException.ice_staticId(), compactId: -1, last: true)
@@ -66,14 +62,10 @@ public extension ClassResolver {
 
 /// This exception is raised if the replica group provided by the server is invalid.
 open class InvalidReplicaGroupIdException: UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Ice::InvalidReplicaGroupIdException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Ice::InvalidReplicaGroupIdException" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
         ostr.startSlice(typeId: InvalidReplicaGroupIdException.ice_staticId(), compactId: -1, last: true)
@@ -101,14 +93,10 @@ public extension ClassResolver {
 
 /// This exception is raised if a server tries to set endpoints for an adapter that is already active.
 open class AdapterAlreadyActiveException: UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Ice::AdapterAlreadyActiveException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Ice::AdapterAlreadyActiveException" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
         ostr.startSlice(typeId: AdapterAlreadyActiveException.ice_staticId(), compactId: -1, last: true)
@@ -136,14 +124,10 @@ public extension ClassResolver {
 
 /// This exception is raised if an object cannot be found.
 open class ObjectNotFoundException: UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Ice::ObjectNotFoundException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Ice::ObjectNotFoundException" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
         ostr.startSlice(typeId: ObjectNotFoundException.ice_staticId(), compactId: -1, last: true)
@@ -171,14 +155,10 @@ public extension ClassResolver {
 
 /// This exception is raised if a server cannot be found.
 open class ServerNotFoundException: UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Ice::ServerNotFoundException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Ice::ServerNotFoundException" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
         ostr.startSlice(typeId: ServerNotFoundException.ice_staticId(), compactId: -1, last: true)
@@ -282,11 +262,11 @@ public func uncheckedCast(prx: ObjectPrx, type: LocatorPrx.Protocol, facet: Swif
     return LocatorPrxI.uncheckedCast(prx: prx, facet: facet) as LocatorPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `LocatorPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LocatorPrx.Protocol) -> Swift.String {
     return LocatorTraits.staticId
 }
@@ -588,11 +568,11 @@ public func uncheckedCast(prx: ObjectPrx, type: LocatorRegistryPrx.Protocol, fac
     return LocatorRegistryPrxI.uncheckedCast(prx: prx, facet: facet) as LocatorRegistryPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `LocatorRegistryPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LocatorRegistryPrx.Protocol) -> Swift.String {
     return LocatorRegistryTraits.staticId
 }
@@ -930,11 +910,11 @@ public func uncheckedCast(prx: ObjectPrx, type: LocatorFinderPrx.Protocol, facet
     return LocatorFinderPrxI.uncheckedCast(prx: prx, facet: facet) as LocatorFinderPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `LocatorFinderPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LocatorFinderPrx.Protocol) -> Swift.String {
     return LocatorFinderTraits.staticId
 }

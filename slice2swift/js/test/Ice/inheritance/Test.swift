@@ -47,150 +47,6 @@ public struct InitialTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Initial"
 }
 
-/// Traits for Slice class`MCA`.
-public struct MCATraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MC::A"]
-    public static let staticId = "::Test::MC::A"
-}
-
-/// Traits for Slice class`MCB`.
-public struct MCBTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MC::A", "::Test::MC::B"]
-    public static let staticId = "::Test::MC::B"
-}
-
-/// Traits for Slice class`MCC`.
-public struct MCCTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MC::A", "::Test::MC::B", "::Test::MC::C"]
-    public static let staticId = "::Test::MC::C"
-}
-
-/// Traits for Slice class`MCD`.
-public struct MCDTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MC::A", "::Test::MC::B", "::Test::MC::C", "::Test::MC::D"]
-    public static let staticId = "::Test::MC::D"
-}
-
-/// Traits for Slice class`MDA`.
-public struct MDATraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MD::A"]
-    public static let staticId = "::Test::MD::A"
-}
-
-/// Traits for Slice class`MDB`.
-public struct MDBTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MD::A", "::Test::MD::B"]
-    public static let staticId = "::Test::MD::B"
-}
-
-/// Traits for Slice class`MDC`.
-public struct MDCTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MD::A", "::Test::MD::B", "::Test::MD::C"]
-    public static let staticId = "::Test::MD::C"
-}
-
-/// Traits for Slice class`MDD`.
-public struct MDDTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MD::A", "::Test::MD::B", "::Test::MD::C", "::Test::MD::D"]
-    public static let staticId = "::Test::MD::D"
-}
-
-/// Traits for Slice class`MEA`.
-public struct MEATraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::ME::A"]
-    public static let staticId = "::Test::ME::A"
-}
-
-/// Traits for Slice class`MEB`.
-public struct MEBTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::ME::A", "::Test::ME::B"]
-    public static let staticId = "::Test::ME::B"
-}
-
-/// Traits for Slice class`MEC`.
-public struct MECTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::ME::A", "::Test::ME::B", "::Test::ME::C"]
-    public static let staticId = "::Test::ME::C"
-}
-
-/// Traits for Slice class`MED`.
-public struct MEDTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::ME::A", "::Test::ME::B", "::Test::ME::C", "::Test::ME::D"]
-    public static let staticId = "::Test::ME::D"
-}
-
-/// Traits for Slice class`MFA`.
-public struct MFATraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MF::A"]
-    public static let staticId = "::Test::MF::A"
-}
-
-/// Traits for Slice class`MFB`.
-public struct MFBTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MF::A", "::Test::MF::B"]
-    public static let staticId = "::Test::MF::B"
-}
-
-/// Traits for Slice class`MFC`.
-public struct MFCTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MF::A", "::Test::MF::B", "::Test::MF::C"]
-    public static let staticId = "::Test::MF::C"
-}
-
-/// Traits for Slice class`MFD`.
-public struct MFDTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MF::A", "::Test::MF::B", "::Test::MF::C", "::Test::MF::D"]
-    public static let staticId = "::Test::MF::D"
-}
-
-/// Traits for Slice class`MGA`.
-public struct MGATraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MG::A"]
-    public static let staticId = "::Test::MG::A"
-}
-
-/// Traits for Slice class`MGB`.
-public struct MGBTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MG::A", "::Test::MG::B"]
-    public static let staticId = "::Test::MG::B"
-}
-
-/// Traits for Slice class`MGC`.
-public struct MGCTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MG::A", "::Test::MG::B", "::Test::MG::C"]
-    public static let staticId = "::Test::MG::C"
-}
-
-/// Traits for Slice class`MGD`.
-public struct MGDTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MG::A", "::Test::MG::B", "::Test::MG::C", "::Test::MG::D"]
-    public static let staticId = "::Test::MG::D"
-}
-
-/// Traits for Slice class`MHA`.
-public struct MHATraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MH::A"]
-    public static let staticId = "::Test::MH::A"
-}
-
-/// Traits for Slice class`MHB`.
-public struct MHBTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MH::A", "::Test::MH::B"]
-    public static let staticId = "::Test::MH::B"
-}
-
-/// Traits for Slice class`MHC`.
-public struct MHCTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MH::A", "::Test::MH::B", "::Test::MH::C"]
-    public static let staticId = "::Test::MH::C"
-}
-
-/// Traits for Slice class`MHD`.
-public struct MHDTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MH::A", "::Test::MH::B", "::Test::MH::C", "::Test::MH::D"]
-    public static let staticId = "::Test::MH::D"
-}
-
 /// Traits for Slice interface`Echo`.
 public struct EchoTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Echo"]
@@ -259,11 +115,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: MAIAPrx.Protocol, facet: Swi
     return MAIAPrxI.uncheckedCast(prx: prx, facet: facet) as MAIAPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `MAIAPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MAIAPrx.Protocol) -> Swift.String {
     return MAIATraits.staticId
 }
@@ -411,11 +267,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: MBIB1Prx.Protocol, facet: Sw
     return MBIB1PrxI.uncheckedCast(prx: prx, facet: facet) as MBIB1PrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `MBIB1Prx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MBIB1Prx.Protocol) -> Swift.String {
     return MBIB1Traits.staticId
 }
@@ -563,11 +419,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: MBIB2Prx.Protocol, facet: Sw
     return MBIB2PrxI.uncheckedCast(prx: prx, facet: facet) as MBIB2PrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `MBIB2Prx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MBIB2Prx.Protocol) -> Swift.String {
     return MBIB2Traits.staticId
 }
@@ -715,11 +571,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: MAICPrx.Protocol, facet: Swi
     return MAICPrxI.uncheckedCast(prx: prx, facet: facet) as MAICPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `MAICPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MAICPrx.Protocol) -> Swift.String {
     return MAICTraits.staticId
 }
@@ -883,11 +739,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: InitialPrx.Protocol, facet: 
     return InitialPrxI.uncheckedCast(prx: prx, facet: facet) as InitialPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `InitialPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: InitialPrx.Protocol) -> Swift.String {
     return InitialTraits.staticId
 }
@@ -1199,11 +1055,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: EchoPrx.Protocol, facet: Swi
     return EchoPrxI.uncheckedCast(prx: prx, facet: facet) as EchoPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `EchoPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: EchoPrx.Protocol) -> Swift.String {
     return EchoTraits.staticId
 }
@@ -1390,19 +1246,10 @@ open class MCA: Ice.Value {
         self.aA = aA
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MCATraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MCATraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MC::A" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1411,7 +1258,7 @@ open class MCA: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MCATraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: MCA.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.aA)
         ostr.endSlice()
     }
@@ -1442,19 +1289,10 @@ open class MCB: MCA {
         super.init(aA: aA)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MCBTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MCBTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MC::B" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1464,7 +1302,7 @@ open class MCB: MCA {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MCBTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MCB.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.bB)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -1496,19 +1334,10 @@ open class MCC: MCB {
         super.init(aA: aA, bB: bB)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MCCTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MCCTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MC::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1518,7 +1347,7 @@ open class MCC: MCB {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MCCTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MCC.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.cC)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -1550,19 +1379,10 @@ open class MCD: MCC {
         super.init(aA: aA, bB: bB, cC: cC)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MCDTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MCDTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MC::D" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1572,7 +1392,7 @@ open class MCD: MCC {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MCDTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MCD.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.dD)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -1601,19 +1421,10 @@ open class MDA: Ice.Value {
         self.aA = aA
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MDATraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MDATraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MD::A" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1622,7 +1433,7 @@ open class MDA: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MDATraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: MDA.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.aA)
         ostr.endSlice()
     }
@@ -1653,19 +1464,10 @@ open class MDB: MDA {
         super.init(aA: aA)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MDBTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MDBTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MD::B" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1675,7 +1477,7 @@ open class MDB: MDA {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MDBTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MDB.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.bB)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -1707,19 +1509,10 @@ open class MDC: MDB {
         super.init(aA: aA, bB: bB)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MDCTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MDCTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MD::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1729,7 +1522,7 @@ open class MDC: MDB {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MDCTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MDC.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.cC)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -1761,19 +1554,10 @@ open class MDD: MDC {
         super.init(aA: aA, bB: bB, cC: cC)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MDDTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MDDTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MD::D" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1783,7 +1567,7 @@ open class MDD: MDC {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MDDTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MDD.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.dD)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -1812,19 +1596,10 @@ open class MEA: Ice.Value {
         self.aA = aA
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MEATraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MEATraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::ME::A" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1833,7 +1608,7 @@ open class MEA: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MEATraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: MEA.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.aA)
         ostr.endSlice()
     }
@@ -1864,19 +1639,10 @@ open class MEB: MEA {
         super.init(aA: aA)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MEBTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MEBTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::ME::B" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1886,7 +1652,7 @@ open class MEB: MEA {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MEBTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MEB.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.bB)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -1918,19 +1684,10 @@ open class MEC: MEB {
         super.init(aA: aA, bB: bB)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MECTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MECTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::ME::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1940,7 +1697,7 @@ open class MEC: MEB {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MECTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MEC.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.cC)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -1972,19 +1729,10 @@ open class MED: MEC {
         super.init(aA: aA, bB: bB, cC: cC)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MEDTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MEDTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::ME::D" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1994,7 +1742,7 @@ open class MED: MEC {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MEDTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MED.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.dD)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -2023,19 +1771,10 @@ open class MFA: Ice.Value {
         self.aA = aA
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MFATraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MFATraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MF::A" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2044,7 +1783,7 @@ open class MFA: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MFATraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: MFA.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.aA)
         ostr.endSlice()
     }
@@ -2075,19 +1814,10 @@ open class MFB: MFA {
         super.init(aA: aA)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MFBTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MFBTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MF::B" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2097,7 +1827,7 @@ open class MFB: MFA {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MFBTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MFB.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.bB)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -2129,19 +1859,10 @@ open class MFC: MFB {
         super.init(aA: aA, bB: bB)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MFCTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MFCTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MF::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2151,7 +1872,7 @@ open class MFC: MFB {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MFCTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MFC.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.cC)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -2183,19 +1904,10 @@ open class MFD: MFC {
         super.init(aA: aA, bB: bB, cC: cC)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MFDTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MFDTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MF::D" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2205,7 +1917,7 @@ open class MFD: MFC {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MFDTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MFD.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.dD)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -2234,19 +1946,10 @@ open class MGA: Ice.Value {
         self.aA = aA
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MGATraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MGATraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MG::A" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2255,7 +1958,7 @@ open class MGA: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MGATraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: MGA.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.aA)
         ostr.endSlice()
     }
@@ -2286,19 +1989,10 @@ open class MGB: MGA {
         super.init(aA: aA)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MGBTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MGBTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MG::B" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2308,7 +2002,7 @@ open class MGB: MGA {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MGBTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MGB.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.bB)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -2340,19 +2034,10 @@ open class MGC: MGB {
         super.init(aA: aA, bB: bB)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MGCTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MGCTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MG::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2362,7 +2047,7 @@ open class MGC: MGB {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MGCTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MGC.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.cC)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -2394,19 +2079,10 @@ open class MGD: MGC {
         super.init(aA: aA, bB: bB, cC: cC)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MGDTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MGDTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MG::D" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2416,7 +2092,7 @@ open class MGD: MGC {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MGDTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MGD.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.dD)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -2445,19 +2121,10 @@ open class MHA: Ice.Value {
         self.aA = aA
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MHATraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MHATraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MH::A" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2466,7 +2133,7 @@ open class MHA: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MHATraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: MHA.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.aA)
         ostr.endSlice()
     }
@@ -2497,19 +2164,10 @@ open class MHB: MHA {
         super.init(aA: aA)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MHBTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MHBTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MH::B" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2519,7 +2177,7 @@ open class MHB: MHA {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MHBTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MHB.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.bB)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -2551,19 +2209,10 @@ open class MHC: MHB {
         super.init(aA: aA, bB: bB)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MHCTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MHCTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MH::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2573,7 +2222,7 @@ open class MHC: MHB {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MHCTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MHC.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.cC)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -2605,19 +2254,10 @@ open class MHD: MHC {
         super.init(aA: aA, bB: bB, cC: cC)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MHDTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MHDTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MH::D" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -2627,7 +2267,7 @@ open class MHD: MHC {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MHDTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: MHD.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.dD)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);

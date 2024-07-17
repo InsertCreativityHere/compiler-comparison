@@ -17,12 +17,6 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class`OneOptional`.
-public struct OneOptionalTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::OneOptional"]
-    public static let staticId = "::Test::OneOptional"
-}
-
 /// Traits for Slice interface`MyInterface`.
 public struct MyInterfaceTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyInterface"]
@@ -1131,36 +1125,6 @@ public struct IntMyInterfacePrxDictHelper {
     }
 }
 
-/// Traits for Slice class`MultiOptional`.
-public struct MultiOptionalTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MultiOptional"]
-    public static let staticId = "::Test::MultiOptional"
-}
-
-/// Traits for Slice class`A`.
-public struct ATraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::A"]
-    public static let staticId = "::Test::A"
-}
-
-/// Traits for Slice class`B`.
-public struct BTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::A", "::Test::B"]
-    public static let staticId = "::Test::B"
-}
-
-/// Traits for Slice class`C`.
-public struct CTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::A", "::Test::B", "::Test::C"]
-    public static let staticId = "::Test::C"
-}
-
-/// Traits for Slice class`WD`.
-public struct WDTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::WD"]
-    public static let staticId = "::Test::WD"
-}
-
 /// :nodoc:
 public class OptionalException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
@@ -1190,9 +1154,7 @@ open class OptionalException: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::OptionalException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::OptionalException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: OptionalException.ice_staticId(), compactId: -1, last: true)
@@ -1243,9 +1205,7 @@ open class DerivedException: OptionalException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::DerivedException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::DerivedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: DerivedException.ice_staticId(), compactId: -1, last: false)
@@ -1294,9 +1254,7 @@ open class RequiredException: OptionalException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::RequiredException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::RequiredException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: RequiredException.ice_staticId(), compactId: -1, last: false)
@@ -1311,24 +1269,6 @@ open class RequiredException: OptionalException {
         try istr.endSlice()
         try super._iceReadImpl(from: istr);
     }
-}
-
-/// Traits for Slice class`OptionalWithCustom`.
-public struct OptionalWithCustomTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::OptionalWithCustom"]
-    public static let staticId = "::Test::OptionalWithCustom"
-}
-
-/// Traits for Slice class`E`.
-public struct ETraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::E"]
-    public static let staticId = "::Test::E"
-}
-
-/// Traits for Slice class`F`.
-public struct FTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::E", "::Test::F"]
-    public static let staticId = "::Test::F"
 }
 
 public struct G1: Swift.Hashable {
@@ -1450,12 +1390,6 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class`G`.
-public struct GTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::G"]
-    public static let staticId = "::Test::G"
-}
-
 /// Traits for Slice interface`Initial`.
 public struct InitialTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Initial"]
@@ -1524,11 +1458,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: MyInterfacePrx.Protocol, fac
     return MyInterfacePrxI.uncheckedCast(prx: prx, facet: facet) as MyInterfacePrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `MyInterfacePrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MyInterfacePrx.Protocol) -> Swift.String {
     return MyInterfaceTraits.staticId
 }
@@ -1832,11 +1766,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: InitialPrx.Protocol, facet: 
     return InitialPrxI.uncheckedCast(prx: prx, facet: facet) as InitialPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `InitialPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: InitialPrx.Protocol) -> Swift.String {
     return InitialTraits.staticId
 }
@@ -4436,19 +4370,10 @@ open class OneOptional: Ice.Value {
         self.a = a
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return OneOptionalTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return OneOptionalTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::OneOptional" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4457,7 +4382,7 @@ open class OneOptional: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: OneOptionalTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: OneOptional.ice_staticId(), compactId: -1, last: true)
         ostr.write(tag: 1, value: self.a)
         ostr.endSlice()
     }
@@ -4537,19 +4462,10 @@ open class MultiOptional: Ice.Value {
         self.ser = ser
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MultiOptionalTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MultiOptionalTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::MultiOptional" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4584,7 +4500,7 @@ open class MultiOptional: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MultiOptionalTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: MultiOptional.ice_staticId(), compactId: -1, last: true)
         ostr.write(tag: 1, value: self.a)
         ostr.write(tag: 2, value: self.b)
         ostr.write(tag: 3, value: self.c)
@@ -4644,19 +4560,10 @@ open class A: Ice.Value {
         self.mc = mc
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return ATraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return ATraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::A" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4668,7 +4575,7 @@ open class A: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: ATraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: A.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.requiredA)
         ostr.write(tag: 1, value: self.ma)
         ostr.write(tag: 50, value: self.mb)
@@ -4704,19 +4611,10 @@ open class B: A {
         super.init(requiredA: requiredA, ma: ma, mb: mb, mc: mc)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return BTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return BTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::B" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4727,7 +4625,7 @@ open class B: A {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: BTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: B.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.requiredB)
         ostr.write(tag: 10, value: self.md)
         ostr.endSlice()
@@ -4762,19 +4660,10 @@ open class C: B {
         super.init(requiredA: requiredA, ma: ma, mb: mb, mc: mc, requiredB: requiredB, md: md)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return CTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return CTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4785,7 +4674,7 @@ open class C: B {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: CTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: C.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.ss)
         ostr.write(tag: 890, value: self.ms)
         ostr.endSlice()
@@ -4817,19 +4706,10 @@ open class WD: Ice.Value {
         self.s = s
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return WDTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return WDTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::WD" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4839,7 +4719,7 @@ open class WD: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: WDTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: WD.ice_staticId(), compactId: -1, last: true)
         ostr.write(tag: 1, value: self.a)
         ostr.write(tag: 2, value: self.s)
         ostr.endSlice()
@@ -4870,19 +4750,10 @@ open class OptionalWithCustom: Ice.Value {
         self.lp = lp
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return OptionalWithCustomTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return OptionalWithCustomTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::OptionalWithCustom" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4892,7 +4763,7 @@ open class OptionalWithCustom: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: OptionalWithCustomTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: OptionalWithCustom.ice_staticId(), compactId: -1, last: true)
         SmallStructListHelper.write(to: ostr, tag: 1, value: self.l)
         SmallStructListHelper.write(to: ostr, tag: 2, value: self.lp)
         ostr.endSlice()
@@ -4921,19 +4792,10 @@ open class E: Ice.Value {
         self.fse = fse
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return ETraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return ETraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::E" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4942,7 +4804,7 @@ open class E: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: ETraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: E.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.fse)
         ostr.endSlice()
     }
@@ -4973,19 +4835,10 @@ open class F: E {
         super.init(fse: fse)
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return FTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return FTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::F" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -4995,7 +4848,7 @@ open class F: E {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: FTraits.staticId, compactId: -1, last: false)
+        ostr.startSlice(typeId: F.ice_staticId(), compactId: -1, last: false)
         ostr.write(tag: 1, value: self.fsf)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
@@ -5030,19 +4883,10 @@ open class G: Ice.Value {
         self.gg1 = gg1
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return GTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return GTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::G" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -5054,7 +4898,7 @@ open class G: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: GTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: G.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.gg2)
         ostr.write(self.gg1)
         ostr.write(tag: 0, value: self.gg2Opt)

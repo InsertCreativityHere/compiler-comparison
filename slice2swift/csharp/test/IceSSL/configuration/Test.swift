@@ -172,11 +172,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ServerPrx.Protocol, facet: S
     return ServerPrxI.uncheckedCast(prx: prx, facet: facet) as ServerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ServerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ServerPrx.Protocol) -> Swift.String {
     return ServerTraits.staticId
 }
@@ -404,11 +404,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ServerFactoryPrx.Protocol, f
     return ServerFactoryPrxI.uncheckedCast(prx: prx, facet: facet) as ServerFactoryPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ServerFactoryPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ServerFactoryPrx.Protocol) -> Swift.String {
     return ServerFactoryTraits.staticId
 }
@@ -632,11 +632,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: PingablePrx.Protocol, facet:
     return PingablePrxI.uncheckedCast(prx: prx, facet: facet) as PingablePrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `PingablePrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: PingablePrx.Protocol) -> Swift.String {
     return PingableTraits.staticId
 }

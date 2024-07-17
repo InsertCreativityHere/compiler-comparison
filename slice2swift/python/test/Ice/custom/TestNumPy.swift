@@ -47,12 +47,6 @@ public typealias NumPyDoubleSeq2 = [Swift.Double]
 
 public typealias NumPyComplex128Seq = Foundation.Data
 
-/// Traits for Slice class`NumPyD`.
-public struct NumPyDTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::NumPy::D"]
-    public static let staticId = "::Test::NumPy::D"
-}
-
 /// Traits for Slice interface`NumPyCustom`.
 public struct NumPyCustomTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::NumPy::Custom"]
@@ -189,11 +183,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: NumPyCustomPrx.Protocol, fac
     return NumPyCustomPrxI.uncheckedCast(prx: prx, facet: facet) as NumPyCustomPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `NumPyCustomPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: NumPyCustomPrx.Protocol) -> Swift.String {
     return NumPyCustomTraits.staticId
 }
@@ -1162,19 +1156,10 @@ open class NumPyD: Ice.Value {
         self.doubleSeq = doubleSeq
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return NumPyDTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return NumPyDTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::NumPy::D" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -1189,7 +1174,7 @@ open class NumPyD: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: NumPyDTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: NumPyD.ice_staticId(), compactId: -1, last: true)
         ostr.write(tag: 1, value: self.boolSeq)
         ostr.write(tag: 2, value: self.byteSeq)
         ostr.write(tag: 3, value: self.shortSeq)

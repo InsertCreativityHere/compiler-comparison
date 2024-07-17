@@ -23,12 +23,6 @@ public struct IntfTraits: Ice.SliceTraits {
     public static let staticId = "::Clash::Intf"
 }
 
-/// Traits for Slice class`Cls`.
-public struct ClsTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Clash::Cls", "::Ice::Object"]
-    public static let staticId = "::Clash::Cls"
-}
-
 public struct St: Swift.Hashable {
     public var v: Swift.String = ""
     public var istr: Swift.Int16 = 0
@@ -132,9 +126,7 @@ open class Ex: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Clash::Ex"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Clash::Ex" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: Ex.ice_staticId(), compactId: -1, last: true)
@@ -257,11 +249,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: IntfPrx.Protocol, facet: Swi
     return IntfPrxI.uncheckedCast(prx: prx, facet: facet) as IntfPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `IntfPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: IntfPrx.Protocol) -> Swift.String {
     return IntfTraits.staticId
 }
@@ -862,19 +854,10 @@ open class Cls: Ice.Value {
         self.proxy = proxy
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return ClsTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return ClsTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Clash::Cls" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -897,7 +880,7 @@ open class Cls: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: ClsTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: Cls.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.s)
         ostr.write(self.context)
         ostr.write(self.current)

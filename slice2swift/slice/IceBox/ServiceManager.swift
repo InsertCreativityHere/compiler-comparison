@@ -32,14 +32,10 @@ public extension Ice.ClassResolver {
 
 /// This exception is thrown if an attempt is made to start an already-started service.
 open class AlreadyStartedException: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceBox::AlreadyStartedException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceBox::AlreadyStartedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: AlreadyStartedException.ice_staticId(), compactId: -1, last: true)
@@ -67,14 +63,10 @@ public extension Ice.ClassResolver {
 
 /// This exception is thrown if an attempt is made to stop an already-stopped service.
 open class AlreadyStoppedException: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceBox::AlreadyStoppedException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceBox::AlreadyStoppedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: AlreadyStoppedException.ice_staticId(), compactId: -1, last: true)
@@ -102,14 +94,10 @@ public extension Ice.ClassResolver {
 
 /// This exception is thrown if a service name does not refer to an existing service.
 open class NoSuchServiceException: Ice.UserException {
-    public required init() {}
-
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceBox::NoSuchServiceException"
-    }
+    open override class func ice_staticId() -> Swift.String { "::IceBox::NoSuchServiceException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: NoSuchServiceException.ice_staticId(), compactId: -1, last: true)
@@ -200,11 +188,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ServiceObserverPrx.Protocol,
     return ServiceObserverPrxI.uncheckedCast(prx: prx, facet: facet) as ServiceObserverPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ServiceObserverPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ServiceObserverPrx.Protocol) -> Swift.String {
     return ServiceObserverTraits.staticId
 }
@@ -401,11 +389,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: ServiceManagerPrx.Protocol, 
     return ServiceManagerPrxI.uncheckedCast(prx: prx, facet: facet) as ServiceManagerPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `ServiceManagerPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ServiceManagerPrx.Protocol) -> Swift.String {
     return ServiceManagerTraits.staticId
 }

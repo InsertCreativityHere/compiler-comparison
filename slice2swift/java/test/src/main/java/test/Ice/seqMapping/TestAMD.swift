@@ -386,9 +386,7 @@ open class Bar: Ice.UserException {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::Bar"
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Bar" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: Bar.ice_staticId(), compactId: -1, last: true)
@@ -403,12 +401,6 @@ open class Bar: Ice.UserException {
         self.SLSmem = try SLSHelper.read(from: istr)
         try istr.endSlice()
     }
-}
-
-/// Traits for Slice class`Baz`.
-public struct BazTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::Baz"]
-    public static let staticId = "::Test::Baz"
 }
 
 /// MyClassPrx overview.
@@ -485,11 +477,11 @@ public func uncheckedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: 
     return MyClassPrxI.uncheckedCast(prx: prx, facet: facet) as MyClassPrxI
 }
 
-/// Returns the Slice type id of the interface or class associated with this proxy type.
+/// Returns the Slice type id of the interface associated with this proxy type.
 ///
 /// parameter type: `MyClassPrx.Protocol` -  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
+/// returns: `String` - The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MyClassPrx.Protocol) -> Swift.String {
     return MyClassTraits.staticId
 }
@@ -756,19 +748,10 @@ open class Baz: Ice.Value {
         self.SLSmem = SLSmem
     }
 
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return BazTraits.staticId
-    }
-
     /// Returns the Slice type ID of the interface supported by this object.
     ///
     /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return BazTraits.staticId
-    }
+    open override class func ice_staticId() -> Swift.String { "::Test::Baz" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
@@ -778,7 +761,7 @@ open class Baz: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: BazTraits.staticId, compactId: -1, last: true)
+        ostr.startSlice(typeId: Baz.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.SLmem)
         SLSHelper.write(to: ostr, value: self.SLSmem)
         ostr.endSlice()
