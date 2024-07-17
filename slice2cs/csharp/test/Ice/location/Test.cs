@@ -1208,11 +1208,11 @@ namespace Ice.location
         {
             public abstract int getRequestCount(Ice.Current current);
 
+            public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, Ice.Current current);
+
             public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findAdapterByIdAsync(string id, Ice.Current current);
 
             public abstract global::Ice.LocatorRegistryPrx? getRegistry(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, Ice.Current current);
 
             public override string ice_id(Ice.Current current) => ice_staticId();
 
