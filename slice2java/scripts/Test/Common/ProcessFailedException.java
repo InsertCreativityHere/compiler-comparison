@@ -65,5 +65,5 @@ public class ProcessFailedException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 5103744727946719094L;
+    private static final long serialVersionUID = 5103743965826449575L;
 }
