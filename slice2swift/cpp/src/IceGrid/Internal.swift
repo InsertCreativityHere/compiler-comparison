@@ -4267,9 +4267,9 @@ public extension InternalRegistryPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as NodeActiveException {
-                                         throw error
                                      } catch let error as PermissionDeniedException {
+                                         throw error
+                                     } catch let error as NodeActiveException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -4313,9 +4313,9 @@ public extension InternalRegistryPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as NodeActiveException {
-                                          throw error
                                       } catch let error as PermissionDeniedException {
+                                          throw error
+                                      } catch let error as NodeActiveException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -4355,9 +4355,9 @@ public extension InternalRegistryPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ReplicaActiveException {
-                                         throw error
                                      } catch let error as PermissionDeniedException {
+                                         throw error
+                                     } catch let error as ReplicaActiveException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -4398,9 +4398,9 @@ public extension InternalRegistryPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ReplicaActiveException {
-                                          throw error
                                       } catch let error as PermissionDeniedException {
+                                          throw error
+                                      } catch let error as ReplicaActiveException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
