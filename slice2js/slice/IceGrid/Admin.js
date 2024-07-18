@@ -515,8 +515,8 @@ Ice.defineOperations(
         [
             IceGrid.ServerNotExistException,
             IceGrid.DeploymentException,
-            IceGrid.BadSignalException,
-            IceGrid.NodeUnreachableException
+            IceGrid.NodeUnreachableException,
+            IceGrid.BadSignalException
         ], , ],
         "getAllServerIds": [, 2, , [Ice.StringSeqHelper], , , , , ],
         "getAdapterInfo": [, 2, , [IceGrid.AdapterInfoSeqHelper], [[7]], ,
@@ -959,34 +959,34 @@ Ice.defineOperations(
         [
             IceGrid.ServerNotExistException,
             IceGrid.DeploymentException,
-            IceGrid.FileNotAvailableException,
-            IceGrid.NodeUnreachableException
+            IceGrid.NodeUnreachableException,
+            IceGrid.FileNotAvailableException
         ], , ],
         "openServerStdErr": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
         [
             IceGrid.ServerNotExistException,
             IceGrid.DeploymentException,
-            IceGrid.FileNotAvailableException,
-            IceGrid.NodeUnreachableException
+            IceGrid.NodeUnreachableException,
+            IceGrid.FileNotAvailableException
         ], , ],
         "openServerStdOut": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
         [
             IceGrid.ServerNotExistException,
             IceGrid.DeploymentException,
-            IceGrid.FileNotAvailableException,
-            IceGrid.NodeUnreachableException
+            IceGrid.NodeUnreachableException,
+            IceGrid.FileNotAvailableException
         ], , ],
         "openNodeStdErr": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
         [
             IceGrid.NodeNotExistException,
-            IceGrid.FileNotAvailableException,
-            IceGrid.NodeUnreachableException
+            IceGrid.NodeUnreachableException,
+            IceGrid.FileNotAvailableException
         ], , ],
         "openNodeStdOut": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
         [
             IceGrid.NodeNotExistException,
-            IceGrid.FileNotAvailableException,
-            IceGrid.NodeUnreachableException
+            IceGrid.NodeUnreachableException,
+            IceGrid.FileNotAvailableException
         ], , ],
         "openRegistryStdErr": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
         [
