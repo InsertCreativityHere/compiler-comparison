@@ -48,7 +48,7 @@ public class Preserved extends PBase
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3651532586878698936L;
+    private static final long serialVersionUID = 3651532524718778679L;
 
     /** @hidden */
     @Override
