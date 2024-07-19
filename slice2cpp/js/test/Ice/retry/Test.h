@@ -87,11 +87,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit RetryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     RetryPrx(const RetryPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

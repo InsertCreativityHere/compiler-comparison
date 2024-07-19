@@ -54,11 +54,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit EventPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     EventPrx(const EventPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

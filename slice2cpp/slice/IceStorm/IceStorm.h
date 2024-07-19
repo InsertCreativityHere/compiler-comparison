@@ -415,11 +415,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit TopicPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     TopicPrx(const TopicPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -566,11 +561,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit TopicManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     TopicManagerPrx(const TopicManagerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -651,11 +641,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit FinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     FinderPrx(const FinderPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

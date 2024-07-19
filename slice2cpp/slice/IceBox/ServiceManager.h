@@ -123,11 +123,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit ServiceObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     ServiceObserverPrx(const ServiceObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -304,11 +299,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit ServiceManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     ServiceManagerPrx(const ServiceManagerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

@@ -71,11 +71,6 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-
-    explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     SessionPrx(const SessionPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

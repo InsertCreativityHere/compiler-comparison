@@ -1725,11 +1725,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit AdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     AdminPrx(const AdminPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -1847,11 +1842,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit FileIteratorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     FileIteratorPrx(const FileIteratorPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -1998,11 +1988,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit RegistryObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     RegistryObserverPrx(const RegistryObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -2221,11 +2206,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit NodeObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     NodeObserverPrx(const NodeObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -2425,11 +2405,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit ApplicationObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     ApplicationObserverPrx(const ApplicationObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -2616,11 +2591,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit AdapterObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     AdapterObserverPrx(const AdapterObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -2810,11 +2780,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit ObjectObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     ObjectObserverPrx(const ObjectObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -3444,11 +3409,6 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-
-    explicit AdminSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     AdminSessionPrx(const AdminSessionPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

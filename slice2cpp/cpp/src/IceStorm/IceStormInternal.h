@@ -94,11 +94,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit TopicLinkPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     TopicLinkPrx(const TopicLinkPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -216,11 +211,6 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-
-    explicit TopicInternalPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     TopicInternalPrx(const TopicInternalPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -310,11 +300,6 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-
-    explicit TopicManagerInternalPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     TopicManagerInternalPrx(const TopicManagerInternalPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

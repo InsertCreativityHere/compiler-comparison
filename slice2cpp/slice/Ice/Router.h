@@ -157,11 +157,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit RouterPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     RouterPrx(const RouterPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -246,11 +241,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit RouterFinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     RouterFinderPrx(const RouterFinderPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

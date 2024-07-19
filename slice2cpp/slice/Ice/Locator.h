@@ -164,11 +164,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit LocatorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     LocatorPrx(const LocatorPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -342,11 +337,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit LocatorRegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     LocatorRegistryPrx(const LocatorRegistryPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -431,11 +421,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit LocatorFinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     LocatorFinderPrx(const LocatorFinderPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

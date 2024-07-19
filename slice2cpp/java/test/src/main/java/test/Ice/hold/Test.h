@@ -98,11 +98,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit HoldPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     HoldPrx(const HoldPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

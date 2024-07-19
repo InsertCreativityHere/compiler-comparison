@@ -58,11 +58,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit RegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     RegistryPrx(const RegistryPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

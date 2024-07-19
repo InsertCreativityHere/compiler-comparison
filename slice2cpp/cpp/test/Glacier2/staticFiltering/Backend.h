@@ -54,11 +54,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit BackendPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     BackendPrx(const BackendPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

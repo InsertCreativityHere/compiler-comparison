@@ -52,11 +52,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit EmptyPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     EmptyPrx(const EmptyPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -357,11 +352,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit ThrowerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     ThrowerPrx(const ThrowerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -420,11 +410,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit WrongOperationPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     WrongOperationPrx(const WrongOperationPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

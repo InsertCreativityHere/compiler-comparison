@@ -61,11 +61,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit Interface1Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     Interface1Prx(const Interface1Prx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

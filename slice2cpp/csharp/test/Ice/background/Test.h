@@ -79,11 +79,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit BackgroundPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     BackgroundPrx(const BackgroundPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -241,11 +236,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit BackgroundControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     BackgroundControllerPrx(const BackgroundControllerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

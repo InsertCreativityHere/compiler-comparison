@@ -57,11 +57,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit F2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     F2Prx(const F2Prx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

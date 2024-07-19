@@ -95,11 +95,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit FileParserPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     FileParserPrx(const FileParserPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

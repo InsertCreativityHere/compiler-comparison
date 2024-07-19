@@ -94,11 +94,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit WstringClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     WstringClassPrx(const WstringClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -184,11 +179,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit WstringClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     WstringClassPrx(const WstringClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

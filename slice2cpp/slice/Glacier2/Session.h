@@ -100,11 +100,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     SessionPrx(const SessionPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -252,11 +247,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit StringSetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     StringSetPrx(const StringSetPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -406,11 +396,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit IdentitySetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     IdentitySetPrx(const IdentitySetPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -606,11 +591,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit SessionControlPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     SessionControlPrx(const SessionControlPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -708,11 +688,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit SessionManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     SessionManagerPrx(const SessionManagerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -803,11 +778,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit SSLSessionManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     SSLSessionManagerPrx(const SSLSessionManagerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

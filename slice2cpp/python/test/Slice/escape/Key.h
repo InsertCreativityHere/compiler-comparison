@@ -81,11 +81,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit delPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     delPrx(const delPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -144,11 +139,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit execPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     execPrx(const execPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -201,11 +191,6 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-
-    explicit ifPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     ifPrx(const ifPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -268,11 +253,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit printPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     printPrx(const printPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

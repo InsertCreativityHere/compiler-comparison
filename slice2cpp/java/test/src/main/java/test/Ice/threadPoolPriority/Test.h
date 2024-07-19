@@ -65,11 +65,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit PriorityPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     PriorityPrx(const PriorityPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

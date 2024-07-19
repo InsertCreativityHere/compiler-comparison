@@ -93,11 +93,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit casePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     casePrx(const casePrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -156,11 +151,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit decimalPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     decimalPrx(const decimalPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -213,11 +203,6 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-
-    explicit explicitPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     explicitPrx(const explicitPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -313,11 +298,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit optionalParamsPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     optionalParamsPrx(const optionalParamsPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -376,11 +356,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit implicitPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     implicitPrx(const implicitPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -442,11 +417,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit TestPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     TestPrx(const TestPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
@@ -512,11 +482,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit TestPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     TestPrx(const TestPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }

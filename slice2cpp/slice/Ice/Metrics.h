@@ -315,11 +315,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const char* ice_staticId() noexcept;
-
-    explicit MetricsAdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     MetricsAdminPrx(const MetricsAdminPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
