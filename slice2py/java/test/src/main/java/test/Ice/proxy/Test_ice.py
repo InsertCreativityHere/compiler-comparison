@@ -26,8 +26,6 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
-
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = None
     class MyClassPrx(Ice.ObjectPrx):
@@ -111,8 +109,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClass = MyClass
     del MyClass
 
-_M_Test._t_MyDerivedClass = IcePy.defineValue('::Test::MyDerivedClass', Ice.Value, -1, (), True, None, ())
-
 if 'MyDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyDerivedClassPrx = None
     class MyDerivedClassPrx(_M_Test.MyClassPrx):
@@ -186,8 +182,6 @@ if 'MyDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyDerivedClass = MyDerivedClass
     del MyDerivedClass
 
-_M_Test._t_MyOtherDerivedClass = IcePy.defineValue('::Test::MyOtherDerivedClass', Ice.Value, -1, (), True, None, ())
-
 if 'MyOtherDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyOtherDerivedClassPrx = None
     class MyOtherDerivedClassPrx(_M_Test.MyClassPrx):
@@ -249,8 +243,6 @@ if 'MyOtherDerivedClassPrx' not in _M_Test.__dict__:
 
     _M_Test.MyOtherDerivedClass = MyOtherDerivedClass
     del MyOtherDerivedClass
-
-_M_Test._t_DiamondClass = IcePy.defineValue('::Test::DiamondClass', Ice.Value, -1, (), True, None, ())
 
 if 'DiamondClassPrx' not in _M_Test.__dict__:
     _M_Test.DiamondClassPrx = None

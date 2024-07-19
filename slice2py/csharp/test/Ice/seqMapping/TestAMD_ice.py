@@ -381,8 +381,6 @@ if '_t_ACVS' not in _M_Test.__dict__:
 if '_t_LCVS' not in _M_Test.__dict__:
     _M_Test._t_LCVS = IcePy.defineSequence('::Test::LCVS', (), _M_Test._t_CV)
 
-_M_Test._t_I = IcePy.defineValue('::Test::I', Ice.Value, -1, (), True, None, ())
-
 if 'IPrx' not in _M_Test.__dict__:
     _M_Test.IPrx = None
     class IPrx(Ice.ObjectPrx):
@@ -541,8 +539,6 @@ if '_t_CustomIntSS' not in _M_Test.__dict__:
 
 if '_t_CustomCVSS' not in _M_Test.__dict__:
     _M_Test._t_CustomCVSS = IcePy.defineSequence('::Test::CustomCVSS', (), _M_Test._t_CustomCVS)
-
-_M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
 
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = None

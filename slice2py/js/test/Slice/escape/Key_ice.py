@@ -168,8 +168,6 @@ if '_break' not in _M__await.__dict__:
     _M__await._break = _break
     del _break
 
-_M__await._t__case = IcePy.defineValue('::await::case', Ice.Value, -1, (), True, None, ())
-
 if 'casePrx' not in _M__await.__dict__:
     _M__await.casePrx = None
     class casePrx(Ice.ObjectPrx):
@@ -242,8 +240,6 @@ if 'casePrx' not in _M__await.__dict__:
 
     _M__await._case = _case
     del _case
-
-_M__await._t_typeof = IcePy.defineValue('::await::typeof', Ice.Value, -1, (), True, None, ())
 
 if 'typeofPrx' not in _M__await.__dict__:
     _M__await.typeofPrx = None
@@ -356,8 +352,6 @@ if 'delete' not in _M__await.__dict__:
     _M__await.delete = delete
     del delete
 
-_M__await._t_explicit = IcePy.defineValue('::await::explicit', Ice.Value, -1, (), True, None, ())
-
 if 'explicitPrx' not in _M__await.__dict__:
     _M__await.explicitPrx = None
     class explicitPrx(_M__await.typeofPrx, _M__await.casePrx):
@@ -458,8 +452,6 @@ if 'package' not in _M__await.__dict__:
 
     _M__await.package = package
     del package
-
-_M__await._t_optionalParams = IcePy.defineValue('::await::optionalParams', Ice.Value, -1, (), True, None, ())
 
 if 'optionalParamsPrx' not in _M__await.__dict__:
     _M__await.optionalParamsPrx = None
@@ -656,8 +648,6 @@ if 'BaseMethods' not in _M__await.__dict__:
     _M__await.BaseMethods = BaseMethods
     del BaseMethods
 
-_M__await._t_implicit = IcePy.defineValue('::await::implicit', Ice.Value, -1, (), True, None, ())
-
 if 'implicitPrx' not in _M__await.__dict__:
     _M__await.implicitPrx = None
     class implicitPrx(Ice.ObjectPrx):
@@ -738,8 +728,6 @@ _M__await.public = 0
 # Start of module _await.System
 _M__await.System = Ice.openModule('_await.System')
 __name__ = '_await.System'
-
-_M__await.System._t_Test = IcePy.defineValue('::await::System::Test', Ice.Value, -1, (), True, None, ())
 
 if 'TestPrx' not in _M__await.System.__dict__:
     _M__await.System.TestPrx = None
@@ -823,8 +811,6 @@ __name__ = '_await'
 # Start of module System
 _M_System = Ice.openModule('System')
 __name__ = 'System'
-
-_M_System._t_Test = IcePy.defineValue('::System::Test', Ice.Value, -1, (), True, None, ())
 
 if 'TestPrx' not in _M_System.__dict__:
     _M_System.TestPrx = None

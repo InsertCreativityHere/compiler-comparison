@@ -22,8 +22,6 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Clock = IcePy.defineValue('::Test::Clock', Ice.Value, -1, (), True, None, ())
-
 if 'ClockPrx' not in _M_Test.__dict__:
     _M_Test.ClockPrx = None
     class ClockPrx(Ice.ObjectPrx):

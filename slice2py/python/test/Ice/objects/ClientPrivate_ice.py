@@ -70,8 +70,6 @@ if 'AlsoEmpty' not in _M_Test.__dict__:
     _M_Test.AlsoEmpty = AlsoEmpty
     del AlsoEmpty
 
-_M_Test._t_UnexpectedObjectExceptionTest = IcePy.defineValue('::Test::UnexpectedObjectExceptionTest', Ice.Value, -1, (), True, None, ())
-
 if 'UnexpectedObjectExceptionTestPrx' not in _M_Test.__dict__:
     _M_Test.UnexpectedObjectExceptionTestPrx = None
     class UnexpectedObjectExceptionTestPrx(Ice.ObjectPrx):

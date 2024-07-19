@@ -186,8 +186,6 @@ if 'LogMessage' not in _M_Ice.__dict__:
 if '_t_LogMessageSeq' not in _M_Ice.__dict__:
     _M_Ice._t_LogMessageSeq = IcePy.defineSequence('::Ice::LogMessageSeq', (), _M_Ice._t_LogMessage)
 
-_M_Ice._t_RemoteLogger = IcePy.defineValue('::Ice::RemoteLogger', Ice.Value, -1, (), True, None, ())
-
 if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
     _M_Ice.RemoteLoggerPrx = None
     class RemoteLoggerPrx(Ice.ObjectPrx):
@@ -335,8 +333,6 @@ if 'RemoteLoggerAlreadyAttachedException' not in _M_Ice.__dict__:
 
     _M_Ice.RemoteLoggerAlreadyAttachedException = RemoteLoggerAlreadyAttachedException
     del RemoteLoggerAlreadyAttachedException
-
-_M_Ice._t_LoggerAdmin = IcePy.defineValue('::Ice::LoggerAdmin', Ice.Value, -1, (), True, None, ())
 
 if 'LoggerAdminPrx' not in _M_Ice.__dict__:
     _M_Ice.LoggerAdminPrx = None

@@ -22,8 +22,6 @@ import builtins as _builtins
 _M_Ice = Ice.openModule('Ice')
 __name__ = 'Ice'
 
-_M_Ice._t_Process = IcePy.defineValue('::Ice::Process', Ice.Value, -1, (), True, None, ())
-
 if 'ProcessPrx' not in _M_Ice.__dict__:
     _M_Ice.ProcessPrx = None
     class ProcessPrx(Ice.ObjectPrx):

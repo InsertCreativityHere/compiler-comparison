@@ -165,8 +165,6 @@ if 'BaseClass' not in _M_Test.__dict__:
     _M_Test.BaseClass = BaseClass
     del BaseClass
 
-_M_Test._t_Relay = IcePy.defineValue('::Test::Relay', Ice.Value, -1, (), True, None, ())
-
 if 'RelayPrx' not in _M_Test.__dict__:
     _M_Test.RelayPrx = None
     class RelayPrx(Ice.ObjectPrx):
@@ -269,8 +267,6 @@ if 'RelayPrx' not in _M_Test.__dict__:
 
     _M_Test.Relay = Relay
     del Relay
-
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None

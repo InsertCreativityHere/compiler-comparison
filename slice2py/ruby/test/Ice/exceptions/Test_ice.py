@@ -26,8 +26,6 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Empty = IcePy.defineValue('::Test::Empty', Ice.Value, -1, (), True, None, ())
-
 if 'EmptyPrx' not in _M_Test.__dict__:
     _M_Test.EmptyPrx = None
     class EmptyPrx(Ice.ObjectPrx):
@@ -199,8 +197,6 @@ if 'A' not in _M_Test.Mod.__dict__:
 # End of module Test.Mod
 
 __name__ = 'Test'
-
-_M_Test._t_Thrower = IcePy.defineValue('::Test::Thrower', Ice.Value, -1, (), True, None, ())
 
 if 'ThrowerPrx' not in _M_Test.__dict__:
     _M_Test.ThrowerPrx = None
@@ -454,8 +450,6 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
 
     _M_Test.Thrower = Thrower
     del Thrower
-
-_M_Test._t_WrongOperation = IcePy.defineValue('::Test::WrongOperation', Ice.Value, -1, (), True, None, ())
 
 if 'WrongOperationPrx' not in _M_Test.__dict__:
     _M_Test.WrongOperationPrx = None

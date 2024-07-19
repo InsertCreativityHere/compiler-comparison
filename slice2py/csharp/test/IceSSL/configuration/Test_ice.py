@@ -22,8 +22,6 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Server = IcePy.defineValue('::Test::Server', Ice.Value, -1, (), True, None, ())
-
 if 'ServerPrx' not in _M_Test.__dict__:
     _M_Test.ServerPrx = None
     class ServerPrx(Ice.ObjectPrx):
@@ -120,8 +118,6 @@ if 'ServerPrx' not in _M_Test.__dict__:
 if '_t_Properties' not in _M_Test.__dict__:
     _M_Test._t_Properties = IcePy.defineDictionary('::Test::Properties', (), IcePy._t_string, IcePy._t_string)
 
-_M_Test._t_ServerFactory = IcePy.defineValue('::Test::ServerFactory', Ice.Value, -1, (), True, None, ())
-
 if 'ServerFactoryPrx' not in _M_Test.__dict__:
     _M_Test.ServerFactoryPrx = None
     class ServerFactoryPrx(Ice.ObjectPrx):
@@ -214,8 +210,6 @@ if 'ServerFactoryPrx' not in _M_Test.__dict__:
 
     _M_Test.ServerFactory = ServerFactory
     del ServerFactory
-
-_M_Test._t_Pingable = IcePy.defineValue('::Test::Pingable', Ice.Value, -1, (), True, None, ())
 
 if 'PingablePrx' not in _M_Test.__dict__:
     _M_Test.PingablePrx = None

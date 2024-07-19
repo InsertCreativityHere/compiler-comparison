@@ -22,8 +22,6 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Empty = IcePy.defineValue('::Test::Empty', Ice.Value, -1, (), True, None, ())
-
 if 'EmptyPrx' not in _M_Test.__dict__:
     _M_Test.EmptyPrx = None
     class EmptyPrx(Ice.ObjectPrx):
@@ -85,8 +83,6 @@ if 'EmptyPrx' not in _M_Test.__dict__:
 
     _M_Test.Empty = Empty
     del Empty
-
-_M_Test._t_A = IcePy.defineValue('::Test::A', Ice.Value, -1, (), True, None, ())
 
 if 'APrx' not in _M_Test.__dict__:
     _M_Test.APrx = None
@@ -161,8 +157,6 @@ if 'APrx' not in _M_Test.__dict__:
     _M_Test.A = A
     del A
 
-_M_Test._t_B = IcePy.defineValue('::Test::B', Ice.Value, -1, (), True, None, ())
-
 if 'BPrx' not in _M_Test.__dict__:
     _M_Test.BPrx = None
     class BPrx(_M_Test.APrx):
@@ -235,8 +229,6 @@ if 'BPrx' not in _M_Test.__dict__:
 
     _M_Test.B = B
     del B
-
-_M_Test._t_C = IcePy.defineValue('::Test::C', Ice.Value, -1, (), True, None, ())
 
 if 'CPrx' not in _M_Test.__dict__:
     _M_Test.CPrx = None
@@ -311,8 +303,6 @@ if 'CPrx' not in _M_Test.__dict__:
     _M_Test.C = C
     del C
 
-_M_Test._t_D = IcePy.defineValue('::Test::D', Ice.Value, -1, (), True, None, ())
-
 if 'DPrx' not in _M_Test.__dict__:
     _M_Test.DPrx = None
     class DPrx(_M_Test.BPrx, _M_Test.CPrx):
@@ -385,8 +375,6 @@ if 'DPrx' not in _M_Test.__dict__:
 
     _M_Test.D = D
     del D
-
-_M_Test._t_E = IcePy.defineValue('::Test::E', Ice.Value, -1, (), True, None, ())
 
 if 'EPrx' not in _M_Test.__dict__:
     _M_Test.EPrx = None
@@ -461,8 +449,6 @@ if 'EPrx' not in _M_Test.__dict__:
     _M_Test.E = E
     del E
 
-_M_Test._t_F = IcePy.defineValue('::Test::F', Ice.Value, -1, (), True, None, ())
-
 if 'FPrx' not in _M_Test.__dict__:
     _M_Test.FPrx = None
     class FPrx(_M_Test.EPrx):
@@ -535,8 +521,6 @@ if 'FPrx' not in _M_Test.__dict__:
 
     _M_Test.F = F
     del F
-
-_M_Test._t_G = IcePy.defineValue('::Test::G', Ice.Value, -1, (), True, None, ())
 
 if 'GPrx' not in _M_Test.__dict__:
     _M_Test.GPrx = None
@@ -620,8 +604,6 @@ if 'GPrx' not in _M_Test.__dict__:
 
     _M_Test.G = G
     del G
-
-_M_Test._t_H = IcePy.defineValue('::Test::H', Ice.Value, -1, (), True, None, ())
 
 if 'HPrx' not in _M_Test.__dict__:
     _M_Test.HPrx = None

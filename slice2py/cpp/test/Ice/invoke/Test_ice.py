@@ -41,8 +41,6 @@ if 'MyException' not in _M_Test.__dict__:
     _M_Test.MyException = MyException
     del MyException
 
-_M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
-
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = None
     class MyClassPrx(Ice.ObjectPrx):

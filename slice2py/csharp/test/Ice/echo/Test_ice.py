@@ -22,8 +22,6 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Echo = IcePy.defineValue('::Test::Echo', Ice.Value, -1, (), True, None, ())
-
 if 'EchoPrx' not in _M_Test.__dict__:
     _M_Test.EchoPrx = None
     class EchoPrx(Ice.ObjectPrx):

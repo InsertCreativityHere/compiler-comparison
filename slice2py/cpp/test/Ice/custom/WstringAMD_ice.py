@@ -126,8 +126,6 @@ if 'WstringException' not in _M_Test1.__dict__:
     _M_Test1.WstringException = WstringException
     del WstringException
 
-_M_Test1._t_WstringClass = IcePy.defineValue('::Test1::WstringClass', Ice.Value, -1, (), True, None, ())
-
 if 'WstringClassPrx' not in _M_Test1.__dict__:
     _M_Test1.WstringClassPrx = None
     class WstringClassPrx(Ice.ObjectPrx):
@@ -330,8 +328,6 @@ if 'WstringException' not in _M_Test2.__dict__:
 
     _M_Test2.WstringException = WstringException
     del WstringException
-
-_M_Test2._t_WstringClass = IcePy.defineValue('::Test2::WstringClass', Ice.Value, -1, (), True, None, ())
 
 if 'WstringClassPrx' not in _M_Test2.__dict__:
     _M_Test2.WstringClassPrx = None

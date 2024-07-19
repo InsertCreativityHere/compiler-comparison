@@ -395,8 +395,6 @@ if '_t_StringStringSD' not in _M_Test.__dict__:
 if '_t_MyEnumMyEnumSD' not in _M_Test.__dict__:
     _M_Test._t_MyEnumMyEnumSD = IcePy.defineDictionary('::Test::MyEnumMyEnumSD', (), _M_Test._t_MyEnum, _M_Test._t_MyEnumS)
 
-_M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
-
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = None
     class MyClassPrx(Ice.ObjectPrx):
@@ -1306,8 +1304,6 @@ if 'MyClass1' not in _M_Test.__dict__:
 
     _M_Test.MyClass1 = MyClass1
     del MyClass1
-
-_M_Test._t_MyDerivedClass = IcePy.defineValue('::Test::MyDerivedClass', Ice.Value, -1, (), True, None, ())
 
 if 'MyDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyDerivedClassPrx = None

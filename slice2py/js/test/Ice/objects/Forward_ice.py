@@ -46,8 +46,6 @@ if 'F1' not in _M_Test.__dict__:
     _M_Test.F1 = F1
     del F1
 
-_M_Test._t_F2 = IcePy.defineValue('::Test::F2', Ice.Value, -1, (), True, None, ())
-
 if 'F2Prx' not in _M_Test.__dict__:
     _M_Test.F2Prx = None
     class F2Prx(Ice.ObjectPrx):

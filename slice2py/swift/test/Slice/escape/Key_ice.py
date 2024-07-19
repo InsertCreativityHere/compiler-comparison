@@ -202,8 +202,6 @@ if 'defer' not in _M__and.__dict__:
     _M__and.defer = defer
     del defer
 
-_M__and._t__break = IcePy.defineValue('::and::break', Ice.Value, -1, (), True, None, ())
-
 if 'breakPrx' not in _M__and.__dict__:
     _M__and.breakPrx = None
     class breakPrx(Ice.ObjectPrx):
@@ -276,8 +274,6 @@ if 'breakPrx' not in _M__and.__dict__:
 
     _M__and._break = _break
     del _break
-
-_M__and._t_func = IcePy.defineValue('::and::func', Ice.Value, -1, (), True, None, ())
 
 if 'funcPrx' not in _M__and.__dict__:
     _M__and.funcPrx = None
@@ -381,8 +377,6 @@ if 'switch' not in _M__and.__dict__:
 
     _M__and.switch = switch
     del switch
-
-_M__and._t_do = IcePy.defineValue('::and::do', Ice.Value, -1, (), True, None, ())
 
 if 'doPrx' not in _M__and.__dict__:
     _M__and.doPrx = None

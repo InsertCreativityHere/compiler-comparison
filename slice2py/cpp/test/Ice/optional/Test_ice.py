@@ -46,8 +46,6 @@ if 'OneOptional' not in _M_Test.__dict__:
     _M_Test.OneOptional = OneOptional
     del OneOptional
 
-_M_Test._t_MyInterface = IcePy.defineValue('::Test::MyInterface', Ice.Value, -1, (), True, None, ())
-
 if 'MyInterfacePrx' not in _M_Test.__dict__:
     _M_Test.MyInterfacePrx = None
     class MyInterfacePrx(Ice.ObjectPrx):
@@ -981,8 +979,6 @@ if 'G' not in _M_Test.__dict__:
 
     _M_Test.G = G
     del G
-
-_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None

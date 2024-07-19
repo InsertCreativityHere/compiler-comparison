@@ -25,8 +25,6 @@ __name__ = 'Test'
 if '_t_ByteSeq' not in _M_Test.__dict__:
     _M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
 
-_M_Test._t_Timeout = IcePy.defineValue('::Test::Timeout', Ice.Value, -1, (), True, None, ())
-
 if 'TimeoutPrx' not in _M_Test.__dict__:
     _M_Test.TimeoutPrx = None
     class TimeoutPrx(Ice.ObjectPrx):
@@ -119,8 +117,6 @@ if 'TimeoutPrx' not in _M_Test.__dict__:
 
     _M_Test.Timeout = Timeout
     del Timeout
-
-_M_Test._t_Controller = IcePy.defineValue('::Test::Controller', Ice.Value, -1, (), True, None, ())
 
 if 'ControllerPrx' not in _M_Test.__dict__:
     _M_Test.ControllerPrx = None

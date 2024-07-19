@@ -142,8 +142,6 @@ if 'TestCaseFailedException' not in _M_Test.Common.__dict__:
     _M_Test.Common.TestCaseFailedException = TestCaseFailedException
     del TestCaseFailedException
 
-_M_Test.Common._t_TestCase = IcePy.defineValue('::Test::Common::TestCase', Ice.Value, -1, (), True, None, ())
-
 if 'TestCasePrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.TestCasePrx = None
     class TestCasePrx(Ice.ObjectPrx):
@@ -246,8 +244,6 @@ if 'TestCasePrx' not in _M_Test.Common.__dict__:
 
     _M_Test.Common.TestCase = TestCase
     del TestCase
-
-_M_Test.Common._t_Controller = IcePy.defineValue('::Test::Common::Controller', Ice.Value, -1, (), True, None, ())
 
 if 'ControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ControllerPrx = None
@@ -371,8 +367,6 @@ if 'ProcessFailedException' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessFailedException = ProcessFailedException
     del ProcessFailedException
 
-_M_Test.Common._t_Process = IcePy.defineValue('::Test::Common::Process', Ice.Value, -1, (), True, None, ())
-
 if 'ProcessPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessPrx = None
     class ProcessPrx(Ice.ObjectPrx):
@@ -466,8 +460,6 @@ if 'ProcessPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.Process = Process
     del Process
 
-_M_Test.Common._t_ProcessController = IcePy.defineValue('::Test::Common::ProcessController', Ice.Value, -1, (), True, None, ())
-
 if 'ProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessControllerPrx = None
     class ProcessControllerPrx(Ice.ObjectPrx):
@@ -551,8 +543,6 @@ if 'ProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessController = ProcessController
     del ProcessController
 
-_M_Test.Common._t_BrowserProcessController = IcePy.defineValue('::Test::Common::BrowserProcessController', Ice.Value, -1, (), True, None, ())
-
 if 'BrowserProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.BrowserProcessControllerPrx = None
     class BrowserProcessControllerPrx(_M_Test.Common.ProcessControllerPrx):
@@ -625,8 +615,6 @@ if 'BrowserProcessControllerPrx' not in _M_Test.Common.__dict__:
 
     _M_Test.Common.BrowserProcessController = BrowserProcessController
     del BrowserProcessController
-
-_M_Test.Common._t_ProcessControllerRegistry = IcePy.defineValue('::Test::Common::ProcessControllerRegistry', Ice.Value, -1, (), True, None, ())
 
 if 'ProcessControllerRegistryPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessControllerRegistryPrx = None

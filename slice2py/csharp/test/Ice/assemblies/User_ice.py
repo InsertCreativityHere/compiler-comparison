@@ -50,8 +50,6 @@ if 'UserInfo' not in _M_User.__dict__:
     _M_User.UserInfo = UserInfo
     del UserInfo
 
-_M_User._t_Registry = IcePy.defineValue('::User::Registry', Ice.Value, -1, (), True, None, ())
-
 if 'RegistryPrx' not in _M_User.__dict__:
     _M_User.RegistryPrx = None
     class RegistryPrx(Ice.ObjectPrx):

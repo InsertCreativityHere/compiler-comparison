@@ -239,8 +239,6 @@ if 'Ex' not in _M_Test.__dict__:
     _M_Test.Ex = Ex
     del Ex
 
-_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
-
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None
     class InitialPrx(Ice.ObjectPrx):

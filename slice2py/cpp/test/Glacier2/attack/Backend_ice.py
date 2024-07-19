@@ -22,8 +22,6 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Backend = IcePy.defineValue('::Test::Backend', Ice.Value, -1, (), True, None, ())
-
 if 'BackendPrx' not in _M_Test.__dict__:
     _M_Test.BackendPrx = None
     class BackendPrx(Ice.ObjectPrx):

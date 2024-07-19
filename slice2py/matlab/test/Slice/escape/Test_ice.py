@@ -367,8 +367,6 @@ if '_global' not in _M_classdef._break.__dict__:
     _M_classdef._break._global = _global
     del _global
 
-_M_classdef._break._t_elseif = IcePy.defineValue('::classdef::break::elseif', Ice.Value, -1, (), True, None, ())
-
 if 'elseifPrx' not in _M_classdef._break.__dict__:
     _M_classdef._break.elseifPrx = None
     class elseifPrx(Ice.ObjectPrx):

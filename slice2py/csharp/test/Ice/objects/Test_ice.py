@@ -876,8 +876,6 @@ if 'F3' not in _M_Test.__dict__:
     _M_Test.F3 = F3
     del F3
 
-_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
-
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None
     class InitialPrx(Ice.ObjectPrx):
@@ -1324,8 +1322,6 @@ if 'AlsoEmpty' not in _M_Test.__dict__:
 
     _M_Test.AlsoEmpty = AlsoEmpty
     del AlsoEmpty
-
-_M_Test._t_UnexpectedObjectExceptionTest = IcePy.defineValue('::Test::UnexpectedObjectExceptionTest', Ice.Value, -1, (), True, None, ())
 
 if 'UnexpectedObjectExceptionTestPrx' not in _M_Test.__dict__:
     _M_Test.UnexpectedObjectExceptionTestPrx = None

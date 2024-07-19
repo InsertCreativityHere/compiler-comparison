@@ -22,8 +22,6 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
-
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(Ice.ObjectPrx):
@@ -96,8 +94,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
     _M_Test.TestIntf = TestIntf
     del TestIntf
-
-_M_Test._t_Controller = IcePy.defineValue('::Test::Controller', Ice.Value, -1, (), True, None, ())
 
 if 'ControllerPrx' not in _M_Test.__dict__:
     _M_Test.ControllerPrx = None

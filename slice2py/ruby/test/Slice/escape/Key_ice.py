@@ -122,8 +122,6 @@ if '_and' not in _M_BEGIN.__dict__:
     _M_BEGIN._and = _and
     del _and
 
-_M_BEGIN._t__break = IcePy.defineValue('::BEGIN::break', Ice.Value, -1, (), True, None, ())
-
 if 'breakPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN.breakPrx = None
     class breakPrx(Ice.ObjectPrx):
@@ -259,8 +257,6 @@ if 'display' not in _M_BEGIN.__dict__:
     _M_BEGIN.display = display
     del display
 
-_M_BEGIN._t_elsif = IcePy.defineValue('::BEGIN::elsif', Ice.Value, -1, (), True, None, ())
-
 if 'elsifPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN.elsifPrx = None
     class elsifPrx(_M_BEGIN.breakPrx):
@@ -371,8 +367,6 @@ if 'nil' not in _M_BEGIN.__dict__:
 
     _M_BEGIN.nil = nil
     del nil
-
-_M_BEGIN._t_extend = IcePy.defineValue('::BEGIN::extend', Ice.Value, -1, (), True, None, ())
 
 if 'extendPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN.extendPrx = None

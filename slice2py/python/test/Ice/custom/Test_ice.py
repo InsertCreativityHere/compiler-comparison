@@ -213,8 +213,6 @@ if 'D' not in _M_Test.__dict__:
     _M_Test.D = D
     del D
 
-_M_Test._t_Custom = IcePy.defineValue('::Test::Custom', Ice.Value, -1, (), True, None, ())
-
 if 'CustomPrx' not in _M_Test.__dict__:
     _M_Test.CustomPrx = None
     class CustomPrx(Ice.ObjectPrx):

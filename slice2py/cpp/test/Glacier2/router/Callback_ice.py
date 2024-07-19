@@ -49,8 +49,6 @@ if 'CallbackException' not in _M_Test.__dict__:
     _M_Test.CallbackException = CallbackException
     del CallbackException
 
-_M_Test._t_CallbackReceiver = IcePy.defineValue('::Test::CallbackReceiver', Ice.Value, -1, (), True, None, ())
-
 if 'CallbackReceiverPrx' not in _M_Test.__dict__:
     _M_Test.CallbackReceiverPrx = None
     class CallbackReceiverPrx(Ice.ObjectPrx):
@@ -163,8 +161,6 @@ if 'CallbackReceiverPrx' not in _M_Test.__dict__:
 
     _M_Test.CallbackReceiver = CallbackReceiver
     del CallbackReceiver
-
-_M_Test._t_Callback = IcePy.defineValue('::Test::Callback', Ice.Value, -1, (), True, None, ())
 
 if 'CallbackPrx' not in _M_Test.__dict__:
     _M_Test.CallbackPrx = None

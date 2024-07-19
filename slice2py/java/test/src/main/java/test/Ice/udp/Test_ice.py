@@ -26,8 +26,6 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_PingReply = IcePy.defineValue('::Test::PingReply', Ice.Value, -1, (), True, None, ())
-
 if 'PingReplyPrx' not in _M_Test.__dict__:
     _M_Test.PingReplyPrx = None
     class PingReplyPrx(Ice.ObjectPrx):
@@ -103,8 +101,6 @@ if 'PingReplyPrx' not in _M_Test.__dict__:
 
 if '_t_ByteSeq' not in _M_Test.__dict__:
     _M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
-
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None

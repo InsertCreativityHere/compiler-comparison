@@ -64,8 +64,6 @@ if 'LoadSample' not in _M_IceGrid.__dict__:
     _M_IceGrid.LoadSample = LoadSample
     del LoadSample
 
-_M_IceGrid._t_Query = IcePy.defineValue('::IceGrid::Query', Ice.Value, -1, (), True, None, ())
-
 if 'QueryPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.QueryPrx = None
     class QueryPrx(Ice.ObjectPrx):
@@ -298,8 +296,6 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
 
     _M_IceGrid.Query = Query
     del Query
-
-_M_IceGrid._t_Registry = IcePy.defineValue('::IceGrid::Registry', Ice.Value, -1, (), True, None, ())
 
 if 'RegistryPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.RegistryPrx = None
@@ -559,8 +555,6 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
     _M_IceGrid.Registry = Registry
     del Registry
-
-_M_IceGrid._t_Locator = IcePy.defineValue('::IceGrid::Locator', Ice.Value, -1, (), True, None, ())
 
 if 'LocatorPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.LocatorPrx = None

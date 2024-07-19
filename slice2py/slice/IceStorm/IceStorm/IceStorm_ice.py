@@ -209,8 +209,6 @@ if 'BadQoS' not in _M_IceStorm.__dict__:
     _M_IceStorm.BadQoS = BadQoS
     del BadQoS
 
-_M_IceStorm._t_Topic = IcePy.defineValue('::IceStorm::Topic', Ice.Value, -1, (), True, None, ())
-
 if 'TopicPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicPrx = None
     class TopicPrx(Ice.ObjectPrx):
@@ -650,8 +648,6 @@ if 'NoSuchTopic' not in _M_IceStorm.__dict__:
     _M_IceStorm.NoSuchTopic = NoSuchTopic
     del NoSuchTopic
 
-_M_IceStorm._t_TopicManager = IcePy.defineValue('::IceStorm::TopicManager', Ice.Value, -1, (), True, None, ())
-
 if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicManagerPrx = None
     class TopicManagerPrx(Ice.ObjectPrx):
@@ -812,8 +808,6 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
 
     _M_IceStorm.TopicManager = TopicManager
     del TopicManager
-
-_M_IceStorm._t_Finder = IcePy.defineValue('::IceStorm::Finder', Ice.Value, -1, (), True, None, ())
 
 if 'FinderPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.FinderPrx = None

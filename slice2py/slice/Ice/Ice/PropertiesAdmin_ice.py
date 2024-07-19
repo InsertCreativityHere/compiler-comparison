@@ -25,8 +25,6 @@ _M_Ice = Ice.openModule('Ice')
 # Start of module Ice
 __name__ = 'Ice'
 
-_M_Ice._t_PropertiesAdmin = IcePy.defineValue('::Ice::PropertiesAdmin', Ice.Value, -1, (), True, None, ())
-
 if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
     _M_Ice.PropertiesAdminPrx = None
     class PropertiesAdminPrx(Ice.ObjectPrx):

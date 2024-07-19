@@ -31,8 +31,6 @@ if '_t_SerialLarge' not in _M_Test.__dict__:
 if '_t_SerialStruct' not in _M_Test.__dict__:
     _M_Test._t_SerialStruct = IcePy.defineSequence('::Test::SerialStruct', (), IcePy._t_byte)
 
-_M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
-
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = None
     class MyClassPrx(Ice.ObjectPrx):

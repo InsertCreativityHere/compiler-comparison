@@ -26,8 +26,6 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_TestLocatorRegistry = IcePy.defineValue('::Test::TestLocatorRegistry', Ice.Value, -1, (), True, None, ())
-
 if 'TestLocatorRegistryPrx' not in _M_Test.__dict__:
     _M_Test.TestLocatorRegistryPrx = None
     class TestLocatorRegistryPrx(_M_Ice.LocatorRegistryPrx):
@@ -100,8 +98,6 @@ if 'TestLocatorRegistryPrx' not in _M_Test.__dict__:
 
     _M_Test.TestLocatorRegistry = TestLocatorRegistry
     del TestLocatorRegistry
-
-_M_Test._t_ServerManager = IcePy.defineValue('::Test::ServerManager', Ice.Value, -1, (), True, None, ())
 
 if 'ServerManagerPrx' not in _M_Test.__dict__:
     _M_Test.ServerManagerPrx = None
@@ -186,8 +182,6 @@ if 'ServerManagerPrx' not in _M_Test.__dict__:
     _M_Test.ServerManager = ServerManager
     del ServerManager
 
-_M_Test._t_Hello = IcePy.defineValue('::Test::Hello', Ice.Value, -1, (), True, None, ())
-
 if 'HelloPrx' not in _M_Test.__dict__:
     _M_Test.HelloPrx = None
     class HelloPrx(Ice.ObjectPrx):
@@ -260,8 +254,6 @@ if 'HelloPrx' not in _M_Test.__dict__:
 
     _M_Test.Hello = Hello
     del Hello
-
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None

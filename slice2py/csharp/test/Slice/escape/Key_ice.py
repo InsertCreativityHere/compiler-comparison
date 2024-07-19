@@ -122,8 +122,6 @@ if '_break' not in _M_abstract.__dict__:
     _M_abstract._break = _break
     del _break
 
-_M_abstract._t__case = IcePy.defineValue('::abstract::case', Ice.Value, -1, (), True, None, ())
-
 if 'casePrx' not in _M_abstract.__dict__:
     _M_abstract.casePrx = None
     class casePrx(Ice.ObjectPrx):
@@ -196,8 +194,6 @@ if 'casePrx' not in _M_abstract.__dict__:
 
     _M_abstract._case = _case
     del _case
-
-_M_abstract._t_decimal = IcePy.defineValue('::abstract::decimal', Ice.Value, -1, (), True, None, ())
 
 if 'decimalPrx' not in _M_abstract.__dict__:
     _M_abstract.decimalPrx = None
@@ -302,8 +298,6 @@ if 'delegate' not in _M_abstract.__dict__:
     _M_abstract.delegate = delegate
     del delegate
 
-_M_abstract._t_explicit = IcePy.defineValue('::abstract::explicit', Ice.Value, -1, (), True, None, ())
-
 if 'explicitPrx' not in _M_abstract.__dict__:
     _M_abstract.explicitPrx = None
     class explicitPrx(_M_abstract.decimalPrx, _M_abstract.casePrx):
@@ -402,8 +396,6 @@ if 'optionalMembers' not in _M_abstract.__dict__:
 
     _M_abstract.optionalMembers = optionalMembers
     del optionalMembers
-
-_M_abstract._t_optionalParams = IcePy.defineValue('::abstract::optionalParams', Ice.Value, -1, (), True, None, ())
 
 if 'optionalParamsPrx' not in _M_abstract.__dict__:
     _M_abstract.optionalParamsPrx = None
@@ -600,8 +592,6 @@ if 'BaseMethods' not in _M_abstract.__dict__:
     _M_abstract.BaseMethods = BaseMethods
     del BaseMethods
 
-_M_abstract._t_implicit = IcePy.defineValue('::abstract::implicit', Ice.Value, -1, (), True, None, ())
-
 if 'implicitPrx' not in _M_abstract.__dict__:
     _M_abstract.implicitPrx = None
     class implicitPrx(Ice.ObjectPrx):
@@ -682,8 +672,6 @@ _M_abstract.public = 0
 # Start of module abstract.System
 _M_abstract.System = Ice.openModule('abstract.System')
 __name__ = 'abstract.System'
-
-_M_abstract.System._t_Test = IcePy.defineValue('::abstract::System::Test', Ice.Value, -1, (), True, None, ())
 
 if 'TestPrx' not in _M_abstract.System.__dict__:
     _M_abstract.System.TestPrx = None
@@ -767,8 +755,6 @@ __name__ = 'abstract'
 # Start of module System
 _M_System = Ice.openModule('System')
 __name__ = 'System'
-
-_M_System._t_Test = IcePy.defineValue('::System::Test', Ice.Value, -1, (), True, None, ())
 
 if 'TestPrx' not in _M_System.__dict__:
     _M_System.TestPrx = None

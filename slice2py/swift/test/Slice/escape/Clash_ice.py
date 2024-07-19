@@ -22,8 +22,6 @@ import builtins as _builtins
 _M_Clash = Ice.openModule('Clash')
 __name__ = 'Clash'
 
-_M_Clash._t_Intf = IcePy.defineValue('::Clash::Intf', Ice.Value, -1, (), True, None, ())
-
 if 'IntfPrx' not in _M_Clash.__dict__:
     _M_Clash.IntfPrx = None
     class IntfPrx(Ice.ObjectPrx):

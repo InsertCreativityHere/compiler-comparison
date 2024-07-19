@@ -91,8 +91,6 @@ if 'EventData' not in _M_IceStorm.__dict__:
 if '_t_EventDataSeq' not in _M_IceStorm.__dict__:
     _M_IceStorm._t_EventDataSeq = IcePy.defineSequence('::IceStorm::EventDataSeq', (), _M_IceStorm._t_EventData)
 
-_M_IceStorm._t_TopicLink = IcePy.defineValue('::IceStorm::TopicLink', Ice.Value, -1, (), True, None, ())
-
 if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicLinkPrx = None
     class TopicLinkPrx(Ice.ObjectPrx):
@@ -207,8 +205,6 @@ if 'ReapWouldBlock' not in _M_IceStorm.__dict__:
 
     _M_IceStorm.ReapWouldBlock = ReapWouldBlock
     del ReapWouldBlock
-
-_M_IceStorm._t_TopicInternal = IcePy.defineValue('::IceStorm::TopicInternal', Ice.Value, -1, (), True, None, ())
 
 if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicInternalPrx = None
@@ -334,8 +330,6 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
 
     _M_IceStorm.TopicInternal = TopicInternal
     del TopicInternal
-
-_M_IceStorm._t_TopicManagerInternal = IcePy.defineValue('::IceStorm::TopicManagerInternal', Ice.Value, -1, (), True, None, ())
 
 if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicManagerInternalPrx = None

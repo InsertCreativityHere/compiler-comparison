@@ -26,8 +26,6 @@ __name__ = 'Test'
 _M_Test.MA = Ice.openModule('Test.MA')
 __name__ = 'Test.MA'
 
-_M_Test.MA._t_IA = IcePy.defineValue('::Test::MA::IA', Ice.Value, -1, (), True, None, ())
-
 if 'IAPrx' not in _M_Test.MA.__dict__:
     _M_Test.MA.IAPrx = None
     class IAPrx(Ice.ObjectPrx):
@@ -114,8 +112,6 @@ __name__ = 'Test'
 _M_Test.MB = Ice.openModule('Test.MB')
 __name__ = 'Test.MB'
 
-_M_Test.MB._t_IB1 = IcePy.defineValue('::Test::MB::IB1', Ice.Value, -1, (), True, None, ())
-
 if 'IB1Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB.IB1Prx = None
     class IB1Prx(_M_Test.MA.IAPrx):
@@ -188,8 +184,6 @@ if 'IB1Prx' not in _M_Test.MB.__dict__:
 
     _M_Test.MB.IB1 = IB1
     del IB1
-
-_M_Test.MB._t_IB2 = IcePy.defineValue('::Test::MB::IB2', Ice.Value, -1, (), True, None, ())
 
 if 'IB2Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB.IB2Prx = None
@@ -276,8 +270,6 @@ __name__ = 'Test'
 # Start of module Test.MA
 __name__ = 'Test.MA'
 
-_M_Test.MA._t_IC = IcePy.defineValue('::Test::MA::IC', Ice.Value, -1, (), True, None, ())
-
 if 'ICPrx' not in _M_Test.MA.__dict__:
     _M_Test.MA.ICPrx = None
     class ICPrx(_M_Test.MB.IB1Prx, _M_Test.MB.IB2Prx):
@@ -359,8 +351,6 @@ __name__ = 'Test'
 
 # Start of module Test
 __name__ = 'Test'
-
-_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None

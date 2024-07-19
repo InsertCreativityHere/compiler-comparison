@@ -310,8 +310,6 @@ if '_t_CListSeq' not in _M_Test.__dict__:
 if '_t_CSeqList' not in _M_Test.__dict__:
     _M_Test._t_CSeqList = IcePy.defineSequence('::Test::CSeqList', (), _M_Test._t_CSeq)
 
-_M_Test._t_D = IcePy.defineValue('::Test::D', Ice.Value, -1, (), True, None, ())
-
 if 'DPrx' not in _M_Test.__dict__:
     _M_Test.DPrx = None
     class DPrx(Ice.ObjectPrx):
@@ -500,8 +498,6 @@ if 'BufferStruct' not in _M_Test.__dict__:
 
     _M_Test.BufferStruct = BufferStruct
     del BufferStruct
-
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None

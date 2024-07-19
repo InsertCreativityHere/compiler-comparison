@@ -342,8 +342,6 @@ if 'G' not in _M_Test.__dict__:
     _M_Test.G = G
     del G
 
-_M_Test._t_I = IcePy.defineValue('::Test::I', Ice.Value, -1, (), True, None, ())
-
 if 'IPrx' not in _M_Test.__dict__:
     _M_Test.IPrx = None
     class IPrx(Ice.ObjectPrx):
@@ -405,8 +403,6 @@ if 'IPrx' not in _M_Test.__dict__:
 
     _M_Test.I = I
     del I
-
-_M_Test._t_J = IcePy.defineValue('::Test::J', Ice.Value, -1, (), True, None, ())
 
 if 'JPrx' not in _M_Test.__dict__:
     _M_Test.JPrx = None
@@ -776,8 +772,6 @@ if 'F3' not in _M_Test.__dict__:
 
     _M_Test.F3 = F3
     del F3
-
-_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None
@@ -1175,8 +1169,6 @@ if 'AlsoEmpty' not in _M_Test.__dict__:
 
     _M_Test.AlsoEmpty = AlsoEmpty
     del AlsoEmpty
-
-_M_Test._t_UnexpectedObjectExceptionTest = IcePy.defineValue('::Test::UnexpectedObjectExceptionTest', Ice.Value, -1, (), True, None, ())
 
 if 'UnexpectedObjectExceptionTestPrx' not in _M_Test.__dict__:
     _M_Test.UnexpectedObjectExceptionTestPrx = None

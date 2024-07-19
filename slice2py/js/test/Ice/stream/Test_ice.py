@@ -277,8 +277,6 @@ if 'MyException' not in _M_Test.__dict__:
     _M_Test.MyException = MyException
     del MyException
 
-_M_Test._t_MyInterface = IcePy.defineValue('::Test::MyInterface', Ice.Value, -1, (), True, None, ())
-
 if 'MyInterfacePrx' not in _M_Test.__dict__:
     _M_Test.MyInterfacePrx = None
     class MyInterfacePrx(Ice.ObjectPrx):

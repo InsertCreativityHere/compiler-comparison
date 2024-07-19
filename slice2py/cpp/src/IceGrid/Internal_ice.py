@@ -206,8 +206,6 @@ if 'AdapterNotActiveException' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterNotActiveException = AdapterNotActiveException
     del AdapterNotActiveException
 
-_M_IceGrid._t_Adapter = IcePy.defineValue('::IceGrid::Adapter', Ice.Value, -1, (), True, None, ())
-
 if 'AdapterPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterPrx = None
     class AdapterPrx(Ice.ObjectPrx):
@@ -394,8 +392,6 @@ if 'AdapterExistsException' not in _M_IceGrid.__dict__:
 if '_t_AdapterPrxDict' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_AdapterPrxDict = IcePy.defineDictionary('::IceGrid::AdapterPrxDict', (), IcePy._t_string, _M_IceGrid._t_AdapterPrx)
 
-_M_IceGrid._t_FileReader = IcePy.defineValue('::IceGrid::FileReader', Ice.Value, -1, (), True, None, ())
-
 if 'FileReaderPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.FileReaderPrx = None
     class FileReaderPrx(Ice.ObjectPrx):
@@ -531,8 +527,6 @@ if 'FileReaderPrx' not in _M_IceGrid.__dict__:
 
     _M_IceGrid.FileReader = FileReader
     del FileReader
-
-_M_IceGrid._t_Server = IcePy.defineValue('::IceGrid::Server', Ice.Value, -1, (), True, None, ())
 
 if 'ServerPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerPrx = None
@@ -907,8 +901,6 @@ if 'InternalRegistry' not in _M_IceGrid.__dict__:
 if '_t_InternalRegistryPrxSeq' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_InternalRegistryPrxSeq = IcePy.defineSequence('::IceGrid::InternalRegistryPrxSeq', (), _M_IceGrid._t_InternalRegistryPrx)
 
-_M_IceGrid._t_ReplicaObserver = IcePy.defineValue('::IceGrid::ReplicaObserver', Ice.Value, -1, (), True, None, ())
-
 if 'ReplicaObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.ReplicaObserverPrx = None
     class ReplicaObserverPrx(Ice.ObjectPrx):
@@ -1061,8 +1053,6 @@ if 'ReplicaObserverPrx' not in _M_IceGrid.__dict__:
 
     _M_IceGrid.ReplicaObserver = ReplicaObserver
     del ReplicaObserver
-
-_M_IceGrid._t_Node = IcePy.defineValue('::IceGrid::Node', Ice.Value, -1, (), True, None, ())
 
 if 'NodePrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodePrx = None
@@ -1483,8 +1473,6 @@ if 'NodeActiveException' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeActiveException = NodeActiveException
     del NodeActiveException
 
-_M_IceGrid._t_NodeSession = IcePy.defineValue('::IceGrid::NodeSession', Ice.Value, -1, (), True, None, ())
-
 if 'NodeSessionPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeSessionPrx = None
     class NodeSessionPrx(Ice.ObjectPrx):
@@ -1832,8 +1820,6 @@ if 'TopicName' not in _M_IceGrid.__dict__:
     _M_IceGrid.TopicName = TopicName
     del TopicName
 
-_M_IceGrid._t_DatabaseObserver = IcePy.defineValue('::IceGrid::DatabaseObserver', Ice.Value, -1, (), True, None, ())
-
 if 'DatabaseObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.DatabaseObserverPrx = None
     class DatabaseObserverPrx(_M_IceGrid.ApplicationObserverPrx, _M_IceGrid.ObjectObserverPrx, _M_IceGrid.AdapterObserverPrx):
@@ -1898,8 +1884,6 @@ if 'DatabaseObserverPrx' not in _M_IceGrid.__dict__:
 
 if '_t_StringLongDict' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_StringLongDict = IcePy.defineDictionary('::IceGrid::StringLongDict', (), IcePy._t_string, IcePy._t_long)
-
-_M_IceGrid._t_ReplicaSession = IcePy.defineValue('::IceGrid::ReplicaSession', Ice.Value, -1, (), True, None, ())
 
 if 'ReplicaSessionPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.ReplicaSessionPrx = None
@@ -2304,8 +2288,6 @@ if 'InternalReplicaInfo' not in _M_IceGrid.__dict__:
 
     _M_IceGrid.InternalReplicaInfo = InternalReplicaInfo
     del InternalReplicaInfo
-
-_M_IceGrid._t_InternalRegistry = IcePy.defineValue('::IceGrid::InternalRegistry', Ice.Value, -1, (), True, None, ())
 
 if 'InternalRegistryPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.InternalRegistryPrx = None

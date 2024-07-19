@@ -151,8 +151,6 @@ if 'UnknownMetricsView' not in _M_IceMX.__dict__:
     _M_IceMX.UnknownMetricsView = UnknownMetricsView
     del UnknownMetricsView
 
-_M_IceMX._t_MetricsAdmin = IcePy.defineValue('::IceMX::MetricsAdmin', Ice.Value, -1, (), True, None, ())
-
 if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
     _M_IceMX.MetricsAdminPrx = None
     class MetricsAdminPrx(Ice.ObjectPrx):

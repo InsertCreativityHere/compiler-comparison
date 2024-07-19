@@ -54,8 +54,6 @@ if 'CannotCreateSessionException' not in _M_Glacier2.__dict__:
     _M_Glacier2.CannotCreateSessionException = CannotCreateSessionException
     del CannotCreateSessionException
 
-_M_Glacier2._t_Session = IcePy.defineValue('::Glacier2::Session', Ice.Value, -1, (), True, None, ())
-
 if 'SessionPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionPrx = None
     class SessionPrx(Ice.ObjectPrx):
@@ -145,8 +143,6 @@ if 'SessionPrx' not in _M_Glacier2.__dict__:
 
     _M_Glacier2.Session = Session
     del Session
-
-_M_Glacier2._t_StringSet = IcePy.defineValue('::Glacier2::StringSet', Ice.Value, -1, (), True, None, ())
 
 if 'StringSetPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.StringSetPrx = None
@@ -301,8 +297,6 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
 
     _M_Glacier2.StringSet = StringSet
     del StringSet
-
-_M_Glacier2._t_IdentitySet = IcePy.defineValue('::Glacier2::IdentitySet', Ice.Value, -1, (), True, None, ())
 
 if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.IdentitySetPrx = None
@@ -460,8 +454,6 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
 
     _M_Glacier2.IdentitySet = IdentitySet
     del IdentitySet
-
-_M_Glacier2._t_SessionControl = IcePy.defineValue('::Glacier2::SessionControl', Ice.Value, -1, (), True, None, ())
 
 if 'SessionControlPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionControlPrx = None
@@ -665,8 +657,6 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionControl = SessionControl
     del SessionControl
 
-_M_Glacier2._t_SessionManager = IcePy.defineValue('::Glacier2::SessionManager', Ice.Value, -1, (), True, None, ())
-
 if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionManagerPrx = None
     class SessionManagerPrx(Ice.ObjectPrx):
@@ -770,8 +760,6 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
 
     _M_Glacier2.SessionManager = SessionManager
     del SessionManager
-
-_M_Glacier2._t_SSLSessionManager = IcePy.defineValue('::Glacier2::SSLSessionManager', Ice.Value, -1, (), True, None, ())
 
 if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SSLSessionManagerPrx = None

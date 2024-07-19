@@ -122,8 +122,6 @@ if '_continue' not in _M__and.__dict__:
     _M__and._continue = _continue
     del _continue
 
-_M__and._t__del = IcePy.defineValue('::and::del', Ice.Value, -1, (), True, None, ())
-
 if 'delPrx' not in _M__and.__dict__:
     _M__and.delPrx = None
     class delPrx(Ice.ObjectPrx):
@@ -196,8 +194,6 @@ if 'delPrx' not in _M__and.__dict__:
 
     _M__and._del = _del
     del _del
-
-_M__and._t__exec = IcePy.defineValue('::and::exec', Ice.Value, -1, (), True, None, ())
 
 if 'execPrx' not in _M__and.__dict__:
     _M__and.execPrx = None
@@ -301,8 +297,6 @@ if '_for' not in _M__and.__dict__:
 
     _M__and._for = _for
     del _for
-
-_M__and._t__if = IcePy.defineValue('::and::if', Ice.Value, -1, (), True, None, ())
 
 if 'ifPrx' not in _M__and.__dict__:
     _M__and.ifPrx = None
@@ -414,8 +408,6 @@ if '_not' not in _M__and.__dict__:
 
     _M__and._not = _not
     del _not
-
-_M__and._t__print = IcePy.defineValue('::and::print', Ice.Value, -1, (), True, None, ())
 
 if 'printPrx' not in _M__and.__dict__:
     _M__and.printPrx = None

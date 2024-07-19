@@ -212,8 +212,6 @@ if 'xor' not in _M__and.__dict__:
     _M__and.xor = xor
     del xor
 
-_M__and._t__break = IcePy.defineValue('::and::break', Ice.Value, -1, (), True, None, ())
-
 if 'breakPrx' not in _M__and.__dict__:
     _M__and.breakPrx = None
     class breakPrx(Ice.ObjectPrx):
@@ -287,8 +285,6 @@ if 'breakPrx' not in _M__and.__dict__:
     _M__and._break = _break
     del _break
 
-_M__and._t_function = IcePy.defineValue('::and::function', Ice.Value, -1, (), True, None, ())
-
 if 'functionPrx' not in _M__and.__dict__:
     _M__and.functionPrx = None
     class functionPrx(Ice.ObjectPrx):
@@ -361,8 +357,6 @@ if 'functionPrx' not in _M__and.__dict__:
 
     _M__and.function = function
     del function
-
-_M__and._t_die = IcePy.defineValue('::and::die', Ice.Value, -1, (), True, None, ())
 
 if 'diePrx' not in _M__and.__dict__:
     _M__and.diePrx = None
@@ -468,8 +462,6 @@ if 'echo' not in _M__and.__dict__:
 
     _M__and.echo = echo
     del echo
-
-_M__and._t_enddeclare = IcePy.defineValue('::and::enddeclare', Ice.Value, -1, (), True, None, ())
 
 if 'enddeclarePrx' not in _M__and.__dict__:
     _M__and.enddeclarePrx = None
@@ -581,8 +573,6 @@ if 'endwhile' not in _M__and.__dict__:
 
     _M__and.endwhile = endwhile
     del endwhile
-
-_M__and._t__for = IcePy.defineValue('::and::for', Ice.Value, -1, (), True, None, ())
 
 if 'forPrx' not in _M__and.__dict__:
     _M__and.forPrx = None

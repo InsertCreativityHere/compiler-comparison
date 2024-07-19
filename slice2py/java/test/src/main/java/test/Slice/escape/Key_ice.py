@@ -122,8 +122,6 @@ if '_break' not in _M_abstract.__dict__:
     _M_abstract._break = _break
     del _break
 
-_M_abstract._t_catch = IcePy.defineValue('::abstract::catch', Ice.Value, -1, (), True, None, ())
-
 if 'catchPrx' not in _M_abstract.__dict__:
     _M_abstract.catchPrx = None
     class catchPrx(Ice.ObjectPrx):
@@ -196,8 +194,6 @@ if 'catchPrx' not in _M_abstract.__dict__:
 
     _M_abstract.catch = catch
     del catch
-
-_M_abstract._t_default = IcePy.defineValue('::abstract::default', Ice.Value, -1, (), True, None, ())
 
 if 'defaultPrx' not in _M_abstract.__dict__:
     _M_abstract.defaultPrx = None
@@ -301,8 +297,6 @@ if '_else' not in _M_abstract.__dict__:
 
     _M_abstract._else = _else
     del _else
-
-_M_abstract._t_finalize = IcePy.defineValue('::abstract::finalize', Ice.Value, -1, (), True, None, ())
 
 if 'finalizePrx' not in _M_abstract.__dict__:
     _M_abstract.finalizePrx = None
@@ -414,8 +408,6 @@ if '_import' not in _M_abstract.__dict__:
 
     _M_abstract._import = _import
     del _import
-
-_M_abstract._t_new = IcePy.defineValue('::abstract::new', Ice.Value, -1, (), True, None, ())
 
 if 'newPrx' not in _M_abstract.__dict__:
     _M_abstract.newPrx = None

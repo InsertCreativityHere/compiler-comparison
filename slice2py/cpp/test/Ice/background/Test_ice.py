@@ -26,8 +26,6 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Background = IcePy.defineValue('::Test::Background', Ice.Value, -1, (), True, None, ())
-
 if 'BackgroundPrx' not in _M_Test.__dict__:
     _M_Test.BackgroundPrx = None
     class BackgroundPrx(Ice.ObjectPrx):
@@ -120,8 +118,6 @@ if 'BackgroundPrx' not in _M_Test.__dict__:
 
     _M_Test.Background = Background
     del Background
-
-_M_Test._t_BackgroundController = IcePy.defineValue('::Test::BackgroundController', Ice.Value, -1, (), True, None, ())
 
 if 'BackgroundControllerPrx' not in _M_Test.__dict__:
     _M_Test.BackgroundControllerPrx = None

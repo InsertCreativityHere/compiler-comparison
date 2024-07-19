@@ -143,8 +143,6 @@ if 'LocatorRegistry' not in _M_Ice.__dict__:
     _M_Ice._t_LocatorRegistryDisp = IcePy.declareClass('::Ice::LocatorRegistry')
     _M_Ice._t_LocatorRegistryPrx = IcePy.declareProxy('::Ice::LocatorRegistry')
 
-_M_Ice._t_Locator = IcePy.defineValue('::Ice::Locator', Ice.Value, -1, (), True, None, ())
-
 if 'LocatorPrx' not in _M_Ice.__dict__:
     _M_Ice.LocatorPrx = None
     class LocatorPrx(Ice.ObjectPrx):
@@ -308,8 +306,6 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
 
     _M_Ice.Locator = Locator
     del Locator
-
-_M_Ice._t_LocatorRegistry = IcePy.defineValue('::Ice::LocatorRegistry', Ice.Value, -1, (), True, None, ())
 
 if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
     _M_Ice.LocatorRegistryPrx = None
@@ -493,8 +489,6 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
 
     _M_Ice.LocatorRegistry = LocatorRegistry
     del LocatorRegistry
-
-_M_Ice._t_LocatorFinder = IcePy.defineValue('::Ice::LocatorFinder', Ice.Value, -1, (), True, None, ())
 
 if 'LocatorFinderPrx' not in _M_Ice.__dict__:
     _M_Ice.LocatorFinderPrx = None

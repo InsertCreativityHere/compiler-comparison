@@ -25,8 +25,6 @@ _M_Ice = Ice.openModule('Ice')
 # Start of module Ice
 __name__ = 'Ice'
 
-_M_Ice._t_Router = IcePy.defineValue('::Ice::Router', Ice.Value, -1, (), True, None, ())
-
 if 'RouterPrx' not in _M_Ice.__dict__:
     _M_Ice.RouterPrx = None
     class RouterPrx(Ice.ObjectPrx):
@@ -181,8 +179,6 @@ if 'RouterPrx' not in _M_Ice.__dict__:
 
     _M_Ice.Router = Router
     del Router
-
-_M_Ice._t_RouterFinder = IcePy.defineValue('::Ice::RouterFinder', Ice.Value, -1, (), True, None, ())
 
 if 'RouterFinderPrx' not in _M_Ice.__dict__:
     _M_Ice.RouterFinderPrx = None

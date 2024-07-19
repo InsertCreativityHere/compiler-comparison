@@ -105,8 +105,6 @@ if 'ObserverInconsistencyException' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.ObserverInconsistencyException = ObserverInconsistencyException
     del ObserverInconsistencyException
 
-_M_IceStormElection._t_ReplicaObserver = IcePy.defineValue('::IceStormElection::ReplicaObserver', Ice.Value, -1, (), True, None, ())
-
 if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.ReplicaObserverPrx = None
     class ReplicaObserverPrx(Ice.ObjectPrx):
@@ -360,8 +358,6 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
 
     _M_IceStormElection.ReplicaObserver = ReplicaObserver
     del ReplicaObserver
-
-_M_IceStormElection._t_TopicManagerSync = IcePy.defineValue('::IceStormElection::TopicManagerSync', Ice.Value, -1, (), True, None, ())
 
 if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.TopicManagerSyncPrx = None
@@ -691,8 +687,6 @@ if 'QueryInfo' not in _M_IceStormElection.__dict__:
 
     _M_IceStormElection.QueryInfo = QueryInfo
     del QueryInfo
-
-_M_IceStormElection._t_Node = IcePy.defineValue('::IceStormElection::Node', Ice.Value, -1, (), True, None, ())
 
 if 'NodePrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.NodePrx = None

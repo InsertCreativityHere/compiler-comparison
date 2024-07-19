@@ -155,8 +155,6 @@ if 'SimpleEnum' not in _M_Test.__dict__:
     _M_Test.SimpleEnum = SimpleEnum
     del SimpleEnum
 
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
-
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(Ice.ObjectPrx):

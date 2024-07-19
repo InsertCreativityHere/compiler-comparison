@@ -352,8 +352,6 @@ if 'C2' not in _M_Test.__dict__:
     _M_Test.C2 = C2
     del C2
 
-_M_Test._t_I = IcePy.defineValue('::Test::I', Ice.Value, -1, (), True, None, ())
-
 if 'IPrx' not in _M_Test.__dict__:
     _M_Test.IPrx = None
     class IPrx(Ice.ObjectPrx):
@@ -745,8 +743,6 @@ if '_t_CMap' not in _M_Test.Inner.Inner2.__dict__:
 if '_t_CSeq' not in _M_Test.Inner.Inner2.__dict__:
     _M_Test.Inner.Inner2._t_CSeq = IcePy.defineSequence('::Test::Inner::Inner2::CSeq', (), _M_Test.Inner.Inner2._t_C)
 
-_M_Test.Inner.Inner2._t_I = IcePy.defineValue('::Test::Inner::Inner2::I', Ice.Value, -1, (), True, None, ())
-
 if 'IPrx' not in _M_Test.Inner.Inner2.__dict__:
     _M_Test.Inner.Inner2.IPrx = None
     class IPrx(Ice.ObjectPrx):
@@ -926,8 +922,6 @@ if '_t_CMap' not in _M_Test.Inner.__dict__:
 if '_t_CSeq' not in _M_Test.Inner.__dict__:
     _M_Test.Inner._t_CSeq = IcePy.defineSequence('::Test::Inner::CSeq', (), _M_Test.Inner.Inner2._t_C)
 
-_M_Test.Inner._t_I = IcePy.defineValue('::Test::Inner::I', Ice.Value, -1, (), True, None, ())
-
 if 'IPrx' not in _M_Test.Inner.__dict__:
     _M_Test.Inner.IPrx = None
     class IPrx(Ice.ObjectPrx):
@@ -1084,8 +1078,6 @@ __name__ = 'Inner.Test'
 # Start of module Inner.Test.Inner2
 _M_Inner.Test.Inner2 = Ice.openModule('Inner.Test.Inner2')
 __name__ = 'Inner.Test.Inner2'
-
-_M_Inner.Test.Inner2._t_I = IcePy.defineValue('::Inner::Test::Inner2::I', Ice.Value, -1, (), True, None, ())
 
 if 'IPrx' not in _M_Inner.Test.Inner2.__dict__:
     _M_Inner.Test.Inner2.IPrx = None
