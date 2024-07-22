@@ -77,7 +77,7 @@ public interface SessionManager extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         SessionPrx ret = obj.create(iceP_userId, iceP_control, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.SlicedFormat);
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

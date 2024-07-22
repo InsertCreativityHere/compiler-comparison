@@ -239,7 +239,7 @@ Ice.defineOperations(
     iceC_Glacier2_SessionManager_ids,
     "::Glacier2::SessionManager",
     {
-        "create": [, , 2, ["Glacier2.SessionPrx"], [[7], ["Glacier2.SessionControlPrx"]], ,
+        "create": [, , , ["Glacier2.SessionPrx"], [[7], ["Glacier2.SessionControlPrx"]], ,
         [
             Glacier2.CannotCreateSessionException
         ], , ]
@@ -272,7 +272,7 @@ Ice.defineOperations(
     iceC_Glacier2_SSLSessionManager_ids,
     "::Glacier2::SSLSessionManager",
     {
-        "create": [, , 2, ["Glacier2.SessionPrx"], [[Glacier2.SSLInfo], ["Glacier2.SessionControlPrx"]], ,
+        "create": [, , , ["Glacier2.SessionPrx"], [[Glacier2.SSLInfo], ["Glacier2.SessionControlPrx"]], ,
         [
             Glacier2.CannotCreateSessionException
         ], , ]

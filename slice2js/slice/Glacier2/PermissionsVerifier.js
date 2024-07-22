@@ -111,7 +111,7 @@ Ice.defineOperations(
     iceC_Glacier2_PermissionsVerifier_ids,
     "::Glacier2::PermissionsVerifier",
     {
-        "checkPermissions": [, 2, 2, [1], [[7], [7]], [[7]],
+        "checkPermissions": [, 2, , [1], [[7], [7]], [[7]],
         [
             Glacier2.PermissionDeniedException
         ], , ]
@@ -141,7 +141,7 @@ Ice.defineOperations(
     iceC_Glacier2_SSLPermissionsVerifier_ids,
     "::Glacier2::SSLPermissionsVerifier",
     {
-        "authorize": [, 2, 2, [1], [[Glacier2.SSLInfo]], [[7]],
+        "authorize": [, 2, , [1], [[Glacier2.SSLInfo]], [[7]],
         [
             Glacier2.PermissionDeniedException
         ], , ]

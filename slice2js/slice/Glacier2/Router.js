@@ -119,12 +119,12 @@ Ice.defineOperations(
     "::Glacier2::Router",
     {
         "getCategoryForClient": [, 2, , [7], , , , , ],
-        "createSession": [, , 2, ["Glacier2.SessionPrx"], [[7], [7]], ,
+        "createSession": [, , , ["Glacier2.SessionPrx"], [[7], [7]], ,
         [
             Glacier2.CannotCreateSessionException,
             Glacier2.PermissionDeniedException
         ], , ],
-        "createSessionFromSecureConnection": [, , 2, ["Glacier2.SessionPrx"], , ,
+        "createSessionFromSecureConnection": [, , , ["Glacier2.SessionPrx"], , ,
         [
             Glacier2.CannotCreateSessionException,
             Glacier2.PermissionDeniedException

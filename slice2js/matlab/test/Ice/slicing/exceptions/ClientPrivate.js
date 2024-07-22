@@ -285,19 +285,19 @@ Ice.defineOperations(
     iceC_Test_Relay_ids,
     "::Test::Relay",
     {
-        "knownPreservedAsBase": [, , 2, , , ,
+        "knownPreservedAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "knownPreservedAsKnownPreserved": [, , 2, , , ,
+        "knownPreservedAsKnownPreserved": [, , , , , ,
         [
             Test.KnownPreserved
         ], , ],
-        "unknownPreservedAsBase": [, , 2, , , ,
+        "unknownPreservedAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "unknownPreservedAsKnownPreserved": [, , 2, , , ,
+        "unknownPreservedAsKnownPreserved": [, , , , , ,
         [
             Test.KnownPreserved
         ], , ]
@@ -323,55 +323,55 @@ Ice.defineOperations(
     iceC_Test_TestIntf_ids,
     "::Test::TestIntf",
     {
-        "baseAsBase": [, , 2, , , ,
+        "baseAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "unknownDerivedAsBase": [, , 2, , , ,
+        "unknownDerivedAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "knownDerivedAsBase": [, , 2, , , ,
+        "knownDerivedAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "knownDerivedAsKnownDerived": [, , 2, , , ,
+        "knownDerivedAsKnownDerived": [, , , , , ,
         [
             Test.KnownDerived
         ], , ],
-        "unknownIntermediateAsBase": [, , 2, , , ,
+        "unknownIntermediateAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "knownIntermediateAsBase": [, , 2, , , ,
+        "knownIntermediateAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "knownMostDerivedAsBase": [, , 2, , , ,
+        "knownMostDerivedAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "knownIntermediateAsKnownIntermediate": [, , 2, , , ,
+        "knownIntermediateAsKnownIntermediate": [, , , , , ,
         [
             Test.KnownIntermediate
         ], , ],
-        "knownMostDerivedAsKnownIntermediate": [, , 2, , , ,
+        "knownMostDerivedAsKnownIntermediate": [, , , , , ,
         [
             Test.KnownIntermediate
         ], , ],
-        "knownMostDerivedAsKnownMostDerived": [, , 2, , , ,
+        "knownMostDerivedAsKnownMostDerived": [, , , , , ,
         [
             Test.KnownMostDerived
         ], , ],
-        "unknownMostDerived1AsBase": [, , 2, , , ,
+        "unknownMostDerived1AsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "unknownMostDerived1AsKnownIntermediate": [, , 2, , , ,
+        "unknownMostDerived1AsKnownIntermediate": [, , , , , ,
         [
             Test.KnownIntermediate
         ], , ],
-        "unknownMostDerived2AsBase": [, , 2, , , ,
+        "unknownMostDerived2AsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
@@ -379,39 +379,39 @@ Ice.defineOperations(
         [
             Test.Base
         ], , ],
-        "knownPreservedAsBase": [, , 2, , , ,
+        "knownPreservedAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "knownPreservedAsKnownPreserved": [, , 2, , , ,
+        "knownPreservedAsKnownPreserved": [, , , , , ,
         [
             Test.KnownPreserved
         ], , ],
-        "relayKnownPreservedAsBase": [, , 2, , [["Test.RelayPrx"]], ,
+        "relayKnownPreservedAsBase": [, , , , [["Test.RelayPrx"]], ,
         [
             Test.Base
         ], , ],
-        "relayKnownPreservedAsKnownPreserved": [, , 2, , [["Test.RelayPrx"]], ,
+        "relayKnownPreservedAsKnownPreserved": [, , , , [["Test.RelayPrx"]], ,
         [
             Test.KnownPreserved
         ], , ],
-        "unknownPreservedAsBase": [, , 2, , , ,
+        "unknownPreservedAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "unknownPreservedAsKnownPreserved": [, , 2, , , ,
+        "unknownPreservedAsKnownPreserved": [, , , , , ,
         [
             Test.KnownPreserved
         ], , ],
-        "relayUnknownPreservedAsBase": [, , 2, , [["Test.RelayPrx"]], ,
+        "relayUnknownPreservedAsBase": [, , , , [["Test.RelayPrx"]], ,
         [
             Test.Base
         ], , ],
-        "relayUnknownPreservedAsKnownPreserved": [, , 2, , [["Test.RelayPrx"]], ,
+        "relayUnknownPreservedAsKnownPreserved": [, , , , [["Test.RelayPrx"]], ,
         [
             Test.KnownPreserved
         ], , ],
-        "shutdown": [, , 2, , , , , , ]
+        "shutdown": [, , , , , , , , ]
     });
 
 Test.PreservedClass = class extends Test.BaseClass

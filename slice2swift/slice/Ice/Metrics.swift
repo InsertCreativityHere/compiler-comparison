@@ -548,7 +548,6 @@ public extension MXMetricsAdminPrx {
     func getMetricsViewNames(context: Context? = nil) throws -> (returnValue: StringSeq, disabledViews: StringSeq) {
         return try _impl._invoke(operation: "getMetricsViewNames",
                                  mode: .Normal,
-                                 format: .SlicedFormat,
                                  read: { istr in
                                      let iceP_disabledViews: StringSeq = try istr.read()
                                      let iceP_returnValue: StringSeq = try istr.read()
@@ -573,7 +572,6 @@ public extension MXMetricsAdminPrx {
     func getMetricsViewNamesAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: StringSeq, disabledViews: StringSeq)> {
         return _impl._invokeAsync(operation: "getMetricsViewNames",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   read: { istr in
                                       let iceP_disabledViews: StringSeq = try istr.read()
                                       let iceP_returnValue: StringSeq = try istr.read()
@@ -597,7 +595,6 @@ public extension MXMetricsAdminPrx {
     func enableMetricsView(_ iceP_name: Swift.String, context: Context? = nil) throws {
         try _impl._invoke(operation: "enableMetricsView",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           write: { ostr in
                               ostr.write(iceP_name)
                           },
@@ -629,7 +626,6 @@ public extension MXMetricsAdminPrx {
     func enableMetricsViewAsync(_ iceP_name: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "enableMetricsView",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -658,7 +654,6 @@ public extension MXMetricsAdminPrx {
     func disableMetricsView(_ iceP_name: Swift.String, context: Context? = nil) throws {
         try _impl._invoke(operation: "disableMetricsView",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           write: { ostr in
                               ostr.write(iceP_name)
                           },
@@ -690,7 +685,6 @@ public extension MXMetricsAdminPrx {
     func disableMetricsViewAsync(_ iceP_name: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "disableMetricsView",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -806,7 +800,6 @@ public extension MXMetricsAdminPrx {
     func getMapMetricsFailures(view iceP_view: Swift.String, map iceP_map: Swift.String, context: Context? = nil) throws -> MXMetricsFailuresSeq {
         return try _impl._invoke(operation: "getMapMetricsFailures",
                                  mode: .Normal,
-                                 format: .SlicedFormat,
                                  write: { ostr in
                                      ostr.write(iceP_view)
                                      ostr.write(iceP_map)
@@ -845,7 +838,6 @@ public extension MXMetricsAdminPrx {
     func getMapMetricsFailuresAsync(view iceP_view: Swift.String, map iceP_map: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MXMetricsFailuresSeq> {
         return _impl._invokeAsync(operation: "getMapMetricsFailures",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   write: { ostr in
                                       ostr.write(iceP_view)
                                       ostr.write(iceP_map)
@@ -885,7 +877,6 @@ public extension MXMetricsAdminPrx {
     func getMetricsFailures(view iceP_view: Swift.String, map iceP_map: Swift.String, id iceP_id: Swift.String, context: Context? = nil) throws -> MXMetricsFailures {
         return try _impl._invoke(operation: "getMetricsFailures",
                                  mode: .Normal,
-                                 format: .SlicedFormat,
                                  write: { ostr in
                                      ostr.write(iceP_view)
                                      ostr.write(iceP_map)
@@ -927,7 +918,6 @@ public extension MXMetricsAdminPrx {
     func getMetricsFailuresAsync(view iceP_view: Swift.String, map iceP_map: Swift.String, id iceP_id: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MXMetricsFailures> {
         return _impl._invokeAsync(operation: "getMetricsFailures",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   write: { ostr in
                                       ostr.write(iceP_view)
                                       ostr.write(iceP_map)
@@ -1517,7 +1507,7 @@ extension MXMetricsAdmin {
 
             let (iceP_returnValue, iceP_disabledViews) = try self.getMetricsViewNames(current: request.current)
             let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_disabledViews)
             ostr.write(iceP_returnValue)
             ostr.endEncapsulation()
@@ -1581,7 +1571,7 @@ extension MXMetricsAdmin {
 
             let iceP_returnValue = try self.getMapMetricsFailures(view: iceP_view, map: iceP_map, current: request.current)
             let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             MXMetricsFailuresSeqHelper.write(to: ostr, value: iceP_returnValue)
             ostr.endEncapsulation()
             return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
@@ -1600,7 +1590,7 @@ extension MXMetricsAdmin {
 
             let iceP_returnValue = try self.getMetricsFailures(view: iceP_view, map: iceP_map, id: iceP_id, current: request.current)
             let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
             ostr.endEncapsulation()
             return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))

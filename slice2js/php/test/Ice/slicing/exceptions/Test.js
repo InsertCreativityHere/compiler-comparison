@@ -189,7 +189,7 @@ Ice.defineOperations(
     iceC_Test_TestIntf_ids,
     "::Test::TestIntf",
     {
-        "baseAsBase": [, , 2, , , ,
+        "baseAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
@@ -197,49 +197,49 @@ Ice.defineOperations(
         [
             Test.Base
         ], , ],
-        "knownDerivedAsBase": [, , 2, , , ,
+        "knownDerivedAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "knownDerivedAsKnownDerived": [, , 2, , , ,
+        "knownDerivedAsKnownDerived": [, , , , , ,
         [
             Test.KnownDerived
         ], , ],
-        "unknownIntermediateAsBase": [, , 2, , , ,
+        "unknownIntermediateAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "knownIntermediateAsBase": [, , 2, , , ,
+        "knownIntermediateAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "knownMostDerivedAsBase": [, , 2, , , ,
+        "knownMostDerivedAsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "knownIntermediateAsKnownIntermediate": [, , 2, , , ,
+        "knownIntermediateAsKnownIntermediate": [, , , , , ,
         [
             Test.KnownIntermediate
         ], , ],
-        "knownMostDerivedAsKnownIntermediate": [, , 2, , , ,
+        "knownMostDerivedAsKnownIntermediate": [, , , , , ,
         [
             Test.KnownIntermediate
         ], , ],
-        "knownMostDerivedAsKnownMostDerived": [, , 2, , , ,
+        "knownMostDerivedAsKnownMostDerived": [, , , , , ,
         [
             Test.KnownMostDerived
         ], , ],
-        "unknownMostDerived1AsBase": [, , 2, , , ,
+        "unknownMostDerived1AsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "unknownMostDerived1AsKnownIntermediate": [, , 2, , , ,
+        "unknownMostDerived1AsKnownIntermediate": [, , , , , ,
         [
             Test.KnownIntermediate
         ], , ],
-        "unknownMostDerived2AsBase": [, , 2, , , ,
+        "unknownMostDerived2AsBase": [, , , , , ,
         [
             Test.Base
         ], , ],
-        "shutdown": [, , 2, , , , , , ]
+        "shutdown": [, , , , , , , , ]
     });

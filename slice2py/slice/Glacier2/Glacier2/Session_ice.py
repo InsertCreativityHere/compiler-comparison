@@ -756,7 +756,7 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2._t_SessionManagerDisp = IcePy.defineClass('::Glacier2::SessionManager', SessionManager, (), None, ())
     SessionManager._ice_type = _M_Glacier2._t_SessionManagerDisp
 
-    SessionManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), _M_Glacier2._t_SessionControlPrx, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_CannotCreateSessionException,))
+    SessionManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_Glacier2._t_SessionControlPrx, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_CannotCreateSessionException,))
 
     _M_Glacier2.SessionManager = SessionManager
     del SessionManager
@@ -857,7 +857,7 @@ if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2._t_SSLSessionManagerDisp = IcePy.defineClass('::Glacier2::SSLSessionManager', SSLSessionManager, (), None, ())
     SSLSessionManager._ice_type = _M_Glacier2._t_SSLSessionManagerDisp
 
-    SSLSessionManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), _M_Glacier2._t_SSLInfo, False, 0), ((), _M_Glacier2._t_SessionControlPrx, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_CannotCreateSessionException,))
+    SSLSessionManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, None, (), (((), _M_Glacier2._t_SSLInfo, False, 0), ((), _M_Glacier2._t_SessionControlPrx, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_CannotCreateSessionException,))
 
     _M_Glacier2.SSLSessionManager = SSLSessionManager
     del SSLSessionManager

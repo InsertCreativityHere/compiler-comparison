@@ -75,7 +75,7 @@ Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr
     static constexpr ::std::string_view operationName = "checkPermissions";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_userId, iceP_password);
@@ -138,7 +138,7 @@ Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::I
     static constexpr ::std::string_view operationName = "authorize";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_info);
@@ -241,8 +241,7 @@ Glacier2::PermissionsVerifier::_iceD_checkPermissions(::Ice::IncomingRequest& re
         {
             ostr->writeAll(iceP_reason, ret);
         },
-        request.current(),
-        ::Ice::FormatType::SlicedFormat));
+        request.current()));
 }
 /// \endcond
 
@@ -331,8 +330,7 @@ Glacier2::SSLPermissionsVerifier::_iceD_authorize(::Ice::IncomingRequest& reques
         {
             ostr->writeAll(iceP_reason, ret);
         },
-        request.current(),
-        ::Ice::FormatType::SlicedFormat));
+        request.current()));
 }
 /// \endcond
 

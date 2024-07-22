@@ -32,7 +32,7 @@ classdef SSLPermissionsVerifierPrx < Ice.ObjectPrx
             %
             % See also Glacier2.SSLInfo
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             Glacier2.SSLInfo.ice_write(os_, info);
             obj.iceEndWriteParams(os_);
             is_ = obj.iceInvoke('authorize', 2, true, os_, true, Glacier2.SSLPermissionsVerifierPrx.authorize_ex_, varargin{:});
@@ -56,7 +56,7 @@ classdef SSLPermissionsVerifierPrx < Ice.ObjectPrx
             %
             % See also Glacier2.SSLInfo
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             Glacier2.SSLInfo.ice_write(os_, info);
             obj.iceEndWriteParams(os_);
             function varargout = unmarshal(is_)

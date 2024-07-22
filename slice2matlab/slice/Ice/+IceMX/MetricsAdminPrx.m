@@ -68,7 +68,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Exceptions:
             %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('enableMetricsView', 0, true, os_, false, IceMX.MetricsAdminPrx.enableMetricsView_ex_, varargin{:});
@@ -85,7 +85,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Exceptions:
             %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('enableMetricsView', 0, true, os_, 0, [], IceMX.MetricsAdminPrx.enableMetricsView_ex_, varargin{:});
@@ -100,7 +100,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Exceptions:
             %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('disableMetricsView', 0, true, os_, false, IceMX.MetricsAdminPrx.disableMetricsView_ex_, varargin{:});
@@ -117,7 +117,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Exceptions:
             %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('disableMetricsView', 0, true, os_, 0, [], IceMX.MetricsAdminPrx.disableMetricsView_ex_, varargin{:});
@@ -190,7 +190,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Exceptions:
             %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(view);
             os_.writeString(map);
             obj.iceEndWriteParams(os_);
@@ -212,7 +212,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Exceptions:
             %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(view);
             os_.writeString(map);
             obj.iceEndWriteParams(os_);
@@ -238,7 +238,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Exceptions:
             %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(view);
             os_.writeString(map);
             os_.writeString(id);
@@ -262,7 +262,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Exceptions:
             %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(view);
             os_.writeString(map);
             os_.writeString(id);

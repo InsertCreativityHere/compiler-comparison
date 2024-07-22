@@ -274,7 +274,6 @@ public extension RouterPrx {
     func createSession(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) throws -> SessionPrx? {
         return try _impl._invoke(operation: "createSession",
                                  mode: .Normal,
-                                 format: .SlicedFormat,
                                  write: { ostr in
                                      ostr.write(iceP_userId)
                                      ostr.write(iceP_password)
@@ -320,7 +319,6 @@ public extension RouterPrx {
     func createSessionAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SessionPrx?> {
         return _impl._invokeAsync(operation: "createSession",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   write: { ostr in
                                       ostr.write(iceP_userId)
                                       ostr.write(iceP_password)
@@ -365,7 +363,6 @@ public extension RouterPrx {
     func createSessionFromSecureConnection(context: Ice.Context? = nil) throws -> SessionPrx? {
         return try _impl._invoke(operation: "createSessionFromSecureConnection",
                                  mode: .Normal,
-                                 format: .SlicedFormat,
                                  read: { istr in
                                      let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
                                      return iceP_returnValue
@@ -404,7 +401,6 @@ public extension RouterPrx {
     func createSessionFromSecureConnectionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SessionPrx?> {
         return _impl._invokeAsync(operation: "createSessionFromSecureConnection",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   read: { istr in
                                       let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
                                       return iceP_returnValue
@@ -769,7 +765,7 @@ extension Router {
             return self.createSessionAsync(
                 userId: iceP_userId, password: iceP_password, current: request.current
             ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
                     let iceP_returnValue = value
                     ostr.write(iceP_returnValue)
                 }
@@ -785,7 +781,7 @@ extension Router {
             return self.createSessionFromSecureConnectionAsync(
                 current: request.current
             ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
                     let iceP_returnValue = value
                     ostr.write(iceP_returnValue)
                 }

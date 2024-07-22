@@ -200,7 +200,7 @@ module ::Glacier2
 
         T_SessionManagerPrx.defineProxy(SessionManagerPrx, nil, [])
 
-        SessionManagerPrx_mixin::OP_create = ::Ice::__defineOperation('create', ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0], [::Glacier2::T_SessionControlPrx, false, 0]], [], [::Glacier2::T_SessionPrx, false, 0], [::Glacier2::T_CannotCreateSessionException])
+        SessionManagerPrx_mixin::OP_create = ::Ice::__defineOperation('create', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Glacier2::T_SessionControlPrx, false, 0]], [], [::Glacier2::T_SessionPrx, false, 0], [::Glacier2::T_CannotCreateSessionException])
     end
 
     if not defined?(::Glacier2::SSLSessionManager_Mixin)
@@ -226,6 +226,6 @@ module ::Glacier2
 
         T_SSLSessionManagerPrx.defineProxy(SSLSessionManagerPrx, nil, [])
 
-        SSLSessionManagerPrx_mixin::OP_create = ::Ice::__defineOperation('create', ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Glacier2::T_SSLInfo, false, 0], [::Glacier2::T_SessionControlPrx, false, 0]], [], [::Glacier2::T_SessionPrx, false, 0], [::Glacier2::T_CannotCreateSessionException])
+        SSLSessionManagerPrx_mixin::OP_create = ::Ice::__defineOperation('create', ::Ice::OperationMode::Normal, false, nil, [[::Glacier2::T_SSLInfo, false, 0], [::Glacier2::T_SessionControlPrx, false, 0]], [], [::Glacier2::T_SessionPrx, false, 0], [::Glacier2::T_CannotCreateSessionException])
     end
 end

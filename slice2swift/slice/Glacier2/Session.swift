@@ -1177,7 +1177,6 @@ public extension SessionManagerPrx {
     func create(userId iceP_userId: Swift.String, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil) throws -> SessionPrx? {
         return try _impl._invoke(operation: "create",
                                  mode: .Normal,
-                                 format: .SlicedFormat,
                                  write: { ostr in
                                      ostr.write(iceP_userId)
                                      ostr.write(iceP_control)
@@ -1218,7 +1217,6 @@ public extension SessionManagerPrx {
     func createAsync(userId iceP_userId: Swift.String, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SessionPrx?> {
         return _impl._invokeAsync(operation: "create",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   write: { ostr in
                                       ostr.write(iceP_userId)
                                       ostr.write(iceP_control)
@@ -1363,7 +1361,6 @@ public extension SSLSessionManagerPrx {
     func create(info iceP_info: SSLInfo, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil) throws -> SessionPrx? {
         return try _impl._invoke(operation: "create",
                                  mode: .Normal,
-                                 format: .SlicedFormat,
                                  write: { ostr in
                                      ostr.write(iceP_info)
                                      ostr.write(iceP_control)
@@ -1402,7 +1399,6 @@ public extension SSLSessionManagerPrx {
     func createAsync(info iceP_info: SSLInfo, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SessionPrx?> {
         return _impl._invokeAsync(operation: "create",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   write: { ostr in
                                       ostr.write(iceP_info)
                                       ostr.write(iceP_control)
@@ -1975,7 +1971,7 @@ extension SessionManager {
 
             let iceP_returnValue = try self.create(userId: iceP_userId, control: iceP_control, current: request.current)
             let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
             ostr.endEncapsulation()
             return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
@@ -2002,7 +1998,7 @@ extension SSLSessionManager {
 
             let iceP_returnValue = try self.create(info: iceP_info, control: iceP_control, current: request.current)
             let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_returnValue)
             ostr.endEncapsulation()
             return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))

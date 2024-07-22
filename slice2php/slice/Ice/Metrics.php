@@ -195,12 +195,12 @@ namespace IceMX
     global $IceMX__t_MetricsView;
     global $IceMX__t_MetricsFailuresSeq;
     global $IceMX__t_MetricsFailures;
-    IcePHP_defineOperation($IceMX__t_MetricsAdminPrx, 'getMetricsViewNames', 0, 2, null, array(array($Ice__t_StringSeq)), array($Ice__t_StringSeq), null);
-    IcePHP_defineOperation($IceMX__t_MetricsAdminPrx, 'enableMetricsView', 0, 2, array(array($IcePHP__t_string)), null, null, array($IceMX__t_UnknownMetricsView));
-    IcePHP_defineOperation($IceMX__t_MetricsAdminPrx, 'disableMetricsView', 0, 2, array(array($IcePHP__t_string)), null, null, array($IceMX__t_UnknownMetricsView));
+    IcePHP_defineOperation($IceMX__t_MetricsAdminPrx, 'getMetricsViewNames', 0, 0, null, array(array($Ice__t_StringSeq)), array($Ice__t_StringSeq), null);
+    IcePHP_defineOperation($IceMX__t_MetricsAdminPrx, 'enableMetricsView', 0, 0, array(array($IcePHP__t_string)), null, null, array($IceMX__t_UnknownMetricsView));
+    IcePHP_defineOperation($IceMX__t_MetricsAdminPrx, 'disableMetricsView', 0, 0, array(array($IcePHP__t_string)), null, null, array($IceMX__t_UnknownMetricsView));
     IcePHP_defineOperation($IceMX__t_MetricsAdminPrx, 'getMetricsView', 0, 2, array(array($IcePHP__t_string)), array(array($IcePHP__t_long)), array($IceMX__t_MetricsView), array($IceMX__t_UnknownMetricsView));
-    IcePHP_defineOperation($IceMX__t_MetricsAdminPrx, 'getMapMetricsFailures', 0, 2, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, array($IceMX__t_MetricsFailuresSeq), array($IceMX__t_UnknownMetricsView));
-    IcePHP_defineOperation($IceMX__t_MetricsAdminPrx, 'getMetricsFailures', 0, 2, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string)), null, array($IceMX__t_MetricsFailures), array($IceMX__t_UnknownMetricsView));
+    IcePHP_defineOperation($IceMX__t_MetricsAdminPrx, 'getMapMetricsFailures', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, array($IceMX__t_MetricsFailuresSeq), array($IceMX__t_UnknownMetricsView));
+    IcePHP_defineOperation($IceMX__t_MetricsAdminPrx, 'getMetricsFailures', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string)), null, array($IceMX__t_MetricsFailures), array($IceMX__t_UnknownMetricsView));
 }
 
 namespace IceMX

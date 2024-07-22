@@ -30,7 +30,7 @@ classdef SSLSessionManagerPrx < Ice.ObjectPrx
             % Exceptions:
             %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             Glacier2.SSLInfo.ice_write(os_, info);
             os_.writeProxy(control);
             obj.iceEndWriteParams(os_);
@@ -52,7 +52,7 @@ classdef SSLSessionManagerPrx < Ice.ObjectPrx
             % Exceptions:
             %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             Glacier2.SSLInfo.ice_write(os_, info);
             os_.writeProxy(control);
             obj.iceEndWriteParams(os_);

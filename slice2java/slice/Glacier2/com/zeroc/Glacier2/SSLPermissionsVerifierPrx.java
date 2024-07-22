@@ -99,7 +99,7 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<SSLPermissionsVerifier.AuthorizeResult> _iceI_authorizeAsync(SSLInfo iceP_info, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<SSLPermissionsVerifier.AuthorizeResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "authorize", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_authorize);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      SSLInfo.ice_write(ostr, iceP_info);
                  }, istr -> {
                      SSLPermissionsVerifier.AuthorizeResult ret = new SSLPermissionsVerifier.AuthorizeResult();

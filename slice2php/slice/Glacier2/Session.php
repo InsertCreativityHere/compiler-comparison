@@ -204,7 +204,7 @@ namespace Glacier2
     global $IcePHP__t_string;
     global $Glacier2__t_SessionControlPrx;
     global $Glacier2__t_SessionPrx;
-    IcePHP_defineOperation($Glacier2__t_SessionManagerPrx, 'create', 0, 2, array(array($IcePHP__t_string), array($Glacier2__t_SessionControlPrx)), null, array($Glacier2__t_SessionPrx), array($Glacier2__t_CannotCreateSessionException));
+    IcePHP_defineOperation($Glacier2__t_SessionManagerPrx, 'create', 0, 0, array(array($IcePHP__t_string), array($Glacier2__t_SessionControlPrx)), null, array($Glacier2__t_SessionPrx), array($Glacier2__t_CannotCreateSessionException));
 }
 
 namespace Glacier2
@@ -236,6 +236,6 @@ namespace Glacier2
     global $Glacier2__t_SSLInfo;
     global $Glacier2__t_SessionControlPrx;
     global $Glacier2__t_SessionPrx;
-    IcePHP_defineOperation($Glacier2__t_SSLSessionManagerPrx, 'create', 0, 2, array(array($Glacier2__t_SSLInfo), array($Glacier2__t_SessionControlPrx)), null, array($Glacier2__t_SessionPrx), array($Glacier2__t_CannotCreateSessionException));
+    IcePHP_defineOperation($Glacier2__t_SSLSessionManagerPrx, 'create', 0, 0, array(array($Glacier2__t_SSLInfo), array($Glacier2__t_SessionControlPrx)), null, array($Glacier2__t_SessionPrx), array($Glacier2__t_CannotCreateSessionException));
 }
 ?>

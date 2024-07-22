@@ -447,7 +447,7 @@ Glacier2::SessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal:
     static constexpr ::std::string_view operationName = "create";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_userId, iceP_control);
@@ -498,7 +498,7 @@ Glacier2::SSLSessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceIntern
     static constexpr ::std::string_view operationName = "create";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_info, iceP_control);
@@ -1082,8 +1082,7 @@ Glacier2::SessionManager::_iceD_create(::Ice::IncomingRequest& request, ::std::f
         {
             ostr->writeAll(ret);
         },
-        request.current(),
-        ::Ice::FormatType::SlicedFormat));
+        request.current()));
 }
 /// \endcond
 
@@ -1172,8 +1171,7 @@ Glacier2::SSLSessionManager::_iceD_create(::Ice::IncomingRequest& request, ::std
         {
             ostr->writeAll(ret);
         },
-        request.current(),
-        ::Ice::FormatType::SlicedFormat));
+        request.current()));
 }
 /// \endcond
 

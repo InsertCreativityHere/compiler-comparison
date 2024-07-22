@@ -179,12 +179,12 @@ Ice.defineOperations(
     iceC_IceMX_MetricsAdmin_ids,
     "::IceMX::MetricsAdmin",
     {
-        "getMetricsViewNames": [, , 2, [Ice.StringSeqHelper], , [[Ice.StringSeqHelper]], , , ],
-        "enableMetricsView": [, , 2, , [[7]], ,
+        "getMetricsViewNames": [, , , [Ice.StringSeqHelper], , [[Ice.StringSeqHelper]], , , ],
+        "enableMetricsView": [, , , , [[7]], ,
         [
             IceMX.UnknownMetricsView
         ], , ],
-        "disableMetricsView": [, , 2, , [[7]], ,
+        "disableMetricsView": [, , , , [[7]], ,
         [
             IceMX.UnknownMetricsView
         ], , ],
@@ -192,11 +192,11 @@ Ice.defineOperations(
         [
             IceMX.UnknownMetricsView
         ], , true],
-        "getMapMetricsFailures": [, , 2, [IceMX.MetricsFailuresSeqHelper], [[7], [7]], ,
+        "getMapMetricsFailures": [, , , [IceMX.MetricsFailuresSeqHelper], [[7], [7]], ,
         [
             IceMX.UnknownMetricsView
         ], , ],
-        "getMetricsFailures": [, , 2, [IceMX.MetricsFailures], [[7], [7], [7]], ,
+        "getMetricsFailures": [, , , [IceMX.MetricsFailures], [[7], [7], [7]], ,
         [
             IceMX.UnknownMetricsView
         ], , ]

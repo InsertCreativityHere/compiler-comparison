@@ -194,7 +194,6 @@ public extension PermissionsVerifierPrx {
     func checkPermissions(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) throws -> (returnValue: Swift.Bool, reason: Swift.String) {
         return try _impl._invoke(operation: "checkPermissions",
                                  mode: .Idempotent,
-                                 format: .SlicedFormat,
                                  write: { ostr in
                                      ostr.write(iceP_userId)
                                      ostr.write(iceP_password)
@@ -234,7 +233,6 @@ public extension PermissionsVerifierPrx {
     func checkPermissionsAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.Bool, reason: Swift.String)> {
         return _impl._invokeAsync(operation: "checkPermissions",
                                   mode: .Idempotent,
-                                  format: .SlicedFormat,
                                   write: { ostr in
                                       ostr.write(iceP_userId)
                                       ostr.write(iceP_password)
@@ -379,7 +377,6 @@ public extension SSLPermissionsVerifierPrx {
     func authorize(_ iceP_info: SSLInfo, context: Ice.Context? = nil) throws -> (returnValue: Swift.Bool, reason: Swift.String) {
         return try _impl._invoke(operation: "authorize",
                                  mode: .Idempotent,
-                                 format: .SlicedFormat,
                                  write: { ostr in
                                      ostr.write(iceP_info)
                                  },
@@ -416,7 +413,6 @@ public extension SSLPermissionsVerifierPrx {
     func authorizeAsync(_ iceP_info: SSLInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.Bool, reason: Swift.String)> {
         return _impl._invokeAsync(operation: "authorize",
                                   mode: .Idempotent,
-                                  format: .SlicedFormat,
                                   write: { ostr in
                                       ostr.write(iceP_info)
                                   },
@@ -554,7 +550,7 @@ extension PermissionsVerifier {
 
             let (iceP_returnValue, iceP_reason) = try self.checkPermissions(userId: iceP_userId, password: iceP_password, current: request.current)
             let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_reason)
             ostr.write(iceP_returnValue)
             ostr.endEncapsulation()
@@ -579,7 +575,7 @@ extension SSLPermissionsVerifier {
 
             let (iceP_returnValue, iceP_reason) = try self.authorize(info: iceP_info, current: request.current)
             let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
+            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
             ostr.write(iceP_reason)
             ostr.write(iceP_returnValue)
             ostr.endEncapsulation()

@@ -350,7 +350,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             %   r (Test.RelayPrx)
             %   context (containers.Map) - Optional request context.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(r);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('relayKnownPreservedAsBase', 0, true, os_, false, Test.TestIntfPrx.relayKnownPreservedAsBase_ex_, varargin{:});
@@ -364,7 +364,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(r);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('relayKnownPreservedAsBase', 0, true, os_, 0, [], Test.TestIntfPrx.relayKnownPreservedAsBase_ex_, varargin{:});
@@ -376,7 +376,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             %   r (Test.RelayPrx)
             %   context (containers.Map) - Optional request context.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(r);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('relayKnownPreservedAsKnownPreserved', 0, true, os_, false, Test.TestIntfPrx.relayKnownPreservedAsKnownPreserved_ex_, varargin{:});
@@ -390,7 +390,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(r);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('relayKnownPreservedAsKnownPreserved', 0, true, os_, 0, [], Test.TestIntfPrx.relayKnownPreservedAsKnownPreserved_ex_, varargin{:});
@@ -438,7 +438,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             %   r (Test.RelayPrx)
             %   context (containers.Map) - Optional request context.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(r);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('relayUnknownPreservedAsBase', 0, true, os_, false, Test.TestIntfPrx.relayUnknownPreservedAsBase_ex_, varargin{:});
@@ -452,7 +452,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(r);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('relayUnknownPreservedAsBase', 0, true, os_, 0, [], Test.TestIntfPrx.relayUnknownPreservedAsBase_ex_, varargin{:});
@@ -464,7 +464,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             %   r (Test.RelayPrx)
             %   context (containers.Map) - Optional request context.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(r);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('relayUnknownPreservedAsKnownPreserved', 0, true, os_, false, Test.TestIntfPrx.relayUnknownPreservedAsKnownPreserved_ex_, varargin{:});
@@ -478,7 +478,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(r);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('relayUnknownPreservedAsKnownPreserved', 0, true, os_, 0, [], Test.TestIntfPrx.relayUnknownPreservedAsKnownPreserved_ex_, varargin{:});

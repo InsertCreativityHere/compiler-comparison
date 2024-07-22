@@ -1399,7 +1399,7 @@ namespace Glacier2
             outAsync.invoke(
                 _create_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.SlicedFormat,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1514,7 +1514,7 @@ namespace Glacier2
             outAsync.invoke(
                 _create_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.SlicedFormat,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1942,7 +1942,7 @@ namespace Glacier2
             istr.endEncapsulation();
             var ret = obj.create(iceP_userId, iceP_control, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             SessionPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1965,7 +1965,7 @@ namespace Glacier2
             istr.endEncapsulation();
             var ret = obj.create(iceP_info, iceP_control, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
             SessionPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

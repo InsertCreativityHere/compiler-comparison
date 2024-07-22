@@ -201,7 +201,7 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     default com.zeroc.IceInternal.OutgoingAsync<SessionPrx> _iceI_createSessionAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<SessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createSession", null, sync, _iceE_createSession);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_userId);
                      ostr.writeString(iceP_password);
                  }, istr -> {
@@ -331,7 +331,7 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     default com.zeroc.IceInternal.OutgoingAsync<SessionPrx> _iceI_createSessionFromSecureConnectionAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<SessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createSessionFromSecureConnection", null, sync, _iceE_createSessionFromSecureConnection);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      SessionPrx ret;
                      ret = SessionPrx.uncheckedCast(istr.readProxy());
                      return ret;

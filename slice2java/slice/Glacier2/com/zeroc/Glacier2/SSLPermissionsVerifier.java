@@ -116,7 +116,7 @@ public interface SSLPermissionsVerifier extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         SSLPermissionsVerifier.AuthorizeResult ret = obj.authorize(iceP_info, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.SlicedFormat);
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

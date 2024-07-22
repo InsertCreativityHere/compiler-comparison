@@ -31,7 +31,7 @@ classdef PermissionsVerifierPrx < Ice.ObjectPrx
             %   Glacier2.PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
             %     returning false with a reason set in the reason out parameter.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(userId);
             os_.writeString(password);
             obj.iceEndWriteParams(os_);
@@ -55,7 +55,7 @@ classdef PermissionsVerifierPrx < Ice.ObjectPrx
             %   Glacier2.PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
             %     returning false with a reason set in the reason out parameter.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(userId);
             os_.writeString(password);
             obj.iceEndWriteParams(os_);

@@ -68,7 +68,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<MetricsAdmin.GetMetricsViewNamesResult> _iceI_getMetricsViewNamesAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MetricsAdmin.GetMetricsViewNamesResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getMetricsViewNames", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
                      MetricsAdmin.GetMetricsViewNamesResult ret = new MetricsAdmin.GetMetricsViewNamesResult();
                      ret.read(istr);
                      return ret;
@@ -141,7 +141,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_enableMetricsViewAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "enableMetricsView", null, sync, _iceE_enableMetricsView);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_name);
                  }, null);
         return f;
@@ -218,7 +218,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_disableMetricsViewAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "disableMetricsView", null, sync, _iceE_disableMetricsView);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_name);
                  }, null);
         return f;
@@ -394,7 +394,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<MetricsFailures[]> _iceI_getMapMetricsFailuresAsync(String iceP_view, String iceP_map, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MetricsFailures[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getMapMetricsFailures", null, sync, _iceE_getMapMetricsFailures);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_view);
                      ostr.writeString(iceP_map);
                  }, istr -> {
@@ -488,7 +488,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<MetricsFailures> _iceI_getMetricsFailuresAsync(String iceP_view, String iceP_map, String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MetricsFailures> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getMetricsFailures", null, sync, _iceE_getMetricsFailures);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
                      ostr.writeString(iceP_view);
                      ostr.writeString(iceP_map);
                      ostr.writeString(iceP_id);

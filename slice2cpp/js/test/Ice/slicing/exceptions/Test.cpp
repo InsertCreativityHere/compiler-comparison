@@ -71,7 +71,7 @@ Test::TestIntfPrx::_iceI_baseAsBase(const ::std::shared_ptr<::IceInternal::Outgo
     static constexpr ::std::string_view operationName = "baseAsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -155,7 +155,7 @@ Test::TestIntfPrx::_iceI_knownDerivedAsBase(const ::std::shared_ptr<::IceInterna
     static constexpr ::std::string_view operationName = "knownDerivedAsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -197,7 +197,7 @@ Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<::Ic
     static constexpr ::std::string_view operationName = "knownDerivedAsKnownDerived";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -239,7 +239,7 @@ Test::TestIntfPrx::_iceI_unknownIntermediateAsBase(const ::std::shared_ptr<::Ice
     static constexpr ::std::string_view operationName = "unknownIntermediateAsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -281,7 +281,7 @@ Test::TestIntfPrx::_iceI_knownIntermediateAsBase(const ::std::shared_ptr<::IceIn
     static constexpr ::std::string_view operationName = "knownIntermediateAsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -323,7 +323,7 @@ Test::TestIntfPrx::_iceI_knownMostDerivedAsBase(const ::std::shared_ptr<::IceInt
     static constexpr ::std::string_view operationName = "knownMostDerivedAsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -365,7 +365,7 @@ Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate(const ::std::share
     static constexpr ::std::string_view operationName = "knownIntermediateAsKnownIntermediate";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -407,7 +407,7 @@ Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared
     static constexpr ::std::string_view operationName = "knownMostDerivedAsKnownIntermediate";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -449,7 +449,7 @@ Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_
     static constexpr ::std::string_view operationName = "knownMostDerivedAsKnownMostDerived";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -491,7 +491,7 @@ Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<::Ice
     static constexpr ::std::string_view operationName = "unknownMostDerived1AsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -533,7 +533,7 @@ Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate(const ::std::sha
     static constexpr ::std::string_view operationName = "unknownMostDerived1AsKnownIntermediate";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -575,7 +575,7 @@ Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<::Ice
     static constexpr ::std::string_view operationName = "unknownMostDerived2AsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -616,7 +616,7 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }

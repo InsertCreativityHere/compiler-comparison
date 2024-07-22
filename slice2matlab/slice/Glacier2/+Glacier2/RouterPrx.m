@@ -80,7 +80,7 @@ classdef RouterPrx < Ice.RouterPrx
             %
             % See also Glacier2.Session, Glacier2.SessionManager, Glacier2.PermissionsVerifier
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(userId);
             os_.writeString(password);
             obj.iceEndWriteParams(os_);
@@ -111,7 +111,7 @@ classdef RouterPrx < Ice.RouterPrx
             %
             % See also Glacier2.Session, Glacier2.SessionManager, Glacier2.PermissionsVerifier
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(userId);
             os_.writeString(password);
             obj.iceEndWriteParams(os_);

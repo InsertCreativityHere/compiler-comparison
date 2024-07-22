@@ -162,7 +162,7 @@ public interface Router extends com.zeroc.Ice.Router
             {
                 ostr.writeProxy(value);
             },
-            com.zeroc.Ice.FormatType.SlicedFormat));
+            com.zeroc.Ice.FormatType.DefaultFormat));
     }
 
     /** @hidden */
@@ -178,7 +178,7 @@ public interface Router extends com.zeroc.Ice.Router
             {
                 ostr.writeProxy(value);
             },
-            com.zeroc.Ice.FormatType.SlicedFormat));
+            com.zeroc.Ice.FormatType.DefaultFormat));
     }
 
     /** @hidden */

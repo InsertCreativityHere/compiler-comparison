@@ -83,7 +83,7 @@ IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames(const ::std::shared_ptr<::IceI
     static constexpr ::std::string_view operationName = "getMetricsViewNames";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -118,7 +118,7 @@ IceMX::MetricsAdminPrx::_iceI_enableMetricsView(const ::std::shared_ptr<::IceInt
     static constexpr ::std::string_view operationName = "enableMetricsView";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name);
@@ -163,7 +163,7 @@ IceMX::MetricsAdminPrx::_iceI_disableMetricsView(const ::std::shared_ptr<::IceIn
     static constexpr ::std::string_view operationName = "disableMetricsView";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name);
@@ -266,7 +266,7 @@ IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures(const ::std::shared_ptr<::Ic
     static constexpr ::std::string_view operationName = "getMapMetricsFailures";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_view, iceP_map);
@@ -311,7 +311,7 @@ IceMX::MetricsAdminPrx::_iceI_getMetricsFailures(const ::std::shared_ptr<::IceIn
     static constexpr ::std::string_view operationName = "getMetricsFailures";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_view, iceP_map, iceP_id);
@@ -683,8 +683,7 @@ IceMX::MetricsAdmin::_iceD_getMetricsViewNames(::Ice::IncomingRequest& request, 
         {
             ostr->writeAll(iceP_disabledViews, ret);
         },
-        request.current(),
-        ::Ice::FormatType::SlicedFormat));
+        request.current()));
 }
 /// \endcond
 
@@ -756,8 +755,7 @@ IceMX::MetricsAdmin::_iceD_getMapMetricsFailures(::Ice::IncomingRequest& request
         {
             ostr->writeAll(ret);
         },
-        request.current(),
-        ::Ice::FormatType::SlicedFormat));
+        request.current()));
 }
 /// \endcond
 
@@ -778,8 +776,7 @@ IceMX::MetricsAdmin::_iceD_getMetricsFailures(::Ice::IncomingRequest& request, :
         {
             ostr->writeAll(ret);
         },
-        request.current(),
-        ::Ice::FormatType::SlicedFormat));
+        request.current()));
 }
 /// \endcond
 

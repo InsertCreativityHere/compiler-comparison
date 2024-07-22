@@ -33,7 +33,7 @@ classdef SessionManagerPrx < Ice.ObjectPrx
             % Exceptions:
             %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(userId);
             os_.writeProxy(control);
             obj.iceEndWriteParams(os_);
@@ -57,7 +57,7 @@ classdef SessionManagerPrx < Ice.ObjectPrx
             % Exceptions:
             %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
             
-            os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
+            os_ = obj.iceStartWriteParams([]);
             os_.writeString(userId);
             os_.writeProxy(control);
             obj.iceEndWriteParams(os_);

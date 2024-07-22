@@ -98,7 +98,7 @@ Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "createSession";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_userId, iceP_password);
@@ -147,7 +147,7 @@ Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared
     static constexpr ::std::string_view operationName = "createSessionFromSecureConnection";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -401,8 +401,7 @@ Glacier2::Router::_iceD_createSession(::Ice::IncomingRequest& request, ::std::fu
             [&](::Ice::OutputStream* ostr)
             {
                 ostr->writeAll(ret);
-            },
-            ::Ice::FormatType::SlicedFormat);
+            });
     };
     try
     {
@@ -428,8 +427,7 @@ Glacier2::Router::_iceD_createSessionFromSecureConnection(::Ice::IncomingRequest
             [&](::Ice::OutputStream* ostr)
             {
                 ostr->writeAll(ret);
-            },
-            ::Ice::FormatType::SlicedFormat);
+            });
     };
     try
     {

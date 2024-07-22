@@ -409,7 +409,6 @@ public extension TestIntfPrx {
     func baseAsBase(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "baseAsBase",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           userException:{ ex in
                               do  {
                                   throw ex
@@ -435,7 +434,6 @@ public extension TestIntfPrx {
     func baseAsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "baseAsBase",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   userException:{ ex in
                                       do  {
                                           throw ex
@@ -499,7 +497,6 @@ public extension TestIntfPrx {
     func knownDerivedAsBase(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "knownDerivedAsBase",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           userException:{ ex in
                               do  {
                                   throw ex
@@ -525,7 +522,6 @@ public extension TestIntfPrx {
     func knownDerivedAsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "knownDerivedAsBase",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   userException:{ ex in
                                       do  {
                                           throw ex
@@ -544,7 +540,6 @@ public extension TestIntfPrx {
     func knownDerivedAsKnownDerived(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "knownDerivedAsKnownDerived",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           userException:{ ex in
                               do  {
                                   throw ex
@@ -570,7 +565,6 @@ public extension TestIntfPrx {
     func knownDerivedAsKnownDerivedAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "knownDerivedAsKnownDerived",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   userException:{ ex in
                                       do  {
                                           throw ex
@@ -589,7 +583,6 @@ public extension TestIntfPrx {
     func unknownIntermediateAsBase(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "unknownIntermediateAsBase",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           userException:{ ex in
                               do  {
                                   throw ex
@@ -615,7 +608,6 @@ public extension TestIntfPrx {
     func unknownIntermediateAsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "unknownIntermediateAsBase",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   userException:{ ex in
                                       do  {
                                           throw ex
@@ -634,7 +626,6 @@ public extension TestIntfPrx {
     func knownIntermediateAsBase(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "knownIntermediateAsBase",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           userException:{ ex in
                               do  {
                                   throw ex
@@ -660,7 +651,6 @@ public extension TestIntfPrx {
     func knownIntermediateAsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "knownIntermediateAsBase",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   userException:{ ex in
                                       do  {
                                           throw ex
@@ -679,7 +669,6 @@ public extension TestIntfPrx {
     func knownMostDerivedAsBase(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "knownMostDerivedAsBase",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           userException:{ ex in
                               do  {
                                   throw ex
@@ -705,7 +694,6 @@ public extension TestIntfPrx {
     func knownMostDerivedAsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "knownMostDerivedAsBase",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   userException:{ ex in
                                       do  {
                                           throw ex
@@ -724,7 +712,6 @@ public extension TestIntfPrx {
     func knownIntermediateAsKnownIntermediate(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "knownIntermediateAsKnownIntermediate",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           userException:{ ex in
                               do  {
                                   throw ex
@@ -750,7 +737,6 @@ public extension TestIntfPrx {
     func knownIntermediateAsKnownIntermediateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "knownIntermediateAsKnownIntermediate",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   userException:{ ex in
                                       do  {
                                           throw ex
@@ -769,7 +755,6 @@ public extension TestIntfPrx {
     func knownMostDerivedAsKnownIntermediate(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "knownMostDerivedAsKnownIntermediate",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           userException:{ ex in
                               do  {
                                   throw ex
@@ -795,7 +780,6 @@ public extension TestIntfPrx {
     func knownMostDerivedAsKnownIntermediateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "knownMostDerivedAsKnownIntermediate",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   userException:{ ex in
                                       do  {
                                           throw ex
@@ -814,7 +798,6 @@ public extension TestIntfPrx {
     func knownMostDerivedAsKnownMostDerived(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "knownMostDerivedAsKnownMostDerived",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           userException:{ ex in
                               do  {
                                   throw ex
@@ -840,7 +823,6 @@ public extension TestIntfPrx {
     func knownMostDerivedAsKnownMostDerivedAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "knownMostDerivedAsKnownMostDerived",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   userException:{ ex in
                                       do  {
                                           throw ex
@@ -859,7 +841,6 @@ public extension TestIntfPrx {
     func unknownMostDerived1AsBase(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "unknownMostDerived1AsBase",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           userException:{ ex in
                               do  {
                                   throw ex
@@ -885,7 +866,6 @@ public extension TestIntfPrx {
     func unknownMostDerived1AsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "unknownMostDerived1AsBase",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   userException:{ ex in
                                       do  {
                                           throw ex
@@ -904,7 +884,6 @@ public extension TestIntfPrx {
     func unknownMostDerived1AsKnownIntermediate(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "unknownMostDerived1AsKnownIntermediate",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           userException:{ ex in
                               do  {
                                   throw ex
@@ -930,7 +909,6 @@ public extension TestIntfPrx {
     func unknownMostDerived1AsKnownIntermediateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "unknownMostDerived1AsKnownIntermediate",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   userException:{ ex in
                                       do  {
                                           throw ex
@@ -949,7 +927,6 @@ public extension TestIntfPrx {
     func unknownMostDerived2AsBase(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "unknownMostDerived2AsBase",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           userException:{ ex in
                               do  {
                                   throw ex
@@ -975,7 +952,6 @@ public extension TestIntfPrx {
     func unknownMostDerived2AsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "unknownMostDerived2AsBase",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   userException:{ ex in
                                       do  {
                                           throw ex
@@ -994,7 +970,6 @@ public extension TestIntfPrx {
     func shutdown(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "shutdown",
                           mode: .Normal,
-                          format: .SlicedFormat,
                           context: context)
     }
 
@@ -1013,7 +988,6 @@ public extension TestIntfPrx {
     func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "shutdown",
                                   mode: .Normal,
-                                  format: .SlicedFormat,
                                   context: context,
                                   sentOn: sentOn,
                                   sentFlags: sentFlags,

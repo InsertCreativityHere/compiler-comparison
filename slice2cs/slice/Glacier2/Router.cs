@@ -603,7 +603,7 @@ namespace Glacier2
             outAsync.invoke(
                 _createSession_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.SlicedFormat,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -658,7 +658,7 @@ namespace Glacier2
             outAsync.invoke(
                 _createSessionFromSecureConnection_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.SlicedFormat,
+                Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -970,8 +970,7 @@ namespace Glacier2
                 static (ostr, ret) =>
                 {
                     SessionPrxHelper.write(ostr, ret);
-                },
-                Ice.FormatType.SlicedFormat);
+                });
         }
 
         protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createSessionFromSecureConnectionAsync(
@@ -987,8 +986,7 @@ namespace Glacier2
                 static (ostr, ret) =>
                 {
                     SessionPrxHelper.write(ostr, ret);
-                },
-                Ice.FormatType.SlicedFormat);
+                });
         }
 
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_refreshSessionAsync(
