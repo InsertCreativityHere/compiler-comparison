@@ -19,10 +19,7 @@ require 'Glacier2/Session.rb'
 
 module ::Test
 
-    if not defined?(::Test::Backend_Mixin)
-
-        module ::Test::Backend_Mixin
-        end
+    if not defined?(::Test::BackendPrx)
         module BackendPrx_mixin
 
             def check(context=nil)
@@ -40,7 +37,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_BackendPrx)
-            T_Backend = ::Ice::__declareClass('::Test::Backend')
             T_BackendPrx = ::Ice::__declareProxy('::Test::Backend')
         end
 
@@ -151,10 +147,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::TestController_Mixin)
-
-        module ::Test::TestController_Mixin
-        end
+    if not defined?(::Test::TestControllerPrx)
         module TestControllerPrx_mixin
 
             def step(currentSession, currentState, context=nil)
@@ -172,7 +165,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestControllerPrx)
-            T_TestController = ::Ice::__declareClass('::Test::TestController')
             T_TestControllerPrx = ::Ice::__declareProxy('::Test::TestController')
         end
 
@@ -182,10 +174,7 @@ module ::Test
         TestControllerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::TestSession_Mixin)
-
-        module ::Test::TestSession_Mixin
-        end
+    if not defined?(::Test::TestSessionPrx)
         module TestSessionPrx_mixin
             include ::Glacier2::SessionPrx_mixin
 
@@ -200,7 +189,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestSessionPrx)
-            T_TestSession = ::Ice::__declareClass('::Test::TestSession')
             T_TestSessionPrx = ::Ice::__declareProxy('::Test::TestSession')
         end
 

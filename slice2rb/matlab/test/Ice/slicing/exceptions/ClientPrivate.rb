@@ -90,10 +90,7 @@ module ::Test
         T_KnownPreservedDerived = ::Ice::__defineException('::Test::KnownPreservedDerived', KnownPreservedDerived, ::Test::T_KnownPreserved, [["kpd", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::BaseClass_Mixin)
-
-        module ::Test::BaseClass_Mixin
-        end
+    if not defined?(::Test::BaseClass)
         class BaseClass < ::Ice::Value
 
             def initialize(bc='')
@@ -110,10 +107,7 @@ module ::Test
         T_BaseClass.defineClass(BaseClass, -1, false, nil, [['bc', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::Relay_Mixin)
-
-        module ::Test::Relay_Mixin
-        end
+    if not defined?(::Test::RelayPrx)
         module RelayPrx_mixin
 
             def knownPreservedAsBase(context=nil)
@@ -139,7 +133,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_RelayPrx)
-            T_Relay = ::Ice::__declareClass('::Test::Relay')
             T_RelayPrx = ::Ice::__declareProxy('::Test::Relay')
         end
 
@@ -151,10 +144,7 @@ module ::Test
         RelayPrx_mixin::OP_unknownPreservedAsKnownPreserved = ::Ice::__defineOperation('unknownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_KnownPreserved])
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def baseAsBase(context=nil)
@@ -256,7 +246,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
@@ -287,10 +276,7 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::PreservedClass_Mixin)
-
-        module ::Test::PreservedClass_Mixin
-        end
+    if not defined?(::Test::PreservedClass)
         class PreservedClass < ::Test::BaseClass
 
             def initialize(bc='', pc='')

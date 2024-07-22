@@ -72,10 +72,7 @@ module ::IceGrid
         T_LoadSample = ::Ice::__defineEnum('::IceGrid::LoadSample', LoadSample, LoadSample::_enumerators)
     end
 
-    if not defined?(::IceGrid::Query_Mixin)
-
-        module ::IceGrid::Query_Mixin
-        end
+    if not defined?(::IceGrid::QueryPrx)
         module QueryPrx_mixin
 
             def findObjectById(id, context=nil)
@@ -105,7 +102,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_QueryPrx)
-            T_Query = ::Ice::__declareClass('::IceGrid::Query')
             T_QueryPrx = ::Ice::__declareProxy('::IceGrid::Query')
         end
 
@@ -118,10 +114,7 @@ module ::IceGrid
         QueryPrx_mixin::OP_findAllReplicas = ::Ice::__defineOperation('findAllReplicas', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], [::Ice::T_ObjectProxySeq, false, 0], [])
     end
 
-    if not defined?(::IceGrid::Registry_Mixin)
-
-        module ::IceGrid::Registry_Mixin
-        end
+    if not defined?(::IceGrid::RegistryPrx)
         module RegistryPrx_mixin
 
             def createSession(userId, password, context=nil)
@@ -155,7 +148,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_RegistryPrx)
-            T_Registry = ::Ice::__declareClass('::IceGrid::Registry')
             T_RegistryPrx = ::Ice::__declareProxy('::IceGrid::Registry')
         end
 
@@ -169,10 +161,7 @@ module ::IceGrid
         RegistryPrx_mixin::OP_getACMTimeout = ::Ice::__defineOperation('getACMTimeout', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
     end
 
-    if not defined?(::IceGrid::Locator_Mixin)
-
-        module ::IceGrid::Locator_Mixin
-        end
+    if not defined?(::IceGrid::LocatorPrx)
         module LocatorPrx_mixin
             include ::Ice::LocatorPrx_mixin
 
@@ -191,7 +180,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_LocatorPrx)
-            T_Locator = ::Ice::__declareClass('::IceGrid::Locator')
             T_LocatorPrx = ::Ice::__declareProxy('::IceGrid::Locator')
         end
 

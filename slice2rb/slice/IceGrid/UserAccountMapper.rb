@@ -28,10 +28,7 @@ module ::IceGrid
         T_UserAccountNotFoundException = ::Ice::__defineException('::IceGrid::UserAccountNotFoundException', UserAccountNotFoundException, nil, [])
     end
 
-    if not defined?(::IceGrid::UserAccountMapper_Mixin)
-
-        module ::IceGrid::UserAccountMapper_Mixin
-        end
+    if not defined?(::IceGrid::UserAccountMapperPrx)
         module UserAccountMapperPrx_mixin
 
             def getUserAccount(user, context=nil)
@@ -45,7 +42,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_UserAccountMapperPrx)
-            T_UserAccountMapper = ::Ice::__declareClass('::IceGrid::UserAccountMapper')
             T_UserAccountMapperPrx = ::Ice::__declareProxy('::IceGrid::UserAccountMapper')
         end
 

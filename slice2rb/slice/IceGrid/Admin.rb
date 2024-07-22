@@ -453,10 +453,7 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::Admin_Mixin)
-
-        module ::IceGrid::Admin_Mixin
-        end
+    if not defined?(::IceGrid::AdminPrx)
         module AdminPrx_mixin
 
             def addApplication(descriptor, context=nil)
@@ -646,7 +643,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_AdminPrx)
-            T_Admin = ::Ice::__declareClass('::IceGrid::Admin')
             T_AdminPrx = ::Ice::__declareProxy('::IceGrid::Admin')
         end
 
@@ -699,10 +695,7 @@ module ::IceGrid
         AdminPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::IceGrid::FileIterator_Mixin)
-
-        module ::IceGrid::FileIterator_Mixin
-        end
+    if not defined?(::IceGrid::FileIteratorPrx)
         module FileIteratorPrx_mixin
 
             def read(size, context=nil)
@@ -720,7 +713,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_FileIteratorPrx)
-            T_FileIterator = ::Ice::__declareClass('::IceGrid::FileIterator')
             T_FileIteratorPrx = ::Ice::__declareProxy('::IceGrid::FileIterator')
         end
 
@@ -855,10 +847,7 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::RegistryObserver_Mixin)
-
-        module ::IceGrid::RegistryObserver_Mixin
-        end
+    if not defined?(::IceGrid::RegistryObserverPrx)
         module RegistryObserverPrx_mixin
 
             def registryInit(registries, context=nil)
@@ -880,7 +869,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_RegistryObserverPrx)
-            T_RegistryObserver = ::Ice::__declareClass('::IceGrid::RegistryObserver')
             T_RegistryObserverPrx = ::Ice::__declareProxy('::IceGrid::RegistryObserver')
         end
 
@@ -895,10 +883,7 @@ module ::IceGrid
         T_NodeDynamicInfoSeq = ::Ice::__defineSequence('::IceGrid::NodeDynamicInfoSeq', ::IceGrid::T_NodeDynamicInfo)
     end
 
-    if not defined?(::IceGrid::NodeObserver_Mixin)
-
-        module ::IceGrid::NodeObserver_Mixin
-        end
+    if not defined?(::IceGrid::NodeObserverPrx)
         module NodeObserverPrx_mixin
 
             def nodeInit(nodes, context=nil)
@@ -928,7 +913,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_NodeObserverPrx)
-            T_NodeObserver = ::Ice::__declareClass('::IceGrid::NodeObserver')
             T_NodeObserverPrx = ::Ice::__declareProxy('::IceGrid::NodeObserver')
         end
 
@@ -941,10 +925,7 @@ module ::IceGrid
         NodeObserverPrx_mixin::OP_updateAdapter = ::Ice::__defineOperation('updateAdapter', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::IceGrid::T_AdapterDynamicInfo, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceGrid::ApplicationObserver_Mixin)
-
-        module ::IceGrid::ApplicationObserver_Mixin
-        end
+    if not defined?(::IceGrid::ApplicationObserverPrx)
         module ApplicationObserverPrx_mixin
 
             def applicationInit(serial, applications, context=nil)
@@ -970,7 +951,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_ApplicationObserverPrx)
-            T_ApplicationObserver = ::Ice::__declareClass('::IceGrid::ApplicationObserver')
             T_ApplicationObserverPrx = ::Ice::__declareProxy('::IceGrid::ApplicationObserver')
         end
 
@@ -982,10 +962,7 @@ module ::IceGrid
         ApplicationObserverPrx_mixin::OP_applicationUpdated = ::Ice::__defineOperation('applicationUpdated', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::IceGrid::T_ApplicationUpdateInfo, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceGrid::AdapterObserver_Mixin)
-
-        module ::IceGrid::AdapterObserver_Mixin
-        end
+    if not defined?(::IceGrid::AdapterObserverPrx)
         module AdapterObserverPrx_mixin
 
             def adapterInit(adpts, context=nil)
@@ -1011,7 +988,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_AdapterObserverPrx)
-            T_AdapterObserver = ::Ice::__declareClass('::IceGrid::AdapterObserver')
             T_AdapterObserverPrx = ::Ice::__declareProxy('::IceGrid::AdapterObserver')
         end
 
@@ -1023,10 +999,7 @@ module ::IceGrid
         AdapterObserverPrx_mixin::OP_adapterRemoved = ::Ice::__defineOperation('adapterRemoved', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceGrid::ObjectObserver_Mixin)
-
-        module ::IceGrid::ObjectObserver_Mixin
-        end
+    if not defined?(::IceGrid::ObjectObserverPrx)
         module ObjectObserverPrx_mixin
 
             def objectInit(objects, context=nil)
@@ -1052,7 +1025,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_ObjectObserverPrx)
-            T_ObjectObserver = ::Ice::__declareClass('::IceGrid::ObjectObserver')
             T_ObjectObserverPrx = ::Ice::__declareProxy('::IceGrid::ObjectObserver')
         end
 
@@ -1064,10 +1036,7 @@ module ::IceGrid
         ObjectObserverPrx_mixin::OP_objectRemoved = ::Ice::__defineOperation('objectRemoved', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_Identity, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceGrid::AdminSession_Mixin)
-
-        module ::IceGrid::AdminSession_Mixin
-        end
+    if not defined?(::IceGrid::AdminSessionPrx)
         module AdminSessionPrx_mixin
             include ::Glacier2::SessionPrx_mixin
 
@@ -1138,7 +1107,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_AdminSessionPrx)
-            T_AdminSession = ::Ice::__declareClass('::IceGrid::AdminSession')
             T_AdminSessionPrx = ::Ice::__declareProxy('::IceGrid::AdminSession')
         end
 

@@ -20,10 +20,7 @@ require_relative 'Exception.rb'
 
 module ::IceGrid
 
-    if not defined?(::IceGrid::Session_Mixin)
-
-        module ::IceGrid::Session_Mixin
-        end
+    if not defined?(::IceGrid::SessionPrx)
         module SessionPrx_mixin
             include ::Glacier2::SessionPrx_mixin
 
@@ -54,7 +51,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_SessionPrx)
-            T_Session = ::Ice::__declareClass('::IceGrid::Session')
             T_SessionPrx = ::Ice::__declareProxy('::IceGrid::Session')
         end
 

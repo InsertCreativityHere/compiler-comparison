@@ -19,10 +19,7 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
-    if not defined?(::Test::Background_Mixin)
-
-        module ::Test::Background_Mixin
-        end
+    if not defined?(::Test::BackgroundPrx)
         module BackgroundPrx_mixin
 
             def op(context=nil)
@@ -44,7 +41,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_BackgroundPrx)
-            T_Background = ::Ice::__declareClass('::Test::Background')
             T_BackgroundPrx = ::Ice::__declareProxy('::Test::Background')
         end
 
@@ -55,10 +51,7 @@ module ::Test
         BackgroundPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::BackgroundController_Mixin)
-
-        module ::Test::BackgroundController_Mixin
-        end
+    if not defined?(::Test::BackgroundControllerPrx)
         module BackgroundControllerPrx_mixin
 
             def pauseCall(call, context=nil)
@@ -108,7 +101,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_BackgroundControllerPrx)
-            T_BackgroundController = ::Ice::__declareClass('::Test::BackgroundController')
             T_BackgroundControllerPrx = ::Ice::__declareProxy('::Test::BackgroundController')
         end
 

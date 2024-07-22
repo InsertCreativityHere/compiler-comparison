@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::OneOptional_Mixin)
-
-        module ::Test::OneOptional_Mixin
-        end
+    if not defined?(::Test::OneOptional)
         class OneOptional < ::Ice::Value
 
             def initialize(a=::Ice::Unset)
@@ -38,10 +35,7 @@ module ::Test
         T_OneOptional.defineClass(OneOptional, -1, false, nil, [['a', ::Ice::T_int, true, 1]])
     end
 
-    if not defined?(::Test::MyInterface_Mixin)
-
-        module ::Test::MyInterface_Mixin
-        end
+    if not defined?(::Test::MyInterfacePrx)
         module MyInterfacePrx_mixin
 
             def op(context=nil)
@@ -55,7 +49,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_MyInterfacePrx)
-            T_MyInterface = ::Ice::__declareClass('::Test::MyInterface')
             T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
         end
 
@@ -291,10 +284,7 @@ module ::Test
         T_IntStringDict = ::Ice::__defineDictionary('::Test::IntStringDict', ::Ice::T_int, ::Ice::T_string)
     end
 
-    if not defined?(::Test::MultiOptional_Mixin)
-
-        module ::Test::MultiOptional_Mixin
-        end
+    if not defined?(::Test::MultiOptional)
         class MultiOptional < ::Ice::Value
 
             def initialize(a=::Ice::Unset, b=::Ice::Unset, c=::Ice::Unset, d=::Ice::Unset, e=::Ice::Unset, f=::Ice::Unset, g=::Ice::Unset, h=::Ice::Unset, i=::Ice::Unset, j=::Ice::Unset, bs=::Ice::Unset, ss=::Ice::Unset, iid=::Ice::Unset, sid=::Ice::Unset, fs=::Ice::Unset, vs=::Ice::Unset, shs=::Ice::Unset, es=::Ice::Unset, fss=::Ice::Unset, vss=::Ice::Unset, mips=::Ice::Unset, ied=::Ice::Unset, ifsd=::Ice::Unset, ivsd=::Ice::Unset, imipd=::Ice::Unset, bos=::Ice::Unset, ser=::Ice::Unset)
@@ -365,10 +355,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::A_Mixin)
-
-        module ::Test::A_Mixin
-        end
+    if not defined?(::Test::A)
         class A < ::Ice::Value
 
             def initialize(requiredA=0, ma=::Ice::Unset, mb=::Ice::Unset, mc=::Ice::Unset)
@@ -393,10 +380,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::B_Mixin)
-
-        module ::Test::B_Mixin
-        end
+    if not defined?(::Test::B)
         class B < ::Test::A
 
             def initialize(requiredA=0, ma=::Ice::Unset, mb=::Ice::Unset, mc=::Ice::Unset, requiredB=0, md=::Ice::Unset)
@@ -418,10 +402,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::C_Mixin)
-
-        module ::Test::C_Mixin
-        end
+    if not defined?(::Test::C)
         class C < ::Test::B
 
             def initialize(requiredA=0, ma=::Ice::Unset, mb=::Ice::Unset, mc=::Ice::Unset, requiredB=0, md=::Ice::Unset, ss='', ms=::Ice::Unset)
@@ -443,10 +424,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::WD_Mixin)
-
-        module ::Test::WD_Mixin
-        end
+    if not defined?(::Test::WD)
         class WD < ::Ice::Value
 
             def initialize(a=5, s="test")
@@ -511,10 +489,7 @@ module ::Test
         T_RequiredException = ::Ice::__defineException('::Test::RequiredException', RequiredException, ::Test::T_OptionalException, [["ss", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::OptionalWithCustom_Mixin)
-
-        module ::Test::OptionalWithCustom_Mixin
-        end
+    if not defined?(::Test::OptionalWithCustom)
         class OptionalWithCustom < ::Ice::Value
 
             def initialize(l=::Ice::Unset, lp=::Ice::Unset)
@@ -536,10 +511,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::E_Mixin)
-
-        module ::Test::E_Mixin
-        end
+    if not defined?(::Test::E)
         class E < ::Ice::Value
 
             def initialize(fse=::Test::FixedStruct.new)
@@ -556,10 +528,7 @@ module ::Test
         T_E.defineClass(E, -1, false, nil, [['fse', ::Test::T_FixedStruct, false, 0]])
     end
 
-    if not defined?(::Test::F_Mixin)
-
-        module ::Test::F_Mixin
-        end
+    if not defined?(::Test::F)
         class F < ::Test::E
 
             def initialize(fse=::Test::FixedStruct.new, fsf=::Ice::Unset)
@@ -635,10 +604,7 @@ module ::Test
         T_G2 = ::Ice::__defineStruct('::Test::G2', G2, [["a", ::Ice::T_long]])
     end
 
-    if not defined?(::Test::G_Mixin)
-
-        module ::Test::G_Mixin
-        end
+    if not defined?(::Test::G)
         class G < ::Ice::Value
 
             def initialize(gg1Opt=::Ice::Unset, gg2=::Test::G2.new, gg2Opt=::Ice::Unset, gg1=::Test::G1.new)
@@ -663,10 +629,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::Initial_Mixin)
-
-        module ::Test::Initial_Mixin
-        end
+    if not defined?(::Test::InitialPrx)
         module InitialPrx_mixin
 
             def shutdown(context=nil)
@@ -864,7 +827,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_InitialPrx)
-            T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 

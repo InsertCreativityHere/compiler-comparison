@@ -597,10 +597,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::Base_Mixin)
-
-        module ::Test::Base_Mixin
-        end
+    if not defined?(::Test::Base)
         class Base < ::Ice::Value
 
             def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0)
@@ -649,10 +646,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::Derived_Mixin)
-
-        module ::Test::Derived_Mixin
-        end
+    if not defined?(::Test::Derived)
         class Derived < ::Test::Base
 
             def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0, c1=::Test::Color::Red, c2=::Test::Color::Green, c3=::Test::Color::Blue, nc1=::Test::Nested::Color::Red, nc2=::Test::Nested::Color::Green, nc3=::Test::Nested::Color::Blue)
@@ -730,10 +724,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::ClassProperty_Mixin)
-
-        module ::Test::ClassProperty_Mixin
-        end
+    if not defined?(::Test::ClassProperty)
         class ClassProperty < ::Ice::Value
 
             def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\sbar", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0)
@@ -1087,10 +1078,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::ClassNoDefaultsBase_Mixin)
-
-        module ::Test::ClassNoDefaultsBase_Mixin
-        end
+    if not defined?(::Test::ClassNoDefaultsBase)
         class ClassNoDefaultsBase < ::Ice::Value
 
             def initialize(str='', c1=::Test::Color::Red, bs=nil)
@@ -1113,10 +1101,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::ClassNoDefaults_Mixin)
-
-        module ::Test::ClassNoDefaults_Mixin
-        end
+    if not defined?(::Test::ClassNoDefaults)
         class ClassNoDefaults < ::Test::ClassNoDefaultsBase
 
             def initialize(str='', c1=::Test::Color::Red, bs=nil, st=::Test::InnerStruct.new, st2=::Test::InnerStruct2.new, dict=nil)

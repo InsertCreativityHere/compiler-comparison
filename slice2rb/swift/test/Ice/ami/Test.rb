@@ -80,10 +80,7 @@ module ::Test
         T_CloseMode = ::Ice::__defineEnum('::Test::CloseMode', CloseMode, CloseMode::_enumerators)
     end
 
-    if not defined?(::Test::PingReply_Mixin)
-
-        module ::Test::PingReply_Mixin
-        end
+    if not defined?(::Test::PingReplyPrx)
         module PingReplyPrx_mixin
 
             def reply(context=nil)
@@ -97,7 +94,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_PingReplyPrx)
-            T_PingReply = ::Ice::__declareClass('::Test::PingReply')
             T_PingReplyPrx = ::Ice::__declareProxy('::Test::PingReply')
         end
 
@@ -106,10 +102,7 @@ module ::Test
         PingReplyPrx_mixin::OP_reply = ::Ice::__defineOperation('reply', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def op(context=nil)
@@ -187,7 +180,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
@@ -212,10 +204,7 @@ module ::Test
         TestIntfPrx_mixin::OP_pingBiDir = ::Ice::__defineOperation('pingBiDir', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_PingReplyPrx, false, 0]], [], nil, [])
     end
 
-    if not defined?(::Test::TestIntfController_Mixin)
-
-        module ::Test::TestIntfController_Mixin
-        end
+    if not defined?(::Test::TestIntfControllerPrx)
         module TestIntfControllerPrx_mixin
 
             def holdAdapter(context=nil)
@@ -233,7 +222,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfControllerPrx)
-            T_TestIntfController = ::Ice::__declareClass('::Test::TestIntfController')
             T_TestIntfControllerPrx = ::Ice::__declareProxy('::Test::TestIntfController')
         end
 
@@ -247,10 +235,7 @@ module ::Test
 
         module Inner
 
-            if not defined?(::Test::Outer::Inner::TestIntf_Mixin)
-
-                module ::Test::Outer::Inner::TestIntf_Mixin
-                end
+            if not defined?(::Test::Outer::Inner::TestIntfPrx)
                 module TestIntfPrx_mixin
 
                     def op(i, context=nil)
@@ -264,7 +249,6 @@ module ::Test
                 end
 
                 if not defined?(::Test::Outer::Inner::T_TestIntfPrx)
-                    T_TestIntf = ::Ice::__declareClass('::Test::Outer::Inner::TestIntf')
                     T_TestIntfPrx = ::Ice::__declareProxy('::Test::Outer::Inner::TestIntf')
                 end
 

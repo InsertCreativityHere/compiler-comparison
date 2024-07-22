@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Empty_Mixin)
-
-        module ::Test::Empty_Mixin
-        end
+    if not defined?(::Test::EmptyPrx)
         module EmptyPrx_mixin
         end
 
@@ -31,17 +28,13 @@ module ::Test
         end
 
         if not defined?(::Test::T_EmptyPrx)
-            T_Empty = ::Ice::__declareClass('::Test::Empty')
             T_EmptyPrx = ::Ice::__declareProxy('::Test::Empty')
         end
 
         T_EmptyPrx.defineProxy(EmptyPrx, nil, [])
     end
 
-    if not defined?(::Test::A_Mixin)
-
-        module ::Test::A_Mixin
-        end
+    if not defined?(::Test::APrx)
         module APrx_mixin
 
             def callA(context=nil)
@@ -55,7 +48,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_APrx)
-            T_A = ::Ice::__declareClass('::Test::A')
             T_APrx = ::Ice::__declareProxy('::Test::A')
         end
 
@@ -64,10 +56,7 @@ module ::Test
         APrx_mixin::OP_callA = ::Ice::__defineOperation('callA', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
-    if not defined?(::Test::B_Mixin)
-
-        module ::Test::B_Mixin
-        end
+    if not defined?(::Test::BPrx)
         module BPrx_mixin
             include ::Test::APrx_mixin
 
@@ -82,7 +71,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_BPrx)
-            T_B = ::Ice::__declareClass('::Test::B')
             T_BPrx = ::Ice::__declareProxy('::Test::B')
         end
 
@@ -91,10 +79,7 @@ module ::Test
         BPrx_mixin::OP_callB = ::Ice::__defineOperation('callB', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
-    if not defined?(::Test::C_Mixin)
-
-        module ::Test::C_Mixin
-        end
+    if not defined?(::Test::CPrx)
         module CPrx_mixin
             include ::Test::APrx_mixin
 
@@ -109,7 +94,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_CPrx)
-            T_C = ::Ice::__declareClass('::Test::C')
             T_CPrx = ::Ice::__declareProxy('::Test::C')
         end
 
@@ -118,10 +102,7 @@ module ::Test
         CPrx_mixin::OP_callC = ::Ice::__defineOperation('callC', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
-    if not defined?(::Test::D_Mixin)
-
-        module ::Test::D_Mixin
-        end
+    if not defined?(::Test::DPrx)
         module DPrx_mixin
             include ::Test::BPrx_mixin
             include ::Test::CPrx_mixin
@@ -137,7 +118,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_DPrx)
-            T_D = ::Ice::__declareClass('::Test::D')
             T_DPrx = ::Ice::__declareProxy('::Test::D')
         end
 
@@ -146,10 +126,7 @@ module ::Test
         DPrx_mixin::OP_callD = ::Ice::__defineOperation('callD', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
-    if not defined?(::Test::E_Mixin)
-
-        module ::Test::E_Mixin
-        end
+    if not defined?(::Test::EPrx)
         module EPrx_mixin
 
             def callE(context=nil)
@@ -163,7 +140,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_EPrx)
-            T_E = ::Ice::__declareClass('::Test::E')
             T_EPrx = ::Ice::__declareProxy('::Test::E')
         end
 
@@ -172,10 +148,7 @@ module ::Test
         EPrx_mixin::OP_callE = ::Ice::__defineOperation('callE', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
-    if not defined?(::Test::F_Mixin)
-
-        module ::Test::F_Mixin
-        end
+    if not defined?(::Test::FPrx)
         module FPrx_mixin
             include ::Test::EPrx_mixin
 
@@ -190,7 +163,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_FPrx)
-            T_F = ::Ice::__declareClass('::Test::F')
             T_FPrx = ::Ice::__declareProxy('::Test::F')
         end
 
@@ -199,10 +171,7 @@ module ::Test
         FPrx_mixin::OP_callF = ::Ice::__defineOperation('callF', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
-    if not defined?(::Test::G_Mixin)
-
-        module ::Test::G_Mixin
-        end
+    if not defined?(::Test::GPrx)
         module GPrx_mixin
 
             def shutdown(context=nil)
@@ -220,7 +189,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_GPrx)
-            T_G = ::Ice::__declareClass('::Test::G')
             T_GPrx = ::Ice::__declareProxy('::Test::G')
         end
 
@@ -230,10 +198,7 @@ module ::Test
         GPrx_mixin::OP_callG = ::Ice::__defineOperation('callG', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
-    if not defined?(::Test::H_Mixin)
-
-        module ::Test::H_Mixin
-        end
+    if not defined?(::Test::HPrx)
         module HPrx_mixin
             include ::Test::GPrx_mixin
 
@@ -248,7 +213,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_HPrx)
-            T_H = ::Ice::__declareClass('::Test::H')
             T_HPrx = ::Ice::__declareProxy('::Test::H')
         end
 

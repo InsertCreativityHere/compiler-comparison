@@ -19,10 +19,7 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
-    if not defined?(::Test::CallbackReceiver_Mixin)
-
-        module ::Test::CallbackReceiver_Mixin
-        end
+    if not defined?(::Test::CallbackReceiverPrx)
         module CallbackReceiverPrx_mixin
 
             def callback(token, context=nil)
@@ -40,7 +37,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_CallbackReceiverPrx)
-            T_CallbackReceiver = ::Ice::__declareClass('::Test::CallbackReceiver')
             T_CallbackReceiverPrx = ::Ice::__declareProxy('::Test::CallbackReceiver')
         end
 
@@ -50,10 +46,7 @@ module ::Test
         CallbackReceiverPrx_mixin::OP_callbackWithPayload = ::Ice::__defineOperation('callbackWithPayload', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ByteSeq, false, 0]], [], nil, [])
     end
 
-    if not defined?(::Test::Callback_Mixin)
-
-        module ::Test::Callback_Mixin
-        end
+    if not defined?(::Test::CallbackPrx)
         module CallbackPrx_mixin
 
             def initiateCallback(proxy, token, context=nil)
@@ -75,7 +68,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_CallbackPrx)
-            T_Callback = ::Ice::__declareClass('::Test::Callback')
             T_CallbackPrx = ::Ice::__declareProxy('::Test::Callback')
         end
 

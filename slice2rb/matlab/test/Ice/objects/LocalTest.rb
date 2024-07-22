@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::LocalTest
 
-    if not defined?(::LocalTest::C1_Mixin)
-
-        module ::LocalTest::C1_Mixin
-        end
+    if not defined?(::LocalTest::C1)
         class C1 < ::Ice::Value
 
             def initialize(i=0)
@@ -294,10 +291,7 @@ module ::LocalTest
         T_S8 = ::Ice::__defineStruct('::LocalTest::S8', S8, [["s1seqseq", ::LocalTest::T_S1SeqSeq]])
     end
 
-    if not defined?(::LocalTest::CB1_Mixin)
-
-        module ::LocalTest::CB1_Mixin
-        end
+    if not defined?(::LocalTest::CB1)
         class CB1 < ::Ice::Value
 
             def initialize(s1=::LocalTest::S1.new)
@@ -314,10 +308,7 @@ module ::LocalTest
         T_CB1.defineClass(CB1, -1, false, nil, [['s1', ::LocalTest::T_S1, false, 0]])
     end
 
-    if not defined?(::LocalTest::CB2_Mixin)
-
-        module ::LocalTest::CB2_Mixin
-        end
+    if not defined?(::LocalTest::CB2)
         class CB2 < ::Ice::Value
 
             def initialize(c1seq=nil)
@@ -334,10 +325,7 @@ module ::LocalTest
         T_CB2.defineClass(CB2, -1, false, nil, [['c1seq', ::LocalTest::T_C1Seq, false, 0]])
     end
 
-    if not defined?(::LocalTest::CB3_Mixin)
-
-        module ::LocalTest::CB3_Mixin
-        end
+    if not defined?(::LocalTest::CB3)
         class CB3 < ::Ice::Value
 
             def initialize(s1seq=nil)
@@ -354,10 +342,7 @@ module ::LocalTest
         T_CB3.defineClass(CB3, -1, false, nil, [['s1seq', ::LocalTest::T_S1Seq, false, 0]])
     end
 
-    if not defined?(::LocalTest::CB4_Mixin)
-
-        module ::LocalTest::CB4_Mixin
-        end
+    if not defined?(::LocalTest::CB4)
         class CB4 < ::Ice::Value
 
             def initialize(c1dict=nil)
@@ -374,10 +359,7 @@ module ::LocalTest
         T_CB4.defineClass(CB4, -1, false, nil, [['c1dict', ::LocalTest::T_C1Dict, false, 0]])
     end
 
-    if not defined?(::LocalTest::CB5_Mixin)
-
-        module ::LocalTest::CB5_Mixin
-        end
+    if not defined?(::LocalTest::CB5)
         class CB5 < ::Ice::Value
 
             def initialize(s1dict=nil)
@@ -394,10 +376,7 @@ module ::LocalTest
         T_CB5.defineClass(CB5, -1, false, nil, [['s1dict', ::LocalTest::T_S1Dict, false, 0]])
     end
 
-    if not defined?(::LocalTest::CB6_Mixin)
-
-        module ::LocalTest::CB6_Mixin
-        end
+    if not defined?(::LocalTest::CB6)
         class CB6 < ::Ice::Value
 
             def initialize(c1seqseq=nil)
@@ -414,10 +393,7 @@ module ::LocalTest
         T_CB6.defineClass(CB6, -1, false, nil, [['c1seqseq', ::LocalTest::T_C1SeqSeq, false, 0]])
     end
 
-    if not defined?(::LocalTest::CB7_Mixin)
-
-        module ::LocalTest::CB7_Mixin
-        end
+    if not defined?(::LocalTest::CB7)
         class CB7 < ::Ice::Value
 
             def initialize(s1seqseq=nil)
@@ -434,10 +410,7 @@ module ::LocalTest
         T_CB7.defineClass(CB7, -1, false, nil, [['s1seqseq', ::LocalTest::T_S1SeqSeq, false, 0]])
     end
 
-    if not defined?(::LocalTest::CB8_Mixin)
-
-        module ::LocalTest::CB8_Mixin
-        end
+    if not defined?(::LocalTest::CB8)
         class CB8 < ::Ice::Value
 
             def initialize(s1=::LocalTest::S1.new, c1seq=nil, s1dict=nil)

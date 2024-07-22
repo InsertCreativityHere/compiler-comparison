@@ -32,10 +32,7 @@ module ::Test
         T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::Metrics_Mixin)
-
-        module ::Test::Metrics_Mixin
-        end
+    if not defined?(::Test::MetricsPrx)
         module MetricsPrx_mixin
 
             def op(context=nil)
@@ -81,7 +78,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_MetricsPrx)
-            T_Metrics = ::Ice::__declareClass('::Test::Metrics')
             T_MetricsPrx = ::Ice::__declareProxy('::Test::Metrics')
         end
 
@@ -98,10 +94,7 @@ module ::Test
         MetricsPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::Controller_Mixin)
-
-        module ::Test::Controller_Mixin
-        end
+    if not defined?(::Test::ControllerPrx)
         module ControllerPrx_mixin
 
             def hold(context=nil)
@@ -119,7 +112,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_ControllerPrx)
-            T_Controller = ::Ice::__declareClass('::Test::Controller')
             T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end
 

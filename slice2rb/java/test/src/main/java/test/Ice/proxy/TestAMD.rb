@@ -19,10 +19,7 @@ require 'Ice/Context.rb'
 
 module ::Test
 
-    if not defined?(::Test::MyClass_Mixin)
-
-        module ::Test::MyClass_Mixin
-        end
+    if not defined?(::Test::MyClassPrx)
         module MyClassPrx_mixin
 
             def shutdown(context=nil)
@@ -40,7 +37,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_MyClassPrx)
-            T_MyClass = ::Ice::__declareClass('::Test::MyClass')
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 
@@ -50,10 +46,7 @@ module ::Test
         MyClassPrx_mixin::OP_getContext = ::Ice::__defineOperation('getContext', ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_Context, false, 0], [])
     end
 
-    if not defined?(::Test::MyDerivedClass_Mixin)
-
-        module ::Test::MyDerivedClass_Mixin
-        end
+    if not defined?(::Test::MyDerivedClassPrx)
         module MyDerivedClassPrx_mixin
             include ::Test::MyClassPrx_mixin
 
@@ -68,7 +61,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_MyDerivedClassPrx)
-            T_MyDerivedClass = ::Ice::__declareClass('::Test::MyDerivedClass')
             T_MyDerivedClassPrx = ::Ice::__declareProxy('::Test::MyDerivedClass')
         end
 
@@ -77,10 +69,7 @@ module ::Test
         MyDerivedClassPrx_mixin::OP_echo = ::Ice::__defineOperation('echo', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_ObjectPrx, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [])
     end
 
-    if not defined?(::Test::MyOtherDerivedClass_Mixin)
-
-        module ::Test::MyOtherDerivedClass_Mixin
-        end
+    if not defined?(::Test::MyOtherDerivedClassPrx)
         module MyOtherDerivedClassPrx_mixin
             include ::Test::MyClassPrx_mixin
         end
@@ -91,17 +80,13 @@ module ::Test
         end
 
         if not defined?(::Test::T_MyOtherDerivedClassPrx)
-            T_MyOtherDerivedClass = ::Ice::__declareClass('::Test::MyOtherDerivedClass')
             T_MyOtherDerivedClassPrx = ::Ice::__declareProxy('::Test::MyOtherDerivedClass')
         end
 
         T_MyOtherDerivedClassPrx.defineProxy(MyOtherDerivedClassPrx, nil, [::Test::T_MyClassPrx])
     end
 
-    if not defined?(::Test::DiamondClass_Mixin)
-
-        module ::Test::DiamondClass_Mixin
-        end
+    if not defined?(::Test::DiamondClassPrx)
         module DiamondClassPrx_mixin
             include ::Test::MyDerivedClassPrx_mixin
             include ::Test::MyOtherDerivedClassPrx_mixin
@@ -113,7 +98,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_DiamondClassPrx)
-            T_DiamondClass = ::Ice::__declareClass('::Test::DiamondClass')
             T_DiamondClassPrx = ::Ice::__declareProxy('::Test::DiamondClass')
         end
 

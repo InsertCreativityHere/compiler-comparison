@@ -73,10 +73,7 @@ module ::IceStormElection
         T_ObserverInconsistencyException = ::Ice::__defineException('::IceStormElection::ObserverInconsistencyException', ObserverInconsistencyException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceStormElection::ReplicaObserver_Mixin)
-
-        module ::IceStormElection::ReplicaObserver_Mixin
-        end
+    if not defined?(::IceStormElection::ReplicaObserverPrx)
         module ReplicaObserverPrx_mixin
 
             def init(llu, content, context=nil)
@@ -106,7 +103,6 @@ module ::IceStormElection
         end
 
         if not defined?(::IceStormElection::T_ReplicaObserverPrx)
-            T_ReplicaObserver = ::Ice::__declareClass('::IceStormElection::ReplicaObserver')
             T_ReplicaObserverPrx = ::Ice::__declareProxy('::IceStormElection::ReplicaObserver')
         end
 
@@ -119,10 +115,7 @@ module ::IceStormElection
         ReplicaObserverPrx_mixin::OP_removeSubscriber = ::Ice::__defineOperation('removeSubscriber', ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0], [::Ice::T_IdentitySeq, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
     end
 
-    if not defined?(::IceStormElection::TopicManagerSync_Mixin)
-
-        module ::IceStormElection::TopicManagerSync_Mixin
-        end
+    if not defined?(::IceStormElection::TopicManagerSyncPrx)
         module TopicManagerSyncPrx_mixin
 
             def getContent(context=nil)
@@ -136,7 +129,6 @@ module ::IceStormElection
         end
 
         if not defined?(::IceStormElection::T_TopicManagerSyncPrx)
-            T_TopicManagerSync = ::Ice::__declareClass('::IceStormElection::TopicManagerSync')
             T_TopicManagerSyncPrx = ::Ice::__declareProxy('::IceStormElection::TopicManagerSync')
         end
 
@@ -196,7 +188,7 @@ module ::IceStormElection
         T_NodeState = ::Ice::__defineEnum('::IceStormElection::NodeState', NodeState, NodeState::_enumerators)
     end
 
-    if not defined?(::IceStormElection::T_Node)
+    if not defined?(::IceStormElection::T_NodePrx)
         T_NodePrx = ::Ice::__declareProxy('::IceStormElection::Node')
     end
 
@@ -333,10 +325,7 @@ module ::IceStormElection
         ])
     end
 
-    if not defined?(::IceStormElection::Node_Mixin)
-
-        module ::IceStormElection::Node_Mixin
-        end
+    if not defined?(::IceStormElection::NodePrx)
         module NodePrx_mixin
 
             def invitation(j, gn, context=nil)
@@ -378,7 +367,6 @@ module ::IceStormElection
         end
 
         if not defined?(::IceStormElection::T_NodePrx)
-            T_Node = ::Ice::__declareClass('::IceStormElection::Node')
             T_NodePrx = ::Ice::__declareProxy('::IceStormElection::Node')
         end
 

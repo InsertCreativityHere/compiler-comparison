@@ -19,10 +19,7 @@ require 'Ice/Locator.rb'
 
 module ::Test
 
-    if not defined?(::Test::TestLocatorRegistry_Mixin)
-
-        module ::Test::TestLocatorRegistry_Mixin
-        end
+    if not defined?(::Test::TestLocatorRegistryPrx)
         module TestLocatorRegistryPrx_mixin
             include ::Ice::LocatorRegistryPrx_mixin
 
@@ -37,7 +34,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestLocatorRegistryPrx)
-            T_TestLocatorRegistry = ::Ice::__declareClass('::Test::TestLocatorRegistry')
             T_TestLocatorRegistryPrx = ::Ice::__declareProxy('::Test::TestLocatorRegistry')
         end
 
@@ -46,10 +42,7 @@ module ::Test
         TestLocatorRegistryPrx_mixin::OP_addObject = ::Ice::__defineOperation('addObject', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], nil, [])
     end
 
-    if not defined?(::Test::TestLocator_Mixin)
-
-        module ::Test::TestLocator_Mixin
-        end
+    if not defined?(::Test::TestLocatorPrx)
         module TestLocatorPrx_mixin
             include ::Ice::LocatorPrx_mixin
 
@@ -64,7 +57,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestLocatorPrx)
-            T_TestLocator = ::Ice::__declareClass('::Test::TestLocator')
             T_TestLocatorPrx = ::Ice::__declareProxy('::Test::TestLocator')
         end
 
@@ -73,10 +65,7 @@ module ::Test
         TestLocatorPrx_mixin::OP_getRequestCount = ::Ice::__defineOperation('getRequestCount', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
     end
 
-    if not defined?(::Test::ServerManager_Mixin)
-
-        module ::Test::ServerManager_Mixin
-        end
+    if not defined?(::Test::ServerManagerPrx)
         module ServerManagerPrx_mixin
 
             def startServer(context=nil)
@@ -94,7 +83,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_ServerManagerPrx)
-            T_ServerManager = ::Ice::__declareClass('::Test::ServerManager')
             T_ServerManagerPrx = ::Ice::__declareProxy('::Test::ServerManager')
         end
 
@@ -104,10 +92,7 @@ module ::Test
         ServerManagerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::Hello_Mixin)
-
-        module ::Test::Hello_Mixin
-        end
+    if not defined?(::Test::HelloPrx)
         module HelloPrx_mixin
 
             def sayHello(context=nil)
@@ -121,7 +106,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_HelloPrx)
-            T_Hello = ::Ice::__declareClass('::Test::Hello')
             T_HelloPrx = ::Ice::__declareProxy('::Test::Hello')
         end
 
@@ -130,10 +114,7 @@ module ::Test
         HelloPrx_mixin::OP_sayHello = ::Ice::__defineOperation('sayHello', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def shutdown(context=nil)
@@ -159,7 +140,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 

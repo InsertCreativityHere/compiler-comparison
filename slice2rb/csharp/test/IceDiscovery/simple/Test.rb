@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def getAdapterId(context=nil)
@@ -35,7 +32,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
@@ -44,10 +40,7 @@ module ::Test
         TestIntfPrx_mixin::OP_getAdapterId = ::Ice::__defineOperation('getAdapterId', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
-    if not defined?(::Test::Controller_Mixin)
-
-        module ::Test::Controller_Mixin
-        end
+    if not defined?(::Test::ControllerPrx)
         module ControllerPrx_mixin
 
             def activateObjectAdapter(name, adapterId, replicaGroupId, context=nil)
@@ -77,7 +70,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_ControllerPrx)
-            T_Controller = ::Ice::__declareClass('::Test::Controller')
             T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end
 

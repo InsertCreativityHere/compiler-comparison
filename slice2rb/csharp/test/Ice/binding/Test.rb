@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def getAdapterName(context=nil)
@@ -35,7 +32,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
@@ -44,10 +40,7 @@ module ::Test
         TestIntfPrx_mixin::OP_getAdapterName = ::Ice::__defineOperation('getAdapterName', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
-    if not defined?(::Test::RemoteObjectAdapter_Mixin)
-
-        module ::Test::RemoteObjectAdapter_Mixin
-        end
+    if not defined?(::Test::RemoteObjectAdapterPrx)
         module RemoteObjectAdapterPrx_mixin
 
             def getTestIntf(context=nil)
@@ -65,7 +58,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_RemoteObjectAdapterPrx)
-            T_RemoteObjectAdapter = ::Ice::__declareClass('::Test::RemoteObjectAdapter')
             T_RemoteObjectAdapterPrx = ::Ice::__declareProxy('::Test::RemoteObjectAdapter')
         end
 
@@ -75,10 +67,7 @@ module ::Test
         RemoteObjectAdapterPrx_mixin::OP_deactivate = ::Ice::__defineOperation('deactivate', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::RemoteCommunicator_Mixin)
-
-        module ::Test::RemoteCommunicator_Mixin
-        end
+    if not defined?(::Test::RemoteCommunicatorPrx)
         module RemoteCommunicatorPrx_mixin
 
             def createObjectAdapter(name, endpoints, context=nil)
@@ -100,7 +89,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_RemoteCommunicatorPrx)
-            T_RemoteCommunicator = ::Ice::__declareClass('::Test::RemoteCommunicator')
             T_RemoteCommunicatorPrx = ::Ice::__declareProxy('::Test::RemoteCommunicator')
         end
 

@@ -212,10 +212,7 @@ module ::IceGrid
         T_AdapterDescriptorSeq = ::Ice::__defineSequence('::IceGrid::AdapterDescriptorSeq', ::IceGrid::T_AdapterDescriptor)
     end
 
-    if not defined?(::IceGrid::CommunicatorDescriptor_Mixin)
-
-        module ::IceGrid::CommunicatorDescriptor_Mixin
-        end
+    if not defined?(::IceGrid::CommunicatorDescriptor)
         class CommunicatorDescriptor < ::Ice::Value
 
             def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='')
@@ -275,10 +272,7 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::ServerDescriptor_Mixin)
-
-        module ::IceGrid::ServerDescriptor_Mixin
-        end
+    if not defined?(::IceGrid::ServerDescriptor)
         class ServerDescriptor < ::IceGrid::CommunicatorDescriptor
 
             def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='', id='', exe='', iceVersion='', pwd='', options=nil, envs=nil, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=false, distrib=::IceGrid::DistributionDescriptor.new, allocatable=false, user='')
@@ -326,10 +320,7 @@ module ::IceGrid
         T_ServerDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ServerDescriptorSeq', ::IceGrid::T_ServerDescriptor)
     end
 
-    if not defined?(::IceGrid::ServiceDescriptor_Mixin)
-
-        module ::IceGrid::ServiceDescriptor_Mixin
-        end
+    if not defined?(::IceGrid::ServiceDescriptor)
         class ServiceDescriptor < ::IceGrid::CommunicatorDescriptor
 
             def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='', name='', entry='')
@@ -492,10 +483,7 @@ module ::IceGrid
         T_ServiceInstanceDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ServiceInstanceDescriptorSeq', ::IceGrid::T_ServiceInstanceDescriptor)
     end
 
-    if not defined?(::IceGrid::IceBoxDescriptor_Mixin)
-
-        module ::IceGrid::IceBoxDescriptor_Mixin
-        end
+    if not defined?(::IceGrid::IceBoxDescriptor)
         class IceBoxDescriptor < ::IceGrid::ServerDescriptor
 
             def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='', id='', exe='', iceVersion='', pwd='', options=nil, envs=nil, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=false, distrib=::IceGrid::DistributionDescriptor.new, allocatable=false, user='', services=nil)
@@ -568,10 +556,7 @@ module ::IceGrid
         T_NodeDescriptorDict = ::Ice::__defineDictionary('::IceGrid::NodeDescriptorDict', ::Ice::T_string, ::IceGrid::T_NodeDescriptor)
     end
 
-    if not defined?(::IceGrid::LoadBalancingPolicy_Mixin)
-
-        module ::IceGrid::LoadBalancingPolicy_Mixin
-        end
+    if not defined?(::IceGrid::LoadBalancingPolicy)
         class LoadBalancingPolicy < ::Ice::Value
 
             def initialize(nReplicas='')
@@ -588,10 +573,7 @@ module ::IceGrid
         T_LoadBalancingPolicy.defineClass(LoadBalancingPolicy, -1, false, nil, [['nReplicas', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::RandomLoadBalancingPolicy_Mixin)
-
-        module ::IceGrid::RandomLoadBalancingPolicy_Mixin
-        end
+    if not defined?(::IceGrid::RandomLoadBalancingPolicy)
         class RandomLoadBalancingPolicy < ::IceGrid::LoadBalancingPolicy
 
             def initialize(nReplicas='')
@@ -606,10 +588,7 @@ module ::IceGrid
         T_RandomLoadBalancingPolicy.defineClass(RandomLoadBalancingPolicy, -1, false, ::IceGrid::T_LoadBalancingPolicy, [])
     end
 
-    if not defined?(::IceGrid::OrderedLoadBalancingPolicy_Mixin)
-
-        module ::IceGrid::OrderedLoadBalancingPolicy_Mixin
-        end
+    if not defined?(::IceGrid::OrderedLoadBalancingPolicy)
         class OrderedLoadBalancingPolicy < ::IceGrid::LoadBalancingPolicy
 
             def initialize(nReplicas='')
@@ -624,10 +603,7 @@ module ::IceGrid
         T_OrderedLoadBalancingPolicy.defineClass(OrderedLoadBalancingPolicy, -1, false, ::IceGrid::T_LoadBalancingPolicy, [])
     end
 
-    if not defined?(::IceGrid::RoundRobinLoadBalancingPolicy_Mixin)
-
-        module ::IceGrid::RoundRobinLoadBalancingPolicy_Mixin
-        end
+    if not defined?(::IceGrid::RoundRobinLoadBalancingPolicy)
         class RoundRobinLoadBalancingPolicy < ::IceGrid::LoadBalancingPolicy
 
             def initialize(nReplicas='')
@@ -642,10 +618,7 @@ module ::IceGrid
         T_RoundRobinLoadBalancingPolicy.defineClass(RoundRobinLoadBalancingPolicy, -1, false, ::IceGrid::T_LoadBalancingPolicy, [])
     end
 
-    if not defined?(::IceGrid::AdaptiveLoadBalancingPolicy_Mixin)
-
-        module ::IceGrid::AdaptiveLoadBalancingPolicy_Mixin
-        end
+    if not defined?(::IceGrid::AdaptiveLoadBalancingPolicy)
         class AdaptiveLoadBalancingPolicy < ::IceGrid::LoadBalancingPolicy
 
             def initialize(nReplicas='', loadSample='')
@@ -785,10 +758,7 @@ module ::IceGrid
         T_ApplicationDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ApplicationDescriptorSeq', ::IceGrid::T_ApplicationDescriptor)
     end
 
-    if not defined?(::IceGrid::BoxedString_Mixin)
-
-        module ::IceGrid::BoxedString_Mixin
-        end
+    if not defined?(::IceGrid::BoxedString)
         class BoxedString < ::Ice::Value
 
             def initialize(value='')
@@ -876,10 +846,7 @@ module ::IceGrid
         T_NodeUpdateDescriptorSeq = ::Ice::__defineSequence('::IceGrid::NodeUpdateDescriptorSeq', ::IceGrid::T_NodeUpdateDescriptor)
     end
 
-    if not defined?(::IceGrid::BoxedDistributionDescriptor_Mixin)
-
-        module ::IceGrid::BoxedDistributionDescriptor_Mixin
-        end
+    if not defined?(::IceGrid::BoxedDistributionDescriptor)
         class BoxedDistributionDescriptor < ::Ice::Value
 
             def initialize(value=::IceGrid::DistributionDescriptor.new)

@@ -19,7 +19,7 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
-    if not defined?(::Test::T_Thrower)
+    if not defined?(::Test::T_ThrowerPrx)
         T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
     end
 
@@ -71,10 +71,7 @@ module ::Test
         T_D = ::Ice::__defineException('::Test::D', D, nil, [["dMem", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::Thrower_Mixin)
-
-        module ::Test::Thrower_Mixin
-        end
+    if not defined?(::Test::ThrowerPrx)
         module ThrowerPrx_mixin
 
             def shutdown(context=nil)
@@ -164,7 +161,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_ThrowerPrx)
-            T_Thrower = ::Ice::__declareClass('::Test::Thrower')
             T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
         end
 
@@ -192,10 +188,7 @@ module ::Test
         ThrowerPrx_mixin::OP_throwAfterException = ::Ice::__defineOperation('throwAfterException', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::T_A])
     end
 
-    if not defined?(::Test::WrongOperation_Mixin)
-
-        module ::Test::WrongOperation_Mixin
-        end
+    if not defined?(::Test::WrongOperationPrx)
         module WrongOperationPrx_mixin
 
             def noSuchOperation(context=nil)
@@ -209,7 +202,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_WrongOperationPrx)
-            T_WrongOperation = ::Ice::__declareClass('::Test::WrongOperation')
             T_WrongOperationPrx = ::Ice::__declareProxy('::Test::WrongOperation')
         end
 

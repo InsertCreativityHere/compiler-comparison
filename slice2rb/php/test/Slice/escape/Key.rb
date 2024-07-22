@@ -129,10 +129,7 @@ module ::And
         ])
     end
 
-    if not defined?(::And::Break_Mixin)
-
-        module ::And::Break_Mixin
-        end
+    if not defined?(::And::BreakPrx)
         module BreakPrx_mixin
 
             def _case(catch, context=nil)
@@ -146,7 +143,6 @@ module ::And
         end
 
         if not defined?(::And::T_BreakPrx)
-            T_Break = ::Ice::__declareClass('::and::break')
             T_BreakPrx = ::Ice::__declareProxy('::and::break')
         end
 
@@ -155,10 +151,7 @@ module ::And
         BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
-    if not defined?(::And::Function_Mixin)
-
-        module ::And::Function_Mixin
-        end
+    if not defined?(::And::FunctionPrx)
         module FunctionPrx_mixin
 
             def continue(declare, default, context=nil)
@@ -172,7 +165,6 @@ module ::And
         end
 
         if not defined?(::And::T_FunctionPrx)
-            T_Function = ::Ice::__declareClass('::and::function')
             T_FunctionPrx = ::Ice::__declareProxy('::and::function')
         end
 
@@ -181,10 +173,7 @@ module ::And
         FunctionPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
     end
 
-    if not defined?(::And::Die_Mixin)
-
-        module ::And::Die_Mixin
-        end
+    if not defined?(::And::DiePrx)
         module DiePrx_mixin
 
             def _do(context=nil)
@@ -198,7 +187,6 @@ module ::And
         end
 
         if not defined?(::And::T_DiePrx)
-            T_Die = ::Ice::__declareClass('::and::die')
             T_DiePrx = ::Ice::__declareProxy('::and::die')
         end
 
@@ -207,10 +195,7 @@ module ::And
         DiePrx_mixin::OP_do = ::Ice::__defineOperation('do', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::And::Echo_Mixin)
-
-        module ::And::Echo_Mixin
-        end
+    if not defined?(::And::Echo)
         class Echo < ::Ice::Value
 
             def initialize(_if=0, _else=0, elseif=nil, empty=0)
@@ -235,10 +220,7 @@ module ::And
         ])
     end
 
-    if not defined?(::And::Enddeclare_Mixin)
-
-        module ::And::Enddeclare_Mixin
-        end
+    if not defined?(::And::EnddeclarePrx)
         module EnddeclarePrx_mixin
             include ::And::DiePrx_mixin
             include ::And::FunctionPrx_mixin
@@ -250,7 +232,6 @@ module ::And
         end
 
         if not defined?(::And::T_EnddeclarePrx)
-            T_Enddeclare = ::Ice::__declareClass('::and::enddeclare')
             T_EnddeclarePrx = ::Ice::__declareProxy('::and::enddeclare')
         end
 
@@ -292,10 +273,7 @@ module ::And
         ])
     end
 
-    if not defined?(::And::For_Mixin)
-
-        module ::And::For_Mixin
-        end
+    if not defined?(::And::ForPrx)
         module ForPrx_mixin
 
             def foreach(_if, global, include, _return, list, _new, static, context=nil)
@@ -309,7 +287,6 @@ module ::And
         end
 
         if not defined?(::And::T_ForPrx)
-            T_For = ::Ice::__declareClass('::and::for')
             T_ForPrx = ::Ice::__declareProxy('::and::for')
         end
 

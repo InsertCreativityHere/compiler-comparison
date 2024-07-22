@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::WithNamespace
 
-    if not defined?(::WithNamespace::C1_Mixin)
-
-        module ::WithNamespace::C1_Mixin
-        end
+    if not defined?(::WithNamespace::C1)
         class C1 < ::Ice::Value
 
             def initialize(i=0)
@@ -38,10 +35,7 @@ module ::WithNamespace
         T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::WithNamespace::C2_Mixin)
-
-        module ::WithNamespace::C2_Mixin
-        end
+    if not defined?(::WithNamespace::C2)
         class C2 < ::WithNamespace::C1
 
             def initialize(i=0, l=0)

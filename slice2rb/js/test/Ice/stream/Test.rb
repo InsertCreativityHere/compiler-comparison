@@ -73,7 +73,7 @@ module ::Test
         T_MyClass = ::Ice::__declareClass('::Test::MyClass')
     end
 
-    if not defined?(::Test::T_MyInterface)
+    if not defined?(::Test::T_MyInterfacePrx)
         T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
     end
 
@@ -144,10 +144,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::OptionalClass_Mixin)
-
-        module ::Test::OptionalClass_Mixin
-        end
+    if not defined?(::Test::OptionalClass)
         class OptionalClass < ::Ice::Value
 
             def initialize(bo=false, by=0, sh=::Ice::Unset, i=::Ice::Unset)
@@ -240,10 +237,7 @@ module ::Test
         T_StringMyClassD = ::Ice::__defineDictionary('::Test::StringMyClassD', ::Ice::T_string, ::Test::T_MyClass)
     end
 
-    if not defined?(::Test::MyClass_Mixin)
-
-        module ::Test::MyClass_Mixin
-        end
+    if not defined?(::Test::MyClass)
         class MyClass < ::Ice::Value
 
             def initialize(c=nil, o=nil, s=::Test::LargeStruct.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, seq5=nil, seq6=nil, seq7=nil, seq8=nil, seq9=nil, seq10=nil, d=nil)
@@ -300,10 +294,7 @@ module ::Test
         T_MyException = ::Ice::__defineException('::Test::MyException', MyException, nil, [["c", ::Test::T_MyClass, false, 0]])
     end
 
-    if not defined?(::Test::MyInterface_Mixin)
-
-        module ::Test::MyInterface_Mixin
-        end
+    if not defined?(::Test::MyInterfacePrx)
         module MyInterfacePrx_mixin
         end
 
@@ -313,7 +304,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_MyInterfacePrx)
-            T_MyInterface = ::Ice::__declareClass('::Test::MyInterface')
             T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
         end
 

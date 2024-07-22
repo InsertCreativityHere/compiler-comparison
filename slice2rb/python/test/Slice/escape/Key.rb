@@ -95,10 +95,7 @@ module ::And
         T_Continue = ::Ice::__defineStruct('::and::continue', Continue, [["_def", ::Ice::T_int]])
     end
 
-    if not defined?(::And::Del_Mixin)
-
-        module ::And::Del_Mixin
-        end
+    if not defined?(::And::DelPrx)
         module DelPrx_mixin
 
             def elif(_else, context=nil)
@@ -112,7 +109,6 @@ module ::And
         end
 
         if not defined?(::And::T_DelPrx)
-            T_Del = ::Ice::__declareClass('::and::del')
             T_DelPrx = ::Ice::__declareProxy('::and::del')
         end
 
@@ -121,10 +117,7 @@ module ::And
         DelPrx_mixin::OP_elif = ::Ice::__defineOperation('elif', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
-    if not defined?(::And::Exec_Mixin)
-
-        module ::And::Exec_Mixin
-        end
+    if not defined?(::And::ExecPrx)
         module ExecPrx_mixin
 
             def finally(context=nil)
@@ -138,7 +131,6 @@ module ::And
         end
 
         if not defined?(::And::T_ExecPrx)
-            T_Exec = ::Ice::__declareClass('::and::exec')
             T_ExecPrx = ::Ice::__declareProxy('::and::exec')
         end
 
@@ -147,10 +139,7 @@ module ::And
         ExecPrx_mixin::OP_finally = ::Ice::__defineOperation('finally', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::And::For_Mixin)
-
-        module ::And::For_Mixin
-        end
+    if not defined?(::And::For)
         class For < ::Ice::Value
 
             def initialize(lambda=0, from=nil, global=0)
@@ -173,10 +162,7 @@ module ::And
         ])
     end
 
-    if not defined?(::And::If_Mixin)
-
-        module ::And::If_Mixin
-        end
+    if not defined?(::And::IfPrx)
         module IfPrx_mixin
             include ::And::ExecPrx_mixin
             include ::And::DelPrx_mixin
@@ -188,7 +174,6 @@ module ::And
         end
 
         if not defined?(::And::T_IfPrx)
-            T_If = ::Ice::__declareClass('::and::if')
             T_IfPrx = ::Ice::__declareProxy('::and::if')
         end
 
@@ -230,10 +215,7 @@ module ::And
         ])
     end
 
-    if not defined?(::And::Print_Mixin)
-
-        module ::And::Print_Mixin
-        end
+    if not defined?(::And::PrintPrx)
         module PrintPrx_mixin
 
             def raise(_else, _return, _while, _yield, _or, global, context=nil)
@@ -247,7 +229,6 @@ module ::And
         end
 
         if not defined?(::And::T_PrintPrx)
-            T_Print = ::Ice::__declareClass('::and::print')
             T_PrintPrx = ::Ice::__declareProxy('::and::print')
         end
 

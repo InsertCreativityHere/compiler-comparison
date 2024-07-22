@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Priority_Mixin)
-
-        module ::Test::Priority_Mixin
-        end
+    if not defined?(::Test::PriorityPrx)
         module PriorityPrx_mixin
 
             def shutdown(context=nil)
@@ -39,7 +36,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_PriorityPrx)
-            T_Priority = ::Ice::__declareClass('::Test::Priority')
             T_PriorityPrx = ::Ice::__declareProxy('::Test::Priority')
         end
 

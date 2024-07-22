@@ -22,10 +22,7 @@ module ::Test
         T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::Timeout_Mixin)
-
-        module ::Test::Timeout_Mixin
-        end
+    if not defined?(::Test::TimeoutPrx)
         module TimeoutPrx_mixin
 
             def op(context=nil)
@@ -47,7 +44,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TimeoutPrx)
-            T_Timeout = ::Ice::__declareClass('::Test::Timeout')
             T_TimeoutPrx = ::Ice::__declareProxy('::Test::Timeout')
         end
 
@@ -58,10 +54,7 @@ module ::Test
         TimeoutPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
     end
 
-    if not defined?(::Test::Controller_Mixin)
-
-        module ::Test::Controller_Mixin
-        end
+    if not defined?(::Test::ControllerPrx)
         module ControllerPrx_mixin
 
             def holdAdapter(to, context=nil)
@@ -83,7 +76,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_ControllerPrx)
-            T_Controller = ::Ice::__declareClass('::Test::Controller')
             T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end
 

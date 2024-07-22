@@ -304,10 +304,7 @@ module ::Test
         T_SStructSD = ::Ice::__defineSequence('::Test::SStructSD', ::Test::T_SD)
     end
 
-    if not defined?(::Test::CV_Mixin)
-
-        module ::Test::CV_Mixin
-        end
+    if not defined?(::Test::CV)
         class CV < ::Ice::Value
 
             def initialize(i=0)
@@ -332,10 +329,7 @@ module ::Test
         T_LCVS = ::Ice::__defineSequence('::Test::LCVS', ::Test::T_CV)
     end
 
-    if not defined?(::Test::I_Mixin)
-
-        module ::Test::I_Mixin
-        end
+    if not defined?(::Test::IPrx)
         module IPrx_mixin
         end
 
@@ -345,7 +339,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_IPrx)
-            T_I = ::Ice::__declareClass('::Test::I')
             T_IPrx = ::Ice::__declareProxy('::Test::I')
         end
 
@@ -372,10 +365,7 @@ module ::Test
         T_SIPrxS = ::Ice::__defineSequence('::Test::SIPrxS', ::Test::T_IPrx)
     end
 
-    if not defined?(::Test::CR_Mixin)
-
-        module ::Test::CR_Mixin
-        end
+    if not defined?(::Test::CR)
         class CR < ::Ice::Value
 
             def initialize(v=nil)
@@ -486,10 +476,7 @@ module ::Test
         T_CustomCVSS = ::Ice::__defineSequence('::Test::CustomCVSS', ::Test::T_CustomCVS)
     end
 
-    if not defined?(::Test::MyClass_Mixin)
-
-        module ::Test::MyClass_Mixin
-        end
+    if not defined?(::Test::MyClassPrx)
         module MyClassPrx_mixin
 
             def shutdown(context=nil)
@@ -803,7 +790,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_MyClassPrx)
-            T_MyClass = ::Ice::__declareClass('::Test::MyClass')
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 

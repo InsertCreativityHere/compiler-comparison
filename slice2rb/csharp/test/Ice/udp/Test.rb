@@ -19,10 +19,7 @@ require 'Ice/Identity.rb'
 
 module ::Test
 
-    if not defined?(::Test::PingReply_Mixin)
-
-        module ::Test::PingReply_Mixin
-        end
+    if not defined?(::Test::PingReplyPrx)
         module PingReplyPrx_mixin
 
             def reply(context=nil)
@@ -36,7 +33,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_PingReplyPrx)
-            T_PingReply = ::Ice::__declareClass('::Test::PingReply')
             T_PingReplyPrx = ::Ice::__declareProxy('::Test::PingReply')
         end
 
@@ -49,10 +45,7 @@ module ::Test
         T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def ping(reply, context=nil)
@@ -78,7 +71,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 

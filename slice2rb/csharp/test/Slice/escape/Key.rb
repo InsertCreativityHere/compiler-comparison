@@ -95,10 +95,7 @@ module ::Abstract
         T_Break = ::Ice::__defineStruct('::abstract::break', Break, [["readonly", ::Ice::T_int]])
     end
 
-    if not defined?(::Abstract::Case_Mixin)
-
-        module ::Abstract::Case_Mixin
-        end
+    if not defined?(::Abstract::CasePrx)
         module CasePrx_mixin
 
             def catch(checked, context=nil)
@@ -112,7 +109,6 @@ module ::Abstract
         end
 
         if not defined?(::Abstract::T_CasePrx)
-            T_Case = ::Ice::__declareClass('::abstract::case')
             T_CasePrx = ::Ice::__declareProxy('::abstract::case')
         end
 
@@ -121,10 +117,7 @@ module ::Abstract
         CasePrx_mixin::OP_catch = ::Ice::__defineOperation('catch', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
-    if not defined?(::Abstract::Decimal_Mixin)
-
-        module ::Abstract::Decimal_Mixin
-        end
+    if not defined?(::Abstract::DecimalPrx)
         module DecimalPrx_mixin
 
             def default(context=nil)
@@ -138,7 +131,6 @@ module ::Abstract
         end
 
         if not defined?(::Abstract::T_DecimalPrx)
-            T_Decimal = ::Ice::__declareClass('::abstract::decimal')
             T_DecimalPrx = ::Ice::__declareProxy('::abstract::decimal')
         end
 
@@ -147,10 +139,7 @@ module ::Abstract
         DecimalPrx_mixin::OP_default = ::Ice::__defineOperation('default', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Abstract::Delegate_Mixin)
-
-        module ::Abstract::Delegate_Mixin
-        end
+    if not defined?(::Abstract::Delegate)
         class Delegate < ::Ice::Value
 
             def initialize(_if=0, _else=nil, event=0)
@@ -173,10 +162,7 @@ module ::Abstract
         ])
     end
 
-    if not defined?(::Abstract::Explicit_Mixin)
-
-        module ::Abstract::Explicit_Mixin
-        end
+    if not defined?(::Abstract::ExplicitPrx)
         module ExplicitPrx_mixin
             include ::Abstract::DecimalPrx_mixin
             include ::Abstract::CasePrx_mixin
@@ -188,7 +174,6 @@ module ::Abstract
         end
 
         if not defined?(::Abstract::T_ExplicitPrx)
-            T_Explicit = ::Ice::__declareClass('::abstract::explicit')
             T_ExplicitPrx = ::Ice::__declareProxy('::abstract::explicit')
         end
 
@@ -199,10 +184,7 @@ module ::Abstract
         T_While = ::Ice::__defineDictionary('::abstract::while', ::Ice::T_string, ::Abstract::T_Break)
     end
 
-    if not defined?(::Abstract::OptionalMembers_Mixin)
-
-        module ::Abstract::OptionalMembers_Mixin
-        end
+    if not defined?(::Abstract::OptionalMembers)
         class OptionalMembers < ::Ice::Value
 
             def initialize(_for=::Ice::Unset, goto=::Ice::Unset, _if=::Ice::Unset, internal=::Ice::Unset, namespace=::Ice::Unset)
@@ -229,10 +211,7 @@ module ::Abstract
         ])
     end
 
-    if not defined?(::Abstract::OptionalParams_Mixin)
-
-        module ::Abstract::OptionalParams_Mixin
-        end
+    if not defined?(::Abstract::OptionalParamsPrx)
         module OptionalParamsPrx_mixin
 
             def _for(goto, _if, internal, namespace, context=nil)
@@ -258,7 +237,6 @@ module ::Abstract
         end
 
         if not defined?(::Abstract::T_OptionalParamsPrx)
-            T_OptionalParams = ::Ice::__declareClass('::abstract::optionalParams')
             T_OptionalParamsPrx = ::Ice::__declareProxy('::abstract::optionalParams')
         end
 
@@ -325,10 +303,7 @@ module ::Abstract
         ])
     end
 
-    if not defined?(::Abstract::Implicit_Mixin)
-
-        module ::Abstract::Implicit_Mixin
-        end
+    if not defined?(::Abstract::ImplicitPrx)
         module ImplicitPrx_mixin
 
             def _in(internal, is, lock, namespace, _new, null, override, params, private, context=nil)
@@ -342,7 +317,6 @@ module ::Abstract
         end
 
         if not defined?(::Abstract::T_ImplicitPrx)
-            T_Implicit = ::Ice::__declareClass('::abstract::implicit')
             T_ImplicitPrx = ::Ice::__declareProxy('::abstract::implicit')
         end
 
@@ -357,10 +331,7 @@ module ::Abstract
 
     module System
 
-        if not defined?(::Abstract::System::Test_Mixin)
-
-            module ::Abstract::System::Test_Mixin
-            end
+        if not defined?(::Abstract::System::TestPrx)
             module TestPrx_mixin
 
                 def op(context=nil)
@@ -374,7 +345,6 @@ module ::Abstract
             end
 
             if not defined?(::Abstract::System::T_TestPrx)
-                T_Test = ::Ice::__declareClass('::abstract::System::Test')
                 T_TestPrx = ::Ice::__declareProxy('::abstract::System::Test')
             end
 
@@ -387,10 +357,7 @@ end
 
 module ::System
 
-    if not defined?(::System::Test_Mixin)
-
-        module ::System::Test_Mixin
-        end
+    if not defined?(::System::TestPrx)
         module TestPrx_mixin
 
             def op(context=nil)
@@ -404,7 +371,6 @@ module ::System
         end
 
         if not defined?(::System::T_TestPrx)
-            T_Test = ::Ice::__declareClass('::System::Test')
             T_TestPrx = ::Ice::__declareProxy('::System::Test')
         end
 

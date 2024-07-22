@@ -23,10 +23,7 @@ module ::IceMX
         T_StringIntDict = ::Ice::__defineDictionary('::IceMX::StringIntDict', ::Ice::T_string, ::Ice::T_int)
     end
 
-    if not defined?(::IceMX::Metrics_Mixin)
-
-        module ::IceMX::Metrics_Mixin
-        end
+    if not defined?(::IceMX::Metrics)
         class Metrics < ::Ice::Value
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0)
@@ -110,10 +107,7 @@ module ::IceMX
         T_UnknownMetricsView = ::Ice::__defineException('::IceMX::UnknownMetricsView', UnknownMetricsView, nil, [])
     end
 
-    if not defined?(::IceMX::MetricsAdmin_Mixin)
-
-        module ::IceMX::MetricsAdmin_Mixin
-        end
+    if not defined?(::IceMX::MetricsAdminPrx)
         module MetricsAdminPrx_mixin
 
             def getMetricsViewNames(context=nil)
@@ -147,7 +141,6 @@ module ::IceMX
         end
 
         if not defined?(::IceMX::T_MetricsAdminPrx)
-            T_MetricsAdmin = ::Ice::__declareClass('::IceMX::MetricsAdmin')
             T_MetricsAdminPrx = ::Ice::__declareProxy('::IceMX::MetricsAdmin')
         end
 
@@ -161,10 +154,7 @@ module ::IceMX
         MetricsAdminPrx_mixin::OP_getMetricsFailures = ::Ice::__defineOperation('getMetricsFailures', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::IceMX::T_MetricsFailures, false, 0], [::IceMX::T_UnknownMetricsView])
     end
 
-    if not defined?(::IceMX::ThreadMetrics_Mixin)
-
-        module ::IceMX::ThreadMetrics_Mixin
-        end
+    if not defined?(::IceMX::ThreadMetrics)
         class ThreadMetrics < ::IceMX::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, inUseForIO=0, inUseForUser=0, inUseForOther=0)
@@ -188,10 +178,7 @@ module ::IceMX
         ])
     end
 
-    if not defined?(::IceMX::DispatchMetrics_Mixin)
-
-        module ::IceMX::DispatchMetrics_Mixin
-        end
+    if not defined?(::IceMX::DispatchMetrics)
         class DispatchMetrics < ::IceMX::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, userException=0, size=0, replySize=0)
@@ -215,10 +202,7 @@ module ::IceMX
         ])
     end
 
-    if not defined?(::IceMX::ChildInvocationMetrics_Mixin)
-
-        module ::IceMX::ChildInvocationMetrics_Mixin
-        end
+    if not defined?(::IceMX::ChildInvocationMetrics)
         class ChildInvocationMetrics < ::IceMX::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0)
@@ -240,10 +224,7 @@ module ::IceMX
         ])
     end
 
-    if not defined?(::IceMX::CollocatedMetrics_Mixin)
-
-        module ::IceMX::CollocatedMetrics_Mixin
-        end
+    if not defined?(::IceMX::CollocatedMetrics)
         class CollocatedMetrics < ::IceMX::ChildInvocationMetrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0)
@@ -258,10 +239,7 @@ module ::IceMX
         T_CollocatedMetrics.defineClass(CollocatedMetrics, -1, false, ::IceMX::T_ChildInvocationMetrics, [])
     end
 
-    if not defined?(::IceMX::RemoteMetrics_Mixin)
-
-        module ::IceMX::RemoteMetrics_Mixin
-        end
+    if not defined?(::IceMX::RemoteMetrics)
         class RemoteMetrics < ::IceMX::ChildInvocationMetrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0)
@@ -276,10 +254,7 @@ module ::IceMX
         T_RemoteMetrics.defineClass(RemoteMetrics, -1, false, ::IceMX::T_ChildInvocationMetrics, [])
     end
 
-    if not defined?(::IceMX::InvocationMetrics_Mixin)
-
-        module ::IceMX::InvocationMetrics_Mixin
-        end
+    if not defined?(::IceMX::InvocationMetrics)
         class InvocationMetrics < ::IceMX::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, _retry=0, userException=0, remotes=nil, collocated=nil)
@@ -305,10 +280,7 @@ module ::IceMX
         ])
     end
 
-    if not defined?(::IceMX::ConnectionMetrics_Mixin)
-
-        module ::IceMX::ConnectionMetrics_Mixin
-        end
+    if not defined?(::IceMX::ConnectionMetrics)
         class ConnectionMetrics < ::IceMX::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, receivedBytes=0, sentBytes=0)

@@ -240,10 +240,7 @@ module ::Test
         T_ColorPalette = ::Ice::__defineStruct('::Test::ColorPalette', ColorPalette, [["colors", ::Test::T_StringColorMap]])
     end
 
-    if not defined?(::Test::Pen_Mixin)
-
-        module ::Test::Pen_Mixin
-        end
+    if not defined?(::Test::Pen)
         class Pen < ::Ice::Value
 
             def initialize(thickness=0, color=::Test::Color.new)

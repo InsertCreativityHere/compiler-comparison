@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::SBase_Mixin)
-
-        module ::Test::SBase_Mixin
-        end
+    if not defined?(::Test::SBase)
         class SBase < ::Ice::Value
 
             def initialize(sb='')
@@ -38,10 +35,7 @@ module ::Test
         T_SBase.defineClass(SBase, -1, false, nil, [['sb', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::SBSKnownDerived_Mixin)
-
-        module ::Test::SBSKnownDerived_Mixin
-        end
+    if not defined?(::Test::SBSKnownDerived)
         class SBSKnownDerived < ::Test::SBase
 
             def initialize(sb='', sbskd='')
@@ -59,10 +53,7 @@ module ::Test
         T_SBSKnownDerived.defineClass(SBSKnownDerived, -1, false, ::Test::T_SBase, [['sbskd', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::B_Mixin)
-
-        module ::Test::B_Mixin
-        end
+    if not defined?(::Test::B)
         class B < ::Ice::Value
 
             def initialize(sb='', pb=nil)
@@ -83,10 +74,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::D1_Mixin)
-
-        module ::Test::D1_Mixin
-        end
+    if not defined?(::Test::D1)
         class D1 < ::Test::B
 
             def initialize(sb='', pb=nil, sd1='', pd1=nil)
@@ -112,10 +100,7 @@ module ::Test
         T_BSeq = ::Ice::__defineSequence('::Test::BSeq', ::Test::T_B)
     end
 
-    if not defined?(::Test::SS1_Mixin)
-
-        module ::Test::SS1_Mixin
-        end
+    if not defined?(::Test::SS1)
         class SS1 < ::Ice::Value
 
             def initialize(s=nil)
@@ -132,10 +117,7 @@ module ::Test
         T_SS1.defineClass(SS1, -1, false, nil, [['s', ::Test::T_BSeq, false, 0]])
     end
 
-    if not defined?(::Test::SS2_Mixin)
-
-        module ::Test::SS2_Mixin
-        end
+    if not defined?(::Test::SS2)
         class SS2 < ::Ice::Value
 
             def initialize(s=nil)
@@ -225,10 +207,7 @@ module ::Test
         T_Forward = ::Ice::__declareClass('::Test::Forward')
     end
 
-    if not defined?(::Test::PBase_Mixin)
-
-        module ::Test::PBase_Mixin
-        end
+    if not defined?(::Test::PBase)
         class PBase < ::Ice::Value
 
             def initialize(pi=0)
@@ -249,10 +228,7 @@ module ::Test
         T_PBaseSeq = ::Ice::__defineSequence('::Test::PBaseSeq', ::Test::T_PBase)
     end
 
-    if not defined?(::Test::Preserved_Mixin)
-
-        module ::Test::Preserved_Mixin
-        end
+    if not defined?(::Test::Preserved)
         class Preserved < ::Test::PBase
 
             def initialize(pi=0, ps='')
@@ -270,10 +246,7 @@ module ::Test
         T_Preserved.defineClass(Preserved, -1, false, ::Test::T_PBase, [['ps', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::PDerived_Mixin)
-
-        module ::Test::PDerived_Mixin
-        end
+    if not defined?(::Test::PDerived)
         class PDerived < ::Test::Preserved
 
             def initialize(pi=0, ps='', pb=nil)
@@ -291,10 +264,7 @@ module ::Test
         T_PDerived.defineClass(PDerived, -1, false, ::Test::T_Preserved, [['pb', ::Test::T_PBase, false, 0]])
     end
 
-    if not defined?(::Test::PNode_Mixin)
-
-        module ::Test::PNode_Mixin
-        end
+    if not defined?(::Test::PNode)
         class PNode < ::Ice::Value
 
             def initialize(_next=nil)
@@ -321,10 +291,7 @@ module ::Test
         T_PreservedException = ::Ice::__defineException('::Test::PreservedException', PreservedException, nil, [])
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def SBaseAsObject(context=nil)
@@ -482,7 +449,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
@@ -527,10 +493,7 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, true, ::Ice::FormatType::SlicedFormat, [], [], nil, [])
     end
 
-    if not defined?(::Test::SBSUnknownDerived_Mixin)
-
-        module ::Test::SBSUnknownDerived_Mixin
-        end
+    if not defined?(::Test::SBSUnknownDerived)
         class SBSUnknownDerived < ::Test::SBase
 
             def initialize(sb='', sbsud='')
@@ -548,10 +511,7 @@ module ::Test
         T_SBSUnknownDerived.defineClass(SBSUnknownDerived, -1, false, ::Test::T_SBase, [['sbsud', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::SUnknown_Mixin)
-
-        module ::Test::SUnknown_Mixin
-        end
+    if not defined?(::Test::SUnknown)
         class SUnknown < ::Ice::Value
 
             def initialize(su='', cycle=nil)
@@ -572,10 +532,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::D2_Mixin)
-
-        module ::Test::D2_Mixin
-        end
+    if not defined?(::Test::D2)
         class D2 < ::Test::B
 
             def initialize(sb='', pb=nil, sd2='', pd2=nil)
@@ -597,10 +554,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::D4_Mixin)
-
-        module ::Test::D4_Mixin
-        end
+    if not defined?(::Test::D4)
         class D4 < ::Test::B
 
             def initialize(sb='', pb=nil, p1=nil, p2=nil)
@@ -637,10 +591,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::MyClass_Mixin)
-
-        module ::Test::MyClass_Mixin
-        end
+    if not defined?(::Test::MyClass)
         class MyClass < ::Ice::Value
 
             def initialize(i=0)
@@ -657,10 +608,7 @@ module ::Test
         T_MyClass.defineClass(MyClass, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::PSUnknown_Mixin)
-
-        module ::Test::PSUnknown_Mixin
-        end
+    if not defined?(::Test::PSUnknown)
         class PSUnknown < ::Test::Preserved
 
             def initialize(pi=0, ps='', psu='', graph=nil, cl=nil)
@@ -684,10 +632,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::PSUnknown2_Mixin)
-
-        module ::Test::PSUnknown2_Mixin
-        end
+    if not defined?(::Test::PSUnknown2)
         class PSUnknown2 < ::Test::Preserved
 
             def initialize(pi=0, ps='', pb=nil)
@@ -717,10 +662,7 @@ module ::Test
         T_PSUnknownException = ::Ice::__defineException('::Test::PSUnknownException', PSUnknownException, ::Test::T_PreservedException, [["p", ::Test::T_PSUnknown2, false, 0]])
     end
 
-    if not defined?(::Test::Hidden_Mixin)
-
-        module ::Test::Hidden_Mixin
-        end
+    if not defined?(::Test::Hidden)
         class Hidden < ::Ice::Value
 
             def initialize(f=nil)
@@ -737,10 +679,7 @@ module ::Test
         T_Hidden.defineClass(Hidden, -1, false, nil, [['f', ::Test::T_Forward, false, 0]])
     end
 
-    if not defined?(::Test::Forward_Mixin)
-
-        module ::Test::Forward_Mixin
-        end
+    if not defined?(::Test::Forward)
         class Forward < ::Ice::Value
 
             def initialize(h=nil)

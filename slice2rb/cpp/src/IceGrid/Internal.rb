@@ -24,10 +24,7 @@ require 'IceGrid/Registry.rb'
 
 module ::IceGrid
 
-    if not defined?(::IceGrid::InternalDbEnvDescriptor_Mixin)
-
-        module ::IceGrid::InternalDbEnvDescriptor_Mixin
-        end
+    if not defined?(::IceGrid::InternalDbEnvDescriptor)
         class InternalDbEnvDescriptor < ::Ice::Value
 
             def initialize(name='', properties=nil)
@@ -52,10 +49,7 @@ module ::IceGrid
         T_InternalDbEnvDescriptorSeq = ::Ice::__defineSequence('::IceGrid::InternalDbEnvDescriptorSeq', ::IceGrid::T_InternalDbEnvDescriptor)
     end
 
-    if not defined?(::IceGrid::InternalAdapterDescriptor_Mixin)
-
-        module ::IceGrid::InternalAdapterDescriptor_Mixin
-        end
+    if not defined?(::IceGrid::InternalAdapterDescriptor)
         class InternalAdapterDescriptor < ::Ice::Value
 
             def initialize(id='', serverLifetime=false)
@@ -84,10 +78,7 @@ module ::IceGrid
         T_PropertyDescriptorSeqDict = ::Ice::__defineDictionary('::IceGrid::PropertyDescriptorSeqDict', ::Ice::T_string, ::IceGrid::T_PropertyDescriptorSeq)
     end
 
-    if not defined?(::IceGrid::InternalServerDescriptor_Mixin)
-
-        module ::IceGrid::InternalServerDescriptor_Mixin
-        end
+    if not defined?(::IceGrid::InternalServerDescriptor)
         class InternalServerDescriptor < ::Ice::Value
 
             def initialize(id='', application='', uuid='', revision=0, sessionId='', exe='', pwd='', user='', activation='', activationTimeout='', deactivationTimeout='', processRegistered=false, options=nil, envs=nil, logs=nil, adapters=nil, dbEnvs=nil, properties=nil, services=::Ice::Unset)
@@ -164,10 +155,7 @@ module ::IceGrid
         T_AdapterNotActiveException = ::Ice::__defineException('::IceGrid::AdapterNotActiveException', AdapterNotActiveException, nil, [["activatable", ::Ice::T_bool, false, 0]])
     end
 
-    if not defined?(::IceGrid::Adapter_Mixin)
-
-        module ::IceGrid::Adapter_Mixin
-        end
+    if not defined?(::IceGrid::AdapterPrx)
         module AdapterPrx_mixin
 
             def activate(context=nil)
@@ -189,7 +177,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_AdapterPrx)
-            T_Adapter = ::Ice::__declareClass('::IceGrid::Adapter')
             T_AdapterPrx = ::Ice::__declareProxy('::IceGrid::Adapter')
         end
 
@@ -216,10 +203,7 @@ module ::IceGrid
         T_AdapterPrxDict = ::Ice::__defineDictionary('::IceGrid::AdapterPrxDict', ::Ice::T_string, ::IceGrid::T_AdapterPrx)
     end
 
-    if not defined?(::IceGrid::FileReader_Mixin)
-
-        module ::IceGrid::FileReader_Mixin
-        end
+    if not defined?(::IceGrid::FileReaderPrx)
         module FileReaderPrx_mixin
 
             def getOffsetFromEnd(filename, lines, context=nil)
@@ -237,7 +221,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_FileReaderPrx)
-            T_FileReader = ::Ice::__declareClass('::IceGrid::FileReader')
             T_FileReaderPrx = ::Ice::__declareProxy('::IceGrid::FileReader')
         end
 
@@ -247,10 +230,7 @@ module ::IceGrid
         FileReaderPrx_mixin::OP_read = ::Ice::__defineOperation('read', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_long, false, 0], [::Ice::T_int, false, 0]], [[::Ice::T_long, false, 0], [::Ice::T_StringSeq, false, 0]], [::Ice::T_bool, false, 0], [::IceGrid::T_FileNotAvailableException])
     end
 
-    if not defined?(::IceGrid::Server_Mixin)
-
-        module ::IceGrid::Server_Mixin
-        end
+    if not defined?(::IceGrid::ServerPrx)
         module ServerPrx_mixin
             include ::IceGrid::FileReaderPrx_mixin
 
@@ -301,7 +281,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_ServerPrx)
-            T_Server = ::Ice::__declareClass('::IceGrid::Server')
             T_ServerPrx = ::Ice::__declareProxy('::IceGrid::Server')
         end
 
@@ -319,7 +298,7 @@ module ::IceGrid
         ServerPrx_mixin::OP_setProcess = ::Ice::__defineOperation('setProcess', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_ProcessPrx, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceGrid::T_InternalRegistry)
+    if not defined?(::IceGrid::T_InternalRegistryPrx)
         T_InternalRegistryPrx = ::Ice::__declareProxy('::IceGrid::InternalRegistry')
     end
 
@@ -327,10 +306,7 @@ module ::IceGrid
         T_InternalRegistryPrxSeq = ::Ice::__defineSequence('::IceGrid::InternalRegistryPrxSeq', ::IceGrid::T_InternalRegistryPrx)
     end
 
-    if not defined?(::IceGrid::ReplicaObserver_Mixin)
-
-        module ::IceGrid::ReplicaObserver_Mixin
-        end
+    if not defined?(::IceGrid::ReplicaObserverPrx)
         module ReplicaObserverPrx_mixin
 
             def replicaInit(replicas, context=nil)
@@ -352,7 +328,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_ReplicaObserverPrx)
-            T_ReplicaObserver = ::Ice::__declareClass('::IceGrid::ReplicaObserver')
             T_ReplicaObserverPrx = ::Ice::__declareProxy('::IceGrid::ReplicaObserver')
         end
 
@@ -363,10 +338,7 @@ module ::IceGrid
         ReplicaObserverPrx_mixin::OP_replicaRemoved = ::Ice::__defineOperation('replicaRemoved', ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_InternalRegistryPrx, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceGrid::Node_Mixin)
-
-        module ::IceGrid::Node_Mixin
-        end
+    if not defined?(::IceGrid::NodePrx)
         module NodePrx_mixin
             include ::IceGrid::FileReaderPrx_mixin
             include ::IceGrid::ReplicaObserverPrx_mixin
@@ -418,7 +390,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_NodePrx)
-            T_Node = ::Ice::__declareClass('::IceGrid::Node')
             T_NodePrx = ::Ice::__declareProxy('::IceGrid::Node')
         end
 
@@ -450,10 +421,7 @@ module ::IceGrid
         T_NodeActiveException = ::Ice::__defineException('::IceGrid::NodeActiveException', NodeActiveException, nil, [])
     end
 
-    if not defined?(::IceGrid::NodeSession_Mixin)
-
-        module ::IceGrid::NodeSession_Mixin
-        end
+    if not defined?(::IceGrid::NodeSessionPrx)
         module NodeSessionPrx_mixin
 
             def keepAlive(load, context=nil)
@@ -495,7 +463,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_NodeSessionPrx)
-            T_NodeSession = ::Ice::__declareClass('::IceGrid::NodeSession')
             T_NodeSessionPrx = ::Ice::__declareProxy('::IceGrid::NodeSession')
         end
 
@@ -573,10 +540,7 @@ module ::IceGrid
         T_TopicName = ::Ice::__defineEnum('::IceGrid::TopicName', TopicName, TopicName::_enumerators)
     end
 
-    if not defined?(::IceGrid::DatabaseObserver_Mixin)
-
-        module ::IceGrid::DatabaseObserver_Mixin
-        end
+    if not defined?(::IceGrid::DatabaseObserverPrx)
         module DatabaseObserverPrx_mixin
             include ::IceGrid::ApplicationObserverPrx_mixin
             include ::IceGrid::ObjectObserverPrx_mixin
@@ -589,7 +553,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_DatabaseObserverPrx)
-            T_DatabaseObserver = ::Ice::__declareClass('::IceGrid::DatabaseObserver')
             T_DatabaseObserverPrx = ::Ice::__declareProxy('::IceGrid::DatabaseObserver')
         end
 
@@ -600,10 +563,7 @@ module ::IceGrid
         T_StringLongDict = ::Ice::__defineDictionary('::IceGrid::StringLongDict', ::Ice::T_string, ::Ice::T_long)
     end
 
-    if not defined?(::IceGrid::ReplicaSession_Mixin)
-
-        module ::IceGrid::ReplicaSession_Mixin
-        end
+    if not defined?(::IceGrid::ReplicaSessionPrx)
         module ReplicaSessionPrx_mixin
 
             def keepAlive(context=nil)
@@ -645,7 +605,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_ReplicaSessionPrx)
-            T_ReplicaSession = ::Ice::__declareClass('::IceGrid::ReplicaSession')
             T_ReplicaSessionPrx = ::Ice::__declareProxy('::IceGrid::ReplicaSession')
         end
 
@@ -661,10 +620,7 @@ module ::IceGrid
         ReplicaSessionPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::IceGrid::InternalNodeInfo_Mixin)
-
-        module ::IceGrid::InternalNodeInfo_Mixin
-        end
+    if not defined?(::IceGrid::InternalNodeInfo)
         class InternalNodeInfo < ::Ice::Value
 
             def initialize(name='', os='', hostname='', release='', version='', machine='', nProcessors=0, dataDir='')
@@ -697,10 +653,7 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::InternalReplicaInfo_Mixin)
-
-        module ::IceGrid::InternalReplicaInfo_Mixin
-        end
+    if not defined?(::IceGrid::InternalReplicaInfo)
         class InternalReplicaInfo < ::Ice::Value
 
             def initialize(name='', hostname='')
@@ -721,10 +674,7 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::InternalRegistry_Mixin)
-
-        module ::IceGrid::InternalRegistry_Mixin
-        end
+    if not defined?(::IceGrid::InternalRegistryPrx)
         module InternalRegistryPrx_mixin
             include ::IceGrid::FileReaderPrx_mixin
 
@@ -771,7 +721,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_InternalRegistryPrx)
-            T_InternalRegistry = ::Ice::__declareClass('::IceGrid::InternalRegistry')
             T_InternalRegistryPrx = ::Ice::__declareProxy('::IceGrid::InternalRegistry')
         end
 

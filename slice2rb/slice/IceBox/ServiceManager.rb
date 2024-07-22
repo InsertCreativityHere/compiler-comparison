@@ -49,10 +49,7 @@ module ::IceBox
         T_NoSuchServiceException = ::Ice::__defineException('::IceBox::NoSuchServiceException', NoSuchServiceException, nil, [])
     end
 
-    if not defined?(::IceBox::ServiceObserver_Mixin)
-
-        module ::IceBox::ServiceObserver_Mixin
-        end
+    if not defined?(::IceBox::ServiceObserverPrx)
         module ServiceObserverPrx_mixin
 
             def servicesStarted(services, context=nil)
@@ -70,7 +67,6 @@ module ::IceBox
         end
 
         if not defined?(::IceBox::T_ServiceObserverPrx)
-            T_ServiceObserver = ::Ice::__declareClass('::IceBox::ServiceObserver')
             T_ServiceObserverPrx = ::Ice::__declareProxy('::IceBox::ServiceObserver')
         end
 
@@ -80,10 +76,7 @@ module ::IceBox
         ServiceObserverPrx_mixin::OP_servicesStopped = ::Ice::__defineOperation('servicesStopped', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceBox::ServiceManager_Mixin)
-
-        module ::IceBox::ServiceManager_Mixin
-        end
+    if not defined?(::IceBox::ServiceManagerPrx)
         module ServiceManagerPrx_mixin
 
             def startService(service, context=nil)
@@ -109,7 +102,6 @@ module ::IceBox
         end
 
         if not defined?(::IceBox::T_ServiceManagerPrx)
-            T_ServiceManager = ::Ice::__declareClass('::IceBox::ServiceManager')
             T_ServiceManagerPrx = ::Ice::__declareProxy('::IceBox::ServiceManager')
         end
 

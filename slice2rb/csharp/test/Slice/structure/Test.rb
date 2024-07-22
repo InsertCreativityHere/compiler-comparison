@@ -30,10 +30,7 @@ module ::Test
         T_StringDict = ::Ice::__defineDictionary('::Test::StringDict', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Test::C_Mixin)
-
-        module ::Test::C_Mixin
-        end
+    if not defined?(::Test::C)
         class C < ::Ice::Value
 
             def initialize(i=0)

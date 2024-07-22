@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test2
 
-    if not defined?(::Test2::C1_Mixin)
-
-        module ::Test2::C1_Mixin
-        end
+    if not defined?(::Test2::C1)
         class C1 < ::Ice::Value
 
             def initialize(i=0)
@@ -38,10 +35,7 @@ module ::Test2
         T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test2::C2_Mixin)
-
-        module ::Test2::C2_Mixin
-        end
+    if not defined?(::Test2::C2)
         class C2 < ::Test2::C1
 
             def initialize(i=0, l=0)
@@ -86,10 +80,7 @@ end
 
 module ::Test3
 
-    if not defined?(::Test3::C1_Mixin)
-
-        module ::Test3::C1_Mixin
-        end
+    if not defined?(::Test3::C1)
         class C1 < ::Ice::Value
 
             def initialize(i=0)
@@ -106,10 +97,7 @@ module ::Test3
         T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test3::C2_Mixin)
-
-        module ::Test3::C2_Mixin
-        end
+    if not defined?(::Test3::C2)
         class C2 < ::Test3::C1
 
             def initialize(i=0, l=0)

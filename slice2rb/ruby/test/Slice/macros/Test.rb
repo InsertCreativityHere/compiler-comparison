@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Default_Mixin)
-
-        module ::Test::Default_Mixin
-        end
+    if not defined?(::Test::Default)
         class Default < ::Ice::Value
 
             def initialize(x=10, y=10)
@@ -42,10 +39,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::NoDefault_Mixin)
-
-        module ::Test::NoDefault_Mixin
-        end
+    if not defined?(::Test::NoDefault)
         class NoDefault < ::Ice::Value
 
             def initialize(x=0, y=0)
@@ -66,10 +60,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::RubyOnly_Mixin)
-
-        module ::Test::RubyOnly_Mixin
-        end
+    if not defined?(::Test::RubyOnly)
         class RubyOnly < ::Ice::Value
 
             def initialize(lang="ruby", version=30850)

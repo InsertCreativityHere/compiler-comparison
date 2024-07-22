@@ -19,10 +19,7 @@ require_relative 'TestAMD.rb'
 
 module ::Test
 
-    if not defined?(::Test::SBSUnknownDerived_Mixin)
-
-        module ::Test::SBSUnknownDerived_Mixin
-        end
+    if not defined?(::Test::SBSUnknownDerived)
         class SBSUnknownDerived < ::Test::SBase
 
             def initialize(sb='', sbsud='')
@@ -40,10 +37,7 @@ module ::Test
         T_SBSUnknownDerived.defineClass(SBSUnknownDerived, -1, false, ::Test::T_SBase, [['sbsud', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::SUnknown_Mixin)
-
-        module ::Test::SUnknown_Mixin
-        end
+    if not defined?(::Test::SUnknown)
         class SUnknown < ::Ice::Value
 
             def initialize(su='', cycle=nil)
@@ -64,10 +58,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::D2_Mixin)
-
-        module ::Test::D2_Mixin
-        end
+    if not defined?(::Test::D2)
         class D2 < ::Test::B
 
             def initialize(sb='', pb=nil, sd2='', pd2=nil)
@@ -89,10 +80,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::D4_Mixin)
-
-        module ::Test::D4_Mixin
-        end
+    if not defined?(::Test::D4)
         class D4 < ::Test::B
 
             def initialize(sb='', pb=nil, p1=nil, p2=nil)
@@ -129,10 +117,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::MyClass_Mixin)
-
-        module ::Test::MyClass_Mixin
-        end
+    if not defined?(::Test::MyClass)
         class MyClass < ::Ice::Value
 
             def initialize(i=0)
@@ -149,10 +134,7 @@ module ::Test
         T_MyClass.defineClass(MyClass, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::PSUnknown_Mixin)
-
-        module ::Test::PSUnknown_Mixin
-        end
+    if not defined?(::Test::PSUnknown)
         class PSUnknown < ::Test::Preserved
 
             def initialize(pi=0, ps='', psu='', graph=nil, cl=nil)
@@ -176,10 +158,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::PSUnknown2_Mixin)
-
-        module ::Test::PSUnknown2_Mixin
-        end
+    if not defined?(::Test::PSUnknown2)
         class PSUnknown2 < ::Test::Preserved
 
             def initialize(pi=0, ps='', pb=nil)

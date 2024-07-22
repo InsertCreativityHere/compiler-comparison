@@ -95,10 +95,7 @@ module ::Abstract
         T_Break = ::Ice::__defineStruct('::abstract::break', Break, [["_case", ::Ice::T_int]])
     end
 
-    if not defined?(::Abstract::Catch_Mixin)
-
-        module ::Abstract::Catch_Mixin
-        end
+    if not defined?(::Abstract::CatchPrx)
         module CatchPrx_mixin
 
             def _checkedCast(_clone, context=nil)
@@ -112,7 +109,6 @@ module ::Abstract
         end
 
         if not defined?(::Abstract::T_CatchPrx)
-            T_Catch = ::Ice::__declareClass('::abstract::catch')
             T_CatchPrx = ::Ice::__declareProxy('::abstract::catch')
         end
 
@@ -121,10 +117,7 @@ module ::Abstract
         CatchPrx_mixin::OP_checkedCast = ::Ice::__defineOperation('checkedCast', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
-    if not defined?(::Abstract::Default_Mixin)
-
-        module ::Abstract::Default_Mixin
-        end
+    if not defined?(::Abstract::DefaultPrx)
         module DefaultPrx_mixin
 
             def _do(context=nil)
@@ -138,7 +131,6 @@ module ::Abstract
         end
 
         if not defined?(::Abstract::T_DefaultPrx)
-            T_Default = ::Ice::__declareClass('::abstract::default')
             T_DefaultPrx = ::Ice::__declareProxy('::abstract::default')
         end
 
@@ -147,10 +139,7 @@ module ::Abstract
         DefaultPrx_mixin::OP_do = ::Ice::__defineOperation('do', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Abstract::Else_Mixin)
-
-        module ::Abstract::Else_Mixin
-        end
+    if not defined?(::Abstract::Else)
         class Else < ::Ice::Value
 
             def initialize(_if=0, equals=nil, final=0)
@@ -173,10 +162,7 @@ module ::Abstract
         ])
     end
 
-    if not defined?(::Abstract::Finalize_Mixin)
-
-        module ::Abstract::Finalize_Mixin
-        end
+    if not defined?(::Abstract::FinalizePrx)
         module FinalizePrx_mixin
             include ::Abstract::DefaultPrx_mixin
             include ::Abstract::CatchPrx_mixin
@@ -188,7 +174,6 @@ module ::Abstract
         end
 
         if not defined?(::Abstract::T_FinalizePrx)
-            T_Finalize = ::Ice::__declareClass('::abstract::finalize')
             T_FinalizePrx = ::Ice::__declareProxy('::abstract::finalize')
         end
 
@@ -230,10 +215,7 @@ module ::Abstract
         ])
     end
 
-    if not defined?(::Abstract::New_Mixin)
-
-        module ::Abstract::New_Mixin
-        end
+    if not defined?(::Abstract::NewPrx)
         module NewPrx_mixin
 
             def notify(notifyAll, null, package, public, _return, static, strictfp, _super, context=nil)
@@ -247,7 +229,6 @@ module ::Abstract
         end
 
         if not defined?(::Abstract::T_NewPrx)
-            T_New = ::Ice::__declareClass('::abstract::new')
             T_NewPrx = ::Ice::__declareProxy('::abstract::new')
         end
 

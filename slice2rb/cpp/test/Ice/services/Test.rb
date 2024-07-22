@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Clock_Mixin)
-
-        module ::Test::Clock_Mixin
-        end
+    if not defined?(::Test::ClockPrx)
         module ClockPrx_mixin
 
             def tick(time, context=nil)
@@ -35,7 +32,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_ClockPrx)
-            T_Clock = ::Ice::__declareClass('::Test::Clock')
             T_ClockPrx = ::Ice::__declareProxy('::Test::Clock')
         end
 

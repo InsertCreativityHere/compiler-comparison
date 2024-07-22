@@ -19,10 +19,7 @@ require_relative 'Test.rb'
 
 module ::Test
 
-    if not defined?(::Test::Initial2_Mixin)
-
-        module ::Test::Initial2_Mixin
-        end
+    if not defined?(::Test::Initial2Prx)
         module Initial2Prx_mixin
 
             def opClassAndUnknownOptional(p, ovs, context=nil)
@@ -40,7 +37,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_Initial2Prx)
-            T_Initial2 = ::Ice::__declareClass('::Test::Initial2')
             T_Initial2Prx = ::Ice::__declareProxy('::Test::Initial2')
         end
 

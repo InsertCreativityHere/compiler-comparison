@@ -121,10 +121,7 @@ module ::Ice
         T_LogMessageSeq = ::Ice::__defineSequence('::Ice::LogMessageSeq', ::Ice::T_LogMessage)
     end
 
-    if not defined?(::Ice::RemoteLogger_Mixin)
-
-        module ::Ice::RemoteLogger_Mixin
-        end
+    if not defined?(::Ice::RemoteLoggerPrx)
         module RemoteLoggerPrx_mixin
 
             def init(prefix, logMessages, context=nil)
@@ -142,7 +139,6 @@ module ::Ice
         end
 
         if not defined?(::Ice::T_RemoteLoggerPrx)
-            T_RemoteLogger = ::Ice::__declareClass('::Ice::RemoteLogger')
             T_RemoteLoggerPrx = ::Ice::__declareProxy('::Ice::RemoteLogger')
         end
 
@@ -162,10 +158,7 @@ module ::Ice
         T_RemoteLoggerAlreadyAttachedException = ::Ice::__defineException('::Ice::RemoteLoggerAlreadyAttachedException', RemoteLoggerAlreadyAttachedException, nil, [])
     end
 
-    if not defined?(::Ice::LoggerAdmin_Mixin)
-
-        module ::Ice::LoggerAdmin_Mixin
-        end
+    if not defined?(::Ice::LoggerAdminPrx)
         module LoggerAdminPrx_mixin
 
             def attachRemoteLogger(prx, messageTypes, traceCategories, messageMax, context=nil)
@@ -187,7 +180,6 @@ module ::Ice
         end
 
         if not defined?(::Ice::T_LoggerAdminPrx)
-            T_LoggerAdmin = ::Ice::__declareClass('::Ice::LoggerAdmin')
             T_LoggerAdminPrx = ::Ice::__declareProxy('::Ice::LoggerAdmin')
         end
 

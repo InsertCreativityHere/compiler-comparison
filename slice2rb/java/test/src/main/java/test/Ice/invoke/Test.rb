@@ -28,10 +28,7 @@ module ::Test
         T_MyException = ::Ice::__defineException('::Test::MyException', MyException, nil, [])
     end
 
-    if not defined?(::Test::MyClass_Mixin)
-
-        module ::Test::MyClass_Mixin
-        end
+    if not defined?(::Test::MyClassPrx)
         module MyClassPrx_mixin
 
             def opOneway(context=nil)
@@ -57,7 +54,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_MyClassPrx)
-            T_MyClass = ::Ice::__declareClass('::Test::MyClass')
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 

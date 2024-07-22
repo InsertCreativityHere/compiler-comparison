@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Event_Mixin)
-
-        module ::Test::Event_Mixin
-        end
+    if not defined?(::Test::EventPrx)
         module EventPrx_mixin
 
             def pub(counter, context=nil)
@@ -35,7 +32,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_EventPrx)
-            T_Event = ::Ice::__declareClass('::Test::Event')
             T_EventPrx = ::Ice::__declareProxy('::Test::Event')
         end
 

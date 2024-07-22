@@ -19,10 +19,7 @@ require 'Ice/Identity.rb'
 
 module ::IceDiscovery
 
-    if not defined?(::IceDiscovery::LookupReply_Mixin)
-
-        module ::IceDiscovery::LookupReply_Mixin
-        end
+    if not defined?(::IceDiscovery::LookupReplyPrx)
         module LookupReplyPrx_mixin
 
             def foundObjectById(id, prx, context=nil)
@@ -40,7 +37,6 @@ module ::IceDiscovery
         end
 
         if not defined?(::IceDiscovery::T_LookupReplyPrx)
-            T_LookupReply = ::Ice::__declareClass('::IceDiscovery::LookupReply')
             T_LookupReplyPrx = ::Ice::__declareProxy('::IceDiscovery::LookupReply')
         end
 
@@ -50,10 +46,7 @@ module ::IceDiscovery
         LookupReplyPrx_mixin::OP_foundAdapterById = ::Ice::__defineOperation('foundAdapterById', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_ObjectPrx, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceDiscovery::Lookup_Mixin)
-
-        module ::IceDiscovery::Lookup_Mixin
-        end
+    if not defined?(::IceDiscovery::LookupPrx)
         module LookupPrx_mixin
 
             def findObjectById(domainId, id, reply, context=nil)
@@ -71,7 +64,6 @@ module ::IceDiscovery
         end
 
         if not defined?(::IceDiscovery::T_LookupPrx)
-            T_Lookup = ::Ice::__declareClass('::IceDiscovery::Lookup')
             T_LookupPrx = ::Ice::__declareProxy('::IceDiscovery::Lookup')
         end
 

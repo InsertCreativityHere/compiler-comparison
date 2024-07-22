@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Empty_Mixin)
-
-        module ::Test::Empty_Mixin
-        end
+    if not defined?(::Test::Empty)
         class Empty < ::Ice::Value
         end
 
@@ -32,10 +29,7 @@ module ::Test
         T_Empty.defineClass(Empty, -1, false, nil, [])
     end
 
-    if not defined?(::Test::AlsoEmpty_Mixin)
-
-        module ::Test::AlsoEmpty_Mixin
-        end
+    if not defined?(::Test::AlsoEmpty)
         class AlsoEmpty < ::Ice::Value
         end
 
@@ -46,10 +40,7 @@ module ::Test
         T_AlsoEmpty.defineClass(AlsoEmpty, -1, false, nil, [])
     end
 
-    if not defined?(::Test::UnexpectedObjectExceptionTest_Mixin)
-
-        module ::Test::UnexpectedObjectExceptionTest_Mixin
-        end
+    if not defined?(::Test::UnexpectedObjectExceptionTestPrx)
         module UnexpectedObjectExceptionTestPrx_mixin
 
             def op(context=nil)
@@ -63,7 +54,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_UnexpectedObjectExceptionTestPrx)
-            T_UnexpectedObjectExceptionTest = ::Ice::__declareClass('::Test::UnexpectedObjectExceptionTest')
             T_UnexpectedObjectExceptionTestPrx = ::Ice::__declareProxy('::Test::UnexpectedObjectExceptionTest')
         end
 
@@ -72,10 +62,7 @@ module ::Test
         UnexpectedObjectExceptionTestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_AlsoEmpty, false, 0], [])
     end
 
-    if not defined?(::Test::COneMember_Mixin)
-
-        module ::Test::COneMember_Mixin
-        end
+    if not defined?(::Test::COneMember)
         class COneMember < ::Ice::Value
 
             def initialize(e=nil)
@@ -92,10 +79,7 @@ module ::Test
         T_COneMember.defineClass(COneMember, -1, false, nil, [['e', ::Test::T_Empty, false, 0]])
     end
 
-    if not defined?(::Test::CTwoMembers_Mixin)
-
-        module ::Test::CTwoMembers_Mixin
-        end
+    if not defined?(::Test::CTwoMembers)
         class CTwoMembers < ::Ice::Value
 
             def initialize(e1=nil, e2=nil)

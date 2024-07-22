@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Ice
 
-    if not defined?(::Ice::Process_Mixin)
-
-        module ::Ice::Process_Mixin
-        end
+    if not defined?(::Ice::ProcessPrx)
         module ProcessPrx_mixin
 
             def shutdown(context=nil)
@@ -39,7 +36,6 @@ module ::Ice
         end
 
         if not defined?(::Ice::T_ProcessPrx)
-            T_Process = ::Ice::__declareClass('::Ice::Process')
             T_ProcessPrx = ::Ice::__declareProxy('::Ice::Process')
         end
 

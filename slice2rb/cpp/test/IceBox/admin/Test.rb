@@ -19,10 +19,7 @@ require 'Ice/PropertyDict.rb'
 
 module ::Test
 
-    if not defined?(::Test::TestFacet_Mixin)
-
-        module ::Test::TestFacet_Mixin
-        end
+    if not defined?(::Test::TestFacetPrx)
         module TestFacetPrx_mixin
 
             def getChanges(context=nil)
@@ -36,7 +33,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestFacetPrx)
-            T_TestFacet = ::Ice::__declareClass('::Test::TestFacet')
             T_TestFacetPrx = ::Ice::__declareProxy('::Test::TestFacet')
         end
 

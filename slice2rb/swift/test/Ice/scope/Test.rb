@@ -55,10 +55,7 @@ module ::Test
         T_SSeq = ::Ice::__defineSequence('::Test::SSeq', ::Test::T_S)
     end
 
-    if not defined?(::Test::C_Mixin)
-
-        module ::Test::C_Mixin
-        end
+    if not defined?(::Test::C)
         class C < ::Ice::Value
 
             def initialize(s=::Test::S.new)
@@ -170,10 +167,7 @@ module ::Test
         T_S1Map = ::Ice::__defineDictionary('::Test::S1Map', ::Ice::T_string, ::Test::T_S1)
     end
 
-    if not defined?(::Test::C1_Mixin)
-
-        module ::Test::C1_Mixin
-        end
+    if not defined?(::Test::C1)
         class C1 < ::Ice::Value
 
             def initialize(s='')
@@ -237,10 +231,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::C2_Mixin)
-
-        module ::Test::C2_Mixin
-        end
+    if not defined?(::Test::C2)
         class C2 < ::Ice::Value
 
             def initialize(e1=::Test::E1::V1, s1=::Test::S1.new, c1=nil, s1Seq=nil, s1Map=nil)
@@ -267,10 +258,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::I_Mixin)
-
-        module ::Test::I_Mixin
-        end
+    if not defined?(::Test::IPrx)
         module IPrx_mixin
 
             def opS(s1, context=nil)
@@ -328,7 +316,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_IPrx)
-            T_I = ::Ice::__declareClass('::Test::I')
             T_IPrx = ::Ice::__declareProxy('::Test::I')
         end
 
@@ -426,10 +413,7 @@ module ::Test
                 T_SSeq = ::Ice::__defineSequence('::Test::Inner::Inner2::SSeq', ::Test::Inner::Inner2::T_S)
             end
 
-            if not defined?(::Test::Inner::Inner2::C_Mixin)
-
-                module ::Test::Inner::Inner2::C_Mixin
-                end
+            if not defined?(::Test::Inner::Inner2::C)
                 class C < ::Ice::Value
 
                     def initialize(s=::Test::Inner::Inner2::S.new)
@@ -454,10 +438,7 @@ module ::Test
                 T_CSeq = ::Ice::__defineSequence('::Test::Inner::Inner2::CSeq', ::Test::Inner::Inner2::T_C)
             end
 
-            if not defined?(::Test::Inner::Inner2::I_Mixin)
-
-                module ::Test::Inner::Inner2::I_Mixin
-                end
+            if not defined?(::Test::Inner::Inner2::IPrx)
                 module IPrx_mixin
 
                     def opS(s1, context=nil)
@@ -495,7 +476,6 @@ module ::Test
                 end
 
                 if not defined?(::Test::Inner::Inner2::T_IPrx)
-                    T_I = ::Ice::__declareClass('::Test::Inner::Inner2::I')
                     T_IPrx = ::Ice::__declareProxy('::Test::Inner::Inner2::I')
                 end
 
@@ -519,10 +499,7 @@ module ::Test
             end
         end
 
-        if not defined?(::Test::Inner::C_Mixin)
-
-            module ::Test::Inner::C_Mixin
-            end
+        if not defined?(::Test::Inner::C)
             class C < ::Ice::Value
 
                 def initialize(s=::Test::Inner::S.new)
@@ -555,10 +532,7 @@ module ::Test
             T_CSeq = ::Ice::__defineSequence('::Test::Inner::CSeq', ::Test::Inner::Inner2::T_C)
         end
 
-        if not defined?(::Test::Inner::I_Mixin)
-
-            module ::Test::Inner::I_Mixin
-            end
+        if not defined?(::Test::Inner::IPrx)
             module IPrx_mixin
 
                 def opS(s1, context=nil)
@@ -596,7 +570,6 @@ module ::Test
             end
 
             if not defined?(::Test::Inner::T_IPrx)
-                T_I = ::Ice::__declareClass('::Test::Inner::I')
                 T_IPrx = ::Ice::__declareProxy('::Test::Inner::I')
             end
 
@@ -627,10 +600,7 @@ module ::Inner
 
         module Inner2
 
-            if not defined?(::Inner::Test::Inner2::I_Mixin)
-
-                module ::Inner::Test::Inner2::I_Mixin
-                end
+            if not defined?(::Inner::Test::Inner2::IPrx)
                 module IPrx_mixin
 
                     def opS(s1, context=nil)
@@ -668,7 +638,6 @@ module ::Inner
                 end
 
                 if not defined?(::Inner::Test::Inner2::T_IPrx)
-                    T_I = ::Ice::__declareClass('::Inner::Test::Inner2::I')
                     T_IPrx = ::Ice::__declareProxy('::Inner::Test::Inner2::I')
                 end
 

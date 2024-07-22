@@ -20,7 +20,7 @@ require_relative 'Metrics.rb'
 
 module ::IceStorm
 
-    if not defined?(::IceStorm::T_Topic)
+    if not defined?(::IceStorm::T_TopicPrx)
         T_TopicPrx = ::Ice::__declareProxy('::IceStorm::Topic')
     end
 
@@ -129,10 +129,7 @@ module ::IceStorm
         T_BadQoS = ::Ice::__defineException('::IceStorm::BadQoS', BadQoS, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceStorm::Topic_Mixin)
-
-        module ::IceStorm::Topic_Mixin
-        end
+    if not defined?(::IceStorm::TopicPrx)
         module TopicPrx_mixin
 
             def getName(context=nil)
@@ -182,7 +179,6 @@ module ::IceStorm
         end
 
         if not defined?(::IceStorm::T_TopicPrx)
-            T_Topic = ::Ice::__declareClass('::IceStorm::Topic')
             T_TopicPrx = ::Ice::__declareProxy('::IceStorm::Topic')
         end
 
@@ -228,10 +224,7 @@ module ::IceStorm
         T_NoSuchTopic = ::Ice::__defineException('::IceStorm::NoSuchTopic', NoSuchTopic, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceStorm::TopicManager_Mixin)
-
-        module ::IceStorm::TopicManager_Mixin
-        end
+    if not defined?(::IceStorm::TopicManagerPrx)
         module TopicManagerPrx_mixin
 
             def create(name, context=nil)
@@ -253,7 +246,6 @@ module ::IceStorm
         end
 
         if not defined?(::IceStorm::T_TopicManagerPrx)
-            T_TopicManager = ::Ice::__declareClass('::IceStorm::TopicManager')
             T_TopicManagerPrx = ::Ice::__declareProxy('::IceStorm::TopicManager')
         end
 
@@ -264,10 +256,7 @@ module ::IceStorm
         TopicManagerPrx_mixin::OP_retrieveAll = ::Ice::__defineOperation('retrieveAll', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStorm::T_TopicDict, false, 0], [])
     end
 
-    if not defined?(::IceStorm::Finder_Mixin)
-
-        module ::IceStorm::Finder_Mixin
-        end
+    if not defined?(::IceStorm::FinderPrx)
         module FinderPrx_mixin
 
             def getTopicManager(context=nil)
@@ -281,7 +270,6 @@ module ::IceStorm
         end
 
         if not defined?(::IceStorm::T_FinderPrx)
-            T_Finder = ::Ice::__declareClass('::IceStorm::Finder')
             T_FinderPrx = ::Ice::__declareProxy('::IceStorm::Finder')
         end
 

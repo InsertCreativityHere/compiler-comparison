@@ -30,10 +30,7 @@ module ::Test
         T_StringSeq = ::Ice::__defineSequence('::Test::StringSeq', ::Ice::T_string)
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def opByteSpan(dataIn, context=nil)
@@ -71,7 +68,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 

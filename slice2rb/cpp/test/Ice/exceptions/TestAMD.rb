@@ -19,10 +19,7 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
-    if not defined?(::Test::Empty_Mixin)
-
-        module ::Test::Empty_Mixin
-        end
+    if not defined?(::Test::EmptyPrx)
         module EmptyPrx_mixin
         end
 
@@ -32,14 +29,13 @@ module ::Test
         end
 
         if not defined?(::Test::T_EmptyPrx)
-            T_Empty = ::Ice::__declareClass('::Test::Empty')
             T_EmptyPrx = ::Ice::__declareProxy('::Test::Empty')
         end
 
         T_EmptyPrx.defineProxy(EmptyPrx, nil, [])
     end
 
-    if not defined?(::Test::T_Thrower)
+    if not defined?(::Test::T_ThrowerPrx)
         T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
     end
 
@@ -130,10 +126,7 @@ module ::Test
         end
     end
 
-    if not defined?(::Test::Thrower_Mixin)
-
-        module ::Test::Thrower_Mixin
-        end
+    if not defined?(::Test::ThrowerPrx)
         module ThrowerPrx_mixin
 
             def shutdown(context=nil)
@@ -235,7 +228,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_ThrowerPrx)
-            T_Thrower = ::Ice::__declareClass('::Test::Thrower')
             T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
         end
 
@@ -266,10 +258,7 @@ module ::Test
         ThrowerPrx_mixin::OP_throwF = ::Ice::__defineOperation('throwF', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::T_F])
     end
 
-    if not defined?(::Test::WrongOperation_Mixin)
-
-        module ::Test::WrongOperation_Mixin
-        end
+    if not defined?(::Test::WrongOperationPrx)
         module WrongOperationPrx_mixin
 
             def noSuchOperation(context=nil)
@@ -283,7 +272,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_WrongOperationPrx)
-            T_WrongOperation = ::Ice::__declareClass('::Test::WrongOperation')
             T_WrongOperationPrx = ::Ice::__declareProxy('::Test::WrongOperation')
         end
 

@@ -68,7 +68,7 @@ module ::Test
         T_MyEnum = ::Ice::__defineEnum('::Test::MyEnum', MyEnum, MyEnum::_enumerators)
     end
 
-    if not defined?(::Test::T_Initial)
+    if not defined?(::Test::T_InitialPrx)
         T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
     end
 
@@ -175,10 +175,7 @@ module ::Test
         T_StringBaseD = ::Ice::__defineDictionary('::Test::StringBaseD', ::Ice::T_string, ::Test::T_Base)
     end
 
-    if not defined?(::Test::Base_Mixin)
-
-        module ::Test::Base_Mixin
-        end
+    if not defined?(::Test::Base)
         class Base < ::Ice::Value
 
             def initialize(b=nil, o=nil, s=::Test::Struct1.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, d1=nil, d2=nil, d3=nil, d4=nil)
@@ -217,10 +214,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::Derived_Mixin)
-
-        module ::Test::Derived_Mixin
-        end
+    if not defined?(::Test::Derived)
         class Derived < ::Test::Base
 
             def initialize(b=nil, o=nil, s=::Test::Struct1.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, d1=nil, d2=nil, d3=nil, d4=nil, p=nil)
@@ -253,10 +247,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::Initial_Mixin)
-
-        module ::Test::Initial_Mixin
-        end
+    if not defined?(::Test::InitialPrx)
         module InitialPrx_mixin
 
             def getStruct1(context=nil)
@@ -282,7 +273,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_InitialPrx)
-            T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 

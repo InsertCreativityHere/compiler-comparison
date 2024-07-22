@@ -105,10 +105,7 @@ module ::Test
         T_NDGSS = ::Ice::__defineDictionary('::Test::NDGSS', ::Ice::T_string, ::Test::T_GSS)
     end
 
-    if not defined?(::Test::MyClass_Mixin)
-
-        module ::Test::MyClass_Mixin
-        end
+    if not defined?(::Test::MyClassPrx)
         module MyClassPrx_mixin
 
             def shutdown(context=nil)
@@ -154,7 +151,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_MyClassPrx)
-            T_MyClass = ::Ice::__declareClass('::Test::MyClass')
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 

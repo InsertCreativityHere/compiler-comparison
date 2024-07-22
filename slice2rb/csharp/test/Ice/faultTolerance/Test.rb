@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def shutdown(context=nil)
@@ -47,7 +44,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
@@ -59,10 +55,7 @@ module ::Test
         TestIntfPrx_mixin::OP_pid = ::Ice::__defineOperation('pid', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
     end
 
-    if not defined?(::Test::Cleaner_Mixin)
-
-        module ::Test::Cleaner_Mixin
-        end
+    if not defined?(::Test::CleanerPrx)
         module CleanerPrx_mixin
 
             def cleanup(context=nil)
@@ -76,7 +69,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_CleanerPrx)
-            T_Cleaner = ::Ice::__declareClass('::Test::Cleaner')
             T_CleanerPrx = ::Ice::__declareProxy('::Test::Cleaner')
         end
 

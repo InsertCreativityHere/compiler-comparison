@@ -80,10 +80,7 @@ module ::Test
             T_Complex128Seq = ::Ice::__defineSequence('::Test::NumPy::Complex128Seq', ::Ice::T_byte)
         end
 
-        if not defined?(::Test::NumPy::D_Mixin)
-
-            module ::Test::NumPy::D_Mixin
-            end
+        if not defined?(::Test::NumPy::D)
             class D < ::Ice::Value
 
                 def initialize(boolSeq=::Ice::Unset, byteSeq=::Ice::Unset, shortSeq=::Ice::Unset, intSeq=::Ice::Unset, longSeq=::Ice::Unset, floatSeq=::Ice::Unset, doubleSeq=::Ice::Unset)
@@ -114,10 +111,7 @@ module ::Test
             ])
         end
 
-        if not defined?(::Test::NumPy::Custom_Mixin)
-
-            module ::Test::NumPy::Custom_Mixin
-            end
+        if not defined?(::Test::NumPy::CustomPrx)
             module CustomPrx_mixin
 
                 def opBoolSeq(v1, context=nil)
@@ -199,7 +193,6 @@ module ::Test
             end
 
             if not defined?(::Test::NumPy::T_CustomPrx)
-                T_Custom = ::Ice::__declareClass('::Test::NumPy::Custom')
                 T_CustomPrx = ::Ice::__declareProxy('::Test::NumPy::Custom')
             end
 

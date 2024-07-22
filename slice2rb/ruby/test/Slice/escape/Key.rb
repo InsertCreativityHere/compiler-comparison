@@ -95,10 +95,7 @@ module ::BEGIN_
         T_And = ::Ice::__defineStruct('::BEGIN::and', And, [["_begin", ::Ice::T_int]])
     end
 
-    if not defined?(::BEGIN_::Break_Mixin)
-
-        module ::BEGIN_::Break_Mixin
-        end
+    if not defined?(::BEGIN_::BreakPrx)
         module BreakPrx_mixin
 
             def _case(_clone, _def, context=nil)
@@ -124,7 +121,6 @@ module ::BEGIN_
         end
 
         if not defined?(::BEGIN_::T_BreakPrx)
-            T_Break = ::Ice::__declareClass('::BEGIN::break')
             T_BreakPrx = ::Ice::__declareProxy('::BEGIN::break')
         end
 
@@ -136,10 +132,7 @@ module ::BEGIN_
         BreakPrx_mixin::OP_instance_variables = ::Ice::__defineOperation('instance_variables', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::BEGIN_::Display_Mixin)
-
-        module ::BEGIN_::Display_Mixin
-        end
+    if not defined?(::BEGIN_::Display)
         class Display < ::Ice::Value
 
             def initialize(_when=0, _do=0, _dup=nil, _else=0)
@@ -164,10 +157,7 @@ module ::BEGIN_
         ])
     end
 
-    if not defined?(::BEGIN_::Elsif_Mixin)
-
-        module ::BEGIN_::Elsif_Mixin
-        end
+    if not defined?(::BEGIN_::ElsifPrx)
         module ElsifPrx_mixin
             include ::BEGIN_::BreakPrx_mixin
         end
@@ -178,7 +168,6 @@ module ::BEGIN_
         end
 
         if not defined?(::BEGIN_::T_ElsifPrx)
-            T_Elsif = ::Ice::__declareClass('::BEGIN::elsif')
             T_ElsifPrx = ::Ice::__declareProxy('::BEGIN::elsif')
         end
 
@@ -220,10 +209,7 @@ module ::BEGIN_
         ])
     end
 
-    if not defined?(::BEGIN_::Extend_Mixin)
-
-        module ::BEGIN_::Extend_Mixin
-        end
+    if not defined?(::BEGIN_::ExtendPrx)
         module ExtendPrx_mixin
 
             def _for(_freeze, _hash, _if, _inspect, _method, _methods, context=nil)
@@ -237,7 +223,6 @@ module ::BEGIN_
         end
 
         if not defined?(::BEGIN_::T_ExtendPrx)
-            T_Extend = ::Ice::__declareClass('::BEGIN::extend')
             T_ExtendPrx = ::Ice::__declareProxy('::BEGIN::extend')
         end
 

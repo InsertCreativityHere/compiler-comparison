@@ -20,10 +20,7 @@ require_relative 'Forward.rb'
 
 module ::Test
 
-    if not defined?(::Test::Derived_Mixin)
-
-        module ::Test::Derived_Mixin
-        end
+    if not defined?(::Test::Derived)
         class Derived < ::Test::Base
 
             def initialize(theS=::Test::S.new, str='', b='')

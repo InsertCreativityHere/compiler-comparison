@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Controller_Mixin)
-
-        module ::Test::Controller_Mixin
-        end
+    if not defined?(::Test::ControllerPrx)
         module ControllerPrx_mixin
 
             def stop(context=nil)
@@ -35,7 +32,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_ControllerPrx)
-            T_Controller = ::Ice::__declareClass('::Test::Controller')
             T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end
 

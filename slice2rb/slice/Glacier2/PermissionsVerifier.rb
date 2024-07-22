@@ -31,10 +31,7 @@ module ::Glacier2
         T_PermissionDeniedException = ::Ice::__defineException('::Glacier2::PermissionDeniedException', PermissionDeniedException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Glacier2::PermissionsVerifier_Mixin)
-
-        module ::Glacier2::PermissionsVerifier_Mixin
-        end
+    if not defined?(::Glacier2::PermissionsVerifierPrx)
         module PermissionsVerifierPrx_mixin
 
             def checkPermissions(userId, password, context=nil)
@@ -48,7 +45,6 @@ module ::Glacier2
         end
 
         if not defined?(::Glacier2::T_PermissionsVerifierPrx)
-            T_PermissionsVerifier = ::Ice::__declareClass('::Glacier2::PermissionsVerifier')
             T_PermissionsVerifierPrx = ::Ice::__declareProxy('::Glacier2::PermissionsVerifier')
         end
 
@@ -57,10 +53,7 @@ module ::Glacier2
         PermissionsVerifierPrx_mixin::OP_checkPermissions = ::Ice::__defineOperation('checkPermissions', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_bool, false, 0], [::Glacier2::T_PermissionDeniedException])
     end
 
-    if not defined?(::Glacier2::SSLPermissionsVerifier_Mixin)
-
-        module ::Glacier2::SSLPermissionsVerifier_Mixin
-        end
+    if not defined?(::Glacier2::SSLPermissionsVerifierPrx)
         module SSLPermissionsVerifierPrx_mixin
 
             def authorize(info, context=nil)
@@ -74,7 +67,6 @@ module ::Glacier2
         end
 
         if not defined?(::Glacier2::T_SSLPermissionsVerifierPrx)
-            T_SSLPermissionsVerifier = ::Ice::__declareClass('::Glacier2::SSLPermissionsVerifier')
             T_SSLPermissionsVerifierPrx = ::Ice::__declareProxy('::Glacier2::SSLPermissionsVerifier')
         end
 

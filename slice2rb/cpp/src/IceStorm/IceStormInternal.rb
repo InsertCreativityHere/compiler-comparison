@@ -69,10 +69,7 @@ module ::IceStorm
         T_EventDataSeq = ::Ice::__defineSequence('::IceStorm::EventDataSeq', ::IceStorm::T_EventData)
     end
 
-    if not defined?(::IceStorm::TopicLink_Mixin)
-
-        module ::IceStorm::TopicLink_Mixin
-        end
+    if not defined?(::IceStorm::TopicLinkPrx)
         module TopicLinkPrx_mixin
 
             def forward(events, context=nil)
@@ -86,7 +83,6 @@ module ::IceStorm
         end
 
         if not defined?(::IceStorm::T_TopicLinkPrx)
-            T_TopicLink = ::Ice::__declareClass('::IceStorm::TopicLink')
             T_TopicLinkPrx = ::Ice::__declareProxy('::IceStorm::TopicLink')
         end
 
@@ -105,10 +101,7 @@ module ::IceStorm
         T_ReapWouldBlock = ::Ice::__defineException('::IceStorm::ReapWouldBlock', ReapWouldBlock, nil, [])
     end
 
-    if not defined?(::IceStorm::TopicInternal_Mixin)
-
-        module ::IceStorm::TopicInternal_Mixin
-        end
+    if not defined?(::IceStorm::TopicInternalPrx)
         module TopicInternalPrx_mixin
             include ::IceStorm::TopicPrx_mixin
 
@@ -127,7 +120,6 @@ module ::IceStorm
         end
 
         if not defined?(::IceStorm::T_TopicInternalPrx)
-            T_TopicInternal = ::Ice::__declareClass('::IceStorm::TopicInternal')
             T_TopicInternalPrx = ::Ice::__declareProxy('::IceStorm::TopicInternal')
         end
 
@@ -137,10 +129,7 @@ module ::IceStorm
         TopicInternalPrx_mixin::OP_reap = ::Ice::__defineOperation('reap', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_IdentitySeq, false, 0]], [], nil, [::IceStorm::T_ReapWouldBlock])
     end
 
-    if not defined?(::IceStorm::TopicManagerInternal_Mixin)
-
-        module ::IceStorm::TopicManagerInternal_Mixin
-        end
+    if not defined?(::IceStorm::TopicManagerInternalPrx)
         module TopicManagerInternalPrx_mixin
             include ::IceStorm::TopicManagerPrx_mixin
 
@@ -155,7 +144,6 @@ module ::IceStorm
         end
 
         if not defined?(::IceStorm::T_TopicManagerInternalPrx)
-            T_TopicManagerInternal = ::Ice::__declareClass('::IceStorm::TopicManagerInternal')
             T_TopicManagerInternalPrx = ::Ice::__declareProxy('::IceStorm::TopicManagerInternal')
         end
 

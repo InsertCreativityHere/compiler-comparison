@@ -20,10 +20,7 @@ module ::Test
 
     module MA
 
-        if not defined?(::Test::MA::IA_Mixin)
-
-            module ::Test::MA::IA_Mixin
-            end
+        if not defined?(::Test::MA::IAPrx)
             module IAPrx_mixin
 
                 def iaop(p, context=nil)
@@ -37,7 +34,6 @@ module ::Test
             end
 
             if not defined?(::Test::MA::T_IAPrx)
-                T_IA = ::Ice::__declareClass('::Test::MA::IA')
                 T_IAPrx = ::Ice::__declareProxy('::Test::MA::IA')
             end
 
@@ -49,10 +45,7 @@ module ::Test
 
     module MB
 
-        if not defined?(::Test::MB::IB1_Mixin)
-
-            module ::Test::MB::IB1_Mixin
-            end
+        if not defined?(::Test::MB::IB1Prx)
             module IB1Prx_mixin
                 include ::Test::MA::IAPrx_mixin
 
@@ -67,7 +60,6 @@ module ::Test
             end
 
             if not defined?(::Test::MB::T_IB1Prx)
-                T_IB1 = ::Ice::__declareClass('::Test::MB::IB1')
                 T_IB1Prx = ::Ice::__declareProxy('::Test::MB::IB1')
             end
 
@@ -76,10 +68,7 @@ module ::Test
             IB1Prx_mixin::OP_ib1op = ::Ice::__defineOperation('ib1op', ::Ice::OperationMode::Normal, false, nil, [[::Test::MB::T_IB1Prx, false, 0]], [], [::Test::MB::T_IB1Prx, false, 0], [])
         end
 
-        if not defined?(::Test::MB::IB2_Mixin)
-
-            module ::Test::MB::IB2_Mixin
-            end
+        if not defined?(::Test::MB::IB2Prx)
             module IB2Prx_mixin
                 include ::Test::MA::IAPrx_mixin
 
@@ -94,7 +83,6 @@ module ::Test
             end
 
             if not defined?(::Test::MB::T_IB2Prx)
-                T_IB2 = ::Ice::__declareClass('::Test::MB::IB2')
                 T_IB2Prx = ::Ice::__declareProxy('::Test::MB::IB2')
             end
 
@@ -106,10 +94,7 @@ module ::Test
 
     module MA
 
-        if not defined?(::Test::MA::IC_Mixin)
-
-            module ::Test::MA::IC_Mixin
-            end
+        if not defined?(::Test::MA::ICPrx)
             module ICPrx_mixin
                 include ::Test::MB::IB1Prx_mixin
                 include ::Test::MB::IB2Prx_mixin
@@ -125,7 +110,6 @@ module ::Test
             end
 
             if not defined?(::Test::MA::T_ICPrx)
-                T_IC = ::Ice::__declareClass('::Test::MA::IC')
                 T_ICPrx = ::Ice::__declareProxy('::Test::MA::IC')
             end
 
@@ -135,10 +119,7 @@ module ::Test
         end
     end
 
-    if not defined?(::Test::Initial_Mixin)
-
-        module ::Test::Initial_Mixin
-        end
+    if not defined?(::Test::InitialPrx)
         module InitialPrx_mixin
 
             def shutdown(context=nil)
@@ -168,7 +149,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_InitialPrx)
-            T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 
@@ -183,10 +163,7 @@ module ::Test
 
     module MC
 
-        if not defined?(::Test::MC::A_Mixin)
-
-            module ::Test::MC::A_Mixin
-            end
+        if not defined?(::Test::MC::A)
             class A < ::Ice::Value
 
                 def initialize(aA=0)
@@ -203,10 +180,7 @@ module ::Test
             T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MC::B_Mixin)
-
-            module ::Test::MC::B_Mixin
-            end
+        if not defined?(::Test::MC::B)
             class B < ::Test::MC::A
 
                 def initialize(aA=0, bB=0)
@@ -224,10 +198,7 @@ module ::Test
             T_B.defineClass(B, -1, false, ::Test::MC::T_A, [['bB', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MC::C_Mixin)
-
-            module ::Test::MC::C_Mixin
-            end
+        if not defined?(::Test::MC::C)
             class C < ::Test::MC::B
 
                 def initialize(aA=0, bB=0, cC=0)
@@ -245,10 +216,7 @@ module ::Test
             T_C.defineClass(C, -1, false, ::Test::MC::T_B, [['cC', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MC::D_Mixin)
-
-            module ::Test::MC::D_Mixin
-            end
+        if not defined?(::Test::MC::D)
             class D < ::Test::MC::C
 
                 def initialize(aA=0, bB=0, cC=0, dD=0)
@@ -269,10 +237,7 @@ module ::Test
 
     module MD
 
-        if not defined?(::Test::MD::A_Mixin)
-
-            module ::Test::MD::A_Mixin
-            end
+        if not defined?(::Test::MD::A)
             class A < ::Ice::Value
 
                 def initialize(aA=0)
@@ -289,10 +254,7 @@ module ::Test
             T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MD::B_Mixin)
-
-            module ::Test::MD::B_Mixin
-            end
+        if not defined?(::Test::MD::B)
             class B < ::Test::MD::A
 
                 def initialize(aA=0, bB=0)
@@ -310,10 +272,7 @@ module ::Test
             T_B.defineClass(B, -1, false, ::Test::MD::T_A, [['bB', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MD::C_Mixin)
-
-            module ::Test::MD::C_Mixin
-            end
+        if not defined?(::Test::MD::C)
             class C < ::Test::MD::B
 
                 def initialize(aA=0, bB=0, cC=0)
@@ -331,10 +290,7 @@ module ::Test
             T_C.defineClass(C, -1, false, ::Test::MD::T_B, [['cC', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MD::D_Mixin)
-
-            module ::Test::MD::D_Mixin
-            end
+        if not defined?(::Test::MD::D)
             class D < ::Test::MD::C
 
                 def initialize(aA=0, bB=0, cC=0, dD=0)
@@ -355,10 +311,7 @@ module ::Test
 
     module ME
 
-        if not defined?(::Test::ME::A_Mixin)
-
-            module ::Test::ME::A_Mixin
-            end
+        if not defined?(::Test::ME::A)
             class A < ::Ice::Value
 
                 def initialize(aA=0)
@@ -375,10 +328,7 @@ module ::Test
             T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::ME::B_Mixin)
-
-            module ::Test::ME::B_Mixin
-            end
+        if not defined?(::Test::ME::B)
             class B < ::Test::ME::A
 
                 def initialize(aA=0, bB=0)
@@ -396,10 +346,7 @@ module ::Test
             T_B.defineClass(B, -1, false, ::Test::ME::T_A, [['bB', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::ME::C_Mixin)
-
-            module ::Test::ME::C_Mixin
-            end
+        if not defined?(::Test::ME::C)
             class C < ::Test::ME::B
 
                 def initialize(aA=0, bB=0, cC=0)
@@ -417,10 +364,7 @@ module ::Test
             T_C.defineClass(C, -1, false, ::Test::ME::T_B, [['cC', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::ME::D_Mixin)
-
-            module ::Test::ME::D_Mixin
-            end
+        if not defined?(::Test::ME::D)
             class D < ::Test::ME::C
 
                 def initialize(aA=0, bB=0, cC=0, dD=0)
@@ -441,10 +385,7 @@ module ::Test
 
     module MF
 
-        if not defined?(::Test::MF::A_Mixin)
-
-            module ::Test::MF::A_Mixin
-            end
+        if not defined?(::Test::MF::A)
             class A < ::Ice::Value
 
                 def initialize(aA=0)
@@ -461,10 +402,7 @@ module ::Test
             T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MF::B_Mixin)
-
-            module ::Test::MF::B_Mixin
-            end
+        if not defined?(::Test::MF::B)
             class B < ::Test::MF::A
 
                 def initialize(aA=0, bB=0)
@@ -482,10 +420,7 @@ module ::Test
             T_B.defineClass(B, -1, false, ::Test::MF::T_A, [['bB', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MF::C_Mixin)
-
-            module ::Test::MF::C_Mixin
-            end
+        if not defined?(::Test::MF::C)
             class C < ::Test::MF::B
 
                 def initialize(aA=0, bB=0, cC=0)
@@ -503,10 +438,7 @@ module ::Test
             T_C.defineClass(C, -1, false, ::Test::MF::T_B, [['cC', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MF::D_Mixin)
-
-            module ::Test::MF::D_Mixin
-            end
+        if not defined?(::Test::MF::D)
             class D < ::Test::MF::C
 
                 def initialize(aA=0, bB=0, cC=0, dD=0)
@@ -527,10 +459,7 @@ module ::Test
 
     module MG
 
-        if not defined?(::Test::MG::A_Mixin)
-
-            module ::Test::MG::A_Mixin
-            end
+        if not defined?(::Test::MG::A)
             class A < ::Ice::Value
 
                 def initialize(aA=0)
@@ -547,10 +476,7 @@ module ::Test
             T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MG::B_Mixin)
-
-            module ::Test::MG::B_Mixin
-            end
+        if not defined?(::Test::MG::B)
             class B < ::Test::MG::A
 
                 def initialize(aA=0, bB=0)
@@ -568,10 +494,7 @@ module ::Test
             T_B.defineClass(B, -1, false, ::Test::MG::T_A, [['bB', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MG::C_Mixin)
-
-            module ::Test::MG::C_Mixin
-            end
+        if not defined?(::Test::MG::C)
             class C < ::Test::MG::B
 
                 def initialize(aA=0, bB=0, cC=0)
@@ -589,10 +512,7 @@ module ::Test
             T_C.defineClass(C, -1, false, ::Test::MG::T_B, [['cC', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MG::D_Mixin)
-
-            module ::Test::MG::D_Mixin
-            end
+        if not defined?(::Test::MG::D)
             class D < ::Test::MG::C
 
                 def initialize(aA=0, bB=0, cC=0, dD=0)
@@ -613,10 +533,7 @@ module ::Test
 
     module MH
 
-        if not defined?(::Test::MH::A_Mixin)
-
-            module ::Test::MH::A_Mixin
-            end
+        if not defined?(::Test::MH::A)
             class A < ::Ice::Value
 
                 def initialize(aA=0)
@@ -633,10 +550,7 @@ module ::Test
             T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MH::B_Mixin)
-
-            module ::Test::MH::B_Mixin
-            end
+        if not defined?(::Test::MH::B)
             class B < ::Test::MH::A
 
                 def initialize(aA=0, bB=0)
@@ -654,10 +568,7 @@ module ::Test
             T_B.defineClass(B, -1, false, ::Test::MH::T_A, [['bB', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MH::C_Mixin)
-
-            module ::Test::MH::C_Mixin
-            end
+        if not defined?(::Test::MH::C)
             class C < ::Test::MH::B
 
                 def initialize(aA=0, bB=0, cC=0)
@@ -675,10 +586,7 @@ module ::Test
             T_C.defineClass(C, -1, false, ::Test::MH::T_B, [['cC', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Test::MH::D_Mixin)
-
-            module ::Test::MH::D_Mixin
-            end
+        if not defined?(::Test::MH::D)
             class D < ::Test::MH::C
 
                 def initialize(aA=0, bB=0, cC=0, dD=0)

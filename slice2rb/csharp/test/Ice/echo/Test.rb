@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Echo_Mixin)
-
-        module ::Test::Echo_Mixin
-        end
+    if not defined?(::Test::EchoPrx)
         module EchoPrx_mixin
 
             def startBatch(context=nil)
@@ -43,7 +40,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_EchoPrx)
-            T_Echo = ::Ice::__declareClass('::Test::Echo')
             T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
         end
 

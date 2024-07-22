@@ -149,10 +149,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::C_Mixin)
-
-        module ::Test::C_Mixin
-        end
+    if not defined?(::Test::C)
         class C < ::Ice::Value
 
             def initialize(b1=nil, b2=nil, b3=nil, b4=nil, s1=nil, s2=nil, s3=nil, s4=nil)
@@ -185,10 +182,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::D_Mixin)
-
-        module ::Test::D_Mixin
-        end
+    if not defined?(::Test::D)
         class D < ::Ice::Value
 
             def initialize(boolSeq=::Ice::Unset, byteSeq=::Ice::Unset, shortSeq=::Ice::Unset, intSeq=::Ice::Unset, longSeq=::Ice::Unset, floatSeq=::Ice::Unset, doubleSeq=::Ice::Unset)
@@ -219,10 +213,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::Custom_Mixin)
-
-        module ::Test::Custom_Mixin
-        end
+    if not defined?(::Test::CustomPrx)
         module CustomPrx_mixin
 
             def opByteString1(b1, context=nil)
@@ -332,7 +323,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_CustomPrx)
-            T_Custom = ::Ice::__declareClass('::Test::Custom')
             T_CustomPrx = ::Ice::__declareProxy('::Test::Custom')
         end
 

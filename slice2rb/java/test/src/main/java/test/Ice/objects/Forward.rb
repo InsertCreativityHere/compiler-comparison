@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::F1_Mixin)
-
-        module ::Test::F1_Mixin
-        end
+    if not defined?(::Test::F1)
         class F1 < ::Ice::Value
 
             def initialize(name='')
@@ -38,10 +35,7 @@ module ::Test
         T_F1.defineClass(F1, -1, false, nil, [['name', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::F2_Mixin)
-
-        module ::Test::F2_Mixin
-        end
+    if not defined?(::Test::F2Prx)
         module F2Prx_mixin
 
             def op(context=nil)
@@ -55,7 +49,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_F2Prx)
-            T_F2 = ::Ice::__declareClass('::Test::F2')
             T_F2Prx = ::Ice::__declareProxy('::Test::F2')
         end
 

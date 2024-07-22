@@ -28,10 +28,7 @@ module ::Test
         T_UE = ::Ice::__defineException('::Test::UE', UE, nil, [])
     end
 
-    if not defined?(::Test::Hello_Mixin)
-
-        module ::Test::Hello_Mixin
-        end
+    if not defined?(::Test::HelloPrx)
         module HelloPrx_mixin
 
             def sayHello(delay, context=nil)
@@ -57,7 +54,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_HelloPrx)
-            T_Hello = ::Ice::__declareClass('::Test::Hello')
             T_HelloPrx = ::Ice::__declareProxy('::Test::Hello')
         end
 

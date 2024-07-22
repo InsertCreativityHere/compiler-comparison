@@ -19,10 +19,7 @@ require_relative 'PropertyDict.rb'
 
 module ::Ice
 
-    if not defined?(::Ice::PropertiesAdmin_Mixin)
-
-        module ::Ice::PropertiesAdmin_Mixin
-        end
+    if not defined?(::Ice::PropertiesAdminPrx)
         module PropertiesAdminPrx_mixin
 
             def getProperty(key, context=nil)
@@ -44,7 +41,6 @@ module ::Ice
         end
 
         if not defined?(::Ice::T_PropertiesAdminPrx)
-            T_PropertiesAdmin = ::Ice::__declareClass('::Ice::PropertiesAdmin')
             T_PropertiesAdminPrx = ::Ice::__declareProxy('::Ice::PropertiesAdmin')
         end
 

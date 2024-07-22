@@ -142,10 +142,7 @@ module ::Classdef
             ])
         end
 
-        if not defined?(::Classdef::Break::Logical_Mixin)
-
-            module ::Classdef::Break::Logical_Mixin
-            end
+        if not defined?(::Classdef::Break::Logical)
             class Logical < ::Ice::Value
 
                 def initialize(_else=::Classdef::Break::Bitand::Enumeration, _for=::Classdef::Break::Bitor.new, int64=true)
@@ -168,10 +165,7 @@ module ::Classdef
             ])
         end
 
-        if not defined?(::Classdef::Break::Xor_Mixin)
-
-            module ::Classdef::Break::Xor_Mixin
-            end
+        if not defined?(::Classdef::Break::Xor)
             class Xor < ::Classdef::Break::Logical
 
                 def initialize(_else=::Classdef::Break::Bitand::Enumeration, _for=::Classdef::Break::Bitor.new, int64=true, _return=1)
@@ -197,10 +191,7 @@ module ::Classdef
             T_Switch = ::Ice::__defineDictionary('::classdef::break::switch', ::Ice::T_int, ::Classdef::Break::T_Bitor)
         end
 
-        if not defined?(::Classdef::Break::Try_Mixin)
-
-            module ::Classdef::Break::Try_Mixin
-            end
+        if not defined?(::Classdef::Break::Try)
             class Try < ::Ice::Value
 
                 def initialize(_while=1, delete=2)
@@ -221,10 +212,7 @@ module ::Classdef
             ])
         end
 
-        if not defined?(::Classdef::Break::Properties_Mixin)
-
-            module ::Classdef::Break::Properties_Mixin
-            end
+        if not defined?(::Classdef::Break::Properties)
             class Properties < ::Classdef::Break::Try
 
                 def initialize(_while=1, delete=2, _if=2, catch=nil, spmd=nil, otherwise=nil)
@@ -281,10 +269,7 @@ module ::Classdef
             T_Global = ::Ice::__defineException('::classdef::break::global', Global, ::Classdef::Break::T_Persistent, [["enumeration", ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Classdef::Break::Elseif_Mixin)
-
-            module ::Classdef::Break::Elseif_Mixin
-            end
+        if not defined?(::Classdef::Break::ElseifPrx)
             module ElseifPrx_mixin
 
                 def events(context=nil)
@@ -310,7 +295,6 @@ module ::Classdef
             end
 
             if not defined?(::Classdef::Break::T_ElseifPrx)
-                T_Elseif = ::Ice::__declareClass('::classdef::break::elseif')
                 T_ElseifPrx = ::Ice::__declareProxy('::classdef::break::elseif')
             end
 

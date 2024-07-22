@@ -114,10 +114,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::C_Mixin)
-
-        module ::Test::C_Mixin
-        end
+    if not defined?(::Test::C)
         class C < ::Ice::Value
 
             def initialize(name='')

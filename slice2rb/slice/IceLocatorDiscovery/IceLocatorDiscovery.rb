@@ -19,10 +19,7 @@ require 'Ice/Locator.rb'
 
 module ::IceLocatorDiscovery
 
-    if not defined?(::IceLocatorDiscovery::LookupReply_Mixin)
-
-        module ::IceLocatorDiscovery::LookupReply_Mixin
-        end
+    if not defined?(::IceLocatorDiscovery::LookupReplyPrx)
         module LookupReplyPrx_mixin
 
             def foundLocator(prx, context=nil)
@@ -36,7 +33,6 @@ module ::IceLocatorDiscovery
         end
 
         if not defined?(::IceLocatorDiscovery::T_LookupReplyPrx)
-            T_LookupReply = ::Ice::__declareClass('::IceLocatorDiscovery::LookupReply')
             T_LookupReplyPrx = ::Ice::__declareProxy('::IceLocatorDiscovery::LookupReply')
         end
 
@@ -45,10 +41,7 @@ module ::IceLocatorDiscovery
         LookupReplyPrx_mixin::OP_foundLocator = ::Ice::__defineOperation('foundLocator', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_LocatorPrx, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceLocatorDiscovery::Lookup_Mixin)
-
-        module ::IceLocatorDiscovery::Lookup_Mixin
-        end
+    if not defined?(::IceLocatorDiscovery::LookupPrx)
         module LookupPrx_mixin
 
             def findLocator(instanceName, reply, context=nil)
@@ -62,7 +55,6 @@ module ::IceLocatorDiscovery
         end
 
         if not defined?(::IceLocatorDiscovery::T_LookupPrx)
-            T_Lookup = ::Ice::__declareClass('::IceLocatorDiscovery::Lookup')
             T_LookupPrx = ::Ice::__declareProxy('::IceLocatorDiscovery::Lookup')
         end
 

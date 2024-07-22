@@ -31,10 +31,7 @@ module ::IceGrid
         T_ParseException = ::Ice::__defineException('::IceGrid::ParseException', ParseException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::FileParser_Mixin)
-
-        module ::IceGrid::FileParser_Mixin
-        end
+    if not defined?(::IceGrid::FileParserPrx)
         module FileParserPrx_mixin
 
             def parse(xmlFile, adminProxy, context=nil)
@@ -48,7 +45,6 @@ module ::IceGrid
         end
 
         if not defined?(::IceGrid::T_FileParserPrx)
-            T_FileParser = ::Ice::__declareClass('::IceGrid::FileParser')
             T_FileParserPrx = ::Ice::__declareProxy('::IceGrid::FileParser')
         end
 

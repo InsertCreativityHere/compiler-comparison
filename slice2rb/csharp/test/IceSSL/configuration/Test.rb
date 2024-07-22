@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Server_Mixin)
-
-        module ::Test::Server_Mixin
-        end
+    if not defined?(::Test::ServerPrx)
         module ServerPrx_mixin
 
             def noCert(context=nil)
@@ -43,7 +40,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_ServerPrx)
-            T_Server = ::Ice::__declareClass('::Test::Server')
             T_ServerPrx = ::Ice::__declareProxy('::Test::Server')
         end
 
@@ -58,10 +54,7 @@ module ::Test
         T_Properties = ::Ice::__defineDictionary('::Test::Properties', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Test::ServerFactory_Mixin)
-
-        module ::Test::ServerFactory_Mixin
-        end
+    if not defined?(::Test::ServerFactoryPrx)
         module ServerFactoryPrx_mixin
 
             def createServer(props, context=nil)
@@ -83,7 +76,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_ServerFactoryPrx)
-            T_ServerFactory = ::Ice::__declareClass('::Test::ServerFactory')
             T_ServerFactoryPrx = ::Ice::__declareProxy('::Test::ServerFactory')
         end
 
@@ -94,10 +86,7 @@ module ::Test
         ServerFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::Pingable_Mixin)
-
-        module ::Test::Pingable_Mixin
-        end
+    if not defined?(::Test::PingablePrx)
         module PingablePrx_mixin
 
             def ping(context=nil)
@@ -111,7 +100,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_PingablePrx)
-            T_Pingable = ::Ice::__declareClass('::Test::Pingable')
             T_PingablePrx = ::Ice::__declareProxy('::Test::Pingable')
         end
 

@@ -33,10 +33,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::CallbackReceiver_Mixin)
-
-        module ::Test::CallbackReceiver_Mixin
-        end
+    if not defined?(::Test::CallbackReceiverPrx)
         module CallbackReceiverPrx_mixin
 
             def callback(context=nil)
@@ -54,7 +51,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_CallbackReceiverPrx)
-            T_CallbackReceiver = ::Ice::__declareClass('::Test::CallbackReceiver')
             T_CallbackReceiverPrx = ::Ice::__declareProxy('::Test::CallbackReceiver')
         end
 
@@ -64,10 +60,7 @@ module ::Test
         CallbackReceiverPrx_mixin::OP_callbackEx = ::Ice::__defineOperation('callbackEx', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_CallbackException])
     end
 
-    if not defined?(::Test::Callback_Mixin)
-
-        module ::Test::Callback_Mixin
-        end
+    if not defined?(::Test::CallbackPrx)
         module CallbackPrx_mixin
 
             def initiateCallback(proxy, context=nil)
@@ -89,7 +82,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_CallbackPrx)
-            T_Callback = ::Ice::__declareClass('::Test::Callback')
             T_CallbackPrx = ::Ice::__declareProxy('::Test::Callback')
         end
 

@@ -20,10 +20,7 @@ module ::Test
 
     module MA
 
-        if not defined?(::Test::MA::IA_Mixin)
-
-            module ::Test::MA::IA_Mixin
-            end
+        if not defined?(::Test::MA::IAPrx)
             module IAPrx_mixin
 
                 def iaop(p, context=nil)
@@ -37,7 +34,6 @@ module ::Test
             end
 
             if not defined?(::Test::MA::T_IAPrx)
-                T_IA = ::Ice::__declareClass('::Test::MA::IA')
                 T_IAPrx = ::Ice::__declareProxy('::Test::MA::IA')
             end
 
@@ -52,10 +48,7 @@ module ::Test
 
     module MB
 
-        if not defined?(::Test::MB::IB1_Mixin)
-
-            module ::Test::MB::IB1_Mixin
-            end
+        if not defined?(::Test::MB::IB1Prx)
             module IB1Prx_mixin
                 include ::Test::MA::IAPrx_mixin
 
@@ -70,7 +63,6 @@ module ::Test
             end
 
             if not defined?(::Test::MB::T_IB1Prx)
-                T_IB1 = ::Ice::__declareClass('::Test::MB::IB1')
                 T_IB1Prx = ::Ice::__declareProxy('::Test::MB::IB1')
             end
 
@@ -79,10 +71,7 @@ module ::Test
             IB1Prx_mixin::OP_ib1op = ::Ice::__defineOperation('ib1op', ::Ice::OperationMode::Normal, false, nil, [[::Test::MB::T_IB1Prx, false, 0]], [], [::Test::MB::T_IB1Prx, false, 0], [])
         end
 
-        if not defined?(::Test::MB::IB2_Mixin)
-
-            module ::Test::MB::IB2_Mixin
-            end
+        if not defined?(::Test::MB::IB2Prx)
             module IB2Prx_mixin
                 include ::Test::MA::IAPrx_mixin
 
@@ -97,7 +86,6 @@ module ::Test
             end
 
             if not defined?(::Test::MB::T_IB2Prx)
-                T_IB2 = ::Ice::__declareClass('::Test::MB::IB2')
                 T_IB2Prx = ::Ice::__declareProxy('::Test::MB::IB2')
             end
 
@@ -112,10 +100,7 @@ module ::Test
 
     module MA
 
-        if not defined?(::Test::MA::IC_Mixin)
-
-            module ::Test::MA::IC_Mixin
-            end
+        if not defined?(::Test::MA::ICPrx)
             module ICPrx_mixin
                 include ::Test::MB::IB1Prx_mixin
                 include ::Test::MB::IB2Prx_mixin
@@ -131,7 +116,6 @@ module ::Test
             end
 
             if not defined?(::Test::MA::T_ICPrx)
-                T_IC = ::Ice::__declareClass('::Test::MA::IC')
                 T_ICPrx = ::Ice::__declareProxy('::Test::MA::IC')
             end
 
@@ -144,10 +128,7 @@ end
 
 module ::Test
 
-    if not defined?(::Test::Initial_Mixin)
-
-        module ::Test::Initial_Mixin
-        end
+    if not defined?(::Test::InitialPrx)
         module InitialPrx_mixin
 
             def shutdown(context=nil)
@@ -177,7 +158,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_InitialPrx)
-            T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 

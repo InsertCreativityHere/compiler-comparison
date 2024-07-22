@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Single_Mixin)
-
-        module ::Test::Single_Mixin
-        end
+    if not defined?(::Test::SinglePrx)
         module SinglePrx_mixin
 
             def event(i, context=nil)
@@ -35,7 +32,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_SinglePrx)
-            T_Single = ::Ice::__declareClass('::Test::Single')
             T_SinglePrx = ::Ice::__declareProxy('::Test::Single')
         end
 

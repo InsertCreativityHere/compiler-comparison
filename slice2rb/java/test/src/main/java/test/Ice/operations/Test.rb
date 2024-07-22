@@ -69,7 +69,7 @@ module ::Test
         T_MyEnum = ::Ice::__defineEnum('::Test::MyEnum', MyEnum, MyEnum::_enumerators)
     end
 
-    if not defined?(::Test::T_MyClass)
+    if not defined?(::Test::T_MyClassPrx)
         T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
     end
 
@@ -352,10 +352,7 @@ module ::Test
         T_MyEnumMyEnumSD = ::Ice::__defineDictionary('::Test::MyEnumMyEnumSD', ::Test::T_MyEnum, ::Test::T_MyEnumS)
     end
 
-    if not defined?(::Test::MyClass_Mixin)
-
-        module ::Test::MyClass_Mixin
-        end
+    if not defined?(::Test::MyClassPrx)
         module MyClassPrx_mixin
 
             def shutdown(context=nil)
@@ -645,7 +642,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_MyClassPrx)
-            T_MyClass = ::Ice::__declareClass('::Test::MyClass')
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 
@@ -762,10 +758,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::MyClass1_Mixin)
-
-        module ::Test::MyClass1_Mixin
-        end
+    if not defined?(::Test::MyClass1)
         class MyClass1 < ::Ice::Value
 
             def initialize(tesT='', myClass=nil, myClass1='')
@@ -788,10 +781,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::MyDerivedClass_Mixin)
-
-        module ::Test::MyDerivedClass_Mixin
-        end
+    if not defined?(::Test::MyDerivedClassPrx)
         module MyDerivedClassPrx_mixin
             include ::Test::MyClassPrx_mixin
 
@@ -814,7 +804,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_MyDerivedClassPrx)
-            T_MyDerivedClass = ::Ice::__declareClass('::Test::MyDerivedClass')
             T_MyDerivedClassPrx = ::Ice::__declareProxy('::Test::MyDerivedClass')
         end
 
@@ -890,10 +879,7 @@ end
 
 module ::Test2
 
-    if not defined?(::Test2::MyDerivedClass_Mixin)
-
-        module ::Test2::MyDerivedClass_Mixin
-        end
+    if not defined?(::Test2::MyDerivedClassPrx)
         module MyDerivedClassPrx_mixin
             include ::Test::MyClassPrx_mixin
         end
@@ -904,7 +890,6 @@ module ::Test2
         end
 
         if not defined?(::Test2::T_MyDerivedClassPrx)
-            T_MyDerivedClass = ::Ice::__declareClass('::Test2::MyDerivedClass')
             T_MyDerivedClassPrx = ::Ice::__declareProxy('::Test2::MyDerivedClass')
         end
 

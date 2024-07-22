@@ -125,10 +125,7 @@ module ::And
         T_Defer = ::Ice::__defineStruct('::and::defer', Defer, [["_else", ::Ice::T_string]])
     end
 
-    if not defined?(::And::Break_Mixin)
-
-        module ::And::Break_Mixin
-        end
+    if not defined?(::And::BreakPrx)
         module BreakPrx_mixin
 
             def _case(catch, context=nil)
@@ -142,7 +139,6 @@ module ::And
         end
 
         if not defined?(::And::T_BreakPrx)
-            T_Break = ::Ice::__declareClass('::and::break')
             T_BreakPrx = ::Ice::__declareProxy('::and::break')
         end
 
@@ -151,10 +147,7 @@ module ::And
         BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
-    if not defined?(::And::Func_Mixin)
-
-        module ::And::Func_Mixin
-        end
+    if not defined?(::And::FuncPrx)
         module FuncPrx_mixin
 
             def public(context=nil)
@@ -168,7 +161,6 @@ module ::And
         end
 
         if not defined?(::And::T_FuncPrx)
-            T_Func = ::Ice::__declareClass('::and::func')
             T_FuncPrx = ::Ice::__declareProxy('::and::func')
         end
 
@@ -177,10 +169,7 @@ module ::And
         FuncPrx_mixin::OP_public = ::Ice::__defineOperation('public', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::And::Switch_Mixin)
-
-        module ::And::Switch_Mixin
-        end
+    if not defined?(::And::Switch)
         class Switch < ::Ice::Value
 
             def initialize(_if=0, export=nil, volatile=0)
@@ -203,10 +192,7 @@ module ::And
         ])
     end
 
-    if not defined?(::And::Do_Mixin)
-
-        module ::And::Do_Mixin
-        end
+    if not defined?(::And::DoPrx)
         module DoPrx_mixin
             include ::And::FuncPrx_mixin
             include ::And::BreakPrx_mixin
@@ -218,7 +204,6 @@ module ::And
         end
 
         if not defined?(::And::T_DoPrx)
-            T_Do = ::Ice::__declareClass('::and::do')
             T_DoPrx = ::Ice::__declareProxy('::and::do')
         end
 

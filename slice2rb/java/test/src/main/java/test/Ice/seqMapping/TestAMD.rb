@@ -30,10 +30,7 @@ module ::Test
         T_SerialStruct = ::Ice::__defineSequence('::Test::SerialStruct', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::MyClass_Mixin)
-
-        module ::Test::MyClass_Mixin
-        end
+    if not defined?(::Test::MyClassPrx)
         module MyClassPrx_mixin
 
             def shutdown(context=nil)
@@ -59,7 +56,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_MyClassPrx)
-            T_MyClass = ::Ice::__declareClass('::Test::MyClass')
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 
@@ -137,10 +133,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::Baz_Mixin)
-
-        module ::Test::Baz_Mixin
-        end
+    if not defined?(::Test::Baz)
         class Baz < ::Ice::Value
 
             def initialize(sLmem=nil, sLSmem=nil)

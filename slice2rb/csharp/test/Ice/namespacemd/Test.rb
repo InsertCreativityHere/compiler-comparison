@@ -20,10 +20,7 @@ require_relative 'NoNamespace.rb'
 
 module ::Test
 
-    if not defined?(::Test::Initial_Mixin)
-
-        module ::Test::Initial_Mixin
-        end
+    if not defined?(::Test::InitialPrx)
         module InitialPrx_mixin
 
             def getNoNamespaceC2AsC1(context=nil)
@@ -73,7 +70,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_InitialPrx)
-            T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 

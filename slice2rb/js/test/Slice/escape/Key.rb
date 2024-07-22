@@ -113,10 +113,7 @@ module ::Await
         ])
     end
 
-    if not defined?(::Await::Case_Mixin)
-
-        module ::Await::Case_Mixin
-        end
+    if not defined?(::Await::CasePrx)
         module CasePrx_mixin
 
             def catch(checked, context=nil)
@@ -130,7 +127,6 @@ module ::Await
         end
 
         if not defined?(::Await::T_CasePrx)
-            T_Case = ::Ice::__declareClass('::await::case')
             T_CasePrx = ::Ice::__declareProxy('::await::case')
         end
 
@@ -139,10 +135,7 @@ module ::Await
         CasePrx_mixin::OP_catch = ::Ice::__defineOperation('catch', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
-    if not defined?(::Await::Typeof_Mixin)
-
-        module ::Await::Typeof_Mixin
-        end
+    if not defined?(::Await::TypeofPrx)
         module TypeofPrx_mixin
 
             def default(context=nil)
@@ -156,7 +149,6 @@ module ::Await
         end
 
         if not defined?(::Await::T_TypeofPrx)
-            T_Typeof = ::Ice::__declareClass('::await::typeof')
             T_TypeofPrx = ::Ice::__declareProxy('::await::typeof')
         end
 
@@ -165,10 +157,7 @@ module ::Await
         TypeofPrx_mixin::OP_default = ::Ice::__defineOperation('default', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Await::Delete_Mixin)
-
-        module ::Await::Delete_Mixin
-        end
+    if not defined?(::Await::Delete)
         class Delete < ::Ice::Value
 
             def initialize(_if=0, _else=nil, export=0, _clone='', equals='', hashCode='', constructor='')
@@ -199,10 +188,7 @@ module ::Await
         ])
     end
 
-    if not defined?(::Await::Explicit_Mixin)
-
-        module ::Await::Explicit_Mixin
-        end
+    if not defined?(::Await::ExplicitPrx)
         module ExplicitPrx_mixin
             include ::Await::TypeofPrx_mixin
             include ::Await::CasePrx_mixin
@@ -214,7 +200,6 @@ module ::Await
         end
 
         if not defined?(::Await::T_ExplicitPrx)
-            T_Explicit = ::Ice::__declareClass('::await::explicit')
             T_ExplicitPrx = ::Ice::__declareProxy('::await::explicit')
         end
 
@@ -225,10 +210,7 @@ module ::Await
         T_While = ::Ice::__defineDictionary('::await::while', ::Ice::T_string, ::Await::T_Break)
     end
 
-    if not defined?(::Await::Package_Mixin)
-
-        module ::Await::Package_Mixin
-        end
+    if not defined?(::Await::Package)
         class Package < ::Ice::Value
 
             def initialize(_for=::Ice::Unset, goto=::Ice::Unset, _if=::Ice::Unset, internal=::Ice::Unset, debugger=::Ice::Unset, null=::Ice::Unset)
@@ -257,10 +239,7 @@ module ::Await
         ])
     end
 
-    if not defined?(::Await::OptionalParams_Mixin)
-
-        module ::Await::OptionalParams_Mixin
-        end
+    if not defined?(::Await::OptionalParamsPrx)
         module OptionalParamsPrx_mixin
 
             def _for(goto, _if, internal, namespace, null, context=nil)
@@ -286,7 +265,6 @@ module ::Await
         end
 
         if not defined?(::Await::T_OptionalParamsPrx)
-            T_OptionalParams = ::Ice::__declareClass('::await::optionalParams')
             T_OptionalParamsPrx = ::Ice::__declareProxy('::await::optionalParams')
         end
 
@@ -353,10 +331,7 @@ module ::Await
         ])
     end
 
-    if not defined?(::Await::Implicit_Mixin)
-
-        module ::Await::Implicit_Mixin
-        end
+    if not defined?(::Await::ImplicitPrx)
         module ImplicitPrx_mixin
 
             def _in(internal, is, lock, namespace, _new, null, operator, override, params, private, context=nil)
@@ -370,7 +345,6 @@ module ::Await
         end
 
         if not defined?(::Await::T_ImplicitPrx)
-            T_Implicit = ::Ice::__declareClass('::await::implicit')
             T_ImplicitPrx = ::Ice::__declareProxy('::await::implicit')
         end
 
@@ -385,10 +359,7 @@ module ::Await
 
     module System
 
-        if not defined?(::Await::System::Test_Mixin)
-
-            module ::Await::System::Test_Mixin
-            end
+        if not defined?(::Await::System::TestPrx)
             module TestPrx_mixin
 
                 def op(context=nil)
@@ -402,7 +373,6 @@ module ::Await
             end
 
             if not defined?(::Await::System::T_TestPrx)
-                T_Test = ::Ice::__declareClass('::await::System::Test')
                 T_TestPrx = ::Ice::__declareProxy('::await::System::Test')
             end
 
@@ -415,10 +385,7 @@ end
 
 module ::System
 
-    if not defined?(::System::Test_Mixin)
-
-        module ::System::Test_Mixin
-        end
+    if not defined?(::System::TestPrx)
         module TestPrx_mixin
 
             def op(context=nil)
@@ -432,7 +399,6 @@ module ::System
         end
 
         if not defined?(::System::T_TestPrx)
-            T_Test = ::Ice::__declareClass('::System::Test')
             T_TestPrx = ::Ice::__declareProxy('::System::Test')
         end
 

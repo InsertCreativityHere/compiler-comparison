@@ -38,10 +38,7 @@ module ::Test
         T_TestImpossibleException = ::Ice::__defineException('::Test::TestImpossibleException', TestImpossibleException, nil, [])
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def requestFailedException(context=nil)
@@ -103,7 +100,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
@@ -124,10 +120,7 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::TestActivation_Mixin)
-
-        module ::Test::TestActivation_Mixin
-        end
+    if not defined?(::Test::TestActivationPrx)
         module TestActivationPrx_mixin
 
             def activateServantLocator(activate, context=nil)
@@ -141,7 +134,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestActivationPrx)
-            T_TestActivation = ::Ice::__declareClass('::Test::TestActivation')
             T_TestActivationPrx = ::Ice::__declareProxy('::Test::TestActivation')
         end
 
@@ -150,10 +142,7 @@ module ::Test
         TestActivationPrx_mixin::OP_activateServantLocator = ::Ice::__defineOperation('activateServantLocator', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
     end
 
-    if not defined?(::Test::Echo_Mixin)
-
-        module ::Test::Echo_Mixin
-        end
+    if not defined?(::Test::EchoPrx)
         module EchoPrx_mixin
 
             def setConnection(context=nil)
@@ -179,7 +168,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_EchoPrx)
-            T_Echo = ::Ice::__declareClass('::Test::Echo')
             T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
         end
 

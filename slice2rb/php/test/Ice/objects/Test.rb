@@ -47,10 +47,7 @@ module ::Test
         T_S = ::Ice::__defineStruct('::Test::S', S, [["str", ::Ice::T_string]])
     end
 
-    if not defined?(::Test::Base_Mixin)
-
-        module ::Test::Base_Mixin
-        end
+    if not defined?(::Test::Base)
         class Base < ::Ice::Value
 
             def initialize(theS=::Test::S.new, str='')
@@ -79,10 +76,7 @@ module ::Test
         T_C = ::Ice::__declareClass('::Test::C')
     end
 
-    if not defined?(::Test::A_Mixin)
-
-        module ::Test::A_Mixin
-        end
+    if not defined?(::Test::A)
         class A < ::Ice::Value
 
             def initialize(theB=nil, theC=nil, preMarshalInvoked=false, postUnmarshalInvoked=false)
@@ -107,10 +101,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::B_Mixin)
-
-        module ::Test::B_Mixin
-        end
+    if not defined?(::Test::B)
         class B < ::Test::A
 
             def initialize(theB=nil, theC=nil, preMarshalInvoked=false, postUnmarshalInvoked=false, theA=nil)
@@ -128,10 +119,7 @@ module ::Test
         T_B.defineClass(B, -1, false, ::Test::T_A, [['theA', ::Test::T_A, false, 0]])
     end
 
-    if not defined?(::Test::C_Mixin)
-
-        module ::Test::C_Mixin
-        end
+    if not defined?(::Test::C)
         class C < ::Ice::Value
 
             def initialize(theB=nil, preMarshalInvoked=false, postUnmarshalInvoked=false)
@@ -154,10 +142,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::D_Mixin)
-
-        module ::Test::D_Mixin
-        end
+    if not defined?(::Test::D)
         class D < ::Ice::Value
 
             def initialize(theA=nil, theB=nil, theC=nil, preMarshalInvoked=false, postUnmarshalInvoked=false)
@@ -184,10 +169,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::E_Mixin)
-
-        module ::Test::E_Mixin
-        end
+    if not defined?(::Test::E)
         class E < ::Ice::Value
 
             def initialize(i=0, s='')
@@ -209,10 +191,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::F_Mixin)
-
-        module ::Test::F_Mixin
-        end
+    if not defined?(::Test::F)
         class F < ::Ice::Value
 
             def initialize(e1=nil, e2=nil)
@@ -234,10 +213,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::G_Mixin)
-
-        module ::Test::G_Mixin
-        end
+    if not defined?(::Test::G)
         class G < ::Test::Base
 
             def initialize(theS=::Test::S.new, str='')
@@ -252,10 +228,7 @@ module ::Test
         T_G.defineClass(G, -1, false, ::Test::T_Base, [])
     end
 
-    if not defined?(::Test::I_Mixin)
-
-        module ::Test::I_Mixin
-        end
+    if not defined?(::Test::IPrx)
         module IPrx_mixin
         end
 
@@ -265,17 +238,13 @@ module ::Test
         end
 
         if not defined?(::Test::T_IPrx)
-            T_I = ::Ice::__declareClass('::Test::I')
             T_IPrx = ::Ice::__declareProxy('::Test::I')
         end
 
         T_IPrx.defineProxy(IPrx, nil, [])
     end
 
-    if not defined?(::Test::J_Mixin)
-
-        module ::Test::J_Mixin
-        end
+    if not defined?(::Test::JPrx)
         module JPrx_mixin
             include ::Test::IPrx_mixin
         end
@@ -286,7 +255,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_JPrx)
-            T_J = ::Ice::__declareClass('::Test::J')
             T_JPrx = ::Ice::__declareProxy('::Test::J')
         end
 
@@ -301,10 +269,7 @@ module ::Test
         T_CompactExt = ::Ice::__declareClass('::Test::CompactExt')
     end
 
-    if not defined?(::Test::Compact_Mixin)
-
-        module ::Test::Compact_Mixin
-        end
+    if not defined?(::Test::Compact)
         class Compact < ::Ice::Value
         end
 
@@ -317,10 +282,7 @@ module ::Test
 
     CompactExtId = 789
 
-    if not defined?(::Test::CompactExt_Mixin)
-
-        module ::Test::CompactExt_Mixin
-        end
+    if not defined?(::Test::CompactExt)
         class CompactExt < ::Test::Compact
         end
 
@@ -331,10 +293,7 @@ module ::Test
         T_CompactExt.defineClass(CompactExt, 789, false, ::Test::T_Compact, [])
     end
 
-    if not defined?(::Test::A1_Mixin)
-
-        module ::Test::A1_Mixin
-        end
+    if not defined?(::Test::A1)
         class A1 < ::Ice::Value
 
             def initialize(name='')
@@ -351,10 +310,7 @@ module ::Test
         T_A1.defineClass(A1, -1, false, nil, [['name', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::B1_Mixin)
-
-        module ::Test::B1_Mixin
-        end
+    if not defined?(::Test::B1)
         class B1 < ::Ice::Value
 
             def initialize(a1=nil, a2=nil)
@@ -375,10 +331,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::D1_Mixin)
-
-        module ::Test::D1_Mixin
-        end
+    if not defined?(::Test::D1)
         class D1 < ::Test::B1
 
             def initialize(a1=nil, a2=nil, a3=nil, a4=nil)
@@ -430,10 +383,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::Recursive_Mixin)
-
-        module ::Test::Recursive_Mixin
-        end
+    if not defined?(::Test::Recursive)
         class Recursive < ::Ice::Value
 
             def initialize(v=nil)
@@ -450,10 +400,7 @@ module ::Test
         T_Recursive.defineClass(Recursive, -1, false, nil, [['v', ::Test::T_Recursive, false, 0]])
     end
 
-    if not defined?(::Test::K_Mixin)
-
-        module ::Test::K_Mixin
-        end
+    if not defined?(::Test::K)
         class K < ::Ice::Value
 
             def initialize(value=nil)
@@ -470,10 +417,7 @@ module ::Test
         T_K.defineClass(K, -1, false, nil, [['value', ::Ice::T_Value, false, 0]])
     end
 
-    if not defined?(::Test::L_Mixin)
-
-        module ::Test::L_Mixin
-        end
+    if not defined?(::Test::L)
         class L < ::Ice::Value
 
             def initialize(data='')
@@ -502,14 +446,11 @@ module ::Test
         T_F1 = ::Ice::__declareClass('::Test::F1')
     end
 
-    if not defined?(::Test::T_F2)
+    if not defined?(::Test::T_F2Prx)
         T_F2Prx = ::Ice::__declareProxy('::Test::F2')
     end
 
-    if not defined?(::Test::F3_Mixin)
-
-        module ::Test::F3_Mixin
-        end
+    if not defined?(::Test::F3)
         class F3 < ::Ice::Value
 
             def initialize(f1=nil, f2=nil)
@@ -530,10 +471,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::Initial_Mixin)
-
-        module ::Test::Initial_Mixin
-        end
+    if not defined?(::Test::InitialPrx)
         module InitialPrx_mixin
 
             def shutdown(context=nil)
@@ -647,7 +585,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_InitialPrx)
-            T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 
@@ -681,10 +618,7 @@ module ::Test
         InitialPrx_mixin::OP_hasF3 = ::Ice::__defineOperation('hasF3', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
     end
 
-    if not defined?(::Test::Empty_Mixin)
-
-        module ::Test::Empty_Mixin
-        end
+    if not defined?(::Test::Empty)
         class Empty < ::Ice::Value
         end
 
@@ -695,10 +629,7 @@ module ::Test
         T_Empty.defineClass(Empty, -1, false, nil, [])
     end
 
-    if not defined?(::Test::AlsoEmpty_Mixin)
-
-        module ::Test::AlsoEmpty_Mixin
-        end
+    if not defined?(::Test::AlsoEmpty)
         class AlsoEmpty < ::Ice::Value
         end
 
@@ -709,10 +640,7 @@ module ::Test
         T_AlsoEmpty.defineClass(AlsoEmpty, -1, false, nil, [])
     end
 
-    if not defined?(::Test::UnexpectedObjectExceptionTest_Mixin)
-
-        module ::Test::UnexpectedObjectExceptionTest_Mixin
-        end
+    if not defined?(::Test::UnexpectedObjectExceptionTestPrx)
         module UnexpectedObjectExceptionTestPrx_mixin
 
             def op(context=nil)
@@ -726,7 +654,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_UnexpectedObjectExceptionTestPrx)
-            T_UnexpectedObjectExceptionTest = ::Ice::__declareClass('::Test::UnexpectedObjectExceptionTest')
             T_UnexpectedObjectExceptionTestPrx = ::Ice::__declareProxy('::Test::UnexpectedObjectExceptionTest')
         end
 
@@ -735,10 +662,7 @@ module ::Test
         UnexpectedObjectExceptionTestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_Empty, false, 0], [])
     end
 
-    if not defined?(::Test::COneMember_Mixin)
-
-        module ::Test::COneMember_Mixin
-        end
+    if not defined?(::Test::COneMember)
         class COneMember < ::Ice::Value
 
             def initialize(e=nil)
@@ -755,10 +679,7 @@ module ::Test
         T_COneMember.defineClass(COneMember, -1, false, nil, [['e', ::Test::T_Empty, false, 0]])
     end
 
-    if not defined?(::Test::CTwoMembers_Mixin)
-
-        module ::Test::CTwoMembers_Mixin
-        end
+    if not defined?(::Test::CTwoMembers)
         class CTwoMembers < ::Ice::Value
 
             def initialize(e1=nil, e2=nil)

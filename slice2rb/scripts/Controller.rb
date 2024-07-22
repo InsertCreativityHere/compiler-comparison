@@ -28,10 +28,7 @@ module ::Test
             T_StringSeq = ::Ice::__defineSequence('::Test::Common::StringSeq', ::Ice::T_string)
         end
 
-        if not defined?(::Test::Common::Config_Mixin)
-
-            module ::Test::Common::Config_Mixin
-            end
+        if not defined?(::Test::Common::Config)
             class Config < ::Ice::Value
 
                 def initialize(protocol=::Ice::Unset, mx=::Ice::Unset, serialize=::Ice::Unset, compress=::Ice::Unset, ipv6=::Ice::Unset, cprops=::Ice::Unset, sprops=::Ice::Unset)
@@ -62,10 +59,7 @@ module ::Test
             ])
         end
 
-        if not defined?(::Test::Common::OptionOverrides_Mixin)
-
-            module ::Test::Common::OptionOverrides_Mixin
-            end
+        if not defined?(::Test::Common::OptionOverrides)
             class OptionOverrides < ::Ice::Value
 
                 def initialize(protocol=::Ice::Unset, mx=::Ice::Unset, serialize=::Ice::Unset, compress=::Ice::Unset, ipv6=::Ice::Unset)
@@ -116,10 +110,7 @@ module ::Test
             T_TestCaseFailedException = ::Ice::__defineException('::Test::Common::TestCaseFailedException', TestCaseFailedException, nil, [["output", ::Ice::T_string, false, 0]])
         end
 
-        if not defined?(::Test::Common::TestCase_Mixin)
-
-            module ::Test::Common::TestCase_Mixin
-            end
+        if not defined?(::Test::Common::TestCasePrx)
             module TestCasePrx_mixin
 
                 def startServerSide(config, context=nil)
@@ -145,7 +136,6 @@ module ::Test
             end
 
             if not defined?(::Test::Common::T_TestCasePrx)
-                T_TestCase = ::Ice::__declareClass('::Test::Common::TestCase')
                 T_TestCasePrx = ::Ice::__declareProxy('::Test::Common::TestCase')
             end
 
@@ -157,10 +147,7 @@ module ::Test
             TestCasePrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         end
 
-        if not defined?(::Test::Common::Controller_Mixin)
-
-            module ::Test::Common::Controller_Mixin
-            end
+        if not defined?(::Test::Common::ControllerPrx)
             module ControllerPrx_mixin
 
                 def runTestCase(mapping, testsuite, testcase, cross, context=nil)
@@ -186,7 +173,6 @@ module ::Test
             end
 
             if not defined?(::Test::Common::T_ControllerPrx)
-                T_Controller = ::Ice::__declareClass('::Test::Common::Controller')
                 T_ControllerPrx = ::Ice::__declareProxy('::Test::Common::Controller')
             end
 
@@ -210,10 +196,7 @@ module ::Test
             T_ProcessFailedException = ::Ice::__defineException('::Test::Common::ProcessFailedException', ProcessFailedException, nil, [["reason", ::Ice::T_string, false, 0]])
         end
 
-        if not defined?(::Test::Common::Process_Mixin)
-
-            module ::Test::Common::Process_Mixin
-            end
+        if not defined?(::Test::Common::ProcessPrx)
             module ProcessPrx_mixin
 
                 def waitReady(timeout, context=nil)
@@ -235,7 +218,6 @@ module ::Test
             end
 
             if not defined?(::Test::Common::T_ProcessPrx)
-                T_Process = ::Ice::__declareClass('::Test::Common::Process')
                 T_ProcessPrx = ::Ice::__declareProxy('::Test::Common::Process')
             end
 
@@ -246,10 +228,7 @@ module ::Test
             ProcessPrx_mixin::OP_terminate = ::Ice::__defineOperation('terminate', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
         end
 
-        if not defined?(::Test::Common::ProcessController_Mixin)
-
-            module ::Test::Common::ProcessController_Mixin
-            end
+        if not defined?(::Test::Common::ProcessControllerPrx)
             module ProcessControllerPrx_mixin
 
                 def start(testsuite, exe, args, context=nil)
@@ -267,7 +246,6 @@ module ::Test
             end
 
             if not defined?(::Test::Common::T_ProcessControllerPrx)
-                T_ProcessController = ::Ice::__declareClass('::Test::Common::ProcessController')
                 T_ProcessControllerPrx = ::Ice::__declareProxy('::Test::Common::ProcessController')
             end
 
@@ -277,10 +255,7 @@ module ::Test
             ProcessControllerPrx_mixin::OP_getHost = ::Ice::__defineOperation('getHost', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_bool, false, 0]], [], [::Ice::T_string, false, 0], [])
         end
 
-        if not defined?(::Test::Common::BrowserProcessController_Mixin)
-
-            module ::Test::Common::BrowserProcessController_Mixin
-            end
+        if not defined?(::Test::Common::BrowserProcessControllerPrx)
             module BrowserProcessControllerPrx_mixin
                 include ::Test::Common::ProcessControllerPrx_mixin
 
@@ -295,7 +270,6 @@ module ::Test
             end
 
             if not defined?(::Test::Common::T_BrowserProcessControllerPrx)
-                T_BrowserProcessController = ::Ice::__declareClass('::Test::Common::BrowserProcessController')
                 T_BrowserProcessControllerPrx = ::Ice::__declareProxy('::Test::Common::BrowserProcessController')
             end
 
@@ -304,10 +278,7 @@ module ::Test
             BrowserProcessControllerPrx_mixin::OP_redirect = ::Ice::__defineOperation('redirect', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
         end
 
-        if not defined?(::Test::Common::ProcessControllerRegistry_Mixin)
-
-            module ::Test::Common::ProcessControllerRegistry_Mixin
-            end
+        if not defined?(::Test::Common::ProcessControllerRegistryPrx)
             module ProcessControllerRegistryPrx_mixin
 
                 def setProcessController(controller, context=nil)
@@ -321,7 +292,6 @@ module ::Test
             end
 
             if not defined?(::Test::Common::T_ProcessControllerRegistryPrx)
-                T_ProcessControllerRegistry = ::Ice::__declareClass('::Test::Common::ProcessControllerRegistry')
                 T_ProcessControllerRegistryPrx = ::Ice::__declareProxy('::Test::Common::ProcessControllerRegistry')
             end
 

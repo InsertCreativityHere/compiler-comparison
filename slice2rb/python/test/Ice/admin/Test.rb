@@ -19,10 +19,7 @@ require 'Ice/PropertyDict.rb'
 
 module ::Test
 
-    if not defined?(::Test::RemoteCommunicator_Mixin)
-
-        module ::Test::RemoteCommunicator_Mixin
-        end
+    if not defined?(::Test::RemoteCommunicatorPrx)
         module RemoteCommunicatorPrx_mixin
 
             def getAdmin(context=nil)
@@ -52,7 +49,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_RemoteCommunicatorPrx)
-            T_RemoteCommunicator = ::Ice::__declareClass('::Test::RemoteCommunicator')
             T_RemoteCommunicatorPrx = ::Ice::__declareProxy('::Test::RemoteCommunicator')
         end
 
@@ -65,10 +61,7 @@ module ::Test
         RemoteCommunicatorPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::RemoteCommunicatorFactory_Mixin)
-
-        module ::Test::RemoteCommunicatorFactory_Mixin
-        end
+    if not defined?(::Test::RemoteCommunicatorFactoryPrx)
         module RemoteCommunicatorFactoryPrx_mixin
 
             def createCommunicator(props, context=nil)
@@ -86,7 +79,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_RemoteCommunicatorFactoryPrx)
-            T_RemoteCommunicatorFactory = ::Ice::__declareClass('::Test::RemoteCommunicatorFactory')
             T_RemoteCommunicatorFactoryPrx = ::Ice::__declareProxy('::Test::RemoteCommunicatorFactory')
         end
 
@@ -96,10 +88,7 @@ module ::Test
         RemoteCommunicatorFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::TestFacet_Mixin)
-
-        module ::Test::TestFacet_Mixin
-        end
+    if not defined?(::Test::TestFacetPrx)
         module TestFacetPrx_mixin
 
             def op(context=nil)
@@ -113,7 +102,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestFacetPrx)
-            T_TestFacet = ::Ice::__declareClass('::Test::TestFacet')
             T_TestFacetPrx = ::Ice::__declareProxy('::Test::TestFacet')
         end
 

@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::ConcreteClass_Mixin)
-
-        module ::Test::ConcreteClass_Mixin
-        end
+    if not defined?(::Test::ConcreteClass)
         class ConcreteClass < ::Ice::Value
 
             def initialize(i=0)
@@ -48,10 +45,7 @@ module ::Test
         T_E = ::Ice::__defineException('::Test::E', E, nil, [])
     end
 
-    if not defined?(::Test::Initial_Mixin)
-
-        module ::Test::Initial_Mixin
-        end
+    if not defined?(::Test::InitialPrx)
         module InitialPrx_mixin
 
             def getConcreteClass(context=nil)
@@ -73,7 +67,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_InitialPrx)
-            T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 

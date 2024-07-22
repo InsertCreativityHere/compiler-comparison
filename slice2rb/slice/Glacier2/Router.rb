@@ -31,10 +31,7 @@ module ::Glacier2
         T_SessionNotExistException = ::Ice::__defineException('::Glacier2::SessionNotExistException', SessionNotExistException, nil, [])
     end
 
-    if not defined?(::Glacier2::Router_Mixin)
-
-        module ::Glacier2::Router_Mixin
-        end
+    if not defined?(::Glacier2::RouterPrx)
         module RouterPrx_mixin
             include ::Ice::RouterPrx_mixin
 
@@ -73,7 +70,6 @@ module ::Glacier2
         end
 
         if not defined?(::Glacier2::T_RouterPrx)
-            T_Router = ::Ice::__declareClass('::Glacier2::Router')
             T_RouterPrx = ::Ice::__declareProxy('::Glacier2::Router')
         end
 

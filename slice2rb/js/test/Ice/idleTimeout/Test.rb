@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::DelayedTestIntf_Mixin)
-
-        module ::Test::DelayedTestIntf_Mixin
-        end
+    if not defined?(::Test::DelayedTestIntfPrx)
         module DelayedTestIntfPrx_mixin
 
             def sleep(ms, context=nil)
@@ -35,7 +32,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_DelayedTestIntfPrx)
-            T_DelayedTestIntf = ::Ice::__declareClass('::Test::DelayedTestIntf')
             T_DelayedTestIntfPrx = ::Ice::__declareProxy('::Test::DelayedTestIntf')
         end
 
@@ -44,10 +40,7 @@ module ::Test
         DelayedTestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
             include ::Test::DelayedTestIntfPrx_mixin
 
@@ -62,7 +55,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
@@ -71,10 +63,7 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::TestIntfBidir_Mixin)
-
-        module ::Test::TestIntfBidir_Mixin
-        end
+    if not defined?(::Test::TestIntfBidirPrx)
         module TestIntfBidirPrx_mixin
 
             def makeSleep(aborted, ms, target, context=nil)
@@ -88,7 +77,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfBidirPrx)
-            T_TestIntfBidir = ::Ice::__declareClass('::Test::TestIntfBidir')
             T_TestIntfBidirPrx = ::Ice::__declareProxy('::Test::TestIntfBidir')
         end
 

@@ -28,10 +28,7 @@ module ::Test
         T_BadEncodingException = ::Ice::__defineException('::Test::BadEncodingException', BadEncodingException, nil, [])
     end
 
-    if not defined?(::Test::MyObject_Mixin)
-
-        module ::Test::MyObject_Mixin
-        end
+    if not defined?(::Test::MyObjectPrx)
         module MyObjectPrx_mixin
 
             def widen(msg, context=nil)
@@ -53,7 +50,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_MyObjectPrx)
-            T_MyObject = ::Ice::__declareClass('::Test::MyObject')
             T_MyObjectPrx = ::Ice::__declareProxy('::Test::MyObject')
         end
 

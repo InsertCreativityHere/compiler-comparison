@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Backend_Mixin)
-
-        module ::Test::Backend_Mixin
-        end
+    if not defined?(::Test::BackendPrx)
         module BackendPrx_mixin
 
             def shutdown(context=nil)
@@ -35,7 +32,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_BackendPrx)
-            T_Backend = ::Ice::__declareClass('::Test::Backend')
             T_BackendPrx = ::Ice::__declareProxy('::Test::Backend')
         end
 

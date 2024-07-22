@@ -19,10 +19,7 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def op(context=nil)
@@ -48,7 +45,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
@@ -60,10 +56,7 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::TestIntfController_Mixin)
-
-        module ::Test::TestIntfController_Mixin
-        end
+    if not defined?(::Test::TestIntfControllerPrx)
         module TestIntfControllerPrx_mixin
 
             def holdAdapter(context=nil)
@@ -81,7 +74,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfControllerPrx)
-            T_TestIntfController = ::Ice::__declareClass('::Test::TestIntfController')
             T_TestIntfControllerPrx = ::Ice::__declareProxy('::Test::TestIntfController')
         end
 

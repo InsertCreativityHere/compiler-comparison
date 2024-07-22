@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Interface2_Mixin)
-
-        module ::Test::Interface2_Mixin
-        end
+    if not defined?(::Test::Interface2Prx)
         module Interface2Prx_mixin
 
             def _method(context=nil)
@@ -35,7 +32,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_Interface2Prx)
-            T_Interface2 = ::Ice::__declareClass('::Test::Interface2')
             T_Interface2Prx = ::Ice::__declareProxy('::Test::Interface2')
         end
 

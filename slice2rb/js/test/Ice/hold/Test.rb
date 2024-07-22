@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Hold_Mixin)
-
-        module ::Test::Hold_Mixin
-        end
+    if not defined?(::Test::HoldPrx)
         module HoldPrx_mixin
 
             def putOnHold(seconds, context=nil)
@@ -51,7 +48,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_HoldPrx)
-            T_Hold = ::Ice::__declareClass('::Test::Hold')
             T_HoldPrx = ::Ice::__declareProxy('::Test::Hold')
         end
 

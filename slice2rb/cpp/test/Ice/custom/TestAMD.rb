@@ -280,10 +280,7 @@ module ::Test
         T_ESeqList = ::Ice::__defineSequence('::Test::ESeqList', ::Test::T_ESeq)
     end
 
-    if not defined?(::Test::C_Mixin)
-
-        module ::Test::C_Mixin
-        end
+    if not defined?(::Test::C)
         class C < ::Ice::Value
         end
 
@@ -314,10 +311,7 @@ module ::Test
         T_CSeqList = ::Ice::__defineSequence('::Test::CSeqList', ::Test::T_CSeq)
     end
 
-    if not defined?(::Test::D_Mixin)
-
-        module ::Test::D_Mixin
-        end
+    if not defined?(::Test::DPrx)
         module DPrx_mixin
         end
 
@@ -327,7 +321,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_DPrx)
-            T_D = ::Ice::__declareClass('::Test::D')
             T_DPrx = ::Ice::__declareProxy('::Test::D')
         end
 
@@ -370,10 +363,7 @@ module ::Test
         T_StringIntDict = ::Ice::__defineDictionary('::Test::StringIntDict', ::Ice::T_string, ::Ice::T_int)
     end
 
-    if not defined?(::Test::DictClass_Mixin)
-
-        module ::Test::DictClass_Mixin
-        end
+    if not defined?(::Test::DictClass)
         class DictClass < ::Ice::Value
 
             def initialize(isdict=nil)
@@ -473,10 +463,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def opDoubleArray(inSeq, context=nil)
@@ -606,7 +593,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 

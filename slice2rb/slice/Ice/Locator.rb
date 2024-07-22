@@ -19,7 +19,7 @@ require_relative 'Identity.rb'
 
 module ::Ice
 
-    if not defined?(::Ice::T_Process)
+    if not defined?(::Ice::T_ProcessPrx)
         T_ProcessPrx = ::Ice::__declareProxy('::Ice::Process')
     end
 
@@ -73,14 +73,11 @@ module ::Ice
         T_ServerNotFoundException = ::Ice::__defineException('::Ice::ServerNotFoundException', ServerNotFoundException, nil, [])
     end
 
-    if not defined?(::Ice::T_LocatorRegistry)
+    if not defined?(::Ice::T_LocatorRegistryPrx)
         T_LocatorRegistryPrx = ::Ice::__declareProxy('::Ice::LocatorRegistry')
     end
 
-    if not defined?(::Ice::Locator_Mixin)
-
-        module ::Ice::Locator_Mixin
-        end
+    if not defined?(::Ice::LocatorPrx)
         module LocatorPrx_mixin
 
             def findObjectById(id, context=nil)
@@ -102,7 +99,6 @@ module ::Ice
         end
 
         if not defined?(::Ice::T_LocatorPrx)
-            T_Locator = ::Ice::__declareClass('::Ice::Locator')
             T_LocatorPrx = ::Ice::__declareProxy('::Ice::Locator')
         end
 
@@ -113,10 +109,7 @@ module ::Ice
         LocatorPrx_mixin::OP_getRegistry = ::Ice::__defineOperation('getRegistry', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_LocatorRegistryPrx, false, 0], [])
     end
 
-    if not defined?(::Ice::LocatorRegistry_Mixin)
-
-        module ::Ice::LocatorRegistry_Mixin
-        end
+    if not defined?(::Ice::LocatorRegistryPrx)
         module LocatorRegistryPrx_mixin
 
             def setAdapterDirectProxy(id, proxy, context=nil)
@@ -138,7 +131,6 @@ module ::Ice
         end
 
         if not defined?(::Ice::T_LocatorRegistryPrx)
-            T_LocatorRegistry = ::Ice::__declareClass('::Ice::LocatorRegistry')
             T_LocatorRegistryPrx = ::Ice::__declareProxy('::Ice::LocatorRegistry')
         end
 
@@ -149,10 +141,7 @@ module ::Ice
         LocatorRegistryPrx_mixin::OP_setServerProcessProxy = ::Ice::__defineOperation('setServerProcessProxy', ::Ice::OperationMode::Idempotent, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_ProcessPrx, false, 0]], [], nil, [::Ice::T_ServerNotFoundException])
     end
 
-    if not defined?(::Ice::LocatorFinder_Mixin)
-
-        module ::Ice::LocatorFinder_Mixin
-        end
+    if not defined?(::Ice::LocatorFinderPrx)
         module LocatorFinderPrx_mixin
 
             def getLocator(context=nil)
@@ -166,7 +155,6 @@ module ::Ice
         end
 
         if not defined?(::Ice::T_LocatorFinderPrx)
-            T_LocatorFinder = ::Ice::__declareClass('::Ice::LocatorFinder')
             T_LocatorFinderPrx = ::Ice::__declareProxy('::Ice::LocatorFinder')
         end
 

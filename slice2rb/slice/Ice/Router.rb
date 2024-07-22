@@ -19,10 +19,7 @@ require_relative 'BuiltinSequences.rb'
 
 module ::Ice
 
-    if not defined?(::Ice::Router_Mixin)
-
-        module ::Ice::Router_Mixin
-        end
+    if not defined?(::Ice::RouterPrx)
         module RouterPrx_mixin
 
             def getClientProxy(context=nil)
@@ -44,7 +41,6 @@ module ::Ice
         end
 
         if not defined?(::Ice::T_RouterPrx)
-            T_Router = ::Ice::__declareClass('::Ice::Router')
             T_RouterPrx = ::Ice::__declareProxy('::Ice::Router')
         end
 
@@ -55,10 +51,7 @@ module ::Ice
         RouterPrx_mixin::OP_addProxies = ::Ice::__defineOperation('addProxies', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_ObjectProxySeq, false, 0]], [], [::Ice::T_ObjectProxySeq, false, 0], [])
     end
 
-    if not defined?(::Ice::RouterFinder_Mixin)
-
-        module ::Ice::RouterFinder_Mixin
-        end
+    if not defined?(::Ice::RouterFinderPrx)
         module RouterFinderPrx_mixin
 
             def getRouter(context=nil)
@@ -72,7 +65,6 @@ module ::Ice
         end
 
         if not defined?(::Ice::T_RouterFinderPrx)
-            T_RouterFinder = ::Ice::__declareClass('::Ice::RouterFinder')
             T_RouterFinderPrx = ::Ice::__declareProxy('::Ice::RouterFinder')
         end
 

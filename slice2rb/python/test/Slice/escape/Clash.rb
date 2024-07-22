@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Clash
 
-    if not defined?(::Clash::Intf_Mixin)
-
-        module ::Clash::Intf_Mixin
-        end
+    if not defined?(::Clash::IntfPrx)
         module IntfPrx_mixin
 
             def context(context=nil)
@@ -79,7 +76,6 @@ module ::Clash
         end
 
         if not defined?(::Clash::T_IntfPrx)
-            T_Intf = ::Ice::__declareClass('::Clash::Intf')
             T_IntfPrx = ::Ice::__declareProxy('::Clash::Intf')
         end
 
@@ -99,10 +95,7 @@ module ::Clash
         IntfPrx_mixin::OP_opOut = ::Ice::__defineOperation('opOut', ::Ice::OperationMode::Normal, false, nil, [], [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, true, 1]], nil, [])
     end
 
-    if not defined?(::Clash::Cls_Mixin)
-
-        module ::Clash::Cls_Mixin
-        end
+    if not defined?(::Clash::Cls)
         class Cls < ::Ice::Value
 
             def initialize(s=nil, context='', current=0, response=0, upCast='', typeId=0, del=0, cookie=::Ice::Unset, ex='', result=0, istr='', ostr='', inS='', _in='', proxy='')

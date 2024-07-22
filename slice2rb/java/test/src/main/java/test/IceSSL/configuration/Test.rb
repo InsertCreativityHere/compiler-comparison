@@ -18,10 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Server_Mixin)
-
-        module ::Test::Server_Mixin
-        end
+    if not defined?(::Test::ServerPrx)
         module ServerPrx_mixin
 
             def noCert(context=nil)
@@ -43,7 +40,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_ServerPrx)
-            T_Server = ::Ice::__declareClass('::Test::Server')
             T_ServerPrx = ::Ice::__declareProxy('::Test::Server')
         end
 
@@ -58,10 +54,7 @@ module ::Test
         T_Properties = ::Ice::__defineDictionary('::Test::Properties', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Test::ServerFactory_Mixin)
-
-        module ::Test::ServerFactory_Mixin
-        end
+    if not defined?(::Test::ServerFactoryPrx)
         module ServerFactoryPrx_mixin
 
             def createServer(props, context=nil)
@@ -83,7 +76,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_ServerFactoryPrx)
-            T_ServerFactory = ::Ice::__declareClass('::Test::ServerFactory')
             T_ServerFactoryPrx = ::Ice::__declareProxy('::Test::ServerFactory')
         end
 

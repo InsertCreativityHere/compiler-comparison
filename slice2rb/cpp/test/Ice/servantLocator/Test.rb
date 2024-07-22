@@ -38,10 +38,7 @@ module ::Test
         T_TestImpossibleException = ::Ice::__defineException('::Test::TestImpossibleException', TestImpossibleException, nil, [])
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
-
-        module ::Test::TestIntf_Mixin
-        end
+    if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
             def requestFailedException(context=nil)
@@ -107,7 +104,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
@@ -129,10 +125,7 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::TestActivation_Mixin)
-
-        module ::Test::TestActivation_Mixin
-        end
+    if not defined?(::Test::TestActivationPrx)
         module TestActivationPrx_mixin
 
             def activateServantLocator(activate, context=nil)
@@ -146,7 +139,6 @@ module ::Test
         end
 
         if not defined?(::Test::T_TestActivationPrx)
-            T_TestActivation = ::Ice::__declareClass('::Test::TestActivation')
             T_TestActivationPrx = ::Ice::__declareProxy('::Test::TestActivation')
         end
 

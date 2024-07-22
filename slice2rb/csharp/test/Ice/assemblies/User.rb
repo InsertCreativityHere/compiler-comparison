@@ -19,10 +19,7 @@ require_relative 'Core.rb'
 
 module ::User
 
-    if not defined?(::User::UserInfo_Mixin)
-
-        module ::User::UserInfo_Mixin
-        end
+    if not defined?(::User::UserInfo)
         class UserInfo < ::Ice::Value
         end
 
@@ -33,10 +30,7 @@ module ::User
         T_UserInfo.defineClass(UserInfo, -1, false, nil, [])
     end
 
-    if not defined?(::User::Registry_Mixin)
-
-        module ::User::Registry_Mixin
-        end
+    if not defined?(::User::RegistryPrx)
         module RegistryPrx_mixin
 
             def getUserInfo(id, context=nil)
@@ -50,7 +44,6 @@ module ::User
         end
 
         if not defined?(::User::T_RegistryPrx)
-            T_Registry = ::Ice::__declareClass('::User::Registry')
             T_RegistryPrx = ::Ice::__declareProxy('::User::Registry')
         end
 

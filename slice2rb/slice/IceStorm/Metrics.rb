@@ -19,10 +19,7 @@ require 'Ice/Metrics.rb'
 
 module ::IceMX
 
-    if not defined?(::IceMX::TopicMetrics_Mixin)
-
-        module ::IceMX::TopicMetrics_Mixin
-        end
+    if not defined?(::IceMX::TopicMetrics)
         class TopicMetrics < ::IceMX::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, published=0, forwarded=0)
@@ -44,10 +41,7 @@ module ::IceMX
         ])
     end
 
-    if not defined?(::IceMX::SubscriberMetrics_Mixin)
-
-        module ::IceMX::SubscriberMetrics_Mixin
-        end
+    if not defined?(::IceMX::SubscriberMetrics)
         class SubscriberMetrics < ::IceMX::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, queued=0, outstanding=0, delivered=0)
