@@ -3224,9 +3224,9 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ServerStartException {
-                                  throw error
                               } catch let error as ServerNotExistException {
+                                  throw error
+                              } catch let error as ServerStartException {
                                   throw error
                               } catch let error as DeploymentException {
                                   throw error
@@ -3261,9 +3261,9 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerStartException {
-                                          throw error
                                       } catch let error as ServerNotExistException {
+                                          throw error
+                                      } catch let error as ServerStartException {
                                           throw error
                                       } catch let error as DeploymentException {
                                           throw error
@@ -3301,9 +3301,9 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ServerStopException {
-                                  throw error
                               } catch let error as ServerNotExistException {
+                                  throw error
+                              } catch let error as ServerStopException {
                                   throw error
                               } catch let error as DeploymentException {
                                   throw error
@@ -3338,9 +3338,9 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerStopException {
-                                          throw error
                                       } catch let error as ServerNotExistException {
+                                          throw error
+                                      } catch let error as ServerStopException {
                                           throw error
                                       } catch let error as DeploymentException {
                                           throw error
