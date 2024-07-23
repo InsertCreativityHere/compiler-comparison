@@ -385,7 +385,10 @@ namespace Test
     public partial interface TestIntf : Ice.Object
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_OpDoubleArrayResult> opDoubleArrayAsync(double[] inSeq, Ice.Current current);
+        global::System.Threading.Tasks.Task<TestIntf_OpShortArrayResult> opShortArrayAsync(short[] inSeq, Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task<TestIntf_OpDoubleArrayResult> opDoubleArrayAsync(bool padding, double[] inSeq, Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<TestIntf_OpBoolArrayResult> opBoolArrayAsync(bool[] inSeq, Ice.Current current);
@@ -478,6 +481,8 @@ namespace Test
 
 namespace Test
 {
+    public record struct TestIntf_OpShortArrayResult(short[] returnValue, short[] outSeq);
+
     public record struct TestIntf_OpDoubleArrayResult(double[] returnValue, double[] outSeq);
 
     public record struct TestIntf_OpBoolArrayResult(bool[] returnValue, bool[] outSeq);
@@ -543,9 +548,13 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface TestIntfPrx : Ice.ObjectPrx
     {
-        double[] opDoubleArray(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        short[] opShortArray(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpDoubleArrayResult> opDoubleArrayAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_OpShortArrayResult> opShortArrayAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        double[] opDoubleArray(bool padding, double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpDoubleArrayResult> opDoubleArrayAsync(bool padding, double[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         bool[] opBoolArray(bool[] inSeq, out bool[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -2195,6 +2204,22 @@ namespace Test
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+    public sealed class ShortSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, short[] v)
+        {
+            ostr.writeShortSeq(v);
+        }
+
+        public static short[] read(Ice.InputStream istr)
+        {
+            short[] v;
+            v = istr.readShortSeq();
+            return v;
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class IntStringDictHelper
     {
         public static void write(Ice.OutputStream ostr,
@@ -2421,11 +2446,25 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
     {
-        public double[] opDoubleArray(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public short[] opShortArray(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                var result_ = _iceI_opDoubleArrayAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                var result_ = _iceI_opShortArrayAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                outSeq = result_.outSeq;
+                return result_.returnValue;
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public double[] opDoubleArray(bool padding, double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                var result_ = _iceI_opDoubleArrayAsync(padding, inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 outSeq = result_.outSeq;
                 return result_.returnValue;
             }
@@ -2835,22 +2874,59 @@ namespace Test
             }
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpDoubleArrayResult> opDoubleArrayAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_OpShortArrayResult> opShortArrayAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_opDoubleArrayAsync(inSeq, context, progress, cancel, false);
+            return _iceI_opShortArrayAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpDoubleArrayResult> _iceI_opDoubleArrayAsync(double[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpShortArrayResult> _iceI_opShortArrayAsync(short[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            iceCheckTwowayOnly(_opShortArray_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpShortArrayResult>(progress, cancel);
+            _iceI_opShortArray(iceP_inSeq, context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _opShortArray_name = "opShortArray";
+
+        private void _iceI_opShortArray(short[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<TestIntf_OpShortArrayResult>(completed);
+            outAsync.invoke(
+                _opShortArray_name,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
+                context,
+                synchronous,
+                write: (Ice.OutputStream ostr) =>
+                {
+                    ShortSeqHelper.write(ostr, iceP_inSeq);
+                },
+                read: (Ice.InputStream istr) =>
+                {
+                    var ret = new TestIntf_OpShortArrayResult();
+                    ret.outSeq = ShortSeqHelper.read(istr);
+                    ret.returnValue = ShortSeqHelper.read(istr);
+                    return ret;
+                });
+        }
+
+        public global::System.Threading.Tasks.Task<TestIntf_OpDoubleArrayResult> opDoubleArrayAsync(bool padding, double[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_opDoubleArrayAsync(padding, inSeq, context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task<TestIntf_OpDoubleArrayResult> _iceI_opDoubleArrayAsync(bool iceP_padding, double[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opDoubleArray_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpDoubleArrayResult>(progress, cancel);
-            _iceI_opDoubleArray(iceP_inSeq, context, synchronous, completed);
+            _iceI_opDoubleArray(iceP_padding, iceP_inSeq, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opDoubleArray_name = "opDoubleArray";
 
-        private void _iceI_opDoubleArray(double[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opDoubleArray(bool iceP_padding, double[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpDoubleArrayResult>(completed);
             outAsync.invoke(
@@ -2861,6 +2937,7 @@ namespace Test
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
+                    ostr.writeBool(iceP_padding);
                     DoubleSeqHelper.write(ostr, iceP_inSeq);
                 },
                 read: (Ice.InputStream istr) =>
@@ -3999,7 +4076,9 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
     {
-        public abstract global::System.Threading.Tasks.Task<TestIntf_OpDoubleArrayResult> opDoubleArrayAsync(double[] inSeq, Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_OpShortArrayResult> opShortArrayAsync(short[] inSeq, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<TestIntf_OpDoubleArrayResult> opDoubleArrayAsync(bool padding, double[] inSeq, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<TestIntf_OpBoolArrayResult> opBoolArrayAsync(bool[] inSeq, Ice.Current current);
 
@@ -4066,6 +4145,7 @@ namespace Test
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
+                "opShortArray" => TestIntf.iceD_opShortArrayAsync(this, request),
                 "opDoubleArray" => TestIntf.iceD_opDoubleArrayAsync(this, request),
                 "opBoolArray" => TestIntf.iceD_opBoolArrayAsync(this, request),
                 "opByteArray" => TestIntf.iceD_opByteArrayAsync(this, request),
@@ -4109,6 +4189,27 @@ namespace Test
 {
     public partial interface TestIntf
     {
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortArrayAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            short[] iceP_inSeq;
+            iceP_inSeq = ShortSeqHelper.read(istr);
+            istr.endEncapsulation();
+            var result = await obj.opShortArrayAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ShortSeqHelper.write(ostr, ret.outSeq);
+                    ShortSeqHelper.write(ostr, ret.returnValue);
+                });
+        }
+
         protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDoubleArrayAsync(
             TestIntf obj,
             Ice.IncomingRequest request)
@@ -4116,10 +4217,12 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
+            bool iceP_padding;
             double[] iceP_inSeq;
+            iceP_padding = istr.readBool();
             iceP_inSeq = DoubleSeqHelper.read(istr);
             istr.endEncapsulation();
-            var result = await obj.opDoubleArrayAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            var result = await obj.opDoubleArrayAsync(iceP_padding, iceP_inSeq, request.current).ConfigureAwait(false);
             return Ice.CurrentExtensions.createOutgoingResponse(
                 request.current,
                 result,

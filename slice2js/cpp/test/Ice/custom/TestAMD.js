@@ -201,6 +201,8 @@ Test.DPrxSeqListHelper = Ice.StreamHelpers.generateSeqHelper(Test.DPrxSeqHelper,
 
 Test.DoubleSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.DoubleHelper, true);
 
+Test.ShortSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ShortHelper, true);
+
 [Test.IntStringDict, Test.IntStringDictHelper] = Ice.defineDictionary(Ice.IntHelper, Ice.StringHelper, false, undefined);
 
 [Test.LongLongDict, Test.LongLongDictHelper] = Ice.defineDictionary(Ice.LongHelper, Ice.LongHelper, true, Ice.HashMap.compareEquals);
@@ -306,7 +308,8 @@ Ice.defineOperations(
     iceC_Test_TestIntf_ids,
     "::Test::TestIntf",
     {
-        "opDoubleArray": [, , , [Test.DoubleSeqHelper], [[Test.DoubleSeqHelper]], [[Test.DoubleSeqHelper]], , , ],
+        "opShortArray": [, , , [Test.ShortSeqHelper], [[Test.ShortSeqHelper]], [[Test.ShortSeqHelper]], , , ],
+        "opDoubleArray": [, , , [Test.DoubleSeqHelper], [[1], [Test.DoubleSeqHelper]], [[Test.DoubleSeqHelper]], , , ],
         "opBoolArray": [, , , [Test.BoolSeqHelper], [[Test.BoolSeqHelper]], [[Test.BoolSeqHelper]], , , ],
         "opByteArray": [, , , [Test.ByteListHelper], [[Test.ByteListHelper]], [[Test.ByteListHelper]], , , ],
         "opVariableArray": [, , , [Test.VariableListHelper], [[Test.VariableListHelper]], [[Test.VariableListHelper]], , , ],

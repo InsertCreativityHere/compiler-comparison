@@ -1,6 +1,8 @@
 % TestIntfPrx   Summary of TestIntfPrx
 %
 % TestIntfPrx Methods:
+%   opShortArray
+%   opShortArrayAsync
 %   opDoubleArray
 %   opDoubleArrayAsync
 %   opBoolArray
@@ -73,10 +75,53 @@
 
 classdef TestIntfPrx < Ice.ObjectPrx
     methods
-        function [result, outSeq] = opDoubleArray(obj, inSeq, varargin)
+        function [result, outSeq] = opShortArray(obj, inSeq, varargin)
+            % opShortArray
+            %
+            % Parameters:
+            %   inSeq (Test.ShortSeq)
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns:
+            %   result (Test.ShortSeq)
+            %   outSeq (Test.ShortSeq)
+            
+            os_ = obj.iceStartWriteParams([]);
+            os_.writeShortSeq(inSeq);
+            obj.iceEndWriteParams(os_);
+            is_ = obj.iceInvoke('opShortArray', 0, true, os_, true, {}, varargin{:});
+            is_.startEncapsulation();
+            outSeq = is_.readShortSeq();
+            result = is_.readShortSeq();
+            is_.endEncapsulation();
+        end
+        function r_ = opShortArrayAsync(obj, inSeq, varargin)
+            % opShortArrayAsync
+            %
+            % Parameters:
+            %   inSeq (Test.ShortSeq)
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
+            os_ = obj.iceStartWriteParams([]);
+            os_.writeShortSeq(inSeq);
+            obj.iceEndWriteParams(os_);
+            function varargout = unmarshal(is_)
+                is_.startEncapsulation();
+                outSeq = is_.readShortSeq();
+                result = is_.readShortSeq();
+                is_.endEncapsulation();
+                varargout{1} = result;
+                varargout{2} = outSeq;
+            end
+            r_ = obj.iceInvokeAsync('opShortArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
+        end
+        function [result, outSeq] = opDoubleArray(obj, padding, inSeq, varargin)
             % opDoubleArray
             %
             % Parameters:
+            %   padding (logical)
             %   inSeq (Test.DoubleSeq)
             %   context (containers.Map) - Optional request context.
             %
@@ -85,6 +130,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             %   outSeq (Test.DoubleSeq)
             
             os_ = obj.iceStartWriteParams([]);
+            os_.writeBool(padding);
             os_.writeDoubleSeq(inSeq);
             obj.iceEndWriteParams(os_);
             is_ = obj.iceInvoke('opDoubleArray', 0, true, os_, true, {}, varargin{:});
@@ -93,16 +139,18 @@ classdef TestIntfPrx < Ice.ObjectPrx
             result = is_.readDoubleSeq();
             is_.endEncapsulation();
         end
-        function r_ = opDoubleArrayAsync(obj, inSeq, varargin)
+        function r_ = opDoubleArrayAsync(obj, padding, inSeq, varargin)
             % opDoubleArrayAsync
             %
             % Parameters:
+            %   padding (logical)
             %   inSeq (Test.DoubleSeq)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
+            os_.writeBool(padding);
             os_.writeDoubleSeq(inSeq);
             obj.iceEndWriteParams(os_);
             function varargout = unmarshal(is_)

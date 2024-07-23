@@ -390,6 +390,9 @@ if '_t_DPrxSeqList' not in _M_Test.__dict__:
 if '_t_DoubleSeq' not in _M_Test.__dict__:
     _M_Test._t_DoubleSeq = IcePy.defineSequence('::Test::DoubleSeq', (), IcePy._t_double)
 
+if '_t_ShortSeq' not in _M_Test.__dict__:
+    _M_Test._t_ShortSeq = IcePy.defineSequence('::Test::ShortSeq', (), IcePy._t_short)
+
 if '_t_IntStringDict' not in _M_Test.__dict__:
     _M_Test._t_IntStringDict = IcePy.defineDictionary('::Test::IntStringDict', (), IcePy._t_int, IcePy._t_string)
 
@@ -521,11 +524,17 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        def opDoubleArray(self, inSeq, context=None):
-            return _M_Test.TestIntf._op_opDoubleArray.invoke(self, ((inSeq, ), context))
+        def opShortArray(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opShortArray.invoke(self, ((inSeq, ), context))
 
-        def opDoubleArrayAsync(self, inSeq, context=None):
-            return _M_Test.TestIntf._op_opDoubleArray.invokeAsync(self, ((inSeq, ), context))
+        def opShortArrayAsync(self, inSeq, context=None):
+            return _M_Test.TestIntf._op_opShortArray.invokeAsync(self, ((inSeq, ), context))
+
+        def opDoubleArray(self, padding, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDoubleArray.invoke(self, ((padding, inSeq), context))
+
+        def opDoubleArrayAsync(self, padding, inSeq, context=None):
+            return _M_Test.TestIntf._op_opDoubleArray.invokeAsync(self, ((padding, inSeq), context))
 
         def opBoolArray(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opBoolArray.invoke(self, ((inSeq, ), context))
@@ -730,7 +739,10 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def ice_staticId():
             return '::Test::TestIntf'
 
-        def opDoubleArray(self, inSeq, current=None):
+        def opShortArray(self, inSeq, current=None):
+            raise NotImplementedError("servant method 'opShortArray' not implemented")
+
+        def opDoubleArray(self, padding, inSeq, current=None):
             raise NotImplementedError("servant method 'opDoubleArray' not implemented")
 
         def opBoolArray(self, inSeq, current=None):
@@ -828,7 +840,8 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    TestIntf._op_opDoubleArray = IcePy.Operation('opDoubleArray', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_DoubleSeq, False, 0),), (((), _M_Test._t_DoubleSeq, False, 0),), ((), _M_Test._t_DoubleSeq, False, 0), ())
+    TestIntf._op_opShortArray = IcePy.Operation('opShortArray', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ShortSeq, False, 0),), (((), _M_Test._t_ShortSeq, False, 0),), ((), _M_Test._t_ShortSeq, False, 0), ())
+    TestIntf._op_opDoubleArray = IcePy.Operation('opDoubleArray', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_bool, False, 0), ((), _M_Test._t_DoubleSeq, False, 0)), (((), _M_Test._t_DoubleSeq, False, 0),), ((), _M_Test._t_DoubleSeq, False, 0), ())
     TestIntf._op_opBoolArray = IcePy.Operation('opBoolArray', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_BoolSeq, False, 0),), (((), _M_Test._t_BoolSeq, False, 0),), ((), _M_Test._t_BoolSeq, False, 0), ())
     TestIntf._op_opByteArray = IcePy.Operation('opByteArray', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ByteList, False, 0),), (((), _M_Test._t_ByteList, False, 0),), ((), _M_Test._t_ByteList, False, 0), ())
     TestIntf._op_opVariableArray = IcePy.Operation('opVariableArray', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_VariableList, False, 0),), (((), _M_Test._t_VariableList, False, 0),), ((), _M_Test._t_VariableList, False, 0), ())

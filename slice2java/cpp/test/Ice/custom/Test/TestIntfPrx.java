@@ -17,24 +17,24 @@ package Test;
 
 public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default TestIntf.OpDoubleArrayResult opDoubleArray(double[] inSeq)
+    default TestIntf.OpShortArrayResult opShortArray(short[] inSeq)
     {
-        return opDoubleArray(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opShortArray(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default TestIntf.OpDoubleArrayResult opDoubleArray(double[] inSeq, java.util.Map<String, String> context)
+    default TestIntf.OpShortArrayResult opShortArray(short[] inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opDoubleArrayAsync(inSeq, context, true).waitForResponse();
+        return _iceI_opShortArrayAsync(inSeq, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpDoubleArrayResult> opDoubleArrayAsync(double[] inSeq)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpShortArrayResult> opShortArrayAsync(short[] inSeq)
     {
-        return _iceI_opDoubleArrayAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opShortArrayAsync(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<TestIntf.OpDoubleArrayResult> opDoubleArrayAsync(double[] inSeq, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<TestIntf.OpShortArrayResult> opShortArrayAsync(short[] inSeq, java.util.Map<String, String> context)
     {
-        return _iceI_opDoubleArrayAsync(inSeq, context, false);
+        return _iceI_opShortArrayAsync(inSeq, context, false);
     }
 
     /**
@@ -44,10 +44,52 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpDoubleArrayResult> _iceI_opDoubleArrayAsync(double[] iceP_inSeq, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpShortArrayResult> _iceI_opShortArrayAsync(short[] iceP_inSeq, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpShortArrayResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opShortArray", null, sync, null);
+        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+                     ostr.writeShortSeq(iceP_inSeq);
+                 }, istr -> {
+                     TestIntf.OpShortArrayResult ret = new TestIntf.OpShortArrayResult();
+                     ret.read(istr);
+                     return ret;
+                 });
+        return f;
+    }
+
+    default TestIntf.OpDoubleArrayResult opDoubleArray(boolean padding, double[] inSeq)
+    {
+        return opDoubleArray(padding, inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default TestIntf.OpDoubleArrayResult opDoubleArray(boolean padding, double[] inSeq, java.util.Map<String, String> context)
+    {
+        return _iceI_opDoubleArrayAsync(padding, inSeq, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<TestIntf.OpDoubleArrayResult> opDoubleArrayAsync(boolean padding, double[] inSeq)
+    {
+        return _iceI_opDoubleArrayAsync(padding, inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<TestIntf.OpDoubleArrayResult> opDoubleArrayAsync(boolean padding, double[] inSeq, java.util.Map<String, String> context)
+    {
+        return _iceI_opDoubleArrayAsync(padding, inSeq, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_padding -
+     * @param iceP_inSeq -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpDoubleArrayResult> _iceI_opDoubleArrayAsync(boolean iceP_padding, double[] iceP_inSeq, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpDoubleArrayResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opDoubleArray", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+                     ostr.writeBool(iceP_padding);
                      ostr.writeDoubleSeq(iceP_inSeq);
                  }, istr -> {
                      TestIntf.OpDoubleArrayResult ret = new TestIntf.OpDoubleArrayResult();

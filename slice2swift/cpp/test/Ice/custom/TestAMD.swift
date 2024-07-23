@@ -2861,6 +2861,8 @@ public struct DPrxSeqListHelper {
 
 public typealias DoubleSeq = [Swift.Double]
 
+public typealias ShortSeq = [Swift.Int16]
+
 public typealias IntStringDict = [Swift.Int32: Swift.String]
 
 /// Helper class to read and write `IntStringDict` dictionary values from
@@ -3259,6 +3261,10 @@ public extension DPrx {}
 ///
 /// TestIntfPrx Methods:
 ///
+///  - opShortArray: 
+///
+///  - opShortArrayAsync: 
+///
 ///  - opDoubleArray: 
 ///
 ///  - opDoubleArrayAsync: 
@@ -3469,6 +3475,10 @@ public extension Ice.InputStream {
 ///
 /// TestIntfPrx Methods:
 ///
+///  - opShortArray: 
+///
+///  - opShortArrayAsync: 
+///
 ///  - opDoubleArray: 
 ///
 ///  - opDoubleArrayAsync: 
@@ -3590,7 +3600,64 @@ public extension Ice.InputStream {
 ///  - shutdownAsync: 
 public extension TestIntfPrx {
     ///
-    /// - parameter _: `DoubleSeq`
+    /// - parameter _: `ShortSeq`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - returns: `(returnValue: ShortSeq, outSeq: ShortSeq)`:
+    ///
+    ///   - returnValue: `ShortSeq`
+    ///
+    ///   - outSeq: `ShortSeq`
+    func opShortArray(_ iceP_inSeq: ShortSeq, context: Ice.Context? = nil) throws -> (returnValue: ShortSeq, outSeq: ShortSeq) {
+        return try _impl._invoke(operation: "opShortArray",
+                                 mode: .Normal,
+                                 write: { ostr in
+                                     ostr.write(iceP_inSeq)
+                                 },
+                                 read: { istr in
+                                     let iceP_outSeq: ShortSeq = try istr.read()
+                                     let iceP_returnValue: ShortSeq = try istr.read()
+                                     return (iceP_returnValue, iceP_outSeq)
+                                 },
+                                 context: context)
+    }
+
+    ///
+    /// - parameter _: `ShortSeq`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
+    ///   dispatch the sent callback.
+    ///
+    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
+    ///   to dispatch the sent callback
+    ///
+    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
+    ///
+    /// - returns: `PromiseKit.Promise<(returnValue: ShortSeq, outSeq: ShortSeq)>` - The result of the operation
+    func opShortArrayAsync(_ iceP_inSeq: ShortSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ShortSeq, outSeq: ShortSeq)> {
+        return _impl._invokeAsync(operation: "opShortArray",
+                                  mode: .Normal,
+                                  write: { ostr in
+                                      ostr.write(iceP_inSeq)
+                                  },
+                                  read: { istr in
+                                      let iceP_outSeq: ShortSeq = try istr.read()
+                                      let iceP_returnValue: ShortSeq = try istr.read()
+                                      return (iceP_returnValue, iceP_outSeq)
+                                  },
+                                  context: context,
+                                  sentOn: sentOn,
+                                  sentFlags: sentFlags,
+                                  sent: sent)
+    }
+
+    ///
+    /// - parameter padding: `Swift.Bool`
+    ///
+    /// - parameter inSeq: `DoubleSeq`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -3599,10 +3666,11 @@ public extension TestIntfPrx {
     ///   - returnValue: `DoubleSeq`
     ///
     ///   - outSeq: `DoubleSeq`
-    func opDoubleArray(_ iceP_inSeq: DoubleSeq, context: Ice.Context? = nil) throws -> (returnValue: DoubleSeq, outSeq: DoubleSeq) {
+    func opDoubleArray(padding iceP_padding: Swift.Bool, inSeq iceP_inSeq: DoubleSeq, context: Ice.Context? = nil) throws -> (returnValue: DoubleSeq, outSeq: DoubleSeq) {
         return try _impl._invoke(operation: "opDoubleArray",
                                  mode: .Normal,
                                  write: { ostr in
+                                     ostr.write(iceP_padding)
                                      ostr.write(iceP_inSeq)
                                  },
                                  read: { istr in
@@ -3614,7 +3682,9 @@ public extension TestIntfPrx {
     }
 
     ///
-    /// - parameter _: `DoubleSeq`
+    /// - parameter padding: `Swift.Bool`
+    ///
+    /// - parameter inSeq: `DoubleSeq`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -3627,10 +3697,11 @@ public extension TestIntfPrx {
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
     /// - returns: `PromiseKit.Promise<(returnValue: DoubleSeq, outSeq: DoubleSeq)>` - The result of the operation
-    func opDoubleArrayAsync(_ iceP_inSeq: DoubleSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: DoubleSeq, outSeq: DoubleSeq)> {
+    func opDoubleArrayAsync(padding iceP_padding: Swift.Bool, inSeq iceP_inSeq: DoubleSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: DoubleSeq, outSeq: DoubleSeq)> {
         return _impl._invokeAsync(operation: "opDoubleArray",
                                   mode: .Normal,
                                   write: { ostr in
+                                      ostr.write(iceP_padding)
                                       ostr.write(iceP_inSeq)
                                   },
                                   read: { istr in
@@ -5368,6 +5439,8 @@ public struct TestIntfDisp: Ice.Dispatcher {
             servant._iceD_opMyByteSeq(request)
         case "opOutArrayByteSeq":
             servant._iceD_opOutArrayByteSeq(request)
+        case "opShortArray":
+            servant._iceD_opShortArray(request)
         case "opShortBuffer":
             servant._iceD_opShortBuffer(request)
         case "opStringList":
@@ -5396,12 +5469,22 @@ public struct TestIntfDisp: Ice.Dispatcher {
 
 public protocol TestIntf {
     ///
+    /// - parameter inSeq: `ShortSeq`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `PromiseKit.Promise<(returnValue: ShortSeq, outSeq: ShortSeq)>` - The result of the operation
+    func opShortArrayAsync(inSeq: ShortSeq, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ShortSeq, outSeq: ShortSeq)>
+
+    ///
+    /// - parameter padding: `Swift.Bool`
+    ///
     /// - parameter inSeq: `DoubleSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `PromiseKit.Promise<(returnValue: DoubleSeq, outSeq: DoubleSeq)>` - The result of the operation
-    func opDoubleArrayAsync(inSeq: DoubleSeq, current: Ice.Current) -> PromiseKit.Promise<(returnValue: DoubleSeq, outSeq: DoubleSeq)>
+    func opDoubleArrayAsync(padding: Swift.Bool, inSeq: DoubleSeq, current: Ice.Current) -> PromiseKit.Promise<(returnValue: DoubleSeq, outSeq: DoubleSeq)>
 
     ///
     /// - parameter inSeq: `BoolSeq`
@@ -5641,6 +5724,8 @@ extension D {}
 ///
 /// TestIntf Methods:
 ///
+///  - opShortArray: 
+///
 ///  - opDoubleArray: 
 ///
 ///  - opBoolArray: 
@@ -5701,13 +5786,33 @@ extension D {}
 ///
 ///  - shutdown: 
 extension TestIntf {
+    public func _iceD_opShortArray(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
+            let iceP_inSeq: ShortSeq = try istr.read()
+            return self.opShortArrayAsync(
+                inSeq: iceP_inSeq, current: request.current
+            ).map(on: nil) { result in 
+                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+                    let (iceP_returnValue, iceP_outSeq) = value
+                    ostr.write(iceP_outSeq)
+                    ostr.write(iceP_returnValue)
+                }
+            }
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
     public func _iceD_opDoubleArray(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
         do {
             let istr = request.inputStream
             _ = try istr.startEncapsulation()
+            let iceP_padding: Swift.Bool = try istr.read()
             let iceP_inSeq: DoubleSeq = try istr.read()
             return self.opDoubleArrayAsync(
-                inSeq: iceP_inSeq, current: request.current
+                padding: iceP_padding, inSeq: iceP_inSeq, current: request.current
             ).map(on: nil) { result in 
                 request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
                     let (iceP_returnValue, iceP_outSeq) = value

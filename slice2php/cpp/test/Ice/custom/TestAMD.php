@@ -661,6 +661,17 @@ namespace Test
 
 namespace Test
 {
+    global $Test__t_ShortSeq;
+
+    if(!isset($Test__t_ShortSeq))
+    {
+        global $IcePHP__t_short;
+        $Test__t_ShortSeq = IcePHP_defineSequence('::Test::ShortSeq', $IcePHP__t_short);
+    }
+}
+
+namespace Test
+{
     global $Test__t_IntStringDict;
 
     if(!isset($Test__t_IntStringDict))
@@ -881,6 +892,8 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
 
+    global $Test__t_ShortSeq;
+    global $IcePHP__t_bool;
     global $Test__t_DoubleSeq;
     global $Test__t_BoolSeq;
     global $Test__t_ByteList;
@@ -905,7 +918,8 @@ namespace Test
     global $Test__t_LongLongDict;
     global $Test__t_ShortBuffer;
     global $Test__t_BufferStruct;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opDoubleArray', 0, 0, array(array($Test__t_DoubleSeq)), array(array($Test__t_DoubleSeq)), array($Test__t_DoubleSeq), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opShortArray', 0, 0, array(array($Test__t_ShortSeq)), array(array($Test__t_ShortSeq)), array($Test__t_ShortSeq), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opDoubleArray', 0, 0, array(array($IcePHP__t_bool), array($Test__t_DoubleSeq)), array(array($Test__t_DoubleSeq)), array($Test__t_DoubleSeq), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBoolArray', 0, 0, array(array($Test__t_BoolSeq)), array(array($Test__t_BoolSeq)), array($Test__t_BoolSeq), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opByteArray', 0, 0, array(array($Test__t_ByteList)), array(array($Test__t_ByteList)), array($Test__t_ByteList), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opVariableArray', 0, 0, array(array($Test__t_VariableList)), array(array($Test__t_VariableList)), array($Test__t_VariableList), null);

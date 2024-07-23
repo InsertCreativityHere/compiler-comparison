@@ -142,6 +142,8 @@ namespace Test
 
     using DoubleSeq = ::std::vector<double>;
 
+    using ShortSeq = ::std::vector<::std::int16_t>;
+
     using IntStringDict = Test::CustomMap<std::int32_t, std::string>;
 
     using LongLongDict = ::std::map<::std::int64_t, ::std::int64_t>;
@@ -225,15 +227,30 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    DoubleSeq opDoubleArray(::std::pair<const double*, const double*> inSeq, DoubleSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ShortSeq opShortArray(::std::pair<const ::std::int16_t*, const ::std::int16_t*> inSeq, ShortSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleSeq, DoubleSeq>> opDoubleArrayAsync(::std::pair<const double*, const double*> inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<ShortSeq, ShortSeq>> opShortArrayAsync(::std::pair<const ::std::int16_t*, const ::std::int16_t*> inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opDoubleArrayAsync(::std::pair<const double*, const double*> inSeq, ::std::function<void(::Test::DoubleSeq, ::Test::DoubleSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opShortArrayAsync(::std::pair<const ::std::int16_t*, const ::std::int16_t*> inSeq, ::std::function<void(::std::pair<const ::std::int16_t*, const ::std::int16_t*>, ::std::pair<const ::std::int16_t*, const ::std::int16_t*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opDoubleArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleSeq, DoubleSeq>>>&, ::std::pair<const double*, const double*>, const ::Ice::Context&) const;
+    void _iceI_opShortArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortSeq, ShortSeq>>>&, ::std::pair<const ::std::int16_t*, const ::std::int16_t*>, const ::Ice::Context&) const;
+    /// \endcond
+
+    /// \cond INTERNAL
+    void _iceIL_opShortArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::pair<const ::std::int16_t*, const ::std::int16_t*>, ::std::pair<const ::std::int16_t*, const ::std::int16_t*>>>>&, ::std::pair<const ::std::int16_t*, const ::std::int16_t*>, const ::Ice::Context&) const;
+    /// \endcond
+
+    DoubleSeq opDoubleArray(bool padding, ::std::pair<const double*, const double*> inSeq, DoubleSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<::std::tuple<DoubleSeq, DoubleSeq>> opDoubleArrayAsync(bool padding, ::std::pair<const double*, const double*> inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    opDoubleArrayAsync(bool padding, ::std::pair<const double*, const double*> inSeq, ::std::function<void(::Test::DoubleSeq, ::Test::DoubleSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_opDoubleArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleSeq, DoubleSeq>>>&, bool, ::std::pair<const double*, const double*>, const ::Ice::Context&) const;
     /// \endcond
 
     BoolSeq opBoolArray(::std::pair<const bool*, const bool*> inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -813,7 +830,12 @@ public:
      */
     static const char* ice_staticId() noexcept;
 
-    virtual void opDoubleArrayAsync(::std::pair<const double*, const double*> inSeq, ::std::function<void(const DoubleSeq& returnValue, const DoubleSeq& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opShortArrayAsync(::std::pair<const ::std::int16_t*, const ::std::int16_t*> inSeq, ::std::function<void(::std::pair<const ::std::int16_t*, const ::std::int16_t*> returnValue, ::std::pair<const ::std::int16_t*, const ::std::int16_t*> outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    void _iceD_opShortArray(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    /// \endcond
+
+    virtual void opDoubleArrayAsync(bool padding, ::std::pair<const double*, const double*> inSeq, ::std::function<void(const DoubleSeq& returnValue, const DoubleSeq& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opDoubleArray(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

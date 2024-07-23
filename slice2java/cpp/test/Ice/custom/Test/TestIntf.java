@@ -18,6 +18,40 @@ package Test;
 public interface TestIntf extends com.zeroc.Ice.Object
 {
     /**
+     * Holds the result of operation opShortArray.
+     **/
+    public static class OpShortArrayResult
+    {
+        /**
+         * Default constructor.
+         **/
+        public OpShortArrayResult()
+        {
+        }
+
+        public OpShortArrayResult(short[] returnValue, short[] outSeq)
+        {
+            this.returnValue = returnValue;
+            this.outSeq = outSeq;
+        }
+
+        public short[] returnValue;
+        public short[] outSeq;
+
+        public void write(com.zeroc.Ice.OutputStream ostr)
+        {
+            ostr.writeShortSeq(this.outSeq);
+            ostr.writeShortSeq(returnValue);
+        }
+
+        public void read(com.zeroc.Ice.InputStream istr)
+        {
+            this.outSeq = istr.readShortSeq();
+            returnValue = istr.readShortSeq();
+        }
+    }
+
+    /**
      * Holds the result of operation opDoubleArray.
      **/
     public static class OpDoubleArrayResult
@@ -1003,7 +1037,9 @@ public interface TestIntf extends com.zeroc.Ice.Object
         }
     }
 
-    TestIntf.OpDoubleArrayResult opDoubleArray(double[] inSeq, com.zeroc.Ice.Current current);
+    TestIntf.OpShortArrayResult opShortArray(short[] inSeq, com.zeroc.Ice.Current current);
+
+    TestIntf.OpDoubleArrayResult opDoubleArray(boolean padding, double[] inSeq, com.zeroc.Ice.Current current);
 
     TestIntf.OpBoolArrayResult opBoolArray(boolean[] inSeq, com.zeroc.Ice.Current current);
 
@@ -1092,15 +1128,34 @@ public interface TestIntf extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opShortArray(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        short[] iceP_inSeq;
+        iceP_inSeq = istr.readShortSeq();
+        istr.endEncapsulation();
+        TestIntf.OpShortArrayResult ret = obj.opShortArray(iceP_inSeq, request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ret.write(ostr);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opDoubleArray(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
+        boolean iceP_padding;
         double[] iceP_inSeq;
+        iceP_padding = istr.readBool();
         iceP_inSeq = istr.readDoubleSeq();
         istr.endEncapsulation();
-        TestIntf.OpDoubleArrayResult ret = obj.opDoubleArray(iceP_inSeq, request.current);
+        TestIntf.OpDoubleArrayResult ret = obj.opDoubleArray(iceP_padding, iceP_inSeq, request.current);
         var ostr = request.current.startReplyStream();
         ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
         ret.write(ostr);
@@ -1637,6 +1692,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
     {
         return switch (request.current.operation)
         {
+            case "opShortArray" -> TestIntf._iceD_opShortArray(this, request);
             case "opDoubleArray" -> TestIntf._iceD_opDoubleArray(this, request);
             case "opBoolArray" -> TestIntf._iceD_opBoolArray(this, request);
             case "opByteArray" -> TestIntf._iceD_opByteArray(this, request);
