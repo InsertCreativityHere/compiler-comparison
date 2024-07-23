@@ -612,6 +612,11 @@ namespace Test
 
     class MyClassPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::MyClass');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::MyClass', $facetOrContext, $context);
@@ -833,6 +838,11 @@ namespace Test
 
     class MyDerivedClassPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::MyDerivedClass');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::MyDerivedClass', $facetOrContext, $context);
@@ -1114,6 +1124,11 @@ namespace Test2
 
     class MyDerivedClassPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test2::MyDerivedClass');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test2::MyDerivedClass', $facetOrContext, $context);

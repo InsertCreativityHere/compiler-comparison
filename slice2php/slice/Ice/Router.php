@@ -27,6 +27,11 @@ namespace Ice
 
     class RouterPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Ice::Router');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Ice::Router', $facetOrContext, $context);
@@ -61,6 +66,11 @@ namespace Ice
 
     class RouterFinderPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Ice::RouterFinder');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Ice::RouterFinder', $facetOrContext, $context);

@@ -386,6 +386,11 @@ namespace Test
 
     class CustomPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Custom');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Custom', $facetOrContext, $context);

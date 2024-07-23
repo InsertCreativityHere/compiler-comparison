@@ -22,6 +22,11 @@ namespace Test
 
     class SinglePrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Single');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Single', $facetOrContext, $context);

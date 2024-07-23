@@ -98,6 +98,11 @@ namespace Ice
 
     class RemoteLoggerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Ice::RemoteLogger');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Ice::RemoteLogger', $facetOrContext, $context);
@@ -151,6 +156,11 @@ namespace Ice
 
     class LoggerAdminPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Ice::LoggerAdmin');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Ice::LoggerAdmin', $facetOrContext, $context);

@@ -51,6 +51,11 @@ namespace IceGrid
 
     class FileParserPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::FileParser');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::FileParser', $facetOrContext, $context);

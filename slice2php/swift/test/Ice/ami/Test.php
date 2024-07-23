@@ -61,6 +61,11 @@ namespace Test
 
     class PingReplyPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::PingReply');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::PingReply', $facetOrContext, $context);
@@ -90,6 +95,11 @@ namespace Test
 
     class TestIntfPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::TestIntf');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::TestIntf', $facetOrContext, $context);
@@ -140,6 +150,11 @@ namespace Test
 
     class TestIntfControllerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::TestIntfController');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::TestIntfController', $facetOrContext, $context);
@@ -170,6 +185,11 @@ namespace Test\Outer\Inner
 
     class TestIntfPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Outer::Inner::TestIntf');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Outer::Inner::TestIntf', $facetOrContext, $context);

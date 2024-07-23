@@ -77,6 +77,11 @@ namespace IceStorm
 
     class TopicLinkPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceStorm::TopicLink');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceStorm::TopicLink', $facetOrContext, $context);
@@ -127,6 +132,11 @@ namespace IceStorm
 
     class TopicInternalPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceStorm::TopicInternal');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceStorm::TopicInternal', $facetOrContext, $context);
@@ -159,6 +169,11 @@ namespace IceStorm
 
     class TopicManagerInternalPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceStorm::TopicManagerInternal');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceStorm::TopicManagerInternal', $facetOrContext, $context);

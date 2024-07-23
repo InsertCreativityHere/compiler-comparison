@@ -22,6 +22,11 @@ namespace Ice
 
     class ProcessPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Ice::Process');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Ice::Process', $facetOrContext, $context);

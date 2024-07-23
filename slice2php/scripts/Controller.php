@@ -195,6 +195,11 @@ namespace Test\Common
 
     class TestCasePrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Common::TestCase');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Common::TestCase', $facetOrContext, $context);
@@ -230,6 +235,11 @@ namespace Test\Common
 
     class ControllerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Common::Controller');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Common::Controller', $facetOrContext, $context);
@@ -291,6 +301,11 @@ namespace Test\Common
 
     class ProcessPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Common::Process');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Common::Process', $facetOrContext, $context);
@@ -324,6 +339,11 @@ namespace Test\Common
 
     class ProcessControllerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Common::ProcessController');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Common::ProcessController', $facetOrContext, $context);
@@ -358,6 +378,11 @@ namespace Test\Common
 
     class BrowserProcessControllerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Common::BrowserProcessController');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Common::BrowserProcessController', $facetOrContext, $context);
@@ -388,6 +413,11 @@ namespace Test\Common
 
     class ProcessControllerRegistryPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Common::ProcessControllerRegistry');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Common::ProcessControllerRegistry', $facetOrContext, $context);

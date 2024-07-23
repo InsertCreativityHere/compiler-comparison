@@ -57,6 +57,11 @@ namespace BEGIN
 
     class breakPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::BEGIN::break');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::BEGIN::break', $facetOrContext, $context);
@@ -135,6 +140,11 @@ namespace BEGIN
 
     class elsifPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::BEGIN::elsif');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::BEGIN::elsif', $facetOrContext, $context);
@@ -235,6 +245,11 @@ namespace BEGIN
 
     class extendPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::BEGIN::extend');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::BEGIN::extend', $facetOrContext, $context);

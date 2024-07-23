@@ -27,6 +27,11 @@ namespace Test
 
     class CallbackReceiverPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::CallbackReceiver');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::CallbackReceiver', $facetOrContext, $context);
@@ -59,6 +64,11 @@ namespace Test
 
     class CallbackPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Callback');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Callback', $facetOrContext, $context);

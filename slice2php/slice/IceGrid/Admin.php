@@ -388,6 +388,11 @@ namespace IceGrid
 
     class AdminPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::Admin');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::Admin', $facetOrContext, $context);
@@ -479,6 +484,11 @@ namespace IceGrid
 
     class FileIteratorPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::FileIterator');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::FileIterator', $facetOrContext, $context);
@@ -630,6 +640,11 @@ namespace IceGrid
 
     class RegistryObserverPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::RegistryObserver');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::RegistryObserver', $facetOrContext, $context);
@@ -675,6 +690,11 @@ namespace IceGrid
 
     class NodeObserverPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::NodeObserver');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::NodeObserver', $facetOrContext, $context);
@@ -713,6 +733,11 @@ namespace IceGrid
 
     class ApplicationObserverPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::ApplicationObserver');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::ApplicationObserver', $facetOrContext, $context);
@@ -750,6 +775,11 @@ namespace IceGrid
 
     class AdapterObserverPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::AdapterObserver');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::AdapterObserver', $facetOrContext, $context);
@@ -785,6 +815,11 @@ namespace IceGrid
 
     class ObjectObserverPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::ObjectObserver');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::ObjectObserver', $facetOrContext, $context);
@@ -820,6 +855,11 @@ namespace IceGrid
 
     class AdminSessionPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::AdminSession');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::AdminSession', $facetOrContext, $context);

@@ -149,6 +149,11 @@ namespace Ice
 
     class LocatorPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Ice::Locator');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Ice::Locator', $facetOrContext, $context);
@@ -184,6 +189,11 @@ namespace Ice
 
     class LocatorRegistryPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Ice::LocatorRegistry');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Ice::LocatorRegistry', $facetOrContext, $context);
@@ -218,6 +228,11 @@ namespace Ice
 
     class LocatorFinderPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Ice::LocatorFinder');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Ice::LocatorFinder', $facetOrContext, $context);

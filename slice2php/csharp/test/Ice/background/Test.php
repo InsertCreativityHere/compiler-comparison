@@ -27,6 +27,11 @@ namespace Test
 
     class BackgroundPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Background');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Background', $facetOrContext, $context);
@@ -59,6 +64,11 @@ namespace Test
 
     class BackgroundControllerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::BackgroundController');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::BackgroundController', $facetOrContext, $context);

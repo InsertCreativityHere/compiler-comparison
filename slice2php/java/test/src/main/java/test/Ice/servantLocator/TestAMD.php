@@ -62,6 +62,11 @@ namespace Test
 
     class TestIntfPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::TestIntf');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::TestIntf', $facetOrContext, $context);
@@ -104,6 +109,11 @@ namespace Test
 
     class TestActivationPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::TestActivation');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::TestActivation', $facetOrContext, $context);

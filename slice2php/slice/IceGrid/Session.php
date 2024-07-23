@@ -28,6 +28,11 @@ namespace IceGrid
 
     class SessionPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::Session');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::Session', $facetOrContext, $context);

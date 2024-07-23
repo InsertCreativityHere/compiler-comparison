@@ -22,6 +22,11 @@ namespace Test\MA
 
     class IAPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::MA::IA');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::MA::IA', $facetOrContext, $context);
@@ -52,6 +57,11 @@ namespace Test\MB
 
     class IB1PrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::MB::IB1');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::MB::IB1', $facetOrContext, $context);
@@ -82,6 +92,11 @@ namespace Test\MB
 
     class IB2PrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::MB::IB2');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::MB::IB2', $facetOrContext, $context);
@@ -112,6 +127,11 @@ namespace Test\MA
 
     class ICPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::MA::IC');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::MA::IC', $facetOrContext, $context);
@@ -142,6 +162,11 @@ namespace Test
 
     class InitialPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Initial');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Initial', $facetOrContext, $context);
@@ -1037,6 +1062,11 @@ namespace Test
 
     class EchoPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Echo');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Echo', $facetOrContext, $context);

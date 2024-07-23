@@ -27,6 +27,11 @@ namespace Test
 
     class TestLocatorRegistryPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::TestLocatorRegistry');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::TestLocatorRegistry', $facetOrContext, $context);
@@ -57,6 +62,11 @@ namespace Test
 
     class TestLocatorPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::TestLocator');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::TestLocator', $facetOrContext, $context);
@@ -87,6 +97,11 @@ namespace Test
 
     class ServerManagerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::ServerManager');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::ServerManager', $facetOrContext, $context);
@@ -117,6 +132,11 @@ namespace Test
 
     class HelloPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Hello');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Hello', $facetOrContext, $context);
@@ -146,6 +166,11 @@ namespace Test
 
     class TestIntfPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::TestIntf');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::TestIntf', $facetOrContext, $context);

@@ -27,6 +27,11 @@ namespace Test
 
     class RemoteCommunicatorPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::RemoteCommunicator');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::RemoteCommunicator', $facetOrContext, $context);
@@ -62,6 +67,11 @@ namespace Test
 
     class RemoteCommunicatorFactoryPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::RemoteCommunicatorFactory');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::RemoteCommunicatorFactory', $facetOrContext, $context);
@@ -94,6 +104,11 @@ namespace Test
 
     class TestFacetPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::TestFacet');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::TestFacet', $facetOrContext, $context);

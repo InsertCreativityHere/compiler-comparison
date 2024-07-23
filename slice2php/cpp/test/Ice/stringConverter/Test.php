@@ -42,6 +42,11 @@ namespace Test
 
     class MyObjectPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::MyObject');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::MyObject', $facetOrContext, $context);

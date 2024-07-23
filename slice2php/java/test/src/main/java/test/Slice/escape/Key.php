@@ -57,6 +57,11 @@ namespace _abstract
 
     class catchPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::abstract::catch');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::abstract::catch', $facetOrContext, $context);
@@ -87,6 +92,11 @@ namespace _abstract
 
     class defaultPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::abstract::default');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::abstract::default', $facetOrContext, $context);
@@ -158,6 +168,11 @@ namespace _abstract
 
     class finalizePrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::abstract::finalize');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::abstract::finalize', $facetOrContext, $context);
@@ -258,6 +273,11 @@ namespace _abstract
 
     class newPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::abstract::new');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::abstract::new', $facetOrContext, $context);

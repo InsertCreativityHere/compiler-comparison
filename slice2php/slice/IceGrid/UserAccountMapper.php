@@ -42,6 +42,11 @@ namespace IceGrid
 
     class UserAccountMapperPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::UserAccountMapper');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::UserAccountMapper', $facetOrContext, $context);

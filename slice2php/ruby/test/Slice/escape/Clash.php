@@ -22,6 +22,11 @@ namespace Clash
 
     class IntfPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Clash::Intf');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Clash::Intf', $facetOrContext, $context);

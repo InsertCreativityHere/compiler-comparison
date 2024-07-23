@@ -49,6 +49,11 @@ namespace Glacier2
 
     class RouterPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Glacier2::Router');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Glacier2::Router', $facetOrContext, $context);

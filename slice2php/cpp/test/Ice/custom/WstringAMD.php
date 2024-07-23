@@ -93,6 +93,11 @@ namespace Test1
 
     class WstringClassPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test1::WstringClass');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test1::WstringClass', $facetOrContext, $context);
@@ -197,6 +202,11 @@ namespace Test2
 
     class WstringClassPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test2::WstringClass');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test2::WstringClass', $facetOrContext, $context);

@@ -134,6 +134,11 @@ namespace Test
 
     class ThrowerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Thrower');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Thrower', $facetOrContext, $context);
@@ -185,6 +190,11 @@ namespace Test
 
     class WrongOperationPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::WrongOperation');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::WrongOperation', $facetOrContext, $context);

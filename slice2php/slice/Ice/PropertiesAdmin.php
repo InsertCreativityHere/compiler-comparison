@@ -27,6 +27,11 @@ namespace Ice
 
     class PropertiesAdminPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Ice::PropertiesAdmin');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Ice::PropertiesAdmin', $facetOrContext, $context);

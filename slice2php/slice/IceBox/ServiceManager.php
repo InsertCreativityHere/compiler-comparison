@@ -87,6 +87,11 @@ namespace IceBox
 
     class ServiceObserverPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceBox::ServiceObserver');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceBox::ServiceObserver', $facetOrContext, $context);
@@ -118,6 +123,11 @@ namespace IceBox
 
     class ServiceManagerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceBox::ServiceManager');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceBox::ServiceManager', $facetOrContext, $context);

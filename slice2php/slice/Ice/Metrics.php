@@ -170,6 +170,11 @@ namespace IceMX
 
     class MetricsAdminPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceMX::MetricsAdmin');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceMX::MetricsAdmin', $facetOrContext, $context);

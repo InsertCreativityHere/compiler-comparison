@@ -43,6 +43,11 @@ namespace IceGrid
 
     class QueryPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::Query');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::Query', $facetOrContext, $context);
@@ -81,6 +86,11 @@ namespace IceGrid
 
     class RegistryPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::Registry');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::Registry', $facetOrContext, $context);
@@ -119,6 +129,11 @@ namespace IceGrid
 
     class LocatorPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::Locator');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::Locator', $facetOrContext, $context);

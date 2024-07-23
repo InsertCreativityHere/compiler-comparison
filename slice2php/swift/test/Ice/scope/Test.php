@@ -315,6 +315,11 @@ namespace Test
 
     class IPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::I');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::I', $facetOrContext, $context);
@@ -518,6 +523,11 @@ namespace Test\Inner\Inner2
 
     class IPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Inner::Inner2::I');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Inner::Inner2::I', $facetOrContext, $context);
@@ -663,6 +673,11 @@ namespace Test\Inner
 
     class IPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Inner::I');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::Inner::I', $facetOrContext, $context);
@@ -727,6 +742,11 @@ namespace Inner\Test\Inner2
 
     class IPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Inner::Test::Inner2::I');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Inner::Test::Inner2::I', $facetOrContext, $context);

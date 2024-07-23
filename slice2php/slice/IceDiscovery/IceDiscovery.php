@@ -27,6 +27,11 @@ namespace IceDiscovery
 
     class LookupReplyPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceDiscovery::LookupReply');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceDiscovery::LookupReply', $facetOrContext, $context);
@@ -61,6 +66,11 @@ namespace IceDiscovery
 
     class LookupPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceDiscovery::Lookup');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceDiscovery::Lookup', $facetOrContext, $context);

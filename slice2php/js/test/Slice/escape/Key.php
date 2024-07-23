@@ -70,6 +70,11 @@ namespace await
 
     class casePrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::await::case');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::await::case', $facetOrContext, $context);
@@ -100,6 +105,11 @@ namespace await
 
     class typeofPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::await::typeof');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::await::typeof', $facetOrContext, $context);
@@ -184,6 +194,11 @@ namespace await
 
     class explicitPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::await::explicit');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::await::explicit', $facetOrContext, $context);
@@ -277,6 +292,11 @@ namespace await
 
     class optionalParamsPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::await::optionalParams');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::await::optionalParams', $facetOrContext, $context);
@@ -416,6 +436,11 @@ namespace await
 
     class implicitPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::await::implicit');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::await::implicit', $facetOrContext, $context);
@@ -468,6 +493,11 @@ namespace await\System
 
     class TestPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::await::System::Test');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::await::System::Test', $facetOrContext, $context);
@@ -497,6 +527,11 @@ namespace System
 
     class TestPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::System::Test');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::System::Test', $facetOrContext, $context);

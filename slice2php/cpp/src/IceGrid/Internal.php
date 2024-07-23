@@ -285,6 +285,11 @@ namespace IceGrid
 
     class AdapterPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::Adapter');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::Adapter', $facetOrContext, $context);
@@ -353,6 +358,11 @@ namespace IceGrid
 
     class FileReaderPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::FileReader');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::FileReader', $facetOrContext, $context);
@@ -388,6 +398,11 @@ namespace IceGrid
 
     class ServerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::Server');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::Server', $facetOrContext, $context);
@@ -454,6 +469,11 @@ namespace IceGrid
 
     class ReplicaObserverPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::ReplicaObserver');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::ReplicaObserver', $facetOrContext, $context);
@@ -487,6 +507,11 @@ namespace IceGrid
 
     class NodePrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::Node');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::Node', $facetOrContext, $context);
@@ -563,6 +588,11 @@ namespace IceGrid
 
     class NodeSessionPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::NodeSession');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::NodeSession', $facetOrContext, $context);
@@ -640,6 +670,11 @@ namespace IceGrid
 
     class DatabaseObserverPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::DatabaseObserver');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::DatabaseObserver', $facetOrContext, $context);
@@ -679,6 +714,11 @@ namespace IceGrid
 
     class ReplicaSessionPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::ReplicaSession');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::ReplicaSession', $facetOrContext, $context);
@@ -818,6 +858,11 @@ namespace IceGrid
 
     class InternalRegistryPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceGrid::InternalRegistry');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceGrid::InternalRegistry', $facetOrContext, $context);

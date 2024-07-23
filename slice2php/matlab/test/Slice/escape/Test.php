@@ -347,6 +347,11 @@ namespace classdef\break
 
     class elseifPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::classdef::break::elseif');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::classdef::break::elseif', $facetOrContext, $context);

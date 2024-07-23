@@ -210,6 +210,11 @@ namespace IceStorm
 
     class TopicPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceStorm::Topic');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceStorm::Topic', $facetOrContext, $context);
@@ -315,6 +320,11 @@ namespace IceStorm
 
     class TopicManagerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceStorm::TopicManager');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceStorm::TopicManager', $facetOrContext, $context);
@@ -349,6 +359,11 @@ namespace IceStorm
 
     class FinderPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceStorm::Finder');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceStorm::Finder', $facetOrContext, $context);

@@ -93,6 +93,11 @@ namespace IceStormElection
 
     class ReplicaObserverPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceStormElection::ReplicaObserver');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceStormElection::ReplicaObserver', $facetOrContext, $context);
@@ -131,6 +136,11 @@ namespace IceStormElection
 
     class TopicManagerSyncPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceStormElection::TopicManagerSync');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceStormElection::TopicManagerSync', $facetOrContext, $context);
@@ -311,6 +321,11 @@ namespace IceStormElection
 
     class NodePrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::IceStormElection::Node');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::IceStormElection::Node', $facetOrContext, $context);

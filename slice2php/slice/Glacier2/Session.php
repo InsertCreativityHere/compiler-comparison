@@ -53,6 +53,11 @@ namespace Glacier2
 
     class SessionPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Glacier2::Session');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Glacier2::Session', $facetOrContext, $context);
@@ -82,6 +87,11 @@ namespace Glacier2
 
     class StringSetPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Glacier2::StringSet');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Glacier2::StringSet', $facetOrContext, $context);
@@ -114,6 +124,11 @@ namespace Glacier2
 
     class IdentitySetPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Glacier2::IdentitySet');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Glacier2::IdentitySet', $facetOrContext, $context);
@@ -146,6 +161,11 @@ namespace Glacier2
 
     class SessionControlPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Glacier2::SessionControl');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Glacier2::SessionControl', $facetOrContext, $context);
@@ -182,6 +202,11 @@ namespace Glacier2
 
     class SessionManagerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Glacier2::SessionManager');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Glacier2::SessionManager', $facetOrContext, $context);
@@ -214,6 +239,11 @@ namespace Glacier2
 
     class SSLSessionManagerPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Glacier2::SSLSessionManager');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Glacier2::SSLSessionManager', $facetOrContext, $context);

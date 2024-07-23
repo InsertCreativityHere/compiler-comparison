@@ -467,6 +467,11 @@ namespace Test
 
     class MyInterfacePrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::MyInterface');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::MyInterface', $facetOrContext, $context);

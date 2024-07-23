@@ -51,6 +51,11 @@ namespace Glacier2
 
     class PermissionsVerifierPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Glacier2::PermissionsVerifier');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Glacier2::PermissionsVerifier', $facetOrContext, $context);
@@ -82,6 +87,11 @@ namespace Glacier2
 
     class SSLPermissionsVerifierPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Glacier2::SSLPermissionsVerifier');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Glacier2::SSLPermissionsVerifier', $facetOrContext, $context);

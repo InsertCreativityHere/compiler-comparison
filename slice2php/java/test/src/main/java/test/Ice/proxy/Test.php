@@ -27,6 +27,11 @@ namespace Test
 
     class MyClassPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::MyClass');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::MyClass', $facetOrContext, $context);
@@ -58,6 +63,11 @@ namespace Test
 
     class MyDerivedClassPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::MyDerivedClass');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::MyDerivedClass', $facetOrContext, $context);
@@ -88,6 +98,11 @@ namespace Test
 
     class MyOtherDerivedClassPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::MyOtherDerivedClass');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::MyOtherDerivedClass', $facetOrContext, $context);
@@ -115,6 +130,11 @@ namespace Test
 
     class DiamondClassPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::DiamondClass');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::Test::DiamondClass', $facetOrContext, $context);

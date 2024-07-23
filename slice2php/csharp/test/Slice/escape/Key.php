@@ -57,6 +57,11 @@ namespace _abstract
 
     class casePrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::abstract::case');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::abstract::case', $facetOrContext, $context);
@@ -87,6 +92,11 @@ namespace _abstract
 
     class decimalPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::abstract::decimal');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::abstract::decimal', $facetOrContext, $context);
@@ -158,6 +168,11 @@ namespace _abstract
 
     class explicitPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::abstract::explicit');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::abstract::explicit', $facetOrContext, $context);
@@ -248,6 +263,11 @@ namespace _abstract
 
     class optionalParamsPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::abstract::optionalParams');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::abstract::optionalParams', $facetOrContext, $context);
@@ -387,6 +407,11 @@ namespace _abstract
 
     class implicitPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::abstract::implicit');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::abstract::implicit', $facetOrContext, $context);
@@ -439,6 +464,11 @@ namespace abstract\System
 
     class TestPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::abstract::System::Test');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::abstract::System::Test', $facetOrContext, $context);
@@ -468,6 +498,11 @@ namespace System
 
     class TestPrxHelper
     {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::System::Test');
+        }
+
         public static function checkedCast($proxy, $facetOrContext=null, $context=null)
         {
             return $proxy->ice_checkedCast('::System::Test', $facetOrContext, $context);
