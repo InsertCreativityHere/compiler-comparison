@@ -38,9 +38,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Timeout');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Timeout', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Timeout', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -76,9 +76,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Controller');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Controller', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Controller', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

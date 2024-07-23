@@ -27,9 +27,9 @@ namespace Clash
             return  $communicator->stringToProxy($proxyString, '::Clash::Intf');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Clash::Intf', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Clash::Intf', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

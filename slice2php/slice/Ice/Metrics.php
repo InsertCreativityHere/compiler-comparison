@@ -175,9 +175,9 @@ namespace IceMX
             return  $communicator->stringToProxy($proxyString, '::IceMX::MetricsAdmin');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceMX::MetricsAdmin', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceMX::MetricsAdmin', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

@@ -32,9 +32,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::MyClass');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::MyClass', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::MyClass', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -68,9 +68,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::MyDerivedClass');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::MyDerivedClass', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::MyDerivedClass', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -103,9 +103,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::MyOtherDerivedClass');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::MyOtherDerivedClass', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::MyOtherDerivedClass', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -135,9 +135,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::DiamondClass');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::DiamondClass', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::DiamondClass', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

@@ -86,9 +86,9 @@ namespace _and
             return  $communicator->stringToProxy($proxyString, '::and::break');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::and::break', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::and::break', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -121,9 +121,9 @@ namespace _and
             return  $communicator->stringToProxy($proxyString, '::and::function');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::and::function', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::and::function', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -156,9 +156,9 @@ namespace _and
             return  $communicator->stringToProxy($proxyString, '::and::die');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::and::die', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::and::die', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -235,9 +235,9 @@ namespace _and
             return  $communicator->stringToProxy($proxyString, '::and::enddeclare');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::and::enddeclare', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::and::enddeclare', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -340,9 +340,9 @@ namespace _and
             return  $communicator->stringToProxy($proxyString, '::and::for');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::and::for', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::and::for', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

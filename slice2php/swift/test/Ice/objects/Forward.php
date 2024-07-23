@@ -62,9 +62,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::F2');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::F2', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::F2', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

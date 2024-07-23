@@ -1067,9 +1067,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Initial');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Initial', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Initial', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -1152,9 +1152,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::TestIntf');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::TestIntf', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::TestIntf', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -1248,9 +1248,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::UnexpectedObjectExceptionTest');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::UnexpectedObjectExceptionTest', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::UnexpectedObjectExceptionTest', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

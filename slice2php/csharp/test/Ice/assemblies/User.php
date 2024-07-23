@@ -62,9 +62,9 @@ namespace User
             return  $communicator->stringToProxy($proxyString, '::User::Registry');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::User::Registry', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::User::Registry', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

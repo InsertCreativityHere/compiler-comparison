@@ -32,9 +32,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Background');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Background', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Background', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -69,9 +69,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::BackgroundController');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::BackgroundController', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::BackgroundController', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

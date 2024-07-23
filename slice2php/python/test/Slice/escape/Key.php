@@ -62,9 +62,9 @@ namespace _and
             return  $communicator->stringToProxy($proxyString, '::and::del');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::and::del', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::and::del', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -97,9 +97,9 @@ namespace _and
             return  $communicator->stringToProxy($proxyString, '::and::exec');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::and::exec', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::and::exec', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -173,9 +173,9 @@ namespace _and
             return  $communicator->stringToProxy($proxyString, '::and::if');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::and::if', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::and::if', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -278,9 +278,9 @@ namespace _and
             return  $communicator->stringToProxy($proxyString, '::and::print');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::and::print', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::and::print', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

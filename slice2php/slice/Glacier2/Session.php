@@ -58,9 +58,9 @@ namespace Glacier2
             return  $communicator->stringToProxy($proxyString, '::Glacier2::Session');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Glacier2::Session', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Glacier2::Session', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -92,9 +92,9 @@ namespace Glacier2
             return  $communicator->stringToProxy($proxyString, '::Glacier2::StringSet');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Glacier2::StringSet', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Glacier2::StringSet', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -129,9 +129,9 @@ namespace Glacier2
             return  $communicator->stringToProxy($proxyString, '::Glacier2::IdentitySet');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Glacier2::IdentitySet', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Glacier2::IdentitySet', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -166,9 +166,9 @@ namespace Glacier2
             return  $communicator->stringToProxy($proxyString, '::Glacier2::SessionControl');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Glacier2::SessionControl', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Glacier2::SessionControl', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -207,9 +207,9 @@ namespace Glacier2
             return  $communicator->stringToProxy($proxyString, '::Glacier2::SessionManager');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Glacier2::SessionManager', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Glacier2::SessionManager', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -244,9 +244,9 @@ namespace Glacier2
             return  $communicator->stringToProxy($proxyString, '::Glacier2::SSLSessionManager');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Glacier2::SSLSessionManager', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Glacier2::SSLSessionManager', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

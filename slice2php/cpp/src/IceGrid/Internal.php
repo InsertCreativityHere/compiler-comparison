@@ -290,9 +290,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::Adapter');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::Adapter', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::Adapter', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -363,9 +363,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::FileReader');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::FileReader', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::FileReader', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -403,9 +403,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::Server');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::Server', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::Server', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -474,9 +474,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::ReplicaObserver');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::ReplicaObserver', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::ReplicaObserver', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -512,9 +512,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::Node');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::Node', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::Node', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -593,9 +593,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::NodeSession');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::NodeSession', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::NodeSession', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -675,9 +675,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::DatabaseObserver');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::DatabaseObserver', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::DatabaseObserver', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -719,9 +719,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::ReplicaSession');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::ReplicaSession', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::ReplicaSession', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -863,9 +863,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::InternalRegistry');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::InternalRegistry', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::InternalRegistry', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

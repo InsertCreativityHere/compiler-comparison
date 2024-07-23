@@ -27,9 +27,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Priority');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Priority', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Priority', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

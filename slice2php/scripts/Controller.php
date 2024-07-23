@@ -200,9 +200,9 @@ namespace Test\Common
             return  $communicator->stringToProxy($proxyString, '::Test::Common::TestCase');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Common::TestCase', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Common::TestCase', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -240,9 +240,9 @@ namespace Test\Common
             return  $communicator->stringToProxy($proxyString, '::Test::Common::Controller');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Common::Controller', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Common::Controller', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -306,9 +306,9 @@ namespace Test\Common
             return  $communicator->stringToProxy($proxyString, '::Test::Common::Process');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Common::Process', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Common::Process', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -344,9 +344,9 @@ namespace Test\Common
             return  $communicator->stringToProxy($proxyString, '::Test::Common::ProcessController');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Common::ProcessController', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Common::ProcessController', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -383,9 +383,9 @@ namespace Test\Common
             return  $communicator->stringToProxy($proxyString, '::Test::Common::BrowserProcessController');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Common::BrowserProcessController', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Common::BrowserProcessController', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -418,9 +418,9 @@ namespace Test\Common
             return  $communicator->stringToProxy($proxyString, '::Test::Common::ProcessControllerRegistry');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Common::ProcessControllerRegistry', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Common::ProcessControllerRegistry', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

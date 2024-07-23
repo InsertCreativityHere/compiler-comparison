@@ -32,9 +32,9 @@ namespace Ice
             return  $communicator->stringToProxy($proxyString, '::Ice::Router');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Ice::Router', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Ice::Router', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -71,9 +71,9 @@ namespace Ice
             return  $communicator->stringToProxy($proxyString, '::Ice::RouterFinder');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Ice::RouterFinder', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Ice::RouterFinder', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

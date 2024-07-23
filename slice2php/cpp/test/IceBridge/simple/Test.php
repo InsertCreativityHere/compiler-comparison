@@ -27,9 +27,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Callback');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Callback', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Callback', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -65,9 +65,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::MyClass');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::MyClass', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::MyClass', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

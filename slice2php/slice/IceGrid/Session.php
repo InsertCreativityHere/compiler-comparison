@@ -33,9 +33,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::Session');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::Session', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::Session', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

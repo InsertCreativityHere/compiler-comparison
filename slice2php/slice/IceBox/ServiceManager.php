@@ -92,9 +92,9 @@ namespace IceBox
             return  $communicator->stringToProxy($proxyString, '::IceBox::ServiceObserver');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceBox::ServiceObserver', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceBox::ServiceObserver', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -128,9 +128,9 @@ namespace IceBox
             return  $communicator->stringToProxy($proxyString, '::IceBox::ServiceManager');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceBox::ServiceManager', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceBox::ServiceManager', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

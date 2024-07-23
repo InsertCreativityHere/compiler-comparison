@@ -87,9 +87,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::UnexpectedObjectExceptionTest');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::UnexpectedObjectExceptionTest', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::UnexpectedObjectExceptionTest', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

@@ -62,9 +62,9 @@ namespace _abstract
             return  $communicator->stringToProxy($proxyString, '::abstract::catch');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::abstract::catch', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::abstract::catch', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -97,9 +97,9 @@ namespace _abstract
             return  $communicator->stringToProxy($proxyString, '::abstract::default');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::abstract::default', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::abstract::default', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -173,9 +173,9 @@ namespace _abstract
             return  $communicator->stringToProxy($proxyString, '::abstract::finalize');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::abstract::finalize', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::abstract::finalize', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -278,9 +278,9 @@ namespace _abstract
             return  $communicator->stringToProxy($proxyString, '::abstract::new');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::abstract::new', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::abstract::new', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

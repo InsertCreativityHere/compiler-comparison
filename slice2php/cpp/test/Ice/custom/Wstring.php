@@ -98,9 +98,9 @@ namespace Test1
             return  $communicator->stringToProxy($proxyString, '::Test1::WstringClass');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test1::WstringClass', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test1::WstringClass', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -207,9 +207,9 @@ namespace Test2
             return  $communicator->stringToProxy($proxyString, '::Test2::WstringClass');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test2::WstringClass', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test2::WstringClass', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

@@ -56,9 +56,9 @@ namespace Glacier2
             return  $communicator->stringToProxy($proxyString, '::Glacier2::PermissionsVerifier');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Glacier2::PermissionsVerifier', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Glacier2::PermissionsVerifier', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -92,9 +92,9 @@ namespace Glacier2
             return  $communicator->stringToProxy($proxyString, '::Glacier2::SSLPermissionsVerifier');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Glacier2::SSLPermissionsVerifier', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Glacier2::SSLPermissionsVerifier', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

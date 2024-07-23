@@ -48,9 +48,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::Query');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::Query', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::Query', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -91,9 +91,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::Registry');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::Registry', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::Registry', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -134,9 +134,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::Locator');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::Locator', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::Locator', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

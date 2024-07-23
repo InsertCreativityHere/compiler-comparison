@@ -32,9 +32,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Session');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Session', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Session', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

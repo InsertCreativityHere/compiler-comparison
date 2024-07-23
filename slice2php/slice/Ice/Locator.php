@@ -154,9 +154,9 @@ namespace Ice
             return  $communicator->stringToProxy($proxyString, '::Ice::Locator');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Ice::Locator', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Ice::Locator', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -194,9 +194,9 @@ namespace Ice
             return  $communicator->stringToProxy($proxyString, '::Ice::LocatorRegistry');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Ice::LocatorRegistry', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Ice::LocatorRegistry', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -233,9 +233,9 @@ namespace Ice
             return  $communicator->stringToProxy($proxyString, '::Ice::LocatorFinder');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Ice::LocatorFinder', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Ice::LocatorFinder', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

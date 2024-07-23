@@ -103,9 +103,9 @@ namespace Ice
             return  $communicator->stringToProxy($proxyString, '::Ice::RemoteLogger');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Ice::RemoteLogger', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Ice::RemoteLogger', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -161,9 +161,9 @@ namespace Ice
             return  $communicator->stringToProxy($proxyString, '::Ice::LoggerAdmin');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Ice::LoggerAdmin', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Ice::LoggerAdmin', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

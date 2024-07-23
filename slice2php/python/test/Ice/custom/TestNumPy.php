@@ -251,9 +251,9 @@ namespace Test\NumPy
             return  $communicator->stringToProxy($proxyString, '::Test::NumPy::Custom');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::NumPy::Custom', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::NumPy::Custom', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

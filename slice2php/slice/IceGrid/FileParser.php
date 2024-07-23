@@ -56,9 +56,9 @@ namespace IceGrid
             return  $communicator->stringToProxy($proxyString, '::IceGrid::FileParser');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceGrid::FileParser', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceGrid::FileParser', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

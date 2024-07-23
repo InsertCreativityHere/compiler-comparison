@@ -391,9 +391,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Custom');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Custom', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Custom', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

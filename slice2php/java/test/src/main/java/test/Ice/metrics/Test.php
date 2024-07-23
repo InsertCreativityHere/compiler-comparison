@@ -58,9 +58,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Metrics');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Metrics', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Metrics', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -102,9 +102,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Controller');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Controller', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Controller', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

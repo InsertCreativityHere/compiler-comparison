@@ -27,9 +27,9 @@ namespace Ice
             return  $communicator->stringToProxy($proxyString, '::Ice::Process');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Ice::Process', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Ice::Process', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

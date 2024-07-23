@@ -320,9 +320,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::I');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::I', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::I', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -528,9 +528,9 @@ namespace Test\Inner\Inner2
             return  $communicator->stringToProxy($proxyString, '::Test::Inner::Inner2::I');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Inner::Inner2::I', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Inner::Inner2::I', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -678,9 +678,9 @@ namespace Test\Inner
             return  $communicator->stringToProxy($proxyString, '::Test::Inner::I');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Inner::I', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Inner::I', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -747,9 +747,9 @@ namespace Inner\Test\Inner2
             return  $communicator->stringToProxy($proxyString, '::Inner::Test::Inner2::I');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Inner::Test::Inner2::I', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Inner::Test::Inner2::I', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

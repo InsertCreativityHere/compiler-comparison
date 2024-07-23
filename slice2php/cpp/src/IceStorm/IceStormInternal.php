@@ -82,9 +82,9 @@ namespace IceStorm
             return  $communicator->stringToProxy($proxyString, '::IceStorm::TopicLink');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceStorm::TopicLink', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceStorm::TopicLink', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -137,9 +137,9 @@ namespace IceStorm
             return  $communicator->stringToProxy($proxyString, '::IceStorm::TopicInternal');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceStorm::TopicInternal', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceStorm::TopicInternal', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -174,9 +174,9 @@ namespace IceStorm
             return  $communicator->stringToProxy($proxyString, '::IceStorm::TopicManagerInternal');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceStorm::TopicManagerInternal', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceStorm::TopicManagerInternal', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

@@ -98,9 +98,9 @@ namespace IceStormElection
             return  $communicator->stringToProxy($proxyString, '::IceStormElection::ReplicaObserver');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceStormElection::ReplicaObserver', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceStormElection::ReplicaObserver', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -141,9 +141,9 @@ namespace IceStormElection
             return  $communicator->stringToProxy($proxyString, '::IceStormElection::TopicManagerSync');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceStormElection::TopicManagerSync', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceStormElection::TopicManagerSync', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -326,9 +326,9 @@ namespace IceStormElection
             return  $communicator->stringToProxy($proxyString, '::IceStormElection::Node');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceStormElection::Node', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceStormElection::Node', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

@@ -54,9 +54,9 @@ namespace Glacier2
             return  $communicator->stringToProxy($proxyString, '::Glacier2::Router');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Glacier2::Router', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Glacier2::Router', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

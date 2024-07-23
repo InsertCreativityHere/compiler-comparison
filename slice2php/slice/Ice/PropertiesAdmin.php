@@ -32,9 +32,9 @@ namespace Ice
             return  $communicator->stringToProxy($proxyString, '::Ice::PropertiesAdmin');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Ice::PropertiesAdmin', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Ice::PropertiesAdmin', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

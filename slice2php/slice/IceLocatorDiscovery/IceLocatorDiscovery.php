@@ -32,9 +32,9 @@ namespace IceLocatorDiscovery
             return  $communicator->stringToProxy($proxyString, '::IceLocatorDiscovery::LookupReply');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceLocatorDiscovery::LookupReply', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceLocatorDiscovery::LookupReply', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -67,9 +67,9 @@ namespace IceLocatorDiscovery
             return  $communicator->stringToProxy($proxyString, '::IceLocatorDiscovery::Lookup');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::IceLocatorDiscovery::Lookup', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::IceLocatorDiscovery::Lookup', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

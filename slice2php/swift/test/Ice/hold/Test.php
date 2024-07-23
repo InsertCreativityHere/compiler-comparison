@@ -27,9 +27,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Hold');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Hold', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Hold', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

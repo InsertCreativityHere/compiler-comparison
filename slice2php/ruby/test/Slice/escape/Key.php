@@ -62,9 +62,9 @@ namespace BEGIN
             return  $communicator->stringToProxy($proxyString, '::BEGIN::break');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::BEGIN::break', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::BEGIN::break', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -145,9 +145,9 @@ namespace BEGIN
             return  $communicator->stringToProxy($proxyString, '::BEGIN::elsif');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::BEGIN::elsif', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::BEGIN::elsif', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -250,9 +250,9 @@ namespace BEGIN
             return  $communicator->stringToProxy($proxyString, '::BEGIN::extend');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::BEGIN::extend', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::BEGIN::extend', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

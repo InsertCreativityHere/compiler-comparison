@@ -52,9 +52,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::TestIntf');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::TestIntf', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::TestIntf', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -112,9 +112,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::TestIntfController');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::TestIntfController', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::TestIntfController', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

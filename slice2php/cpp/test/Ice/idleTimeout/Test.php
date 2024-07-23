@@ -27,9 +27,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::DelayedTestIntf');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::DelayedTestIntf', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::DelayedTestIntf', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -62,9 +62,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::TestIntf');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::TestIntf', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::TestIntf', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -96,9 +96,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::TestIntfBidir');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::TestIntfBidir', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::TestIntfBidir', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

@@ -27,9 +27,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Server');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Server', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Server', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
@@ -76,9 +76,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::ServerFactory');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::ServerFactory', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::ServerFactory', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)

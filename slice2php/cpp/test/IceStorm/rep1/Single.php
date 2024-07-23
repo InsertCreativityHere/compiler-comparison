@@ -27,9 +27,9 @@ namespace Test
             return  $communicator->stringToProxy($proxyString, '::Test::Single');
         }
 
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        public static function checkedCast($proxy, ...$args)
         {
-            return $proxy->ice_checkedCast('::Test::Single', $facetOrContext, $context);
+            return $proxy->ice_checkedCast('::Test::Single', ...$args);
         }
 
         public static function uncheckedCast($proxy, $facet=null)
