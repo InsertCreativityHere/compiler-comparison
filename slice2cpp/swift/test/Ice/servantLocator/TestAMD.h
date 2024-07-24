@@ -297,10 +297,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static TestIntfUserException _iceS_TestIntfUserException_init;
-/// \endcond
-
 class TestImpossibleException : public ::Ice::UserException
 {
 public:

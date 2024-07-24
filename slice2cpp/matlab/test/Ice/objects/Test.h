@@ -660,10 +660,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static Base _iceS_Base_init;
-/// \endcond
-
 class A : public ::Ice::Value
 {
 public:

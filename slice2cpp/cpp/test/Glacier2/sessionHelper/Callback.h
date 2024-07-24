@@ -235,10 +235,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static CallbackException _iceS_CallbackException_init;
-/// \endcond
-
 }
 
 namespace Test

@@ -386,10 +386,6 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static CommunicatorDescriptor _iceS_CommunicatorDescriptor_init;
-/// \endcond
-
 /**
  * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
  * This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier

@@ -132,10 +132,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static UserInfo _iceS_UserInfo_init;
-/// \endcond
-
 }
 
 namespace User

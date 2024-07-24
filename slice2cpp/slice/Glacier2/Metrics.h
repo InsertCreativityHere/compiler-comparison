@@ -147,10 +147,6 @@ protected:
     ICE_MEMBER(GLACIER2_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static SessionMetrics _iceS_SessionMetrics_init;
-/// \endcond
-
 }
 
 /// \cond STREAM

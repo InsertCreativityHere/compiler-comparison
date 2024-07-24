@@ -364,10 +364,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static _cpp_for _iceS_for_init;
-/// \endcond
-
 class is : public ::Ice::UserException
 {
 public:

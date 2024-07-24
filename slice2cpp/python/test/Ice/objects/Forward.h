@@ -150,10 +150,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static F1 _iceS_F1_init;
-/// \endcond
-
 }
 
 namespace Test

@@ -283,10 +283,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static Base _iceS_Base_init;
-/// \endcond
-
 class KnownDerived : public Base
 {
 public:

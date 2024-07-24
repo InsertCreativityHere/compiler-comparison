@@ -337,10 +337,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static _cpp_switch _iceS_switch_init;
-/// \endcond
-
 class _cpp_return : public ::Ice::UserException
 {
 public:

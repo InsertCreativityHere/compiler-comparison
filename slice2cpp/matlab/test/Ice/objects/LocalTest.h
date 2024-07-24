@@ -147,10 +147,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static C1 _iceS_C1_init;
-/// \endcond
-
 struct S1
 {
     ::LocalTest::C1Ptr c1;

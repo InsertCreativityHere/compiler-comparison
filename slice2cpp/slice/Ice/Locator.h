@@ -487,10 +487,6 @@ protected:
     ICE_MEMBER(ICE_API) void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static AdapterNotFoundException _iceS_AdapterNotFoundException_init;
-/// \endcond
-
 /**
  * This exception is raised if the replica group provided by the server is invalid.
  * \headerfile Ice/Ice.h

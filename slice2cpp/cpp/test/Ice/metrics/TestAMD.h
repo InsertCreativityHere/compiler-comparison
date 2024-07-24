@@ -277,10 +277,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static UserEx _iceS_UserEx_init;
-/// \endcond
-
 }
 
 namespace Test

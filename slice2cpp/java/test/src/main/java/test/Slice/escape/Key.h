@@ -381,10 +381,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static _cpp_else _iceS_else_init;
-/// \endcond
-
 class hashCode : public ::Ice::UserException
 {
 public:

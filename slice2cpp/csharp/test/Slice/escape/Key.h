@@ -593,10 +593,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static delegate _iceS_delegate_init;
-/// \endcond
-
 class optionalMembers : public ::Ice::Value
 {
 public:

@@ -596,10 +596,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static SBase _iceS_SBase_init;
-/// \endcond
-
 class SBSKnownDerived : public SBase
 {
 public:

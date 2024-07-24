@@ -269,10 +269,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static logical _iceS_logical_init;
-/// \endcond
-
 class _cpp_xor : public logical
 {
 public:

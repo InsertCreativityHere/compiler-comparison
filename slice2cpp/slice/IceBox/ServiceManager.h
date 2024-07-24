@@ -365,10 +365,6 @@ protected:
     ICE_MEMBER(ICEBOX_API) void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static AlreadyStartedException _iceS_AlreadyStartedException_init;
-/// \endcond
-
 /**
  * This exception is thrown if an attempt is made to stop an already-stopped service.
  * \headerfile IceBox/IceBox.h

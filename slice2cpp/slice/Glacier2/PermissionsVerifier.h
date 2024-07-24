@@ -282,10 +282,6 @@ protected:
     ICE_MEMBER(GLACIER2_API) void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static PermissionDeniedException _iceS_PermissionDeniedException_init;
-/// \endcond
-
 }
 
 namespace Glacier2

@@ -98,10 +98,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static C1 _iceS_C1_init;
-/// \endcond
-
 class C2 : public C1
 {
 public:

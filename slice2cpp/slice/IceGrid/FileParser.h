@@ -189,10 +189,6 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static ParseException _iceS_ParseException_init;
-/// \endcond
-
 }
 
 namespace IceGrid

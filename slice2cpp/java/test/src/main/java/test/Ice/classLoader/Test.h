@@ -172,10 +172,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static ConcreteClass _iceS_ConcreteClass_init;
-/// \endcond
-
 class E : public ::Ice::UserException
 {
 public:

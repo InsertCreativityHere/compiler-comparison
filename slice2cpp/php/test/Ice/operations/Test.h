@@ -1223,10 +1223,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static MyClass1 _iceS_MyClass1_init;
-/// \endcond
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;

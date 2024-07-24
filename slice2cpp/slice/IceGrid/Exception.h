@@ -96,10 +96,6 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static ApplicationNotExistException _iceS_ApplicationNotExistException_init;
-/// \endcond
-
 /**
  * This exception is raised if a server does not exist.
  * \headerfile IceGrid/IceGrid.h

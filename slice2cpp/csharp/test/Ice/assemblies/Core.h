@@ -51,10 +51,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static ArgumentException _iceS_ArgumentException_init;
-/// \endcond
-
 }
 
 /// \cond STREAM

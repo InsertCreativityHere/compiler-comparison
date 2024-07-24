@@ -138,10 +138,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static BadEncodingException _iceS_BadEncodingException_init;
-/// \endcond
-
 }
 
 namespace Test

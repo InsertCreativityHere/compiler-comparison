@@ -433,10 +433,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static echo _iceS_echo_init;
-/// \endcond
-
 class endif : public ::Ice::UserException
 {
 public:

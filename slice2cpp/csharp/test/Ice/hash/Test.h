@@ -72,10 +72,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static BaseException _iceS_BaseException_init;
-/// \endcond
-
 class InvalidPointException : public BaseException
 {
 public:

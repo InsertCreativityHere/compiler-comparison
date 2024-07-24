@@ -401,10 +401,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static ReapWouldBlock _iceS_ReapWouldBlock_init;
-/// \endcond
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;

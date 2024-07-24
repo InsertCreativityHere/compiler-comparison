@@ -265,10 +265,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static OptionalClass _iceS_OptionalClass_init;
-/// \endcond
-
 class MyClass : public ::Ice::Value
 {
 public:

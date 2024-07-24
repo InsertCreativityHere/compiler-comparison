@@ -243,10 +243,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static InterruptedException _iceS_InterruptedException_init;
-/// \endcond
-
 class CannotInterruptException : public ::Ice::UserException
 {
 public:

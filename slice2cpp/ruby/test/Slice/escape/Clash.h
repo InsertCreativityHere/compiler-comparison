@@ -301,10 +301,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static Cls _iceS_Cls_init;
-/// \endcond
-
 struct St
 {
     ::std::string v;

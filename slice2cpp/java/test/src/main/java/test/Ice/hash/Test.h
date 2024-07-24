@@ -197,10 +197,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static Pen _iceS_Pen_init;
-/// \endcond
-
 struct Draw
 {
     ::Test::Color backgroundColor;

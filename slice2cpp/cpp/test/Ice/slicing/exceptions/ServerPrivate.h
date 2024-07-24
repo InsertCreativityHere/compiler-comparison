@@ -77,10 +77,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static UnknownDerived _iceS_UnknownDerived_init;
-/// \endcond
-
 class UnknownIntermediate : public Base
 {
 public:

@@ -93,10 +93,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static C _iceS_C_init;
-/// \endcond
-
 struct S1
 {
     ::std::string name;

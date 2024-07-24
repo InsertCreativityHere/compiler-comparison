@@ -209,10 +209,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static Bar _iceS_Bar_init;
-/// \endcond
-
 class Baz : public ::Ice::Value
 {
 public:

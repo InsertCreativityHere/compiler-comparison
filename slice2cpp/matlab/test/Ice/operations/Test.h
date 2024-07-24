@@ -1280,10 +1280,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static SomeException _iceS_SomeException_init;
-/// \endcond
-
 struct MyStruct1
 {
     ::std::string tesT;

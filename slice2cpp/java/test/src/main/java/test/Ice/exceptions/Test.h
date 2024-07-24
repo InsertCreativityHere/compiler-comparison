@@ -459,10 +459,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static A _iceS_A_init;
-/// \endcond
-
 class B : public A
 {
 public:

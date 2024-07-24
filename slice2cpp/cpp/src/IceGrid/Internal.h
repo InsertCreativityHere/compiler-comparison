@@ -2156,10 +2156,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static InternalDbEnvDescriptor _iceS_InternalDbEnvDescriptor_init;
-/// \endcond
-
 class InternalAdapterDescriptor : public ::Ice::Value
 {
 public:

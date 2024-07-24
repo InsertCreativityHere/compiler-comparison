@@ -589,10 +589,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static Config _iceS_Config_init;
-/// \endcond
-
 class OptionOverrides : public ::Ice::Value
 {
 public:

@@ -803,10 +803,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static ObserverInconsistencyException _iceS_ObserverInconsistencyException_init;
-/// \endcond
-
 /**
  * All nodes in the replication group.
  */

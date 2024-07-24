@@ -148,10 +148,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static Empty _iceS_Empty_init;
-/// \endcond
-
 class AlsoEmpty : public ::Ice::Value
 {
 public:

@@ -731,10 +731,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static Base _iceS_Base_init;
-/// \endcond
-
 class BaseEx : public ::Ice::UserException
 {
 public:

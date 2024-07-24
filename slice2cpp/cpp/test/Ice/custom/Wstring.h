@@ -279,10 +279,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static WstringException _iceS_WstringException_init;
-/// \endcond
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;

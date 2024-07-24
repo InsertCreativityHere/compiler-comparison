@@ -90,10 +90,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static Default _iceS_Default_init;
-/// \endcond
-
 class NoDefault : public ::Ice::Value
 {
 public:

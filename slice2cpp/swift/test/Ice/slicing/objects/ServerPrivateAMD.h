@@ -105,10 +105,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static SBSUnknownDerived _iceS_SBSUnknownDerived_init;
-/// \endcond
-
 class SUnknown : public ::Ice::Value
 {
 public:

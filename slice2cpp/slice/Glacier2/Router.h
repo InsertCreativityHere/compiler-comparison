@@ -412,10 +412,6 @@ protected:
     ICE_MEMBER(GLACIER2_API) void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static SessionNotExistException _iceS_SessionNotExistException_init;
-/// \endcond
-
 }
 
 namespace Glacier2

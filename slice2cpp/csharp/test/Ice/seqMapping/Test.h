@@ -1246,10 +1246,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static CV _iceS_CV_init;
-/// \endcond
-
 class CR : public ::Ice::Value
 {
 public:

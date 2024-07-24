@@ -605,10 +605,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static _cpp_delete _iceS_delete_init;
-/// \endcond
-
 class package : public ::Ice::Value
 {
 public:

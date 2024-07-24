@@ -120,10 +120,6 @@ protected:
     ICE_MEMBER(ICESTORM_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static TopicMetrics _iceS_TopicMetrics_init;
-/// \endcond
-
 /**
  * Provides information on IceStorm subscribers.
  * \headerfile IceStorm/IceStorm.h

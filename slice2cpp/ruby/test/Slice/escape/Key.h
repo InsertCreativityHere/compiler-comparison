@@ -334,10 +334,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static display _iceS_display_init;
-/// \endcond
-
 class next : public ::Ice::UserException
 {
 public:

@@ -149,10 +149,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static UE _iceS_UE_init;
-/// \endcond
-
 }
 
 namespace Test

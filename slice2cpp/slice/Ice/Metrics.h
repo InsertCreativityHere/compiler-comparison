@@ -443,10 +443,6 @@ protected:
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static Metrics _iceS_Metrics_init;
-/// \endcond
-
 /**
  * A structure to keep track of failures associated with a given metrics.
  * \headerfile Ice/Ice.h

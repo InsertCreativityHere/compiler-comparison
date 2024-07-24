@@ -391,10 +391,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static D _iceS_D_init;
-/// \endcond
-
 }
 
 }

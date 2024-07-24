@@ -165,10 +165,6 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static UserAccountNotFoundException _iceS_UserAccountNotFoundException_init;
-/// \endcond
-
 }
 
 namespace IceGrid

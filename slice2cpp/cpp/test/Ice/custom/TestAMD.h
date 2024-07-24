@@ -689,10 +689,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static C _iceS_C_init;
-/// \endcond
-
 class DictClass : public ::Ice::Value
 {
 public:

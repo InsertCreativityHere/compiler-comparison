@@ -104,10 +104,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static D3 _iceS_D3_init;
-/// \endcond
-
 class PCUnknown : public PBase
 {
 public:

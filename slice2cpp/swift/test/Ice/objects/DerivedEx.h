@@ -54,10 +54,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static DerivedEx _iceS_DerivedEx_init;
-/// \endcond
-
 }
 
 /// \cond STREAM

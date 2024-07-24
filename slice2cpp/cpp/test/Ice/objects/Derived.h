@@ -88,10 +88,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static Derived _iceS_Derived_init;
-/// \endcond
-
 }
 
 /// \cond STREAM

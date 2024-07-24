@@ -150,10 +150,6 @@ protected:
     ICE_MEMBER(LIBRARY_TEST_API) void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static UserError _iceS_UserError_init;
-/// \endcond
-
 }
 
 namespace Test

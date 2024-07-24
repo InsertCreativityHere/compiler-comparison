@@ -873,10 +873,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static OneOptional _iceS_OneOptional_init;
-/// \endcond
-
 struct SmallStruct
 {
     ::std::uint8_t m;

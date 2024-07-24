@@ -452,10 +452,6 @@ protected:
     ICE_MEMBER(ICE_API) void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static RemoteLoggerAlreadyAttachedException _iceS_RemoteLoggerAlreadyAttachedException_init;
-/// \endcond
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;

@@ -764,10 +764,6 @@ protected:
     ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
 };
 
-/// \cond INTERNAL
-static LinkExists _iceS_LinkExists_init;
-/// \endcond
-
 /**
  * This exception indicates that an attempt was made to remove a link that does not exist.
  * \headerfile IceStorm/IceStorm.h
