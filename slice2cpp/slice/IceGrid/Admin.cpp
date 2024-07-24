@@ -3206,6 +3206,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
             {
                 ex.ice_throw();
             }
+            catch(const FileNotAvailableException&)
+            {
+                throw;
+            }
             catch(const ServerNotExistException&)
             {
                 throw;
@@ -3215,10 +3219,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3263,6 +3263,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
+            catch(const FileNotAvailableException&)
+            {
+                throw;
+            }
             catch(const ServerNotExistException&)
             {
                 throw;
@@ -3272,10 +3276,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3320,6 +3320,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
+            catch(const FileNotAvailableException&)
+            {
+                throw;
+            }
             catch(const ServerNotExistException&)
             {
                 throw;
@@ -3329,10 +3333,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3377,15 +3377,15 @@ IceGrid::AdminSessionPrx::_iceI_openNodeStdErr(const ::std::shared_ptr<::IceInte
             {
                 ex.ice_throw();
             }
+            catch(const FileNotAvailableException&)
+            {
+                throw;
+            }
             catch(const NodeNotExistException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3430,15 +3430,15 @@ IceGrid::AdminSessionPrx::_iceI_openNodeStdOut(const ::std::shared_ptr<::IceInte
             {
                 ex.ice_throw();
             }
+            catch(const FileNotAvailableException&)
+            {
+                throw;
+            }
             catch(const NodeNotExistException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3483,15 +3483,15 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr(const ::std::shared_ptr<::Ice
             {
                 ex.ice_throw();
             }
+            catch(const FileNotAvailableException&)
+            {
+                throw;
+            }
             catch(const RegistryNotExistException&)
             {
                 throw;
             }
             catch(const RegistryUnreachableException&)
-            {
-                throw;
-            }
-            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3536,15 +3536,15 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut(const ::std::shared_ptr<::Ice
             {
                 ex.ice_throw();
             }
+            catch(const FileNotAvailableException&)
+            {
+                throw;
+            }
             catch(const RegistryNotExistException&)
             {
                 throw;
             }
             catch(const RegistryUnreachableException&)
-            {
-                throw;
-            }
-            catch(const FileNotAvailableException&)
             {
                 throw;
             }
