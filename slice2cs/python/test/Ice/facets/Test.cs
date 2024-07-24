@@ -1564,9 +1564,9 @@ namespace Test
 
         public abstract string callA(Ice.Current current);
 
-        public abstract string callB(Ice.Current current);
-
         public abstract string callC(Ice.Current current);
+
+        public abstract string callB(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
