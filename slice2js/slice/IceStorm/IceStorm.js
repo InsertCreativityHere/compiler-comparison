@@ -311,9 +311,9 @@ Ice.defineOperations(
         "getNonReplicatedPublisher": [, 2, , [9], , , , , ],
         "subscribeAndGetPublisher": [, , , [9], [[IceStorm.QoSHelper], [9]], ,
         [
-            IceStorm.AlreadySubscribed,
             IceStorm.InvalidSubscriber,
-            IceStorm.BadQoS
+            IceStorm.BadQoS,
+            IceStorm.AlreadySubscribed
         ], , ],
         "unsubscribe": [, 2, , , [[9]], , , , ],
         "link": [, , , , [["IceStorm.TopicPrx"], [3]], ,
