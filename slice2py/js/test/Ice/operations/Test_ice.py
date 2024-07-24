@@ -1072,7 +1072,7 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         """
         @staticmethod
         def OpMStruct1MarshaledResult(result, current):
-            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMStruct1, current.adapter.getCommunicator().getImpl(), current.encoding)
+            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMStruct1, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def opMStruct1(self, current=None):
             raise NotImplementedError("servant method 'opMStruct1' not implemented")
@@ -1088,7 +1088,7 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         """
         @staticmethod
         def OpMStruct2MarshaledResult(result, current):
-            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMStruct2, current.adapter.getCommunicator().getImpl(), current.encoding)
+            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMStruct2, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def opMStruct2(self, p1, current=None):
             raise NotImplementedError("servant method 'opMStruct2' not implemented")
@@ -1104,7 +1104,7 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         """
         @staticmethod
         def OpMSeq1MarshaledResult(result, current):
-            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMSeq1, current.adapter.getCommunicator().getImpl(), current.encoding)
+            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMSeq1, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def opMSeq1(self, current=None):
             raise NotImplementedError("servant method 'opMSeq1' not implemented")
@@ -1120,7 +1120,7 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         """
         @staticmethod
         def OpMSeq2MarshaledResult(result, current):
-            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMSeq2, current.adapter.getCommunicator().getImpl(), current.encoding)
+            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMSeq2, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def opMSeq2(self, p1, current=None):
             raise NotImplementedError("servant method 'opMSeq2' not implemented")
@@ -1136,7 +1136,7 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         """
         @staticmethod
         def OpMDict1MarshaledResult(result, current):
-            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMDict1, current.adapter.getCommunicator().getImpl(), current.encoding)
+            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMDict1, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def opMDict1(self, current=None):
             raise NotImplementedError("servant method 'opMDict1' not implemented")
@@ -1152,7 +1152,7 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         """
         @staticmethod
         def OpMDict2MarshaledResult(result, current):
-            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMDict2, current.adapter.getCommunicator().getImpl(), current.encoding)
+            return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMDict2, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def opMDict2(self, p1, current=None):
             raise NotImplementedError("servant method 'opMDict2' not implemented")

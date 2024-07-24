@@ -1024,7 +1024,7 @@ if 'InitialPrx' not in _M_Test.__dict__:
         """
         @staticmethod
         def GetMBMarshaledResult(result, current):
-            return IcePy.MarshaledResult(result, _M_Test.Initial._op_getMB, current.adapter.getCommunicator().getImpl(), current.encoding)
+            return IcePy.MarshaledResult(result, _M_Test.Initial._op_getMB, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def getMB(self, current=None):
             raise NotImplementedError("servant method 'getMB' not implemented")
@@ -1040,7 +1040,7 @@ if 'InitialPrx' not in _M_Test.__dict__:
         """
         @staticmethod
         def GetAMDMBMarshaledResult(result, current):
-            return IcePy.MarshaledResult(result, _M_Test.Initial._op_getAMDMB, current.adapter.getCommunicator().getImpl(), current.encoding)
+            return IcePy.MarshaledResult(result, _M_Test.Initial._op_getAMDMB, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def getAMDMB(self, current=None):
             raise NotImplementedError("servant method 'getAMDMB' not implemented")
