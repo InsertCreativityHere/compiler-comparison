@@ -17,9 +17,11 @@
 /* jshint ignore: start */
 
 import * as Ice_Long from "../Ice/Long.js";
+import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
 
 const Ice = {
     ...Ice_Long,
+    ...Ice_ObjectPrx,
 };
 
 
